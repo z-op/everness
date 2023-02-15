@@ -54,6 +54,7 @@ dofile(path .. '/craftitems.lua')
 dofile(path .. '/crafting.lua')
 dofile(path .. '/loot_chests.lua')
 dofile(path .. '/skybox.lua')
+dofile(path .. '/env_sounds.lua')
 
 local mod_end_time = (minetest.get_us_time() - mod_start_time) / 1000000
 

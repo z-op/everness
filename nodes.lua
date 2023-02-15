@@ -16,6 +16,8 @@
     License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
+minetest = minetest --[[@as Minetest]]
+
 local S = minetest.get_translator(minetest.get_current_modname())
 
 --
@@ -71,16 +73,6 @@ minetest.register_node('everness:pyriteblock_spiral', {
     paramtype2 = 'facedir',
     place_param2 = 0,
     tiles = { 'everness_pyrite_block_spiral.png' },
-    is_ground_content = false,
-    groups = { cracky = 1 },
-    sounds = default.node_sound_metal_defaults(),
-})
-
-minetest.register_node('everness:pyrite_roof_tile', {
-    description = S('Pyrite Roof Tile'),
-    paramtype2 = 'facedir',
-    place_param2 = 0,
-    tiles = { 'everness_roof_tile_pyrite.png' },
     is_ground_content = false,
     groups = { cracky = 1 },
     sounds = default.node_sound_metal_defaults(),
@@ -225,6 +217,7 @@ minetest.register_node('everness:volcanic_rock', {
     tiles = { 'everness_volcanic_rock.png' },
     sounds = default.node_sound_stone_defaults(),
     groups = { cracky = 1, level = 2 },
+    is_ground_content = false,
 })
 
 minetest.register_node('everness:volcanic_rock_with_magma', {
@@ -446,23 +439,22 @@ minetest.register_node('everness:mold_stone_with_moss', {
     sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:sould_sandstone', {
+minetest.register_node('everness:soul_sandstone', {
     description = S('Soul Sandstone'),
     tiles = { 'everness_soul_sandstone.png' },
     groups = { cracky = 3, stone = 1 },
-    drop = 'everness:mold_cobble',
     sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:sould_sandstone_veined', {
+minetest.register_node('everness:soul_sandstone_veined', {
     description = S('Soul Sandstone Veined'),
     tiles = {
         'everness_soul_sandstone_veined_top.png',
         'everness_soul_sandstone.png',
         'everness_soul_sandstone_veined_side.png'
     },
-    groups = { cracky = 3, stone = 1, moldy = 1, everness_spreading_mold_type = 1 },
-    drop = 'everness:sould_sandstone',
+    groups = { cracky = 3, stone = 1, moss_veins = 1, everness_spreading_moss_veins_type = 1 },
+    drop = 'everness:soul_sandstone',
     sounds = default.node_sound_stone_defaults(),
 })
 
@@ -579,14 +571,6 @@ minetest.register_node('everness:forsaken_desert_engraved_stone', {
     sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:forsaken_desert_sand', {
-    description = S('Forsaken Desert Sand'),
-    short_description = S('Forsaken Desert Sand'),
-    tiles = { 'everness_forsaken_desert_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, sand = 1 },
-    sounds = default.node_sound_sand_defaults(),
-})
-
 --
 -- Soft / Non-Stone
 --
@@ -604,7 +588,7 @@ minetest.register_node('everness:cursed_dirt', {
     short_description = S('Cursed Dirt'),
     tiles = { 'everness_cursed_dirt.png' },
     groups = { crumbly = 3, soil = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_mud_defaults(),
 })
 
 minetest.register_node('everness:crystal_dirt', {
@@ -663,9 +647,7 @@ minetest.register_node('everness:dirt_with_cursed_grass', {
     },
     groups = { crumbly = 3, soil = 1, cursed_grass = 1, everness_spreading_dirt_type = 1 },
     drop = 'everness:cursed_dirt',
-    sounds = default.node_sound_dirt_defaults({
-        footstep = { name = 'default_grass_footstep', gain = 0.25 },
-    }),
+    sounds = Everness.node_sound_mud_defaults(),
 })
 
 minetest.register_node('everness:dirt_with_crystal_grass', {
@@ -728,6 +710,14 @@ minetest.register_node('everness:quartz_temple_lootchest_marker', {
 minetest.register_node('everness:forsaken_desert_temple_marker', {
     -- drawtype = 'airlike',
     description = 'Forsaken Temple Loot Chest Spawn Marker',
+    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 0 },
+    paramtype2 = 'facedir',
+})
+
+minetest.register_node('everness:forsaken_desert_temple_2_marker', {
+    -- drawtype = 'airlike',
+    description = 'Forsaken Temple 2 Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 0 },
     paramtype2 = 'facedir',
@@ -803,6 +793,31 @@ minetest.register_node('everness:dirt_with_grass_extras_2', {
     }),
 })
 
+minetest.register_node('everness:crystal_cave_dirt', {
+    description = S('Crystal Cave Dirt'),
+    short_description = S('Crystal Cave Dirt'),
+    tiles = { 'everness_crystal_cave_dirt.png' },
+    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
+    sounds = default.node_sound_dirt_defaults({
+        footstep = { name = 'default_grass_footstep', gain = 0.25 },
+    }),
+})
+
+minetest.register_node('everness:crystal_cave_dirt_with_moss', {
+    description = S('Crystal Cave Dirt with Moss'),
+    short_description = S('Crystal Cave Dirt with Moss'),
+    tiles = {
+        'everness_crystal_cave_dirt_top.png',
+        'everness_crystal_cave_dirt.png',
+        'everness_crystal_cave_dirt_side.png'
+    },
+    drop = 'everness:crystal_cave_dirt',
+    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
+    sounds = default.node_sound_dirt_defaults({
+        footstep = { name = 'default_grass_footstep', gain = 0.25 },
+    }),
+})
+
 minetest.register_node('everness:moss_block', {
     description = S('Moss Block'),
     tiles = { 'everness_moss_block.png' },
@@ -812,9 +827,9 @@ minetest.register_node('everness:moss_block', {
     }),
 })
 
-minetest.register_node('everness:moss_block_2', {
-    description = S('Moss Block Dark Green'),
-    tiles = { 'everness_moss_block_2.png' },
+minetest.register_node('everness:crystal_moss_block', {
+    description = S('Crystal Moss Block'),
+    tiles = { 'everness_crystal_cave_moss.png' },
     groups = { crumbly = 3, soil = 1 },
     sounds = default.node_sound_dirt_defaults({
         footstep = { name = 'default_grass_footstep', gain = 0.25 },
@@ -865,6 +880,14 @@ minetest.register_node('everness:forsaken_tundra_beach_sand_with_shells', {
     description = S('Forsaken Tundra Beach Sand with Shells'),
     short_description = S('Forsaken Tundra Beach Sand'),
     tiles = { 'everness_forsaken_tundra_beach_sand_with_shells.png' },
+    groups = { crumbly = 3, falling_node = 1, sand = 1 },
+    sounds = default.node_sound_sand_defaults(),
+})
+
+minetest.register_node('everness:forsaken_desert_sand', {
+    description = S('Forsaken Desert Sand'),
+    short_description = S('Forsaken Desert Sand'),
+    tiles = { 'everness_forsaken_desert_sand.png' },
     groups = { crumbly = 3, falling_node = 1, sand = 1 },
     sounds = default.node_sound_sand_defaults(),
 })
@@ -1931,7 +1954,7 @@ minetest.register_node('everness:coral_grass_tall', {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, 4 / 16, 6 / 16 },
     },
-    light_source = 5
+    light_source = 7
 })
 
 minetest.register_node('everness:crystal_purple', {
@@ -2241,7 +2264,28 @@ minetest.register_node('everness:crystal_mushrooms', {
         type = 'fixed',
         fixed = { -3 / 16, -0.5, -3 / 16, 3 / 16, -2 / 16, 3 / 16 },
     },
-    light_source = 1,
+    light_source = 3,
+})
+
+minetest.register_node('everness:twisted_crystal_grass', {
+    description = S('Twisted Crystal Grass'),
+    short_description = S('Twisted Crystal Grass'),
+    drawtype = 'plantlike',
+    tiles = { 'everness_twisted_crystal_grass.png' },
+    inventory_image = 'everness_twisted_crystal_grass.png',
+    wield_image = 'everness_twisted_crystal_grass.png',
+    paramtype = 'light',
+    sunlight_propagates = true,
+    walkable = false,
+    buildable_to = true,
+    groups = { flora = 1, attached_node = 1, crystal_grass = 1, flammable = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    light_source = 7,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16 },
+    },
+    waving = 1
 })
 
 minetest.register_node('everness:crystal_grass_1', {
@@ -2389,6 +2433,100 @@ minetest.register_node('everness:forsaken_desert_plant_3', {
     },
 })
 
+minetest.register_node('everness:cactus_blue', {
+    description = S('Blue Cactus'),
+    tiles = {
+        'everness_cactus_blue_top.png',
+        'everness_cactus_blue_top.png',
+        'everness_cactus_blue_side.png'
+    },
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    light_source = 7,
+    groups = { choppy = 3 },
+    damage_per_second = 1,
+    drawtype = 'nodebox',
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            { -0.25, -0.5, -0.25, 0.25, 0.5, 0.25 },
+            { -0.25, -0.5, -0.5, -0.25, 0.5, 0.5 },
+            { 0.25, -0.5, -0.5, 0.25, 0.5, 0.5 },
+            { -0.5, -0.5, -0.25, 0.5, 0.5, -0.25 },
+            { -0.5, -0.5, 0.25, 0.5, 0.5, 0.25 },
+            { -0.5, 0.5, -0.5, 0.5, 0.5, 0.5 }
+        },
+    },
+    collision_box = {
+        type = 'fixed',
+        fixed = { -0.19, -0.5, -0.19, 0.19, 0.39, 0.19 },
+    },
+    selection_box = {
+        type = 'fixed',
+        fixed = {
+            { -0.3125, -0.5000, -0.3125, 0.3125, 0.5000, 0.3125 },
+        },
+    },
+    sounds = default.node_sound_wood_defaults(),
+    on_place = minetest.rotate_node,
+})
+
+minetest.register_node('everness:cave_barrel_cactus', {
+    description = S('Cave Barrel Cactus'),
+    paramtype = 'light',
+    light_source = 7,
+    groups = { choppy = 3 },
+    drawtype = 'mesh',
+    mesh = 'everness_barrel_cactus.obj',
+    tiles = { 'everness_cave_barrel_cactus_mesh.png' },
+    inventory_image = 'everness_cave_barrel_cactus_item.png',
+    wield_image = 'everness_cave_barrel_cactus_item.png',
+    is_ground_content = false,
+    walkable = true,
+    use_texture_alpha = 'clip',
+    sounds = default.node_sound_wood_defaults()
+})
+
+minetest.register_node('everness:venus_trap', {
+    description = S('Venus Trap Plant'),
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    groups = { choppy = 3 },
+    drawtype = 'mesh',
+    mesh = 'everness_venus_trap.obj',
+    tiles = { 'everness_venus_trap_mesh.png' },
+    inventory_image = 'everness_venus_trap_item.png',
+    wield_image = 'everness_venus_trap_item.png',
+    is_ground_content = false,
+    walkable = false,
+    damage_per_second = 2,
+    use_texture_alpha = 'clip',
+    sounds = default.node_sound_leaves_defaults()
+})
+
+minetest.register_node('everness:illumi_root', {
+    description = S('Illumi Root'),
+    short_description = S('Illumi Root'),
+    drawtype = 'plantlike',
+    tiles = { 'everness_illumi_root.png' },
+    inventory_image = 'everness_illumi_root.png',
+    wield_image = 'everness_illumi_root.png',
+    paramtype = 'light',
+    paramtype2 = 'meshoptions',
+    place_param2 = 8,
+    sunlight_propagates = true,
+    walkable = false,
+    buildable_to = true,
+    groups = { snappy = 3, flammable = 3, attached_node = 1 },
+    light_source = 7,
+    visual_scale = 1.69,
+    sounds = default.node_sound_leaves_defaults(),
+    selection_box = {
+        type = 'fixed',
+        fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
+    },
+})
+
 minetest.register_node('everness:crystal_waterlily', {
     description = S('Crystal Waterlily'),
     drawtype = 'nodebox',
@@ -2504,7 +2642,7 @@ minetest.register_node('everness:agave_leaf_1', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, normal_grass = 1, flammable = 1 },
+    groups = { snappy = 3, flora = 1, attached_node = 1, normal_grass = 1, flammable = 1, forsaken_tundra_grass = 1 },
     sounds = default.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2539,7 +2677,8 @@ for i = 2, 3 do
             attached_node = 1,
             not_in_creative_inventory = 1,
             normal_grass = 1,
-            flammable = 1
+            flammable = 1,
+            forsaken_tundra_grass = 1
         },
         sounds = default.node_sound_leaves_defaults(),
         light_source = 4 + i,
@@ -3031,7 +3170,7 @@ minetest.register_node('everness:bloodspore_plant_small', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1 },
+    groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, forsaken_tundra_grass = 1 },
     sounds = default.node_sound_leaves_defaults(),
     light_source = 7
 })
@@ -3444,10 +3583,10 @@ minetest.register_node('everness:glowing_pillar', {
     inventory_image = 'everness_glowing_pillar_item.png',
     wield_image = 'everness_glowing_pillar_item.png',
     paramtype = 'light',
-    groups = { snappy = 3, flammable = 2 },
+    groups = { snappy = 3, flammable = 2, forsaken_tundra_grass = 1 },
     selection_box = {
         type = 'fixed',
-        fixed = { -0.63, -0.63, -0.63, 0.63, 3.13, 0.63 }
+        fixed = { -0.63, -0.5, -0.63, 0.63, 3.23, 0.63 }
     },
     collision_box = {
         type = 'fixed',
@@ -3501,8 +3640,8 @@ minetest.register_node('everness:amaranita_lantern', {
         'everness_amaranita_lantern_light.png',
         'everness_amaranita_lantern_fur.png',
     },
-    inventory_image = 'everness_amaranita_lantern_light.png',
-    wield_image = 'everness_amaranita_lantern_light.png',
+    inventory_image = 'everness_blue_vine_lantern_item.png',
+    wield_image = 'everness_blue_vine_lantern_item.png',
     paramtype = 'light',
     groups = { snappy = 3, flammable = 2 },
     selection_box = {
@@ -3672,4 +3811,108 @@ minetest.register_node('everness:cursed_pumpkin_lantern', {
     is_ground_content = false,
     light_source = 12,
     groups = { snappy = 3, flammable = 4, fall_damage_add_percent = -30 }
+})
+
+minetest.register_node('everness:floating_crystal', {
+    description = S('Floating Crystal'),
+    drawtype = 'plantlike',
+    tiles = {
+        {
+            name = 'everness_floating_crystal_animated.png',
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 3
+            },
+        }
+    },
+    waving = 3,
+    paramtype = 'light',
+    sunlight_propagates = true,
+    buildable_to = true,
+    walkable = false,
+    groups = { snappy = 3 },
+    selection_box = {
+        type = 'fixed',
+        fixed = { -0.25, -0.4, -0.25, 0.25, 0.4, 0.25 },
+    },
+    drop = '',
+    sounds = default.node_sound_glass_defaults(),
+    on_rotate = function()
+        return false
+    end,
+    light_source = 12,
+    on_timer = function(pos, elapsed)
+        minetest.remove_node(pos)
+    end,
+    on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
+        local meta = minetest.get_meta(pos)
+
+        if meta:get_int('activated') == 1 then
+            return itemstack
+        end
+
+        meta:set_int('activated', 1)
+
+        local position = { x = pos.x, y = pos.y, z = pos.z }
+        local position_prev = { x = pos.x, y = pos.y, z = pos.z }
+
+        for i = 1, math.random(2, 6), 1 do
+            local positions = minetest.find_nodes_in_area(
+                { x = position.x - 3, y = position.y - 1, z = position.z - 3 },
+                { x = position.x + 3, y = position.y + 1, z = position.z + 3 },
+                { 'air' }
+            )
+
+            local temp_pos
+
+            while not temp_pos or vector.distance(position_prev, temp_pos) < 2 do
+                temp_pos = positions[math.random(1, #positions)]
+            end
+
+            position_prev = position
+            position = temp_pos
+
+            minetest.after(i - 1, function(v_position, v_position_prev)
+                minetest.add_particlespawner({
+                    amount = 50,
+                    time = 1,
+                    size = {
+                        min = 0.5,
+                        max = 1,
+                    },
+                    exptime = 2,
+                    pos = v_position_prev,
+                    texture = {
+                        name = 'everness_particle.png^[colorize:#FFEE83:255',
+                        alpha_tween = {
+                            1, 0.5,
+                            style = 'fwd',
+                            reps = 1
+                        },
+                        scale_tween = {
+                            1, 0.5,
+                            style = 'fwd',
+                            reps = 1
+                        }
+                    },
+                    radius = { min = 0.2, max = 0.4 },
+                    attract = {
+                        kind = 'point',
+                        strength = 1,
+                        origin = v_position,
+                    },
+                    glow = 12
+                })
+
+                minetest.after(1, function(v_position2, v_position_prev2)
+                    minetest.set_node(v_position2, { name = 'everness:floating_crystal' })
+                    minetest.get_node_timer(v_position2):start(math.random(85, 95))
+                end, v_position, v_position_prev)
+            end, position, position_prev)
+        end
+
+        return itemstack
+    end
 })

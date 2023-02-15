@@ -33,6 +33,7 @@ minetest.register_abm({
         'group:coral_grass',
         'group:cursed_grass',
         'group:crystal_grass',
+        'group:forsaken_tundra_grass',
     },
     interval = 6,
     chance = 50,
@@ -99,13 +100,46 @@ minetest.register_abm({
         -- Else, any seeding nodes on top?
         local name = minetest.get_node(above).name
 
-        -- if minetest.get_item_group(name, 'coral_grass') ~= 0 then
-        --     minetest.set_node(pos, { name = 'everness:dirt_with_coral_grass' })
-        -- elseif minetest.get_item_group(name, 'cursed_grass') ~= 0 then
-        --     minetest.set_node(pos, { name = 'everness:dirt_with_cursed_grass' })
-        -- elseif minetest.get_item_group(name, 'crystal_grass') ~= 0 then
-        --     minetest.set_node(pos, { name = 'everness:dirt_with_crystal_grass' })
-        -- end
+        if minetest.get_item_group(name, 'forsaken_tundra_grass') ~= 0 then
+            minetest.set_node(pos, { name = 'everness:mold_stone_with_moss' })
+        end
+    end
+})
+
+-- Spread moss veins on stone
+
+minetest.register_abm({
+    label = 'Everness moss veins spread',
+    nodenames = {
+        'everness:soul_sandstone'
+    },
+    neighbors = {
+        'air',
+        'group:moss_veins'
+    },
+    interval = 6,
+    chance = 50,
+    catch_up = false,
+    action = function(pos, node)
+        -- Check for darkness: night, shadow or under a light-blocking node
+        -- Returns if ignore above
+        local above = { x = pos.x, y = pos.y + 1, z = pos.z }
+
+        -- Look for spreading dirt-type neighbours
+        local p2 = minetest.find_node_near(pos, 1, 'group:everness_spreading_moss_veins_type')
+
+        if p2 then
+            local n3 = minetest.get_node(p2)
+            minetest.set_node(pos, { name = n3.name })
+            return
+        end
+
+        -- Else, any seeding nodes on top?
+        local name = minetest.get_node(above).name
+
+        if minetest.get_item_group(name, 'cursed_grass') ~= 0 then
+            minetest.set_node(pos, { name = 'everness:soul_sandstone_veined' })
+        end
     end
 })
 
@@ -138,8 +172,6 @@ minetest.register_abm({
                 minetest.set_node(pos, { name = 'everness:cursed_dirt' })
             elseif node.name == 'everness:dirt_with_crystal_grass' then
                 minetest.set_node(pos, { name = 'everness:crystal_dirt' })
-            elseif node.name == 'everness:mold_stone_with_moss' then
-                minetest.set_node(pos, { name = 'everness:mold_cobble' })
             end
         end
     end
@@ -401,11 +433,14 @@ minetest.register_abm({
 
 minetest.register_abm({
     label = 'Grow orange cactus',
-    nodenames = { 'everness:cactus_orange' },
+    nodenames = {
+        'everness:cactus_orange',
+        'everness:cactus_blue'
+    },
     neighbors = { 'group:mold_soil' },
     interval = 12,
     chance = 83,
     action = function(...)
-        Everness:grow_orange_cactus(...)
+        Everness:grow_cactus(...)
     end
 })

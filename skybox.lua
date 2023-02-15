@@ -29,6 +29,7 @@ minetest.register_globalstep(function(dtime)
             local player_pos = player:get_pos()
             local biome_data = minetest.get_biome_data(player_pos)
             local player_biome_name = player_meta:get_string('everness_biome_name')
+            local is_underground = player_meta:get_int('everness_is_underground')
 
             if not biome_data then
                 return
@@ -44,7 +45,6 @@ minetest.register_globalstep(function(dtime)
                 player_meta:set_string('everness_biome_name', biome_name)
 
                 if Everness.skybox.biomes[biome_name] then
-
                     if Everness.skybox.biomes[biome_name].sun_parameters then
                         player:set_sun(Everness.skybox.biomes[biome_name].sun_parameters)
                     else
@@ -82,6 +82,39 @@ minetest.register_globalstep(function(dtime)
                     player:set_stars()
                 end
             end
+
+            if player_pos.y <= -256 and is_underground == 0 then
+                -- hide sun, moon, stars ... underground
+                player_meta:set_int('everness_is_underground', 1)
+
+                player:set_sun({
+                    visible = false
+                })
+
+                player:set_moon({
+                    visible = false
+                })
+
+                player:set_stars({
+                    visible = false
+                })
+
+            elseif player_pos.y > -256 and is_underground == 1 then
+                -- show sun, moon, stars ... underground
+                player_meta:set_int('everness_is_underground', 0)
+
+                player:set_sun({
+                    visible = true
+                })
+
+                player:set_moon({
+                    visible = true
+                })
+
+                player:set_stars({
+                    visible = true
+                })
+            end
         end
 
         timer = 0
@@ -92,4 +125,5 @@ minetest.register_on_joinplayer(function(player, last_login)
     local player_meta = player:get_meta()
 
     player_meta:set_string('everness_biome_name', '')
+    player_meta:set_int('everness_is_underground', 0)
 end)

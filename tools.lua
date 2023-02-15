@@ -31,3 +31,93 @@ minetest.register_tool('everness:vine_shears', {
         }
     },
 })
+
+minetest.register_tool('everness:pick_illuminating', {
+    description = 'Illuminating Pickaxe (secondary use to place temporary illuminating crystal)',
+    short_description = 'Illuminating Pickaxe',
+    inventory_image = 'everness_pick_illuminating.png',
+    wield_scale = { x = 2, y = 2, z = 1 },
+    tool_capabilities = {
+        full_punch_interval = 0.9,
+        max_drop_level = 3,
+        groupcaps = {
+            cracky = { times = { [1] = 2.0, [2] = 1.0, [3] = 0.50 }, uses = 60, maxlevel = 3 }
+        },
+        damage_groups = { fleshy = 5 },
+    },
+    sound = { breaks = 'default_tool_breaks' },
+    groups = { pickaxe = 1, enchantability = 10 },
+    on_place = function(itemstack, placer, pointed_thing)
+        if pointed_thing.type == 'node' then
+            local pos = minetest.get_pointed_thing_position(pointed_thing)
+
+            if not pos or not placer then
+                return itemstack
+            end
+
+            local player_name = placer:get_player_name()
+            local pointed_node = minetest.get_node(pos)
+            local pointed_node_def = minetest.registered_nodes[pointed_node.name]
+            local pos_placer = placer:get_pos()
+
+            if not pointed_node then
+                return itemstack
+            end
+
+            -- check if we have to use default on_place first
+            if pointed_node_def.on_rightclick then
+                return pointed_node_def.on_rightclick(pos, pointed_node, placer, itemstack, pointed_thing)
+            end
+
+            if not minetest.is_protected(pointed_thing.above, player_name) and
+                not minetest.is_protected(pointed_thing.under, player_name)
+                and minetest.get_node(pointed_thing.above).name == 'air'
+            then
+                -- place crystal
+                minetest.add_particlespawner({
+                    amount = 50,
+                    time = 1,
+                    size = {
+                        min = 0.5,
+                        max = 1,
+                    },
+                    exptime = 2,
+                    pos = vector.new(pos_placer.x, pos_placer.y, pos_placer.z),
+                    texture = {
+                        name = 'everness_particle.png^[colorize:#FFEE83:255',
+                        alpha_tween = {
+                            1, 0.5,
+                            style = 'fwd',
+                            reps = 1
+                        },
+                        scale_tween = {
+                            1, 0.5,
+                            style = 'fwd',
+                            reps = 1
+                        }
+                    },
+                    radius = { min = 0.5, max = 0.7 },
+                    attract = {
+                        kind = 'point',
+                        strength = 1,
+                        origin = vector.new(pointed_thing.above.x, pointed_thing.above.y, pointed_thing.above.z),
+                    },
+                    glow = 12
+                })
+
+                minetest.set_node(pointed_thing.above, { name = 'everness:floating_crystal' })
+                minetest.get_node_timer(pointed_thing.above):start(math.random(85, 95))
+
+                if not minetest.settings:get_bool('creative_mode')
+                    or not minetest.check_player_privs(placer:get_player_name(), { creative = true })
+                then
+                    itemstack:add_wear(65535 / (150 - 1))
+                end
+
+                return itemstack
+            end
+        end
+
+        return itemstack
+    end
+})

@@ -1,4 +1,4 @@
----@diagnostic disable: codestyle-check
+---@diagnostic disable: codestyle-check, duplicate-doc-alias, duplicate-doc-field
 ---https://github.com/sumneko/lua-language-server/wiki
 
 ---The varying types of decorations that can be placed.

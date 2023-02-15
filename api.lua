@@ -413,7 +413,182 @@ Everness = {
                     speed = { x = -2, z = -2 }
                 }
             },
+            everness_cursed_lands_dunes = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        day_sky = '#89adb1',
+                        day_horizon = '#a9cdd1',
+                        dawn_sky = '#a5c9cd',
+                        dawn_horizon = '#aaced2',
+                        night_sky = '#416569',
+                        night_horizon = '#6a8e92',
+                        indoors = '#4a6e72',
+                        fog_sun_tint = '#7ca0a4',
+                        fog_moon_tint = '#7da1a5'
+                    }
+                },
+                sun_parameters = {
+                    texture = 'everness_cursed_lands_sun.png',
+                    scale = 1.57,
+                    sunrise = 'everness_cursed_lands_sunrisebg.png',
+                    tonemap = 'everness_cursed_lands_sun_tonemap.png'
+                },
+                moon_parameters = {
+                    texture = 'everness_cursed_lands_moon.png',
+                    tonemap = 'everness_cursed_lands_moon_tonemap.png'
+                },
+                cloud_parameters = {
+                    density = 0.7,
+                    color = '#a9cdd1e5',
+                    speed = { x = -2, z = -2 }
+                }
+            },
+            everness_cursed_lands_swamp = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        day_sky = '#89adb1',
+                        day_horizon = '#a9cdd1',
+                        dawn_sky = '#a5c9cd',
+                        dawn_horizon = '#aaced2',
+                        night_sky = '#416569',
+                        night_horizon = '#6a8e92',
+                        indoors = '#4a6e72',
+                        fog_sun_tint = '#7ca0a4',
+                        fog_moon_tint = '#7da1a5'
+                    }
+                },
+                sun_parameters = {
+                    texture = 'everness_cursed_lands_sun.png',
+                    scale = 1.57,
+                    sunrise = 'everness_cursed_lands_sunrisebg.png',
+                    tonemap = 'everness_cursed_lands_sun_tonemap.png'
+                },
+                moon_parameters = {
+                    texture = 'everness_cursed_lands_moon.png',
+                    tonemap = 'everness_cursed_lands_moon_tonemap.png'
+                },
+                cloud_parameters = {
+                    density = 0.7,
+                    color = '#a9cdd1e5',
+                    speed = { x = -2, z = -2 }
+                }
+            },
+            everness_cursed_lands_ocean = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        day_sky = '#89adb1',
+                        day_horizon = '#a9cdd1',
+                        dawn_sky = '#a5c9cd',
+                        dawn_horizon = '#aaced2',
+                        night_sky = '#416569',
+                        night_horizon = '#6a8e92',
+                        indoors = '#4a6e72',
+                        fog_sun_tint = '#7ca0a4',
+                        fog_moon_tint = '#7da1a5'
+                    }
+                },
+                sun_parameters = {
+                    texture = 'everness_cursed_lands_sun.png',
+                    scale = 1.57,
+                    sunrise = 'everness_cursed_lands_sunrisebg.png',
+                    tonemap = 'everness_cursed_lands_sun_tonemap.png'
+                },
+                moon_parameters = {
+                    texture = 'everness_cursed_lands_moon.png',
+                    tonemap = 'everness_cursed_lands_moon_tonemap.png'
+                },
+                cloud_parameters = {
+                    density = 0.7,
+                    color = '#a9cdd1e5',
+                    speed = { x = -2, z = -2 }
+                }
+            },
+            everness_cursed_lands_under = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        day_sky = '#89adb1',
+                        day_horizon = '#a9cdd1',
+                        dawn_sky = '#a5c9cd',
+                        dawn_horizon = '#aaced2',
+                        night_sky = '#416569',
+                        night_horizon = '#6a8e92',
+                        indoors = '#4a6e72',
+                        fog_sun_tint = '#7ca0a4',
+                        fog_moon_tint = '#7da1a5'
+                    }
+                },
+                sun_parameters = {
+                    texture = 'everness_cursed_lands_sun.png',
+                    scale = 1.57,
+                    sunrise = 'everness_cursed_lands_sunrisebg.png',
+                    tonemap = 'everness_cursed_lands_sun_tonemap.png'
+                },
+                moon_parameters = {
+                    texture = 'everness_cursed_lands_moon.png',
+                    tonemap = 'everness_cursed_lands_moon_tonemap.png'
+                },
+                cloud_parameters = {
+                    density = 0.7,
+                    color = '#a9cdd1e5',
+                    speed = { x = -2, z = -2 }
+                }
+            },
             everness_coral_forest = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        -- day_sky = '#c492a5',
+                        day_sky = '',
+                        day_horizon = '#e4b2c5',
+                        dawn_sky = '#e0aec1',
+                        dawn_horizon = '#e5b3c6',
+                        night_sky = '#7c4a5d',
+                        night_horizon = '#a57386',
+                        indoors = '#855366',
+                        fog_sun_tint = '#b78598',
+                        fog_moon_tint = '#b88699'
+                    }
+                },
+            },
+            everness_coral_forest_dunes = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        -- day_sky = '#c492a5',
+                        day_sky = '',
+                        day_horizon = '#e4b2c5',
+                        dawn_sky = '#e0aec1',
+                        dawn_horizon = '#e5b3c6',
+                        night_sky = '#7c4a5d',
+                        night_horizon = '#a57386',
+                        indoors = '#855366',
+                        fog_sun_tint = '#b78598',
+                        fog_moon_tint = '#b88699'
+                    }
+                },
+            },
+            everness_coral_forest_ocean = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        -- day_sky = '#c492a5',
+                        day_sky = '',
+                        day_horizon = '#e4b2c5',
+                        dawn_sky = '#e0aec1',
+                        dawn_horizon = '#e5b3c6',
+                        night_sky = '#7c4a5d',
+                        night_horizon = '#a57386',
+                        indoors = '#855366',
+                        fog_sun_tint = '#b78598',
+                        fog_moon_tint = '#b88699'
+                    }
+                },
+            },
+            everness_coral_forest_under = {
                 sky_parameters = {
                     type = 'regular',
                     sky_color = {
@@ -449,6 +624,25 @@ Everness = {
                     }
                 },
             },
+            everness_bamboo_forest_under = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        -- day_sky = '#5dd35d',
+                        day_sky = '',
+                        day_horizon = '#7df37d',
+                        -- dawn_sky = '#79ef79',
+                        dawn_sky = '',
+                        dawn_horizon = '#7ef47e',
+                        -- night_sky = '#158b15',
+                        night_sky = '',
+                        night_horizon = '#3eb43e',
+                        indoors = '#1e941e',
+                        fog_sun_tint = '#50c650',
+                        fog_moon_tint = '#51c751'
+                    }
+                },
+            },
             everness_frosted_icesheet = {
                 sky_parameters = {
                     type = 'regular',
@@ -465,7 +659,123 @@ Everness = {
                     }
                 },
             },
+            everness_frosted_icesheet_ocean = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        day_sky = '#9da4aa',
+                        day_horizon = '#bdc4ca',
+                        dawn_sky = '#b9c0c6',
+                        dawn_horizon = '#bec5cb',
+                        night_sky = '#555c62',
+                        night_horizon = '#7e858b',
+                        indoors = '#5e656b',
+                        fog_sun_tint = '#90979d',
+                        fog_moon_tint = '#91989e'
+                    }
+                },
+            },
+            everness_frosted_icesheet_under = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        day_sky = '#9da4aa',
+                        day_horizon = '#bdc4ca',
+                        dawn_sky = '#b9c0c6',
+                        dawn_horizon = '#bec5cb',
+                        night_sky = '#555c62',
+                        night_horizon = '#7e858b',
+                        indoors = '#5e656b',
+                        fog_sun_tint = '#90979d',
+                        fog_moon_tint = '#91989e'
+                    }
+                },
+            },
             everness_crystal_forest = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        -- day_sky = '#b992c5',
+                        day_sky = '',
+                        day_horizon = '#d9b2e5',
+                        dawn_sky = '#d5aee1',
+                        dawn_horizon = '#dab3e6',
+                        night_sky = '#714a7d',
+                        night_horizon = '#9a73a6',
+                        indoors = '#7a5386',
+                        fog_sun_tint = '#ac85b8',
+                        fog_moon_tint = '#ad86b9'
+                    }
+                },
+                star_parameters = {
+                    count = 6000,
+                    scale = 0.5
+                }
+            },
+            everness_crystal_forest_dunes = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        -- day_sky = '#b992c5',
+                        day_sky = '',
+                        day_horizon = '#d9b2e5',
+                        dawn_sky = '#d5aee1',
+                        dawn_horizon = '#dab3e6',
+                        night_sky = '#714a7d',
+                        night_horizon = '#9a73a6',
+                        indoors = '#7a5386',
+                        fog_sun_tint = '#ac85b8',
+                        fog_moon_tint = '#ad86b9'
+                    }
+                },
+                star_parameters = {
+                    count = 6000,
+                    scale = 0.5
+                }
+            },
+            everness_crystal_forest_shore = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        -- day_sky = '#b992c5',
+                        day_sky = '',
+                        day_horizon = '#d9b2e5',
+                        dawn_sky = '#d5aee1',
+                        dawn_horizon = '#dab3e6',
+                        night_sky = '#714a7d',
+                        night_horizon = '#9a73a6',
+                        indoors = '#7a5386',
+                        fog_sun_tint = '#ac85b8',
+                        fog_moon_tint = '#ad86b9'
+                    }
+                },
+                star_parameters = {
+                    count = 6000,
+                    scale = 0.5
+                }
+            },
+            everness_crystal_forest_ocean = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        -- day_sky = '#b992c5',
+                        day_sky = '',
+                        day_horizon = '#d9b2e5',
+                        dawn_sky = '#d5aee1',
+                        dawn_horizon = '#dab3e6',
+                        night_sky = '#714a7d',
+                        night_horizon = '#9a73a6',
+                        indoors = '#7a5386',
+                        fog_sun_tint = '#ac85b8',
+                        fog_moon_tint = '#ad86b9'
+                    }
+                },
+                star_parameters = {
+                    count = 6000,
+                    scale = 0.5
+                }
+            },
+            everness_crystal_forest_under = {
                 sky_parameters = {
                     type = 'regular',
                     sky_color = {
@@ -518,6 +828,22 @@ Everness = {
                     }
                 }
             },
+            everness_forsaken_desert_under = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        day_sky = '#d5946e',
+                        day_horizon = '#f5b48e',
+                        dawn_sky = '#f1b08a',
+                        dawn_horizon = '#f6b58f',
+                        night_sky = '#8d4c26',
+                        night_horizon = '#b6754f',
+                        indoors = '#96552f',
+                        fog_sun_tint = '#c88761',
+                        fog_moon_tint = '#c98862'
+                    }
+                }
+            },
             everness_baobab_savanna = {
                 sky_parameters = {
                     type = 'regular',
@@ -551,19 +877,75 @@ Everness = {
                         fog_moon_tint = '#be972d'
                     }
                 }
-            }
+            },
+            everness_forsaken_tundra_beach = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        day_sky = '#a3a49f',
+                        -- day_sky = '#caa339',
+                        day_horizon = '#eac359',
+                        dawn_sky = '#e6bf55',
+                        dawn_horizon = '#ebc45a',
+                        -- night_sky = '#5b5c57',
+                        night_sky = '#7c5b01',
+                        night_horizon = '#ab841a',
+                        indoors = '#896401',
+                        fog_sun_tint = '#bd962c',
+                        fog_moon_tint = '#be972d'
+                    }
+                }
+            },
+            everness_forsaken_tundra_ocean = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        day_sky = '#a3a49f',
+                        -- day_sky = '#caa339',
+                        day_horizon = '#eac359',
+                        dawn_sky = '#e6bf55',
+                        dawn_horizon = '#ebc45a',
+                        -- night_sky = '#5b5c57',
+                        night_sky = '#7c5b01',
+                        night_horizon = '#ab841a',
+                        indoors = '#896401',
+                        fog_sun_tint = '#bd962c',
+                        fog_moon_tint = '#be972d'
+                    }
+                }
+            },
+            everness_forsaken_tundra_under = {
+                sky_parameters = {
+                    type = 'regular',
+                    sky_color = {
+                        day_sky = '#a3a49f',
+                        -- day_sky = '#caa339',
+                        day_horizon = '#eac359',
+                        dawn_sky = '#e6bf55',
+                        dawn_horizon = '#ebc45a',
+                        -- night_sky = '#5b5c57',
+                        night_sky = '#7c5b01',
+                        night_horizon = '#ab841a',
+                        indoors = '#896401',
+                        fog_sun_tint = '#bd962c',
+                        fog_moon_tint = '#be972d'
+                    }
+                }
+            },
         }
     }
 }
 
-function Everness.grow_orange_cactus(self, pos, node, params)
+function Everness.grow_cactus(self, pos, node, params)
     if node.param2 >= 4 then
         return
     end
 
     pos.y = pos.y - 1
 
-    if minetest.get_item_group(minetest.get_node(pos).name, 'mold_soil') == 0 then
+    if minetest.get_item_group(minetest.get_node(pos).name, 'mold_soil') == 0
+        or minetest.get_item_group(minetest.get_node(pos).name, 'sand') == 0
+    then
         return
     end
 
@@ -571,7 +953,7 @@ function Everness.grow_orange_cactus(self, pos, node, params)
 
     local height = 0
 
-    while node.name == 'everness:cactus_orange' and height < 5 do
+    while (node.name == 'everness:cactus_orange' or node.name == 'everness:cactus_blue') and height < 5 do
         height = height + 1
         pos.y = pos.y + 1
         node = minetest.get_node(pos)
@@ -585,7 +967,7 @@ function Everness.grow_orange_cactus(self, pos, node, params)
         return
     end
 
-    minetest.set_node(pos, { name = 'everness:cactus_orange' })
+    minetest.set_node(pos, { name = node.name })
 
     return true
 end
@@ -770,6 +1152,20 @@ function Everness.node_sound_bamboo_defaults(table)
             { name = 'everness_bamboo_dug', gain = 0.1 }
     table.place = table.place or
             { name = 'everness_bamboo_hit', gain = 1.0 }
+    default.node_sound_defaults(table)
+    return table
+end
+
+function Everness.node_sound_mud_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or
+            { name = 'everness_mud_footstep', gain = 0.2 }
+    table.dig = table.dig or
+            { name = 'everness_mud_footstep', gain = 0.3 }
+    table.dug = table.dug or
+            { name = 'everness_mud_footstep', gain = 0.1 }
+    table.place = table.place or
+            { name = 'everness_mud_footstep', gain = 1.0 }
     default.node_sound_defaults(table)
     return table
 end

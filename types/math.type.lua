@@ -1,4 +1,4 @@
----@diagnostic disable: codestyle-check, duplicate-doc-alias
+---@diagnostic disable: codestyle-check, duplicate-doc-alias, duplicate-doc-field, duplicate-doc-alias
 ---https://github.com/sumneko/lua-language-server/wiki
 
 ---@alias mathlib mathlib|MathAbstract

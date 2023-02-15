@@ -1151,9 +1151,9 @@ minetest.register_node('everness:reeds_vine_2', {
     sunlight_propagates = true,
     paramtype = 'light',
     buildable_to = false,
-    tiles = { 'everness_reeds_vine_1.png' },
-    wield_image = 'everness_reeds_vine_1.png',
-    inventory_image = 'everness_reeds_vine_1.png',
+    tiles = { 'everness_reeds_vine_2.png' },
+    wield_image = 'everness_reeds_vine_2.png',
+    inventory_image = 'everness_reeds_vine_2.png',
     drawtype = 'plantlike',
     paramtype2 = 'meshoptions',
     place_param2 = 8,
@@ -1197,9 +1197,9 @@ minetest.register_node('everness:tenanea_flowers_vine_1', {
     sunlight_propagates = true,
     paramtype = 'light',
     buildable_to = false,
-    tiles = { 'everness_tenanea_flowers_vine_1.png' },
-    wield_image = 'everness_tenanea_flowers_vine_1.png',
-    inventory_image = 'everness_tenanea_flowers_vine_1.png',
+    tiles = { 'everness_tenanea_flowers_vine_2.png' },
+    wield_image = 'everness_tenanea_flowers_vine_2.png',
+    inventory_image = 'everness_tenanea_flowers_vine_2.png',
     drawtype = 'plantlike',
     paramtype2 = 'meshoptions',
     place_param2 = 8,
@@ -1318,6 +1318,408 @@ minetest.register_node('everness:tenanea_flowers_vine_2', {
         Everness:grow_vine(pos, elapsed, {
             node_names = { 'everness:tenanea_flowers_vine_1', 'everness:tenanea_flowers_vine_2' },
             end_node_name = 'everness:tenanea_flowers_vine_end'
+        })
+    end,
+})
+
+-- Twisted vine
+
+minetest.register_node('everness:twisted_vine_1', {
+    description = S('Twisted Vine'),
+    walkable = false,
+    climbable = true,
+    sunlight_propagates = true,
+    paramtype = 'light',
+    buildable_to = false,
+    tiles = { 'everness_twisted_vine_1.png' },
+    wield_image = 'everness_twisted_vine_1.png',
+    inventory_image = 'everness_twisted_vine_1.png',
+    drawtype = 'plantlike',
+    paramtype2 = 'meshoptions',
+    place_param2 = 8,
+    visual_scale = 1.1,
+    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    light_source = 12,
+    waving = 2,
+    drop = '',
+    on_destruct = function(pos)
+        local pos_below = vector.new(pos.x, pos.y - 1, pos.z)
+        local node_below = minetest.get_node(pos_below)
+
+        if minetest.get_item_group(node_below.name, 'vine') > 0 then
+            minetest.remove_node(pos_below)
+        end
+    end,
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        local pos_above = vector.new(pos.x, pos.y + 1, pos.z)
+
+        Everness:dig_vine(pos, oldnode.name, digger)
+        Everness:tick_vine(pos_above)
+    end,
+    on_construct = function(pos)
+        Everness:tick_vine(pos)
+    end,
+    on_timer = function(pos, elapsed)
+        Everness:grow_vine(pos, elapsed, {
+            node_names = { 'everness:twisted_vine_1', 'everness:twisted_vine_2' },
+            end_node_name = 'everness:twisted_vine_end'
+        })
+    end,
+})
+
+minetest.register_node('everness:twisted_vine_end', {
+    description = S('Twisted Vine'),
+    walkable = false,
+    climbable = true,
+    sunlight_propagates = true,
+    paramtype = 'light',
+    buildable_to = false,
+    tiles = { 'everness_twisted_vine_end.png' },
+    wield_image = 'everness_twisted_vine_end.png',
+    inventory_image = 'everness_twisted_vine_end.png',
+    drawtype = 'plantlike',
+    paramtype2 = 'meshoptions',
+    place_param2 = 8,
+    visual_scale = 1.1,
+    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    light_source = 12,
+    waving = 2,
+    drop = '',
+    on_destruct = function(pos)
+        local pos_below = vector.new(pos.x, pos.y - 1, pos.z)
+        local node_below = minetest.get_node(pos_below)
+
+        if minetest.get_item_group(node_below.name, 'vine') > 0 then
+            minetest.remove_node(pos_below)
+        end
+    end,
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        local pos_above = vector.new(pos.x, pos.y + 1, pos.z)
+
+        Everness:dig_vine(pos, oldnode.name, digger)
+        Everness:tick_vine(pos_above)
+    end,
+    on_construct = function(...)
+        Everness:tick_vine(...)
+    end,
+    on_timer = function(pos, elapsed)
+        Everness:grow_vine(pos, elapsed, {
+            node_names = { 'everness:twisted_vine_1', 'everness:twisted_vine_2' },
+            end_node_name = 'everness:twisted_vine_end'
+        })
+    end,
+})
+
+minetest.register_node('everness:twisted_vine_2', {
+    description = S('Twisted Vine'),
+    walkable = false,
+    climbable = true,
+    sunlight_propagates = true,
+    paramtype = 'light',
+    buildable_to = false,
+    tiles = { 'everness_twisted_vine_2.png' },
+    wield_image = 'everness_twisted_vine_2.png',
+    inventory_image = 'everness_twisted_vine_2.png',
+    drawtype = 'plantlike',
+    paramtype2 = 'meshoptions',
+    place_param2 = 8,
+    visual_scale = 1.1,
+    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    light_source = 7,
+    waving = 2,
+    drop = '',
+    on_destruct = function(pos)
+        local pos_below = vector.new(pos.x, pos.y - 1, pos.z)
+        local node_below = minetest.get_node(pos_below)
+
+        if minetest.get_item_group(node_below.name, 'vine') > 0 then
+            minetest.remove_node(pos_below)
+        end
+    end,
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        local pos_above = vector.new(pos.x, pos.y + 1, pos.z)
+
+        Everness:dig_vine(pos, oldnode.name, digger)
+        Everness:tick_vine(pos_above)
+    end,
+    on_construct = function(...)
+        Everness:tick_vine(...)
+    end,
+    on_timer = function(pos, elapsed)
+        Everness:grow_vine(pos, elapsed, {
+            node_names = { 'everness:twisted_vine_1', 'everness:twisted_vine_2' },
+            end_node_name = 'everness:twisted_vine_end'
+        })
+    end,
+})
+
+-- Golden vine
+
+minetest.register_node('everness:golden_vine_1', {
+    description = S('Golden Vine'),
+    walkable = false,
+    climbable = true,
+    sunlight_propagates = true,
+    paramtype = 'light',
+    buildable_to = false,
+    tiles = { 'everness_golden_vine_1.png' },
+    wield_image = 'everness_golden_vine_1.png',
+    inventory_image = 'everness_golden_vine_1.png',
+    drawtype = 'plantlike',
+    paramtype2 = 'meshoptions',
+    place_param2 = 8,
+    visual_scale = 1.1,
+    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    light_source = 12,
+    waving = 2,
+    drop = '',
+    on_destruct = function(pos)
+        local pos_below = vector.new(pos.x, pos.y - 1, pos.z)
+        local node_below = minetest.get_node(pos_below)
+
+        if minetest.get_item_group(node_below.name, 'vine') > 0 then
+            minetest.remove_node(pos_below)
+        end
+    end,
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        local pos_above = vector.new(pos.x, pos.y + 1, pos.z)
+
+        Everness:dig_vine(pos, oldnode.name, digger)
+        Everness:tick_vine(pos_above)
+    end,
+    on_construct = function(pos)
+        Everness:tick_vine(pos)
+    end,
+    on_timer = function(pos, elapsed)
+        Everness:grow_vine(pos, elapsed, {
+            node_names = { 'everness:golden_vine_1', 'everness:golden_vine_2' },
+            end_node_name = 'everness:golden_vine_end'
+        })
+    end,
+})
+
+minetest.register_node('everness:golden_vine_end', {
+    description = S('Golden Vine'),
+    walkable = false,
+    climbable = true,
+    sunlight_propagates = true,
+    paramtype = 'light',
+    buildable_to = false,
+    tiles = { 'everness_golden_vine_end.png' },
+    wield_image = 'everness_golden_vine_end.png',
+    inventory_image = 'everness_golden_vine_end.png',
+    drawtype = 'plantlike',
+    paramtype2 = 'meshoptions',
+    place_param2 = 8,
+    visual_scale = 1.1,
+    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    light_source = 12,
+    waving = 2,
+    drop = '',
+    on_destruct = function(pos)
+        local pos_below = vector.new(pos.x, pos.y - 1, pos.z)
+        local node_below = minetest.get_node(pos_below)
+
+        if minetest.get_item_group(node_below.name, 'vine') > 0 then
+            minetest.remove_node(pos_below)
+        end
+    end,
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        local pos_above = vector.new(pos.x, pos.y + 1, pos.z)
+
+        Everness:dig_vine(pos, oldnode.name, digger)
+        Everness:tick_vine(pos_above)
+    end,
+    on_construct = function(...)
+        Everness:tick_vine(...)
+    end,
+    on_timer = function(pos, elapsed)
+        Everness:grow_vine(pos, elapsed, {
+            node_names = { 'everness:golden_vine_1', 'everness:golden_vine_2' },
+            end_node_name = 'everness:golden_vine_end'
+        })
+    end,
+})
+
+minetest.register_node('everness:golden_vine_2', {
+    description = S('Golden Vine'),
+    walkable = false,
+    climbable = true,
+    sunlight_propagates = true,
+    paramtype = 'light',
+    buildable_to = false,
+    tiles = { 'everness_golden_vine_2.png' },
+    wield_image = 'everness_golden_vine_2.png',
+    inventory_image = 'everness_golden_vine_2.png',
+    drawtype = 'plantlike',
+    paramtype2 = 'meshoptions',
+    place_param2 = 8,
+    visual_scale = 1.1,
+    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    light_source = 7,
+    waving = 2,
+    drop = '',
+    on_destruct = function(pos)
+        local pos_below = vector.new(pos.x, pos.y - 1, pos.z)
+        local node_below = minetest.get_node(pos_below)
+
+        if minetest.get_item_group(node_below.name, 'vine') > 0 then
+            minetest.remove_node(pos_below)
+        end
+    end,
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        local pos_above = vector.new(pos.x, pos.y + 1, pos.z)
+
+        Everness:dig_vine(pos, oldnode.name, digger)
+        Everness:tick_vine(pos_above)
+    end,
+    on_construct = function(...)
+        Everness:tick_vine(...)
+    end,
+    on_timer = function(pos, elapsed)
+        Everness:grow_vine(pos, elapsed, {
+            node_names = { 'everness:golden_vine_1', 'everness:golden_vine_2' },
+            end_node_name = 'everness:golden_vine_end'
+        })
+    end,
+})
+
+-- Dense vine
+
+minetest.register_node('everness:dense_vine_1', {
+    description = S('Dense Vine'),
+    walkable = false,
+    climbable = true,
+    sunlight_propagates = true,
+    paramtype = 'light',
+    buildable_to = false,
+    tiles = { 'everness_dense_vine_1.png' },
+    wield_image = 'everness_dense_vine_1.png',
+    inventory_image = 'everness_dense_vine_1.png',
+    drawtype = 'plantlike',
+    paramtype2 = 'meshoptions',
+    place_param2 = 8,
+    visual_scale = 1.1,
+    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    light_source = 12,
+    waving = 2,
+    drop = '',
+    on_destruct = function(pos)
+        local pos_below = vector.new(pos.x, pos.y - 1, pos.z)
+        local node_below = minetest.get_node(pos_below)
+
+        if minetest.get_item_group(node_below.name, 'vine') > 0 then
+            minetest.remove_node(pos_below)
+        end
+    end,
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        local pos_above = vector.new(pos.x, pos.y + 1, pos.z)
+
+        Everness:dig_vine(pos, oldnode.name, digger)
+        Everness:tick_vine(pos_above)
+    end,
+    on_construct = function(pos)
+        Everness:tick_vine(pos)
+    end,
+    on_timer = function(pos, elapsed)
+        Everness:grow_vine(pos, elapsed, {
+            node_names = { 'everness:dense_vine_1', 'everness:dense_vine_2' },
+            end_node_name = 'everness:dense_vine_end'
+        })
+    end,
+})
+
+minetest.register_node('everness:dense_vine_end', {
+    description = S('Dense Vine'),
+    walkable = false,
+    climbable = true,
+    sunlight_propagates = true,
+    paramtype = 'light',
+    buildable_to = false,
+    tiles = { 'everness_dense_vine_end.png' },
+    wield_image = 'everness_dense_vine_end.png',
+    inventory_image = 'everness_dense_vine_end.png',
+    drawtype = 'plantlike',
+    paramtype2 = 'meshoptions',
+    place_param2 = 8,
+    visual_scale = 1.1,
+    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    light_source = 12,
+    waving = 2,
+    drop = '',
+    on_destruct = function(pos)
+        local pos_below = vector.new(pos.x, pos.y - 1, pos.z)
+        local node_below = minetest.get_node(pos_below)
+
+        if minetest.get_item_group(node_below.name, 'vine') > 0 then
+            minetest.remove_node(pos_below)
+        end
+    end,
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        local pos_above = vector.new(pos.x, pos.y + 1, pos.z)
+
+        Everness:dig_vine(pos, oldnode.name, digger)
+        Everness:tick_vine(pos_above)
+    end,
+    on_construct = function(...)
+        Everness:tick_vine(...)
+    end,
+    on_timer = function(pos, elapsed)
+        Everness:grow_vine(pos, elapsed, {
+            node_names = { 'everness:dense_vine_1', 'everness:dense_vine_2' },
+            end_node_name = 'everness:dense_vine_end'
+        })
+    end,
+})
+
+minetest.register_node('everness:dense_vine_2', {
+    description = S('Dense Vine'),
+    walkable = false,
+    climbable = true,
+    sunlight_propagates = true,
+    paramtype = 'light',
+    buildable_to = false,
+    tiles = { 'everness_dense_vine_2.png' },
+    wield_image = 'everness_dense_vine_2.png',
+    inventory_image = 'everness_dense_vine_2.png',
+    drawtype = 'plantlike',
+    paramtype2 = 'meshoptions',
+    place_param2 = 8,
+    visual_scale = 1.1,
+    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    light_source = 7,
+    waving = 2,
+    drop = '',
+    on_destruct = function(pos)
+        local pos_below = vector.new(pos.x, pos.y - 1, pos.z)
+        local node_below = minetest.get_node(pos_below)
+
+        if minetest.get_item_group(node_below.name, 'vine') > 0 then
+            minetest.remove_node(pos_below)
+        end
+    end,
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        local pos_above = vector.new(pos.x, pos.y + 1, pos.z)
+
+        Everness:dig_vine(pos, oldnode.name, digger)
+        Everness:tick_vine(pos_above)
+    end,
+    on_construct = function(...)
+        Everness:tick_vine(...)
+    end,
+    on_timer = function(pos, elapsed)
+        Everness:grow_vine(pos, elapsed, {
+            node_names = { 'everness:dense_vine_1', 'everness:dense_vine_2' },
+            end_node_name = 'everness:dense_vine_end'
         })
     end,
 })

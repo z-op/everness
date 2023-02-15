@@ -1,4 +1,4 @@
----@diagnostic disable: codestyle-check
+---@diagnostic disable: codestyle-check, duplicate-doc-alias, duplicate-doc-field
 ---https://github.com/sumneko/lua-language-server/wiki
 
 --An `InvRef` is a reference to an inventory.

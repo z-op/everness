@@ -1,4 +1,4 @@
----@diagnostic disable: codestyle-check
+---@diagnostic disable: codestyle-check, duplicate-doc-alias, duplicate-doc-field
 ---Sfinv API
 ---@class Sfinv
 ---@field register_page fun(name: string, def: SfinvDef): nil Register a page

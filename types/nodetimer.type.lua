@@ -1,4 +1,4 @@
----@diagnostic disable: codestyle-check
+---@diagnostic disable: codestyle-check, duplicate-doc-alias, duplicate-doc-field
 ---https://github.com/sumneko/lua-language-server/wiki
 
 ---Node Timers: a high resolution persistent per-node timer. Can be gotten via `minetest.get_node_timer(pos)`.

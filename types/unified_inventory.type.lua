@@ -1,4 +1,4 @@
----@diagnostic disable: codestyle-check
+---@diagnostic disable: codestyle-check, duplicate-doc-alias, duplicate-doc-field
 ---Base class Unified Inventory
 ---@class UnifiedInventory
 ---@field set_inventory_formspec fun(player: ObjectRef, formspecname: string): nil

@@ -1,4 +1,4 @@
----@diagnostic disable: codestyle-check
+---@diagnostic disable: codestyle-check, duplicate-doc-alias, duplicate-doc-field
 ---https://github.com/sumneko/lua-language-server/wiki
 
 ---@alias ColorSpec string|ColorSpecTable A ColorSpec specifies a 32-bit color. It can be written in any of the following forms: `colorspec = {a=255, r=0, g=255, b=0}`, numerical form: The raw integer value of an ARGB8 quad: `colorspec = 0xFF00FF00`, string form: A ColorString (defined above): `colorspec = "green"`

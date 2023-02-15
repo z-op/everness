@@ -382,6 +382,18 @@ minetest.register_biome({
     humidity_point = 30,
 })
 
+minetest.register_biome({
+    name = 'everness_forsaken_desert_under',
+    node_cave_liquid = { 'default:water_source', 'default:lava_source' },
+    node_dungeon = 'default:cobble',
+    node_dungeon_alt = 'default:mossycobble',
+    node_dungeon_stair = 'stairs:stair_cobble',
+    y_max = -256,
+    y_min = -31000,
+    heat_point = 100,
+    humidity_point = 30,
+})
+
 -- Baobab Savanna
 
 minetest.register_biome({
@@ -852,7 +864,7 @@ minetest.register_decoration({
     y_min = -31000,
     flags = 'all_ceilings',
     decoration = {
-        'everness:moss_block_2'
+        'everness:moss_block'
     },
 })
 
@@ -902,27 +914,6 @@ minetest.register_decoration({
 })
 
 minetest.register_decoration({
-    name = 'everness:bamboo_flowers_with_particles_under',
-    deco_type = 'simple',
-    place_on = { 'everness:moss_block' },
-    param2 = 8,
-    sidelen = 16,
-    noise_params = {
-        offset = 0,
-        scale = 0.02,
-        spread = { x = 200, y = 200, z = 200 },
-        seed = 329,
-        octaves = 3,
-        persist = 0.6
-    },
-    biomes = { 'everness_bamboo_forest_under' },
-    y_max = -2025,
-    y_min = -31000,
-    decoration = { 'everness:cave_flower_with_particles' },
-    flags = 'all_floors'
-})
-
-minetest.register_decoration({
     name = 'everness:coral_forest_under_lumecorn',
     deco_type = 'simple',
     place_on = { 'everness:coral_desert_stone_with_moss' },
@@ -945,7 +936,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:coral_forest_under_vines',
     deco_type = 'simple',
-    place_on = { 'everness:moss_block_2' },
+    place_on = { 'everness:moss_block' },
     sidelen = 16,
     fill_ratio = 0.05,
     biomes = { 'everness_coral_forest_under' },
@@ -1084,12 +1075,13 @@ minetest.register_decoration({
     name = 'everness:frosted_floors',
     deco_type = 'simple',
     place_on = { 'default:stone' },
+    place_offset_y = -1,
     sidelen = 16,
     fill_ratio = 10,
     biomes = { 'everness_frosted_icesheet_under' },
     y_max = -256,
     y_min = -31000,
-    flags = 'all_floors',
+    flags = 'all_floors, force_placement',
     decoration = {
         'everness:ancient_emerald_ice',
         'everness:dense_emerald_ice',
@@ -1133,12 +1125,12 @@ minetest.register_decoration({
     },
     sidelen = 16,
     noise_params = {
-        offset = 0,
-        scale = 0.002,
-        spread = { x = 250, y = 250, z = 250 },
-        seed = 2,
+        offset = -0.004,
+        scale = 0.01,
+        spread = { x = 100, y = 100, z = 100 },
+        seed = 137,
         octaves = 3,
-        persist = 0.66
+        persist = 0.7,
     },
     biomes = { 'everness_frosted_icesheet_under' },
     y_max = -256,
@@ -1434,14 +1426,15 @@ minetest.register_decoration({
     name = 'everness:cursed_lands_under_soul_sandstone_floors',
     deco_type = 'simple',
     place_on = { 'default:stone' },
+    place_offset_y = -1,
     sidelen = 16,
     fill_ratio = 10,
     biomes = { 'everness_cursed_lands_under' },
     y_max = -256,
     y_min = -31000,
-    flags = 'all_floors',
+    flags = 'all_floors, force_placement',
     decoration = {
-        'everness:sould_sandstone_veined'
+        'everness:soul_sandstone_veined'
     },
 })
 
@@ -1456,14 +1449,14 @@ minetest.register_decoration({
     y_min = -31000,
     flags = 'all_ceilings',
     decoration = {
-        'everness:moss_block_2'
+        'everness:moss_block'
     },
 })
 
 minetest.register_decoration({
     name = 'everness:skull_with_candle',
     deco_type = 'simple',
-    place_on = { 'everness:sould_sandstone_veined' },
+    place_on = { 'everness:soul_sandstone_veined' },
     sidelen = 16,
     noise_params = {
         offset = -0.004,
@@ -1484,7 +1477,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:cursed_lands_under_vines',
     deco_type = 'simple',
-    place_on = { 'everness:moss_block_2' },
+    place_on = { 'everness:moss_block' },
     sidelen = 16,
     fill_ratio = 0.05,
     biomes = { 'everness_cursed_lands_under' },
@@ -1505,7 +1498,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:cursed_pumpkin_lantern',
     deco_type = 'simple',
-    place_on = { 'everness:sould_sandstone_veined' },
+    place_on = { 'everness:soul_sandstone_veined' },
     sidelen = 16,
     noise_params = {
         offset = 0,
@@ -1526,7 +1519,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:everness_cursed_dream_tree',
     deco_type = 'schematic',
-    place_on = { 'everness:sould_sandstone_veined' },
+    place_on = { 'everness:soul_sandstone_veined' },
     place_offset_y = 1,
     sidelen = 16,
     noise_params = {
@@ -1543,14 +1536,14 @@ minetest.register_decoration({
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_cursed_dream_tree.mts',
     flags = 'place_center_x, place_center_z, all_floors, force_placement',
     rotation = 'random',
-    spawn_by = 'everness:sould_sandstone_veined',
+    spawn_by = 'everness:soul_sandstone_veined',
     num_spawn_by = 8,
 })
 
 minetest.register_decoration({
     name = 'everness:cursed_lands_under_plants',
     deco_type = 'simple',
-    place_on = { 'everness:sould_sandstone_veined' },
+    place_on = { 'everness:soul_sandstone_veined' },
     sidelen = 16,
     noise_params = {
         offset = 0,
@@ -1573,7 +1566,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:cursed_lands_under_ivis_moss',
     deco_type = 'simple',
-    place_on = { 'everness:sould_sandstone_veined' },
+    place_on = { 'everness:soul_sandstone_veined' },
     sidelen = 16,
     noise_params = {
         offset = 0,
@@ -1596,7 +1589,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:cursed_lands_under_ngrass_1',
     deco_type = 'simple',
-    place_on = { 'everness:sould_sandstone_veined' },
+    place_on = { 'everness:soul_sandstone_veined' },
     sidelen = 16,
     noise_params = {
         offset = 0,
@@ -1619,7 +1612,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:cursed_lands_under_cobweb_floors',
     deco_type = 'simple',
-    place_on = { 'everness:sould_sandstone_veined' },
+    place_on = { 'everness:soul_sandstone_veined' },
     sidelen = 16,
     fill_ratio = 0.02,
     biomes = { 'everness_cursed_lands_under' },
@@ -1741,9 +1734,65 @@ minetest.register_decoration({
 })
 
 minetest.register_decoration({
+    name = 'everness:crystal_forest_under_floors',
+    deco_type = 'simple',
+    place_on = { 'default:stone' },
+    sidelen = 16,
+    place_offset_y = -1,
+    fill_ratio = 10,
+    biomes = { 'everness_crystal_forest_under' },
+    y_max = -256,
+    y_min = -31000,
+    decoration = {
+        'everness:crystal_cave_dirt_with_moss',
+        'everness:crystal_moss_block'
+    },
+    flags = 'all_floors, force_placement'
+})
+
+minetest.register_decoration({
+    name = 'everness:crystal_forest_under_ceilings',
+    deco_type = 'simple',
+    place_on = { 'default:stone' },
+    sidelen = 16,
+    fill_ratio = 0.4,
+    biomes = { 'everness_crystal_forest_under' },
+    y_max = -256,
+    y_min = -31000,
+    flags = 'all_ceilings',
+    decoration = {
+        'everness:crystal_moss_block'
+    },
+})
+
+minetest.register_decoration({
+    name = 'everness:crystal_forest_under_vines',
+    deco_type = 'simple',
+    place_on = { 'everness:crystal_moss_block' },
+    sidelen = 16,
+    fill_ratio = 0.05,
+    biomes = { 'everness_crystal_forest_under' },
+    param2 = 8,
+    decoration = {
+        'everness:twisted_vine_1',
+        'everness:twisted_vine_2',
+        'everness:golden_vine_1',
+        'everness:golden_vine_2'
+    },
+    y_max = -256,
+    y_min = -31000,
+    flags = 'all_ceilings',
+    spawn_by = 'air',
+    num_spawn_by = 8
+})
+
+minetest.register_decoration({
     name = 'everness:crystal_purple_cluster',
     deco_type = 'schematic',
-    place_on = { 'default:stone' },
+    place_on = {
+        'everness:crystal_cave_dirt_with_moss',
+        'everness:crystal_moss_block'
+    },
     place_offset_y = -7,
     sidelen = 16,
     noise_params = {
@@ -1760,15 +1809,22 @@ minetest.register_decoration({
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_crystal_purple_cluster.mts',
     flags = 'place_center_x, place_center_z, all_floors, force_placement',
     rotation = 'random',
-    spawn_by = 'default:stone',
+    spawn_by = {
+        'everness:crystal_cave_dirt_with_moss',
+        'everness:crystal_moss_block'
+    },
     num_spawn_by = 8,
 })
 
 minetest.register_decoration({
     name = 'everness:crystal_orange_cluster',
     deco_type = 'schematic',
-    place_on = { 'default:stone' },
+    place_on = {
+        'everness:crystal_cave_dirt_with_moss',
+        'everness:crystal_moss_block'
+    },
     sidelen = 16,
+    place_offset_y = 1,
     noise_params = {
         offset = 0,
         scale = 0.002,
@@ -1783,14 +1839,20 @@ minetest.register_decoration({
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_crystal_orange_cluster.mts',
     flags = 'place_center_x, place_center_z, all_floors',
     rotation = 'random',
-    spawn_by = 'default:stone',
+    spawn_by = {
+        'everness:crystal_cave_dirt_with_moss',
+        'everness:crystal_moss_block'
+    },
     num_spawn_by = 8,
 })
 
 minetest.register_decoration({
     name = 'everness:crystal_cyan',
     deco_type = 'simple',
-    place_on = { 'default:stone' },
+    place_on = {
+        'everness:crystal_cave_dirt_with_moss',
+        'everness:crystal_moss_block'
+    },
     sidelen = 16,
     noise_params = {
         offset = 0,
@@ -1806,6 +1868,29 @@ minetest.register_decoration({
     decoration = 'everness:crystal_cyan',
     flags = 'all_floors',
     param2 = 1
+})
+
+minetest.register_decoration({
+    name = 'everness:twisted_crystal_grass',
+    deco_type = 'simple',
+    place_on = {
+        'everness:crystal_cave_dirt_with_moss',
+        'everness:crystal_moss_block'
+    },
+    sidelen = 16,
+    noise_params = {
+        offset = 0,
+        scale = 0.2,
+        spread = { x = 100, y = 100, z = 100 },
+        seed = 801,
+        octaves = 3,
+        persist = 0.7
+    },
+    biomes = { 'everness_crystal_forest_under' },
+    y_max = -1025,
+    y_min = -31000,
+    decoration = 'everness:twisted_crystal_grass',
+    flags = 'all_floors'
 })
 
 minetest.register_decoration({
@@ -2239,6 +2324,139 @@ register_flower(73133, 'dandelion_white')
 register_flower(42, 'tulip_black')
 
 -- Forsaken Desert
+
+minetest.register_decoration({
+    name = 'everness:forsaken_desert_under_floors',
+    deco_type = 'simple',
+    place_on = { 'default:stone' },
+    sidelen = 16,
+    place_offset_y = -1,
+    fill_ratio = 10,
+    biomes = { 'everness_forsaken_desert_under' },
+    y_max = -256,
+    y_min = -31000,
+    flags = 'all_floors, force_placement',
+    decoration = {
+        'everness:forsaken_desert_sand'
+    },
+})
+
+minetest.register_decoration({
+    name = 'everness:forsaken_desert_under_floors_chiseled',
+    deco_type = 'simple',
+    place_on = { 'everness:forsaken_desert_sand' },
+    sidelen = 16,
+    place_offset_y = -1,
+    fill_ratio = 0.2,
+    biomes = { 'everness_forsaken_desert_under' },
+    y_max = -256,
+    y_min = -31000,
+    decoration = {
+        'everness:forsaken_desert_chiseled_stone',
+        'everness:forsaken_desert_brick',
+        'everness:forsaken_desert_brick_red',
+        'everness:forsaken_desert_engraved_stone',
+        'everness:forsaken_desert_cobble_red',
+        'everness:forsaken_desert_cobble',
+    },
+    flags = 'all_floors, force_placement'
+})
+
+minetest.register_decoration({
+    name = 'everness:forsaken_desert_under_ceilings',
+    deco_type = 'simple',
+    place_on = { 'everness:forsaken_desert_sand' },
+    sidelen = 16,
+    fill_ratio = 0.4,
+    biomes = { 'everness_forsaken_desert_under' },
+    y_max = -256,
+    y_min = -31000,
+    flags = 'all_ceilings',
+    decoration = {
+        'everness:moss_block'
+    },
+})
+
+minetest.register_decoration({
+    name = 'everness:cactus_blue',
+    deco_type = 'simple',
+    place_on = { 'everness:forsaken_desert_sand' },
+    sidelen = 16,
+    noise_params = {
+        offset = -0.004,
+        scale = 0.01,
+        spread = { x = 100, y = 100, z = 100 },
+        seed = 137,
+        octaves = 3,
+        persist = 0.7,
+    },
+    biomes = { 'everness_forsaken_desert_under' },
+    y_max = -256,
+    y_min = -31000,
+    decoration = 'everness:cactus_blue',
+    height = 2,
+    height_max = 6,
+    flags = 'all_floors'
+})
+
+minetest.register_decoration({
+    name = 'everness:forsaken_desert_under_cave_barrel_cactus',
+    deco_type = 'simple',
+    place_on = {
+        'everness:forsaken_desert_sand',
+        'everness:forsaken_desert_chiseled_stone',
+        'everness:forsaken_desert_brick',
+        'everness:forsaken_desert_engraved_stone'
+    },
+    sidelen = 16,
+    fill_ratio = 0.005,
+    biomes = { 'everness_forsaken_desert_under' },
+    y_max = -1025,
+    y_min = -31000,
+    decoration = {
+        'everness:cave_barrel_cactus',
+        'everness:venus_trap'
+    },
+    flags = 'all_floors',
+    param2_max = 3
+})
+
+minetest.register_decoration({
+    name = 'everness:forsaken_desert_under_cave_illumi_root',
+    deco_type = 'simple',
+    place_on = {
+        'everness:forsaken_desert_sand',
+        'everness:forsaken_desert_chiseled_stone',
+        'everness:forsaken_desert_brick',
+        'everness:forsaken_desert_engraved_stone'
+    },
+    sidelen = 16,
+    fill_ratio = 0.005,
+    biomes = { 'everness_forsaken_desert_under' },
+    y_max = -1025,
+    y_min = -31000,
+    decoration = { 'everness:illumi_root' },
+    flags = 'all_floors'
+})
+
+minetest.register_decoration({
+    name = 'everness:forsaken_desert_under_vines',
+    deco_type = 'simple',
+    place_on = { 'everness:moss_block' },
+    sidelen = 16,
+    fill_ratio = 0.05,
+    biomes = { 'everness_forsaken_desert_under' },
+    param2 = 8,
+    decoration = {
+        'everness:dense_vine_1',
+        'everness:dense_vine_2'
+    },
+    y_max = -256,
+    y_min = -31000,
+    flags = 'all_ceilings',
+    spawn_by = 'air',
+    num_spawn_by = 8
+})
 
 minetest.register_decoration({
     name = 'everness:forsaken_desert_sand_plants_1',
@@ -2678,11 +2896,12 @@ minetest.register_decoration({
     deco_type = 'simple',
     place_on = { 'default:stone' },
     sidelen = 16,
+    place_offset_y = -1,
     fill_ratio = 10,
     biomes = { 'everness_forsaken_tundra_under' },
     y_max = -256,
     y_min = -31000,
-    flags = 'all_floors',
+    flags = 'all_floors, force_placement',
     decoration = {
         'everness:mold_stone_with_moss'
     },
@@ -2699,7 +2918,7 @@ minetest.register_decoration({
     y_min = -31000,
     flags = 'all_ceilings',
     decoration = {
-        'everness:moss_block_2'
+        'everness:moss_block'
     },
 })
 
@@ -2724,7 +2943,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:forsaken_tundra_under_obsidian_ceilings',
     deco_type = 'simple',
-    place_on = { 'default:stone', 'everness:moss_block_2' },
+    place_on = { 'default:stone', 'everness:moss_block' },
     sidelen = 16,
     place_offset_y = -1,
     fill_ratio = 0.02,
@@ -2785,7 +3004,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:whispering_gourd_vine',
     deco_type = 'simple',
-    place_on = { 'everness:moss_block_2' },
+    place_on = { 'everness:moss_block' },
     sidelen = 16,
     fill_ratio = 0.05,
     biomes = { 'everness_forsaken_tundra_under' },
@@ -2827,6 +3046,7 @@ minetest.register_decoration({
     name = 'everness:everness_willow_tree',
     deco_type = 'schematic',
     place_on = { 'everness:mold_stone_with_moss' },
+    place_offset_y = -1,
     sidelen = 16,
     noise_params = {
         offset = 0,
@@ -2880,10 +3100,13 @@ local c_dirt_with_rainforest_litter = minetest.get_content_id('default:dirt_with
 local c_dirt_with_cursed_grass = minetest.get_content_id('everness:dirt_with_cursed_grass')
 local c_dirt_with_crystal_grass = minetest.get_content_id('everness:dirt_with_crystal_grass')
 local c_crystal_sand = minetest.get_content_id('everness:crystal_sand')
-local c_forsaken_desert_sand = minetest.get_content_id('everness:forsaken_desert_sand')
 local c_dry_ocean_dirt = minetest.get_content_id('everness:dry_ocean_dirt')
 local c_dirt_with_snow = minetest.get_content_id('default:dirt_with_snow')
 local c_dirt_with_coniferous_litter = minetest.get_content_id('default:dirt_with_coniferous_litter')
+local c_forsaken_desert_sand = minetest.get_content_id('everness:forsaken_desert_sand')
+local c_forsaken_desert_chiseled_stone = minetest.get_content_id('everness:forsaken_desert_chiseled_stone')
+local c_forsaken_desert_brick = minetest.get_content_id('everness:forsaken_desert_brick')
+local c_forsaken_desert_engraved_stone = minetest.get_content_id('everness:forsaken_desert_engraved_stone')
 
 local deco_ids_baobab = {
     minetest.get_decoration_id('everness:baobab_tree_1'),
@@ -2898,6 +3121,21 @@ local data = {}
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
     local gennotify = minetest.get_mapgen_object('gennotify')
+
+    local chance = 15
+    local disp = 16
+    local rotations = { '0', '90', '180', '270' }
+    local rand = PcgRandom(blockseed)
+
+    local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
+    local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
+    -- Get the content ID data from the voxelmanip in the form of a flat array.
+    -- Set the buffer parameter to use and reuse 'data' for this.
+    vm:get_data(data)
+    local sidelength = maxp.x - minp.x + 1
+
+    local x_disp = rand:next(0, disp)
+    local z_disp = rand:next(0, disp)
 
     if maxp.y > 0 then
         --
@@ -2950,21 +3188,6 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                 )
             end
         end
-
-        local chance = 15
-        local disp = 16
-        local rotations = { '0', '90', '180', '270' }
-        local rand = PcgRandom(blockseed)
-
-        local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
-        local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
-        -- Get the content ID data from the voxelmanip in the form of a flat array.
-        -- Set the buffer parameter to use and reuse 'data' for this.
-        vm:get_data(data)
-        local sidelength = maxp.x - minp.x + 1
-
-        local x_disp = rand:next(0, disp)
-        local z_disp = rand:next(0, disp)
 
         for y = minp.y, maxp.y do
             local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
@@ -3149,6 +3372,97 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             end
                         }
                     )
+                end
+            end
+        end
+
+        vm:write_to_map(true)
+        minetest.fix_light(minp, maxp)
+    else
+        -- Under
+        for y = minp.y, maxp.y do
+            local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
+
+            if data[vi + area.ystride] == c_air
+                and (
+                    data[vi] == c_dirt_with_grass_1
+                    or data[vi] == c_forsaken_desert_sand
+                    or data[vi] == c_forsaken_desert_chiseled_stone
+                    or data[vi] == c_forsaken_desert_brick
+                    or data[vi] == c_forsaken_desert_engraved_stone
+                )
+            then
+                local rotation = rotations[rand:next(1, #rotations)]
+                local s_pos = area:position(vi)
+                local biome_data = minetest.get_biome_data(s_pos)
+
+                if not biome_data then
+                    return
+                end
+
+                local biome_name = minetest.get_biome_name(biome_data.biome)
+
+                if not biome_name then
+                    return
+                end
+
+                if biome_name == 'everness_forsaken_desert_under' and rand:next(0, 100) < chance then
+                    local schem = minetest.get_modpath('everness') .. '/schematics/everness_forsaken_desert_temple_2.mts'
+
+                    --
+                    -- Forsaken Desert Temple 2
+                    --
+
+                    -- add Y displacement
+                    local schem_pos = vector.new(s_pos.x, s_pos.y, s_pos.z)
+
+                    -- find floor big enough
+                    local positions = minetest.find_nodes_in_area_under_air(
+                        vector.new(s_pos.x - 7, s_pos.y - 1, s_pos.z - 7),
+                        vector.new(s_pos.x + 7, s_pos.y + 1, s_pos.z + 7),
+                        {
+                            'everness:forsaken_desert_sand',
+                            'everness:forsaken_desert_chiseled_stone',
+                            'everness:forsaken_desert_brick',
+                            'everness:forsaken_desert_engraved_stone',
+                            'default:stone',
+                            'default:sand',
+                            'default:gravel',
+                            'default:stone_with_coal',
+                            'default:stone_with_iron',
+                            'default:stone_with_tin',
+                            'default:stone_with_gold',
+                            'default:stone_with_mese',
+                            'default:stone_with_diamond',
+                            'everness:cave_barrel_cactus',
+                            'everness:venus_trap',
+                            'everness:illumi_root',
+                        })
+
+                    if #positions < 49 then
+                        -- not enough space
+                        return
+                    end
+
+                    -- enough air to place structure ?
+                    local air_positions = minetest.find_nodes_in_area(
+                        vector.new(s_pos.x - 7, s_pos.y, s_pos.z - 7),
+                        vector.new(s_pos.x + 7, s_pos.y + 17, s_pos.z + 7),
+                        'air', true)
+
+                    if air_positions.air and #air_positions.air > (16 * 15 * 16)  / 2 then
+                        minetest.place_schematic_on_vmanip(
+                            vm,
+                            schem_pos,
+                            schem,
+                            rotation,
+                            nil,
+                            true,
+                            'place_center_x, place_center_z'
+                        )
+
+                        minetest.log('action', '[Everness] Forsaken Desert Temple 2 was placed at ' .. schem_pos:to_string())
+                    end
                 end
             end
         end

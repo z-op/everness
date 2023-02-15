@@ -25,6 +25,7 @@ minetest.register_lbm({
         'everness:haunted_house_lootchest_marker',
         'everness:quartz_temple_lootchest_marker',
         'everness:forsaken_desert_temple_marker',
+        'everness:forsaken_desert_temple_2_marker',
     },
     run_at_every_load = true,
     action = function(pos, node)
@@ -105,6 +106,23 @@ minetest.register_lbm({
             elseif node.name == 'everness:forsaken_desert_temple_marker' then
                 --
                 -- Forsaken Desert Temple
+                --
+                local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                if rand:next(0, 100) <= item_def.chance then
+                    local stack = ItemStack(item_def.name)
+
+                    if minetest.registered_tools[item_def.name] then
+                        stack:set_wear(rand:next(1, 65535))
+                    else
+                        stack:set_count(rand:next(1, item_def.max_count))
+                    end
+
+                    inv:set_stack('main', index, stack)
+                end
+            elseif node.name == 'everness:forsaken_desert_temple_2_marker' then
+                --
+                -- Forsaken Desert Temple 2 (under)
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
 
