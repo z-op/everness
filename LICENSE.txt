@@ -453,3 +453,579 @@ RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A
 FAILURE OF THE LIBRARY TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
 SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
 DAMAGES.
+
+### Code
+
+GNU Lesser General Public License v2.1 or later (see included LICENSE file)
+
+### Textures
+
+**CC-BY-SA-4.0, by SaKeL**
+
+- everness_agave_leaf_1.png
+- everness_agave_leaf_2.png
+- everness_agave_leaf_3.png
+- everness_amaranita_lantern_fur.png
+- everness_amaranita_lantern_light.png
+- everness_amaranita_lantern_roots.png
+- everness_ancient_emerald_ice.png
+- everness_bamboo_block_side.png
+- everness_bamboo_block_top.png
+- everness_bamboo_item.png
+- everness_bamboo_large_1.png
+- everness_bamboo_large_2.png
+- everness_bamboo_large_3.png
+- everness_bamboo_large_bottom.png
+- everness_bamboo_large_top.png
+- everness_bamboo_mosaic.png
+- everness_bamboo_small_1.png
+- everness_bamboo_small_2.png
+- everness_bamboo_small_top.png
+- everness_bamboo_sprout.png
+- everness_baobab_tree_fruit_roasted.png
+- everness_baobab_tree_fruit.png
+- everness_baobab_tree_leaves.png
+- everness_baobab_tree_sapling.png
+- everness_baobab_tree_side.png
+- everness_baobab_tree_top.png
+- everness_baobab_wood.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_bloodspore_plant_small.png
+- everness_bloodspore_plant.png
+- everness_blooming_cooksonia.png
+- everness_blue_crying_obsidian.png
+- everness_blue_vine_lantern_item.png
+- everness_blue_vine_lantern_leaves.png
+- everness_blue_vine_lantern_roots.png
+- everness_blue_vine_lantern.png
+- everness_blue_weeping_obsidian.png
+- everness_bone_top.png
+- everness_bone.png
+- everness_bulb_vine_1.png
+- everness_bulb_vine_2.png
+- everness_bulb_vine_end.png
+- everness_cactus_blue_side.png
+- everness_cactus_blue_top.png
+- everness_cactus_side.png
+- everness_cactus_top.png
+- everness_candle_flame_animated.png
+- everness_cave_barrel_cactus_item.png
+- everness_cave_barrel_cactus_mesh.png
+- everness_cave_flower_item_particles.png
+- everness_cave_flower_item.png
+- everness_cave_flower_mesh_particles.png
+- everness_cave_flower_mesh.png
+- everness_coral_bones.png
+- everness_coral_burdock_1.png
+- everness_coral_burdock_2.png
+- everness_coral_bush.png
+- everness_coral_corals.png
+- everness_coral_desert_cobble.png
+- everness_coral_desert_mossy_cobble.png
+- everness_coral_desert_stone.png
+- everness_coral_dirt.png
+- everness_coral_grass_1.png -- Derived from texture by paramat (CC BY-SA 3.0)
+- everness_coral_grass_2.png -- Derived from texture by paramat (CC BY-SA 3.0)
+- everness_coral_grass_3.png -- Derived from texture by paramat (CC BY-SA 3.0)
+- everness_coral_grass_4.png -- Derived from texture by paramat (CC BY-SA 3.0)
+- everness_coral_grass_5.png -- Derived from texture by paramat (CC BY-SA 3.0)
+- everness_coral_grass_globulagus.png
+- everness_coral_grass_orange.png
+- everness_coral_grass_side_2.png
+- everness_coral_grass_side.png
+- everness_coral_grass_tall.png
+- everness_coral_grass.png
+- everness_coral_jellyfish.png
+- everness_coral_leaves.png
+- everness_coral_mushrooms_bioluminescent.png
+- everness_coral_plant_bioluminescent.png
+- everness_coral_sand.png
+- everness_coral_shrub.png
+- everness_coral_stone_with_moss_side.png
+- everness_coral_stone_with_moss_top.png
+- everness_coral_tree_sapling.png
+- everness_coral_tree.png
+- everness_coral_white_sand.png
+- everness_creeping_moss_spores.png
+- everness_crystal_block_orange_top.png
+- everness_crystal_block_orange.png
+- everness_crystal_block_purple_top.png
+- everness_crystal_block_purple.png
+- everness_crystal_bush_leaves.png
+- everness_crystal_bush_sapling.png
+- everness_crystal_bush_stem.png
+- everness_crystal_cave_dirt_side.png
+- everness_crystal_cave_dirt_top.png
+- everness_crystal_cave_dirt.png
+- everness_crystal_cave_moss.png
+- everness_crystal_coral_dark_block.png
+- everness_crystal_coral_light_block.png
+- everness_crystal_cyan.png
+- everness_crystal_dirt.png
+- everness_crystal_grass_1.png
+- everness_crystal_grass_2.png
+- everness_crystal_grass_3.png
+- everness_crystal_grass_side.png
+- everness_crystal_grass.png
+- everness_crystal_leaves.png
+- everness_crystal_lily_flower_small.png
+- everness_crystal_lily_leaf_small.png
+- everness_crystal_mushrooms.png
+- everness_crystal_orange.png
+- everness_crystal_purple.png
+- everness_crystal_sand.png
+- everness_crystal_tree_top.png
+- everness_crystal_tree.png
+- everness_cursed_brick.png
+- everness_cursed_bush_leaves.png
+- everness_cursed_bush_sapling.png
+- everness_cursed_bush_stem.png
+- everness_cursed_dirt.png
+- everness_cursed_dream_stone.png
+- everness_cursed_dry_pine_leaves.png
+- everness_cursed_grass_side.png
+- everness_cursed_grass.png
+- everness_cursed_lands_moon_tonemap.png
+- everness_cursed_lands_moon.png
+- everness_cursed_lands_sun_tonemap.png
+- everness_cursed_lands_sun.png
+- everness_cursed_lands_sunrisebg.png
+- everness_cursed_mud.png
+- everness_cursed_pumpkin_bottom.png
+- everness_cursed_pumpkin_front.png
+- everness_cursed_pumpkin_side.png
+- everness_cursed_pumpkin_top.png
+- everness_cursed_sand.png
+- everness_cursed_stone.png
+- everness_dense_emerald_ice.png
+- everness_dense_vine_1.png
+- everness_dense_vine_2.png
+- everness_dense_vine_end.png
+- everness_dirt_1.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_door_bamboo_item.png
+- everness_door_bamboo.png
+- everness_door_bone_pyrite_item.png
+- everness_door_bone_pyrite.png
+- everness_door_trapdoor_bamboo_side.png
+- everness_door_trapdoor_bamboo.png
+- everness_door_willow_item.png
+- everness_door_willow.png
+- everness_dry_bamboo_block_side.png
+- everness_dry_bamboo_block_top.png
+- everness_dry_branches.png
+- everness_dry_tree_top.png
+- everness_dry_tree.png
+- everness_dry_wood.png -- Derived from texture by BlockMen (CC BY-SA 3.0)
+- everness_egg_plant_bottom.png
+- everness_egg_plant_item.png
+- everness_egg_plant_side.png
+- everness_egg_plant_top.png
+- everness_emerald_ice.png
+- everness_eye_vine_1.png
+- everness_eye_vine_2.png
+- everness_eye_vine_end_bottom.png
+- everness_eye_vine_end_side.png
+- everness_eye_vine_end_top.png
+- everness_fence_bamboo_wood.png
+- everness_fence_dry_wood.png
+- everness_fence_rail_bamboo_wood.png
+- everness_fence_rail_dry_wood.png
+- everness_floating_crystal_animated.png
+- everness_flowered_vine_1.png
+- everness_flowered_vine_2.png
+- everness_flowered_vine_end.png
+- everness_forsaken_desert_brick_red.png
+- everness_forsaken_desert_brick.png
+- everness_forsaken_desert_chiseled_stone_bottom.png
+- everness_forsaken_desert_chiseled_stone_side.png
+- everness_forsaken_desert_chiseled_stone_top.png
+- everness_forsaken_desert_cobble_red.png
+- everness_forsaken_desert_cobble.png
+- everness_forsaken_desert_dry_ocean_dirt.png
+- everness_forsaken_desert_engraved_stone.png
+- everness_forsaken_desert_plant_1.png
+- everness_forsaken_desert_plant_2.png
+- everness_forsaken_desert_plant_3.png
+- everness_forsaken_desert_sand.png
+- everness_forsaken_desert_stone.png
+- everness_forsaken_fire_item.png
+- everness_forsaken_fire_mesh.png
+- everness_forsaken_tundra_beach_sand_with_shells.png
+- everness_forsaken_tundra_beach_sand.png
+- everness_forsaken_tundra_brick.png
+- everness_forsaken_tundra_cobblestone.png
+- everness_forsaken_tundra_dirt.png
+- everness_forsaken_tundra_grass_bckp.png
+- everness_forsaken_tundra_grass_side_bckp.png
+- everness_forsaken_tundra_grass_side.png
+- everness_forsaken_tundra_grass.png
+- everness_forsaken_tundra_rocks_side.png
+- everness_forsaken_tundra_rocks_top.png
+- everness_forsaken_tundra_stone.png
+- everness_forsythia_item.png
+- everness_forsythia_mesh.png
+- everness_frosted_coral.png
+- everness_frosted_ice_translucent.png
+- everness_frosted_ice.png
+- everness_frosted_icicle.png
+- everness_frosted_snow.png
+- everness_glowing_pillar_item.png
+- everness_glowing_pillar_leaves.png
+- everness_glowing_pillar_luminophor.png
+- everness_glowing_pillar_roots.png
+- everness_golden_vine_1.png
+- everness_golden_vine_2.png
+- everness_golden_vine_end.png
+- everness_hollow_tree_side.png
+- everness_hollow_tree_top.png
+- everness_icecobble.png
+- everness_illumi_root.png
+- everness_ivis_moss.png
+- everness_ivis_vine_end.png
+- everness_ivis_vine.png
+- everness_lootchest_marker_side.png
+- everness_lootchest_marker_top.png
+- everness_lumabus_bulb_purple.png
+- everness_lumabus_leaves.png
+- everness_lumabus_vine_1.png
+- everness_lumabus_vine_2.png
+- everness_lumecorn_leaf.png
+- everness_lumecorn_light.png
+- everness_lumecorn_root.png
+- everness_magmacobble_animated.png
+- everness_magmacobble.png
+- everness_marsh_grass.png
+- everness_mese_tree_side_animated.png
+- everness_mineral_pyrite.png
+- everness_mold_stone_with_moss_side.png
+- everness_mold_stone_with_moss_top.png
+- everness_mold_stone.png
+- everness_moss_block.png
+- everness_mud.png
+- everness_ngrass_1.png
+- everness_ngrass_2.png
+- everness_particle.png
+- everness_pick_illuminating.png
+- everness_pyrite_block_forged.png
+- everness_pyrite_block_polished.png
+- everness_pyrite_block_slab_brick.png
+- everness_pyrite_block_spiral.png
+- everness_pyrite_block.png
+- everness_pyrite_glass.png
+- everness_pyrite_ingot.png
+- everness_pyrite_lantern.png
+- everness_pyrite_lump.png
+- everness_pyrite_pillar_bottom.png
+- everness_pyrite_pillar_middle.png
+- everness_pyrite_pillar_small.png
+- everness_pyrite_pillar_top.png
+- everness_pyriteblock_brick.png
+- everness_quartz_block_bottom.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_quartz_block_chiseled_top.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_quartz_block_chiseled.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_quartz_block_lines_top.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_quartz_block_lines.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_quartz_block_side.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_quartz_block_top.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_quartz_ore.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_quartz.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_red_castor_1.png
+- everness_red_castor_2.png
+- everness_red_castor_3.png
+- everness_red_castor_4.png
+- everness_reeds_vine_1.png
+- everness_reeds_vine_2.png
+- everness_reeds_vine_end.png
+- everness_scull_with_candle_inventory.png
+- everness_sequoia_tree_leaves.png
+- everness_sequoia_tree_side.png
+- everness_sequoia_tree_top.png
+- everness_sequoia_wood.png
+- everness_smoke_cloud_particle_animated.png
+- everness_snowcobble.png
+- everness_soul_sandstone_veined_side.png
+- everness_soul_sandstone_veined_top.png
+- everness_soul_sandstone.png
+- everness_spine_kelp.png
+- everness_starfish.png
+- everness_sulfur_stone.png
+- everness_tenanea_flowers_vine_1.png
+- everness_tenanea_flowers_vine_2.png
+- everness_tenanea_flowers_vine_end.png
+- everness_termite_block.png
+- everness_tinted_glass_base.png
+- everness_twisted_crystal_grass.png
+- everness_twisted_vine_1.png
+- everness_twisted_vine_2.png
+- everness_twisted_vine_end.png
+- everness_venus_trap_item.png
+- everness_venus_trap_mesh.png
+- everness_vine_cave_end.png
+- everness_vine_cave_with_mese_leaves.png
+- everness_vine_cave.png
+- everness_vine_shears.png
+- everness_volcanic_rock_with_magma_animated.png
+- everness_volcanic_rock.png
+- everness_volcanic_sulfur_stone.png
+- everness_weeping_obsidian.png
+- everness_whispering_gourd_vine_1.png
+- everness_whispering_gourd_vine_2.png
+- everness_whispering_gourd_vine_end.png
+- everness_willow_leaves.png
+- everness_willow_sapling.png
+- everness_willow_tree_side.png
+- everness_willow_tree_top.png
+- everness_willow_vine_end.png
+- everness_willow_vine.png
+- everness_willow_wood.png -- Derived from texture by BlockMen (CC BY-SA 3.0)
+- everness_xpanes_edge_pyrite.png
+- everness_coral_tree_bioluminescent_sapling.png
+- everness_crystal_tree_large_sapling.png
+- everness_crystal_tree_sapling.png
+- everness_cursed_dream_tree_sapling.png
+- everness_dry_tree_sapling.png
+- everness_sequoia_tree_sapling.png
+- everness_willow_tree_sapling.png
+
+**CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
+
+- everness_cobweb.png
+- everness_fire_animated.png
+- everness_flame_particle.png
+- everness_grass_side_1.png
+- everness_grass_top_1.png
+- everness_grass_top_2.png
+- everness_grass_with_blue_extra_top_2.png
+- everness_grass_with_yellow_extra_top_1.png
+
+### Sounds
+
+**CC0-1.0, by ProdMultimediasHQI**, https://freesound.org
+
+- everness_frosted_snow_footstep.1.ogg
+- everness_frosted_snow_footstep.2.ogg
+- everness_frosted_snow_footstep.3.ogg
+- everness_frosted_snow_footstep.4.ogg
+- everness_frosted_snow_footstep.5.ogg
+
+**CC0-1.0, by patchytherat**, https://freesound.org
+
+- everness_crystal_chime.1.ogg
+- everness_crystal_chime.2.ogg
+- everness_crystal_chime.3.ogg
+- everness_crystal_chime.4.ogg
+- everness_crystal_chime.5.ogg
+- everness_crystal_chime.6.ogg
+
+**CC0-1.0, by afleetingspeck**, https://freesound.org
+
+- everness_bamboo_hit.1.ogg
+- everness_bamboo_hit.2.ogg
+- everness_bamboo_hit.3.ogg
+- everness_bamboo_hit.4.ogg
+- everness_bamboo_hit.5.ogg
+
+**CC0-1.0, by se2001**, https://freesound.org
+
+- everness_bamboo_dug.1.ogg
+
+**CC-BY-4.0, by se2001**, https://www.playonloop.com
+
+- everness_ambience_graveyard_1.ogg
+- everness_ambience_graveyard_7.ogg
+- everness_ambience_graveyard_8.ogg
+- everness_ambience_graveyard_9.ogg
+- everness_ambience_graveyard_10.ogg
+- everness_ambience_night_crickets_1.ogg
+- everness_ambience_night_crickets_2.ogg
+- everness_ambience_night_crickets_3.ogg
+- everness_ambience_night_crickets_4.ogg
+- everness_ambience_night_crickets_5.ogg
+- everness_ambience_snow_storm_1.ogg
+- everness_ambience_snow_storm_2.ogg
+- everness_ambience_snow_storm_3.ogg
+- everness_ambience_snow_storm_4.ogg
+- everness_ambience_swamp_1.ogg
+- everness_ambience_swamp_2.ogg
+- everness_ambience_swamp_3.ogg
+- everness_ambience_swamp_4.ogg
+
+**CC0-1.0, by mistersherlock**, https://freesound.org
+
+- everness_ambience_graveyard_2.ogg
+- everness_ambience_graveyard_3.ogg
+- everness_ambience_graveyard_4.ogg
+- everness_ambience_graveyard_5.ogg
+- everness_ambience_graveyard_6.ogg
+
+**CC-BY-3.0, by TinTinOko**, https://freesound.org
+
+- everness_ambience_monster_sigh_cave.ogg
+
+**CC-BY-4.0, by 150134**, https://freesound.org
+
+- everness_ambience_rocks_falling_cave.ogg
+
+**CC-BY-4.0, by tosha73**, https://freesound.org
+
+- everness_ambience_water_drips_cave_1.ogg
+
+**CC0-1.0, by SaltedMutton72**, https://freesound.org
+
+- everness_ambience_wind_cave_1.ogg
+
+**CC0-1.0, by shelbyshark**, https://freesound.org
+
+- everness_ambience_wind_cave_2.ogg
+- everness_ambience_wind_cave_3.ogg
+- everness_ambience_wind_cave_4.ogg
+- everness_ambience_wind_cave_5.ogg
+
+**CC-BY-4.0, by LittleRobotSoundFactory**, https://freesound.org
+
+- everness_ambience_cave_1.ogg
+- everness_ambience_cave_2.ogg
+- everness_ambience_cave_6.ogg
+- everness_ambience_cave_7.ogg
+- everness_ambience_cave_8.ogg
+- everness_ambience_cave_9.ogg
+
+**CC0-1.0, by szegvari**, https://freesound.org
+
+- everness_ambience_cave_3.ogg
+
+**CC0-1.0, by Bertsz**, https://freesound.org
+
+- everness_ambience_cave_4.ogg
+- everness_ambience_cave_5.ogg
+
+**CC-BY-4.0, by erlipresidente**, https://freesound.org
+
+- everness_ambience_water_drips_cave_2.ogg
+
+**CC0-1.0, by qubodup**, https://freesound.org
+
+- everness_ambience_creepy_cave_1.ogg
+
+**CC0-1.0, by HorrorAudio**, https://freesound.org
+
+- everness_ambience_ghost_1.ogg
+
+**CC-BY-4.0, by klankbeeld**, https://freesound.org
+
+- everness_ambience_ghost_2.ogg
+- everness_ambience_ghost_3.ogg
+- everness_ambience_ghost_4.ogg
+- everness_ambience_ghost_6.ogg
+
+**CC0-1.0, by Legnalegna55**, https://freesound.org
+
+- everness_ambience_ghost_5.ogg
+
+**CC-BY-4.0, by Benboncan**, https://freesound.org
+
+- everness_ambience_owl_1.ogg
+
+**CC0-1.0, by Foleyhaven**, https://freesound.org
+
+- everness_mud_footstep.1.ogg
+- everness_mud_footstep.2.ogg
+- everness_mud_footstep.3.ogg
+- everness_mud_footstep.4.ogg
+- everness_mud_footstep.5.ogg
+
+**CC-BY-4.0, by Peacewaves**, https://freesound.org
+
+- everness_ambience_sulfur_1.ogg
+- everness_ambience_sulfur_2.ogg
+- everness_ambience_sulfur_3.ogg
+- everness_ambience_sulfur_4.ogg
+
+**CC0-1.0, by e__**, https://freesound.org
+
+- everness_ambience_hot_stone_1.ogg
+- everness_ambience_hot_stone_2.ogg
+
+**CC-BY-4.0, by GregorQuendel**, https://freesound.org
+
+- everness_ambience_ice_cracking_1
+- everness_ambience_ice_cracking_2
+- everness_ambience_ice_cracking_3
+
+### Models
+
+**CC-BY-SA-4.0, by SaKeL**
+
+- everness_barrel_cactus.obj
+- everness_cave_flower_with_particles.obj
+- everness_cave_flower.obj
+- everness_forsaken_fire.obj
+- everness_forsythia_mesh.obj
+- everness_glowing_pillar.obj
+- everness_lumabus.obj
+- everness_lumecorn.obj
+- everness_skull_with_candle.obj
+- everness_venus_trap.obj
+
+### Assets
+
+**CC-BY-SA-4.0, by SaKeL**
+
+- everness_barrel_cactus.blend
+- everness_cave_flower_with_particles.blend
+- everness_cave_flower.blend
+- everness_forsaken_fire.blend
+- everness_glowing_pillar.blend
+- everness_lumabus.blend
+- everness_lumecorn.blend
+- everness_mesh_bush.blend
+- everness_skull_with_candle.blend
+- everness_venus_trap.blend
+
+### Schematics
+
+**CC-BY-SA-4.0, by SaKeL**
+
+- everness_coral_volcano.lua
+- everness_baobab_tree.lua
+- everness_cemetery.lua
+- everness_coral_bones_tree.lua
+- everness_coral_tree_bioluminescent.lua
+- everness_coral_tree_from_sapling.lua
+- everness_coral_tree.lua
+- everness_coral_volcano_x_clay.lua
+- everness_crystal_bush.lua
+- everness_crystal_forest_ruins_1.lua
+- everness_crystal_forest_ruins_2.lua
+- everness_crystal_orange_cluster.lua
+- everness_crystal_purple_cluster.lua
+- everness_crystal_tree_large.lua
+- everness_crystal_tree.lua
+- everness_cursed_dream_tree.lua
+- everness_dry_tree.lua
+- everness_forsaken_desert_temple_2.lua
+- everness_forsaken_desert_temple.lua
+- everness_forsaken_tundra_rocks.lua
+- everness_forsythia_on_moss.lua
+- everness_frosted_crystal.lua
+- everness_frosted_lands_fossils.lua
+- everness_frosted_lands_stalagmite.lua
+- everness_frosted_lands_volcanic_rock.lua
+- everness_giant_sequoia_tree.lua
+- everness_haunted_house.lua
+- everness_hollow_tree_large.lua
+- everness_hollow_tree.lua
+- everness_japanese_shrine.lua
+- everness_jungle_temple.lua
+- everness_large_bamboo.lua
+- everness_marsh_grass.lua
+- everness_quartz_temple.lua
+- everness_ruins_1.lua
+- everness_small_bamboo.lua
+- everness_sulfur_volcano.lua
+- everness_termite_nest.lua
+- everness_willow_tree.lua
+- everness_coral_tree_bioluminescent_from_sapling.lua
+- everness_cursed_dream_tree_from_sapling.lua
+- everness_dry_tree_from_sapling.lua
+- everness_giant_sequoia_tree_from_sapling.lua
+- everness_willow_tree_from_sapling.lua

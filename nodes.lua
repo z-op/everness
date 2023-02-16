@@ -1215,8 +1215,7 @@ minetest.register_node('everness:willow_tree', {
     is_ground_content = false,
     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
     sounds = default.node_sound_wood_defaults(),
-    -- on_place = minetest.rotate_node
-    place_param2 = 0
+    on_place = minetest.rotate_node
 })
 
 minetest.register_node('everness:willow_wood', {
@@ -1289,26 +1288,26 @@ minetest.register_node('everness:crystal_tree', {
     on_place = minetest.rotate_node,
 })
 
-minetest.register_node('everness:mese_tree', {
-    description = S('Mese Tree Trunk'),
-    short_description = S('Mese Tree Trunk'),
-    tiles = {
-        {
-            name = 'everness_mese_tree_side_animated.png',
-            animation = {
-                type = 'vertical_frames',
-                aspect_w = 16,
-                aspect_h = 16,
-                length = 2
-            }
-        },
-    },
-    paramtype2 = 'facedir',
-    is_ground_content = false,
-    groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
-    sounds = default.node_sound_wood_defaults(),
-    on_place = minetest.rotate_node
-})
+-- minetest.register_node('everness:mese_tree', {
+--     description = S('Mese Tree Trunk'),
+--     short_description = S('Mese Tree Trunk'),
+--     tiles = {
+--         {
+--             name = 'everness_mese_tree_side_animated.png',
+--             animation = {
+--                 type = 'vertical_frames',
+--                 aspect_w = 16,
+--                 aspect_h = 16,
+--                 length = 2
+--             }
+--         },
+--     },
+--     paramtype2 = 'facedir',
+--     is_ground_content = false,
+--     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
+--     sounds = default.node_sound_wood_defaults(),
+--     on_place = minetest.rotate_node
+-- })
 
 minetest.register_node('everness:baobab_leaves', {
     description = S('Baobab Tree Leaves'),
@@ -1327,7 +1326,7 @@ minetest.register_node('everness:baobab_leaves', {
             {
                 -- player will get sapling with 1/20 chance
                 items = { 'everness:baobab_sapling' },
-                rarity = 20,
+                rarity = 30,
             },
             {
                 -- player will get leaves only if he get no saplings,
@@ -1354,11 +1353,11 @@ minetest.register_node('everness:sequoia_leaves', {
     drop = {
         max_items = 1,
         items = {
-            -- {
-            --     -- player will get sapling with 1/20 chance
-            --     items = { 'everness:baobab_sapling' },
-            --     rarity = 20,
-            -- },
+            {
+                -- player will get sapling with 1/20 chance
+                items = { 'everness:sequoia_tree_sapling' },
+                rarity = 50,
+            },
             {
                 -- player will get leaves only if he get no saplings,
                 -- this is because max_items is 1
@@ -1484,7 +1483,7 @@ minetest.register_node('everness:baobab_sapling', {
             -- minp, maxp to be checked, relative to sapling pos
             -- minp_relative.y = 1 because sapling pos has been checked
             { x = -12, y = 1, z = -12 },
-            { x = 12, y = 38, z = 12 },
+            { x = 12, y = 39, z = 12 },
             -- maximum interval of interior volume check
             4)
 
@@ -1506,11 +1505,11 @@ minetest.register_node('everness:willow_leaves', {
     drop = {
         max_items = 1,
         items = {
-            -- {
-            --     -- player will get sapling with 1/20 chance
-            --     items = { 'everness:baobab_sapling' },
-            --     rarity = 20,
-            -- },
+            {
+                -- player will get sapling with 1/20 chance
+                items = { 'everness:willow_tree_sapling' },
+                rarity = 50,
+            },
             {
                 -- player will get leaves only if he get no saplings,
                 -- this is because max_items is 1
@@ -1519,8 +1518,7 @@ minetest.register_node('everness:willow_leaves', {
         }
     },
     sounds = default.node_sound_leaves_defaults(),
-    -- after_place_node = default.after_place_leaves,
-    place_param2 = 0
+    after_place_node = default.after_place_leaves,
 })
 
 minetest.register_node('everness:coral_leaves', {
@@ -1539,7 +1537,7 @@ minetest.register_node('everness:coral_leaves', {
             {
                 -- player will get sapling with 1/20 chance
                 items = { 'everness:coral_tree_sapling' },
-                rarity = 10,
+                rarity = 30,
             },
             {
                 -- player will get leaves only if he get no saplings,
@@ -1567,8 +1565,8 @@ minetest.register_node('everness:dry_branches', {
         items = {
             {
                 -- player will get sapling with 1/20 chance
-                items = { 'everness:coral_tree_sapling' },
-                rarity = 10,
+                items = { 'everness:dry_tree_sapling' },
+                rarity = 20,
             },
             {
                 -- player will get leaves only if he get no saplings,
@@ -1596,8 +1594,8 @@ minetest.register_node('everness:crystal_leaves', {
         items = {
             {
                 -- player will get sapling with 1/20 chance
-                items = { 'everness:coral_tree_sapling' },
-                rarity = 10,
+                items = { 'everness:crystal_tree_sapling' },
+                rarity = 30,
             },
             {
                 -- player will get leaves only if he get no saplings,
@@ -1639,6 +1637,260 @@ minetest.register_node('everness:coral_tree_sapling', {
             -- minp_relative.y = 1 because sapling pos has been checked
             { x = -3, y = 1, z = -3 },
             { x = 3, y = 6, z = 3 },
+            -- maximum interval of interior volume check
+            4)
+
+        return itemstack
+    end,
+})
+
+minetest.register_node('everness:coral_tree_bioluminescent_sapling', {
+    description = S('Coral Tree Bioluminescent Sapling'),
+    short_description = S('Coral Tree Bioluminescent Sapling'),
+    drawtype = 'plantlike',
+    tiles = { 'everness_coral_tree_bioluminescent_sapling.png' },
+    inventory_image = 'everness_coral_tree_bioluminescent_sapling.png',
+    wield_image = 'everness_coral_tree_bioluminescent_sapling.png',
+    paramtype = 'light',
+    sunlight_propagates = true,
+    walkable = false,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
+    },
+    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    on_timer = function(...)
+        Everness.grow_sapling(...)
+    end,
+    on_construct = function(pos)
+        minetest.get_node_timer(pos):start(math.random(300, 1500))
+    end,
+    on_place = function(itemstack, placer, pointed_thing)
+        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+            'everness:coral_tree_bioluminescent_sapling',
+            -- minp, maxp to be checked, relative to sapling pos
+            -- minp_relative.y = 1 because sapling pos has been checked
+            { x = -7, y = 1, z = -7 },
+            { x = 7, y = 17, z = 7 },
+            -- maximum interval of interior volume check
+            4)
+
+        return itemstack
+    end,
+})
+
+minetest.register_node('everness:dry_tree_sapling', {
+    description = S('Dry Tree Sapling'),
+    short_description = S('Dry Tree Sapling'),
+    drawtype = 'plantlike',
+    tiles = { 'everness_dry_tree_sapling.png' },
+    inventory_image = 'everness_dry_tree_sapling.png',
+    wield_image = 'everness_dry_tree_sapling.png',
+    paramtype = 'light',
+    sunlight_propagates = true,
+    walkable = false,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
+    },
+    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    on_timer = function(...)
+        Everness.grow_sapling(...)
+    end,
+    on_construct = function(pos)
+        minetest.get_node_timer(pos):start(math.random(300, 1500))
+    end,
+    on_place = function(itemstack, placer, pointed_thing)
+        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+            'everness:dry_tree_sapling',
+            -- minp, maxp to be checked, relative to sapling pos
+            -- minp_relative.y = 1 because sapling pos has been checked
+            { x = -3, y = 1, z = -3 },
+            { x = 3, y = 8, z = 3 },
+            -- maximum interval of interior volume check
+            4)
+
+        return itemstack
+    end,
+})
+
+minetest.register_node('everness:cursed_dream_tree_sapling', {
+    description = S('Cursed Dream Tree Sapling'),
+    short_description = S('Cursed Dream Tree Sapling'),
+    drawtype = 'plantlike',
+    tiles = { 'everness_cursed_dream_tree_sapling.png' },
+    inventory_image = 'everness_cursed_dream_tree_sapling.png',
+    wield_image = 'everness_cursed_dream_tree_sapling.png',
+    paramtype = 'light',
+    sunlight_propagates = true,
+    walkable = false,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
+    },
+    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    on_timer = function(...)
+        Everness.grow_sapling(...)
+    end,
+    on_construct = function(pos)
+        minetest.get_node_timer(pos):start(math.random(300, 1500))
+    end,
+    on_place = function(itemstack, placer, pointed_thing)
+        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+            'everness:cursed_dream_tree_sapling',
+            -- minp, maxp to be checked, relative to sapling pos
+            -- minp_relative.y = 1 because sapling pos has been checked
+            { x = -8, y = 1, z = -8 },
+            { x = 8, y = 15, z = 8 },
+            -- maximum interval of interior volume check
+            4)
+
+        return itemstack
+    end,
+})
+
+minetest.register_node('everness:willow_tree_sapling', {
+    description = S('Dry Tree Sapling'),
+    short_description = S('Dry Tree Sapling'),
+    drawtype = 'plantlike',
+    tiles = { 'everness_willow_tree_sapling.png' },
+    inventory_image = 'everness_willow_tree_sapling.png',
+    wield_image = 'everness_willow_tree_sapling.png',
+    paramtype = 'light',
+    sunlight_propagates = true,
+    walkable = false,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
+    },
+    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    on_timer = function(...)
+        Everness.grow_sapling(...)
+    end,
+    on_construct = function(pos)
+        minetest.get_node_timer(pos):start(math.random(300, 1500))
+    end,
+    on_place = function(itemstack, placer, pointed_thing)
+        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+            'everness:willow_tree_sapling',
+            -- minp, maxp to be checked, relative to sapling pos
+            -- minp_relative.y = 1 because sapling pos has been checked
+            { x = -19, y = 1, z = -19 },
+            { x = 19, y = 28, z = 19 },
+            -- maximum interval of interior volume check
+            4)
+
+        return itemstack
+    end,
+})
+
+minetest.register_node('everness:sequoia_tree_sapling', {
+    description = S('Sequoia Tree Sapling'),
+    short_description = S('Sequoia Tree Sapling'),
+    drawtype = 'plantlike',
+    tiles = { 'everness_sequoia_tree_sapling.png' },
+    inventory_image = 'everness_sequoia_tree_sapling.png',
+    wield_image = 'everness_sequoia_tree_sapling.png',
+    paramtype = 'light',
+    paramtype2 = 'meshoptions',
+    place_param2 = 24,
+    sunlight_propagates = true,
+    walkable = false,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
+    },
+    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    on_timer = function(...)
+        Everness.grow_sapling(...)
+    end,
+    on_construct = function(pos)
+        minetest.get_node_timer(pos):start(math.random(300, 1500))
+    end,
+    on_place = function(itemstack, placer, pointed_thing)
+        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+            'everness:sequoia_tree_sapling',
+            -- minp, maxp to be checked, relative to sapling pos
+            -- minp_relative.y = 1 because sapling pos has been checked
+            { x = -12, y = 1, z = -12 },
+            { x = 12, y = 75, z = 12 },
+            -- maximum interval of interior volume check
+            4)
+
+        return itemstack
+    end,
+})
+
+minetest.register_node('everness:crystal_tree_sapling', {
+    description = S('Crystal Tree Sapling'),
+    short_description = S('Crystal Tree Sapling'),
+    drawtype = 'plantlike',
+    tiles = { 'everness_crystal_tree_sapling.png' },
+    inventory_image = 'everness_crystal_tree_sapling.png',
+    wield_image = 'everness_crystal_tree_sapling.png',
+    paramtype = 'light',
+    sunlight_propagates = true,
+    walkable = false,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
+    },
+    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    on_timer = function(...)
+        Everness.grow_sapling(...)
+    end,
+    on_construct = function(pos)
+        minetest.get_node_timer(pos):start(math.random(300, 1500))
+    end,
+    on_place = function(itemstack, placer, pointed_thing)
+        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+            'everness:crystal_tree_sapling',
+            -- minp, maxp to be checked, relative to sapling pos
+            -- minp_relative.y = 1 because sapling pos has been checked
+            { x = -6, y = 1, z = -6 },
+            { x = 6, y = 14, z = 6 },
+            -- maximum interval of interior volume check
+            4)
+
+        return itemstack
+    end,
+})
+
+minetest.register_node('everness:crystal_tree_large_sapling', {
+    description = S('Crystal Tree Large Sapling'),
+    short_description = S('Crystal Tree Large Sapling'),
+    drawtype = 'plantlike',
+    tiles = { 'everness_crystal_tree_large_sapling.png' },
+    inventory_image = 'everness_crystal_tree_large_sapling.png',
+    wield_image = 'everness_crystal_tree_large_sapling.png',
+    paramtype = 'light',
+    sunlight_propagates = true,
+    walkable = false,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
+    },
+    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    sounds = default.node_sound_leaves_defaults(),
+    on_timer = function(...)
+        Everness.grow_sapling(...)
+    end,
+    on_construct = function(pos)
+        minetest.get_node_timer(pos):start(math.random(300, 1500))
+    end,
+    on_place = function(itemstack, placer, pointed_thing)
+        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+            'everness:crystal_tree_large_sapling',
+            -- minp, maxp to be checked, relative to sapling pos
+            -- minp_relative.y = 1 because sapling pos has been checked
+            { x = -10, y = 1, z = -10 },
+            { x = 10, y = 14, z = 10 },
             -- maximum interval of interior volume check
             4)
 

@@ -988,41 +988,11 @@ end
 -- how often node timers for plants will tick, +/- some random value
 function Everness.tick_vine(self, pos)
     minetest.get_node_timer(pos):start(math.random(5, 10))
-
-    -- DEBUG
-    -- minetest.add_particlespawner({
-    --     amount = 15,
-    --     time = 1,
-    --     minpos = { x = pos.x, y = pos.y, z = pos.z },
-    --     maxpos = { x = pos.x, y = pos.y, z = pos.z },
-    --     minacc = { x = -0.25, y = 0, z = -0.25 },
-    --     maxacc = { x = 0.25, y = 0, z = 0.25 },
-    --     minexptime = 2,
-    --     maxexptime = 2,
-    --     minsize = 1.5,
-    --     maxsize = 2,
-    --     texture = 'wool_red.png'
-    -- })
 end
 
 -- how often a growth failure tick is retried (e.g. too dark)
 function Everness.tick_vine_again(self, pos)
     minetest.get_node_timer(pos):start(math.random(40, 80))
-
-    -- DEBUG
-    -- minetest.add_particlespawner({
-    --     amount = 15,
-    --     time = 1,
-    --     minpos = { x = pos.x, y = pos.y, z = pos.z },
-    --     maxpos = { x = pos.x, y = pos.y, z = pos.z },
-    --     minacc = { x = -0.25, y = 0, z = -0.25 },
-    --     maxacc = { x = 0.25, y = 0, z = 0.25 },
-    --     minexptime = 2,
-    --     maxexptime = 2,
-    --     minsize = 1.5,
-    --     maxsize = 2,
-    --     texture = 'wool_orange.png'
-    -- })
 end
 
 -- how often node timers for plants will tick, +/- some random value

@@ -842,12 +842,13 @@ minetest.register_decoration({
     name = 'everness:coral_forest_under_desert_stone_with_moss_floors',
     deco_type = 'simple',
     place_on = { 'default:stone' },
+    place_offset_y = -1,
     sidelen = 16,
     fill_ratio = 10,
     biomes = { 'everness_coral_forest_under' },
     y_max = -256,
     y_min = -31000,
-    flags = 'all_floors',
+    flags = 'all_floors, force_placement',
     decoration = {
         'everness:coral_desert_stone_with_moss'
     },
@@ -2456,6 +2457,28 @@ minetest.register_decoration({
     flags = 'all_ceilings',
     spawn_by = 'air',
     num_spawn_by = 8
+})
+
+minetest.register_decoration({
+    name = 'everness:forsaken_desert_under_hollow_tree',
+    deco_type = 'simple',
+    place_on = { 'everness:forsaken_desert_sand' },
+    sidelen = 16,
+    noise_params = {
+        offset = 0,
+        scale = 0.006,
+        spread = { x = 250, y = 250, z = 250 },
+        seed = 2,
+        octaves = 3,
+        persist = 0.66
+    },
+    biomes = { 'everness_forsaken_desert_under' },
+    y_max = -256,
+    y_min = -31000,
+    decoration = 'everness:hollow_tree',
+    height = 3,
+    height_max = 7,
+    flags = 'all_floors'
 })
 
 minetest.register_decoration({

@@ -207,6 +207,34 @@ minetest.register_craft({
     }
 })
 
+minetest.register_craft({
+    output = 'everness:baobab_wood 4',
+    recipe = {
+        { 'everness:baobab_tree' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:dry_wood 4',
+    recipe = {
+        { 'everness:dry_tree' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:willow_wood 4',
+    recipe = {
+        { 'everness:willow_tree' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:sequoia_wood 4',
+    recipe = {
+        { 'everness:sequoia_tree' },
+    }
+})
+
 --
 -- Tools
 --
@@ -336,4 +364,32 @@ minetest.register_craft({
     type = 'cooking',
     output = 'everness:pyriteblock_forged',
     recipe = 'everness:pyriteblock',
+})
+
+--
+-- Saplings
+--
+
+minetest.register_craft({
+    output = 'everness:coral_tree_bioluminescent_sapling',
+    recipe = {
+        { 'default:meselamp' },
+        { 'everness:coral_tree_sapling' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:cursed_dream_tree_sapling',
+    recipe = {
+        { 'default:meselamp' },
+        { 'everness:dry_tree_sapling' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:crystal_tree_large_sapling',
+    recipe = {
+        { 'everness:crystal_tree_sapling', 'everness:crystal_tree_sapling' },
+        { 'everness:crystal_tree_sapling', 'everness:crystal_tree_sapling' }
+    }
 })

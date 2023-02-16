@@ -184,24 +184,33 @@ minetest.register_abm({
 default.register_leafdecay({
     trunks = {
         'everness:coral_tree',
-        'everness:dry_tree',
-        'everness:crystal_tree',
         'everness:crystal_bush_stem',
-        'everness:cursed_bush_stem'
+        'everness:cursed_bush_stem',
+        'everness:willow_tree',
+        'everness:sequoia_tree',
     },
     leaves = {
         'everness:coral_leaves',
-        'everness:dry_branches',
-        'everness:crystal_leaves',
-        'everness:crystal_bush_leaves'
+        'everness:crystal_bush_leaves',
+        'everness:willow_leaves',
+        'everness:sequoia_leaves',
     },
     radius = 3
 })
 
 -- Baobab Tree
 default.register_leafdecay({
-    trunks = { 'everness:baobab_tree' },
-    leaves = { 'everness:baobab_leaves', 'everness:baobab_fruit_renewable' },
+    trunks = {
+        'everness:baobab_tree',
+        'everness:crystal_tree',
+        'everness:dry_tree',
+    },
+    leaves = {
+        'everness:baobab_leaves',
+        'everness:baobab_fruit_renewable',
+        'everness:crystal_leaves',
+        'everness:dry_branches',
+    },
     radius = 4,
 })
 
