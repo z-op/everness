@@ -83,12 +83,13 @@ minetest.register_globalstep(function(dtime)
                 end
             end
 
-            if player_pos.y <= -256 and is_underground == 0 and player_biome_name ~= biome_name then
+            if player_pos.y <= -256 and is_underground == 0 or (is_underground ~= 0 and player_biome_name ~= biome_name) then
                 -- hide sun, moon, stars ... underground
                 player_meta:set_int('everness_is_underground', 1)
 
                 player:set_sun({
-                    visible = false
+                    visible = false,
+                    sunrise_visible = false
                 })
 
                 player:set_moon({
@@ -99,7 +100,7 @@ minetest.register_globalstep(function(dtime)
                     visible = false
                 })
 
-            elseif player_pos.y > -256 and is_underground == 1 and player_biome_name ~= biome_name then
+            elseif player_pos.y > -256 and is_underground ~= 0 or (is_underground == 0 and player_biome_name ~= biome_name) then
                 -- show sun, moon, stars ... underground
                 player_meta:set_int('everness_is_underground', 0)
 
@@ -112,7 +113,8 @@ minetest.register_globalstep(function(dtime)
                 })
 
                 player:set_stars({
-                    visible = true
+                    visible = true,
+                    sunrise_visible = true
                 })
             end
         end
