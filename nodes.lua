@@ -182,7 +182,7 @@ minetest.register_node('everness:coral_desert_stone_with_moss', {
             tileable_vertical = false
         }
     },
-    groups = { cracky = 3, stone = 1 },
+    groups = { cracky = 3, stone = 1, everness_spreading_dirt_type_under = 1 },
     drop = 'everness:coral_desert_cobble',
     legacy_mineral = true,
     sounds = default.node_sound_stone_defaults(),
@@ -434,7 +434,7 @@ minetest.register_node('everness:mold_stone_with_moss', {
         'everness_mold_stone.png',
         'everness_mold_stone_with_moss_side.png'
     },
-    groups = { cracky = 3, stone = 1, moldy = 1, everness_spreading_mold_type = 1 },
+    groups = { cracky = 3, stone = 1, everness_spreading_dirt_type_under = 1 },
     drop = 'everness:mold_cobble',
     sounds = default.node_sound_stone_defaults(),
 })
@@ -453,7 +453,7 @@ minetest.register_node('everness:soul_sandstone_veined', {
         'everness_soul_sandstone.png',
         'everness_soul_sandstone_veined_side.png'
     },
-    groups = { cracky = 3, stone = 1, moss_veins = 1, everness_spreading_moss_veins_type = 1 },
+    groups = { cracky = 3, stone = 1, everness_spreading_dirt_type_under = 1 },
     drop = 'everness:soul_sandstone',
     sounds = default.node_sound_stone_defaults(),
 })
@@ -615,8 +615,8 @@ minetest.register_node('everness:forsaken_tundra_dirt_with_grass', {
         'everness_forsaken_tundra_dirt.png',
         { name = 'everness_forsaken_tundra_dirt.png^everness_forsaken_tundra_grass_side.png', tileable_vertical = false }
     },
-    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1, mold_soil = 1 },
-    drop = 'everness:forsaken_tundra_dirt',
+    groups = { crumbly = 3, soil = 1 },
+    -- drop = 'everness:forsaken_tundra_dirt',
     sounds = default.node_sound_dirt_defaults({
         footstep = { name = 'default_grass_footstep', gain = 0.25 },
     }),
@@ -645,7 +645,7 @@ minetest.register_node('everness:dirt_with_cursed_grass', {
         'everness_cursed_dirt.png',
         { name = 'everness_cursed_dirt.png^everness_cursed_grass_side.png', tileable_vertical = false }
     },
-    groups = { crumbly = 3, soil = 1, cursed_grass = 1, everness_spreading_dirt_type = 1 },
+    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
     drop = 'everness:cursed_dirt',
     sounds = Everness.node_sound_mud_defaults(),
 })
@@ -658,7 +658,7 @@ minetest.register_node('everness:dirt_with_crystal_grass', {
         'everness_crystal_dirt.png',
         { name = 'everness_crystal_dirt.png^everness_crystal_grass_side.png', tileable_vertical = false }
     },
-    groups = { crumbly = 3, soil = 1, crystal_grass = 1, everness_spreading_dirt_type = 1 },
+    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
     drop = 'everness:crystal_dirt',
     sounds = default.node_sound_dirt_defaults({
         footstep = { name = 'default_grass_footstep', gain = 0.25 },
@@ -797,7 +797,7 @@ minetest.register_node('everness:crystal_cave_dirt', {
     description = S('Crystal Cave Dirt'),
     short_description = S('Crystal Cave Dirt'),
     tiles = { 'everness_crystal_cave_dirt.png' },
-    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
+    groups = { crumbly = 3, soil = 1 },
     sounds = default.node_sound_dirt_defaults({
         footstep = { name = 'default_grass_footstep', gain = 0.25 },
     }),
@@ -812,7 +812,7 @@ minetest.register_node('everness:crystal_cave_dirt_with_moss', {
         'everness_crystal_cave_dirt_side.png'
     },
     drop = 'everness:crystal_cave_dirt',
-    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
+    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type_under = 1 },
     sounds = default.node_sound_dirt_defaults({
         footstep = { name = 'default_grass_footstep', gain = 0.25 },
     }),
@@ -830,7 +830,7 @@ minetest.register_node('everness:moss_block', {
 minetest.register_node('everness:crystal_moss_block', {
     description = S('Crystal Moss Block'),
     tiles = { 'everness_crystal_cave_moss.png' },
-    groups = { crumbly = 3, soil = 1 },
+    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type_under = 1 },
     sounds = default.node_sound_dirt_defaults({
         footstep = { name = 'default_grass_footstep', gain = 0.25 },
     }),
@@ -1054,7 +1054,7 @@ minetest.register_node('everness:cave_flower', {
         type = 'fixed',
         fixed = { -0.5, -0.5, -0.5, 0.5, -0.25, 0.5 }
     },
-    groups = { choppy = 2, dig_immediate = 3, flammable = 1, attached_node = 1 },
+    groups = { snappy = 3, flora = 1, attached_node = 1, bamboo_grass_under = 1, flammable = 1 },
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true,
     light_source = 7,
@@ -1091,7 +1091,7 @@ minetest.register_node('everness:cave_flower_with_particles', {
         type = 'fixed',
         fixed = { -0.5, -0.5, -0.5, 0.5, -0.25, 0.5 }
     },
-    groups = { choppy = 2, dig_immediate = 3, flammable = 1, attached_node = 1 },
+    groups = { snappy = 3, flora = 1, attached_node = 1, bamboo_grass_under = 1, flammable = 1 },
     sounds = default.node_sound_leaves_defaults(),
     sunlight_propagates = true,
     light_source = 12,
@@ -2137,7 +2137,7 @@ minetest.register_node('everness:coral_shrub', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1 },
+    groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, coral_grass = 1 },
     sounds = default.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2157,7 +2157,7 @@ minetest.register_node('everness:coral_grass_orange', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1 },
+    groups = { snappy = 3, flammable = 2, attached_node = 1, flora = 1, coral_grass_under = 1 },
     sounds = default.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2178,7 +2178,7 @@ minetest.register_node('everness:globulagus', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1 },
+    groups = { snappy = 3, flammable = 2, attached_node = 1, flora = 1, coral_grass_under = 1 },
     sounds = default.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2200,7 +2200,7 @@ minetest.register_node('everness:coral_grass_tall', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1 },
+    groups = { snappy = 3, flammable = 2, attached_node = 1, flora = 1, coral_grass_under = 1 },
     sounds = default.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2221,7 +2221,7 @@ minetest.register_node('everness:crystal_purple', {
     paramtype2 = 'wallmounted',
     sunlight_propagates = true,
     walkable = false,
-    groups = { cracky = 3, oddly_breakable_by_hand = 3 },
+    groups = { cracky = 3, attached_node = 1, flora = 1, crystal_grass_under = 1 },
     sounds = Everness.node_sound_crystal_defaults(),
     light_source = 7,
     selection_box = {
@@ -2242,7 +2242,7 @@ minetest.register_node('everness:crystal_orange', {
     paramtype2 = 'wallmounted',
     sunlight_propagates = true,
     walkable = false,
-    groups = { cracky = 3, oddly_breakable_by_hand = 3 },
+    groups = { cracky = 3, attached_node = 1, flora = 1, crystal_grass_under = 1 },
     sounds = Everness.node_sound_crystal_defaults(),
     light_source = 7,
     selection_box = {
@@ -2263,7 +2263,7 @@ minetest.register_node('everness:crystal_cyan', {
     paramtype2 = 'wallmounted',
     sunlight_propagates = true,
     walkable = false,
-    groups = { cracky = 3, oddly_breakable_by_hand = 3 },
+    groups = { cracky = 3, attached_node = 1, flora = 1, crystal_grass_under = 1 },
     sounds = default.node_sound_glass_defaults(),
     light_source = 12,
     selection_box = {
@@ -2286,7 +2286,7 @@ minetest.register_node('everness:coral_plant_bioluminescent', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1 },
+    groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, coral_grass_under = 1 },
     sounds = default.node_sound_leaves_defaults(),
     light_source = 9
 })
@@ -2306,7 +2306,7 @@ minetest.register_node('everness:blooming_cooksonia', {
     walkable = false,
     buildable_to = true,
     is_ground_content = true,
-    groups = { oddly_breakable_by_hand = 3 },
+    groups = { snappy = 3, flammable = 2, attached_node = 1, frosted_grass_under = 1 },
     sounds = default.node_sound_leaves_defaults(),
     light_source = 9
 })
@@ -2326,7 +2326,7 @@ minetest.register_node('everness:creeping_moss_spores', {
     walkable = false,
     buildable_to = true,
     is_ground_content = true,
-    groups = { oddly_breakable_by_hand = 3 },
+    groups = { snappy = 3, flammable = 2, attached_node = 1, frosted_grass_under = 1 },
     sounds = default.node_sound_leaves_defaults(),
     light_source = 9
 })
@@ -2366,7 +2366,7 @@ minetest.register_node('everness:frosted_icicle_floor', {
     walkable = false,
     buildable_to = true,
     is_ground_content = true,
-    groups = { oddly_breakable_by_hand = 3 },
+    groups = { snappy = 3, attached_node = 1, frosted_grass_under = 1 },
     sounds = default.node_sound_ice_defaults(),
     light_source = 9,
     selection_box = {
@@ -2509,7 +2509,7 @@ minetest.register_node('everness:crystal_mushrooms', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { mushroom = 1, food_mushroom = 1, snappy = 3, attached_node = 1, flammable = 1 },
+    groups = { mushroom = 1, food_mushroom = 1, snappy = 3, attached_node = 1, flammable = 1, crystal_grass = 1 },
     sounds = default.node_sound_leaves_defaults(),
     on_use = minetest.item_eat(1),
     selection_box = {
@@ -2530,7 +2530,7 @@ minetest.register_node('everness:twisted_crystal_grass', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { flora = 1, attached_node = 1, crystal_grass = 1, flammable = 1 },
+    groups = { snappy = 3, flammable = 1, attached_node = 1, crystal_grass_under = 1 },
     sounds = default.node_sound_leaves_defaults(),
     light_source = 7,
     selection_box = {
@@ -2552,7 +2552,7 @@ minetest.register_node('everness:crystal_grass_1', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, crystal_grass = 1, normal_grass = 1, flammable = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = default.node_sound_glass_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
@@ -2588,7 +2588,7 @@ for i = 2, 3 do
             normal_grass = 1,
             flammable = 1
         },
-        sounds = default.node_sound_leaves_defaults(),
+        sounds = default.node_sound_glass_defaults(),
         light_source = i,
         selection_box = {
             type = 'fixed',
@@ -2609,7 +2609,7 @@ minetest.register_node('everness:marsh_grass', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, grass = 1, flammable = 1 },
+    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass = 1, flammable = 1 },
     sounds = default.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2894,7 +2894,7 @@ minetest.register_node('everness:agave_leaf_1', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, normal_grass = 1, flammable = 1, forsaken_tundra_grass = 1 },
+    groups = { snappy = 3, flora = 1, attached_node = 1, normal_grass = 1, flammable = 1, forsaken_tundra_grass_under = 1 },
     sounds = default.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2930,7 +2930,7 @@ for i = 2, 3 do
             not_in_creative_inventory = 1,
             normal_grass = 1,
             flammable = 1,
-            forsaken_tundra_grass = 1
+            forsaken_tundra_grass_under = 1
         },
         sounds = default.node_sound_leaves_defaults(),
         light_source = 4 + i,
@@ -2958,7 +2958,7 @@ minetest.register_node('everness:egg_plant', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass = 1, normal_grass = 1, flammable = 1 },
+    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass_under = 1, flammable = 1 },
     sounds = default.node_sound_leaves_defaults(),
     node_box = {
         type = 'fixed',
@@ -2988,7 +2988,7 @@ minetest.register_node('everness:ivis_moss', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass = 1, normal_grass = 1, flammable = 1 },
+    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass_under = 1, flammable = 1 },
     sounds = default.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -3010,7 +3010,7 @@ minetest.register_node('everness:ngrass_1', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass = 1, normal_grass = 1, flammable = 1 },
+    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass_under = 1, flammable = 1 },
     sounds = default.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -3032,7 +3032,7 @@ minetest.register_node('everness:ngrass_2', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass = 1, normal_grass = 1, flammable = 1 },
+    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass_under = 1, flammable = 1 },
     sounds = default.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -3088,6 +3088,7 @@ minetest.register_node('everness:bamboo_1', {
         flammable = 2,
         bamboo = 1,
         bamboo_small = 1,
+        bamboo_grass = 1
     },
     selection_box = {
         type = 'fixed',
@@ -3153,6 +3154,7 @@ minetest.register_node('everness:bamboo_2', {
         flammable = 2,
         bamboo = 1,
         bamboo_small = 1,
+        bamboo_grass = 1
     },
     selection_box = {
         type = 'fixed',
@@ -3220,6 +3222,7 @@ minetest.register_node('everness:bamboo_3', {
         flammable = 2,
         bamboo = 1,
         bamboo_large = 1,
+        bamboo_grass = 1
     },
     selection_box = {
         type = 'fixed',
@@ -3281,6 +3284,7 @@ minetest.register_node('everness:bamboo_4', {
         flammable = 2,
         bamboo = 1,
         bamboo_large = 1,
+        bamboo_grass = 1
     },
     selection_box = {
         type = 'fixed',
@@ -3342,6 +3346,7 @@ minetest.register_node('everness:bamboo_5', {
         flammable = 2,
         bamboo = 1,
         bamboo_large = 1,
+        bamboo_grass = 1
     },
     selection_box = {
         type = 'fixed',
@@ -3365,7 +3370,7 @@ minetest.register_node('everness:bamboo_sprout', {
     inventory_image = 'everness_bamboo_sprout.png',
     wield_image = 'everness_bamboo_sprout.png',
     drawtype = 'plantlike',
-    groups = { seed = 1, snappy = 3, flammable = 2, attached_node = 1, bamboo = 1 },
+    groups = { seed = 1, snappy = 3, flammable = 2, attached_node = 1, bamboo = 1, bamboo_grass = 1 },
     paramtype = 'light',
     paramtype2 = 'meshoptions',
     walkable = false,
@@ -3403,7 +3408,7 @@ minetest.register_node('everness:bloodspore_plant', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1 },
+    groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, forsaken_tundra_grass = 1 },
     sounds = default.node_sound_leaves_defaults(),
     light_source = 7
 })
@@ -3422,7 +3427,7 @@ minetest.register_node('everness:bloodspore_plant_small', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, forsaken_tundra_grass = 1 },
+    groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, forsaken_tundra_grass_under = 1 },
     sounds = default.node_sound_leaves_defaults(),
     light_source = 7
 })
@@ -3814,7 +3819,7 @@ minetest.register_node('everness:forsythia_bush', {
     paramtype = 'light',
     is_ground_content = false,
     walkable = true,
-    groups = { snappy = 3, flammable = 2 },
+    groups = { snappy = 3, flora = 1, attached_node = 1, bamboo_grass_under = 1, flammable = 2 },
     sounds = default.node_sound_leaves_defaults(),
     sunlight_propagates = true,
     use_texture_alpha = 'clip',
@@ -3835,7 +3840,7 @@ minetest.register_node('everness:glowing_pillar', {
     inventory_image = 'everness_glowing_pillar_item.png',
     wield_image = 'everness_glowing_pillar_item.png',
     paramtype = 'light',
-    groups = { snappy = 3, flammable = 2, forsaken_tundra_grass = 1 },
+    groups = { snappy = 3, flammable = 2, forsaken_tundra_grass_under = 1, flora = 1, attached_node = 1 },
     selection_box = {
         type = 'fixed',
         fixed = { -0.63, -0.5, -0.63, 0.63, 3.23, 0.63 }
@@ -3865,10 +3870,10 @@ minetest.register_node('everness:blue_vine_lantern', {
     inventory_image = 'everness_blue_vine_lantern_item.png',
     wield_image = 'everness_blue_vine_lantern_item.png',
     paramtype = 'light',
-    groups = { snappy = 3, flammable = 2 },
+    groups = { snappy = 3, flammable = 2, flora = 1, attached_node = 1, bamboo_grass_under = 1 },
     selection_box = {
         type = 'fixed',
-        fixed = { -0.63, -0.63, -0.63, 0.63, 3.13, 0.63 }
+        fixed = { -0.63, -0.5, -0.63, 0.63, 3.23, 0.63 }
     },
     collision_box = {
         type = 'fixed',
@@ -3892,13 +3897,13 @@ minetest.register_node('everness:amaranita_lantern', {
         'everness_amaranita_lantern_light.png',
         'everness_amaranita_lantern_fur.png',
     },
-    inventory_image = 'everness_blue_vine_lantern_item.png',
-    wield_image = 'everness_blue_vine_lantern_item.png',
+    inventory_image = 'everness_amaranita_lantern_item.png',
+    wield_image = 'everness_amaranita_lantern_item.png',
     paramtype = 'light',
-    groups = { snappy = 3, flammable = 2 },
+    groups = { snappy = 3, flammable = 2, attached_node = 1, frosted_grass_under = 1 },
     selection_box = {
         type = 'fixed',
-        fixed = { -0.63, -0.63, -0.63, 0.63, 3.13, 0.63 }
+        fixed = { -0.63, -0.5, -0.63, 0.63, 3.23, 0.63 }
     },
     collision_box = {
         type = 'fixed',
@@ -3929,14 +3934,14 @@ minetest.register_node('everness:lumecorn', {
             backface_culling = false
         },
     },
-    -- inventory_image = 'everness_glowing_pillar_item.png',
-    -- wield_image = 'everness_glowing_pillar_item.png',
+    inventory_image = 'everness_lumecorn_item.png',
+    wield_image = 'everness_lumecorn_item.png',
     paramtype = 'light',
     waving = 1,
-    groups = { snappy = 3, flammable = 2 },
+    groups = { snappy = 3, flammable = 2, attached_node = 1, flora = 1, coral_grass_under = 1 },
     selection_box = {
         type = 'fixed',
-        fixed = { -0.63, -0.63, -0.63, 0.63, 3.13, 0.63 }
+        fixed = { -0.63, -0.5, -0.63, 0.63, 3.23, 0.63 }
     },
     sounds = default.node_sound_leaves_defaults(),
     sunlight_propagates = true,
@@ -4084,7 +4089,7 @@ minetest.register_node('everness:floating_crystal', {
     sunlight_propagates = true,
     buildable_to = true,
     walkable = false,
-    groups = { snappy = 3 },
+    groups = { snappy = 3, not_in_creative_inventory = 1 },
     selection_box = {
         type = 'fixed',
         fixed = { -0.25, -0.4, -0.25, 0.25, 0.4, 0.25 },

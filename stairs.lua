@@ -257,57 +257,58 @@ stairs.register_stair_and_slab(
     true
 )
 
--- stairs.register_stair_and_slab(
---     'desert_stonebrick',
---     'default:desert_stonebrick',
---     { cracky = 2 },
---     { 'default_desert_stone_brick.png' },
---     'Desert Stone Brick Stair',
---     'Desert Stone Brick Slab',
---     default.node_sound_stone_defaults(),
---     false
--- )
 
--- stairs.register_stair_and_slab(
---     'desert_stone_block',
---     'default:desert_stone_block',
---     { cracky = 2 },
---     { 'default_desert_stone_block.png' },
---     'Desert Stone Block Stair',
---     'Desert Stone Block Slab',
---     default.node_sound_stone_defaults(),
---     true
--- )
+-- Magma Cobble
 
--- stairs.register_stair_and_slab(
---     'desert_sandstone',
---     'default:desert_sandstone',
---     { crumbly = 1, cracky = 3 },
---     { 'default_desert_sandstone.png' },
---     'Desert Sandstone Stair',
---     'Desert Sandstone Slab',
---     default.node_sound_stone_defaults(),
---     true
--- )
+stairs.register_stair_and_slab(
+    'magmacobble',
+    'everness:magmacobble',
+    { cracky = 3, stone = 1 },
+    {{
+        name = 'everness_magmacobble_animated.png',
+        animation = {
+            type = 'vertical_frames',
+            aspect_w = 16,
+            aspect_h = 16,
+            length = 3.0,
+        },
+    }},
+    S('Magma Cobblestone Stair'),
+    S('Magma Cobblestone Slab'),
+    default.node_sound_stone_defaults(),
+    true
+)
 
--- stairs.register_stair_and_slab(
---     'desert_sandstone_brick',
---     'default:desert_sandstone_brick',
---     { cracky = 2 },
---     { 'default_desert_sandstone_brick.png' },
---     'Desert Sandstone Brick Stair',
---     'Desert Sandstone Brick Slab',
---     default.node_sound_stone_defaults(),
---     false
--- )
+-- Volcanic rock
 
--- stairs.register_stair_and_slab(
---     'desert_sandstone_block',
---     'default:desert_sandstone_block',
---     { cracky = 2 },
---     { 'default_desert_sandstone_block.png' },
---     'Desert Sandstone Block Stair',
---     'Desert Sandstone Block Slab',
---     default.node_sound_stone_defaults(),
---     true
--- )
+stairs.register_stair_and_slab(
+    'volcanic_rock',
+    'everness:volcanic_rock',
+    { cracky = 1, stone = 2 },
+    { 'everness_volcanic_rock.png' },
+    S('Volcanic Rock Stair'),
+    S('Volcanic Rock Slab'),
+    default.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'volcanic_rock_with_magma',
+    'everness:volcanic_rock_with_magma',
+    { cracky = 1, stone = 2 },
+    {
+        {
+            name = 'everness_volcanic_rock_with_magma_animated.png',
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 3.0,
+            },
+        },
+    },
+    S('Volcanic Rock with Magma Stair'),
+    S('Volcanic Rock with Magma Slab'),
+    default.node_sound_stone_defaults(),
+    true
+)

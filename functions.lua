@@ -17,23 +17,44 @@
 --]]
 
 --
--- Convert everness:dirt to something that fits the environment
+-- Convert dirt to something that fits the environment
 --
+
+local grass_covered_mapping = {
+    ['everness:coral_dirt'] = { 'everness:dirt_with_coral_grass' },
+    ['everness:cursed_dirt'] = { 'everness:dirt_with_cursed_grass' },
+    ['everness:crystal_dirt'] = { 'everness:dirt_with_crystal_grass' },
+    ['everness:dirt_1'] = {
+        'everness:dirt_with_grass_1',
+        'everness:dirt_with_grass_2',
+        'everness:dirt_with_grass_extras_1',
+        'everness:dirt_with_grass_extras_2',
+    },
+}
+
+local grass_covered_mapping_under = {
+    ['everness:coral_desert_stone'] = { 'everness:coral_desert_stone_with_moss' },
+    ['everness:soul_sandstone'] = { 'everness:soul_sandstone_veined' },
+    ['everness:crystal_cave_dirt'] = { 'everness:crystal_cave_dirt_with_moss' },
+    ['everness:mold_cobble'] = { 'everness:mold_stone_with_moss' },
+}
+
+-- Spread grass on dirt
 
 minetest.register_abm({
     label = 'Everness Grass spread',
     nodenames = {
-        'default:dirt',
         'everness:coral_dirt',
         'everness:cursed_dirt',
         'everness:crystal_dirt',
+        'everness:dirt_1',
     },
     neighbors = {
         'air',
         'group:coral_grass',
         'group:cursed_grass',
         'group:crystal_grass',
-        'group:forsaken_tundra_grass',
+        'group:bamboo_grass',
     },
     interval = 6,
     chance = 50,
@@ -48,37 +69,62 @@ minetest.register_abm({
 
         -- Look for spreading dirt-type neighbours
         local p2 = minetest.find_node_near(pos, 1, 'group:everness_spreading_dirt_type')
-            or minetest.find_node_near(pos, 1, 'group:spreading_dirt_type')
 
         if p2 then
-            local n3 = minetest.get_node(p2)
-            minetest.set_node(pos, { name = n3.name })
+            local n3_def = grass_covered_mapping[node.name]
+
+            if not n3_def then
+                return
+            end
+
+            local n3_name = n3_def[1]
+
+            if #n3_def > 1 then
+                n3_name = n3_def[math.random(1, #n3_def)]
+            end
+
+            minetest.set_node(pos, {name = n3_name})
             return
         end
 
         -- Else, any seeding nodes on top?
         local name = minetest.get_node(above).name
 
-        if minetest.get_item_group(name, 'coral_grass') ~= 0 then
+        if minetest.get_item_group(name, 'coral_grass') ~= 0 and node.name == 'everness:coral_dirt' then
             minetest.set_node(pos, { name = 'everness:dirt_with_coral_grass' })
-        elseif minetest.get_item_group(name, 'cursed_grass') ~= 0 then
+        elseif minetest.get_item_group(name, 'cursed_grass') ~= 0 and node.name == 'everness:cursed_dirt' then
             minetest.set_node(pos, { name = 'everness:dirt_with_cursed_grass' })
-        elseif minetest.get_item_group(name, 'crystal_grass') ~= 0 then
+        elseif minetest.get_item_group(name, 'crystal_grass') ~= 0 and node.name == 'everness:crystal_dirt' then
             minetest.set_node(pos, { name = 'everness:dirt_with_crystal_grass' })
+        elseif minetest.get_item_group(name, 'bamboo_grass') ~= 0 and node.name == 'everness:dirt_1' then
+            local bamboo_grass_covered_types = {
+                'everness:dirt_with_grass_1',
+                'everness:dirt_with_grass_2',
+                'everness:dirt_with_grass_extras_1',
+                'everness:dirt_with_grass_extras_2'
+            }
+
+            minetest.set_node(pos, { name = bamboo_grass_covered_types[math.random(1, #bamboo_grass_covered_types)] })
         end
     end
 })
 
--- Spread mold on stone
+-- Spread mold/moss on stone/dirt - under
 
 minetest.register_abm({
-    label = 'Everness Mold spread',
+    label = 'Everness Grass spread under',
     nodenames = {
-        'everness:mold_cobble'
+        'everness:coral_desert_stone',
+        'everness:soul_sandstone',
+        'everness:crystal_cave_dirt',
+        'everness:mold_cobble',
     },
     neighbors = {
         'air',
-        'group:moldy'
+        'group:coral_grass_under',
+        'group:cursed_grass_under',
+        'group:crystal_grass_under',
+        'group:forsaken_tundra_grass_under',
     },
     interval = 6,
     chance = 50,
@@ -87,62 +133,44 @@ minetest.register_abm({
         -- Check for darkness: night, shadow or under a light-blocking node
         -- Returns if ignore above
         local above = { x = pos.x, y = pos.y + 1, z = pos.z }
+        if (minetest.get_node_light(above) or 0) < 13 then
+            return
+        end
 
         -- Look for spreading dirt-type neighbours
-        local p2 = minetest.find_node_near(pos, 1, 'group:everness_spreading_mold_type')
+        local p2 = minetest.find_node_near(pos, 1, 'group:everness_spreading_dirt_type_under')
 
         if p2 then
-            local n3 = minetest.get_node(p2)
-            minetest.set_node(pos, { name = n3.name })
+            local n3_def = grass_covered_mapping_under[node.name]
+
+            if not n3_def then
+                return
+            end
+
+            local n3_name = n3_def[1]
+
+            if #n3_def > 1 then
+                n3_name = n3_def[math.random(1, #n3_def)]
+            end
+
+            minetest.set_node(pos, {name = n3_name})
             return
         end
 
         -- Else, any seeding nodes on top?
         local name = minetest.get_node(above).name
 
-        if minetest.get_item_group(name, 'forsaken_tundra_grass') ~= 0 then
+        if minetest.get_item_group(name, 'coral_grass_under') ~= 0 and node.name == 'everness:coral_desert_stone' then
+            minetest.set_node(pos, { name = 'everness:coral_desert_stone_with_moss' })
+        elseif minetest.get_item_group(name, 'cursed_grass_under') ~= 0 and node.name == 'everness:soul_sandstone' then
+            minetest.set_node(pos, { name = 'everness:soul_sandstone_veined' })
+        elseif minetest.get_item_group(name, 'crystal_grass_under') ~= 0 and node.name == 'everness:crystal_cave_dirt' then
+            minetest.set_node(pos, { name = 'everness:crystal_cave_dirt_with_moss' })
+        elseif minetest.get_item_group(name, 'forsaken_tundra_grass_under') ~= 0 and node.name == 'everness:mold_cobble' then
             minetest.set_node(pos, { name = 'everness:mold_stone_with_moss' })
         end
     end
 })
-
--- Spread moss veins on stone
-
-minetest.register_abm({
-    label = 'Everness moss veins spread',
-    nodenames = {
-        'everness:soul_sandstone'
-    },
-    neighbors = {
-        'air',
-        'group:moss_veins'
-    },
-    interval = 6,
-    chance = 50,
-    catch_up = false,
-    action = function(pos, node)
-        -- Check for darkness: night, shadow or under a light-blocking node
-        -- Returns if ignore above
-        local above = { x = pos.x, y = pos.y + 1, z = pos.z }
-
-        -- Look for spreading dirt-type neighbours
-        local p2 = minetest.find_node_near(pos, 1, 'group:everness_spreading_moss_veins_type')
-
-        if p2 then
-            local n3 = minetest.get_node(p2)
-            minetest.set_node(pos, { name = n3.name })
-            return
-        end
-
-        -- Else, any seeding nodes on top?
-        local name = minetest.get_node(above).name
-
-        if minetest.get_item_group(name, 'cursed_grass') ~= 0 then
-            minetest.set_node(pos, { name = 'everness:soul_sandstone_veined' })
-        end
-    end
-})
-
 
 --
 -- Grass and dry grass removed in darkness
@@ -150,7 +178,10 @@ minetest.register_abm({
 
 minetest.register_abm({
     label = 'Everness Grass covered',
-    nodenames = { 'group:everness_spreading_dirt_type' },
+    nodenames = {
+        'group:everness_spreading_dirt_type',
+        'group:everness_spreading_dirt_type_under',
+     },
     interval = 8,
     chance = 50,
     catch_up = false,
@@ -172,6 +203,20 @@ minetest.register_abm({
                 minetest.set_node(pos, { name = 'everness:cursed_dirt' })
             elseif node.name == 'everness:dirt_with_crystal_grass' then
                 minetest.set_node(pos, { name = 'everness:crystal_dirt' })
+            elseif node.name == 'everness:dirt_with_grass_1'
+                or node.name == 'everness:dirt_with_grass_2'
+                or node.name == 'everness:dirt_with_grass_extras_1'
+                or node.name == 'everness:dirt_with_grass_extras_2'
+            then
+                minetest.set_node(pos, { name = 'everness:dirt_1' })
+            elseif node.name == 'everness:coral_desert_stone_with_moss' then
+                minetest.set_node(pos, { name = 'everness:coral_desert_stone' })
+            elseif node.name == 'everness:soul_sandstone_veined' then
+                minetest.set_node(pos, { name = 'everness:soul_sandstone' })
+            elseif node.name == 'everness:crystal_cave_dirt_with_moss' then
+                minetest.set_node(pos, { name = 'everness:crystal_cave_dirt' })
+            elseif node.name == 'everness:mold_stone_with_moss' then
+                minetest.set_node(pos, { name = 'everness:mold_cobble' })
             end
         end
     end
@@ -220,21 +265,22 @@ default.register_leafdecay({
 
 local moss_correspondences = {
     ['everness:coral_desert_cobble'] = 'everness:coral_desert_mossy_cobble',
-    -- ['stairs:slab_cobble'] = 'stairs:slab_mossycobble',
-    -- ['stairs:stair_cobble'] = 'stairs:stair_mossycobble',
-    -- ['stairs:stair_inner_cobble'] = 'stairs:stair_inner_mossycobble',
-    -- ['stairs:stair_outer_cobble'] = 'stairs:stair_outer_mossycobble',
-    -- ['walls:cobble'] = 'walls:mossycobble',
+    ['stairs:slab_coral_desert_cobble'] = 'stairs:slab_coral_desert_mossy_cobble',
+    ['stairs:stair_coral_desert_cobble'] = 'stairs:stair_coral_desert_mossy_cobble',
+    ['stairs:stair_inner_coral_desert_cobble'] = 'stairs:stair_inner_coral_desert_mossy_cobble',
+    ['stairs:stair_outer_coral_desert_cobble'] = 'stairs:stair_outer_coral_desert_mossy_cobble',
+    ['everness:coral_desert_cobble_wall'] = 'everness:coral_desert_mossy_cobble_wall',
 }
+
 minetest.register_abm({
     label = 'Everness Moss growth',
     nodenames = {
         'everness:coral_desert_cobble',
-        -- 'stairs:slab_cobble',
-        -- 'stairs:stair_cobble',
-        -- 'stairs:stair_inner_cobble',
-        -- 'stairs:stair_outer_cobble',
-        -- 'walls:cobble'
+        'stairs:slab_coral_desert_cobble',
+        'stairs:stair_coral_desert_cobble',
+        'stairs:stair_inner_coral_desert_cobble',
+        'stairs:stair_outer_coral_desert_cobble',
+        'everness:coral_desert_cobble_wall',
     },
     neighbors = { 'group:water' },
     interval = 16,
@@ -242,6 +288,7 @@ minetest.register_abm({
     catch_up = false,
     action = function(pos, node)
         node.name = moss_correspondences[node.name]
+
         if node.name then
             minetest.set_node(pos, node)
         end
@@ -251,6 +298,21 @@ minetest.register_abm({
 --
 -- Magma growth on cobble near lava
 --
+
+local magma_correspondences = {
+    ['default:cobble'] = 'everness:magmacobble',
+    ['stairs:slab_cobble'] = 'stairs:slab_magmacobble',
+    ['stairs:stair_cobble'] = 'stairs:stair_magmacobble',
+    ['stairs:stair_inner_cobble'] = 'stairs:stair_inner_magmacobble',
+    ['stairs:stair_outer_cobble'] = 'stairs:stair_outer_magmacobble',
+    ['walls:cobble'] = 'everness:magmacobble_wall',
+    ['everness:volcanic_rock'] = 'everness:volcanic_rock_with_magma',
+    ['stairs:slab_volcanic_rock'] = 'stairs:slab_volcanic_rock_with_magma',
+    ['stairs:stair_volcanic_rock'] = 'stairs:stair_volcanic_rock_with_magma',
+    ['stairs:stair_inner_volcanic_rock'] = 'stairs:stair_inner_volcanic_rock_with_magma',
+    ['stairs:stair_outer_volcanic_rock'] = 'stairs:stair_outer_volcanic_rock_with_magma',
+    ['everness:volcanic_rock_wall'] = 'everness:volcanic_rock_with_magma_wall',
+}
 
 minetest.register_abm({
     label = 'Magma growth',
@@ -262,26 +324,21 @@ minetest.register_abm({
         'stairs:stair_outer_cobble',
         'walls:cobble',
         'everness:volcanic_rock',
+        'stairs:slab_volcanic_rock',
+        'stairs:stair_volcanic_rock',
+        'stairs:stair_inner_volcanic_rock',
+        'stairs:stair_outer_volcanic_rock',
+        'everness:volcanic_rock_wall',
     },
     neighbors = { 'group:lava' },
     interval = 16,
     chance = 200,
     catch_up = false,
     action = function(pos, node)
-        if node.name == 'default:cobble' then
-            minetest.set_node(pos, { name = 'everness:magmacobble' })
-        elseif node.name == 'everness:volcanic_rock' then
-            minetest.set_node(pos, { name = 'everness:volcanic_rock_with_magma' })
-        elseif node.name == 'stairs:slab_cobble' then
-            minetest.set_node(pos, { name = 'stairs:slab_magmacobble', param2 = node.param2 })
-        elseif node.name == 'stairs:stair_cobble' then
-            minetest.set_node(pos, { name = 'stairs:stair_magmacobble', param2 = node.param2 })
-        elseif node.name == 'stairs:stair_inner_cobble' then
-            minetest.set_node(pos, { name = 'stairs:stair_inner_magmacobble', param2 = node.param2 })
-        elseif node.name == 'stairs:stair_outer_cobble' then
-            minetest.set_node(pos, { name = 'stairs:stair_outer_magmacobble', param2 = node.param2 })
-        elseif node.name == 'walls:cobble' then
-            minetest.set_node(pos, { name = 'x_walls:magmacobble', param2 = node.param2 })
+        node.name = magma_correspondences[node.name]
+
+        if node.name then
+            minetest.set_node(pos, node)
         end
     end
 })

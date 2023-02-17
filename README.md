@@ -2,9 +2,8 @@
 
 Everness is a mapgen, which aims to provide an endless array of
 beautiful biomes from the surface lands to the caverns with custom-painted
-textures. It creates both a sense of dicovery and danger when one lands in the
-wrong biome. It also adds structures, dungeons with loot chests, custom sounds and custom
-skyboxes based on the biome.
+textures. It creates both a sense of discovery and of danger when one lands in the wrong biome.
+It also adds structures, dungeons with loot chests, and custom skyboxes based on the biome.
 
 ![screenshot](screenshot.png)
 

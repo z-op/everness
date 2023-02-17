@@ -2035,7 +2035,7 @@ minetest.register_decoration({
 -- Bamboo forest
 
 minetest.register_decoration({
-    name = 'everness:everness_small_bamboo_forest',
+    name = 'everness:small_bamboo_forest',
     deco_type = 'schematic',
     place_on = { 'everness:dirt_with_grass_1' },
     sidelen = 80,
@@ -2049,7 +2049,7 @@ minetest.register_decoration({
 })
 
 minetest.register_decoration({
-    name = 'everness:everness_large_bamboo_forest',
+    name = 'everness:large_bamboo_forest',
     deco_type = 'schematic',
     place_on = { 'everness:dirt_with_grass_1' },
     sidelen = 80,
@@ -2169,6 +2169,29 @@ minetest.register_decoration({
     y_min = -31000,
     decoration = { 'everness:cave_flower_with_particles' },
     flags = 'all_floors'
+})
+
+minetest.register_decoration({
+    name = 'everness:blue_vine_lantern',
+    deco_type = 'simple',
+    place_on = {
+        'everness:moss_block',
+        'default:clay'
+    },
+    sidelen = 16,
+    noise_params = {
+        offset = 0,
+        scale = 0.002,
+        spread = { x = 250, y = 250, z = 250 },
+        seed = 2,
+        octaves = 3,
+        persist = 0.66
+    },
+    biomes = { 'everness_bamboo_forest_under' },
+    y_max = -2025,
+    y_min = -31000,
+    decoration = { 'everness:blue_vine_lantern' },
+    flags = 'all_floors',
 })
 
 -- Jungle tree and log

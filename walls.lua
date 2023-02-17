@@ -65,3 +65,47 @@ walls.register(
     'everness:forsaken_tundra_brick',
     default.node_sound_stone_defaults()
 )
+
+walls.register(
+    'everness:magmacobble_wall',
+    S('Magma Cobblestone Wall'),
+    {
+        {
+            name = 'everness_magmacobble_animated.png',
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 3.0,
+            },
+        },
+    },
+    'everness:magmacobble',
+    default.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:volcanic_rock_wall',
+    S('Volcanic Rock Wall'),
+    { 'everness_volcanic_rock.png' },
+    'everness:volcanic_rock',
+    default.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:volcanic_rock_with_magma_wall',
+    S('Volcanic Rock with Magma Wall'),
+    {
+        {
+            name = 'everness_volcanic_rock_with_magma_animated.png',
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 3.0,
+            },
+        },
+    },
+    'everness:volcanic_rock_with_magma',
+    default.node_sound_stone_defaults()
+)

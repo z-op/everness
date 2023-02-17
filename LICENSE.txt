@@ -785,6 +785,8 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_dry_tree_sapling.png
 - everness_sequoia_tree_sapling.png
 - everness_willow_tree_sapling.png
+- everness_amaranita_lantern_item.png
+- everness_lumecorn_item.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
