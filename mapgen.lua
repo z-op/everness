@@ -721,7 +721,9 @@ minetest.register_decoration({
     biomes = { 'everness_coral_forest_dunes' },
     y_max = 30,
     y_min = 0,
-    schematic = minetest.get_modpath('everness') .. '/schematics/everness_coral_volcano.mts',
+    schematic = minetest.get_modpath('x_clay')
+        and minetest.get_modpath('everness') .. '/schematics/everness_coral_volcano_x_clay.mts'
+        or minetest.get_modpath('everness') .. '/schematics/everness_coral_volcano.mts',
     flags = 'place_center_x, place_center_z',
     rotation = 'random',
     spawn_by = 'everness:coral_sand',
