@@ -3161,7 +3161,10 @@ local deco_ids_baobab = {
     minetest.get_decoration_id('everness:baobab_tree_2')
 }
 
+local deco_id_coral_bones_tree = minetest.get_decoration_id('everness:coral_bones_tree')
+
 minetest.set_gen_notify('decoration', deco_ids_baobab)
+minetest.set_gen_notify('decoration', { deco_id_coral_bones_tree })
 
 -- Localise data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
@@ -3193,6 +3196,13 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
             for _, pos in ipairs(gennotify['decoration#' .. deco_id] or {}) do
                 minetest.fix_light(vector.offset(pos, -1, -1, -1), vector.offset(pos, 24, 39, 24))
             end
+        end
+
+        --
+        -- Coral bone tree - fix light
+        --
+        for _, pos in ipairs(gennotify['decoration#' .. deco_id_coral_bones_tree] or {}) do
+            minetest.fix_light(vector.offset(pos, -1, -1, -1), vector.offset(pos, 14, 35, 14))
         end
 
         --
