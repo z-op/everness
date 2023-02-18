@@ -257,6 +257,15 @@ minetest.register_craft({
     }
 })
 
+minetest.register_craft({
+    output = 'everness:shovel_silk',
+    recipe = {
+        { 'everness:crystal_purple', 'everness:ancient_emerald_ice', 'everness:crystal_purple' },
+        { '', 'everness:glowing_pillar', '' },
+        { '', 'group:stick', '' }
+    }
+})
+
 --
 -- Fuels
 --

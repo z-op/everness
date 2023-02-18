@@ -121,3 +121,44 @@ minetest.register_tool('everness:pick_illuminating', {
         return itemstack
     end
 })
+
+minetest.register_tool('everness:shovel_silk', {
+    description = S('Silk Shovel'),
+    inventory_image = 'everness_shovel_silk.png',
+    wield_image = 'everness_shovel_silk.png^[transformR90',
+    wield_scale = { x = 2, y = 2, z = 1 },
+    tool_capabilities = {
+        full_punch_interval = 1.0,
+        max_drop_level = 1,
+        groupcaps = {
+            crumbly = { times = { [1] = 1.10, [2] = 0.50, [3] = 0.30 }, uses = 30, maxlevel = 3 },
+        },
+        damage_groups = { fleshy = 4 },
+    },
+    sound = { breaks = 'default_tool_breaks' },
+    -- no `shovel` group so it cannot be enchanted
+    -- groups = { shovel = 1 }
+})
+
+local old_handle_node_drops = minetest.handle_node_drops
+
+function minetest.handle_node_drops(pos, drops, digger)
+    if not digger
+        or not digger:is_player()
+        or digger:get_wielded_item():get_name() ~= 'everness:shovel_silk'
+    then
+        return old_handle_node_drops(pos, drops, digger)
+    end
+
+    local node = minetest.get_node(pos)
+
+    -- Silk Touch
+    if minetest.get_item_group(node.name, 'crumbly') > 0
+        and minetest.get_item_group(node.name, 'no_silktouch') == 0
+    then
+        -- drop raw item/node
+        return old_handle_node_drops(pos, { ItemStack(node.name) }, digger)
+    end
+
+    return old_handle_node_drops(pos, drops, digger)
+end
