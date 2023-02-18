@@ -235,6 +235,39 @@ minetest.register_craft({
     }
 })
 
+minetest.register_craft({
+    output = 'everness:coral_sandstone 4',
+    recipe = {
+        { 'everness:coral_sand', 'everness:coral_sand' },
+        { 'everness:coral_sand', 'everness:coral_sand' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:coral_sandstone_brick 4',
+    recipe = {
+        { 'everness:coral_sandstone', 'everness:coral_sandstone' },
+        { 'everness:coral_sandstone', 'everness:coral_sandstone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:coral_sandstone_chiseled 9',
+    recipe = {
+        { 'everness:coral_sandstone', 'everness:coral_sandstone', 'everness:coral_sandstone' },
+        { 'everness:coral_sandstone', 'everness:coral_sandstone', 'everness:coral_sandstone' },
+        { 'everness:coral_sandstone', 'everness:coral_sandstone', 'everness:coral_sandstone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:coral_sandstone_carved_1 9',
+    recipe = {
+        { 'everness:coral_sandstone_chiseled', 'everness:coral_sandstone_chiseled' },
+        { 'everness:coral_sandstone_chiseled', 'everness:coral_sandstone_chiseled' },
+    }
+})
+
 --
 -- Tools
 --
