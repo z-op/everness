@@ -37,7 +37,7 @@ https://bitbucket.org/minetest_gamers/everness/issues
 
 ## License
 
-see included ![LICENSE.txt](LICENSE.txt) file for more info
+see included [LICENSE.txt](LICENSE.txt) file for more info
 
 ## Installation
 
