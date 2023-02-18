@@ -248,6 +248,15 @@ minetest.register_craft({
     }
 })
 
+minetest.register_craft({
+    output = 'everness:pick_illuminating',
+    recipe = {
+        { 'everness:crystal_purple', 'everness:coral_tree_bioluminescent', 'everness:crystal_purple' },
+        { '', 'everness:sulfur_stone', '' },
+        { '', 'group:stick', '' }
+    }
+})
+
 --
 -- Fuels
 --
