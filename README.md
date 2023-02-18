@@ -16,10 +16,13 @@ It also adds structures, dungeons with loot chests, and custom skyboxes based on
 * custom skyboxes based on biome
 * inlcudes (not for all) e.g. walls, doors, glass, stairs, vines, tools, panes, trees...
 
-## Biomes
+## Wiki
 
-**Coral Forest**
+https://bitbucket.org/minetest_gamers/everness/wiki/Home
 
+## Report Bugs/Suggestions
+
+https://bitbucket.org/minetest_gamers/everness/issues
 
 ## Dependencies
 
@@ -32,9 +35,9 @@ It also adds structures, dungeons with loot chests, and custom skyboxes based on
 - stairs
 - walls
 
-## License:
+## License
 
-see included LICENSE.txt file for more info
+see included ![LICENSE.txt](LICENSE.txt) file for more info
 
 ## Installation
 
