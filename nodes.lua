@@ -131,7 +131,7 @@ minetest.register_node('everness:pyriteblock_polished', {
 minetest.register_node('everness:quartz_ore', {
     description = S('Quartz Ore'),
     tiles = { 'default_stone.png^everness_quartz_ore.png' },
-    groups = { cracky = 3, stone = 1 },
+    groups = { cracky = 3 },
     drop = 'everness:quartz_crystal',
     sounds = default.node_sound_stone_defaults(),
 })
@@ -177,6 +177,37 @@ minetest.register_node('everness:coral_sandstone_chiseled', {
 minetest.register_node('everness:coral_sandstone_carved_1', {
     description = S('Coral Sandstone Carved Block'),
     tiles = { 'everness_coral_sandstone_carved_1.png' },
+    is_ground_content = false,
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:coral_white_sandstone', {
+    description = S('Coral White Sandstone'),
+    tiles = { 'everness_coral_white_sandstone.png' },
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:coral_white_sandstone_brick', {
+    description = S('Coral White Sandstone Brick'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_coral_white_sandstone_brick.png' },
+    is_ground_content = false,
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:coral_white_sandstone_pillar', {
+    description = S('Coral White Sandstone Pillar'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = {
+        'everness_coral_white_sandstone.png',
+        'everness_coral_white_sandstone.png',
+        'everness_coral_white_sandstone_pillar.png',
+    },
     is_ground_content = false,
     groups = { cracky = 2 },
     sounds = default.node_sound_stone_defaults(),

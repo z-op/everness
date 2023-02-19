@@ -268,6 +268,56 @@ minetest.register_craft({
     }
 })
 
+minetest.register_craft({
+    output = 'everness:coral_white_sandstone 4',
+    recipe = {
+        { 'everness:coral_white_sand', 'everness:coral_white_sand' },
+        { 'everness:coral_white_sand', 'everness:coral_white_sand' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:coral_white_sandstone_brick 4',
+    recipe = {
+        { 'everness:coral_white_sandstone', 'everness:coral_white_sandstone' },
+        { 'everness:coral_white_sandstone', 'everness:coral_white_sandstone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:coral_white_sandstone_pillar 3',
+    recipe = {
+        { '', 'everness:coral_white_sandstone', '' },
+        { '', 'everness:coral_white_sandstone', '' },
+        { '', 'everness:coral_white_sandstone', '' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:quartz_block 4',
+    recipe = {
+        { 'everness:quartz_crystal', 'everness:quartz_crystal' },
+        { 'everness:quartz_crystal', 'everness:quartz_crystal' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:quartz_chiseled 4',
+    recipe = {
+        { 'everness:quartz_block', 'everness:quartz_block' },
+        { 'everness:quartz_block', 'everness:quartz_block' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:quartz_pillar 3',
+    recipe = {
+        { '', 'everness:quartz_block', '' },
+        { '', 'everness:quartz_block', '' },
+        { '', 'everness:quartz_block', '' },
+    }
+})
+
 --
 -- Tools
 --
