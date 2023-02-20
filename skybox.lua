@@ -19,11 +19,10 @@
 local timer = 0
 
 minetest.register_globalstep(function(dtime)
-    local players = minetest.get_connected_players()
-
     timer = timer + dtime
+    if timer > 5 then
+        local players = minetest.get_connected_players()
 
-    if timer > 5 and #players > 0 then
         for _, player in ipairs(players) do
             if not player then
                 return
