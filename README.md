@@ -9,7 +9,7 @@ It also adds structures, dungeons with loot chests, and custom skyboxes based on
 
 ## Features
 
-* granual biome settings
+* granular biome settings
 * custom sounds for some blocks, biomes
 * custom textures
 * custom biomes and cavern biomes
