@@ -795,6 +795,11 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_coral_sandstone_chiseled.png
 - everness_coral_sandstone_carved_1.png
 - everness_coral_sandstone_brick.png
+- everness_coral_desert_stone_block.png
+- everness_coral_desert_stone_brick.png
+- everness_farming_soil_overlay.png -- Derived from texture by PilzAdam (CC BY 3.0)
+- everness_farming_soil_wet_overlay.png -- Derived from texture by PilzAdam (CC BY 3.0)
+- everness_farming_soil_wet_side_overlay.png -- Derived from texture by PilzAdam (CC BY 3.0)
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 

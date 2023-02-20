@@ -213,6 +213,24 @@ minetest.register_node('everness:coral_white_sandstone_pillar', {
     sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node('everness:coral_desert_stone_block', {
+    description = S('Coral Desert Stone Block'),
+    tiles = { 'everness_coral_desert_stone_block.png' },
+    is_ground_content = false,
+    groups = { cracky = 2, stone = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:coral_desert_stone_brick', {
+    description = S('Coral Desert Stone Brick'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_coral_desert_stone_brick.png' },
+    is_ground_content = false,
+    groups = { cracky = 2, stone = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
 minetest.register_node('everness:coral_bones', {
     description = S('Coral Bones'),
     tiles = { 'everness_coral_bones.png' },

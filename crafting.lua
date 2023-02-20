@@ -318,6 +318,23 @@ minetest.register_craft({
     }
 })
 
+minetest.register_craft({
+    output = 'everness:coral_desert_stone_brick 4',
+    recipe = {
+        { 'everness:coral_desert_stone', 'everness:coral_desert_stone' },
+        { 'everness:coral_desert_stone', 'everness:coral_desert_stone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:coral_desert_stone_block 9',
+    recipe = {
+        { 'everness:coral_desert_stone', 'everness:coral_desert_stone', 'everness:coral_desert_stone' },
+        { 'everness:coral_desert_stone', 'everness:coral_desert_stone', 'everness:coral_desert_stone' },
+        { 'everness:coral_desert_stone', 'everness:coral_desert_stone', 'everness:coral_desert_stone' },
+    }
+})
+
 --
 -- Tools
 --
@@ -343,9 +360,9 @@ minetest.register_craft({
 minetest.register_craft({
     output = 'everness:shovel_silk',
     recipe = {
-        { 'everness:crystal_purple', 'everness:ancient_emerald_ice', 'everness:crystal_purple' },
-        { '', 'everness:glowing_pillar', '' },
-        { '', 'group:stick', '' }
+        { 'everness:ancient_emerald_ice' },
+        { 'everness:glowing_pillar' },
+        { 'everness:crystal_purple' }
     }
 })
 

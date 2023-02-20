@@ -23,6 +23,7 @@ local mod_start_time = minetest.get_us_time()
 
 dofile(path .. '/api.lua')
 dofile(path .. '/nodes.lua')
+dofile(path .. '/nodes_farming.lua')
 dofile(path .. '/bamboo.lua')
 dofile(path .. '/functions.lua')
 dofile(path .. '/trees.lua')
