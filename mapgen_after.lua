@@ -38,8 +38,13 @@ local deco_ids_baobab = {
 
 local deco_id_coral_bones_tree = minetest.get_decoration_id('everness:coral_forest_coral_bones_tree')
 
-minetest.set_gen_notify('decoration', deco_ids_baobab)
-minetest.set_gen_notify('decoration', { deco_id_coral_bones_tree })
+if #deco_ids_baobab > 1 then
+    minetest.set_gen_notify('decoration', deco_ids_baobab)
+end
+
+if deco_id_coral_bones_tree then
+    minetest.set_gen_notify('decoration', { deco_id_coral_bones_tree })
+end
 
 -- Localise data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
