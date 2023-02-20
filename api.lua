@@ -933,7 +933,146 @@ Everness = {
                 }
             },
         }
-    }
+    },
+    settings = {
+        biomes = {
+            everness_coral_forest = {
+                enabled = minetest.settings:get_bool('everness_coral_forest', true),
+                y_max = tonumber(minetest.settings:get('everness_coral_forest_y_max')) or 31000,
+                y_min = tonumber(minetest.settings:get('everness_coral_forest_y_min')) or 6,
+            },
+            everness_coral_forest_dunes = {
+                enabled = minetest.settings:get_bool('everness_coral_forest_dunes', true),
+                y_max = tonumber(minetest.settings:get('everness_coral_forest_dunes_y_max')) or 5,
+                y_min = tonumber(minetest.settings:get('everness_coral_forest_dunes_y_min')) or 4,
+            },
+            everness_coral_forest_ocean = {
+                enabled = minetest.settings:get_bool('everness_coral_forest_ocean', true),
+                y_max = tonumber(minetest.settings:get('everness_coral_forest_ocean_y_max')) or 3,
+                y_min = tonumber(minetest.settings:get('everness_coral_forest_ocean_y_min')) or -255,
+            },
+            everness_coral_forest_under = {
+                enabled = minetest.settings:get_bool('everness_coral_forest_under', true),
+                y_max = tonumber(minetest.settings:get('everness_coral_forest_under_y_max')) or -256,
+                y_min = tonumber(minetest.settings:get('everness_coral_forest_under_y_min')) or -31000,
+            },
+            everness_frosted_icesheet = {
+                enabled = minetest.settings:get_bool('everness_frosted_icesheet', true),
+                y_max = tonumber(minetest.settings:get('everness_frosted_icesheet_y_max')) or 31000,
+                y_min = tonumber(minetest.settings:get('everness_frosted_icesheet_y_min')) or -8,
+            },
+            everness_frosted_icesheet_ocean = {
+                enabled = minetest.settings:get_bool('everness_frosted_icesheet_ocean', true),
+                y_max = tonumber(minetest.settings:get('everness_frosted_icesheet_ocean_y_max')) or -9,
+                y_min = tonumber(minetest.settings:get('everness_frosted_icesheet_ocean_y_min')) or -255,
+            },
+            everness_frosted_icesheet_under = {
+                enabled = minetest.settings:get_bool('everness_frosted_icesheet_under', true),
+                y_max = tonumber(minetest.settings:get('everness_frosted_icesheet_under_y_max')) or -256,
+                y_min = tonumber(minetest.settings:get('everness_frosted_icesheet_under_y_min')) or -31000,
+            },
+            everness_cursed_lands = {
+                enabled = minetest.settings:get_bool('everness_cursed_lands', true),
+                y_max = tonumber(minetest.settings:get('everness_cursed_lands_y_max')) or 31000,
+                y_min = tonumber(minetest.settings:get('everness_cursed_lands_y_min')) or 6,
+            },
+            everness_cursed_lands_dunes = {
+                enabled = minetest.settings:get_bool('everness_cursed_lands_dunes', true),
+                y_max = tonumber(minetest.settings:get('everness_cursed_lands_dunes_y_max')) or 5,
+                y_min = tonumber(minetest.settings:get('everness_cursed_lands_dunes_y_min')) or 1,
+            },
+            everness_cursed_lands_swamp = {
+                enabled = minetest.settings:get_bool('everness_cursed_lands_swamp', true),
+                y_max = tonumber(minetest.settings:get('everness_cursed_lands_swamp_y_max')) or 0,
+                y_min = tonumber(minetest.settings:get('everness_cursed_lands_swamp_y_min')) or -1,
+            },
+            everness_cursed_lands_ocean = {
+                enabled = minetest.settings:get_bool('everness_cursed_lands_ocean', true),
+                y_max = tonumber(minetest.settings:get('everness_cursed_lands_ocean_y_max')) or -2,
+                y_min = tonumber(minetest.settings:get('everness_cursed_lands_ocean_y_min')) or -255,
+            },
+            everness_cursed_lands_under = {
+                enabled = minetest.settings:get_bool('everness_cursed_lands_under', true),
+                y_max = tonumber(minetest.settings:get('everness_cursed_lands_under_y_max')) or -256,
+                y_min = tonumber(minetest.settings:get('everness_cursed_lands_under_y_min')) or -31000,
+            },
+            everness_crystal_forest = {
+                enabled = minetest.settings:get_bool('everness_crystal_forest', true),
+                y_max = tonumber(minetest.settings:get('everness_crystal_forest_y_max')) or 31000,
+                y_min = tonumber(minetest.settings:get('everness_crystal_forest_y_min')) or 6,
+            },
+            everness_crystal_forest_dunes = {
+                enabled = minetest.settings:get_bool('everness_crystal_forest_dunes', true),
+                y_max = tonumber(minetest.settings:get('everness_crystal_forest_dunes_y_max')) or 5,
+                y_min = tonumber(minetest.settings:get('everness_crystal_forest_dunes_y_min')) or 1,
+            },
+            everness_crystal_forest_shore = {
+                enabled = minetest.settings:get_bool('everness_crystal_forest_shore', true),
+                y_max = tonumber(minetest.settings:get('everness_crystal_forest_shore_y_max')) or 0,
+                y_min = tonumber(minetest.settings:get('everness_crystal_forest_shore_y_min')) or -1,
+            },
+            everness_crystal_forest_ocean = {
+                enabled = minetest.settings:get_bool('everness_crystal_forest_ocean', true),
+                y_max = tonumber(minetest.settings:get('everness_crystal_forest_ocean_y_max')) or -2,
+                y_min = tonumber(minetest.settings:get('everness_crystal_forest_ocean_y_min')) or -255,
+            },
+            everness_crystal_forest_under = {
+                enabled = minetest.settings:get_bool('everness_crystal_forest_under', true),
+                y_max = tonumber(minetest.settings:get('everness_crystal_forest_under_y_max')) or -256,
+                y_min = tonumber(minetest.settings:get('everness_crystal_forest_under_y_min')) or -31000,
+            },
+            everness_bamboo_forest = {
+                enabled = minetest.settings:get_bool('everness_bamboo_forest', true),
+                y_max = tonumber(minetest.settings:get('everness_bamboo_forest_y_max')) or 31000,
+                y_min = tonumber(minetest.settings:get('everness_bamboo_forest_y_min')) or 1,
+            },
+            everness_bamboo_forest_under = {
+                enabled = minetest.settings:get_bool('everness_bamboo_forest_under', true),
+                y_max = tonumber(minetest.settings:get('everness_bamboo_forest_under_y_max')) or -256,
+                y_min = tonumber(minetest.settings:get('everness_bamboo_forest_under_y_min')) or -31000,
+            },
+            everness_forsaken_desert = {
+                enabled = minetest.settings:get_bool('everness_forsaken_desert', true),
+                y_max = tonumber(minetest.settings:get('everness_forsaken_desert_y_max')) or 31000,
+                y_min = tonumber(minetest.settings:get('everness_forsaken_desert_y_min')) or 4,
+            },
+            everness_forsaken_desert_ocean = {
+                enabled = minetest.settings:get_bool('everness_forsaken_desert_ocean', true),
+                y_max = tonumber(minetest.settings:get('everness_forsaken_desert_ocean_y_max')) or 3,
+                y_min = tonumber(minetest.settings:get('everness_forsaken_desert_ocean_y_min')) or -8,
+            },
+            everness_forsaken_desert_under = {
+                enabled = minetest.settings:get_bool('everness_forsaken_desert_under', true),
+                y_max = tonumber(minetest.settings:get('everness_forsaken_desert_under_y_max')) or -256,
+                y_min = tonumber(minetest.settings:get('everness_forsaken_desert_under_y_min')) or -31000,
+            },
+            everness_baobab_savanna = {
+                enabled = minetest.settings:get_bool('everness_baobab_savanna', true),
+                y_max = tonumber(minetest.settings:get('everness_baobab_savanna_y_max')) or 31000,
+                y_min = tonumber(minetest.settings:get('everness_baobab_savanna_y_min')) or 1,
+            },
+            everness_forsaken_tundra = {
+                enabled = minetest.settings:get_bool('everness_forsaken_tundra', true),
+                y_max = tonumber(minetest.settings:get('everness_forsaken_tundra_y_max')) or 31000,
+                y_min = tonumber(minetest.settings:get('everness_forsaken_tundra_y_min')) or 2,
+            },
+            everness_forsaken_tundra_beach = {
+                enabled = minetest.settings:get_bool('everness_forsaken_tundra_beach', true),
+                y_max = tonumber(minetest.settings:get('everness_forsaken_tundra_beach_y_max')) or 1,
+                y_min = tonumber(minetest.settings:get('everness_forsaken_tundra_beach_y_min')) or -3,
+            },
+            everness_forsaken_tundra_ocean = {
+                enabled = minetest.settings:get_bool('everness_forsaken_tundra_ocean', true),
+                y_max = tonumber(minetest.settings:get('everness_forsaken_tundra_ocean_y_max')) or -4,
+                y_min = tonumber(minetest.settings:get('everness_forsaken_tundra_ocean_y_min')) or -255,
+            },
+            everness_forsaken_tundra_under = {
+                enabled = minetest.settings:get_bool('everness_forsaken_tundra_under', true),
+                y_max = tonumber(minetest.settings:get('everness_forsaken_tundra_under_y_max')) or -256,
+                y_min = tonumber(minetest.settings:get('everness_forsaken_tundra_under_y_min')) or -31000,
+            },
+        }
+    },
 }
 
 function Everness.grow_cactus(self, pos, node, params)
