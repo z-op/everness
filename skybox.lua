@@ -23,8 +23,12 @@ minetest.register_globalstep(function(dtime)
 
     timer = timer + dtime
 
-    if timer > 5 then
+    if timer > 5 and #players > 0 then
         for _, player in ipairs(players) do
+            if not player then
+                return
+            end
+
             local player_meta = player:get_meta()
             local player_pos = player:get_pos()
             local biome_data = minetest.get_biome_data(player_pos)
