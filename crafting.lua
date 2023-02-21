@@ -359,6 +359,54 @@ minetest.register_craft({
     }
 })
 
+minetest.register_craft({
+    output = 'everness:cursed_brick 4',
+    recipe = {
+        { 'everness:cursed_stone', 'everness:cursed_stone' },
+        { 'everness:cursed_stone', 'everness:cursed_stone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:cursed_brick_with_growth 4',
+    recipe = {
+        { 'everness:cursed_brick', 'group:leaves' }
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:cursed_brick_mixed 4',
+    recipe = {
+        { 'everness:cursed_stone', 'everness:cursed_brick' },
+        { 'everness:cursed_brick', 'everness:cursed_stone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:cursed_brick_carved 9',
+    recipe = {
+        { 'everness:cursed_brick', 'everness:cursed_brick', 'everness:cursed_brick' },
+        { 'everness:cursed_brick', 'everness:cursed_brick', 'everness:cursed_brick' },
+        { 'everness:cursed_brick', 'everness:cursed_brick', 'everness:cursed_brick' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:cursed_sandstone_block 4',
+    recipe = {
+        { 'everness:cursed_sand', 'everness:cursed_sand' },
+        { 'everness:cursed_sand', 'everness:cursed_sand' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:cursed_sandstone_brick 4',
+    recipe = {
+        { 'everness:cursed_sandstone_block', 'everness:cursed_sandstone_block' },
+        { 'everness:cursed_sandstone_block', 'everness:cursed_sandstone_block' },
+    }
+})
+
 --
 -- Tools
 --

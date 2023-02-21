@@ -64,6 +64,17 @@ stairs.register_stair_and_slab(
     true
 )
 
+stairs.register_stair_and_slab(
+    'cursed_brick_with_growth',
+    'everness:cursed_brick_with_growth',
+    { cracky = 2 },
+    { 'everness_cursed_brick_with_growth.png' },
+    'Cursed Brick with Growth Stair',
+    'Cursed Brick with Growth Slab',
+    default.node_sound_stone_defaults(),
+    true
+)
+
 -- Quartz
 
 stairs.register_stair_and_slab(

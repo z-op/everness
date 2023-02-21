@@ -370,6 +370,36 @@ minetest.register_node('everness:cursed_brick', {
     sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node('everness:cursed_brick_with_growth', {
+    description = S('Cursed Brick with Growth'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_cursed_brick_with_growth.png' },
+    is_ground_content = false,
+    groups = { cracky = 2, stone = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:cursed_brick_mixed', {
+    description = S('Cursed Brick Mixed'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_cursed_brick_mixed.png' },
+    is_ground_content = false,
+    groups = { cracky = 2, stone = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:cursed_brick_carved', {
+    description = S('Cursed Brick Carved'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_cursed_brick_carved.png' },
+    is_ground_content = false,
+    groups = { cracky = 2, stone = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
 minetest.register_node('everness:volcanic_sulfur', {
     description = S('Volcanic Sulfur Stone'),
     tiles = { 'everness_volcanic_sulfur_stone.png' },
@@ -673,6 +703,23 @@ minetest.register_node('everness:crystal_sandstone_brick', {
 minetest.register_node('everness:crystal_sandstone_chiseled', {
     description = S('Crystal Sandstone Chiseled'),
     tiles = { 'everness_crystal_sandstone_chiseled.png' },
+    is_ground_content = false,
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:cursed_sandstone_block', {
+    description = S('Cursed Sandstone Block'),
+    tiles = { 'everness_cursed_sandstone_block.png' },
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:cursed_sandstone_brick', {
+    description = S('Cursed Sandstone Brick'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_cursed_sandstone_brick.png' },
     is_ground_content = false,
     groups = { cracky = 2 },
     sounds = default.node_sound_stone_defaults(),

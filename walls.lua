@@ -43,6 +43,14 @@ walls.register(
 )
 
 walls.register(
+    'everness:cursed_brick_with_growth_wall',
+    S('Cursed Brick with Growth Wall'),
+    { 'everness_cursed_brick_with_growth.png' },
+    'everness:cursed_brick_with_growth',
+    default.node_sound_stone_defaults()
+)
+
+walls.register(
     'everness:forsaken_tundra_cobble_wall',
     S('Forsaken Tundra Cobblestone Wall'),
     { 'everness_forsaken_tundra_cobblestone.png' },

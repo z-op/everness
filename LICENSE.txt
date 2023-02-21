@@ -805,6 +805,12 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_crystal_sandstone_brick.png
 - everness_crystal_sandstone.png
 - everness_crystal_sandstone_chiseled.png
+- everness_cursed_brick_mixed.png
+- everness_cursed_brick_carved.png
+- everness_cursed_brick_with_growth.png
+- everness_cursed_brick.png
+- everness_cursed_sandstone_block.png
+- everness_cursed_sandstone_brick.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
