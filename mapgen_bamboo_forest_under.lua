@@ -50,7 +50,8 @@ minetest.register_decoration({
     biomes = { 'everness_bamboo_forest_under' },
     y_max = y_max,
     y_min = y_min,
-    flags = 'all_floors',
+    place_offset_y = -1,
+    flags = 'all_floors,force_placement',
     decoration = {
         'everness:moss_block',
         'default:clay'

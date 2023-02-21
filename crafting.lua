@@ -98,9 +98,8 @@ minetest.register_craft({
 minetest.register_craft({
     output = 'everness:bamboo_mosaic_wood',
     recipe = {
-        { 'stairs:slab_bamboo_wood', '', '' },
-        { 'stairs:slab_bamboo_wood', '', '' },
-        { '', '', '' },
+        { 'everness:bamboo_wood', 'everness:bamboo_wood' },
+        { 'everness:bamboo_wood', 'everness:bamboo_wood' },
     }
 })
 

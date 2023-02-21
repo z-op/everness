@@ -34,6 +34,47 @@ minetest.override_item('everness:dirt_with_coral_grass', {
     }
 })
 
+minetest.override_item('everness:dirt_1', {
+    soil = {
+        base = 'everness:dirt_1',
+        dry = 'everness:dirt_1_soil',
+        wet = 'everness:dirt_1_soil_wet'
+    }
+})
+
+minetest.override_item('everness:dirt_with_grass_1', {
+    soil = {
+        base = 'everness:dirt_with_grass_1',
+        dry = 'everness:dirt_1_soil',
+        wet = 'everness:dirt_1_soil_wet'
+    }
+})
+
+minetest.override_item('everness:dirt_with_grass_2', {
+    soil = {
+        base = 'everness:dirt_with_grass_2',
+        dry = 'everness:dirt_1_soil',
+        wet = 'everness:dirt_1_soil_wet'
+    }
+})
+
+minetest.override_item('everness:dirt_with_grass_extras_1', {
+    soil = {
+        base = 'everness:dirt_with_grass_extras_1',
+        dry = 'everness:dirt_1_soil',
+        wet = 'everness:dirt_1_soil_wet'
+    }
+})
+
+minetest.override_item('everness:dirt_with_grass_extras_2', {
+    soil = {
+        base = 'everness:dirt_with_grass_extras_2',
+        dry = 'everness:dirt_1_soil',
+        wet = 'everness:dirt_1_soil_wet'
+    }
+})
+
+
 -- normal soil
 minetest.register_node('everness:coral_dirt_soil', {
     description = S('Coral Dirt Soil'),
@@ -51,6 +92,22 @@ minetest.register_node('everness:coral_dirt_soil', {
     }
 })
 
+minetest.register_node('everness:dirt_1_soil', {
+    description = S('Dirt Soil'),
+    tiles = {
+        'everness_dirt_1.png^(everness_dirt_1.png^[mask:everness_farming_soil_overlay.png^[multiply:#51341E80)',
+        'everness_dirt_1.png'
+    },
+    drop = 'everness:dirt_1',
+    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
+    sounds = default.node_sound_dirt_defaults(),
+    soil = {
+        base = 'everness:dirt_1',
+        dry = 'everness:dirt_1_soil',
+        wet = 'everness:dirt_1_soil_wet'
+    }
+})
+
 -- wet soil
 minetest.register_node('everness:coral_dirt_soil_wet', {
     description = S('Coral Dirt Wet Soil'),
@@ -65,5 +122,21 @@ minetest.register_node('everness:coral_dirt_soil_wet', {
         base = 'everness:coral_dirt',
         dry = 'everness:coral_dirt_soil',
         wet = 'everness:coral_dirt_soil_wet'
+    }
+})
+
+minetest.register_node('everness:dirt_1_soil_wet', {
+    description = S('Coral Dirt Wet Soil'),
+    tiles = {
+        'everness_dirt_1.png^(everness_dirt_1.png^[mask:everness_farming_soil_wet_overlay.png^[multiply:#51341E80)',
+        'everness_dirt_1.png^(everness_dirt_1.png^[mask:everness_farming_soil_wet_side_overlay.png^[multiply:#51341E80)',
+    },
+    drop = 'everness:dirt_1',
+    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
+    sounds = default.node_sound_dirt_defaults(),
+    soil = {
+        base = 'everness:dirt_1',
+        dry = 'everness:dirt_1_soil',
+        wet = 'everness:dirt_1_soil_wet'
     }
 })

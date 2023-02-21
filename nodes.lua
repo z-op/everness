@@ -3170,7 +3170,8 @@ minetest.register_node('everness:bamboo_1', {
         flammable = 2,
         bamboo = 1,
         bamboo_small = 1,
-        bamboo_grass = 1
+        bamboo_grass = 1,
+        not_in_creative_inventory = 1
     },
     selection_box = {
         type = 'fixed',
@@ -3236,7 +3237,8 @@ minetest.register_node('everness:bamboo_2', {
         flammable = 2,
         bamboo = 1,
         bamboo_small = 1,
-        bamboo_grass = 1
+        bamboo_grass = 1,
+        not_in_creative_inventory = 1
     },
     selection_box = {
         type = 'fixed',
@@ -3304,7 +3306,8 @@ minetest.register_node('everness:bamboo_3', {
         flammable = 2,
         bamboo = 1,
         bamboo_large = 1,
-        bamboo_grass = 1
+        bamboo_grass = 1,
+        not_in_creative_inventory = 1
     },
     selection_box = {
         type = 'fixed',
@@ -3366,7 +3369,8 @@ minetest.register_node('everness:bamboo_4', {
         flammable = 2,
         bamboo = 1,
         bamboo_large = 1,
-        bamboo_grass = 1
+        bamboo_grass = 1,
+        not_in_creative_inventory = 1
     },
     selection_box = {
         type = 'fixed',
@@ -3428,7 +3432,8 @@ minetest.register_node('everness:bamboo_5', {
         flammable = 2,
         bamboo = 1,
         bamboo_large = 1,
-        bamboo_grass = 1
+        bamboo_grass = 1,
+        not_in_creative_inventory = 1
     },
     selection_box = {
         type = 'fixed',
