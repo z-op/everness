@@ -707,6 +707,10 @@ Everness = {
                         fog_moon_tint = '#ad86b9'
                     }
                 },
+                moon_parameters = {
+                    texture = 'everness_crystal_forest_moon.png',
+                    tonemap = 'everness_crystal_forest_moon_tonemap.png'
+                },
                 star_parameters = {
                     count = 6000,
                     scale = 0.5
@@ -727,6 +731,10 @@ Everness = {
                         fog_sun_tint = '#ac85b8',
                         fog_moon_tint = '#ad86b9'
                     }
+                },
+                moon_parameters = {
+                    texture = 'everness_crystal_forest_moon.png',
+                    tonemap = 'everness_crystal_forest_moon_tonemap.png'
                 },
                 star_parameters = {
                     count = 6000,
@@ -749,6 +757,10 @@ Everness = {
                         fog_moon_tint = '#ad86b9'
                     }
                 },
+                moon_parameters = {
+                    texture = 'everness_crystal_forest_moon.png',
+                    tonemap = 'everness_crystal_forest_moon_tonemap.png'
+                },
                 star_parameters = {
                     count = 6000,
                     scale = 0.5
@@ -769,6 +781,10 @@ Everness = {
                         fog_sun_tint = '#ac85b8',
                         fog_moon_tint = '#ad86b9'
                     }
+                },
+                moon_parameters = {
+                    texture = 'everness_crystal_forest_moon.png',
+                    tonemap = 'everness_crystal_forest_moon_tonemap.png'
                 },
                 star_parameters = {
                     count = 6000,
