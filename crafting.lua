@@ -407,6 +407,52 @@ minetest.register_craft({
     }
 })
 
+minetest.register_craft({
+    output = 'everness:forsaken_tundra_brick 4',
+    recipe = {
+        { 'everness:forsaken_tundra_stone', 'everness:forsaken_tundra_stone' },
+        { 'everness:forsaken_tundra_stone', 'everness:forsaken_tundra_stone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:forsaken_desert_cobble',
+    recipe = {
+        { 'everness:forsaken_desert_cobble_red', 'everness:forsaken_desert_sand' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:forsaken_desert_brick_red',
+    recipe = {
+        { 'everness:forsaken_desert_stone', 'everness:forsaken_desert_stone' },
+        { 'everness:forsaken_desert_stone', 'everness:forsaken_desert_stone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:forsaken_desert_brick',
+    recipe = {
+        { 'everness:forsaken_desert_brick_red', 'everness:forsaken_desert_sand' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:forsaken_desert_chiseled_stone',
+    recipe = {
+        { 'everness:forsaken_desert_brick_red' },
+        { 'everness:forsaken_desert_brick' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:forsaken_desert_engraved_stone 4',
+    recipe = {
+        { 'everness:forsaken_desert_brick', 'everness:forsaken_desert_brick' },
+        { 'everness:forsaken_desert_brick', 'everness:forsaken_desert_brick' },
+    }
+})
+
 --
 -- Tools
 --
@@ -531,14 +577,6 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-    output = 'everness:forsaken_tundra_brick 4',
-    recipe = {
-        { 'everness:forsaken_tundra_stone', 'everness:forsaken_tundra_stone' },
-        { 'everness:forsaken_tundra_stone', 'everness:forsaken_tundra_stone' },
-    }
-})
-
-minetest.register_craft({
     type = 'cooking',
     output = 'everness:bamboo_dry_block',
     recipe = 'everness:bamboo_block',
@@ -554,6 +592,12 @@ minetest.register_craft({
     type = 'cooking',
     output = 'everness:pyriteblock_forged',
     recipe = 'everness:pyriteblock',
+})
+
+minetest.register_craft({
+    type = 'cooking',
+    output = 'everness:forsaken_desert_stone',
+    recipe = 'everness:forsaken_desert_cobble_red',
 })
 
 --
