@@ -106,6 +106,22 @@ minetest.override_item('everness:crystal_cave_dirt_with_moss', {
     }
 })
 
+minetest.override_item('everness:cursed_dirt', {
+    soil = {
+        base = 'everness:cursed_dirt',
+        dry = 'everness:cursed_dirt_soil',
+        wet = 'everness:cursed_dirt_soil_wet'
+    }
+})
+
+minetest.override_item('everness:dirt_with_cursed_grass', {
+    soil = {
+        base = 'everness:dirt_with_cursed_grass',
+        dry = 'everness:cursed_dirt_soil',
+        wet = 'everness:cursed_dirt_soil_wet'
+    }
+})
+
 -- normal soil
 minetest.register_node('everness:coral_dirt_soil', {
     description = S('Coral Dirt Soil'),
@@ -145,7 +161,7 @@ minetest.register_node('everness:crystal_dirt_soil', {
         'everness_crystal_dirt.png^(everness_crystal_dirt.png^[mask:everness_farming_soil_overlay.png^[multiply:#75506980)',
         'everness_crystal_dirt.png'
     },
-    drop = 'everness:dirt_1',
+    drop = 'everness:crystal_dirt',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
     sounds = default.node_sound_dirt_defaults(),
     soil = {
@@ -161,13 +177,29 @@ minetest.register_node('everness:crystal_cave_dirt_soil', {
         'everness_crystal_cave_dirt.png^(everness_crystal_cave_dirt.png^[mask:everness_farming_soil_overlay.png^[multiply:#CCB17E80)',
         'everness_crystal_cave_dirt.png'
     },
-    drop = 'everness:dirt_1',
+    drop = 'everness:crystal_cave_dirt',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
     sounds = default.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:crystal_cave_dirt',
         dry = 'everness:crystal_cave_dirt_soil',
         wet = 'everness:crystal_cave_dirt_soil_wet'
+    }
+})
+
+minetest.register_node('everness:cursed_dirt_soil', {
+    description = S('Cursed Dirt Soil'),
+    tiles = {
+        'everness_cursed_dirt.png^(everness_cursed_dirt.png^[mask:everness_farming_soil_overlay.png^[multiply:#625B4B80)',
+        'everness_cursed_dirt.png'
+    },
+    drop = 'everness:cursed_dirt',
+    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
+    sounds = default.node_sound_dirt_defaults(),
+    soil = {
+        base = 'everness:cursed_dirt',
+        dry = 'everness:cursed_dirt_soil',
+        wet = 'everness:cursed_dirt_soil_wet'
     }
 })
 
@@ -210,7 +242,7 @@ minetest.register_node('everness:crystal_dirt_soil_wet', {
         'everness_crystal_dirt.png^(everness_crystal_dirt.png^[mask:everness_farming_soil_wet_overlay.png^[multiply:#75506980)',
         'everness_crystal_dirt.png^(everness_crystal_dirt.png^[mask:everness_farming_soil_wet_side_overlay.png^[multiply:#75506980)',
     },
-    drop = 'everness:dirt_1',
+    drop = 'everness:crystal_dirt',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
     sounds = default.node_sound_dirt_defaults(),
     soil = {
@@ -226,12 +258,28 @@ minetest.register_node('everness:crystal_cave_dirt_soil_wet', {
         'everness_crystal_cave_dirt.png^(everness_crystal_cave_dirt.png^[mask:everness_farming_soil_wet_overlay.png^[multiply:#CCB17E80)',
         'everness_crystal_cave_dirt.png^(everness_crystal_cave_dirt.png^[mask:everness_farming_soil_wet_side_overlay.png^[multiply:#CCB17E80)',
     },
-    drop = 'everness:dirt_1',
+    drop = 'everness:crystal_cave_dirt',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
     sounds = default.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:crystal_cave_dirt',
         dry = 'everness:crystal_cave_dirt_soil',
         wet = 'everness:crystal_cave_dirt_soil_wet'
+    }
+})
+
+minetest.register_node('everness:cursed_dirt_soil_wet', {
+    description = S('Cursed Dirt Wet Soil'),
+    tiles = {
+        'everness_cursed_dirt.png^(everness_cursed_dirt.png^[mask:everness_farming_soil_wet_overlay.png^[multiply:#625B4B80)',
+        'everness_cursed_dirt.png^(everness_cursed_dirt.png^[mask:everness_farming_soil_wet_side_overlay.png^[multiply:#625B4B80)',
+    },
+    drop = 'everness:cursed_dirt',
+    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
+    sounds = default.node_sound_dirt_defaults(),
+    soil = {
+        base = 'everness:cursed_dirt',
+        dry = 'everness:cursed_dirt_soil',
+        wet = 'everness:cursed_dirt_soil_wet'
     }
 })
