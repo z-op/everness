@@ -17,6 +17,38 @@ It also adds structures, dungeons with loot chests, and custom skyboxes based on
 * custom skyboxes based on biome
 * inlcudes (not for all) e.g. walls, doors, glass, stairs, vines, tools, panes, trees...
 
+## Biomes
+
+Additionally adds extra biomes to the MT game default biomes:
+
+* Coral Forest
+* Coral Forest Dunes
+* Coral Forest Ocean
+* Coral Forest Under
+* Frosted Icesheet
+* Frosted Icesheet Ocean
+* Frosted Icesheet Under
+* Cursed Lands
+* Cursed Lands Dunes
+* Cursed Lands Swamp
+* Cursed Lands Ocean
+* Cursed Lands Under
+* Crystal Forest
+* Crystal Forest Dunes
+* Crystal Forest Shore
+* Crystal Forest Ocean
+* Crystal Forest Under
+* Bamboo Forest
+* Bamboo Forest Under
+* Forsaken Desert
+* Forsaken Desert Ocean
+* Forsaken Desert Under
+* Baobab Savanna
+* Forsaken Tundra
+* Forsaken Tundra Beach
+* Forsaken Tundra Ocean
+* Forsaken Tundra Under
+
 ## Wiki
 
 https://bitbucket.org/minetest_gamers/everness/wiki/Home
