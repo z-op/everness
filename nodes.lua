@@ -653,6 +653,31 @@ minetest.register_node('everness:forsaken_desert_engraved_stone', {
     sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node('everness:crystal_sandstone', {
+    description = S('Crystal Sandstone'),
+    tiles = { 'everness_crystal_sandstone.png' },
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:crystal_sandstone_brick', {
+    description = S('Crystal Sandstone Brick'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_crystal_sandstone_brick.png' },
+    is_ground_content = false,
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:crystal_sandstone_chiseled', {
+    description = S('Crystal Sandstone Chiseled'),
+    tiles = { 'everness_crystal_sandstone_chiseled.png' },
+    is_ground_content = false,
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
 --
 -- Soft / Non-Stone
 --

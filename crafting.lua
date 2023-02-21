@@ -334,6 +334,31 @@ minetest.register_craft({
     }
 })
 
+minetest.register_craft({
+    output = 'everness:crystal_sandstone 4',
+    recipe = {
+        { 'everness:crystal_sand', 'everness:crystal_sand' },
+        { 'everness:crystal_sand', 'everness:crystal_sand' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:crystal_sandstone_brick 4',
+    recipe = {
+        { 'everness:crystal_sandstone', 'everness:crystal_sandstone' },
+        { 'everness:crystal_sandstone', 'everness:crystal_sandstone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:crystal_sandstone_chiseled 9',
+    recipe = {
+        { 'everness:crystal_sandstone', 'everness:crystal_sandstone', 'everness:crystal_sandstone' },
+        { 'everness:crystal_sandstone', 'everness:crystal_sandstone', 'everness:crystal_sandstone' },
+        { 'everness:crystal_sandstone', 'everness:crystal_sandstone', 'everness:crystal_sandstone' },
+    }
+})
+
 --
 -- Tools
 --

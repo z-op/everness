@@ -802,6 +802,9 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_farming_soil_wet_side_overlay.png -- Derived from texture by PilzAdam (CC BY 3.0)
 - everness_crystal_forest_moon.png
 - everness_crystal_forest_moon_tonemap.png
+- everness_crystal_sandstone_brick.png
+- everness_crystal_sandstone.png
+- everness_crystal_sandstone_chiseled.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
