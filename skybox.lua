@@ -177,7 +177,7 @@ local skybox_defs = {
             type = 'regular',
             sky_color = {
                 -- day_sky = '#c492a5',
-                day_sky = '',
+                day_sky = '#61B5F5',
                 day_horizon = '#e4b2c5',
                 dawn_sky = '#e0aec1',
                 dawn_horizon = '#e5b3c6',
@@ -199,7 +199,7 @@ local skybox_defs = {
             type = 'regular',
             sky_color = {
                 -- day_sky = '#c492a5',
-                day_sky = '',
+                day_sky = '#61B5F5',
                 day_horizon = '#e4b2c5',
                 dawn_sky = '#e0aec1',
                 dawn_horizon = '#e5b3c6',
@@ -221,7 +221,7 @@ local skybox_defs = {
             type = 'regular',
             sky_color = {
                 -- day_sky = '#c492a5',
-                day_sky = '',
+                day_sky = '#61B5F5',
                 day_horizon = '#e4b2c5',
                 dawn_sky = '#e0aec1',
                 dawn_horizon = '#e5b3c6',
@@ -243,7 +243,7 @@ local skybox_defs = {
             type = 'regular',
             sky_color = {
                 -- day_sky = '#c492a5',
-                day_sky = '',
+                day_sky = '#61B5F5',
                 day_horizon = '#e4b2c5',
                 dawn_sky = '#e0aec1',
                 dawn_horizon = '#e5b3c6',
@@ -260,13 +260,13 @@ local skybox_defs = {
             type = 'regular',
             sky_color = {
                 -- day_sky = '#5dd35d',
-                day_sky = '',
+                day_sky = '#61B5F5',
                 day_horizon = '#7df37d',
                 -- dawn_sky = '#79ef79',
-                dawn_sky = '',
+                dawn_sky = '#B4BAFA',
                 dawn_horizon = '#7ef47e',
                 -- night_sky = '#158b15',
-                night_sky = '',
+                night_sky = '#006BFF',
                 night_horizon = '#3eb43e',
                 indoors = '#1e941e',
                 fog_sun_tint = '#50c650',
@@ -279,13 +279,13 @@ local skybox_defs = {
             type = 'regular',
             sky_color = {
                 -- day_sky = '#5dd35d',
-                day_sky = '',
+                day_sky = '#61B5F5',
                 day_horizon = '#7df37d',
                 -- dawn_sky = '#79ef79',
-                dawn_sky = '',
+                dawn_sky = '#B4BAFA',
                 dawn_horizon = '#7ef47e',
                 -- night_sky = '#158b15',
-                night_sky = '',
+                night_sky = '#006BFF',
                 night_horizon = '#3eb43e',
                 indoors = '#1e941e',
                 fog_sun_tint = '#50c650',
@@ -346,7 +346,7 @@ local skybox_defs = {
             type = 'regular',
             sky_color = {
                 -- day_sky = '#b992c5',
-                day_sky = '',
+                day_sky = '#61B5F5',
                 day_horizon = '#d9b2e5',
                 dawn_sky = '#d5aee1',
                 dawn_horizon = '#dab3e6',
@@ -371,7 +371,7 @@ local skybox_defs = {
             type = 'regular',
             sky_color = {
                 -- day_sky = '#b992c5',
-                day_sky = '',
+                day_sky = '#61B5F5',
                 day_horizon = '#d9b2e5',
                 dawn_sky = '#d5aee1',
                 dawn_horizon = '#dab3e6',
@@ -396,7 +396,7 @@ local skybox_defs = {
             type = 'regular',
             sky_color = {
                 -- day_sky = '#b992c5',
-                day_sky = '',
+                day_sky = '#61B5F5',
                 day_horizon = '#d9b2e5',
                 dawn_sky = '#d5aee1',
                 dawn_horizon = '#dab3e6',
@@ -421,7 +421,7 @@ local skybox_defs = {
             type = 'regular',
             sky_color = {
                 -- day_sky = '#b992c5',
-                day_sky = '',
+                day_sky = '#61B5F5',
                 day_horizon = '#d9b2e5',
                 dawn_sky = '#d5aee1',
                 dawn_horizon = '#dab3e6',
@@ -446,7 +446,7 @@ local skybox_defs = {
             type = 'regular',
             sky_color = {
                 -- day_sky = '#b992c5',
-                day_sky = '',
+                day_sky = '#61B5F5',
                 day_horizon = '#d9b2e5',
                 dawn_sky = '#d5aee1',
                 dawn_horizon = '#dab3e6',
@@ -479,7 +479,7 @@ local skybox_defs = {
         },
         sun_parameters = {
             texture = 'everness_forsaken_desert_sun.png',
-            scale = 1.57,
+            scale = 3.14,
             tonemap = 'everness_forsaken_desert_sun_tonemap.png'
         },
     },
@@ -500,7 +500,7 @@ local skybox_defs = {
         },
         sun_parameters = {
             texture = 'everness_forsaken_desert_sun.png',
-            scale = 1.57,
+            scale = 3.14,
             tonemap = 'everness_forsaken_desert_sun_tonemap.png'
         },
     },
@@ -552,7 +552,12 @@ local skybox_defs = {
                 fog_sun_tint = '#bd962c',
                 fog_moon_tint = '#be972d'
             }
-        }
+        },
+        sun_parameters = {
+            texture = 'everness_forsaken_tundra_sun.png',
+            scale = 1.57,
+            tonemap = 'everness_forsaken_tundra_sun_tonemap.png'
+        },
     },
     everness_forsaken_tundra_beach = {
         sky_parameters = {
@@ -570,7 +575,12 @@ local skybox_defs = {
                 fog_sun_tint = '#bd962c',
                 fog_moon_tint = '#be972d'
             }
-        }
+        },
+        sun_parameters = {
+            texture = 'everness_forsaken_tundra_sun.png',
+            scale = 1.57,
+            tonemap = 'everness_forsaken_tundra_sun_tonemap.png'
+        },
     },
     everness_forsaken_tundra_ocean = {
         sky_parameters = {
@@ -588,7 +598,12 @@ local skybox_defs = {
                 fog_sun_tint = '#bd962c',
                 fog_moon_tint = '#be972d'
             }
-        }
+        },
+        sun_parameters = {
+            texture = 'everness_forsaken_tundra_sun.png',
+            scale = 1.57,
+            tonemap = 'everness_forsaken_tundra_sun_tonemap.png'
+        },
     },
     everness_forsaken_tundra_under = {
         sky_parameters = {
@@ -617,12 +632,12 @@ local function should_flip(player)
     -- 1 morning
     -- 2 afternoon
     local current_time = minetest.get_timeofday() < 0.5 and 1 or 2
-    local should_flip = current_time ~= player_time
+    local flip = current_time ~= player_time
 
     player_meta:set_int('everness_timeofday', current_time)
 
     return {
-        should_flip = should_flip,
+        should_flip = flip,
         current_time = current_time
     }
 end
@@ -655,15 +670,15 @@ minetest.register_globalstep(function(dtime)
                 return
             end
 
-            local should_flip = should_flip(player)
+            local should_flip_data = should_flip(player)
 
             -- flip sun/moon when morning/afternoon
-            if player_biome_name == biome_name and should_flip then
+            if player_biome_name == biome_name and should_flip_data.should_flip then
                 if skybox_defs[biome_name] then
                     if skybox_defs[biome_name].sun_parameters then
                         local sun_params = table.copy(skybox_defs[biome_name].sun_parameters)
 
-                        if should_flip.current_time == 2 then
+                        if should_flip_data.current_time == 2 then
                             sun_params.texture = sun_params.texture .. '^[transformFY'
                         end
 
@@ -686,7 +701,7 @@ minetest.register_globalstep(function(dtime)
                         local sun_params = table.copy(skybox_defs[biome_name].sun_parameters)
 
                         -- flip sun when afternoon
-                        if should_flip.current_time == 2 then
+                        if should_flip_data.current_time == 2 then
                             sun_params.texture = sun_params.texture .. '^[transformFY'
                         end
 
