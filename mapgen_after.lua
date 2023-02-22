@@ -31,22 +31,11 @@ local c_forsaken_desert_chiseled_stone = minetest.get_content_id('everness:forsa
 local c_forsaken_desert_brick = minetest.get_content_id('everness:forsaken_desert_brick')
 local c_forsaken_desert_engraved_stone = minetest.get_content_id('everness:forsaken_desert_engraved_stone')
 
-local deco_ids_baobab = {
-    minetest.get_decoration_id('everness:baobab_savanna_baobab_tree_1'),
-    minetest.get_decoration_id('everness:baobab_savanna_baobab_tree_2')
-}
-
-if #deco_ids_baobab > 1 then
-    minetest.set_gen_notify('decoration', deco_ids_baobab)
-end
-
--- Localise data buffer table outside the loop, to be re-used for all
+-- Localize data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
 local data = {}
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
-    local gennotify = minetest.get_mapgen_object('gennotify')
-
     local chance = 15
     local disp = 16
     local rotations = { '0', '90', '180', '270' }
@@ -63,57 +52,6 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     local z_disp = rand:next(0, disp)
 
     if maxp.y > 0 then
-        --
-        -- Baobab Tree - fix light
-        --
-        for _, deco_id in ipairs(deco_ids_baobab) do
-            for _, pos in ipairs(gennotify['decoration#' .. deco_id] or {}) do
-                minetest.fix_light(vector.offset(pos, -1, -1, -1), vector.offset(pos, 24, 39, 24))
-            end
-        end
-
-        --
-        -- Bamboo
-        --
-        local bamboos_pos = minetest.find_nodes_in_area_under_air(minp, maxp, 'everness:bamboo_3')
-
-        for _, pos in ipairs(bamboos_pos) do
-            local node_below = minetest.get_node(vector.new(pos.x, pos.y - 1, pos.z))
-
-            -- get height of the generated bamboo
-            local bamboo_height = 0
-            local height_offset = 1
-            local bamboo_below = node_below
-
-            while minetest.get_item_group(bamboo_below.name, 'bamboo') > 0 do
-                if bamboo_height > 1 then
-                    bamboo_below = minetest.get_node(vector.new(pos.x, pos.y - height_offset, pos.z))
-                end
-
-                height_offset = height_offset + 1
-                bamboo_height = bamboo_height + 1
-            end
-
-            -- add top bamboo nodes with leaves based on their generated heigth
-            for i = 1, 3 do
-                local node_name = 'everness:bamboo_4'
-
-                if i == 2 and bamboo_height > 4 then
-                    node_name = 'everness:bamboo_5'
-                elseif i == 3 then
-                    node_name = 'everness:bamboo_5'
-                end
-
-                minetest.swap_node(
-                    vector.new(pos.x, pos.y + (i - 1), pos.z),
-                    {
-                        name = node_name,
-                        param2 = node_below.param2
-                    }
-                )
-            end
-        end
-
         for y = minp.y, maxp.y do
             local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
 

@@ -226,3 +226,53 @@ register_flower(36662, 'geranium')
 register_flower(1133, 'viola')
 register_flower(73133, 'dandelion_white')
 register_flower(42, 'tulip_black')
+
+--
+-- On Generated
+--
+
+minetest.register_on_generated(function(minp, maxp, blockseed)
+    if maxp.y > 0 then
+        --
+        -- Bamboo
+        --
+        local bamboos_pos = minetest.find_nodes_in_area_under_air(minp, maxp, 'everness:bamboo_3')
+
+        for _, pos in ipairs(bamboos_pos) do
+            local node_below = minetest.get_node(vector.new(pos.x, pos.y - 1, pos.z))
+
+            -- get height of the generated bamboo
+            local bamboo_height = 0
+            local height_offset = 1
+            local bamboo_below = node_below
+
+            while minetest.get_item_group(bamboo_below.name, 'bamboo') > 0 do
+                if bamboo_height > 1 then
+                    bamboo_below = minetest.get_node(vector.new(pos.x, pos.y - height_offset, pos.z))
+                end
+
+                height_offset = height_offset + 1
+                bamboo_height = bamboo_height + 1
+            end
+
+            -- add top bamboo nodes with leaves based on their generated heigth
+            for i = 1, 3 do
+                local node_name = 'everness:bamboo_4'
+
+                if i == 2 and bamboo_height > 4 then
+                    node_name = 'everness:bamboo_5'
+                elseif i == 3 then
+                    node_name = 'everness:bamboo_5'
+                end
+
+                minetest.swap_node(
+                    vector.new(pos.x, pos.y + (i - 1), pos.z),
+                    {
+                        name = node_name,
+                        param2 = node_below.param2
+                    }
+                )
+            end
+        end
+    end
+end)

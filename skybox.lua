@@ -191,7 +191,8 @@ local skybox_defs = {
         sun_parameters = {
             texture = 'everness_coral_forest_sun.png',
             scale = 1.57,
-            tonemap = 'everness_coral_forest_sun_tonemap.png'
+            tonemap = 'everness_coral_forest_sun_tonemap.png',
+            sunrise = ''
         },
     },
     everness_coral_forest_dunes = {
@@ -213,7 +214,8 @@ local skybox_defs = {
         sun_parameters = {
             texture = 'everness_coral_forest_sun.png',
             scale = 1.57,
-            tonemap = 'everness_coral_forest_sun_tonemap.png'
+            tonemap = 'everness_coral_forest_sun_tonemap.png',
+            sunrise = ''
         },
     },
     everness_coral_forest_ocean = {
@@ -235,7 +237,8 @@ local skybox_defs = {
         sun_parameters = {
             texture = 'everness_coral_forest_sun.png',
             scale = 1.57,
-            tonemap = 'everness_coral_forest_sun_tonemap.png'
+            tonemap = 'everness_coral_forest_sun_tonemap.png',
+            sunrise = ''
         },
     },
     everness_coral_forest_under = {
@@ -273,6 +276,12 @@ local skybox_defs = {
                 fog_moon_tint = '#51c751'
             }
         },
+        sun_parameters = {
+            texture = 'everness_bamboo_forest_sun.png',
+            scale = 1.57,
+            tonemap = 'everness_bamboo_forest_sun_tonemap.png',
+            sunrise = 'everness_bamboo_forest_sunrisebg.png',
+        },
     },
     everness_bamboo_forest_under = {
         sky_parameters = {
@@ -308,6 +317,12 @@ local skybox_defs = {
                 fog_moon_tint = '#91989e'
             }
         },
+        sun_parameters = {
+            texture = 'everness_frosted_icesheet_sun.png',
+            scale = 1.57,
+            tonemap = 'everness_frosted_icesheet_sun_tonemap.png',
+            sunrise = ''
+        },
     },
     everness_frosted_icesheet_ocean = {
         sky_parameters = {
@@ -323,6 +338,12 @@ local skybox_defs = {
                 fog_sun_tint = '#90979d',
                 fog_moon_tint = '#91989e'
             }
+        },
+        sun_parameters = {
+            texture = 'everness_frosted_icesheet_sun.png',
+            scale = 1.57,
+            tonemap = 'everness_frosted_icesheet_sun_tonemap.png',
+            sunrise = ''
         },
     },
     everness_frosted_icesheet_under = {
@@ -364,7 +385,13 @@ local skybox_defs = {
         star_parameters = {
             count = 6000,
             scale = 0.5
-        }
+        },
+        sun_parameters = {
+            texture = 'everness_crystal_forest_sun.png',
+            scale = 1.57,
+            tonemap = 'everness_crystal_forest_sun_tonemap.png',
+            sunrise = ''
+        },
     },
     everness_crystal_forest_dunes = {
         sky_parameters = {
@@ -389,7 +416,13 @@ local skybox_defs = {
         star_parameters = {
             count = 6000,
             scale = 0.5
-        }
+        },
+        sun_parameters = {
+            texture = 'everness_crystal_forest_sun.png',
+            scale = 1.57,
+            tonemap = 'everness_crystal_forest_sun_tonemap.png',
+            sunrise = ''
+        },
     },
     everness_crystal_forest_shore = {
         sky_parameters = {
@@ -414,7 +447,13 @@ local skybox_defs = {
         star_parameters = {
             count = 6000,
             scale = 0.5
-        }
+        },
+        sun_parameters = {
+            texture = 'everness_crystal_forest_sun.png',
+            scale = 1.57,
+            tonemap = 'everness_crystal_forest_sun_tonemap.png',
+            sunrise = ''
+        },
     },
     everness_crystal_forest_ocean = {
         sky_parameters = {
@@ -439,7 +478,13 @@ local skybox_defs = {
         star_parameters = {
             count = 6000,
             scale = 0.5
-        }
+        },
+        sun_parameters = {
+            texture = 'everness_crystal_forest_sun.png',
+            scale = 1.57,
+            tonemap = 'everness_crystal_forest_sun_tonemap.png',
+            sunrise = ''
+        },
     },
     everness_crystal_forest_under = {
         sky_parameters = {
@@ -480,7 +525,8 @@ local skybox_defs = {
         sun_parameters = {
             texture = 'everness_forsaken_desert_sun.png',
             scale = 3.14,
-            tonemap = 'everness_forsaken_desert_sun_tonemap.png'
+            tonemap = 'everness_forsaken_desert_sun_tonemap.png',
+            sunrise = ''
         },
     },
     everness_forsaken_desert_ocean = {
@@ -501,7 +547,8 @@ local skybox_defs = {
         sun_parameters = {
             texture = 'everness_forsaken_desert_sun.png',
             scale = 3.14,
-            tonemap = 'everness_forsaken_desert_sun_tonemap.png'
+            tonemap = 'everness_forsaken_desert_sun_tonemap.png',
+            sunrise = ''
         },
     },
     everness_forsaken_desert_under = {
@@ -534,7 +581,13 @@ local skybox_defs = {
                 fog_sun_tint = '#b79449',
                 fog_moon_tint = '#b8954a'
             }
-        }
+        },
+        sun_parameters = {
+            texture = 'everness_baobab_savanna_sun.png',
+            scale = 1.57,
+            tonemap = '',
+            sunrise = ''
+        },
     },
     everness_forsaken_tundra = {
         sky_parameters = {
@@ -556,7 +609,8 @@ local skybox_defs = {
         sun_parameters = {
             texture = 'everness_forsaken_tundra_sun.png',
             scale = 1.57,
-            tonemap = 'everness_forsaken_tundra_sun_tonemap.png'
+            tonemap = 'everness_forsaken_tundra_sun_tonemap.png',
+            sunrise = ''
         },
     },
     everness_forsaken_tundra_beach = {
@@ -579,7 +633,8 @@ local skybox_defs = {
         sun_parameters = {
             texture = 'everness_forsaken_tundra_sun.png',
             scale = 1.57,
-            tonemap = 'everness_forsaken_tundra_sun_tonemap.png'
+            tonemap = 'everness_forsaken_tundra_sun_tonemap.png',
+            sunrise = ''
         },
     },
     everness_forsaken_tundra_ocean = {
@@ -602,7 +657,8 @@ local skybox_defs = {
         sun_parameters = {
             texture = 'everness_forsaken_tundra_sun.png',
             scale = 1.57,
-            tonemap = 'everness_forsaken_tundra_sun_tonemap.png'
+            tonemap = 'everness_forsaken_tundra_sun_tonemap.png',
+            sunrise = ''
         },
     },
     everness_forsaken_tundra_under = {

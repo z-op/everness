@@ -141,3 +141,31 @@ minetest.register_decoration({
     spawn_by = 'default:dry_dirt_with_dry_grass',
     num_spawn_by = 8,
 })
+
+--
+-- On Generated
+--
+
+local deco_ids_baobab = {
+    minetest.get_decoration_id('everness:baobab_savanna_baobab_tree_1'),
+    minetest.get_decoration_id('everness:baobab_savanna_baobab_tree_2')
+}
+
+if #deco_ids_baobab > 1 then
+    minetest.set_gen_notify('decoration', deco_ids_baobab)
+end
+
+minetest.register_on_generated(function(minp, maxp, blockseed)
+    local gennotify = minetest.get_mapgen_object('gennotify')
+
+    if maxp.y > 0 then
+        --
+        -- Baobab Tree - fix light
+        --
+        for _, deco_id in ipairs(deco_ids_baobab) do
+            for _, pos in ipairs(gennotify['decoration#' .. deco_id] or {}) do
+                minetest.fix_light(vector.offset(pos, -1, -1, -1), vector.offset(pos, 24, 39, 24))
+            end
+        end
+    end
+end)
