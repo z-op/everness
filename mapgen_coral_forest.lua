@@ -213,3 +213,22 @@ register_coral_grass_decoration(-0.015, 0.075, 4)
 register_coral_grass_decoration(0, 0.06, 3)
 register_coral_grass_decoration(0.015, 0.045, 2)
 register_coral_grass_decoration(0.03, 0.03, 1)
+
+--
+-- On Generated
+--
+
+local deco_id_coral_bones_tree = minetest.get_decoration_id('everness:coral_forest_coral_bones_tree')
+
+minetest.set_gen_notify('decoration', { deco_id_coral_bones_tree })
+
+minetest.register_on_generated(function(minp, maxp, blockseed)
+    local gennotify = minetest.get_mapgen_object('gennotify')
+
+    --
+    -- Coral bone tree - fix light
+    --
+    for _, pos in ipairs(gennotify['decoration#' .. deco_id_coral_bones_tree] or {}) do
+        minetest.fix_light(vector.offset(pos, -1, -1, -1), vector.offset(pos, 14, 35, 14))
+    end
+end)

@@ -36,14 +36,8 @@ local deco_ids_baobab = {
     minetest.get_decoration_id('everness:baobab_savanna_baobab_tree_2')
 }
 
-local deco_id_coral_bones_tree = minetest.get_decoration_id('everness:coral_forest_coral_bones_tree')
-
 if #deco_ids_baobab > 1 then
     minetest.set_gen_notify('decoration', deco_ids_baobab)
-end
-
-if deco_id_coral_bones_tree then
-    minetest.set_gen_notify('decoration', { deco_id_coral_bones_tree })
 end
 
 -- Localise data buffer table outside the loop, to be re-used for all
@@ -76,13 +70,6 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
             for _, pos in ipairs(gennotify['decoration#' .. deco_id] or {}) do
                 minetest.fix_light(vector.offset(pos, -1, -1, -1), vector.offset(pos, 24, 39, 24))
             end
-        end
-
-        --
-        -- Coral bone tree - fix light
-        --
-        for _, pos in ipairs(gennotify['decoration#' .. deco_id_coral_bones_tree] or {}) do
-            minetest.fix_light(vector.offset(pos, -1, -1, -1), vector.offset(pos, 14, 35, 14))
         end
 
         --
