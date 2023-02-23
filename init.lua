@@ -170,6 +170,18 @@ if Everness.settings.features.everness_feature_sneak_pickup then
     dofile(path .. '/sneak_pickup.lua')
 end
 
+--
+-- Mod Support
+--
+
+if minetest.get_modpath('x_farming') then
+    dofile(path .. '/mod_support_x_farming.lua')
+end
+
+if minetest.get_modpath('x_tumbleweed') and minetest.global_exists('XTumbleweed')  then
+    dofile(path .. '/mod_support_x_tumbleweed.lua')
+end
+
 local mod_end_time = (minetest.get_us_time() - mod_start_time) / 1000000
 
 print('[Mod] everness loaded.. [' .. mod_end_time .. 's]')

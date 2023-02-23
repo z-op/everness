@@ -73,4 +73,5 @@ read_globals = {
     "walls",
     "doors",
     "xpanes",
+    "XTumbleweed",
 }
