@@ -35,6 +35,6 @@ if Everness.settings.biomes.everness_baobab_savanna.enabled then
 end
 
 if #allowed_biomes > 0 then
-    XTumbleweed:add_allowed_biome(allowed_biomes)
+    XTumbleweed:add_allowed_biomes(allowed_biomes)
 end
 
