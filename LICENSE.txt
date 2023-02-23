@@ -991,6 +991,13 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_ambience_ice_cracking_2
 - everness_ambience_ice_cracking_3
 
+**CC0-1.0, by onikage22**, https://freesound.org
+
+- everness_item_drop_pickup.1.ogg
+- everness_item_drop_pickup.2.ogg
+- everness_item_drop_pickup.3.ogg
+- everness_item_drop_pickup.4.ogg
+
 ### Models
 
 **CC-BY-SA-4.0, by SaKeL**

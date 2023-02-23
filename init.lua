@@ -166,6 +166,10 @@ dofile(path .. '/loot_chests.lua')
 dofile(path .. '/skybox.lua')
 dofile(path .. '/env_sounds.lua')
 
+if Everness.settings.features.everness_feature_sneak_pickup then
+    dofile(path .. '/sneak_pickup.lua')
+end
+
 local mod_end_time = (minetest.get_us_time() - mod_start_time) / 1000000
 
 print('[Mod] everness loaded.. [' .. mod_end_time .. 's]')

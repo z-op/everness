@@ -516,6 +516,9 @@ Everness = {
                 y_max = tonumber(minetest.settings:get('everness_forsaken_tundra_under_y_max')) or -256,
                 y_min = tonumber(minetest.settings:get('everness_forsaken_tundra_under_y_min')) or -31000,
             },
+        },
+        features = {
+            everness_feature_sneak_pickup = minetest.settings:get_bool('everness_feature_sneak_pickup', true),
         }
     },
 }

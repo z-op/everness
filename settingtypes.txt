@@ -324,3 +324,8 @@ everness_forsaken_tundra_under_y_max (y max) int -256
 # Lower limit for biome.
 everness_forsaken_tundra_under_y_min (y min) int -31000
 
+[Features]
+
+# Enable/ Disable Item pick up with sneak key
+# [Shift + E + Q] single drop item
+everness_feature_sneak_pickup (Sneak Pickup) bool true

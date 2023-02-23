@@ -9,6 +9,8 @@ It also adds structures, dungeons with loot chests, and custom skyboxes based on
 
 ## Features
 
+* player name tag will hide when sneaking
+* item magnet pickup when holding sneak
 * granular biome settings
 * custom sounds for some blocks, biomes
 * custom textures
