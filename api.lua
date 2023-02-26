@@ -519,6 +519,7 @@ Everness = {
         },
         features = {
             everness_feature_sneak_pickup = minetest.settings:get_bool('everness_feature_sneak_pickup', true),
+            everness_feature_skybox = minetest.settings:get_bool('everness_feature_skybox', true),
         }
     },
 }
