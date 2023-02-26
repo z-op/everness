@@ -547,6 +547,7 @@ minetest.register_node('everness:mold_stone_with_moss', {
         'everness_mold_stone_with_moss_side.png'
     },
     groups = { cracky = 3, stone = 1, everness_spreading_dirt_type_under = 1 },
+    is_ground_content = false,
     drop = 'everness:mold_cobble',
     sounds = default.node_sound_stone_defaults(),
 })
