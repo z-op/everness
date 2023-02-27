@@ -34,11 +34,11 @@ local c_forsaken_desert_engraved_stone = minetest.get_content_id('everness:forsa
 -- Localize data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
 local data = {}
+local chance = 15
+local disp = 16
+local rotations = { '0', '90', '180', '270' }
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
-    local chance = 15
-    local disp = 16
-    local rotations = { '0', '90', '180', '270' }
     local rand = PcgRandom(blockseed)
 
     local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
