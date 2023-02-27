@@ -177,6 +177,7 @@ minetest.register_decoration({
     y_min = y_min,
     decoration = {
         'everness:egg_plant',
+        'everness:ngrass_1',
         'everness:ngrass_2',
     },
     flags = 'all_floors',
@@ -203,29 +204,6 @@ minetest.register_decoration({
     },
     flags = 'all_floors',
     param2 = 3
-})
-
-minetest.register_decoration({
-    name = 'everness:cursed_lands_under_ngrass_1',
-    deco_type = 'simple',
-    place_on = { 'everness:soul_sandstone_veined' },
-    sidelen = 16,
-    noise_params = {
-        offset = 0,
-        scale = 0.02,
-        spread = { x = 200, y = 200, z = 200 },
-        seed = 329,
-        octaves = 3,
-        persist = 0.6
-    },
-    biomes = { 'everness_cursed_lands_under' },
-    y_max = y_max,
-    y_min = y_min,
-    decoration = {
-        'everness:ngrass_1',
-    },
-    flags = 'all_floors',
-    param2 = 2
 })
 
 minetest.register_decoration({

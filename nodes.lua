@@ -3172,8 +3172,6 @@ minetest.register_node('everness:ngrass_1', {
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
     },
     light_source = 5,
-    paramtype2 = 'meshoptions',
-    place_param2 = 2
 })
 
 minetest.register_node('everness:ngrass_2', {
