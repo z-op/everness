@@ -83,7 +83,6 @@ minetest.register_decoration({
         'everness:ancient_emerald_ice',
         'everness:dense_emerald_ice',
         'everness:emerald_ice',
-        'everness:frosted_cave_ice_illuminating',
         'everness:frosted_ice',
         'everness:frosted_ice_translucent',
     },
@@ -103,10 +102,49 @@ minetest.register_decoration({
         'everness:ancient_emerald_ice',
         'everness:dense_emerald_ice',
         'everness:emerald_ice',
-        'everness:frosted_cave_ice_illuminating',
         'everness:frosted_ice',
         'everness:frosted_ice_translucent',
     },
+})
+
+minetest.register_decoration({
+    name = 'everness:frosted_icesheet_under_illuminating_floors',
+    deco_type = 'simple',
+    place_on = {
+        'everness:ancient_emerald_ice',
+        'everness:dense_emerald_ice',
+        'everness:emerald_ice',
+        'everness:frosted_ice',
+        'everness:frosted_ice_translucent',
+    },
+    sidelen = 16,
+    place_offset_y = -1,
+    fill_ratio = 0.01,
+    biomes = { 'everness_frosted_icesheet_under' },
+    y_max = y_max,
+    y_min = y_min,
+    decoration = { 'everness:frosted_cave_ice_illuminating' },
+    flags = 'all_floors, force_placement'
+})
+
+minetest.register_decoration({
+    name = 'everness:frosted_icesheet_under_illuminating_ceilings',
+    deco_type = 'simple',
+    place_on = {
+        'everness:ancient_emerald_ice',
+        'everness:dense_emerald_ice',
+        'everness:emerald_ice',
+        'everness:frosted_ice',
+        'everness:frosted_ice_translucent',
+    },
+    sidelen = 16,
+    place_offset_y = -1,
+    fill_ratio = 0.01,
+    biomes = { 'everness_frosted_icesheet_under' },
+    y_max = y_max,
+    y_min = y_min,
+    decoration = { 'everness:frosted_cave_ice_illuminating' },
+    flags = 'all_ceilings, force_placement'
 })
 
 minetest.register_decoration({
@@ -116,7 +154,6 @@ minetest.register_decoration({
         'everness:ancient_emerald_ice',
         'everness:dense_emerald_ice',
         'everness:emerald_ice',
-        'everness:frosted_cave_ice_illuminating',
         'everness:frosted_ice',
         'everness:frosted_ice_translucent',
     },
@@ -143,7 +180,6 @@ minetest.register_decoration({
         'everness:ancient_emerald_ice',
         'everness:dense_emerald_ice',
         'everness:emerald_ice',
-        'everness:frosted_cave_ice_illuminating',
         'everness:frosted_ice',
         'everness:frosted_ice_translucent',
     },
@@ -165,13 +201,66 @@ minetest.register_decoration({
 })
 
 minetest.register_decoration({
+    name = 'everness:frosted_icicle_large_ceiling',
+    deco_type = 'schematic',
+    place_on = {
+        'everness:ancient_emerald_ice',
+        'everness:dense_emerald_ice',
+        'everness:emerald_ice',
+        'everness:frosted_ice',
+        'everness:frosted_ice_translucent',
+    },
+    sidelen = 16,
+    noise_params = {
+        offset = -0.004,
+        scale = 0.01,
+        spread = { x = 100, y = 100, z = 100 },
+        seed = 137,
+        octaves = 3,
+        persist = 0.7,
+    },
+    biomes = { 'everness_frosted_icesheet_under' },
+    y_max = y_max,
+    y_min = y_min,
+    schematic = minetest.get_modpath('everness') .. '/schematics/everness_frosted_icicle_large_ceiling.mts',
+    flags = 'place_center_x, place_center_z, all_ceilings',
+    rotation = 'random',
+})
+
+minetest.register_decoration({
+    name = 'everness:frosted_icicle_large_floor',
+    deco_type = 'schematic',
+    place_on = {
+        'everness:ancient_emerald_ice',
+        'everness:dense_emerald_ice',
+        'everness:emerald_ice',
+        'everness:frosted_ice',
+        'everness:frosted_ice_translucent',
+    },
+    sidelen = 16,
+    noise_params = {
+        offset = -0.004,
+        scale = 0.01,
+        spread = { x = 100, y = 100, z = 100 },
+        seed = 137,
+        octaves = 3,
+        persist = 0.7,
+    },
+    biomes = { 'everness_frosted_icesheet_under' },
+    y_max = y_max,
+    y_min = y_min,
+    schematic = minetest.get_modpath('everness') .. '/schematics/everness_frosted_icicle_large_floor.mts',
+    flags = 'place_center_x, place_center_z, all_floors',
+    rotation = 'random',
+})
+
+minetest.register_decoration({
     name = 'everness:frosted_icesheet_under_plants',
     deco_type = 'simple',
     place_on = {
         'everness:ancient_emerald_ice',
         'everness:dense_emerald_ice',
         'everness:emerald_ice',
-        'everness:frosted_cave_ice_illuminating',
         'everness:frosted_ice',
         'everness:frosted_ice_translucent',
     },
@@ -184,52 +273,119 @@ minetest.register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    param2 = 11,
+    param2 = 8,
     biomes = { 'everness_frosted_icesheet_under' },
     y_max = y_max,
     y_min = y_min,
     decoration = {
         'everness:blooming_cooksonia',
-        'everness:creeping_moss_spores',
         'everness:frosted_icicle_floor',
     },
     flags = 'all_floors',
 })
 
 minetest.register_decoration({
-    name = 'everness:frosted_icesheet_under_crystal',
-    deco_type = 'schematic',
+    name = 'everness:frosted_icesheet_under_plants_2',
+    deco_type = 'simple',
     place_on = {
         'everness:ancient_emerald_ice',
         'everness:dense_emerald_ice',
         'everness:emerald_ice',
-        'everness:frosted_cave_ice_illuminating',
         'everness:frosted_ice',
         'everness:frosted_ice_translucent',
     },
-    place_offset_y = 1,
     sidelen = 16,
     noise_params = {
         offset = 0,
-        scale = 0.002,
-        spread = { x = 250, y = 250, z = 250 },
-        seed = 2,
+        scale = 0.02,
+        spread = { x = 200, y = 200, z = 200 },
+        seed = 329,
         octaves = 3,
-        persist = 0.66
+        persist = 0.6
     },
     biomes = { 'everness_frosted_icesheet_under' },
-    y_max = y_max - 250 > y_min and y_max - 250 or y_max,
+    y_max = y_max,
     y_min = y_min,
-    schematic = minetest.get_modpath('everness') .. '/schematics/everness_frosted_crystal.mts',
-    flags = 'place_center_x, place_center_z, all_floors, force_placement',
-    rotation = 'random',
-    spawn_by = {
-        'everness:ancient_emerald_ice',
-        'everness:dense_emerald_ice',
-        'everness:emerald_ice',
-        'everness:frosted_cave_ice_illuminating',
-        'everness:frosted_ice',
-        'everness:frosted_ice_translucent',
-    },
-    num_spawn_by = 8,
+    decoration = { 'everness:creeping_moss_spores' },
+    flags = 'all_floors',
+    param2 = 26
 })
+
+--
+-- On Generated
+--
+
+local deco_id_frosted_icicle_large_ceiling = minetest.get_decoration_id('everness:frosted_icicle_large_ceiling')
+local deco_id_frosted_icicle_large_floor = minetest.get_decoration_id('everness:frosted_icicle_large_floor')
+
+minetest.set_gen_notify('decoration', { deco_id_frosted_icicle_large_ceiling, deco_id_frosted_icicle_large_floor })
+
+minetest.register_on_generated(function(minp, maxp, blockseed)
+    local gennotify = minetest.get_mapgen_object('gennotify')
+
+    if y_min < maxp.y and maxp.y < y_max then
+        --
+        -- Frosted Large Icicle Ceiling
+        --
+        for _, pos in ipairs(gennotify['decoration#' .. deco_id_frosted_icicle_large_ceiling] or {}) do
+            local markers = minetest.find_nodes_in_area(
+                vector.new(pos.x - 1, pos.y - 18, pos.z - 1),
+                vector.new(pos.x + 1, pos.y - 20, pos.z + 1),
+                {'everness:frosted_icicle_large_ceiling_marker'}
+            )
+
+            if #markers > 0 then
+                local pos_marker = markers[1]
+
+                local air_below = minetest.find_nodes_in_area(
+                    vector.new(pos_marker.x, pos_marker.y, pos_marker.z),
+                    vector.new(pos_marker.x, pos_marker.y - 7, pos_marker.z),
+                    {'air'}
+                )
+
+                -- Replace marker
+                minetest.set_node(pos_marker, { name = 'everness:frosted_cave_ice_illuminating' })
+
+                if #air_below == 7 then
+                    local incrementer = 1
+                    local pos_below = vector.new(pos_marker.x, pos_marker.y - incrementer, pos_marker.z)
+                    local node_below = minetest.get_node(pos_below)
+
+                    Everness.stack_icicle_recursive(node_below, pos_below, incrementer, pos_marker, 'down')
+                end
+            end
+        end
+
+        --
+        -- Frosted Large Icicle Floor
+        --
+        for _, pos in ipairs(gennotify['decoration#' .. deco_id_frosted_icicle_large_floor] or {}) do
+            local markers = minetest.find_nodes_in_area(
+                vector.new(pos.x - 1, pos.y + 18, pos.z - 1),
+                vector.new(pos.x + 1, pos.y + 20, pos.z + 1),
+                {'everness:frosted_icicle_large_floor_marker'}
+            )
+
+            if #markers > 0 then
+                local pos_marker = markers[1]
+
+                local air_above = minetest.find_nodes_in_area(
+                    vector.new(pos_marker.x, pos_marker.y, pos_marker.z),
+                    vector.new(pos_marker.x, pos_marker.y + 7, pos_marker.z),
+                    {'air'}
+                )
+
+                minetest.set_node(pos_marker, { name = 'everness:frosted_cave_ice_illuminating' })
+
+                -- Make sure we have some space
+                if #air_above == 7 then
+                    local incrementer = 1
+                    local pos_above = vector.new(pos_marker.x, pos_marker.y + incrementer, pos_marker.z)
+                    local node_above = minetest.get_node(pos_above)
+
+                    Everness.stack_icicle_recursive(node_above, pos_above, incrementer, pos_marker, 'up')
+                end
+            end
+        end
+    end
+end)
