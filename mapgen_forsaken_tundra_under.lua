@@ -261,6 +261,9 @@ local data = {}
 local chance = 50
 local disp = 16
 local rotations = { '0', '90', '180', '270' }
+local everness_forsaken_tundra_under_y_max = y_max - 1500 > y_min and y_max - 1500 or y_max
+local everness_forsaken_tundra_under_y_min = y_min
+
 -- size = { x = 39, y = 28, z = 39 }
 local willow_tree_volume = 39 * 39 * 28
 local willow_tree_schem = minetest.get_modpath('everness') .. '/schematics/everness_willow_tree.mts'
@@ -277,8 +280,6 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
 
     local x_disp = rand:next(0, disp)
     local z_disp = rand:next(0, disp)
-    local everness_forsaken_tundra_under_y_max = y_max - 1500 > y_min and y_max - 1500 or y_max
-    local everness_forsaken_tundra_under_y_min = y_min
 
     if everness_forsaken_tundra_under_y_min < maxp.y
         and maxp.y < everness_forsaken_tundra_under_y_max

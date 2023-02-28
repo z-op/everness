@@ -727,3 +727,53 @@ function Everness.node_sound_mud_defaults(table)
     default.node_sound_defaults(table)
     return table
 end
+
+--
+-- Forsted Cave Icicles
+--
+
+function Everness.stack_icicle_recursive(node, pos_node, incrementer, pos_marker, direction)
+    local nb = node
+    local pos = pos_node
+    local inc = incrementer
+    local m_pos = pos_marker
+
+    while nb.name == 'air' or nb.name == 'ignore' do
+        if nb.name == 'ignore' then
+            Everness.emerge_icicle_area_recursive(pos, inc, m_pos, direction)
+            break
+        else
+            minetest.set_node(pos, { name = 'everness:frosted_cave_ice_illuminating' })
+            -- Shift 1 down
+            inc = inc + 1
+            local y_offset = (direction == 'down') and (m_pos.y - inc) or (m_pos.y + inc)
+            pos = vector.new(m_pos.x, y_offset, m_pos.z)
+            nb = minetest.get_node(pos)
+        end
+    end
+end
+
+function Everness.emerge_icicle_area_recursive(pos_node, incrementer, pos_marker, direction)
+    local y_offset = (direction == 'down') and (pos_node.y - 16) or (pos_node.y + 16)
+
+    minetest.emerge_area(
+        vector.new(pos_node.x - 1, pos_node.y, pos_node.z - 1),
+        vector.new(pos_node.x + 1, y_offset, pos_node.z + 1),
+        function(blockpos, action, calls_remaining, param)
+            Everness:emerge_area(blockpos, action, calls_remaining, param)
+        end,
+        {
+            callback = function(data)
+                local incrementer_cllbck = data.incrementer
+                local pos_node_cllbck = data.pos_node
+                local node_cllbck = minetest.get_node(pos_node_cllbck)
+
+                Everness.stack_icicle_recursive(node_cllbck, pos_node_cllbck, incrementer_cllbck, pos_marker, direction)
+            end,
+            data = {
+                incrementer = incrementer,
+                pos_node = pos_node
+            }
+        }
+    )
+end

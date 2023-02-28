@@ -828,7 +828,7 @@ minetest.register_node('everness:dry_ocean_dirt', {
     sounds = default.node_sound_stone_defaults(),
 })
 
--- Loot Chest Markers
+-- Loot Chest / Icicle Markers
 
 minetest.register_node('everness:japanese_shrine_lootchest_marker', {
     -- drawtype = 'airlike',
@@ -873,6 +873,22 @@ minetest.register_node('everness:forsaken_desert_temple_marker', {
 minetest.register_node('everness:forsaken_desert_temple_2_marker', {
     -- drawtype = 'airlike',
     description = 'Forsaken Temple 2 Loot Chest Spawn Marker',
+    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 0 },
+    paramtype2 = 'facedir',
+})
+
+minetest.register_node('everness:frosted_icicle_large_ceiling_marker', {
+    -- drawtype = 'airlike',
+    description = 'Frosted Icicle Large Ceiling Marker',
+    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 0 },
+    paramtype2 = 'facedir',
+})
+
+minetest.register_node('everness:frosted_icicle_large_floor_marker', {
+    -- drawtype = 'airlike',
+    description = 'Frosted Icicle Large Floor Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 0 },
     paramtype2 = 'facedir',
@@ -1102,7 +1118,8 @@ minetest.register_node('everness:frosted_cave_ice_illuminating', {
         not_in_creative_inventory = 1 },
     drop = 'everness:frosted_ice',
     sounds = default.node_sound_ice_defaults(),
-    light_source = 9
+    light_source = 9,
+    is_ground_content = false
 })
 
 minetest.register_node('everness:bone', {
@@ -2456,7 +2473,7 @@ minetest.register_node('everness:blooming_cooksonia', {
     wield_image = 'everness_blooming_cooksonia.png',
     paramtype = 'light',
     paramtype2 = 'meshoptions',
-    place_param2 = 11,
+    place_param2 = 8,
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
@@ -2476,7 +2493,7 @@ minetest.register_node('everness:creeping_moss_spores', {
     wield_image = 'everness_creeping_moss_spores.png',
     paramtype = 'light',
     paramtype2 = 'meshoptions',
-    place_param2 = 11,
+    place_param2 = 26,
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
