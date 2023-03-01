@@ -72,6 +72,7 @@ https://bitbucket.org/minetest_gamers/everness/issues
 - x_obsidianmese (for paths)
 - x_tumbleweed (adds tumbleweeds to deserts)
 - x_farming (bonemeal, recipes...)
+- x_clay (mapgen structures, loot chests...)
 
 ## License
 
