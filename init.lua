@@ -186,6 +186,13 @@ if minetest.get_modpath('x_tumbleweed') and minetest.global_exists('XTumbleweed'
     dofile(path .. '/mod_support_x_tumbleweed.lua')
 end
 
+if minetest.get_modpath('x_obsidianmese')
+    and minetest.global_exists('x_obsidianmese')
+    and x_obsidianmese.register_path_node
+then
+    dofile(path .. '/mod_support_x_obsidianmese.lua')
+end
+
 local mod_end_time = (minetest.get_us_time() - mod_start_time) / 1000000
 
 print('[Mod] everness loaded.. [' .. mod_end_time .. 's]')

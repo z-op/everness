@@ -69,6 +69,7 @@ https://bitbucket.org/minetest_gamers/everness/issues
 - doors
 - stairs
 - walls
+- x_obsidianmese (for paths)
 
 ## License
 
