@@ -75,4 +75,5 @@ read_globals = {
     "xpanes",
     "XTumbleweed",
     "x_obsidianmese",
+    "x_farming",
 }

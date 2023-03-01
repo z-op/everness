@@ -178,7 +178,7 @@ end
 -- Mod Support
 --
 
-if minetest.get_modpath('x_farming') then
+if minetest.get_modpath('x_farming') and minetest.global_exists('x_farming') then
     dofile(path .. '/mod_support_x_farming.lua')
 end
 
@@ -188,6 +188,7 @@ end
 
 if minetest.get_modpath('x_obsidianmese')
     and minetest.global_exists('x_obsidianmese')
+    -- backwards compatibility check
     and x_obsidianmese.register_path_node
 then
     dofile(path .. '/mod_support_x_obsidianmese.lua')

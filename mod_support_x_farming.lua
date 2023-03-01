@@ -17,6 +17,101 @@
 --]]
 
 --
+-- Bonemeal Trees
+--
+
+x_farming.x_bonemeal:register_tree_defs({
+    {
+        -- sapling name
+        name = 'everness:coral_tree_sapling',
+        -- 1 out of `chance`, e.g. 2 = 50% chance
+        chance = 3,
+        -- grow tree from sapling
+        grow_tree = Everness.grow_sapling
+    },
+    {
+        -- sapling name
+        name = 'everness:coral_tree_bioluminescent_sapling',
+        -- 1 out of `chance`, e.g. 2 = 50% chance
+        chance = 3,
+        -- grow tree from sapling
+        grow_tree = Everness.grow_sapling
+    },
+    {
+        -- sapling name
+        name = 'everness:crystal_bush_sapling',
+        -- 1 out of `chance`, e.g. 2 = 50% chance
+        chance = 3,
+        -- grow tree from sapling
+        grow_tree = Everness.grow_sapling
+    },
+    {
+        -- sapling name
+        name = 'everness:cursed_bush_sapling',
+        -- 1 out of `chance`, e.g. 2 = 50% chance
+        chance = 3,
+        -- grow tree from sapling
+        grow_tree = Everness.grow_sapling
+    },
+    {
+        -- sapling name
+        name = 'everness:baobab_sapling',
+        -- 1 out of `chance`, e.g. 2 = 50% chance
+        chance = 3,
+        -- grow tree from sapling
+        grow_tree = Everness.grow_sapling
+    },
+    {
+        -- sapling name
+        name = 'everness:dry_tree_sapling',
+        -- 1 out of `chance`, e.g. 2 = 50% chance
+        chance = 3,
+        -- grow tree from sapling
+        grow_tree = Everness.grow_sapling
+    },
+    {
+        -- sapling name
+        name = 'everness:willow_tree_sapling',
+        -- 1 out of `chance`, e.g. 2 = 50% chance
+        chance = 3,
+        -- grow tree from sapling
+        grow_tree = Everness.grow_sapling
+    },
+    {
+        -- sapling name
+        name = 'everness:sequoia_tree_sapling',
+        -- 1 out of `chance`, e.g. 2 = 50% chance
+        chance = 3,
+        -- grow tree from sapling
+        grow_tree = Everness.grow_sapling
+    },
+    {
+        -- sapling name
+        name = 'everness:crystal_tree_sapling',
+        -- 1 out of `chance`, e.g. 2 = 50% chance
+        chance = 3,
+        -- grow tree from sapling
+        grow_tree = Everness.grow_sapling
+    },
+    {
+        -- sapling name
+        name = 'everness:crystal_tree_large_sapling',
+        -- 1 out of `chance`, e.g. 2 = 50% chance
+        chance = 3,
+        -- grow tree from sapling
+        grow_tree = Everness.grow_sapling
+    },
+    {
+        -- sapling name
+        name = 'everness:cursed_dream_tree_sapling',
+        -- 1 out of `chance`, e.g. 2 = 50% chance
+        chance = 3,
+        -- grow tree from sapling
+        grow_tree = Everness.grow_sapling
+    },
+})
+
+--
 -- Recipes
 --
 
