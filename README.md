@@ -70,6 +70,7 @@ https://bitbucket.org/minetest_gamers/everness/issues
 - stairs
 - walls
 - x_obsidianmese (for paths)
+- x_tumbleweed (adds tumbleweeds to deserts)
 
 ## License
 
