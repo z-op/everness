@@ -94,7 +94,10 @@ minetest.register_decoration({
     y_max = y_max - (y_max + 5),
     y_min = y_max - (y_max + 10),
     flags = 'force_placement',
-    decoration = 'everness:sand_with_spine_kelp',
+    decoration = {
+        'everness:sand_with_spine_kelp',
+        'default:coral_skeleton'
+    },
     param2 = 48,
     param2_max = 96,
 })

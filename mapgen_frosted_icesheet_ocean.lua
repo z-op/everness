@@ -67,5 +67,9 @@ minetest.register_decoration({
     y_max = y_max - (y_max + 2), -- -2
     y_min = y_max - (y_max + 50), -- -50
     flags = 'force_placement',
-    decoration = { 'everness:coral_starfish', 'everness:coral_frosted' },
+    decoration = {
+        'everness:coral_starfish',
+        'everness:coral_frosted',
+        'default:coral_skeleton'
+    },
 })

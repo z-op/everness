@@ -69,6 +69,7 @@ minetest.register_decoration({
     flags = 'force_placement',
     decoration = {
         'everness:crystal_coral_dark',
-        'everness:crystal_coral_light'
+        'everness:crystal_coral_light',
+        'default:coral_skeleton'
     },
 })
