@@ -431,36 +431,56 @@ minetest.register_node('everness:sulfur_stone', {
             return
         end
 
-        minetest.add_particlespawner({
+        local particlespawner_def = {
             amount = 1,
             time = 4,
-            size = {
-                min = 16,
-                max = 24,
-            },
-            exptime = 7.5,
-            pos = {
-                min = vector.new({ x = pos.x - 0.25, y = pos.y + 0.6, z = pos.z - 0.25 }),
-                max = vector.new({ x = pos.x + 0.25, y = pos.y + 0.6, z = pos.z + 0.25 }),
-            },
-            vel = {
-                min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
-                max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
-            },
-            acc = {
-                min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
-                max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
-            },
-            texture = {
-                name = 'everness_smoke_cloud_particle_animated.png',
-                animation = {
-                    type = 'vertical_frames',
-                    aspect_w = 8,
-                    aspect_h = 8,
-                    length = 8
+            minpos = vector.new({ x = pos.x - 0.25, y = pos.y + 0.6, z = pos.z - 0.25 }),
+            maxpos = vector.new({ x = pos.x + 0.25, y = pos.y + 0.6, z = pos.z + 0.25 }),
+            minvel = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxvel = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minacc = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxacc = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minexptime = 7.5,
+            maxexptime = 7.5,
+            minsize = 16,
+            maxsize = 24,
+            texture = 'everness_smoke_cloud_particle_static.png',
+        }
+
+        if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
+            particlespawner_def = {
+                amount = 1,
+                time = 4,
+                size = {
+                    min = 16,
+                    max = 24,
+                },
+                exptime = 7.5,
+                pos = {
+                    min = vector.new({ x = pos.x - 0.25, y = pos.y + 0.6, z = pos.z - 0.25 }),
+                    max = vector.new({ x = pos.x + 0.25, y = pos.y + 0.6, z = pos.z + 0.25 }),
+                },
+                vel = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                acc = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                texture = {
+                    name = 'everness_smoke_cloud_particle_animated.png',
+                    animation = {
+                        type = 'vertical_frames',
+                        aspect_w = 8,
+                        aspect_h = 8,
+                        length = 8
+                    }
                 }
             }
-        })
+        end
+
+        minetest.add_particlespawner(particlespawner_def)
 
         Everness:tick_sulfur_stone(pos)
     end
@@ -4311,36 +4331,38 @@ minetest.register_node('everness:floating_crystal', {
             position = temp_pos
 
             minetest.after(i - 1, function(v_position, v_position_prev)
-                minetest.add_particlespawner({
-                    amount = 50,
-                    time = 1,
-                    size = {
-                        min = 0.5,
-                        max = 1,
-                    },
-                    exptime = 2,
-                    pos = v_position_prev,
-                    texture = {
-                        name = 'everness_particle.png^[colorize:#FFEE83:255',
-                        alpha_tween = {
-                            1, 0.5,
-                            style = 'fwd',
-                            reps = 1
+                if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
+                    minetest.add_particlespawner({
+                        amount = 50,
+                        time = 1,
+                        size = {
+                            min = 0.5,
+                            max = 1,
                         },
-                        scale_tween = {
-                            1, 0.5,
-                            style = 'fwd',
-                            reps = 1
-                        }
-                    },
-                    radius = { min = 0.2, max = 0.4 },
-                    attract = {
-                        kind = 'point',
-                        strength = 1,
-                        origin = v_position,
-                    },
-                    glow = 12
-                })
+                        exptime = 2,
+                        pos = v_position_prev,
+                        texture = {
+                            name = 'everness_particle.png^[colorize:#FFEE83:255',
+                            alpha_tween = {
+                                1, 0.5,
+                                style = 'fwd',
+                                reps = 1
+                            },
+                            scale_tween = {
+                                1, 0.5,
+                                style = 'fwd',
+                                reps = 1
+                            }
+                        },
+                        radius = { min = 0.2, max = 0.4 },
+                        attract = {
+                            kind = 'point',
+                            strength = 1,
+                            origin = v_position,
+                        },
+                        glow = 12
+                    })
+                end
 
                 minetest.after(1, function(v_position2, v_position_prev2)
                     minetest.set_node(v_position2, { name = 'everness:floating_crystal' })

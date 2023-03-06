@@ -74,36 +74,38 @@ minetest.register_tool('everness:pick_illuminating', {
                 and minetest.get_node(pointed_thing.above).name == 'air'
             then
                 -- place crystal
-                minetest.add_particlespawner({
-                    amount = 50,
-                    time = 1,
-                    size = {
-                        min = 0.5,
-                        max = 1,
-                    },
-                    exptime = 2,
-                    pos = vector.new(pos_placer.x, pos_placer.y, pos_placer.z),
-                    texture = {
-                        name = 'everness_particle.png^[colorize:#FFEE83:255',
-                        alpha_tween = {
-                            1, 0.5,
-                            style = 'fwd',
-                            reps = 1
+                if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
+                    minetest.add_particlespawner({
+                        amount = 50,
+                        time = 1,
+                        size = {
+                            min = 0.5,
+                            max = 1,
                         },
-                        scale_tween = {
-                            1, 0.5,
-                            style = 'fwd',
-                            reps = 1
-                        }
-                    },
-                    radius = { min = 0.5, max = 0.7 },
-                    attract = {
-                        kind = 'point',
-                        strength = 1,
-                        origin = vector.new(pointed_thing.above.x, pointed_thing.above.y, pointed_thing.above.z),
-                    },
-                    glow = 12
-                })
+                        exptime = 2,
+                        pos = vector.new(pos_placer.x, pos_placer.y, pos_placer.z),
+                        texture = {
+                            name = 'everness_particle.png^[colorize:#FFEE83:255',
+                            alpha_tween = {
+                                1, 0.5,
+                                style = 'fwd',
+                                reps = 1
+                            },
+                            scale_tween = {
+                                1, 0.5,
+                                style = 'fwd',
+                                reps = 1
+                            }
+                        },
+                        radius = { min = 0.5, max = 0.7 },
+                        attract = {
+                            kind = 'point',
+                            strength = 1,
+                            origin = vector.new(pointed_thing.above.x, pointed_thing.above.y, pointed_thing.above.z),
+                        },
+                        glow = 12
+                    })
+                end
 
                 minetest.set_node(pointed_thing.above, { name = 'everness:floating_crystal' })
                 minetest.get_node_timer(pointed_thing.above):start(math.random(85, 95))
