@@ -27,7 +27,15 @@ x_farming.x_bonemeal:register_tree_defs({
         -- 1 out of `chance`, e.g. 2 = 50% chance
         chance = 3,
         -- grow tree from sapling
-        grow_tree = Everness.grow_sapling
+        grow_tree = function(pos)
+            if not x_farming.x_bonemeal.is_on_soil(pos) then
+                return false
+            end
+
+            Everness.grow_coral_tree(pos)
+
+            return true
+        end
     },
     {
         -- sapling name
@@ -35,7 +43,15 @@ x_farming.x_bonemeal:register_tree_defs({
         -- 1 out of `chance`, e.g. 2 = 50% chance
         chance = 3,
         -- grow tree from sapling
-        grow_tree = Everness.grow_sapling
+        grow_tree = function(pos)
+            if not x_farming.x_bonemeal.is_on_soil(pos) then
+                return false
+            end
+
+            Everness.coral_tree_bioluminescent(pos)
+
+            return true
+        end
     },
     {
         -- sapling name
@@ -43,7 +59,15 @@ x_farming.x_bonemeal:register_tree_defs({
         -- 1 out of `chance`, e.g. 2 = 50% chance
         chance = 3,
         -- grow tree from sapling
-        grow_tree = Everness.grow_sapling
+        grow_tree = function(pos)
+            if not x_farming.x_bonemeal.is_on_soil(pos) then
+                return false
+            end
+
+            Everness.grow_crystal_bush(pos)
+
+            return true
+        end
     },
     {
         -- sapling name
@@ -51,7 +75,15 @@ x_farming.x_bonemeal:register_tree_defs({
         -- 1 out of `chance`, e.g. 2 = 50% chance
         chance = 3,
         -- grow tree from sapling
-        grow_tree = Everness.grow_sapling
+        grow_tree = function(pos)
+            if not x_farming.x_bonemeal.is_on_soil(pos) then
+                return false
+            end
+
+            Everness.grow_cursed_bush(pos)
+
+            return true
+        end
     },
     {
         -- sapling name
@@ -59,7 +91,15 @@ x_farming.x_bonemeal:register_tree_defs({
         -- 1 out of `chance`, e.g. 2 = 50% chance
         chance = 3,
         -- grow tree from sapling
-        grow_tree = Everness.grow_sapling
+        grow_tree = function(pos)
+            if not x_farming.x_bonemeal.is_on_soil(pos) then
+                return false
+            end
+
+            Everness.grow_baobab_tree(pos)
+
+            return true
+        end
     },
     {
         -- sapling name
@@ -67,7 +107,15 @@ x_farming.x_bonemeal:register_tree_defs({
         -- 1 out of `chance`, e.g. 2 = 50% chance
         chance = 3,
         -- grow tree from sapling
-        grow_tree = Everness.grow_sapling
+        grow_tree = function(pos)
+            if not x_farming.x_bonemeal.is_on_soil(pos) then
+                return false
+            end
+
+            Everness.grow_dry_tree(pos)
+
+            return true
+        end
     },
     {
         -- sapling name
@@ -75,7 +123,15 @@ x_farming.x_bonemeal:register_tree_defs({
         -- 1 out of `chance`, e.g. 2 = 50% chance
         chance = 3,
         -- grow tree from sapling
-        grow_tree = Everness.grow_sapling
+        grow_tree = function(pos)
+            if not x_farming.x_bonemeal.is_on_soil(pos) then
+                return false
+            end
+
+            Everness.grow_willow_tree(pos)
+
+            return true
+        end
     },
     {
         -- sapling name
@@ -83,7 +139,15 @@ x_farming.x_bonemeal:register_tree_defs({
         -- 1 out of `chance`, e.g. 2 = 50% chance
         chance = 3,
         -- grow tree from sapling
-        grow_tree = Everness.grow_sapling
+        grow_tree = function(pos)
+            if not x_farming.x_bonemeal.is_on_soil(pos) then
+                return false
+            end
+
+            Everness.grow_sequoia_tree(pos)
+
+            return true
+        end
     },
     {
         -- sapling name
@@ -91,7 +155,15 @@ x_farming.x_bonemeal:register_tree_defs({
         -- 1 out of `chance`, e.g. 2 = 50% chance
         chance = 3,
         -- grow tree from sapling
-        grow_tree = Everness.grow_sapling
+        grow_tree = function(pos)
+            if not x_farming.x_bonemeal.is_on_soil(pos) then
+                return false
+            end
+
+            Everness.grow_crystal_tree(pos)
+
+            return true
+        end
     },
     {
         -- sapling name
@@ -99,7 +171,15 @@ x_farming.x_bonemeal:register_tree_defs({
         -- 1 out of `chance`, e.g. 2 = 50% chance
         chance = 3,
         -- grow tree from sapling
-        grow_tree = Everness.grow_sapling
+        grow_tree = function(pos)
+            if not x_farming.x_bonemeal.is_on_soil(pos) then
+                return false
+            end
+
+            Everness.grow_crystal_large_tree(pos)
+
+            return true
+        end
     },
     {
         -- sapling name
@@ -107,7 +187,15 @@ x_farming.x_bonemeal:register_tree_defs({
         -- 1 out of `chance`, e.g. 2 = 50% chance
         chance = 3,
         -- grow tree from sapling
-        grow_tree = Everness.grow_sapling
+        grow_tree = function(pos)
+            if not x_farming.x_bonemeal.is_on_soil(pos) then
+                return false
+            end
+
+            Everness.grow_cursed_dream_tree(pos)
+
+            return true
+        end
     },
 })
 
