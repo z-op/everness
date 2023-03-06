@@ -772,6 +772,12 @@ minetest.register_globalstep(function(dtime)
                         player:set_moon()
                     end
 
+                    if skybox_defs[biome_name].star_parameters then
+                        player:set_stars(skybox_defs[biome_name].star_parameters)
+                    else
+                        player:set_stars()
+                    end
+
                     if skybox_defs[biome_name].sky_parameters then
                         player:set_sky(skybox_defs[biome_name].sky_parameters)
                     else
@@ -783,22 +789,16 @@ minetest.register_globalstep(function(dtime)
                     else
                         player:set_clouds()
                     end
-
-                    if skybox_defs[biome_name].star_parameters then
-                        player:set_stars(skybox_defs[biome_name].star_parameters)
-                    else
-                        player:set_stars()
-                    end
                 else
-                    player:set_moon()
                     player:set_sun()
+                    player:set_moon()
+                    player:set_stars()
                     player:set_sky()
                     player:set_clouds()
-                    player:set_stars()
                 end
             end
 
-            if player_pos.y <= -256 and is_underground == 0 or (is_underground ~= 0 and player_biome_name ~= biome_name) then
+            if player_pos.y <= -256 and is_underground == 0 or (is_underground ~= 0 and player_meta:get_string('everness_biome_name') ~= biome_name) then
                 -- hide sun, moon, stars ... underground
                 player_meta:set_int('everness_is_underground', 1)
 
@@ -815,7 +815,7 @@ minetest.register_globalstep(function(dtime)
                     visible = false
                 })
 
-            elseif player_pos.y > -256 and is_underground ~= 0 or (is_underground == 0 and player_biome_name ~= biome_name) then
+            elseif player_pos.y > -256 and is_underground ~= 0 or (is_underground == 0 and player_meta:get_string('everness_biome_name') ~= biome_name) then
                 -- show sun, moon, stars ... underground
                 player_meta:set_int('everness_is_underground', 0)
 
