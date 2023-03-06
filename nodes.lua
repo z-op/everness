@@ -2983,6 +2983,10 @@ minetest.register_node('everness:crystal_waterlily', {
         type = 'fixed',
         fixed = { -7 / 16, -0.5, -7 / 16, 7 / 16, -15 / 32, 7 / 16 }
     },
+    collision_box = {
+        type = 'fixed',
+        fixed = { -7 / 16, -0.5, -7 / 16, 7 / 16, -15 / 32, 7 / 16 }
+    },
 
     on_place = function(itemstack, placer, pointed_thing)
         local pos = pointed_thing.above
