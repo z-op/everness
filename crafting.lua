@@ -251,6 +251,22 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    output = 'everness:coral_deep_ocean_sandstone_block 4',
+    recipe = {
+        { 'everness:coral_forest_deep_ocean_sand', 'everness:coral_forest_deep_ocean_sand' },
+        { 'everness:coral_forest_deep_ocean_sand', 'everness:coral_forest_deep_ocean_sand' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:coral_deep_ocean_sandstone_brick 4',
+    recipe = {
+        { 'everness:coral_deep_ocean_sandstone_block', 'everness:coral_deep_ocean_sandstone_block' },
+        { 'everness:coral_deep_ocean_sandstone_block', 'everness:coral_deep_ocean_sandstone_block' },
+    }
+})
+
+minetest.register_craft({
     output = 'everness:coral_sandstone_chiseled 9',
     recipe = {
         { 'everness:coral_sandstone', 'everness:coral_sandstone', 'everness:coral_sandstone' },
@@ -450,6 +466,56 @@ minetest.register_craft({
     recipe = {
         { 'everness:forsaken_desert_brick', 'everness:forsaken_desert_brick' },
         { 'everness:forsaken_desert_brick', 'everness:forsaken_desert_brick' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:coral_forest_deep_ocean_lantern 1',
+    recipe = {
+        { 'everness:coral_deep_ocean_sandstone_block', 'default:glass', 'everness:coral_deep_ocean_sandstone_block' },
+        { 'default:glass', 'default:torch', 'default:glass' },
+        { 'everness:coral_deep_ocean_sandstone_block', 'default:glass', 'everness:coral_deep_ocean_sandstone_block' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:cursed_lands_deep_ocean_sandstone_block 4',
+    recipe = {
+        { 'everness:cursed_lands_deep_ocean_sand', 'everness:cursed_lands_deep_ocean_sand' },
+        { 'everness:cursed_lands_deep_ocean_sand', 'everness:cursed_lands_deep_ocean_sand' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:cursed_lands_deep_ocean_sandstone_brick 4',
+    recipe = {
+        { 'everness:cursed_lands_deep_ocean_sandstone_block', 'everness:cursed_lands_deep_ocean_sandstone_block' },
+        { 'everness:cursed_lands_deep_ocean_sandstone_block', 'everness:cursed_lands_deep_ocean_sandstone_block' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:crystal_forest_deep_ocean_sandstone_block 4',
+    recipe = {
+        { 'everness:crystal_forest_deep_ocean_sand', 'everness:crystal_forest_deep_ocean_sand' },
+        { 'everness:crystal_forest_deep_ocean_sand', 'everness:crystal_forest_deep_ocean_sand' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:crystal_forest_deep_ocean_sandstone_brick 4',
+    recipe = {
+        { 'everness:crystal_forest_deep_ocean_sandstone_block', 'everness:crystal_forest_deep_ocean_sandstone_block' },
+        { 'everness:crystal_forest_deep_ocean_sandstone_block', 'everness:crystal_forest_deep_ocean_sandstone_block' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:shell_of_underwater_breathing',
+    recipe = {
+        { '', '', 'group:everness_crystal_forest_deep_ocean_coral' },
+        { '', 'group:everness_cursed_lands_deep_ocean_coral', '' },
+        { 'group:everness_coral_forest_deep_ocean_coral', '', '' },
     }
 })
 

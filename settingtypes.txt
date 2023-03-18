@@ -34,7 +34,19 @@ everness_coral_forest_ocean (Coral Forest Ocean) bool true
 everness_coral_forest_ocean_y_max (y max) int 3
 
 # Lower limit for biome.
-everness_coral_forest_ocean_y_min (y min) int -255
+everness_coral_forest_ocean_y_min (y min) int -10
+
+[*Coral Forest Deep Ocean]
+
+# Enable/ Disable Coral Forest Deep Ocean Biome
+# Disabling this biome might result in missing recipes.
+everness_coral_forest_deep_ocean (Coral Forest Deep Ocean) bool true
+
+# Upper limit for biome.
+everness_coral_forest_deep_ocean_y_max (y max) int -11
+
+# Lower limit for biome.
+everness_coral_forest_deep_ocean_y_min (y min) int -255
 
 [*Coral Forest Under]
 
@@ -130,7 +142,19 @@ everness_cursed_lands_ocean (Cursed Lands Ocean) bool true
 everness_cursed_lands_ocean_y_max (y max) int -2
 
 # Lower limit for biome.
-everness_cursed_lands_ocean_y_min (y min) int -255
+everness_cursed_lands_ocean_y_min (y min) int -10
+
+[*Cursed Lands Deep Ocean]
+
+# Enable/ Disable Cursed Lands Deep Ocean Biome
+# Disabling this biome might result in missing recipes.
+everness_cursed_lands_deep_ocean (Cursed Lands Deep Ocean) bool true
+
+# Upper limit for biome.
+everness_cursed_lands_deep_ocean_y_max (y max) int -11
+
+# Lower limit for biome.
+everness_cursed_lands_deep_ocean_y_min (y min) int -255
 
 [*Cursed Lands Under]
 
@@ -190,7 +214,19 @@ everness_crystal_forest_ocean (Crystal Forest Ocean) bool true
 everness_crystal_forest_ocean_y_max (y max) int -2
 
 # Lower limit for biome.
-everness_crystal_forest_ocean_y_min (y min) int -255
+everness_crystal_forest_ocean_y_min (y min) int -10
+
+[*Crystal Forest Deep Ocean]
+
+# Enable/ Disable Crystal Forest Deep Ocean Biome
+# Disabling this biome might result in missing recipes.
+everness_crystal_forest_deep_ocean (Crystal Forest Deep Ocean) bool true
+
+# Upper limit for biome.
+everness_crystal_forest_deep_ocean_y_max (y max) int -11
+
+# Lower limit for biome.
+everness_crystal_forest_deep_ocean_y_min (y min) int -255
 
 [*Crystal Forest Under]
 

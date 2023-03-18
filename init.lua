@@ -51,6 +51,10 @@ if Everness.settings.biomes.everness_coral_forest_ocean.enabled then
     dofile(path .. '/mapgen_coral_forest_ocean.lua')
 end
 
+if Everness.settings.biomes.everness_coral_forest_deep_ocean.enabled then
+    dofile(path .. '/mapgen_coral_forest_deep_ocean.lua')
+end
+
 if Everness.settings.biomes.everness_coral_forest_under.enabled then
     dofile(path .. '/mapgen_coral_forest_under.lua')
 end
@@ -65,6 +69,10 @@ end
 
 if Everness.settings.biomes.everness_crystal_forest_ocean.enabled then
     dofile(path .. '/mapgen_crystal_forest_ocean.lua')
+end
+
+if Everness.settings.biomes.everness_crystal_forest_deep_ocean.enabled then
+    dofile(path .. '/mapgen_crystal_forest_deep_ocean.lua')
 end
 
 if Everness.settings.biomes.everness_crystal_forest_shore.enabled then
@@ -85,6 +93,10 @@ end
 
 if Everness.settings.biomes.everness_cursed_lands_ocean.enabled then
     dofile(path .. '/mapgen_cursed_lands_ocean.lua')
+end
+
+if Everness.settings.biomes.everness_cursed_lands_deep_ocean.enabled then
+    dofile(path .. '/mapgen_cursed_lands_deep_ocean.lua')
 end
 
 if Everness.settings.biomes.everness_cursed_lands_swamp.enabled then

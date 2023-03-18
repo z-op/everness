@@ -355,7 +355,7 @@ minetest.register_abm({
     chance = 16,
     catch_up = false,
     action = function(pos, node)
-        if not minetest.settings:get_bool('enable_particles') then
+        if not minetest.settings:get_bool('enable_particles', true) then
             return
         end
 
@@ -429,7 +429,7 @@ minetest.register_abm({
     chance = 16,
     catch_up = false,
     action = function(pos, node)
-        if not minetest.settings:get_bool('enable_particles') then
+        if not minetest.settings:get_bool('enable_particles', true) then
             return
         end
 
@@ -508,5 +508,270 @@ minetest.register_abm({
     chance = 83,
     action = function(...)
         Everness:grow_cactus(...)
+    end
+})
+
+--
+-- Bio Bubbles
+--
+
+minetest.register_abm({
+    label = 'everness:bio_bubbles',
+    nodenames = { 'group:bio_bubbles' },
+    neighbors = { 'default:water_source' },
+    interval = 16,
+    chance = 2,
+    catch_up = false,
+    action = function(pos, node)
+        if not minetest.settings:get_bool('enable_particles', true) then
+            return
+        end
+
+        local water_above = minetest.find_nodes_in_area(pos, { x = pos.x, y = pos.y + 10, z = pos.z }, { 'group:water' })
+
+        if #water_above < 10 then
+            return
+        end
+
+        -- particles
+        local particlespawner_def = {
+            amount = 50,
+            time = 10,
+            minpos = vector.new({ x = pos.x - 0.1, y = pos.y + 0.6, z = pos.z - 0.1 }),
+            maxpos = vector.new({ x = pos.x + 0.1, y = pos.y + 0.6, z = pos.z + 0.1 }),
+            minvel = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxvel = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minacc = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxacc = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minexptime = 5,
+            maxexptime = 7,
+            minsize = 2,
+            maxsize = 3.5,
+            texture = 'everness_bubble.png',
+            glow = 7
+        }
+
+        if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
+            -- new syntax, after v5.6.0
+            particlespawner_def = {
+                amount = 50,
+                time = 10,
+                size = {
+                    min = 2,
+                    max = 3.5,
+                },
+                exptime = {
+                    min = 5,
+                    max = 7
+                },
+                pos = {
+                    min = vector.new({ x = pos.x - 0.1, y = pos.y + 0.6, z = pos.z - 0.1 }),
+                    max = vector.new({ x = pos.x + 0.1, y = pos.y + 0.6, z = pos.z + 0.1 }),
+                },
+                vel = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                acc = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                texture = {
+                    name = 'everness_bubble.png',
+                    alpha_tween = {
+                        1, 0,
+                        style = 'fwd',
+                        reps = 1
+                    },
+                    scale_tween = {
+                        0.5, 1,
+                        style = 'fwd',
+                        reps = 1
+                    }
+                },
+                glow = 7
+            }
+        end
+
+        minetest.add_particlespawner(particlespawner_def)
+    end
+})
+
+--
+-- Rising Souls
+--
+
+minetest.register_abm({
+    label = 'everness:rising_souls',
+    nodenames = { 'group:rising_souls' },
+    neighbors = { 'default:water_source' },
+    interval = 16,
+    chance = 2,
+    catch_up = false,
+    action = function(pos, node)
+        if not minetest.settings:get_bool('enable_particles', true) then
+            return
+        end
+
+        local water_above = minetest.find_nodes_in_area(pos, { x = pos.x, y = pos.y + 10, z = pos.z }, { 'group:water' })
+
+        if #water_above < 10 then
+            return
+        end
+
+        -- particles
+        local particlespawner_def = {
+            amount = 17,
+            time = 10,
+            minpos = vector.new({ x = pos.x - 0.3, y = pos.y + 0.6, z = pos.z - 0.3 }),
+            maxpos = vector.new({ x = pos.x + 0.3, y = pos.y + 0.6, z = pos.z + 0.3 }),
+            minvel = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxvel = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minacc = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxacc = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minexptime = 4,
+            maxexptime = 6,
+            minsize = 4,
+            maxsize = 6,
+            texture = 'everness_rising_soul_particle.png',
+            glow = 7
+        }
+
+        if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
+            -- new syntax, after v5.6.0
+            particlespawner_def = {
+                amount = 17,
+                time = 10,
+                size = {
+                    min = 4,
+                    max = 6,
+                },
+                exptime = {
+                    min = 4,
+                    max = 6
+                },
+                pos = {
+                    min = vector.new({ x = pos.x - 0.3, y = pos.y + 0.6, z = pos.z - 0.3 }),
+                    max = vector.new({ x = pos.x + 0.3, y = pos.y + 0.6, z = pos.z + 0.3 }),
+                },
+                vel = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                acc = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                texture = {
+                    name = 'everness_rising_soul_particle.png',
+                    animation = {
+                        type = 'vertical_frames',
+                        aspect_w = 16,
+                        aspect_h = 16,
+                        length = 2,
+                    },
+                    alpha_tween = {
+                        1, 0,
+                        style = 'fwd',
+                        reps = 1
+                    },
+                    scale_tween = {
+                        0.5, 1,
+                        style = 'fwd',
+                        reps = 1
+                    }
+                },
+                glow = 7
+            }
+        end
+
+        minetest.add_particlespawner(particlespawner_def)
+    end
+})
+
+--
+-- Rising Crystals
+--
+
+minetest.register_abm({
+    label = 'everness:rising_souls',
+    nodenames = { 'group:rising_crystals' },
+    neighbors = { 'default:water_source' },
+    interval = 16,
+    chance = 2,
+    catch_up = false,
+    action = function(pos, node)
+        if not minetest.settings:get_bool('enable_particles', true) then
+            return
+        end
+
+        local water_above = minetest.find_nodes_in_area(pos, { x = pos.x, y = pos.y + 10, z = pos.z }, { 'group:water' })
+
+        if #water_above < 10 then
+            return
+        end
+
+        -- particles
+        local particlespawner_def = {
+            amount = 17,
+            time = 10,
+            minpos = vector.new({ x = pos.x - 0.3, y = pos.y + 0.6, z = pos.z - 0.3 }),
+            maxpos = vector.new({ x = pos.x + 0.3, y = pos.y + 0.6, z = pos.z + 0.3 }),
+            minvel = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxvel = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minacc = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxacc = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minexptime = 4,
+            maxexptime = 6,
+            minsize = 4,
+            maxsize = 6,
+            texture = 'everness_rising_soul_particle.png',
+            glow = 7
+        }
+
+        if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
+            -- new syntax, after v5.6.0
+            particlespawner_def = {
+                amount = 25,
+                time = 10,
+                size = {
+                    min = 6,
+                    max = 8,
+                },
+                exptime = {
+                    min = 4,
+                    max = 6
+                },
+                pos = {
+                    min = vector.new({ x = pos.x - 0.3, y = pos.y + 0.6, z = pos.z - 0.3 }),
+                    max = vector.new({ x = pos.x + 0.3, y = pos.y + 0.6, z = pos.z + 0.3 }),
+                },
+                vel = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                acc = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                texture = {
+                    name = 'everness_crystal_forest_deep_ocean_sand_bubbles.png',
+                    animation = {
+                        type = 'vertical_frames',
+                        aspect_w = 16,
+                        aspect_h = 16,
+                        length = 1,
+                    },
+                    alpha_tween = {
+                        1, 0.5,
+                        style = 'fwd',
+                        reps = 1
+                    }
+                },
+                glow = 7
+            }
+        end
+
+        minetest.add_particlespawner(particlespawner_def)
     end
 })

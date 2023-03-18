@@ -26,6 +26,7 @@ Additionally adds extra biomes to the MT game default biomes:
 * Coral Forest
 * Coral Forest Dunes
 * Coral Forest Ocean
+* Coral Forest Deep Ocean
 * Coral Forest Under
 * Frosted Icesheet
 * Frosted Icesheet Ocean
@@ -34,11 +35,13 @@ Additionally adds extra biomes to the MT game default biomes:
 * Cursed Lands Dunes
 * Cursed Lands Swamp
 * Cursed Lands Ocean
+* Cursed Lands Deep Ocean
 * Cursed Lands Under
 * Crystal Forest
 * Crystal Forest Dunes
 * Crystal Forest Shore
 * Crystal Forest Ocean
+* Crystal Forest Deep Ocean
 * Crystal Forest Under
 * Bamboo Forest
 * Bamboo Forest Under

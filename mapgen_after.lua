@@ -30,13 +30,14 @@ local c_forsaken_desert_sand = minetest.get_content_id('everness:forsaken_desert
 local c_forsaken_desert_chiseled_stone = minetest.get_content_id('everness:forsaken_desert_chiseled_stone')
 local c_forsaken_desert_brick = minetest.get_content_id('everness:forsaken_desert_brick')
 local c_forsaken_desert_engraved_stone = minetest.get_content_id('everness:forsaken_desert_engraved_stone')
+local c_frosted_snowblock = minetest.get_content_id('everness:frosted_snowblock')
+local c_frosted_ice = minetest.get_content_id('everness:frosted_ice')
 
 -- Localize data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
 local data = {}
 local chance = 15
 local disp = 16
-local rotations = { '0', '90', '180', '270' }
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
     local rand = PcgRandom(blockseed)
@@ -66,9 +67,10 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                     or data[vi] == c_dry_ocean_dirt
                     or data[vi] == c_dirt_with_snow
                     or data[vi] == c_dirt_with_coniferous_litter
+                    or data[vi] == c_frosted_snowblock
+                    or data[vi] == c_frosted_ice
                 )
             then
-                local rotation = rotations[rand:next(1, #rotations)]
                 local s_pos = area:position(vi)
                 local biome_data = minetest.get_biome_data(s_pos)
 
@@ -95,7 +97,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                         vm,
                         schem_pos,
                         schem,
-                        rotation,
+                        'random',
                         nil,
                         true,
                         'place_center_x, place_center_z'
@@ -116,7 +118,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                         vm,
                         schem_pos,
                         schem,
-                        rotation,
+                        'random',
                         nil,
                         true,
                         'place_center_x, place_center_z'
@@ -137,7 +139,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                         vm,
                         schem_pos,
                         schem,
-                        rotation,
+                        'random',
                         nil,
                         true,
                         'place_center_x, place_center_z'
@@ -158,7 +160,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                         vm,
                         schem_pos,
                         schem,
-                        rotation,
+                        'random',
                         nil,
                         true,
                         'place_center_x, place_center_z'
@@ -181,7 +183,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                         vm,
                         schem_pos,
                         schem,
-                        rotation,
+                        'random',
                         nil,
                         true,
                         'place_center_x, place_center_z'
@@ -225,7 +227,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                 minetest.place_schematic(
                                     schem_pos,
                                     schem,
-                                    rotation,
+                                    'random',
                                     nil,
                                     true,
                                     'place_center_x, place_center_z'
@@ -235,6 +237,29 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             end
                         }
                     )
+                elseif (biome_name == 'everness_frosted_icesheet' or biome_name == 'everness_frosted_icesheet_ocean')
+                    and rand:next(0, 100) < chance
+                then
+                    local schem = minetest.get_modpath('everness') .. '/schematics/everness_frosted_icesheet_igloo.mts'
+
+                    --
+                    -- Igloo
+                    --
+
+                    -- add Y displacement
+                    local schem_pos = vector.new(s_pos.x, s_pos.y - 8, s_pos.z)
+
+                    minetest.place_schematic_on_vmanip(
+                        vm,
+                        schem_pos,
+                        schem,
+                        'random',
+                        nil,
+                        true,
+                        'place_center_x, place_center_z'
+                    )
+
+                    minetest.log('action', '[Everness] Igloo was placed at ' .. schem_pos:to_string())
                 end
             end
         end
@@ -255,7 +280,6 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                     or data[vi] == c_forsaken_desert_engraved_stone
                 )
             then
-                local rotation = rotations[rand:next(1, #rotations)]
                 local s_pos = area:position(vi)
                 local biome_data = minetest.get_biome_data(s_pos)
 
@@ -318,7 +342,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             vm,
                             schem_pos,
                             schem,
-                            rotation,
+                            'random',
                             nil,
                             true,
                             'place_center_x, place_center_z'

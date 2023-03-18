@@ -394,7 +394,12 @@ Everness = {
             everness_coral_forest_ocean = {
                 enabled = minetest.settings:get_bool('everness_coral_forest_ocean', true),
                 y_max = tonumber(minetest.settings:get('everness_coral_forest_ocean_y_max')) or 3,
-                y_min = tonumber(minetest.settings:get('everness_coral_forest_ocean_y_min')) or -255,
+                y_min = tonumber(minetest.settings:get('everness_coral_forest_ocean_y_min')) or -10,
+            },
+            everness_coral_forest_deep_ocean = {
+                enabled = minetest.settings:get_bool('everness_coral_forest_deep_ocean', true),
+                y_max = tonumber(minetest.settings:get('everness_coral_forest_deep_ocean_y_max')) or -11,
+                y_min = tonumber(minetest.settings:get('everness_coral_forest_deep_ocean_y_min')) or -255,
             },
             everness_coral_forest_under = {
                 enabled = minetest.settings:get_bool('everness_coral_forest_under', true),
@@ -434,6 +439,11 @@ Everness = {
             everness_cursed_lands_ocean = {
                 enabled = minetest.settings:get_bool('everness_cursed_lands_ocean', true),
                 y_max = tonumber(minetest.settings:get('everness_cursed_lands_ocean_y_max')) or -2,
+                y_min = tonumber(minetest.settings:get('everness_cursed_lands_ocean_y_min')) or -10,
+            },
+            everness_cursed_lands_deep_ocean = {
+                enabled = minetest.settings:get_bool('everness_cursed_lands_ocean', true),
+                y_max = tonumber(minetest.settings:get('everness_cursed_lands_ocean_y_max')) or -11,
                 y_min = tonumber(minetest.settings:get('everness_cursed_lands_ocean_y_min')) or -255,
             },
             everness_cursed_lands_under = {
@@ -459,7 +469,12 @@ Everness = {
             everness_crystal_forest_ocean = {
                 enabled = minetest.settings:get_bool('everness_crystal_forest_ocean', true),
                 y_max = tonumber(minetest.settings:get('everness_crystal_forest_ocean_y_max')) or -2,
-                y_min = tonumber(minetest.settings:get('everness_crystal_forest_ocean_y_min')) or -255,
+                y_min = tonumber(minetest.settings:get('everness_crystal_forest_ocean_y_min')) or -10,
+            },
+            everness_crystal_forest_deep_ocean = {
+                enabled = minetest.settings:get_bool('everness_crystal_forest_deep_ocean', true),
+                y_max = tonumber(minetest.settings:get('everness_crystal_forest_deep_ocean_y_max')) or -11,
+                y_min = tonumber(minetest.settings:get('everness_crystal_forest_deep_ocean_y_min')) or -255,
             },
             everness_crystal_forest_under = {
                 enabled = minetest.settings:get_bool('everness_crystal_forest_under', true),
@@ -728,6 +743,45 @@ function Everness.node_sound_mud_defaults(table)
     return table
 end
 
+function Everness.node_sound_grass_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or
+            { name = 'everness_grass_footstep', gain = 0.4 }
+    table.dig = table.dig or
+            { name = 'everness_grass_hit', gain = 1.2 }
+    table.dug = table.dug or
+            { name = 'everness_dirt_hit', gain = 1.0 }
+    table.place = table.place or
+            { name = 'everness_dirt_hit', gain = 1.0 }
+    return table
+end
+
+function Everness.node_sound_dirt_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or
+            { name = 'everness_dirt_footstep', gain = 0.15 }
+    table.dig = table.dig or
+            { name = 'everness_dirt_hit', gain = 0.4 }
+    table.dug = table.dug or
+            { name = 'everness_dirt_hit', gain = 1.0 }
+    table.place = table.place or
+            { name = 'everness_dirt_hit', gain = 1.0 }
+    return table
+end
+
+function Everness.node_sound_ice_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or
+            { name = 'everness_ice_footstep', gain = 0.2 }
+    table.dig = table.dig or
+            { name = 'everness_ice_hit', gain = 0.4 }
+    table.dug = table.dug or
+            { name = 'everness_ice_hit', gain = 1.0 }
+    table.place = table.place or
+            { name = 'everness_ice_hit', gain = 1.0 }
+    return table
+end
+
 --
 -- Forsted Cave Icicles
 --
@@ -776,4 +830,91 @@ function Everness.emerge_icicle_area_recursive(pos_node, incrementer, pos_marker
             }
         }
     )
+end
+
+function Everness.use_shell_of_underwater_breathing(self, itemstack, user, pointed_thing)
+    if not user then
+        return
+    end
+
+    local pos_player = user:get_pos()
+
+    if pointed_thing.type == 'node' then
+        local pos_pt = minetest.get_pointed_thing_position(pointed_thing)
+
+        if not pos_pt then
+            return itemstack
+        end
+
+        local pointed_node = minetest.get_node(pos_pt)
+        local pointed_node_def = minetest.registered_nodes[pointed_node.name]
+
+        if not pointed_node or not pointed_node_def then
+            return itemstack
+        end
+
+        if pointed_node_def.on_rightclick then
+            return pointed_node_def.on_rightclick(pos_pt, pointed_node, user, itemstack, pointed_thing)
+        end
+    end
+
+    local node_head = minetest.get_node(
+        vector.new(
+            math.floor(pos_player.x + 0.5),
+            math.ceil(pos_player.y + 1),
+            math.floor(pos_player.z + 0.5)
+        )
+    )
+    local breath = user:get_breath()
+
+    if minetest.get_item_group(node_head.name, 'water') > 0 and breath < 9 then
+        -- Under water
+        user:set_breath(9)
+
+        if not minetest.settings:get_bool('creative_mode')
+            or not minetest.check_player_privs(user:get_player_name(), { creative = true })
+        then
+            itemstack:add_wear(65535 / 20)
+        end
+
+        minetest.sound_play('everness_underwater_bubbles', {
+            object = user,
+            gain = 1.0,
+            max_hear_distance = 16
+        })
+
+        minetest.add_particlespawner({
+            amount = 20,
+            time = 0.1,
+            pos = {
+                min = vector.new(pos_player.x - 0.25, pos_player.y + 1.25, pos_player.z - 0.25),
+                max = vector.new(pos_player.x + 0.25, pos_player.y + 1.5, pos_player.z + 0.25)
+            },
+            vel = {
+                min = vector.new(-0.5, 0, -0.5),
+                max = vector.new(0.5, 0, 0.5)
+            },
+            acc = {
+                min = vector.new(-0.5, 4, -0.5),
+                max = vector.new(0.5, 1, 0.5),
+            },
+            exptime = {
+                min = 1,
+                max = 2
+            },
+            size = {
+                min = 0.5,
+                max = 2
+            },
+            texture = {
+                name = 'everness_bubble.png',
+                alpha_tween = {
+                    1, 0,
+                    start = 0.75
+                }
+            }
+        })
+    end
+
+    return itemstack
 end

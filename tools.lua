@@ -22,12 +22,14 @@ minetest.register_tool('everness:vine_shears', {
     description = S('Vine Shears'),
     inventory_image = 'everness_vine_shears.png',
     wield_image = 'everness_vine_shears.png',
+    wield_scale = { x = 2, y = 2, z = 1 },
+    sound = { breaks = 'default_tool_breaks' },
     tool_capabilities = {
         full_punch_interval = 1.0,
         max_drop_level = 0,
         groupcaps = {
-            snappy = { times = { [3] = 0.2 }, uses = 60, maxlevel = 3 },
-            wool = { times = { [3] = 0.2 }, uses = 60, maxlevel = 3 }
+            snappy = { times = { [3] = 0.2 }, uses = 30, maxlevel = 3 },
+            wool = { times = { [3] = 0.2 }, uses = 30, maxlevel = 3 }
         }
     },
 })
@@ -41,7 +43,7 @@ minetest.register_tool('everness:pick_illuminating', {
         full_punch_interval = 0.9,
         max_drop_level = 3,
         groupcaps = {
-            cracky = { times = { [1] = 2.0, [2] = 1.0, [3] = 0.50 }, uses = 60, maxlevel = 3 }
+            cracky = { times = { [1] = 2.0,[2] = 1.0,[3] = 0.50 }, uses = 60, maxlevel = 3 }
         },
         damage_groups = { fleshy = 5 },
     },
@@ -133,17 +135,20 @@ minetest.register_tool('everness:shovel_silk', {
         full_punch_interval = 1.0,
         max_drop_level = 1,
         groupcaps = {
-            crumbly = { times = { [1] = 1.10, [2] = 0.50, [3] = 0.30 }, uses = 30, maxlevel = 3 },
+            crumbly = { times = { [1] = 1.10,[2] = 0.50,[3] = 0.30 }, uses = 30, maxlevel = 3 },
         },
         damage_groups = { fleshy = 4 },
     },
-    sound = { breaks = 'default_tool_breaks' },
+    sound = {
+        breaks = 'default_tool_breaks'
+    },
     -- no `shovel` group so it cannot be enchanted
     -- groups = { shovel = 1 }
 })
 
 local old_handle_node_drops = minetest.handle_node_drops
 
+---@diagnostic disable-next-line: duplicate-set-field
 function minetest.handle_node_drops(pos, drops, digger)
     if not digger
         or not digger:is_player()
@@ -164,3 +169,27 @@ function minetest.handle_node_drops(pos, drops, digger)
 
     return old_handle_node_drops(pos, drops, digger)
 end
+
+minetest.register_tool('everness:shell_of_underwater_breathing', {
+    description = S('Shell of Underwater Breating'),
+    inventory_image = 'everness_shell_of_underwarer_breathing.png',
+    wield_image = 'everness_shell_of_underwarer_breathing.png',
+    wield_scale = { x = 2, y = 2, z = 1 },
+    tool_capabilities = {
+        full_punch_interval = 0.9,
+        max_drop_level = 0,
+        groupcaps = {
+            crumbly = { times = { [2] = 3.00,[3] = 0.70 }, uses = 0, maxlevel = 1 },
+            snappy = { times = { [3] = 0.40 }, uses = 0, maxlevel = 1 },
+            oddly_breakable_by_hand = { times = { [1] = 3.50,[2] = 2.00,[3] = 0.70 }, uses = 0 }
+        },
+        damage_groups = { fleshy = 1 },
+    },
+    sound = { breaks = 'default_tool_breaks' },
+    on_place = function(itemstack, placer, pointed_thing)
+        return Everness:use_shell_of_underwater_breathing(itemstack, placer, pointed_thing)
+    end,
+    on_secondary_use = function(itemstack, user, pointed_thing)
+        return Everness:use_shell_of_underwater_breathing(itemstack, user, pointed_thing)
+    end
+})

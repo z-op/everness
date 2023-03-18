@@ -270,6 +270,54 @@ minetest.register_node('everness:coral_desert_stone_with_moss', {
     sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node('everness:coral_deep_ocean_sandstone_block', {
+    description = S('Coral Deep Ocean Sandstone Block'),
+    tiles = { 'everness_deep_ocean_sandstone_block.png' },
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:coral_deep_ocean_sandstone_brick', {
+    description = S('Coral Deep Ocean Sandstone Brick'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_deep_ocean_sandstone_brick.png' },
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:cursed_lands_deep_ocean_sandstone_block', {
+    description = S('Cursed Lands Deep Ocean Sandstone Block'),
+    tiles = { 'everness_cursed_lands_deep_ocean_sandblock.png' },
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:cursed_lands_deep_ocean_sandstone_brick', {
+    description = S('Cursed Lands Deep Ocean Sandstone Brick'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_cursed_lands_deep_ocean_sand_brick.png' },
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:crystal_forest_deep_ocean_sandstone_block', {
+    description = S('Crystal Forest Deep Ocean Sandstone Block'),
+    tiles = { 'everness_crystal_forest_deep_ocean_sandstone_block.png' },
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:crystal_forest_deep_ocean_sandstone_brick', {
+    description = S('Crystal Forest Deep Ocean Sandstone Brick'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_crystal_forest_deep_ocean_sandstone_brick.png' },
+    groups = { cracky = 2 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
 minetest.register_node('everness:forsaken_desert_stone', {
     description = S('Forsaken Desert Stone'),
     tiles = { 'everness_forsaken_desert_stone.png' },
@@ -755,7 +803,15 @@ minetest.register_node('everness:coral_dirt', {
     short_description = S('Coral Dirt'),
     tiles = { 'everness_coral_dirt.png' },
     groups = { crumbly = 3, soil = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
+})
+
+minetest.register_node('everness:coral_deep_ocean_mud', {
+    description = S('Coral Deep Ocean Mud'),
+    short_description = S('Coral Deep Ocean Mud'),
+    tiles = { 'everness_mud_2.png' },
+    groups = { crumbly = 3, bio_bubbles = 1 },
+    sounds = Everness.node_sound_mud_defaults(),
 })
 
 minetest.register_node('everness:cursed_dirt', {
@@ -771,7 +827,7 @@ minetest.register_node('everness:crystal_dirt', {
     short_description = S('Crystal Dirt'),
     tiles = { 'everness_crystal_dirt.png' },
     groups = { crumbly = 3, soil = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
 })
 
 minetest.register_node('everness:forsaken_tundra_dirt', {
@@ -779,7 +835,7 @@ minetest.register_node('everness:forsaken_tundra_dirt', {
     short_description = S('Forsaken Tundra Dirt'),
     tiles = { 'everness_forsaken_tundra_dirt.png' },
     groups = { crumbly = 3, soil = 1, mold_soil = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
 })
 
 minetest.register_node('everness:forsaken_tundra_dirt_with_grass', {
@@ -792,9 +848,7 @@ minetest.register_node('everness:forsaken_tundra_dirt_with_grass', {
     },
     groups = { crumbly = 3, soil = 1 },
     -- drop = 'everness:forsaken_tundra_dirt',
-    sounds = default.node_sound_dirt_defaults({
-        footstep = { name = 'default_grass_footstep', gain = 0.25 },
-    }),
+    sounds = Everness.node_sound_grass_defaults(),
 })
 
 minetest.register_node('everness:dirt_with_coral_grass', {
@@ -807,9 +861,7 @@ minetest.register_node('everness:dirt_with_coral_grass', {
     },
     groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
     drop = 'everness:coral_dirt',
-    sounds = default.node_sound_dirt_defaults({
-        footstep = { name = 'default_grass_footstep', gain = 0.25 },
-    }),
+    sounds = Everness.node_sound_grass_defaults(),
 })
 
 minetest.register_node('everness:dirt_with_cursed_grass', {
@@ -835,9 +887,7 @@ minetest.register_node('everness:dirt_with_crystal_grass', {
     },
     groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
     drop = 'everness:crystal_dirt',
-    sounds = default.node_sound_dirt_defaults({
-        footstep = { name = 'default_grass_footstep', gain = 0.25 },
-    }),
+    sounds = Everness.node_sound_grass_defaults(),
 })
 
 minetest.register_node('everness:dry_ocean_dirt', {
@@ -845,72 +895,104 @@ minetest.register_node('everness:dry_ocean_dirt', {
     short_description = S('Dry Ocean Dirt'),
     tiles = { 'everness_forsaken_desert_dry_ocean_dirt.png' },
     groups = { crumbly = 3 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
 })
 
 -- Loot Chest / Icicle Markers
 
 minetest.register_node('everness:japanese_shrine_lootchest_marker', {
-    -- drawtype = 'airlike',
+    drawtype = 'airlike',
     description = 'Japanese Shrine Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 0 },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     paramtype2 = 'facedir',
 })
 
 minetest.register_node('everness:jungle_temple_lootchest_marker', {
-    -- drawtype = 'airlike',
+    drawtype = 'airlike',
     description = 'Jungle Temple Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 0 },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     paramtype2 = 'facedir',
 })
 
 minetest.register_node('everness:haunted_house_lootchest_marker', {
-    -- drawtype = 'airlike',
+    drawtype = 'airlike',
     description = 'Haunted House Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 0 },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     paramtype2 = 'facedir',
 })
 
 minetest.register_node('everness:quartz_temple_lootchest_marker', {
-    -- drawtype = 'airlike',
+    drawtype = 'airlike',
     description = 'Quartz Temple Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 0 },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     paramtype2 = 'facedir',
 })
 
 minetest.register_node('everness:forsaken_desert_temple_marker', {
-    -- drawtype = 'airlike',
+    drawtype = 'airlike',
     description = 'Forsaken Temple Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 0 },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     paramtype2 = 'facedir',
 })
 
 minetest.register_node('everness:forsaken_desert_temple_2_marker', {
-    -- drawtype = 'airlike',
+    drawtype = 'airlike',
     description = 'Forsaken Temple 2 Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 0 },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     paramtype2 = 'facedir',
 })
 
 minetest.register_node('everness:frosted_icicle_large_ceiling_marker', {
-    -- drawtype = 'airlike',
+    drawtype = 'airlike',
     description = 'Frosted Icicle Large Ceiling Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 0 },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     paramtype2 = 'facedir',
 })
 
 minetest.register_node('everness:frosted_icicle_large_floor_marker', {
-    -- drawtype = 'airlike',
+    drawtype = 'airlike',
     description = 'Frosted Icicle Large Floor Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 0 },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    paramtype2 = 'facedir',
+})
+
+minetest.register_node('everness:coral_forest_deep_ocean_house_marker', {
+    drawtype = 'airlike',
+    description = 'Coral Forest Deep Ocean House Marker',
+    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    paramtype2 = 'facedir',
+})
+
+minetest.register_node('everness:cursed_lands_deep_ocean_skull_marker', {
+    drawtype = 'airlike',
+    description = 'Cursed Lands Deep Ocean Skull Marker',
+    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    paramtype2 = 'facedir',
+})
+
+minetest.register_node('everness:frosted_icesheet_igloo_marker', {
+    drawtype = 'airlike',
+    description = 'Frosted Icesheet Igloo Marker',
+    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    paramtype2 = 'facedir',
+})
+
+minetest.register_node('everness:crystal_forest_deep_ocean_ruins_marker', {
+    drawtype = 'airlike',
+    description = 'Crystal Forest Deep Ocean Ruins Marker',
+    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     paramtype2 = 'facedir',
 })
 
@@ -921,7 +1003,7 @@ minetest.register_node('everness:dirt_1', {
     short_description = S('Dirt'),
     tiles = { 'everness_dirt_1.png' },
     groups = { crumbly = 3, soil = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
 })
 
 minetest.register_node('everness:dirt_with_grass_1', {
@@ -934,9 +1016,7 @@ minetest.register_node('everness:dirt_with_grass_1', {
     },
     groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
     drop = 'everness:dirt_1',
-    sounds = default.node_sound_dirt_defaults({
-        footstep = { name = 'default_grass_footstep', gain = 0.25 },
-    }),
+    sounds = Everness.node_sound_grass_defaults(),
 })
 
 minetest.register_node('everness:dirt_with_grass_2', {
@@ -949,9 +1029,7 @@ minetest.register_node('everness:dirt_with_grass_2', {
     },
     groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
     drop = 'everness:dirt_1',
-    sounds = default.node_sound_dirt_defaults({
-        footstep = { name = 'default_grass_footstep', gain = 0.25 },
-    }),
+    sounds = Everness.node_sound_grass_defaults(),
 })
 
 minetest.register_node('everness:dirt_with_grass_extras_1', {
@@ -964,9 +1042,7 @@ minetest.register_node('everness:dirt_with_grass_extras_1', {
     },
     groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
     drop = 'everness:dirt_1',
-    sounds = default.node_sound_dirt_defaults({
-        footstep = { name = 'default_grass_footstep', gain = 0.25 },
-    }),
+    sounds = Everness.node_sound_grass_defaults(),
 })
 
 minetest.register_node('everness:dirt_with_grass_extras_2', {
@@ -979,9 +1055,7 @@ minetest.register_node('everness:dirt_with_grass_extras_2', {
     },
     groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
     drop = 'everness:dirt_1',
-    sounds = default.node_sound_dirt_defaults({
-        footstep = { name = 'default_grass_footstep', gain = 0.25 },
-    }),
+    sounds = Everness.node_sound_grass_defaults(),
 })
 
 minetest.register_node('everness:crystal_cave_dirt', {
@@ -989,9 +1063,7 @@ minetest.register_node('everness:crystal_cave_dirt', {
     short_description = S('Crystal Cave Dirt'),
     tiles = { 'everness_crystal_cave_dirt.png' },
     groups = { crumbly = 3, soil = 1 },
-    sounds = default.node_sound_dirt_defaults({
-        footstep = { name = 'default_grass_footstep', gain = 0.25 },
-    }),
+    sounds = Everness.node_sound_dirt_defaults(),
 })
 
 minetest.register_node('everness:crystal_cave_dirt_with_moss', {
@@ -1004,27 +1076,21 @@ minetest.register_node('everness:crystal_cave_dirt_with_moss', {
     },
     drop = 'everness:crystal_cave_dirt',
     groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type_under = 1 },
-    sounds = default.node_sound_dirt_defaults({
-        footstep = { name = 'default_grass_footstep', gain = 0.25 },
-    }),
+    sounds = Everness.node_sound_grass_defaults(),
 })
 
 minetest.register_node('everness:moss_block', {
     description = S('Moss Block'),
     tiles = { 'everness_moss_block.png' },
     groups = { crumbly = 3, soil = 1 },
-    sounds = default.node_sound_dirt_defaults({
-        footstep = { name = 'default_grass_footstep', gain = 0.25 },
-    }),
+    sounds = Everness.node_sound_grass_defaults(),
 })
 
 minetest.register_node('everness:crystal_moss_block', {
     description = S('Crystal Moss Block'),
     tiles = { 'everness_crystal_cave_moss.png' },
     groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type_under = 1 },
-    sounds = default.node_sound_dirt_defaults({
-        footstep = { name = 'default_grass_footstep', gain = 0.25 },
-    }),
+    sounds = Everness.node_sound_grass_defaults(),
 })
 
 minetest.register_node('everness:coral_sand', {
@@ -1059,6 +1125,14 @@ minetest.register_node('everness:crystal_sand', {
     sounds = default.node_sound_sand_defaults(),
 })
 
+minetest.register_node('everness:crystal_forest_deep_ocean_sand_with_crack', {
+    description = S('Crystal Forest Deep Ocean Sand with Crack'),
+    short_description = S('Crystal Forest Deep Ocean Sand with Crack'),
+    tiles = { 'everness_crystal_forest_deep_ocean_sand_with_crack.png' },
+    groups = { crumbly = 3, falling_node = 1, sand = 1, rising_crystals = 1 },
+    sounds = default.node_sound_sand_defaults(),
+})
+
 minetest.register_node('everness:forsaken_tundra_beach_sand', {
     description = S('Forsaken Tundra Beach Sand'),
     short_description = S('Forsaken Tundra Beach Sand'),
@@ -1083,6 +1157,38 @@ minetest.register_node('everness:forsaken_desert_sand', {
     sounds = default.node_sound_sand_defaults(),
 })
 
+minetest.register_node('everness:coral_forest_deep_ocean_sand', {
+    description = S('Coral Forest Deep Ocean Sand'),
+    short_description = S('Coral Forest Deep Ocean Sand'),
+    tiles = { 'everness_deep_ocean_sand.png' },
+    groups = { crumbly = 3, falling_node = 1, sand = 1 },
+    sounds = default.node_sound_sand_defaults(),
+})
+
+minetest.register_node('everness:cursed_lands_deep_ocean_sand', {
+    description = S('Cursed Lands Deep Ocean Sand'),
+    short_description = S('Cursed Lands Deep Ocean Sand'),
+    tiles = { 'everness_cursed_lands_deep_ocean_sand.png' },
+    groups = { crumbly = 3, falling_node = 1, sand = 1 },
+    sounds = default.node_sound_sand_defaults(),
+})
+
+minetest.register_node('everness:cursed_lands_deep_ocean_sand_with_crack', {
+    description = S('Cursed Lands Deep Ocean Sand with Crack'),
+    short_description = S('Cursed Lands Deep Ocean Sand with Crack'),
+    tiles = { 'everness_cursed_lands_deep_ocean_sand_with_crack.png' },
+    groups = { crumbly = 3, falling_node = 1, sand = 1, rising_souls = 1 },
+    sounds = default.node_sound_sand_defaults(),
+})
+
+minetest.register_node('everness:crystal_forest_deep_ocean_sand', {
+    description = S('Crystal Forest Deep Ocean Sand'),
+    short_description = S('Crystal Forest Deep Ocean Sand'),
+    tiles = { 'everness_crystal_forest_deep_ocean_sand.png' },
+    groups = { crumbly = 3, falling_node = 1, sand = 1 },
+    sounds = default.node_sound_sand_defaults(),
+})
+
 minetest.register_node('everness:frosted_snowblock', {
     description = S('Frosted Snow Block'),
     tiles = { 'everness_frosted_snow.png' },
@@ -1103,7 +1209,7 @@ minetest.register_node('everness:frosted_ice', {
     is_ground_content = false,
     paramtype = 'light',
     groups = { cracky = 3, cools_lava = 1, slippery = 3 },
-    sounds = default.node_sound_ice_defaults(),
+    sounds = Everness.node_sound_ice_defaults(),
 })
 
 minetest.register_node('everness:frosted_ice_translucent', {
@@ -1112,7 +1218,7 @@ minetest.register_node('everness:frosted_ice_translucent', {
     is_ground_content = false,
     paramtype = 'light',
     groups = { cracky = 3, cools_lava = 1, slippery = 3 },
-    sounds = default.node_sound_ice_defaults(),
+    sounds = Everness.node_sound_ice_defaults(),
     drawtype = 'glasslike',
     -- opaque, clip, blend
     use_texture_alpha = 'blend'
@@ -1126,7 +1232,7 @@ minetest.register_node('everness:frosted_cave_ice', {
     groups = { cracky = 3, cools_lava = 1, slippery = 3,
         not_in_creative_inventory = 1 },
     drop = 'everness:frosted_ice',
-    sounds = default.node_sound_ice_defaults(),
+    sounds = Everness.node_sound_ice_defaults(),
 })
 
 -- Mapgen-placed ice with 'is ground content = true' to contain tunnels
@@ -1137,7 +1243,7 @@ minetest.register_node('everness:frosted_cave_ice_illuminating', {
     groups = { cracky = 3, cools_lava = 1, slippery = 3,
         not_in_creative_inventory = 1 },
     drop = 'everness:frosted_ice',
-    sounds = default.node_sound_ice_defaults(),
+    sounds = Everness.node_sound_ice_defaults(),
     light_source = 9,
     is_ground_content = false
 })
@@ -1157,7 +1263,7 @@ minetest.register_node('everness:ancient_emerald_ice', {
     tiles = { 'everness_ancient_emerald_ice.png' },
     paramtype = 'light',
     groups = { cracky = 3, cools_lava = 1 },
-    sounds = default.node_sound_ice_defaults(),
+    sounds = Everness.node_sound_ice_defaults(),
 })
 
 minetest.register_node('everness:dense_emerald_ice', {
@@ -1165,7 +1271,7 @@ minetest.register_node('everness:dense_emerald_ice', {
     tiles = { 'everness_dense_emerald_ice.png' },
     paramtype = 'light',
     groups = { cracky = 3, cools_lava = 1 },
-    sounds = default.node_sound_ice_defaults(),
+    sounds = Everness.node_sound_ice_defaults(),
 })
 
 minetest.register_node('everness:emerald_ice', {
@@ -1173,7 +1279,7 @@ minetest.register_node('everness:emerald_ice', {
     tiles = { 'everness_emerald_ice.png' },
     paramtype = 'light',
     groups = { cracky = 3, cools_lava = 1 },
-    sounds = default.node_sound_ice_defaults(),
+    sounds = Everness.node_sound_ice_defaults(),
 })
 
 minetest.register_node('everness:snowcobble', {
@@ -1195,7 +1301,7 @@ minetest.register_node('everness:icecobble', {
     description = 'Ice Cobble',
     tiles = { 'everness_icecobble.png' },
     groups = { cracky = 2, cools_lava = 1 },
-    sounds = default.node_sound_glass_defaults(),
+    sounds = Everness.node_sound_ice_defaults(),
     is_ground_content = false,
 })
 
@@ -2539,7 +2645,7 @@ minetest.register_node('everness:frosted_icicle', {
     buildable_to = true,
     is_ground_content = true,
     groups = { oddly_breakable_by_hand = 3 },
-    sounds = default.node_sound_ice_defaults(),
+    sounds = Everness.node_sound_ice_defaults(),
     light_source = 9
 })
 
@@ -2559,7 +2665,7 @@ minetest.register_node('everness:frosted_icicle_floor', {
     buildable_to = true,
     is_ground_content = true,
     groups = { snappy = 3, attached_node = 1, frosted_grass_under = 1 },
-    sounds = default.node_sound_ice_defaults(),
+    sounds = Everness.node_sound_ice_defaults(),
     light_source = 9,
     selection_box = {
         type = 'fixed',
@@ -3578,9 +3684,9 @@ minetest.register_node('everness:bamboo_sprout', {
         type = 'fixed',
         fixed = { -0.5, -0.5, -0.5, 0.5, -5 / 16, 0.5 },
     },
-    sounds = default.node_sound_dirt_defaults({
+    sounds = Everness.node_sound_dirt_defaults({
         dig = { name = '', gain = 0 },
-        dug = { name = 'default_grass_footstep', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.2 },
         place = { name = 'default_place_node', gain = 0.25 },
     }),
     after_place_node = function(pos, placer, itemstack, pointed_thing)
@@ -3643,7 +3749,7 @@ minetest.register_node('everness:termite_block', {
     post_effect_color = { r = 47, g = 28, b = 18, a = 255 },
     damage_per_second = 1,
     groups = { crumbly = 3, disable_jump = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
 })
 
 minetest.register_node('everness:bamboo_block', {
@@ -3720,11 +3826,13 @@ minetest.register_node('everness:sequoia_wood', {
 -- Corals
 --
 
-local function coral_on_place(itemstack, placer, pointed_thing)
+local function coral_on_place(itemstack, placer, pointed_thing, params)
     if pointed_thing.type ~= 'node' or not placer then
         return itemstack
     end
 
+    local ignore_water = params.ignore_water or false
+    local node_under_name = params.node_under_name or 'default:coral_skeleton'
     local player_name = placer:get_player_name()
     local pos_under = pointed_thing.under
     local pos_above = pointed_thing.above
@@ -3736,8 +3844,9 @@ local function coral_on_place(itemstack, placer, pointed_thing)
                 placer, itemstack, pointed_thing) or itemstack
     end
 
-    if node_under.name ~= 'default:coral_skeleton' or
-            minetest.get_node(pos_above).name ~= 'default:water_source' then
+    if node_under.name ~= node_under_name
+        or (minetest.get_node(pos_above).name ~= 'default:water_source' and not ignore_water)
+    then
         return itemstack
     end
 
@@ -3946,6 +4055,366 @@ minetest.register_node('everness:sand_with_spine_kelp', {
     end
 })
 
+minetest.register_node('everness:coral_forest_deep_ocean_coral_plant_1', {
+    description = S('Coral Bulbs'),
+    drawtype = 'plantlike_rooted',
+    waving = 1,
+    paramtype = 'light',
+    light_source = 12,
+    tiles = { 'everness_deep_ocean_sand.png' },
+    special_tiles = { { name = 'everness_deep_ocean_coral_plant_1.png', tileable_vertical = true } },
+    inventory_image = 'everness_deep_ocean_coral_plant_1.png',
+    wield_image = 'everness_deep_ocean_coral_plant_1.png',
+    groups = { snappy = 3 },
+    selection_box = {
+        type = 'fixed',
+        fixed = {
+                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+        },
+    },
+    node_dig_prediction = 'everness:coral_forest_deep_ocean_sand',
+    node_placement_prediction = '',
+    sounds = default.node_sound_stone_defaults({
+        dig = { name = 'default_dig_snappy', gain = 0.2 },
+        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    }),
+    on_place = function(itemstack, placer, pointed_thing)
+        coral_on_place(
+            itemstack,
+            placer,
+            pointed_thing,
+            {
+                ignore_water = true,
+                node_under_name = 'everness:coral_forest_deep_ocean_sand'
+            }
+        )
+    end,
+    after_destruct = function(pos, oldnode)
+        minetest.set_node(pos, { name = 'everness:coral_forest_deep_ocean_sand' })
+    end,
+})
+
+minetest.register_node('everness:coral_forest_deep_ocean_coral_plant_2', {
+    description = S('Coral Tree'),
+    drawtype = 'plantlike_rooted',
+    waving = 1,
+    paramtype = 'light',
+    light_source = 12,
+    tiles = { 'everness_deep_ocean_sand.png' },
+    special_tiles = { { name = 'everness_deep_ocean_coral_plant_2.png', tileable_vertical = true } },
+    inventory_image = 'everness_deep_ocean_coral_plant_2.png',
+    wield_image = 'everness_deep_ocean_coral_plant_2.png',
+    groups = { snappy = 3 },
+    selection_box = {
+        type = 'fixed',
+        fixed = {
+                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+        },
+    },
+    node_dig_prediction = 'everness:coral_forest_deep_ocean_sand',
+    node_placement_prediction = '',
+    sounds = default.node_sound_stone_defaults({
+        dig = { name = 'default_dig_snappy', gain = 0.2 },
+        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    }),
+    on_place = function(itemstack, placer, pointed_thing)
+        coral_on_place(
+            itemstack,
+            placer,
+            pointed_thing,
+            {
+                ignore_water = true,
+                node_under_name = 'everness:coral_forest_deep_ocean_sand'
+            }
+        )
+    end,
+    after_destruct = function(pos, oldnode)
+        minetest.set_node(pos, { name = 'everness:coral_forest_deep_ocean_sand' })
+    end,
+})
+
+minetest.register_node('everness:coral_forest_deep_ocean_coral_plant_3', {
+    description = S('Coral Palm'),
+    drawtype = 'plantlike_rooted',
+    waving = 1,
+    paramtype = 'light',
+    light_source = 12,
+    tiles = { 'everness_deep_ocean_sand.png' },
+    special_tiles = { { name = 'everness_deep_ocean_coral_plant_3.png', tileable_vertical = true } },
+    inventory_image = 'everness_deep_ocean_coral_plant_3.png',
+    wield_image = 'everness_deep_ocean_coral_plant_3.png',
+    groups = { snappy = 3 },
+    selection_box = {
+        type = 'fixed',
+        fixed = {
+                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+        },
+    },
+    node_dig_prediction = 'everness:coral_forest_deep_ocean_sand',
+    node_placement_prediction = '',
+    sounds = default.node_sound_stone_defaults({
+        dig = { name = 'default_dig_snappy', gain = 0.2 },
+        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    }),
+    on_place = function(itemstack, placer, pointed_thing)
+        coral_on_place(
+            itemstack,
+            placer,
+            pointed_thing,
+            {
+                ignore_water = true,
+                node_under_name = 'everness:coral_forest_deep_ocean_sand'
+            }
+        )
+    end,
+    after_destruct = function(pos, oldnode)
+        minetest.set_node(pos, { name = 'everness:coral_forest_deep_ocean_sand' })
+    end,
+})
+
+minetest.register_node('everness:cursed_lands_deep_ocean_coral_plant_anemone', {
+    description = S('Coral Anemone'),
+    drawtype = 'plantlike_rooted',
+    waving = 1,
+    paramtype = 'light',
+    light_source = 12,
+    tiles = { 'everness_cursed_lands_deep_ocean_sand.png' },
+    special_tiles = { { name = 'everness_cursed_lands_deep_ocean_coral_anemone.png', tileable_vertical = true } },
+    inventory_image = 'everness_cursed_lands_deep_ocean_coral_anemone.png',
+    wield_image = 'everness_cursed_lands_deep_ocean_coral_anemone.png',
+    groups = { snappy = 3 },
+    selection_box = {
+        type = 'fixed',
+        fixed = {
+                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+        },
+    },
+    node_dig_prediction = 'everness:cursed_lands_deep_ocean_sand',
+    node_placement_prediction = '',
+    sounds = default.node_sound_stone_defaults({
+        dig = { name = 'default_dig_snappy', gain = 0.2 },
+        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    }),
+    on_place = function(itemstack, placer, pointed_thing)
+        coral_on_place(
+            itemstack,
+            placer,
+            pointed_thing,
+            {
+                ignore_water = true,
+                node_under_name = 'everness:cursed_lands_deep_ocean_sand'
+            }
+        )
+    end,
+    after_destruct = function(pos, oldnode)
+        minetest.set_node(pos, { name = 'everness:cursed_lands_deep_ocean_sand' })
+    end,
+})
+
+minetest.register_node('everness:cursed_lands_deep_ocean_coral_plant_darkilluma', {
+    description = S('Coral Darkilluma'),
+    drawtype = 'plantlike_rooted',
+    waving = 1,
+    paramtype = 'light',
+    light_source = 12,
+    tiles = { 'everness_cursed_lands_deep_ocean_sand.png' },
+    special_tiles = { { name = 'everness_cursed_lands_deep_ocean_coral_darkilluma.png', tileable_vertical = true } },
+    inventory_image = 'everness_cursed_lands_deep_ocean_coral_darkilluma.png',
+    wield_image = 'everness_cursed_lands_deep_ocean_coral_darkilluma.png',
+    groups = { snappy = 3 },
+    selection_box = {
+        type = 'fixed',
+        fixed = {
+                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+        },
+    },
+    node_dig_prediction = 'everness:cursed_lands_deep_ocean_sand',
+    node_placement_prediction = '',
+    sounds = default.node_sound_stone_defaults({
+        dig = { name = 'default_dig_snappy', gain = 0.2 },
+        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    }),
+    on_place = function(itemstack, placer, pointed_thing)
+        coral_on_place(
+            itemstack,
+            placer,
+            pointed_thing,
+            {
+                ignore_water = true,
+                node_under_name = 'everness:cursed_lands_deep_ocean_sand'
+            }
+        )
+    end,
+    after_destruct = function(pos, oldnode)
+        minetest.set_node(pos, { name = 'everness:cursed_lands_deep_ocean_sand' })
+    end,
+})
+
+minetest.register_node('everness:cursed_lands_deep_ocean_coral_plant_demon', {
+    description = S('Coral Demon'),
+    drawtype = 'plantlike_rooted',
+    waving = 1,
+    paramtype = 'light',
+    light_source = 12,
+    tiles = { 'everness_cursed_lands_deep_ocean_sand.png' },
+    special_tiles = { { name = 'everness_cursed_lands_deep_ocean_coral_demon.png', tileable_vertical = true } },
+    inventory_image = 'everness_cursed_lands_deep_ocean_coral_demon.png',
+    wield_image = 'everness_cursed_lands_deep_ocean_coral_demon.png',
+    groups = { snappy = 3 },
+    selection_box = {
+        type = 'fixed',
+        fixed = {
+                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+        },
+    },
+    node_dig_prediction = 'everness:cursed_lands_deep_ocean_sand',
+    node_placement_prediction = '',
+    sounds = default.node_sound_stone_defaults({
+        dig = { name = 'default_dig_snappy', gain = 0.2 },
+        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    }),
+    on_place = function(itemstack, placer, pointed_thing)
+        coral_on_place(
+            itemstack,
+            placer,
+            pointed_thing,
+            {
+                ignore_water = true,
+                node_under_name = 'everness:cursed_lands_deep_ocean_sand'
+            }
+        )
+    end,
+    after_destruct = function(pos, oldnode)
+        minetest.set_node(pos, { name = 'everness:cursed_lands_deep_ocean_sand' })
+    end,
+})
+
+minetest.register_node('everness:crystal_forest_deep_ocean_coral_plant_1', {
+    description = S('Crystal Forest Deep Ocean Coral Plant Cyan'),
+    drawtype = 'plantlike_rooted',
+    waving = 1,
+    paramtype = 'light',
+    light_source = 12,
+    tiles = { 'everness_crystal_forest_deep_ocean_sand.png' },
+    special_tiles = { { name = 'everness_crystal_forest_deep_ocean_coral_plant_1.png', tileable_vertical = true } },
+    inventory_image = 'everness_crystal_forest_deep_ocean_coral_plant_1.png',
+    wield_image = 'everness_crystal_forest_deep_ocean_coral_plant_1.png',
+    groups = { snappy = 3 },
+    selection_box = {
+        type = 'fixed',
+        fixed = {
+                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+        },
+    },
+    node_dig_prediction = 'everness:crystal_forest_deep_ocean_sand',
+    node_placement_prediction = '',
+    sounds = default.node_sound_stone_defaults({
+        dig = { name = 'default_dig_snappy', gain = 0.2 },
+        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    }),
+    on_place = function(itemstack, placer, pointed_thing)
+        coral_on_place(
+            itemstack,
+            placer,
+            pointed_thing,
+            {
+                ignore_water = true,
+                node_under_name = 'everness:crystal_forest_deep_ocean_sand'
+            }
+        )
+    end,
+    after_destruct = function(pos, oldnode)
+        minetest.set_node(pos, { name = 'everness:crystal_forest_deep_ocean_sand' })
+    end,
+})
+
+minetest.register_node('everness:crystal_forest_deep_ocean_coral_plant_2', {
+    description = S('Crystal Forest Deep Ocean Coral Plant Orange'),
+    drawtype = 'plantlike_rooted',
+    waving = 1,
+    paramtype = 'light',
+    light_source = 12,
+    tiles = { 'everness_crystal_forest_deep_ocean_sand.png' },
+    special_tiles = { { name = 'everness_crystal_forest_deep_ocean_coral_plant_2.png', tileable_vertical = true } },
+    inventory_image = 'everness_crystal_forest_deep_ocean_coral_plant_2.png',
+    wield_image = 'everness_crystal_forest_deep_ocean_coral_plant_2.png',
+    groups = { snappy = 3 },
+    selection_box = {
+        type = 'fixed',
+        fixed = {
+                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+        },
+    },
+    node_dig_prediction = 'everness:crystal_forest_deep_ocean_sand',
+    node_placement_prediction = '',
+    sounds = default.node_sound_stone_defaults({
+        dig = { name = 'default_dig_snappy', gain = 0.2 },
+        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    }),
+    on_place = function(itemstack, placer, pointed_thing)
+        coral_on_place(
+            itemstack,
+            placer,
+            pointed_thing,
+            {
+                ignore_water = true,
+                node_under_name = 'everness:crystal_forest_deep_ocean_sand'
+            }
+        )
+    end,
+    after_destruct = function(pos, oldnode)
+        minetest.set_node(pos, { name = 'everness:crystal_forest_deep_ocean_sand' })
+    end,
+})
+
+minetest.register_node('everness:crystal_forest_deep_ocean_coral_plant_3', {
+    description = S('Crystal Forest Deep Ocean Coral Plant Pink'),
+    drawtype = 'plantlike_rooted',
+    waving = 1,
+    paramtype = 'light',
+    light_source = 12,
+    tiles = { 'everness_crystal_forest_deep_ocean_sand.png' },
+    special_tiles = { { name = 'everness_crystal_forest_deep_ocean_coral_plant_3.png', tileable_vertical = true } },
+    inventory_image = 'everness_crystal_forest_deep_ocean_coral_plant_3.png',
+    wield_image = 'everness_crystal_forest_deep_ocean_coral_plant_3.png',
+    groups = { snappy = 3 },
+    selection_box = {
+        type = 'fixed',
+        fixed = {
+                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+        },
+    },
+    node_dig_prediction = 'everness:crystal_forest_deep_ocean_sand',
+    node_placement_prediction = '',
+    sounds = default.node_sound_stone_defaults({
+        dig = { name = 'default_dig_snappy', gain = 0.2 },
+        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    }),
+    on_place = function(itemstack, placer, pointed_thing)
+        coral_on_place(
+            itemstack,
+            placer,
+            pointed_thing,
+            {
+                ignore_water = true,
+                node_under_name = 'everness:crystal_forest_deep_ocean_sand'
+            }
+        )
+    end,
+    after_destruct = function(pos, oldnode)
+        minetest.set_node(pos, { name = 'everness:crystal_forest_deep_ocean_sand' })
+    end,
+})
+
 minetest.register_node('everness:crystal_coral_dark', {
     description = S('Crystal Coral Dark'),
     tiles = { 'everness_crystal_coral_dark_block.png' },
@@ -3957,6 +4426,76 @@ minetest.register_node('everness:crystal_coral_light', {
     description = S('Crystal Coral Light'),
     tiles = { 'everness_crystal_coral_light_block.png' },
     groups = { cracky = 3 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:coral_forest_deep_ocean_coral_1', {
+    description = S('Coral Forest Deep Ocean Coral Pink'),
+    tiles = { 'everness_deep_ocean_coral_1.png' },
+    groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:coral_forest_deep_ocean_coral_2', {
+    description = S('Coral Forest Deep Ocean Coral Cyan'),
+    tiles = { 'everness_deep_ocean_coral_2.png' },
+    groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:coral_forest_deep_ocean_coral_3', {
+    description = S('Coral Forest Deep Ocean Coral Green'),
+    tiles = { 'everness_deep_ocean_coral_3.png' },
+    groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:coral_forest_deep_ocean_coral_4', {
+    description = S('Coral Forest Deep Ocean Coral Red'),
+    tiles = { 'everness_deep_ocean_coral_4.png' },
+    groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:cursed_lands_deep_ocean_coral_alcyonacea', {
+    description = S('Coral Alcyonacea'),
+    tiles = { 'everness_cursed_lands_deep_ocean_coral_alcyonacea.png' },
+    groups = { cracky = 3, everness_cursed_lands_deep_ocean_coral = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:cursed_lands_deep_ocean_coral_ostracod', {
+    description = S('Coral Ostracod'),
+    tiles = { 'everness_cursed_lands_deep_ocean_coral_ostracod.png' },
+    groups = { cracky = 3, everness_cursed_lands_deep_ocean_coral = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:cursed_lands_deep_ocean_coral_octocurse', {
+    description = S('Coral Octocurse'),
+    tiles = { 'everness_cursed_lands_deep_ocean_coral_octocurse.png' },
+    groups = { cracky = 3, everness_cursed_lands_deep_ocean_coral = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:crystal_forest_deep_ocean_coral_1', {
+    description = S('Crystal Forest Deep Ocean Coral Green'),
+    tiles = { 'everness_crystal_forest_deep_ocean_coral_1.png' },
+    groups = { cracky = 3, everness_crystal_forest_deep_ocean_coral = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:crystal_forest_deep_ocean_coral_2', {
+    description = S('Crystal Forest Deep Ocean Coral Orange'),
+    tiles = { 'everness_crystal_forest_deep_ocean_coral_2.png' },
+    groups = { cracky = 3, everness_crystal_forest_deep_ocean_coral = 1 },
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:crystal_forest_deep_ocean_coral_3', {
+    description = S('Crystal Forest Deep Ocean Coral Cyan'),
+    tiles = { 'everness_crystal_forest_deep_ocean_coral_3.png' },
+    groups = { cracky = 3, everness_crystal_forest_deep_ocean_coral = 1 },
     sounds = default.node_sound_stone_defaults(),
 })
 
@@ -4373,4 +4912,26 @@ minetest.register_node('everness:floating_crystal', {
 
         return itemstack
     end
+})
+
+minetest.register_node('everness:coral_forest_deep_ocean_lantern', {
+    description = S('Coral Forest Deep Ocean Lantern'),
+    tiles = {
+        {
+            name = 'everness_coral_forest_deep_ocean_lantern_animated.png',
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 1,
+            },
+        },
+    },
+    drawtype = 'glasslike',
+    sunlight_propagates = true,
+    is_ground_content = false,
+    sounds = default.node_sound_glass_defaults(),
+    groups = { cracky = 3, oddly_breakable_by_hand = 3 },
+    paramtype = 'light',
+    light_source = 12,
 })
