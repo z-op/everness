@@ -18,7 +18,12 @@ exclude_files = {
 }
 
 globals = {
-    'Everness'
+    'Everness',
+    minetest = {
+        fields = {
+            "handle_node_drops"
+        }
+    }
 }
 
 read_globals = {
