@@ -998,6 +998,51 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_item_drop_pickup.3.ogg
 - everness_item_drop_pickup.4.ogg
 
+**CC-BY-3.0, by murraysortz**, https://freesound.org
+
+- everness_underwater_bubbles.1.ogg
+- everness_underwater_bubbles.2.ogg
+- everness_underwater_bubbles.3.ogg
+
+**CC0-1.0, by Yuval**, https://freesound.org
+
+- everness_grass_footstep.1.ogg
+- everness_grass_footstep.2.ogg
+- everness_grass_footstep.3.ogg
+
+**CC0-1.0, by kyles**, https://freesound.org
+
+- everness_dirt_hit.1.ogg
+- everness_dirt_hit.2.ogg
+- everness_dirt_hit.3.ogg
+
+**CC0-1.0, by Nox_Sound**, https://freesound.org
+
+- everness_grass_hit.1.ogg
+- everness_grass_hit.3.ogg
+- everness_grass_hit.2.ogg
+
+**CC0-1.0, by Fission9**, https://freesound.org
+
+- everness_dirt_footstep.1.ogg
+- everness_dirt_footstep.2.ogg
+- everness_dirt_footstep.3.ogg
+- everness_dirt_footstep.4.ogg
+
+**CC-BY-4.0, by InspectorJ**, https://freesound.org
+
+- everness_ice_footstep.1.ogg
+- everness_ice_footstep.2.ogg
+- everness_ice_footstep.3.ogg
+- everness_ice_footstep.4.ogg
+
+**CC-BY-4.0, by EminYILDIRIM**, https://freesound.org
+
+- everness_ice_hit.1.ogg
+- everness_ice_hit.2.ogg
+- everness_ice_hit.3.ogg
+- everness_ice_hit.4.ogg
+
 ### Models
 
 **CC-BY-SA-4.0, by SaKeL**
@@ -1032,46 +1077,130 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 
 **CC-BY-SA-4.0, by SaKeL**
 
-- everness_coral_volcano.lua
 - everness_baobab_tree.lua
+- everness_baobab_tree.mts
 - everness_cemetery.lua
+- everness_cemetery.mts
 - everness_coral_bones_tree.lua
-- everness_coral_tree_bioluminescent.lua
-- everness_coral_tree_from_sapling.lua
-- everness_coral_tree.lua
-- everness_coral_volcano_x_clay.lua
-- everness_crystal_bush.lua
-- everness_crystal_forest_ruins_1.lua
-- everness_crystal_forest_ruins_2.lua
-- everness_crystal_orange_cluster.lua
-- everness_crystal_purple_cluster.lua
-- everness_crystal_tree_large.lua
-- everness_crystal_tree.lua
-- everness_cursed_dream_tree.lua
-- everness_dry_tree.lua
-- everness_forsaken_desert_temple_2.lua
-- everness_forsaken_desert_temple.lua
-- everness_forsaken_tundra_rocks.lua
-- everness_forsythia_on_moss.lua
-- everness_frosted_lands_fossils.lua
-- everness_frosted_lands_stalagmite.lua
-- everness_frosted_lands_volcanic_rock.lua
-- everness_giant_sequoia_tree.lua
-- everness_haunted_house.lua
-- everness_hollow_tree_large.lua
-- everness_hollow_tree.lua
-- everness_japanese_shrine.lua
-- everness_jungle_temple.lua
-- everness_large_bamboo.lua
-- everness_marsh_grass.lua
-- everness_quartz_temple.lua
-- everness_ruins_1.lua
-- everness_small_bamboo.lua
-- everness_sulfur_volcano.lua
-- everness_termite_nest.lua
-- everness_willow_tree.lua
+- everness_coral_bones_tree.mts
+- everness_coral_forest_deep_ocean_coral_cyan.lua
+- everness_coral_forest_deep_ocean_coral_cyan.mts
+- everness_coral_forest_deep_ocean_coral_green.lua
+- everness_coral_forest_deep_ocean_coral_green.mts
+- everness_coral_forest_deep_ocean_coral_pink.lua
+- everness_coral_forest_deep_ocean_coral_pink.mts
+- everness_coral_forest_deep_ocean_coral_red.lua
+- everness_coral_forest_deep_ocean_coral_red.mts
+- everness_coral_forest_deep_ocean_coral_reef_cyan.lua
+- everness_coral_forest_deep_ocean_coral_reef_cyan.mts
+- everness_coral_forest_deep_ocean_coral_reef_green.lua
+- everness_coral_forest_deep_ocean_coral_reef_green.mts
+- everness_coral_forest_deep_ocean_coral_reef_pink.lua
+- everness_coral_forest_deep_ocean_coral_reef_pink.mts
+- everness_coral_forest_deep_ocean_coral_reef_red.lua
+- everness_coral_forest_deep_ocean_coral_reef_red.mts
+- everness_coral_forest_deep_ocean_house.lua
+- everness_coral_forest_deep_ocean_house.mts
 - everness_coral_tree_bioluminescent_from_sapling.lua
+- everness_coral_tree_bioluminescent_from_sapling.mts
+- everness_coral_tree_bioluminescent.lua
+- everness_coral_tree_bioluminescent.mts
+- everness_coral_tree_from_sapling.lua
+- everness_coral_tree_from_sapling.mts
+- everness_coral_tree.lua
+- everness_coral_tree.mts
+- everness_coral_volcano_x_clay.lua
+- everness_coral_volcano_x_clay.mts
+- everness_coral_volcano.lua
+- everness_coral_volcano.mts
+- everness_crystal_bush.lua
+- everness_crystal_bush.mts
+- everness_crystal_forest_deep_ocean_coral_1.lua
+- everness_crystal_forest_deep_ocean_coral_1.mts
+- everness_crystal_forest_deep_ocean_coral_2.lua
+- everness_crystal_forest_deep_ocean_coral_2.mts
+- everness_crystal_forest_deep_ocean_coral_3.lua
+- everness_crystal_forest_deep_ocean_coral_3.mts
+- everness_crystal_forest_deep_ocean_ruins.lua
+- everness_crystal_forest_deep_ocean_ruins.mts
+- everness_crystal_forest_ruins_1.lua
+- everness_crystal_forest_ruins_1.mts
+- everness_crystal_forest_ruins_2.lua
+- everness_crystal_forest_ruins_2.mts
+- everness_crystal_orange_cluster.lua
+- everness_crystal_orange_cluster.mts
+- everness_crystal_purple_cluster.lua
+- everness_crystal_purple_cluster.mts
+- everness_crystal_tree_large.lua
+- everness_crystal_tree_large.mts
+- everness_crystal_tree.lua
+- everness_crystal_tree.mts
+- everness_cursed_bush.mts
 - everness_cursed_dream_tree_from_sapling.lua
+- everness_cursed_dream_tree_from_sapling.mts
+- everness_cursed_dream_tree.lua
+- everness_cursed_dream_tree.mts
+- everness_cursed_lands_deep_ocean_skull.lua
+- everness_cursed_lands_deep_ocean_skull.mts
 - everness_dry_tree_from_sapling.lua
+- everness_dry_tree_from_sapling.mts
+- everness_dry_tree.lua
+- everness_dry_tree.mts
+- everness_forsaken_desert_temple_2.lua
+- everness_forsaken_desert_temple_2.mts
+- everness_forsaken_desert_temple.lua
+- everness_forsaken_desert_temple.mts
+- everness_forsaken_lands_deep_ocean_coral_alcyonacea.lua
+- everness_forsaken_lands_deep_ocean_coral_alcyonacea.mts
+- everness_forsaken_lands_deep_ocean_coral_octocurse.lua
+- everness_forsaken_lands_deep_ocean_coral_octocurse.mts
+- everness_forsaken_lands_deep_ocean_coral_ostracod.lua
+- everness_forsaken_lands_deep_ocean_coral_ostracod.mts
+- everness_forsaken_tundra_rocks.lua
+- everness_forsaken_tundra_rocks.mts
+- everness_forsythia_on_moss.lua
+- everness_forsythia_on_moss.mts
+- everness_frosted_icesheet_igloo.lua
+- everness_frosted_icesheet_igloo.mts
+- everness_frosted_icicle_large_ceiling.lua
+- everness_frosted_icicle_large_ceiling.mts
+- everness_frosted_icicle_large_floor.lua
+- everness_frosted_icicle_large_floor.mts
+- everness_frosted_lands_fossils.lua
+- everness_frosted_lands_fossils.mts
+- everness_frosted_lands_stalagmite.lua
+- everness_frosted_lands_stalagmite.mts
+- everness_frosted_lands_volcanic_rock.lua
+- everness_frosted_lands_volcanic_rock.mts
 - everness_giant_sequoia_tree_from_sapling.lua
+- everness_giant_sequoia_tree_from_sapling.mts
+- everness_giant_sequoia_tree.lua
+- everness_giant_sequoia_tree.mts
+- everness_haunted_house.lua
+- everness_haunted_house.mts
+- everness_hollow_tree_large.lua
+- everness_hollow_tree_large.mts
+- everness_hollow_tree.lua
+- everness_hollow_tree.mts
+- everness_japanese_shrine.lua
+- everness_japanese_shrine.mts
+- everness_jungle_temple.lua
+- everness_jungle_temple.mts
+- everness_large_bamboo.lua
+- everness_large_bamboo.mts
+- everness_marsh_grass.lua
+- everness_marsh_grass.mts
+- everness_quartz_temple.lua
+- everness_quartz_temple.mts
+- everness_ruins_1.lua
+- everness_ruins_1.mts
+- everness_small_bamboo.lua
+- everness_small_bamboo.mts
+- everness_sulfur_volcano.lua
+- everness_sulfur_volcano.mts
+- everness_termite_nest.lua
+- everness_termite_nest.mts
 - everness_willow_tree_from_sapling.lua
+- everness_willow_tree_from_sapling.mts
+- everness_willow_tree.lua
+- everness_willow_tree.mts
