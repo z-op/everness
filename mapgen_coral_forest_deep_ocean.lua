@@ -318,7 +318,6 @@ local c_coral_forest_deep_ocean_sand = minetest.get_content_id('everness:coral_f
 -- mapchunks, therefore minimising memory use.
 local data = {}
 local chance = 25
-local rotations = { '0', '90', '180', '270' }
 
 -- size = { x = 11, y = 17, z = 12 }
 local house_volume = 11 * 17 * 12
@@ -359,7 +358,6 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                     local vi = area:index(x, y, z)
 
                     if data[vi + area.ystride] == c_water_source and data[vi] == c_coral_forest_deep_ocean_sand then
-                        local rotation = rotations[rand:next(1, #rotations)]
                         local s_pos = area:position(vi)
                         local biome_data = minetest.get_biome_data(s_pos)
 
@@ -390,7 +388,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                     vm,
                                     schem_pos,
                                     house_schem,
-                                    rotation,
+                                    'random',
                                     nil,
                                     true,
                                     'place_center_x, place_center_z'

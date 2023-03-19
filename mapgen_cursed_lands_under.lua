@@ -28,9 +28,9 @@ local y_min = Everness.settings.biomes.everness_cursed_lands_under.y_min
 minetest.register_biome({
     name = 'everness_cursed_lands_under',
     node_cave_liquid = { 'default:water_source', 'default:lava_source' },
-    node_dungeon = 'default:cobble',
-    node_dungeon_alt = 'default:mossycobble',
-    node_dungeon_stair = 'stairs:stair_cobble',
+    node_dungeon = 'everness:cursed_brick',
+    node_dungeon_alt = 'everness:cursed_brick_with_growth',
+    node_dungeon_stair = 'stairs:stair_cursed_brick',
     y_max = y_max,
     y_min = y_min,
     heat_point = 45,
