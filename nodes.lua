@@ -29,7 +29,7 @@ minetest.register_node('everness:stone_with_pyrite', {
     tiles = { 'default_stone.png^everness_mineral_pyrite.png' },
     groups = { cracky = 2 },
     drop = 'everness:pyrite_lump',
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:pyriteblock', {
@@ -37,7 +37,7 @@ minetest.register_node('everness:pyriteblock', {
     tiles = { 'everness_pyrite_block.png' },
     is_ground_content = false,
     groups = { cracky = 1 },
-    sounds = default.node_sound_metal_defaults(),
+    sounds = Everness.node_sound_metal_defaults(),
 })
 
 minetest.register_node('everness:pyriteblock_forged', {
@@ -45,7 +45,7 @@ minetest.register_node('everness:pyriteblock_forged', {
     tiles = { 'everness_pyrite_block_forged.png' },
     is_ground_content = false,
     groups = { cracky = 1 },
-    sounds = default.node_sound_metal_defaults(),
+    sounds = Everness.node_sound_metal_defaults(),
 })
 
 minetest.register_node('everness:pyriteblock_brick', {
@@ -55,7 +55,7 @@ minetest.register_node('everness:pyriteblock_brick', {
     tiles = { 'everness_pyriteblock_brick.png' },
     is_ground_content = false,
     groups = { cracky = 1 },
-    sounds = default.node_sound_metal_defaults(),
+    sounds = Everness.node_sound_metal_defaults(),
 })
 
 minetest.register_node('everness:pyriteblock_slab_brick', {
@@ -65,7 +65,7 @@ minetest.register_node('everness:pyriteblock_slab_brick', {
     tiles = { 'everness_pyrite_block_slab_brick.png' },
     is_ground_content = false,
     groups = { cracky = 1 },
-    sounds = default.node_sound_metal_defaults(),
+    sounds = Everness.node_sound_metal_defaults(),
 })
 
 minetest.register_node('everness:pyriteblock_spiral', {
@@ -75,7 +75,7 @@ minetest.register_node('everness:pyriteblock_spiral', {
     tiles = { 'everness_pyrite_block_spiral.png' },
     is_ground_content = false,
     groups = { cracky = 1 },
-    sounds = default.node_sound_metal_defaults(),
+    sounds = Everness.node_sound_metal_defaults(),
 })
 
 minetest.register_node('everness:pyrite_pillar_bottom', {
@@ -85,7 +85,7 @@ minetest.register_node('everness:pyrite_pillar_bottom', {
     tiles = { 'everness_pyrite_pillar_bottom.png' },
     is_ground_content = false,
     groups = { cracky = 1 },
-    sounds = default.node_sound_metal_defaults(),
+    sounds = Everness.node_sound_metal_defaults(),
 })
 
 minetest.register_node('everness:pyrite_pillar_middle', {
@@ -95,7 +95,7 @@ minetest.register_node('everness:pyrite_pillar_middle', {
     tiles = { 'everness_pyrite_pillar_middle.png' },
     is_ground_content = false,
     groups = { cracky = 1 },
-    sounds = default.node_sound_metal_defaults(),
+    sounds = Everness.node_sound_metal_defaults(),
 })
 
 minetest.register_node('everness:pyrite_pillar_top', {
@@ -105,7 +105,7 @@ minetest.register_node('everness:pyrite_pillar_top', {
     tiles = { 'everness_pyrite_pillar_top.png' },
     is_ground_content = false,
     groups = { cracky = 1 },
-    sounds = default.node_sound_metal_defaults(),
+    sounds = Everness.node_sound_metal_defaults(),
 })
 
 minetest.register_node('everness:pyrite_pillar_small', {
@@ -115,7 +115,7 @@ minetest.register_node('everness:pyrite_pillar_small', {
     tiles = { 'everness_pyrite_pillar_small.png' },
     is_ground_content = false,
     groups = { cracky = 1 },
-    sounds = default.node_sound_metal_defaults(),
+    sounds = Everness.node_sound_metal_defaults(),
 })
 
 minetest.register_node('everness:pyriteblock_polished', {
@@ -125,7 +125,7 @@ minetest.register_node('everness:pyriteblock_polished', {
     tiles = { 'everness_pyrite_block_polished.png' },
     is_ground_content = false,
     groups = { cracky = 1 },
-    sounds = default.node_sound_metal_defaults(),
+    sounds = Everness.node_sound_metal_defaults(),
 })
 
 minetest.register_node('everness:quartz_ore', {
@@ -133,7 +133,7 @@ minetest.register_node('everness:quartz_ore', {
     tiles = { 'default_stone.png^everness_quartz_ore.png' },
     groups = { cracky = 3 },
     drop = 'everness:quartz_crystal',
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 --
@@ -146,14 +146,14 @@ minetest.register_node('everness:coral_desert_stone', {
     groups = { cracky = 3, stone = 1 },
     drop = 'everness:coral_desert_cobble',
     legacy_mineral = true,
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_sandstone', {
     description = S('Coral Sandstone'),
     tiles = { 'everness_coral_sandstone.png' },
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_sandstone_brick', {
@@ -163,7 +163,7 @@ minetest.register_node('everness:coral_sandstone_brick', {
     tiles = { 'everness_coral_sandstone_brick.png' },
     is_ground_content = false,
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_sandstone_chiseled', {
@@ -171,7 +171,7 @@ minetest.register_node('everness:coral_sandstone_chiseled', {
     tiles = { 'everness_coral_sandstone_chiseled.png' },
     is_ground_content = false,
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_sandstone_carved_1', {
@@ -179,14 +179,14 @@ minetest.register_node('everness:coral_sandstone_carved_1', {
     tiles = { 'everness_coral_sandstone_carved_1.png' },
     is_ground_content = false,
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_white_sandstone', {
     description = S('Coral White Sandstone'),
     tiles = { 'everness_coral_white_sandstone.png' },
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_white_sandstone_brick', {
@@ -196,7 +196,7 @@ minetest.register_node('everness:coral_white_sandstone_brick', {
     tiles = { 'everness_coral_white_sandstone_brick.png' },
     is_ground_content = false,
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_white_sandstone_pillar', {
@@ -210,7 +210,7 @@ minetest.register_node('everness:coral_white_sandstone_pillar', {
     },
     is_ground_content = false,
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_desert_stone_block', {
@@ -218,7 +218,7 @@ minetest.register_node('everness:coral_desert_stone_block', {
     tiles = { 'everness_coral_desert_stone_block.png' },
     is_ground_content = false,
     groups = { cracky = 2, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_desert_stone_brick', {
@@ -228,14 +228,14 @@ minetest.register_node('everness:coral_desert_stone_brick', {
     tiles = { 'everness_coral_desert_stone_brick.png' },
     is_ground_content = false,
     groups = { cracky = 2, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_bones', {
     description = S('Coral Bones'),
     tiles = { 'everness_coral_bones.png' },
     groups = { cracky = 3, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_desert_cobble', {
@@ -243,7 +243,7 @@ minetest.register_node('everness:coral_desert_cobble', {
     tiles = { 'everness_coral_desert_cobble.png' },
     is_ground_content = false,
     groups = { cracky = 3, stone = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_desert_mossy_cobble', {
@@ -251,7 +251,7 @@ minetest.register_node('everness:coral_desert_mossy_cobble', {
     tiles = { 'everness_coral_desert_mossy_cobble.png' },
     is_ground_content = false,
     groups = { cracky = 3, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_desert_stone_with_moss', {
@@ -267,14 +267,14 @@ minetest.register_node('everness:coral_desert_stone_with_moss', {
     groups = { cracky = 3, stone = 1, everness_spreading_dirt_type_under = 1 },
     drop = 'everness:coral_desert_cobble',
     legacy_mineral = true,
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_deep_ocean_sandstone_block', {
     description = S('Coral Deep Ocean Sandstone Block'),
     tiles = { 'everness_deep_ocean_sandstone_block.png' },
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_deep_ocean_sandstone_brick', {
@@ -283,14 +283,14 @@ minetest.register_node('everness:coral_deep_ocean_sandstone_brick', {
     place_param2 = 0,
     tiles = { 'everness_deep_ocean_sandstone_brick.png' },
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:cursed_lands_deep_ocean_sandstone_block', {
     description = S('Cursed Lands Deep Ocean Sandstone Block'),
     tiles = { 'everness_cursed_lands_deep_ocean_sandblock.png' },
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:cursed_lands_deep_ocean_sandstone_brick', {
@@ -299,14 +299,14 @@ minetest.register_node('everness:cursed_lands_deep_ocean_sandstone_brick', {
     place_param2 = 0,
     tiles = { 'everness_cursed_lands_deep_ocean_sand_brick.png' },
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:crystal_forest_deep_ocean_sandstone_block', {
     description = S('Crystal Forest Deep Ocean Sandstone Block'),
     tiles = { 'everness_crystal_forest_deep_ocean_sandstone_block.png' },
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:crystal_forest_deep_ocean_sandstone_brick', {
@@ -315,7 +315,7 @@ minetest.register_node('everness:crystal_forest_deep_ocean_sandstone_brick', {
     place_param2 = 0,
     tiles = { 'everness_crystal_forest_deep_ocean_sandstone_brick.png' },
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:forsaken_desert_stone', {
@@ -323,7 +323,7 @@ minetest.register_node('everness:forsaken_desert_stone', {
     tiles = { 'everness_forsaken_desert_stone.png' },
     groups = { cracky = 3, stone = 1 },
     drop = 'everness:forsaken_desert_cobble_red',
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:forsaken_desert_cobble_red', {
@@ -331,7 +331,7 @@ minetest.register_node('everness:forsaken_desert_cobble_red', {
     tiles = { 'everness_forsaken_desert_cobble_red.png' },
     is_ground_content = false,
     groups = { cracky = 3, stone = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:forsaken_desert_cobble', {
@@ -339,13 +339,13 @@ minetest.register_node('everness:forsaken_desert_cobble', {
     tiles = { 'everness_forsaken_desert_cobble.png' },
     is_ground_content = false,
     groups = { cracky = 3, stone = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:volcanic_rock', {
     description = S('Volcanic Rock'),
     tiles = { 'everness_volcanic_rock.png' },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
     groups = { cracky = 1, level = 2 },
     is_ground_content = false,
 })
@@ -363,7 +363,7 @@ minetest.register_node('everness:volcanic_rock_with_magma', {
             },
         },
     },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
     groups = { cracky = 1, level = 2 },
     paramtype = 'light',
     light_source = 3,
@@ -372,7 +372,7 @@ minetest.register_node('everness:volcanic_rock_with_magma', {
 minetest.register_node('everness:magmacobble', {
     description = 'Magma Cobblestone',
     groups = { cracky = 3, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
     tiles = {
         {
             name = 'everness_magmacobble_animated.png',
@@ -405,7 +405,7 @@ minetest.register_node('everness:cursed_stone', {
     description = S('Cursed Stone'),
     tiles = { 'everness_cursed_stone.png' },
     groups = { cracky = 3, stone = 1 },
-    sounds = default.node_sound_stone_defaults()
+    sounds = Everness.node_sound_stone_defaults()
 })
 
 minetest.register_node('everness:cursed_brick', {
@@ -415,7 +415,7 @@ minetest.register_node('everness:cursed_brick', {
     tiles = { 'everness_cursed_brick.png' },
     is_ground_content = false,
     groups = { cracky = 2, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:cursed_brick_with_growth', {
@@ -425,7 +425,7 @@ minetest.register_node('everness:cursed_brick_with_growth', {
     tiles = { 'everness_cursed_brick_with_growth.png' },
     is_ground_content = false,
     groups = { cracky = 2, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:cursed_brick_mixed', {
@@ -435,7 +435,7 @@ minetest.register_node('everness:cursed_brick_mixed', {
     tiles = { 'everness_cursed_brick_mixed.png' },
     is_ground_content = false,
     groups = { cracky = 2, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:cursed_brick_carved', {
@@ -445,21 +445,21 @@ minetest.register_node('everness:cursed_brick_carved', {
     tiles = { 'everness_cursed_brick_carved.png' },
     is_ground_content = false,
     groups = { cracky = 2, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:volcanic_sulfur', {
     description = S('Volcanic Sulfur Stone'),
     tiles = { 'everness_volcanic_sulfur_stone.png' },
     groups = { cracky = 3, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:sulfur_stone', {
     description = S('Sulfur Stone'),
     tiles = { 'everness_sulfur_stone.png' },
     groups = { cracky = 3, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
     on_construct = function(pos)
         Everness:tick_sulfur_stone(pos)
     end,
@@ -539,7 +539,7 @@ minetest.register_node('everness:forsaken_tundra_cobble', {
     tiles = { 'everness_forsaken_tundra_cobblestone.png' },
     is_ground_content = false,
     groups = { cracky = 3, stone = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:forsaken_tundra_stone', {
@@ -548,7 +548,7 @@ minetest.register_node('everness:forsaken_tundra_stone', {
     groups = { cracky = 3, stone = 1 },
     drop = 'everness:forsaken_tundra_cobble',
     legacy_mineral = true,
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:mold_cobble', {
@@ -556,7 +556,7 @@ minetest.register_node('everness:mold_cobble', {
     tiles = { 'everness_mold_stone.png' },
     is_ground_content = false,
     groups = { cracky = 3, stone = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:forsaken_tundra_brick', {
@@ -566,7 +566,7 @@ minetest.register_node('everness:forsaken_tundra_brick', {
     tiles = { 'everness_forsaken_tundra_brick.png' },
     is_ground_content = false,
     groups = { cracky = 2, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:forsaken_tundra_rocks', {
@@ -579,20 +579,20 @@ minetest.register_node('everness:forsaken_tundra_rocks', {
     groups = { cracky = 3, stone = 1 },
     drop = 'everness:coral_desert_cobble',
     legacy_mineral = true,
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:blue_crying_obsidian', {
     description = S('Blue Crying Obsidian'),
     tiles = { 'everness_blue_crying_obsidian.png' },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
     groups = { cracky = 1, level = 2 },
 })
 
 minetest.register_node('everness:blue_weeping_obsidian', {
     description = S('Blue Weeping Obsidian'),
     tiles = { 'everness_blue_weeping_obsidian.png' },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
     groups = { cracky = 1, level = 2 },
     paramtype = 'light',
     light_source = 7,
@@ -601,7 +601,7 @@ minetest.register_node('everness:blue_weeping_obsidian', {
 minetest.register_node('everness:weeping_obsidian', {
     description = S('Weeping Obsidian'),
     tiles = { 'everness_weeping_obsidian.png' },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
     groups = { cracky = 1, level = 2 },
     paramtype = 'light',
     light_source = 7,
@@ -617,14 +617,14 @@ minetest.register_node('everness:mold_stone_with_moss', {
     groups = { cracky = 3, stone = 1, everness_spreading_dirt_type_under = 1 },
     is_ground_content = false,
     drop = 'everness:mold_cobble',
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:soul_sandstone', {
     description = S('Soul Sandstone'),
     tiles = { 'everness_soul_sandstone.png' },
     groups = { cracky = 3, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:soul_sandstone_veined', {
@@ -636,7 +636,7 @@ minetest.register_node('everness:soul_sandstone_veined', {
     },
     groups = { cracky = 3, stone = 1, everness_spreading_dirt_type_under = 1 },
     drop = 'everness:soul_sandstone',
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:crystal_block_purple', {
@@ -681,7 +681,7 @@ minetest.register_node('everness:quartz_block', {
         'everness_quartz_block_side.png',
     },
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 -- Chiseled Quartz
@@ -693,7 +693,7 @@ minetest.register_node('everness:quartz_chiseled', {
         'everness_quartz_block_chiseled.png',
     },
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 -- Quartz Pillar
@@ -706,7 +706,7 @@ minetest.register_node('everness:quartz_pillar', {
         'everness_quartz_block_lines.png',
     },
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
     on_place = minetest.rotate_node
 })
 
@@ -717,7 +717,7 @@ minetest.register_node('everness:forsaken_desert_brick', {
     tiles = { 'everness_forsaken_desert_brick.png' },
     is_ground_content = false,
     groups = { cracky = 2, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:forsaken_desert_brick_red', {
@@ -727,7 +727,7 @@ minetest.register_node('everness:forsaken_desert_brick_red', {
     tiles = { 'everness_forsaken_desert_brick_red.png' },
     is_ground_content = false,
     groups = { cracky = 2, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:forsaken_desert_chiseled_stone', {
@@ -741,7 +741,7 @@ minetest.register_node('everness:forsaken_desert_chiseled_stone', {
     },
     is_ground_content = false,
     groups = { cracky = 2, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:forsaken_desert_engraved_stone', {
@@ -749,14 +749,14 @@ minetest.register_node('everness:forsaken_desert_engraved_stone', {
     tiles = { 'everness_forsaken_desert_engraved_stone.png' },
     is_ground_content = false,
     groups = { cracky = 2, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:crystal_sandstone', {
     description = S('Crystal Sandstone'),
     tiles = { 'everness_crystal_sandstone.png' },
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:crystal_sandstone_brick', {
@@ -766,7 +766,7 @@ minetest.register_node('everness:crystal_sandstone_brick', {
     tiles = { 'everness_crystal_sandstone_brick.png' },
     is_ground_content = false,
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:crystal_sandstone_chiseled', {
@@ -774,14 +774,14 @@ minetest.register_node('everness:crystal_sandstone_chiseled', {
     tiles = { 'everness_crystal_sandstone_chiseled.png' },
     is_ground_content = false,
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:cursed_sandstone_block', {
     description = S('Cursed Sandstone Block'),
     tiles = { 'everness_cursed_sandstone_block.png' },
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:cursed_sandstone_brick', {
@@ -791,7 +791,7 @@ minetest.register_node('everness:cursed_sandstone_brick', {
     tiles = { 'everness_cursed_sandstone_brick.png' },
     is_ground_content = false,
     groups = { cracky = 2 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 --
@@ -1098,7 +1098,7 @@ minetest.register_node('everness:coral_sand', {
     short_description = S('Coral Sand'),
     tiles = { 'everness_coral_sand.png' },
     groups = { crumbly = 3, falling_node = 1, sand = 1 },
-    sounds = default.node_sound_sand_defaults(),
+    sounds = Everness.node_sound_sand_defaults(),
 })
 
 minetest.register_node('everness:coral_white_sand', {
@@ -1106,7 +1106,7 @@ minetest.register_node('everness:coral_white_sand', {
     short_description = S('Coral White Sand'),
     tiles = { 'everness_coral_white_sand.png' },
     groups = { crumbly = 3, falling_node = 1, sand = 1 },
-    sounds = default.node_sound_sand_defaults(),
+    sounds = Everness.node_sound_sand_defaults(),
 })
 
 minetest.register_node('everness:cursed_sand', {
@@ -1114,7 +1114,7 @@ minetest.register_node('everness:cursed_sand', {
     short_description = S('Cursed Sand'),
     tiles = { 'everness_cursed_sand.png' },
     groups = { crumbly = 3, falling_node = 1, sand = 1 },
-    sounds = default.node_sound_sand_defaults(),
+    sounds = Everness.node_sound_sand_defaults(),
 })
 
 minetest.register_node('everness:crystal_sand', {
@@ -1122,7 +1122,7 @@ minetest.register_node('everness:crystal_sand', {
     short_description = S('Crystal Sand'),
     tiles = { 'everness_crystal_sand.png' },
     groups = { crumbly = 3, falling_node = 1, sand = 1 },
-    sounds = default.node_sound_sand_defaults(),
+    sounds = Everness.node_sound_sand_defaults(),
 })
 
 minetest.register_node('everness:crystal_forest_deep_ocean_sand_with_crack', {
@@ -1130,7 +1130,7 @@ minetest.register_node('everness:crystal_forest_deep_ocean_sand_with_crack', {
     short_description = S('Crystal Forest Deep Ocean Sand with Crack'),
     tiles = { 'everness_crystal_forest_deep_ocean_sand_with_crack.png' },
     groups = { crumbly = 3, falling_node = 1, sand = 1, rising_crystals = 1 },
-    sounds = default.node_sound_sand_defaults(),
+    sounds = Everness.node_sound_sand_defaults(),
 })
 
 minetest.register_node('everness:forsaken_tundra_beach_sand', {
@@ -1138,7 +1138,7 @@ minetest.register_node('everness:forsaken_tundra_beach_sand', {
     short_description = S('Forsaken Tundra Beach Sand'),
     tiles = { 'everness_forsaken_tundra_beach_sand.png' },
     groups = { crumbly = 3, falling_node = 1, sand = 1, mold_soil = 1 },
-    sounds = default.node_sound_sand_defaults(),
+    sounds = Everness.node_sound_sand_defaults(),
 })
 
 minetest.register_node('everness:forsaken_tundra_beach_sand_with_shells', {
@@ -1146,7 +1146,7 @@ minetest.register_node('everness:forsaken_tundra_beach_sand_with_shells', {
     short_description = S('Forsaken Tundra Beach Sand'),
     tiles = { 'everness_forsaken_tundra_beach_sand_with_shells.png' },
     groups = { crumbly = 3, falling_node = 1, sand = 1 },
-    sounds = default.node_sound_sand_defaults(),
+    sounds = Everness.node_sound_sand_defaults(),
 })
 
 minetest.register_node('everness:forsaken_desert_sand', {
@@ -1154,7 +1154,7 @@ minetest.register_node('everness:forsaken_desert_sand', {
     short_description = S('Forsaken Desert Sand'),
     tiles = { 'everness_forsaken_desert_sand.png' },
     groups = { crumbly = 3, falling_node = 1, sand = 1 },
-    sounds = default.node_sound_sand_defaults(),
+    sounds = Everness.node_sound_sand_defaults(),
 })
 
 minetest.register_node('everness:coral_forest_deep_ocean_sand', {
@@ -1162,7 +1162,7 @@ minetest.register_node('everness:coral_forest_deep_ocean_sand', {
     short_description = S('Coral Forest Deep Ocean Sand'),
     tiles = { 'everness_deep_ocean_sand.png' },
     groups = { crumbly = 3, falling_node = 1, sand = 1 },
-    sounds = default.node_sound_sand_defaults(),
+    sounds = Everness.node_sound_sand_defaults(),
 })
 
 minetest.register_node('everness:cursed_lands_deep_ocean_sand', {
@@ -1170,7 +1170,7 @@ minetest.register_node('everness:cursed_lands_deep_ocean_sand', {
     short_description = S('Cursed Lands Deep Ocean Sand'),
     tiles = { 'everness_cursed_lands_deep_ocean_sand.png' },
     groups = { crumbly = 3, falling_node = 1, sand = 1 },
-    sounds = default.node_sound_sand_defaults(),
+    sounds = Everness.node_sound_sand_defaults(),
 })
 
 minetest.register_node('everness:cursed_lands_deep_ocean_sand_with_crack', {
@@ -1178,7 +1178,7 @@ minetest.register_node('everness:cursed_lands_deep_ocean_sand_with_crack', {
     short_description = S('Cursed Lands Deep Ocean Sand with Crack'),
     tiles = { 'everness_cursed_lands_deep_ocean_sand_with_crack.png' },
     groups = { crumbly = 3, falling_node = 1, sand = 1, rising_souls = 1 },
-    sounds = default.node_sound_sand_defaults(),
+    sounds = Everness.node_sound_sand_defaults(),
 })
 
 minetest.register_node('everness:crystal_forest_deep_ocean_sand', {
@@ -1186,7 +1186,7 @@ minetest.register_node('everness:crystal_forest_deep_ocean_sand', {
     short_description = S('Crystal Forest Deep Ocean Sand'),
     tiles = { 'everness_crystal_forest_deep_ocean_sand.png' },
     groups = { crumbly = 3, falling_node = 1, sand = 1 },
-    sounds = default.node_sound_sand_defaults(),
+    sounds = Everness.node_sound_sand_defaults(),
 })
 
 minetest.register_node('everness:frosted_snowblock', {
@@ -1254,7 +1254,7 @@ minetest.register_node('everness:bone', {
     paramtype2 = 'facedir',
     is_ground_content = false,
     groups = { cracky = 3, choppy = 2, oddly_breakable_by_hand = 1 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node
 })
 
@@ -1286,7 +1286,7 @@ minetest.register_node('everness:snowcobble', {
     description = 'Snow Cobble',
     tiles = { 'everness_snowcobble.png' },
     groups = { puts_out_fire = 1, cools_lava = 1, snowy = 1, cracky = 2, stone = 1 },
-    sounds = default.node_sound_snow_defaults(),
+    sounds = Everness.node_sound_snow_defaults(),
     is_ground_content = false,
 
     on_construct = function(pos)
@@ -1316,7 +1316,7 @@ minetest.register_node('everness:cursed_mud', {
     climbable = false,
     post_effect_color = { r = 49, g = 51, b = 57, a = 245 },
     groups = { crumbly = 3, sand = 1, liquid = 3, disable_jump = 1 },
-    sounds = default.node_sound_sand_defaults()
+    sounds = Everness.node_sound_sand_defaults()
 })
 
 minetest.register_node('everness:cobweb', {
@@ -1332,7 +1332,7 @@ minetest.register_node('everness:cobweb', {
     drowning = 2,
     walkable = false,
     groups = { crumbly = 3, sand = 1, liquid = 3, disable_jump = 1 },
-    sounds = default.node_sound_leaves_defaults()
+    sounds = Everness.node_sound_leaves_defaults()
 })
 
 minetest.register_node('everness:cave_flower', {
@@ -1353,7 +1353,7 @@ minetest.register_node('everness:cave_flower', {
         fixed = { -0.5, -0.5, -0.5, 0.5, -0.25, 0.5 }
     },
     groups = { snappy = 3, flora = 1, attached_node = 1, bamboo_grass_under = 1, flammable = 1 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     sunlight_propagates = true,
     light_source = 7,
     liquids_pointable = false,
@@ -1390,7 +1390,7 @@ minetest.register_node('everness:cave_flower_with_particles', {
         fixed = { -0.5, -0.5, -0.5, 0.5, -0.25, 0.5 }
     },
     groups = { snappy = 3, flora = 1, attached_node = 1, bamboo_grass_under = 1, flammable = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     sunlight_propagates = true,
     light_source = 12,
     liquids_pointable = false,
@@ -1426,7 +1426,7 @@ minetest.register_node('everness:forsaken_fire', {
         fixed = { -0.5, -0.5, -0.5, 0.5, 0.25, 0.5 }
     },
     groups = { cracky = 3, level = 2 },
-    sounds = default.node_sound_metal_defaults(),
+    sounds = Everness.node_sound_metal_defaults(),
     light_source = 13,
     liquids_pointable = false,
     -- opaque, clip, blend
@@ -1444,7 +1444,7 @@ minetest.register_node('everness:coral_tree', {
     paramtype2 = 'facedir',
     is_ground_content = false,
     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node
 })
 
@@ -1456,7 +1456,7 @@ minetest.register_node('everness:coral_tree_bioluminescent', {
     sunlight_propagates = true,
     is_ground_content = false,
     groups = { choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     light_source = 7
 })
 
@@ -1468,7 +1468,7 @@ minetest.register_node('everness:cursed_dream_stone', {
     sunlight_propagates = true,
     is_ground_content = false,
     groups = { cracky = 2, stone = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
     light_source = 7
 })
 
@@ -1479,7 +1479,7 @@ minetest.register_node('everness:dry_tree', {
     paramtype2 = 'facedir',
     is_ground_content = false,
     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node
 })
 
@@ -1490,7 +1490,7 @@ minetest.register_node('everness:baobab_tree', {
     paramtype2 = 'facedir',
     is_ground_content = false,
     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node
 })
 
@@ -1501,7 +1501,7 @@ minetest.register_node('everness:sequoia_tree', {
     paramtype2 = 'facedir',
     is_ground_content = false,
     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node
 })
 
@@ -1512,7 +1512,7 @@ minetest.register_node('everness:willow_tree', {
     paramtype2 = 'facedir',
     is_ground_content = false,
     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node
 })
 
@@ -1523,7 +1523,7 @@ minetest.register_node('everness:willow_wood', {
     tiles = { 'everness_willow_wood.png' },
     is_ground_content = false,
     groups = { choppy = 3, oddly_breakable_by_hand = 2, flammable = 3, wood = 1 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
 })
 
 minetest.register_node('everness:dry_wood', {
@@ -1533,7 +1533,7 @@ minetest.register_node('everness:dry_wood', {
     tiles = { 'everness_dry_wood.png' },
     is_ground_content = false,
     groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
 })
 
 minetest.register_node('everness:hollow_tree', {
@@ -1561,7 +1561,7 @@ minetest.register_node('everness:hollow_tree', {
     paramtype2 = 'facedir',
     is_ground_content = false,
     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node
 })
 
@@ -1582,7 +1582,7 @@ minetest.register_node('everness:crystal_tree', {
     is_ground_content = false,
     sunlight_propagates = true,
     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1 },
-    sounds = default.node_sound_glass_defaults(),
+    sounds = Everness.node_sound_glass_defaults(),
     on_place = minetest.rotate_node,
 })
 
@@ -1603,7 +1603,7 @@ minetest.register_node('everness:crystal_tree', {
 --     paramtype2 = 'facedir',
 --     is_ground_content = false,
 --     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
---     sounds = default.node_sound_wood_defaults(),
+--     sounds = Everness.node_sound_wood_defaults(),
 --     on_place = minetest.rotate_node
 -- })
 
@@ -1633,8 +1633,10 @@ minetest.register_node('everness:baobab_leaves', {
             }
         }
     },
-    sounds = default.node_sound_leaves_defaults(),
-    after_place_node = default.after_place_leaves,
+    sounds = Everness.node_sound_leaves_defaults(),
+    after_place_node = function(pos, placer, itemstack, pointed_thing)
+        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+    end
 })
 
 minetest.register_node('everness:sequoia_leaves', {
@@ -1663,8 +1665,10 @@ minetest.register_node('everness:sequoia_leaves', {
             }
         }
     },
-    sounds = default.node_sound_leaves_defaults(),
-    after_place_node = default.after_place_leaves,
+    sounds = Everness.node_sound_leaves_defaults(),
+    after_place_node = function(pos, placer, itemstack, pointed_thing)
+        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+    end
 })
 
 -- for marker only
@@ -1696,7 +1700,7 @@ minetest.register_node('everness:baobab_fruit_renewable', {
     },
     groups = { fleshy = 3, dig_immediate = 3, flammable = 2,
         leafdecay = 3, leafdecay_drop = 1, not_in_creative_inventory = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     place_param2 = 0,
     after_dig_node = function(pos, oldnode, oldmetadata, digger)
         if oldnode.param2 == 0 then
@@ -1750,7 +1754,7 @@ minetest.register_node('everness:baobab_fruit', {
         fixed = { -0.25, -0.5, -0.25, 0.25, 1, 0.25 }
     },
     groups = { dig_immediate = 3, attached_node = 1, compost = 65 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
 })
 
 minetest.register_node('everness:baobab_sapling', {
@@ -1768,7 +1772,7 @@ minetest.register_node('everness:baobab_sapling', {
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
     groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
     end,
@@ -1776,16 +1780,14 @@ minetest.register_node('everness:baobab_sapling', {
         minetest.get_node_timer(pos):start(math.random(300, 1500))
     end,
     on_place = function(itemstack, placer, pointed_thing)
-        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-            'everness:baobab_sapling',
-            -- minp, maxp to be checked, relative to sapling pos
-            -- minp_relative.y = 1 because sapling pos has been checked
-            { x = -12, y = 1, z = -12 },
-            { x = 12, y = 39, z = 12 },
-            -- maximum interval of interior volume check
-            4)
+        local on_place_props = {
+            sapling_name = 'everness:baobab_sapling',
+            minp_relative = { x = -12, y = 1, z = -12 },
+            maxp_relative = { x = 12, y = 39, z = 12 },
+            interval = 4,
+        }
 
-        return itemstack
+        return Everness:sapling_on_place(itemstack, placer, pointed_thing, on_place_props)
     end,
 })
 
@@ -1815,8 +1817,10 @@ minetest.register_node('everness:willow_leaves', {
             }
         }
     },
-    sounds = default.node_sound_leaves_defaults(),
-    after_place_node = default.after_place_leaves,
+    sounds = Everness.node_sound_leaves_defaults(),
+    after_place_node = function(pos, placer, itemstack, pointed_thing)
+        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+    end
 })
 
 minetest.register_node('everness:coral_leaves', {
@@ -1844,8 +1848,10 @@ minetest.register_node('everness:coral_leaves', {
             }
         }
     },
-    sounds = default.node_sound_leaves_defaults(),
-    after_place_node = default.after_place_leaves,
+    sounds = Everness.node_sound_leaves_defaults(),
+    after_place_node = function(pos, placer, itemstack, pointed_thing)
+        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+    end
 })
 
 minetest.register_node('everness:dry_branches', {
@@ -1873,8 +1879,10 @@ minetest.register_node('everness:dry_branches', {
             }
         }
     },
-    sounds = default.node_sound_leaves_defaults(),
-    after_place_node = default.after_place_leaves,
+    sounds = Everness.node_sound_leaves_defaults(),
+    after_place_node = function(pos, placer, itemstack, pointed_thing)
+        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+    end
 })
 
 minetest.register_node('everness:crystal_leaves', {
@@ -1902,8 +1910,10 @@ minetest.register_node('everness:crystal_leaves', {
             }
         }
     },
-    sounds = default.node_sound_leaves_defaults(),
-    after_place_node = default.after_place_leaves,
+    sounds = Everness.node_sound_leaves_defaults(),
+    after_place_node = function(pos, placer, itemstack, pointed_thing)
+        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+    end
 })
 
 minetest.register_node('everness:coral_tree_sapling', {
@@ -1921,7 +1931,7 @@ minetest.register_node('everness:coral_tree_sapling', {
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
     groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
     end,
@@ -1929,16 +1939,14 @@ minetest.register_node('everness:coral_tree_sapling', {
         minetest.get_node_timer(pos):start(math.random(300, 1500))
     end,
     on_place = function(itemstack, placer, pointed_thing)
-        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-            'everness:coral_tree_sapling',
-            -- minp, maxp to be checked, relative to sapling pos
-            -- minp_relative.y = 1 because sapling pos has been checked
-            { x = -3, y = 1, z = -3 },
-            { x = 3, y = 6, z = 3 },
-            -- maximum interval of interior volume check
-            4)
+        local on_place_props = {
+            sapling_name = 'everness:coral_tree_sapling',
+            minp_relative = { x = -3, y = 1, z = -3 },
+            maxp_relative = { x = 3, y = 6, z = 3 },
+            interval = 4,
+        }
 
-        return itemstack
+        return Everness:sapling_on_place(itemstack, placer, pointed_thing, on_place_props)
     end,
 })
 
@@ -1957,7 +1965,7 @@ minetest.register_node('everness:coral_tree_bioluminescent_sapling', {
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
     groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
     end,
@@ -1965,16 +1973,14 @@ minetest.register_node('everness:coral_tree_bioluminescent_sapling', {
         minetest.get_node_timer(pos):start(math.random(300, 1500))
     end,
     on_place = function(itemstack, placer, pointed_thing)
-        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-            'everness:coral_tree_bioluminescent_sapling',
-            -- minp, maxp to be checked, relative to sapling pos
-            -- minp_relative.y = 1 because sapling pos has been checked
-            { x = -7, y = 1, z = -7 },
-            { x = 7, y = 17, z = 7 },
-            -- maximum interval of interior volume check
-            4)
+        local on_place_props = {
+            sapling_name = 'everness:coral_tree_bioluminescent_sapling',
+            minp_relative = { x = -7, y = 1, z = -7 },
+            maxp_relative = { x = 7, y = 17, z = 7 },
+            interval = 4,
+        }
 
-        return itemstack
+        return Everness:sapling_on_place(itemstack, placer, pointed_thing, on_place_props)
     end,
 })
 
@@ -1993,7 +1999,7 @@ minetest.register_node('everness:dry_tree_sapling', {
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
     groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
     end,
@@ -2001,16 +2007,14 @@ minetest.register_node('everness:dry_tree_sapling', {
         minetest.get_node_timer(pos):start(math.random(300, 1500))
     end,
     on_place = function(itemstack, placer, pointed_thing)
-        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-            'everness:dry_tree_sapling',
-            -- minp, maxp to be checked, relative to sapling pos
-            -- minp_relative.y = 1 because sapling pos has been checked
-            { x = -3, y = 1, z = -3 },
-            { x = 3, y = 8, z = 3 },
-            -- maximum interval of interior volume check
-            4)
+        local on_place_props = {
+            sapling_name = 'everness:dry_tree_sapling',
+            minp_relative = { x = -3, y = 1, z = -3 },
+            maxp_relative = { x = 3, y = 8, z = 3 },
+            interval = 4,
+        }
 
-        return itemstack
+        return Everness:sapling_on_place(itemstack, placer, pointed_thing, on_place_props)
     end,
 })
 
@@ -2029,7 +2033,7 @@ minetest.register_node('everness:cursed_dream_tree_sapling', {
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
     groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
     end,
@@ -2037,16 +2041,14 @@ minetest.register_node('everness:cursed_dream_tree_sapling', {
         minetest.get_node_timer(pos):start(math.random(300, 1500))
     end,
     on_place = function(itemstack, placer, pointed_thing)
-        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-            'everness:cursed_dream_tree_sapling',
-            -- minp, maxp to be checked, relative to sapling pos
-            -- minp_relative.y = 1 because sapling pos has been checked
-            { x = -8, y = 1, z = -8 },
-            { x = 8, y = 15, z = 8 },
-            -- maximum interval of interior volume check
-            4)
+        local on_place_props = {
+            sapling_name = 'everness:cursed_dream_tree_sapling',
+            minp_relative = { x = -8, y = 1, z = -8 },
+            maxp_relative = { x = 8, y = 15, z = 8 },
+            interval = 4,
+        }
 
-        return itemstack
+        return Everness:sapling_on_place(itemstack, placer, pointed_thing, on_place_props)
     end,
 })
 
@@ -2065,7 +2067,7 @@ minetest.register_node('everness:willow_tree_sapling', {
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
     groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
     end,
@@ -2073,16 +2075,14 @@ minetest.register_node('everness:willow_tree_sapling', {
         minetest.get_node_timer(pos):start(math.random(300, 1500))
     end,
     on_place = function(itemstack, placer, pointed_thing)
-        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-            'everness:willow_tree_sapling',
-            -- minp, maxp to be checked, relative to sapling pos
-            -- minp_relative.y = 1 because sapling pos has been checked
-            { x = -19, y = 1, z = -19 },
-            { x = 19, y = 28, z = 19 },
-            -- maximum interval of interior volume check
-            4)
+        local on_place_props = {
+            sapling_name = 'everness:willow_tree_sapling',
+            minp_relative = { x = -19, y = 1, z = -19 },
+            maxp_relative = { x = 19, y = 28, z = 19 },
+            interval = 4,
+        }
 
-        return itemstack
+        return Everness:sapling_on_place(itemstack, placer, pointed_thing, on_place_props)
     end,
 })
 
@@ -2103,7 +2103,7 @@ minetest.register_node('everness:sequoia_tree_sapling', {
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
     groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
     end,
@@ -2111,16 +2111,14 @@ minetest.register_node('everness:sequoia_tree_sapling', {
         minetest.get_node_timer(pos):start(math.random(300, 1500))
     end,
     on_place = function(itemstack, placer, pointed_thing)
-        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-            'everness:sequoia_tree_sapling',
-            -- minp, maxp to be checked, relative to sapling pos
-            -- minp_relative.y = 1 because sapling pos has been checked
-            { x = -12, y = 1, z = -12 },
-            { x = 12, y = 75, z = 12 },
-            -- maximum interval of interior volume check
-            4)
+        local on_place_props = {
+            sapling_name = 'everness:sequoia_tree_sapling',
+            minp_relative = { x = -12, y = 1, z = -12 },
+            maxp_relative = { x = 12, y = 75, z = 12 },
+            interval = 4,
+        }
 
-        return itemstack
+        return Everness:sapling_on_place(itemstack, placer, pointed_thing, on_place_props)
     end,
 })
 
@@ -2139,7 +2137,7 @@ minetest.register_node('everness:crystal_tree_sapling', {
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
     groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
     end,
@@ -2147,16 +2145,14 @@ minetest.register_node('everness:crystal_tree_sapling', {
         minetest.get_node_timer(pos):start(math.random(300, 1500))
     end,
     on_place = function(itemstack, placer, pointed_thing)
-        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-            'everness:crystal_tree_sapling',
-            -- minp, maxp to be checked, relative to sapling pos
-            -- minp_relative.y = 1 because sapling pos has been checked
-            { x = -6, y = 1, z = -6 },
-            { x = 6, y = 14, z = 6 },
-            -- maximum interval of interior volume check
-            4)
+        local on_place_props = {
+            sapling_name = 'everness:crystal_tree_sapling',
+            minp_relative = { x = -6, y = 1, z = -6 },
+            maxp_relative = { x = 6, y = 14, z = 6 },
+            interval = 4,
+        }
 
-        return itemstack
+        return Everness:sapling_on_place(itemstack, placer, pointed_thing, on_place_props)
     end,
 })
 
@@ -2175,7 +2171,7 @@ minetest.register_node('everness:crystal_tree_large_sapling', {
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
     groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
     end,
@@ -2183,16 +2179,14 @@ minetest.register_node('everness:crystal_tree_large_sapling', {
         minetest.get_node_timer(pos):start(math.random(300, 1500))
     end,
     on_place = function(itemstack, placer, pointed_thing)
-        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-            'everness:crystal_tree_large_sapling',
-            -- minp, maxp to be checked, relative to sapling pos
-            -- minp_relative.y = 1 because sapling pos has been checked
-            { x = -10, y = 1, z = -10 },
-            { x = 10, y = 14, z = 10 },
-            -- maximum interval of interior volume check
-            4)
+        local on_place_props = {
+            sapling_name = 'everness:crystal_tree_large_sapling',
+            minp_relative = { x = -10, y = 1, z = -10 },
+            maxp_relative = { x = 10, y = 14, z = 10 },
+            interval = 4,
+        }
 
-        return itemstack
+        return Everness:sapling_on_place(itemstack, placer, pointed_thing, on_place_props)
     end,
 })
 
@@ -2208,7 +2202,7 @@ minetest.register_node('everness:crystal_bush_stem', {
     paramtype = 'light',
     sunlight_propagates = true,
     groups = { choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -7 / 16, -0.5, -7 / 16, 7 / 16, 0.5, 7 / 16 },
@@ -2228,8 +2222,10 @@ minetest.register_node('everness:crystal_bush_leaves', {
             { items = { 'everness:crystal_bush_leaves' } }
         }
     },
-    sounds = default.node_sound_leaves_defaults(),
-    after_place_node = default.after_place_leaves,
+    sounds = Everness.node_sound_leaves_defaults(),
+    after_place_node = function(pos, placer, itemstack, pointed_thing)
+        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+    end
 })
 
 minetest.register_node('everness:crystal_bush_sapling', {
@@ -2250,22 +2246,21 @@ minetest.register_node('everness:crystal_bush_sapling', {
     },
     groups = { snappy = 2, dig_immediate = 3, flammable = 2,
         attached_node = 1, sapling = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
 
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(300, 1500))
     end,
 
     on_place = function(itemstack, placer, pointed_thing)
-        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-            'everness:crystal_bush_sapling',
-            -- minp, maxp to be checked, relative to sapling pos
-            { x = -1, y = 0, z = -1 },
-            { x = 1, y = 1, z = 1 },
-            -- maximum interval of interior volume check
-            2)
+        local on_place_props = {
+            sapling_name = 'everness:crystal_bush_sapling',
+            minp_relative = { x = -1, y = 0, z = -1 },
+            maxp_relative = { x = 1, y = 1, z = 1 },
+            interval = 2,
+        }
 
-        return itemstack
+        return Everness:sapling_on_place(itemstack, placer, pointed_thing, on_place_props)
     end,
 })
 
@@ -2281,7 +2276,7 @@ minetest.register_node('everness:cursed_bush_stem', {
     paramtype = 'light',
     sunlight_propagates = true,
     groups = { choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -7 / 16, -0.5, -7 / 16, 7 / 16, 0.5, 7 / 16 },
@@ -2301,8 +2296,10 @@ minetest.register_node('everness:cursed_bush_leaves', {
             { items = { 'everness:cursed_bush_leaves' } }
         }
     },
-    sounds = default.node_sound_leaves_defaults(),
-    after_place_node = default.after_place_leaves,
+    sounds = Everness.node_sound_leaves_defaults(),
+    after_place_node = function(pos, placer, itemstack, pointed_thing)
+        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+    end
 })
 
 minetest.register_node('everness:cursed_bush_sapling', {
@@ -2323,22 +2320,21 @@ minetest.register_node('everness:cursed_bush_sapling', {
     },
     groups = { snappy = 2, dig_immediate = 3, flammable = 2,
         attached_node = 1, sapling = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
 
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(300, 1500))
     end,
 
     on_place = function(itemstack, placer, pointed_thing)
-        itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-            'everness:cursed_bush_sapling',
-            -- minp, maxp to be checked, relative to sapling pos
-            { x = -1, y = 0, z = -1 },
-            { x = 1, y = 1, z = 1 },
-            -- maximum interval of interior volume check
-            2)
+        local on_place_props = {
+            sapling_name = 'everness:cursed_bush_sapling',
+            minp_relative = { x = -1, y = 0, z = -1 },
+            maxp_relative = { x = 1, y = 1, z = 1 },
+            interval = 2,
+        }
 
-        return itemstack
+        return Everness:sapling_on_place(itemstack, placer, pointed_thing, on_place_props)
     end,
 })
 
@@ -2362,7 +2358,7 @@ minetest.register_node('everness:coral_burdock_1', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, coral_grass = 1, flammable = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, 0.5, 6 / 16 },
@@ -2391,7 +2387,7 @@ minetest.register_node('everness:coral_burdock_2', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, coral_grass = 1, flammable = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, 0.5, 6 / 16 },
@@ -2414,7 +2410,7 @@ minetest.register_node('everness:coral_bush', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, coral_grass = 1, flammable = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
@@ -2436,7 +2432,7 @@ minetest.register_node('everness:coral_shrub', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, coral_grass = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, 4 / 16, 6 / 16 },
@@ -2456,7 +2452,7 @@ minetest.register_node('everness:coral_grass_orange', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flammable = 2, attached_node = 1, flora = 1, coral_grass_under = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, 4 / 16, 6 / 16 },
@@ -2477,7 +2473,7 @@ minetest.register_node('everness:globulagus', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flammable = 2, attached_node = 1, flora = 1, coral_grass_under = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, 4 / 16, 6 / 16 },
@@ -2499,7 +2495,7 @@ minetest.register_node('everness:coral_grass_tall', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flammable = 2, attached_node = 1, flora = 1, coral_grass_under = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, 4 / 16, 6 / 16 },
@@ -2562,7 +2558,7 @@ minetest.register_node('everness:crystal_cyan', {
     sunlight_propagates = true,
     walkable = false,
     groups = { cracky = 3, attached_node = 1, flora = 1, crystal_grass_under = 1 },
-    sounds = default.node_sound_glass_defaults(),
+    sounds = Everness.node_sound_thin_glass_defaults(),
     light_source = 12,
     selection_box = {
         type = 'fixed',
@@ -2585,7 +2581,7 @@ minetest.register_node('everness:coral_plant_bioluminescent', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, coral_grass_under = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     light_source = 9
 })
 
@@ -2605,7 +2601,7 @@ minetest.register_node('everness:blooming_cooksonia', {
     buildable_to = true,
     is_ground_content = true,
     groups = { snappy = 3, flammable = 2, attached_node = 1, frosted_grass_under = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     light_source = 9
 })
 
@@ -2625,7 +2621,7 @@ minetest.register_node('everness:creeping_moss_spores', {
     buildable_to = true,
     is_ground_content = true,
     groups = { snappy = 3, flammable = 2, attached_node = 1, frosted_grass_under = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     light_source = 9
 })
 
@@ -2690,7 +2686,7 @@ minetest.register_node('everness:coral_grass_1', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, coral_grass = 1, normal_grass = 1, flammable = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
@@ -2727,7 +2723,7 @@ for i = 2, 5 do
             normal_grass = 1,
             flammable = 1
         },
-        sounds = default.node_sound_leaves_defaults(),
+        sounds = Everness.node_sound_leaves_defaults(),
         light_source = i,
         selection_box = {
             type = 'fixed',
@@ -2749,7 +2745,7 @@ minetest.register_node('everness:red_castor_1', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass = 1, normal_grass = 1, flammable = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
@@ -2787,7 +2783,7 @@ for i = 2, 4 do
             normal_grass = 1,
             flammable = 1
         },
-        sounds = default.node_sound_leaves_defaults(),
+        sounds = Everness.node_sound_leaves_defaults(),
         light_source = i,
         selection_box = {
             type = 'fixed',
@@ -2808,7 +2804,7 @@ minetest.register_node('everness:crystal_mushrooms', {
     walkable = false,
     buildable_to = true,
     groups = { mushroom = 1, food_mushroom = 1, snappy = 3, attached_node = 1, flammable = 1, crystal_grass = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     on_use = minetest.item_eat(1),
     selection_box = {
         type = 'fixed',
@@ -2829,7 +2825,7 @@ minetest.register_node('everness:twisted_crystal_grass', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flammable = 1, attached_node = 1, crystal_grass_under = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     selection_box = {
         type = 'fixed',
@@ -2850,7 +2846,7 @@ minetest.register_node('everness:crystal_grass_1', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, crystal_grass = 1, normal_grass = 1, flammable = 1 },
-    sounds = default.node_sound_glass_defaults(),
+    sounds = Everness.node_sound_thin_glass_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
@@ -2886,7 +2882,7 @@ for i = 2, 3 do
             normal_grass = 1,
             flammable = 1
         },
-        sounds = default.node_sound_glass_defaults(),
+        sounds = Everness.node_sound_thin_glass_defaults(),
         light_source = i,
         selection_box = {
             type = 'fixed',
@@ -2908,7 +2904,7 @@ minetest.register_node('everness:marsh_grass', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass = 1, flammable = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, 0.5, 6 / 16 },
@@ -2932,7 +2928,7 @@ minetest.register_node('everness:forsaken_desert_plant_1', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flammable = 3, attached_node = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
@@ -2954,7 +2950,7 @@ minetest.register_node('everness:forsaken_desert_plant_2', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flammable = 3, attached_node = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
@@ -2976,7 +2972,7 @@ minetest.register_node('everness:forsaken_desert_plant_3', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flammable = 3, attached_node = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
@@ -3017,7 +3013,7 @@ minetest.register_node('everness:cactus_blue', {
             { -0.3125, -0.5000, -0.3125, 0.3125, 0.5000, 0.3125 },
         },
     },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node,
 })
 
@@ -3034,7 +3030,7 @@ minetest.register_node('everness:cave_barrel_cactus', {
     is_ground_content = false,
     walkable = true,
     use_texture_alpha = 'clip',
-    sounds = default.node_sound_wood_defaults()
+    sounds = Everness.node_sound_wood_defaults()
 })
 
 minetest.register_node('everness:venus_trap', {
@@ -3051,7 +3047,7 @@ minetest.register_node('everness:venus_trap', {
     walkable = false,
     damage_per_second = 2,
     use_texture_alpha = 'clip',
-    sounds = default.node_sound_leaves_defaults()
+    sounds = Everness.node_sound_leaves_defaults()
 })
 
 minetest.register_node('everness:illumi_root', {
@@ -3070,7 +3066,7 @@ minetest.register_node('everness:illumi_root', {
     groups = { snappy = 3, flammable = 3, attached_node = 1 },
     light_source = 7,
     visual_scale = 1.69,
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
@@ -3095,7 +3091,7 @@ minetest.register_node('everness:crystal_waterlily', {
     buildable_to = true,
     floodable = true,
     groups = { snappy = 3, flower = 1, flammable = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     node_placement_prediction = '',
     node_box = {
         type = 'fixed',
@@ -3180,7 +3176,7 @@ minetest.register_node('everness:cactus_orange', {
             { -0.3125, -0.5000, -0.3125, 0.3125, 0.5000, 0.3125 },
         },
     },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node,
 })
 
@@ -3197,7 +3193,7 @@ minetest.register_node('everness:agave_leaf_1', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, normal_grass = 1, flammable = 1, forsaken_tundra_grass_under = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
@@ -3234,7 +3230,7 @@ for i = 2, 3 do
             flammable = 1,
             forsaken_tundra_grass_under = 1
         },
-        sounds = default.node_sound_leaves_defaults(),
+        sounds = Everness.node_sound_leaves_defaults(),
         light_source = 4 + i,
         selection_box = {
             type = 'fixed',
@@ -3261,7 +3257,7 @@ minetest.register_node('everness:egg_plant', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass_under = 1, flammable = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     node_box = {
         type = 'fixed',
         fixed = {
@@ -3291,7 +3287,7 @@ minetest.register_node('everness:ivis_moss', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass_under = 1, flammable = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
@@ -3313,7 +3309,7 @@ minetest.register_node('everness:ngrass_1', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass_under = 1, flammable = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
@@ -3333,7 +3329,7 @@ minetest.register_node('everness:ngrass_2', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass_under = 1, flammable = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
         fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16 },
@@ -3714,7 +3710,7 @@ minetest.register_node('everness:bloodspore_plant', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, forsaken_tundra_grass = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7
 })
 
@@ -3733,7 +3729,7 @@ minetest.register_node('everness:bloodspore_plant_small', {
     walkable = false,
     buildable_to = true,
     groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, forsaken_tundra_grass_under = 1 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7
 })
 
@@ -3789,7 +3785,7 @@ minetest.register_node('everness:bamboo_wood', {
     tiles = { 'everness_dry_bamboo_block_side.png' },
     is_ground_content = false,
     groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
 })
 
 minetest.register_node('everness:bamboo_mosaic_wood', {
@@ -3799,7 +3795,7 @@ minetest.register_node('everness:bamboo_mosaic_wood', {
     tiles = { 'everness_bamboo_mosaic.png' },
     is_ground_content = false,
     groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
 })
 
 minetest.register_node('everness:baobab_wood', {
@@ -3809,7 +3805,7 @@ minetest.register_node('everness:baobab_wood', {
     tiles = { 'everness_baobab_wood.png' },
     is_ground_content = false,
     groups = { choppy = 3, oddly_breakable_by_hand = 2, flammable = 3, wood = 1 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
 })
 
 minetest.register_node('everness:sequoia_wood', {
@@ -3819,7 +3815,7 @@ minetest.register_node('everness:sequoia_wood', {
     tiles = { 'everness_sequoia_wood.png' },
     is_ground_content = false,
     groups = { choppy = 3, oddly_breakable_by_hand = 2, flammable = 3, wood = 1 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
 })
 
 --
@@ -3851,10 +3847,16 @@ local function coral_on_place(itemstack, placer, pointed_thing, params)
     end
 
     if minetest.is_protected(pos_under, player_name) or
-            minetest.is_protected(pos_above, player_name) then
-        default.log_player_action(placer,
-            'tried to place', itemstack:get_name(),
-            'at protected position', pos_under)
+        minetest.is_protected(pos_above, player_name) then
+
+        if minetest.get_modpath('default') or minetest.global_exists('default') then
+            if default.log_player_action then
+                default.log_player_action(placer,
+                    'tried to place', itemstack:get_name(),
+                    'at protected position', pos_under)
+            end
+        end
+
         minetest.record_protection_violation(pos_under, player_name)
         return itemstack
     end
@@ -3881,15 +3883,15 @@ minetest.register_node('everness:coral_corals', {
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
     node_dig_prediction = 'default:coral_skeleton',
     node_placement_prediction = '',
-    sounds = default.node_sound_stone_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = coral_on_place,
     after_destruct = function(pos, oldnode)
@@ -3910,15 +3912,15 @@ minetest.register_node('everness:coral_jellyfish', {
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
     node_dig_prediction = 'default:coral_skeleton',
     node_placement_prediction = '',
-    sounds = default.node_sound_stone_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = coral_on_place,
     after_destruct = function(pos, oldnode)
@@ -3939,15 +3941,15 @@ minetest.register_node('everness:coral_frosted', {
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
     node_dig_prediction = 'default:coral_skeleton',
     node_placement_prediction = '',
-    sounds = default.node_sound_stone_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = coral_on_place,
     after_destruct = function(pos, oldnode)
@@ -3968,15 +3970,15 @@ minetest.register_node('everness:coral_starfish', {
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
     node_dig_prediction = 'default:coral_skeleton',
     node_placement_prediction = '',
-    sounds = default.node_sound_stone_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = coral_on_place,
     after_destruct = function(pos, oldnode)
@@ -3998,21 +4000,21 @@ minetest.register_node('everness:sand_with_spine_kelp', {
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -2 / 16, 0.5, -2 / 16, 2 / 16, 3.5, 2 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -2 / 16, 0.5, -2 / 16, 2 / 16, 3.5, 2 / 16 },
         },
     },
     node_dig_prediction = 'everness:cursed_stone',
     node_placement_prediction = '',
-    sounds = default.node_sound_sand_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_sand_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
 
     on_place = function(itemstack, placer, pointed_thing)
         -- Call on_rightclick if the pointed node defines it
         if pointed_thing.type == 'node' and placer and
-                not placer:get_player_control().sneak then
+            not placer:get_player_control().sneak then
             local node_ptu = minetest.get_node(pointed_thing.under)
             local def_ptu = minetest.registered_nodes[node_ptu.name]
             if def_ptu and def_ptu.on_rightclick then
@@ -4033,9 +4035,9 @@ minetest.register_node('everness:sand_with_spine_kelp', {
         local player_name = placer:get_player_name()
 
         if def_top and def_top.liquidtype == 'source' and
-                minetest.get_item_group(node_top.name, 'water') > 0 then
+            minetest.get_item_group(node_top.name, 'water') > 0 then
             if not minetest.is_protected(pos, player_name) and
-                    not minetest.is_protected(pos_top, player_name) then
+                not minetest.is_protected(pos_top, player_name) then
                 minetest.set_node(pos, { name = 'everness:sand_with_spine_kelp',
                     param2 = height * 16 })
                 if not minetest.is_creative_enabled(player_name) then
@@ -4069,15 +4071,15 @@ minetest.register_node('everness:coral_forest_deep_ocean_coral_plant_1', {
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
     node_dig_prediction = 'everness:coral_forest_deep_ocean_sand',
     node_placement_prediction = '',
-    sounds = default.node_sound_stone_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
         coral_on_place(
@@ -4109,15 +4111,15 @@ minetest.register_node('everness:coral_forest_deep_ocean_coral_plant_2', {
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
     node_dig_prediction = 'everness:coral_forest_deep_ocean_sand',
     node_placement_prediction = '',
-    sounds = default.node_sound_stone_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
         coral_on_place(
@@ -4149,15 +4151,15 @@ minetest.register_node('everness:coral_forest_deep_ocean_coral_plant_3', {
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
     node_dig_prediction = 'everness:coral_forest_deep_ocean_sand',
     node_placement_prediction = '',
-    sounds = default.node_sound_stone_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
         coral_on_place(
@@ -4189,15 +4191,15 @@ minetest.register_node('everness:cursed_lands_deep_ocean_coral_plant_anemone', {
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
     node_dig_prediction = 'everness:cursed_lands_deep_ocean_sand',
     node_placement_prediction = '',
-    sounds = default.node_sound_stone_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
         coral_on_place(
@@ -4229,15 +4231,15 @@ minetest.register_node('everness:cursed_lands_deep_ocean_coral_plant_darkilluma'
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
     node_dig_prediction = 'everness:cursed_lands_deep_ocean_sand',
     node_placement_prediction = '',
-    sounds = default.node_sound_stone_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
         coral_on_place(
@@ -4269,15 +4271,15 @@ minetest.register_node('everness:cursed_lands_deep_ocean_coral_plant_demon', {
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
     node_dig_prediction = 'everness:cursed_lands_deep_ocean_sand',
     node_placement_prediction = '',
-    sounds = default.node_sound_stone_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
         coral_on_place(
@@ -4309,15 +4311,15 @@ minetest.register_node('everness:crystal_forest_deep_ocean_coral_plant_1', {
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
     node_dig_prediction = 'everness:crystal_forest_deep_ocean_sand',
     node_placement_prediction = '',
-    sounds = default.node_sound_stone_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
         coral_on_place(
@@ -4349,15 +4351,15 @@ minetest.register_node('everness:crystal_forest_deep_ocean_coral_plant_2', {
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
     node_dig_prediction = 'everness:crystal_forest_deep_ocean_sand',
     node_placement_prediction = '',
-    sounds = default.node_sound_stone_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
         coral_on_place(
@@ -4389,15 +4391,15 @@ minetest.register_node('everness:crystal_forest_deep_ocean_coral_plant_3', {
     selection_box = {
         type = 'fixed',
         fixed = {
-                { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
-                { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
     node_dig_prediction = 'everness:crystal_forest_deep_ocean_sand',
     node_placement_prediction = '',
-    sounds = default.node_sound_stone_defaults({
-        dig = { name = 'default_dig_snappy', gain = 0.2 },
-        dug = { name = 'default_grass_footstep', gain = 0.25 },
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
         coral_on_place(
@@ -4419,84 +4421,84 @@ minetest.register_node('everness:crystal_coral_dark', {
     description = S('Crystal Coral Dark'),
     tiles = { 'everness_crystal_coral_dark_block.png' },
     groups = { cracky = 3 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:crystal_coral_light', {
     description = S('Crystal Coral Light'),
     tiles = { 'everness_crystal_coral_light_block.png' },
     groups = { cracky = 3 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_forest_deep_ocean_coral_1', {
     description = S('Coral Forest Deep Ocean Coral Pink'),
     tiles = { 'everness_deep_ocean_coral_1.png' },
     groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_forest_deep_ocean_coral_2', {
     description = S('Coral Forest Deep Ocean Coral Cyan'),
     tiles = { 'everness_deep_ocean_coral_2.png' },
     groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_forest_deep_ocean_coral_3', {
     description = S('Coral Forest Deep Ocean Coral Green'),
     tiles = { 'everness_deep_ocean_coral_3.png' },
     groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:coral_forest_deep_ocean_coral_4', {
     description = S('Coral Forest Deep Ocean Coral Red'),
     tiles = { 'everness_deep_ocean_coral_4.png' },
     groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:cursed_lands_deep_ocean_coral_alcyonacea', {
     description = S('Coral Alcyonacea'),
     tiles = { 'everness_cursed_lands_deep_ocean_coral_alcyonacea.png' },
     groups = { cracky = 3, everness_cursed_lands_deep_ocean_coral = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:cursed_lands_deep_ocean_coral_ostracod', {
     description = S('Coral Ostracod'),
     tiles = { 'everness_cursed_lands_deep_ocean_coral_ostracod.png' },
     groups = { cracky = 3, everness_cursed_lands_deep_ocean_coral = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:cursed_lands_deep_ocean_coral_octocurse', {
     description = S('Coral Octocurse'),
     tiles = { 'everness_cursed_lands_deep_ocean_coral_octocurse.png' },
     groups = { cracky = 3, everness_cursed_lands_deep_ocean_coral = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:crystal_forest_deep_ocean_coral_1', {
     description = S('Crystal Forest Deep Ocean Coral Green'),
     tiles = { 'everness_crystal_forest_deep_ocean_coral_1.png' },
     groups = { cracky = 3, everness_crystal_forest_deep_ocean_coral = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:crystal_forest_deep_ocean_coral_2', {
     description = S('Crystal Forest Deep Ocean Coral Orange'),
     tiles = { 'everness_crystal_forest_deep_ocean_coral_2.png' },
     groups = { cracky = 3, everness_crystal_forest_deep_ocean_coral = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 minetest.register_node('everness:crystal_forest_deep_ocean_coral_3', {
     description = S('Crystal Forest Deep Ocean Coral Cyan'),
     tiles = { 'everness_crystal_forest_deep_ocean_coral_3.png' },
     groups = { cracky = 3, everness_crystal_forest_deep_ocean_coral = 1 },
-    sounds = default.node_sound_stone_defaults(),
+    sounds = Everness.node_sound_stone_defaults(),
 })
 
 --
@@ -4537,7 +4539,7 @@ minetest.register_node('everness:skull_with_candle', {
         fixed = { -1 / 2 + 3 / 16, -1 / 2, -1 / 2 + 3 / 16, 1 / 2 - 3 / 16, 0.1, 1 / 2 - 3 / 16 }
     },
     groups = { choppy = 2, dig_immediate = 3, flammable = 1, attached_node = 1, torch = 1 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     sunlight_propagates = true,
     light_source = 12,
     liquids_pointable = false,
@@ -4558,7 +4560,7 @@ minetest.register_node('everness:forsythia_bush', {
     is_ground_content = false,
     walkable = true,
     groups = { snappy = 3, flora = 1, attached_node = 1, bamboo_grass_under = 1, flammable = 2 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     sunlight_propagates = true,
     use_texture_alpha = 'clip',
 })
@@ -4587,7 +4589,7 @@ minetest.register_node('everness:glowing_pillar', {
         type = 'fixed',
         fixed = { -0.5, -0.5, -0.5, 0.5, 1.5, 0.5 }
     },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     sunlight_propagates = true,
     use_texture_alpha = 'clip',
     light_source = 12,
@@ -4617,7 +4619,7 @@ minetest.register_node('everness:blue_vine_lantern', {
         type = 'fixed',
         fixed = { -0.5, -0.5, -0.5, 0.5, 1.5, 0.5 }
     },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     sunlight_propagates = true,
     use_texture_alpha = 'clip',
     light_source = 12,
@@ -4647,7 +4649,7 @@ minetest.register_node('everness:amaranita_lantern', {
         type = 'fixed',
         fixed = { -0.5, -0.5, -0.5, 0.5, 1.5, 0.5 }
     },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     sunlight_propagates = true,
     use_texture_alpha = 'clip',
     light_source = 12,
@@ -4681,7 +4683,7 @@ minetest.register_node('everness:lumecorn', {
         type = 'fixed',
         fixed = { -0.63, -0.5, -0.63, 0.63, 3.23, 0.63 }
     },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     sunlight_propagates = true,
     use_texture_alpha = 'clip',
     light_source = 12,
@@ -4699,7 +4701,7 @@ minetest.register_node('everness:tinted_glass_red', {
     -- paramtype = 'light',
     is_ground_content = false,
     sunlight_propagates = false,
-    sounds = default.node_sound_glass_defaults(),
+    sounds = Everness.node_sound_glass_defaults(),
     groups = { cracky = 3 },
 })
 
@@ -4730,7 +4732,7 @@ minetest.register_node('everness:pyrite_lantern', {
     sunlight_propagates = true,
     is_ground_content = false,
     groups = { cracky = 3, oddly_breakable_by_hand = 3 },
-    sounds = default.node_sound_glass_defaults(),
+    sounds = Everness.node_sound_glass_defaults(),
     light_source = 12,
 })
 
@@ -4743,7 +4745,7 @@ minetest.register_node('everness:pyrite_glass', {
     sunlight_propagates = true,
     is_ground_content = false,
     groups = { cracky = 3, oddly_breakable_by_hand = 3 },
-    sounds = default.node_sound_glass_defaults(),
+    sounds = Everness.node_sound_glass_defaults(),
 })
 
 minetest.register_node('everness:lumabus_vine_lantern', {
@@ -4762,7 +4764,7 @@ minetest.register_node('everness:lumabus_vine_lantern', {
     -- wield_image = 'everness_lumabus_vine_end_bottom.png',
     -- inventory_image = 'everness_lumabus_vine_end_bottom.png',
     groups = { cracky = 3, oddly_breakable_by_hand = 3 },
-    sounds = default.node_sound_glass_defaults(),
+    sounds = Everness.node_sound_glass_defaults(),
     light_source = 7,
     paramtype2 = 'wallmounted',
     selection_box = {
@@ -4783,7 +4785,7 @@ minetest.register_node('everness:eye_vine_lantern', {
     inventory_image = 'everness_eye_vine_end_bottom.png',
     drawtype = 'normal',
     groups = { snappy = 3, flammable = 2 },
-    sounds = default.node_sound_leaves_defaults(),
+    sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     paramtype2 = 'facedir',
     on_place = minetest.rotate_node,
@@ -4802,7 +4804,7 @@ minetest.register_node('everness:cursed_pumpkin_lantern', {
     },
     paramtype = 'light',
     paramtype2 = 'facedir',
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     is_ground_content = false,
     light_source = 12,
     groups = { snappy = 3, flammable = 4, fall_damage_add_percent = -30 }
@@ -4833,7 +4835,7 @@ minetest.register_node('everness:floating_crystal', {
         fixed = { -0.25, -0.4, -0.25, 0.25, 0.4, 0.25 },
     },
     drop = '',
-    sounds = default.node_sound_glass_defaults(),
+    sounds = Everness.node_sound_thin_glass_defaults(),
     on_rotate = function()
         return false
     end,
@@ -4930,7 +4932,7 @@ minetest.register_node('everness:coral_forest_deep_ocean_lantern', {
     drawtype = 'glasslike',
     sunlight_propagates = true,
     is_ground_content = false,
-    sounds = default.node_sound_glass_defaults(),
+    sounds = Everness.node_sound_glass_defaults(),
     groups = { cracky = 3, oddly_breakable_by_hand = 3 },
     paramtype = 'light',
     light_source = 12,

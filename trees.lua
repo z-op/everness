@@ -95,10 +95,14 @@ function Everness.grow_cursed_dream_tree(pos)
 end
 
 function Everness.grow_sapling(pos)
-    if not default.can_grow(pos) then
-        -- try again 5 min later
-        minetest.get_node_timer(pos):start(300)
-        return
+    if minetest.get_modpath('default') or minetest.global_exists('default') then
+        if default.can_grow then
+            if not default.can_grow(pos) then
+                -- try again 5 min later
+                minetest.get_node_timer(pos):start(300)
+                return
+            end
+        end
     end
 
     local node = minetest.get_node(pos)

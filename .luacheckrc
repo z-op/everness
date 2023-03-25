@@ -82,4 +82,5 @@ read_globals = {
     "x_obsidianmese",
     "x_farming",
     "x_clay",
+    "mcl_fences",
 }

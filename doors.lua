@@ -65,7 +65,7 @@ doors.register('everness:door_bone_pyrite', {
     description = S('Bone Pyrit Door'),
     inventory_image = 'everness_door_bone_pyrite_item.png',
     groups = { node = 1, choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     recipe = {
         { 'everness:pyrite_ingot', 'everness:bone' },
         { 'everness:pyrite_ingot', 'everness:bone' },
@@ -78,7 +78,7 @@ doors.register('everness:door_willow', {
     description = S('Willow Door'),
     inventory_image = 'everness_door_willow_item.png',
     groups = { node = 1, choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
     recipe = {
         { 'everness:willow_wood', 'everness:willow_wood' },
         { 'everness:willow_wood', 'everness:willow_wood' },

@@ -839,7 +839,7 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 
 ### Sounds
 
-**CC0-1.0, by ProdMultimediasHQI**, https://freesound.org
+**CC0-1.0, by ProdMultimediasHQI**, https://freesound.org/people/ProdMultimediasHQI/sounds/512501/
 
 - everness_frosted_snow_footstep.1.ogg
 - everness_frosted_snow_footstep.2.ogg
@@ -1022,12 +1022,25 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_grass_hit.3.ogg
 - everness_grass_hit.2.ogg
 
+**CC0-1.0, by Nox_Sound**, https://freesound.org/people/Nox_Sound/sounds/613849/
+
+- everness_snow_footstep.1.ogg
+- everness_snow_footstep.2.ogg
+- everness_snow_footstep.3.ogg
+- everness_snow_footstep.4.ogg
+
 **CC0-1.0, by Fission9**, https://freesound.org
 
 - everness_dirt_footstep.1.ogg
 - everness_dirt_footstep.2.ogg
 - everness_dirt_footstep.3.ogg
 - everness_dirt_footstep.4.ogg
+- everness_wood_footstep.1.ogg
+- everness_wood_footstep.2.ogg
+- everness_wood_footstep.3.ogg
+- everness_wood_footstep.4.ogg
+- everness_wood_footstep.5.ogg
+- everness_wood_footstep.6.ogg
 
 **CC-BY-4.0, by InspectorJ**, https://freesound.org
 
@@ -1042,6 +1055,189 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_ice_hit.2.ogg
 - everness_ice_hit.3.ogg
 - everness_ice_hit.4.ogg
+
+**CC0-1.0, by Nox_Sound**, https://freesound.org
+
+- everness_stone_dug.1.ogg
+- everness_stone_dug.2.ogg
+- everness_stone_dug.3.ogg
+- everness_stone_footstep.1.ogg
+- everness_stone_footstep.2.ogg
+- everness_stone_footstep.3.ogg
+- everness_stone_footstep.4.ogg
+- everness_stone_footstep.5.ogg
+
+**CC0-1.0, by lolamadeus**, https://freesound.org
+
+- everness_stone_hit.1.ogg
+- everness_stone_hit.2.ogg
+- everness_stone_hit.3.ogg
+
+**CC-BY-4.0, by F.M.Audio**, https://freesound.org
+
+- everness_stone_place.1.ogg
+- everness_stone_place.2.ogg
+- everness_stone_place.3.ogg
+- everness_stone_place.4.ogg
+
+**CC-BY-4.0, by elektroproleter**, https://freesound.org
+
+- everness_leaves_footstep.1.ogg
+- everness_leaves_footstep.2.ogg
+- everness_leaves_footstep.3.ogg
+- everness_leaves_footstep.4.ogg
+
+**CC-BY-4.0, by Abacagi**, https://freesound.org
+
+- everness_leaves_hit.1.ogg
+- everness_leaves_hit.2.ogg
+
+**CC-BY-4.0, by JanKoehl**, https://freesound.org
+
+- everness_leaves_dug.1.ogg
+- everness_leaves_dug.2.ogg
+
+**CC0-1.0, by vgraham1**, https://freesound.org
+
+- everness_leaves_place.1.ogg
+- everness_leaves_place.2.ogg
+
+**CC0-1.0, by worthahep88**, https://freesound.org
+
+- everness_plant_hit.1.ogg
+- everness_plant_hit.2.ogg
+- everness_plant_hit.3.ogg
+
+**CC0-1.0, by igroglaz**, https://freesound.org
+
+- everness_wood_hit.1.ogg
+- everness_wood_hit.2.ogg
+- everness_wood_hit.3.ogg
+- everness_wood_hit.4.ogg
+- everness_wood_hit.5.ogg
+- everness_wood_hit.6.ogg
+
+**CC-BY-4.0, by RICHERlandTV**, https://freesound.org
+
+- everness_wood_place.1.ogg
+- everness_wood_place.2.ogg
+- everness_wood_place.3.ogg
+
+**CC0-1.0, by pan14**, https://freesound.org
+
+- everness_sand_footstep.1.ogg
+- everness_sand_footstep.2.ogg
+- everness_sand_footstep.3.ogg
+
+**CC-BY-3.0, by Coral_Island_Studios**, https://freesound.org
+
+- everness_sand_place.1.ogg
+- everness_sand_place.2.ogg
+- everness_sand_place.3.ogg
+- everness_sand_place.4.ogg
+- everness_sand_place.5.ogg
+
+**CC0-1.0, by schneidi67**, https://freesound.org
+
+- everness_sand_dug.1.ogg
+- everness_sand_dug.2.ogg
+- everness_sand_dug.3.ogg
+
+**CC0-1.0, by Lukeo135**, https://freesound.org
+
+- everness_sand_hit.1.ogg
+- everness_sand_hit.2.ogg
+- everness_sand_hit.3.ogg
+
+**CC0-1.0, by GiocoSound**, https://freesound.org
+
+- everness_metal_footstep.1.ogg
+- everness_metal_footstep.2.ogg
+- everness_metal_footstep.3.ogg
+- everness_metal_footstep.4.ogg
+- everness_metal_footstep.5.ogg
+
+**CC-BY-4.0, by DasDeer**, https://freesound.org
+
+- everness_metal_hit.1.ogg
+- everness_metal_hit.2.ogg
+- everness_metal_hit.3.ogg
+
+**CC-BY-4.0, by MoveAwayPodcast**, https://freesound.org
+
+- everness_metal_place.1.ogg
+- everness_metal_place.2.ogg
+- everness_metal_place.3.ogg
+
+**CC0-1.0, by craigsmith**, https://freesound.org
+
+- everness_metal_dug.1.ogg
+- everness_metal_dug.2.ogg
+- everness_metal_dug.3.ogg
+
+**CC0-1.0, by courtneyeck**, https://freesound.org
+
+- everness_glass_footstep.1.ogg
+- everness_glass_footstep.2.ogg
+- everness_glass_footstep.3.ogg
+
+**CC0-1.0, by Robson220pl**, https://freesound.org
+
+- everness_glass_place.1.ogg
+- everness_glass_place.2.ogg
+- everness_glass_place.3.ogg
+
+**CC-BY-4.0, by elfgrunge**, https://freesound.org
+
+- everness_glass_dug.1.ogg
+- everness_glass_dug.2.ogg
+
+**CC-BY-3.0, by Mito551**, https://freesound.org
+
+- everness_thin_glass_footstep.ogg
+
+**CC-BY-3.0, by cmusounddesign**, http://www.freesound.org/people/cmusounddesign/sounds/71947/
+
+- everness_break_thin_glass.1.ogg
+
+**CC-BY-3.0, by Tomlija**, http://www.freesound.org/people/Tomlija/sounds/97669/
+
+- everness_break_thin_glass.2.ogg
+
+**CC-BY-3.0, by lsprice**, http://www.freesound.org/people/lsprice/sounds/88808/
+
+- everness_break_thin_glass.3.ogg
+
+**CC-BY-3.0, by alexo400**, https://freesound.org/people/alexo400/sounds/543385/
+
+- everness_snow_place.1.ogg
+- everness_snow_place.2.ogg
+- everness_snow_place.3.ogg
+
+**CC-BY-3.0, by soundscalpel.com**
+https://freesound.org/people/soundscalpel.com/sounds/110619/
+https://freesound.org/people/soundscalpel.com/sounds/110609/
+https://freesound.org/people/soundscalpel.com/sounds/110620/
+
+- everness_snow_hit.1.ogg
+- everness_snow_hit.2.ogg
+- everness_snow_hit.3.ogg
+
+**CC-BY-3.0, by soundscalpel.com**
+https://freesound.org/people/cabled_mess/sounds/384423/
+https://freesound.org/people/cabled_mess/sounds/384422/
+https://freesound.org/people/cabled_mess/sounds/384421/
+
+- everness_frosted_snow_place.1.ogg
+- everness_frosted_snow_place.2.ogg
+- everness_frosted_snow_place.3.ogg
+
+**CC-BY-3.0, by AtevonHes**, https://freesound.org/people/AtevonHes/sounds/454783/
+
+- everness_frosted_snow_hit.1.ogg
+- everness_frosted_snow_hit.2.ogg
+- everness_frosted_snow_hit.3.ogg
+- everness_frosted_snow_hit.4.ogg
 
 ### Models
 

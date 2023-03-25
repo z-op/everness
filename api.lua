@@ -676,109 +676,138 @@ end
 -- Sounds
 --
 
-function Everness.node_sound_defaults(table)
-    table = table or {}
-    table.footstep = table.footstep or
-            { name = '', gain = 1.0 }
-    table.dug = table.dug or
-            { name = 'default_dug_node', gain = 0.25 }
-    table.place = table.place or
-            { name = 'default_place_node_hard', gain = 1.0 }
-    return table
-end
-
 function Everness.node_sound_frosted_snow_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_frosted_snow_footstep', gain = 0.2 }
-    table.dig = table.dig or
-            { name = 'everness_frosted_snow_footstep', gain = 0.3 }
-    table.dug = table.dug or
-            { name = 'everness_frosted_snow_footstep', gain = 0.3 }
-    table.place = table.place or
-            { name = 'default_place_node', gain = 1.0 }
-    default.node_sound_defaults(table)
+    table.footstep = table.footstep or { name = 'everness_frosted_snow_footstep', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_frosted_snow_hit', gain = 0.2 }
+    table.dug = table.dug or { name = 'everness_frosted_snow_footstep', gain = 0.3 }
+    table.place = table.place or { name = 'everness_frosted_snow_place', gain = 0.25 }
     return table
 end
 
 function Everness.node_sound_crystal_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_crystal_chime', gain = 0.2 }
-    table.dig = table.dig or
-            { name = 'everness_crystal_chime', gain = 0.3 }
-    table.dug = table.dug or
-            { name = 'default_hard_footstep', gain = 0.3 }
-    table.place = table.place or
-            { name = 'everness_crystal_chime', gain = 1.0 }
-    default.node_sound_defaults(table)
+    table.footstep = table.footstep or { name = 'everness_crystal_chime', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_crystal_chime', gain = 0.3 }
+    table.dug = table.dug or { name = 'everness_stone_footstep', gain = 0.3 }
+    table.place = table.place or { name = 'everness_crystal_chime', gain = 1.0 }
     return table
 end
 
 function Everness.node_sound_bamboo_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_bamboo_hit', gain = 0.2 }
-    table.dig = table.dig or
-            { name = 'everness_bamboo_hit', gain = 0.3 }
-    table.dug = table.dug or
-            { name = 'everness_bamboo_dug', gain = 0.1 }
-    table.place = table.place or
-            { name = 'everness_bamboo_hit', gain = 1.0 }
-    default.node_sound_defaults(table)
+    table.footstep = table.footstep or { name = 'everness_bamboo_hit', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_bamboo_hit', gain = 0.3 }
+    table.dug = table.dug or { name = 'everness_bamboo_dug', gain = 0.1 }
+    table.place = table.place or { name = 'everness_bamboo_hit', gain = 1.0 }
     return table
 end
 
 function Everness.node_sound_mud_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_mud_footstep', gain = 0.2 }
-    table.dig = table.dig or
-            { name = 'everness_mud_footstep', gain = 0.3 }
-    table.dug = table.dug or
-            { name = 'everness_mud_footstep', gain = 0.1 }
-    table.place = table.place or
-            { name = 'everness_mud_footstep', gain = 1.0 }
-    default.node_sound_defaults(table)
+    table.footstep = table.footstep or { name = 'everness_mud_footstep', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_mud_footstep', gain = 0.3 }
+    table.dug = table.dug or { name = 'everness_mud_footstep', gain = 0.1 }
+    table.place = table.place or { name = 'everness_mud_footstep', gain = 1.0 }
     return table
 end
 
 function Everness.node_sound_grass_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_grass_footstep', gain = 0.4 }
-    table.dig = table.dig or
-            { name = 'everness_grass_hit', gain = 1.2 }
-    table.dug = table.dug or
-            { name = 'everness_dirt_hit', gain = 1.0 }
-    table.place = table.place or
-            { name = 'everness_dirt_hit', gain = 1.0 }
+    table.footstep = table.footstep or { name = 'everness_grass_footstep', gain = 0.4 }
+    table.dig = table.dig or { name = 'everness_grass_hit', gain = 1.2 }
+    table.dug = table.dug or { name = 'everness_dirt_hit', gain = 1.0 }
+    table.place = table.place or { name = 'everness_dirt_hit', gain = 1.0 }
     return table
 end
 
 function Everness.node_sound_dirt_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_dirt_footstep', gain = 0.15 }
-    table.dig = table.dig or
-            { name = 'everness_dirt_hit', gain = 0.4 }
-    table.dug = table.dug or
-            { name = 'everness_dirt_hit', gain = 1.0 }
-    table.place = table.place or
-            { name = 'everness_dirt_hit', gain = 1.0 }
+    table.footstep = table.footstep or { name = 'everness_dirt_footstep', gain = 0.15 }
+    table.dig = table.dig or { name = 'everness_dirt_hit', gain = 0.4 }
+    table.dug = table.dug or { name = 'everness_dirt_hit', gain = 1.0 }
+    table.place = table.place or { name = 'everness_dirt_hit', gain = 1.0 }
     return table
 end
 
 function Everness.node_sound_ice_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_ice_footstep', gain = 0.2 }
-    table.dig = table.dig or
-            { name = 'everness_ice_hit', gain = 0.4 }
-    table.dug = table.dug or
-            { name = 'everness_ice_hit', gain = 1.0 }
-    table.place = table.place or
-            { name = 'everness_ice_hit', gain = 1.0 }
+    table.footstep = table.footstep or { name = 'everness_ice_footstep', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_ice_hit', gain = 0.4 }
+    table.dug = table.dug or { name = 'everness_ice_hit', gain = 1.0 }
+    table.place = table.place or { name = 'everness_ice_hit', gain = 1.0 }
+    return table
+end
+
+function Everness.node_sound_stone_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_stone_footstep', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_stone_hit', gain = 1.0 }
+    table.dug = table.dug or { name = 'everness_stone_dug', gain = 0.6 }
+    table.place = table.place or { name = 'everness_stone_place', gain = 1.0 }
+    return table
+end
+
+function Everness.node_sound_leaves_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_leaves_footstep', gain = 0.1 }
+    table.dig = table.dig or { name = 'everness_leaves_hit', gain = 0.25 }
+    table.dug = table.dug or { name = 'everness_leaves_dug', gain = 0.5 }
+    table.place = table.place or { name = 'everness_leaves_place', gain = 0.4 }
+    return table
+end
+
+function Everness.node_sound_wood_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_wood_footstep', gain = 0.15 }
+    table.dig = table.dig or { name = 'everness_wood_hit', gain = 0.5 }
+    table.dug = table.dug or { name = 'everness_wood_place', gain = 0.1 }
+    table.place = table.place or { name = 'everness_wood_place', gain = 0.15 }
+    return table
+end
+
+function Everness.node_sound_sand_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_sand_footstep', gain = 0.1 }
+    table.dig = table.dig or { name = 'everness_sand_hit', gain = 0.5 }
+    table.dug = table.dug or { name = 'everness_sand_dug', gain = 0.1 }
+    table.place = table.place or { name = 'everness_sand_place', gain = 0.15 }
+    return table
+end
+
+function Everness.node_sound_metal_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_metal_footstep', gain = 0.1 }
+    table.dig = table.dig or { name = 'everness_metal_hit', gain = 0.5 }
+    table.dug = table.dug or { name = 'everness_metal_dug', gain = 0.1 }
+    table.place = table.place or { name = 'everness_metal_place', gain = 0.15 }
+    return table
+end
+
+function Everness.node_sound_glass_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_glass_footstep', gain = 0.02 }
+    table.dig = table.dig or { name = 'everness_glass_footstep', gain = 0.05 }
+    table.dug = table.dug or { name = 'everness_glass_dug', gain = 0.4 }
+    table.place = table.place or { name = 'everness_glass_place', gain = 0.2 }
+    return table
+end
+
+function Everness.node_sound_thin_glass_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_thin_glass_footstep', gain = 0.3 }
+    table.dig = table.dig or { name = 'everness_thin_glass_footstep', gain = 0.5 }
+    table.dug = table.dug or { name = 'everness_break_thin_glass', gain = 1.0 }
+    table.place = table.place or { name = 'everness_glass_place', gain = 0.2 }
+    return table
+end
+
+function Everness.node_sound_snow_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_snow_footstep', gain = 0.1 }
+    table.dig = table.dig or { name = 'everness_snow_hit', gain = 0.2 }
+    table.dug = table.dug or { name = 'everness_snow_footstep', gain = 0.2 }
+    table.place = table.place or { name = 'everness_snow_place', gain = 0.3 }
     return table
 end
 
@@ -917,4 +946,31 @@ function Everness.use_shell_of_underwater_breathing(self, itemstack, user, point
     end
 
     return itemstack
+end
+
+function Everness.leaves_after_place_node(self, pos, placer, itemstack, pointed_thing)
+    if minetest.get_modpath('default') or minetest.global_exists('default') then
+        if default.after_place_leaves then
+            return default.after_place_leaves(pos, placer, itemstack, pointed_thing)
+        end
+    end
+end
+
+function Everness.sapling_on_place(self, itemstack, placer, pointed_thing, props)
+    local _props = props or {}
+    if minetest.get_modpath('default') or minetest.global_exists('default') then
+        if default.sapling_on_place then
+            itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+                _props.sapling_name,
+                -- minp, maxp to be checked, relative to sapling pos
+                -- minp_relative.y = 1 because sapling pos has been checked
+                _props.minp_relative,
+                _props.maxp_relative,
+                -- maximum interval of interior volume check
+                _props.interval
+            )
+
+            return itemstack
+        end
+    end
 end

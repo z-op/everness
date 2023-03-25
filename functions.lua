@@ -226,38 +226,42 @@ minetest.register_abm({
 -- Leafdecay
 --
 
-default.register_leafdecay({
-    trunks = {
-        'everness:coral_tree',
-        'everness:crystal_bush_stem',
-        'everness:cursed_bush_stem',
-        'everness:willow_tree',
-        'everness:sequoia_tree',
-    },
-    leaves = {
-        'everness:coral_leaves',
-        'everness:crystal_bush_leaves',
-        'everness:willow_leaves',
-        'everness:sequoia_leaves',
-    },
-    radius = 3
-})
+if minetest.get_modpath('default') or minetest.global_exists('default') then
+    if default.register_leafdecay then
+        default.register_leafdecay({
+            trunks = {
+                'everness:coral_tree',
+                'everness:crystal_bush_stem',
+                'everness:cursed_bush_stem',
+                'everness:willow_tree',
+                'everness:sequoia_tree',
+            },
+            leaves = {
+                'everness:coral_leaves',
+                'everness:crystal_bush_leaves',
+                'everness:willow_leaves',
+                'everness:sequoia_leaves',
+            },
+            radius = 3
+        })
 
--- Baobab Tree
-default.register_leafdecay({
-    trunks = {
-        'everness:baobab_tree',
-        'everness:crystal_tree',
-        'everness:dry_tree',
-    },
-    leaves = {
-        'everness:baobab_leaves',
-        'everness:baobab_fruit_renewable',
-        'everness:crystal_leaves',
-        'everness:dry_branches',
-    },
-    radius = 4,
-})
+        -- Baobab Tree
+        default.register_leafdecay({
+            trunks = {
+                'everness:baobab_tree',
+                'everness:crystal_tree',
+                'everness:dry_tree',
+            },
+            leaves = {
+                'everness:baobab_leaves',
+                'everness:baobab_fruit_renewable',
+                'everness:crystal_leaves',
+                'everness:dry_branches',
+            },
+            radius = 4,
+        })
+    end
+end
 
 --
 -- Moss growth on cobble near water

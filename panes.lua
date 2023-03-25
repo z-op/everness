@@ -23,7 +23,7 @@ xpanes.register_pane('pyrite_pane', {
     textures = { 'everness_pyrite_glass.png', '', 'everness_xpanes_edge_pyrite.png' },
     inventory_image = 'everness_pyrite_glass.png',
     wield_image = 'everness_pyrite_glass.png',
-    sounds = default.node_sound_glass_defaults(),
+    sounds = Everness.node_sound_glass_defaults(),
     groups = { snappy = 2, cracky = 3, oddly_breakable_by_hand = 3 },
     recipe = {
         { 'everness:pyrite_glass', 'everness:pyrite_glass', 'everness:pyrite_glass' },
