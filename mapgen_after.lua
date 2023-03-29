@@ -190,7 +190,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                     )
 
                     minetest.log('action', '[Everness] Forsaken Desert Temple was placed at ' .. schem_pos:to_string())
-                elseif (biome_name == 'coniferous_forest' or biome_name == 'taiga')
+                elseif (biome_name == 'coniferous_forest' or biome_name == 'taiga' or biome_name == 'MegaSpruceTaiga')
                     and rand:next(0, 100) < 100
                 then
                     local schem = minetest.get_modpath('everness') .. '/schematics/everness_giant_sequoia_tree.mts'
