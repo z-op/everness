@@ -1586,6 +1586,16 @@ minetest.register_node('everness:crystal_tree', {
     on_place = minetest.rotate_node,
 })
 
+minetest.register_node('everness:crystal_wood', {
+    description = S('Crystal Wood Planks'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_crystal_wood.png' },
+    is_ground_content = false,
+    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1 },
+    sounds = default.node_sound_wood_defaults(),
+})
+
 -- minetest.register_node('everness:mese_tree', {
 --     description = S('Mese Tree Trunk'),
 --     short_description = S('Mese Tree Trunk'),

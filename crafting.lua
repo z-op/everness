@@ -96,6 +96,15 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    output = 'everness:trapdoor_crystal_wood 2',
+    recipe = {
+        { 'everness:crystal_wood', 'everness:crystal_wood', 'everness:crystal_wood' },
+        { 'everness:crystal_wood', 'everness:crystal_wood', 'everness:crystal_wood' },
+        { '', '', '' },
+    }
+})
+
+minetest.register_craft({
     output = 'everness:bamboo_mosaic_wood',
     recipe = {
         { 'everness:bamboo_wood', 'everness:bamboo_wood' },
@@ -231,6 +240,13 @@ minetest.register_craft({
     output = 'everness:sequoia_wood 4',
     recipe = {
         { 'everness:sequoia_tree' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:crystal_wood 4',
+    recipe = {
+        { 'everness:crystal_tree' },
     }
 })
 
@@ -586,6 +602,12 @@ minetest.register_craft({
 
 minetest.register_craft({
     type = 'fuel',
+    recipe = 'everness:crystal_wood',
+    burntime = 15,
+})
+
+minetest.register_craft({
+    type = 'fuel',
     recipe = 'everness:bamboo_mosaic_wood',
     burntime = 15,
 })
@@ -599,6 +621,12 @@ minetest.register_craft({
 minetest.register_craft({
     type = 'fuel',
     recipe = 'everness:trapdoor_bamboo',
+    burntime = 7,
+})
+
+minetest.register_craft({
+    type = 'fuel',
+    recipe = 'everness:trapdoor_crystal_wood',
     burntime = 7,
 })
 
