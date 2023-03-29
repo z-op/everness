@@ -21,6 +21,11 @@ minetest = minetest.global_exists('minetest') and minetest --[[@as Minetest]]
 local path = minetest.get_modpath('everness')
 local mod_start_time = minetest.get_us_time()
 
+-- MineClone2 support
+if minetest.get_modpath('mcl_core') and minetest.global_exists('mcl_core') then
+    dofile(path .. '/mod_support_mcl_aliases.lua')
+end
+
 dofile(path .. '/api.lua')
 dofile(path .. '/nodes.lua')
 dofile(path .. '/nodes_farming.lua')
@@ -215,8 +220,8 @@ end
 
 -- MineClone2
 
-if minetest.get_modpath('mcl_fences') and minetest.global_exists('mcl_fences') then
-    dofile(path .. '/mod_support_mcl_fences.lua')
+if minetest.get_modpath('mcl_core') and minetest.global_exists('mcl_core') then
+    dofile(path .. '/mod_support_mcl.lua')
 end
 
 local mod_end_time = (minetest.get_us_time() - mod_start_time) / 1000000

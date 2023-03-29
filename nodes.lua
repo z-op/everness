@@ -24,7 +24,7 @@ local S = minetest.get_translator(minetest.get_current_modname())
 -- Ores
 --
 
-minetest.register_node('everness:stone_with_pyrite', {
+Everness:register_node('everness:stone_with_pyrite', {
     description = S('Pyrite Ore'),
     tiles = { 'default_stone.png^everness_mineral_pyrite.png' },
     groups = { cracky = 2 },
@@ -32,103 +32,103 @@ minetest.register_node('everness:stone_with_pyrite', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:pyriteblock', {
+Everness:register_node('everness:pyriteblock', {
     description = S('Pyrite Block'),
     tiles = { 'everness_pyrite_block.png' },
     is_ground_content = false,
-    groups = { cracky = 1 },
+    groups = { cracky = 2 },
     sounds = Everness.node_sound_metal_defaults(),
 })
 
-minetest.register_node('everness:pyriteblock_forged', {
+Everness:register_node('everness:pyriteblock_forged', {
     description = S('Forged Pyrite Block'),
     tiles = { 'everness_pyrite_block_forged.png' },
     is_ground_content = false,
-    groups = { cracky = 1 },
+    groups = { cracky = 2 },
     sounds = Everness.node_sound_metal_defaults(),
 })
 
-minetest.register_node('everness:pyriteblock_brick', {
+Everness:register_node('everness:pyriteblock_brick', {
     description = S('Pyrite Brick'),
     paramtype2 = 'facedir',
     place_param2 = 0,
     tiles = { 'everness_pyriteblock_brick.png' },
     is_ground_content = false,
-    groups = { cracky = 1 },
+    groups = { cracky = 2 },
     sounds = Everness.node_sound_metal_defaults(),
 })
 
-minetest.register_node('everness:pyriteblock_slab_brick', {
+Everness:register_node('everness:pyriteblock_slab_brick', {
     description = S('Pyrite Slab Brick'),
     paramtype2 = 'facedir',
     place_param2 = 0,
     tiles = { 'everness_pyrite_block_slab_brick.png' },
     is_ground_content = false,
-    groups = { cracky = 1 },
+    groups = { cracky = 2 },
     sounds = Everness.node_sound_metal_defaults(),
 })
 
-minetest.register_node('everness:pyriteblock_spiral', {
+Everness:register_node('everness:pyriteblock_spiral', {
     description = S('Pyrite Spiral'),
     paramtype2 = 'facedir',
     place_param2 = 0,
     tiles = { 'everness_pyrite_block_spiral.png' },
     is_ground_content = false,
-    groups = { cracky = 1 },
+    groups = { cracky = 2 },
     sounds = Everness.node_sound_metal_defaults(),
 })
 
-minetest.register_node('everness:pyrite_pillar_bottom', {
+Everness:register_node('everness:pyrite_pillar_bottom', {
     description = S('Pyrite Pillar Bottom'),
     paramtype2 = 'facedir',
     place_param2 = 0,
     tiles = { 'everness_pyrite_pillar_bottom.png' },
     is_ground_content = false,
-    groups = { cracky = 1 },
+    groups = { cracky = 2 },
     sounds = Everness.node_sound_metal_defaults(),
 })
 
-minetest.register_node('everness:pyrite_pillar_middle', {
+Everness:register_node('everness:pyrite_pillar_middle', {
     description = S('Pyrite Pillar Middle'),
     paramtype2 = 'facedir',
     place_param2 = 0,
     tiles = { 'everness_pyrite_pillar_middle.png' },
     is_ground_content = false,
-    groups = { cracky = 1 },
+    groups = { cracky = 2 },
     sounds = Everness.node_sound_metal_defaults(),
 })
 
-minetest.register_node('everness:pyrite_pillar_top', {
+Everness:register_node('everness:pyrite_pillar_top', {
     description = S('Pyrite Pillar Top'),
     paramtype2 = 'facedir',
     place_param2 = 0,
     tiles = { 'everness_pyrite_pillar_top.png' },
     is_ground_content = false,
-    groups = { cracky = 1 },
+    groups = { cracky = 2 },
     sounds = Everness.node_sound_metal_defaults(),
 })
 
-minetest.register_node('everness:pyrite_pillar_small', {
+Everness:register_node('everness:pyrite_pillar_small', {
     description = S('Pyrite Pillar Small'),
     paramtype2 = 'facedir',
     place_param2 = 0,
     tiles = { 'everness_pyrite_pillar_small.png' },
     is_ground_content = false,
-    groups = { cracky = 1 },
+    groups = { cracky = 2 },
     sounds = Everness.node_sound_metal_defaults(),
 })
 
-minetest.register_node('everness:pyriteblock_polished', {
+Everness:register_node('everness:pyriteblock_polished', {
     description = S('Polished Pyrite Block'),
     paramtype2 = 'facedir',
     place_param2 = 0,
     tiles = { 'everness_pyrite_block_polished.png' },
     is_ground_content = false,
-    groups = { cracky = 1 },
+    groups = { cracky = 2 },
     sounds = Everness.node_sound_metal_defaults(),
 })
 
-minetest.register_node('everness:quartz_ore', {
+Everness:register_node('everness:quartz_ore', {
     description = S('Quartz Ore'),
     tiles = { 'default_stone.png^everness_quartz_ore.png' },
     groups = { cracky = 3 },
@@ -140,7 +140,7 @@ minetest.register_node('everness:quartz_ore', {
 -- Stone
 --
 
-minetest.register_node('everness:coral_desert_stone', {
+Everness:register_node('everness:coral_desert_stone', {
     description = S('Coral Desert Stone'),
     tiles = { 'everness_coral_desert_stone.png' },
     groups = { cracky = 3, stone = 1 },
@@ -149,14 +149,14 @@ minetest.register_node('everness:coral_desert_stone', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_sandstone', {
+Everness:register_node('everness:coral_sandstone', {
     description = S('Coral Sandstone'),
     tiles = { 'everness_coral_sandstone.png' },
     groups = { cracky = 2 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_sandstone_brick', {
+Everness:register_node('everness:coral_sandstone_brick', {
     description = S('Coral Sandstone Brick'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -166,7 +166,7 @@ minetest.register_node('everness:coral_sandstone_brick', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_sandstone_chiseled', {
+Everness:register_node('everness:coral_sandstone_chiseled', {
     description = S('Coral Sandstone Chiseled Block'),
     tiles = { 'everness_coral_sandstone_chiseled.png' },
     is_ground_content = false,
@@ -174,7 +174,7 @@ minetest.register_node('everness:coral_sandstone_chiseled', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_sandstone_carved_1', {
+Everness:register_node('everness:coral_sandstone_carved_1', {
     description = S('Coral Sandstone Carved Block'),
     tiles = { 'everness_coral_sandstone_carved_1.png' },
     is_ground_content = false,
@@ -182,14 +182,14 @@ minetest.register_node('everness:coral_sandstone_carved_1', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_white_sandstone', {
+Everness:register_node('everness:coral_white_sandstone', {
     description = S('Coral White Sandstone'),
     tiles = { 'everness_coral_white_sandstone.png' },
     groups = { cracky = 2 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_white_sandstone_brick', {
+Everness:register_node('everness:coral_white_sandstone_brick', {
     description = S('Coral White Sandstone Brick'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -199,7 +199,7 @@ minetest.register_node('everness:coral_white_sandstone_brick', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_white_sandstone_pillar', {
+Everness:register_node('everness:coral_white_sandstone_pillar', {
     description = S('Coral White Sandstone Pillar'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -213,7 +213,7 @@ minetest.register_node('everness:coral_white_sandstone_pillar', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_desert_stone_block', {
+Everness:register_node('everness:coral_desert_stone_block', {
     description = S('Coral Desert Stone Block'),
     tiles = { 'everness_coral_desert_stone_block.png' },
     is_ground_content = false,
@@ -221,7 +221,7 @@ minetest.register_node('everness:coral_desert_stone_block', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_desert_stone_brick', {
+Everness:register_node('everness:coral_desert_stone_brick', {
     description = S('Coral Desert Stone Brick'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -231,14 +231,14 @@ minetest.register_node('everness:coral_desert_stone_brick', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_bones', {
+Everness:register_node('everness:coral_bones', {
     description = S('Coral Bones'),
     tiles = { 'everness_coral_bones.png' },
     groups = { cracky = 3, stone = 1 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_desert_cobble', {
+Everness:register_node('everness:coral_desert_cobble', {
     description = S('Coral Desert Cobblestone'),
     tiles = { 'everness_coral_desert_cobble.png' },
     is_ground_content = false,
@@ -246,7 +246,7 @@ minetest.register_node('everness:coral_desert_cobble', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_desert_mossy_cobble', {
+Everness:register_node('everness:coral_desert_mossy_cobble', {
     description = S('Coral Mossy Cobblestone'),
     tiles = { 'everness_coral_desert_mossy_cobble.png' },
     is_ground_content = false,
@@ -254,7 +254,7 @@ minetest.register_node('everness:coral_desert_mossy_cobble', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_desert_stone_with_moss', {
+Everness:register_node('everness:coral_desert_stone_with_moss', {
     description = S('Coral Desert Stone with Moss'),
     tiles = {
         'everness_coral_stone_with_moss_top.png',
@@ -270,14 +270,14 @@ minetest.register_node('everness:coral_desert_stone_with_moss', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_deep_ocean_sandstone_block', {
+Everness:register_node('everness:coral_deep_ocean_sandstone_block', {
     description = S('Coral Deep Ocean Sandstone Block'),
     tiles = { 'everness_deep_ocean_sandstone_block.png' },
     groups = { cracky = 2 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_deep_ocean_sandstone_brick', {
+Everness:register_node('everness:coral_deep_ocean_sandstone_brick', {
     description = S('Coral Deep Ocean Sandstone Brick'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -286,14 +286,14 @@ minetest.register_node('everness:coral_deep_ocean_sandstone_brick', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:cursed_lands_deep_ocean_sandstone_block', {
+Everness:register_node('everness:cursed_lands_deep_ocean_sandstone_block', {
     description = S('Cursed Lands Deep Ocean Sandstone Block'),
     tiles = { 'everness_cursed_lands_deep_ocean_sandblock.png' },
     groups = { cracky = 2 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:cursed_lands_deep_ocean_sandstone_brick', {
+Everness:register_node('everness:cursed_lands_deep_ocean_sandstone_brick', {
     description = S('Cursed Lands Deep Ocean Sandstone Brick'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -302,14 +302,14 @@ minetest.register_node('everness:cursed_lands_deep_ocean_sandstone_brick', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:crystal_forest_deep_ocean_sandstone_block', {
+Everness:register_node('everness:crystal_forest_deep_ocean_sandstone_block', {
     description = S('Crystal Forest Deep Ocean Sandstone Block'),
     tiles = { 'everness_crystal_forest_deep_ocean_sandstone_block.png' },
     groups = { cracky = 2 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:crystal_forest_deep_ocean_sandstone_brick', {
+Everness:register_node('everness:crystal_forest_deep_ocean_sandstone_brick', {
     description = S('Crystal Forest Deep Ocean Sandstone Brick'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -318,7 +318,7 @@ minetest.register_node('everness:crystal_forest_deep_ocean_sandstone_brick', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:forsaken_desert_stone', {
+Everness:register_node('everness:forsaken_desert_stone', {
     description = S('Forsaken Desert Stone'),
     tiles = { 'everness_forsaken_desert_stone.png' },
     groups = { cracky = 3, stone = 1 },
@@ -326,7 +326,7 @@ minetest.register_node('everness:forsaken_desert_stone', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:forsaken_desert_cobble_red', {
+Everness:register_node('everness:forsaken_desert_cobble_red', {
     description = S('Forsaken Desert Cobblestone Red'),
     tiles = { 'everness_forsaken_desert_cobble_red.png' },
     is_ground_content = false,
@@ -334,7 +334,7 @@ minetest.register_node('everness:forsaken_desert_cobble_red', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:forsaken_desert_cobble', {
+Everness:register_node('everness:forsaken_desert_cobble', {
     description = S('Forsaken Desert Cobblestone'),
     tiles = { 'everness_forsaken_desert_cobble.png' },
     is_ground_content = false,
@@ -342,7 +342,7 @@ minetest.register_node('everness:forsaken_desert_cobble', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:volcanic_rock', {
+Everness:register_node('everness:volcanic_rock', {
     description = S('Volcanic Rock'),
     tiles = { 'everness_volcanic_rock.png' },
     sounds = Everness.node_sound_stone_defaults(),
@@ -350,7 +350,7 @@ minetest.register_node('everness:volcanic_rock', {
     is_ground_content = false,
 })
 
-minetest.register_node('everness:volcanic_rock_with_magma', {
+Everness:register_node('everness:volcanic_rock_with_magma', {
     description = S('Volcanic Rock with Magma'),
     tiles = {
         {
@@ -369,7 +369,7 @@ minetest.register_node('everness:volcanic_rock_with_magma', {
     light_source = 3,
 })
 
-minetest.register_node('everness:magmacobble', {
+Everness:register_node('everness:magmacobble', {
     description = 'Magma Cobblestone',
     groups = { cracky = 3, stone = 1 },
     sounds = Everness.node_sound_stone_defaults(),
@@ -401,14 +401,14 @@ minetest.register_node('everness:magmacobble', {
     light_source = 3,
 })
 
-minetest.register_node('everness:cursed_stone', {
+Everness:register_node('everness:cursed_stone', {
     description = S('Cursed Stone'),
     tiles = { 'everness_cursed_stone.png' },
     groups = { cracky = 3, stone = 1 },
     sounds = Everness.node_sound_stone_defaults()
 })
 
-minetest.register_node('everness:cursed_brick', {
+Everness:register_node('everness:cursed_brick', {
     description = S('Cursed Brick'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -418,7 +418,7 @@ minetest.register_node('everness:cursed_brick', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:cursed_brick_with_growth', {
+Everness:register_node('everness:cursed_brick_with_growth', {
     description = S('Cursed Brick with Growth'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -428,7 +428,7 @@ minetest.register_node('everness:cursed_brick_with_growth', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:cursed_brick_mixed', {
+Everness:register_node('everness:cursed_brick_mixed', {
     description = S('Cursed Brick Mixed'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -438,7 +438,7 @@ minetest.register_node('everness:cursed_brick_mixed', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:cursed_brick_carved', {
+Everness:register_node('everness:cursed_brick_carved', {
     description = S('Cursed Brick Carved'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -448,14 +448,14 @@ minetest.register_node('everness:cursed_brick_carved', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:volcanic_sulfur', {
+Everness:register_node('everness:volcanic_sulfur', {
     description = S('Volcanic Sulfur Stone'),
     tiles = { 'everness_volcanic_sulfur_stone.png' },
     groups = { cracky = 3, stone = 1 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:sulfur_stone', {
+Everness:register_node('everness:sulfur_stone', {
     description = S('Sulfur Stone'),
     tiles = { 'everness_sulfur_stone.png' },
     groups = { cracky = 3, stone = 1 },
@@ -534,7 +534,7 @@ minetest.register_node('everness:sulfur_stone', {
     end
 })
 
-minetest.register_node('everness:forsaken_tundra_cobble', {
+Everness:register_node('everness:forsaken_tundra_cobble', {
     description = S('Forsaken Tundra Cobblestone'),
     tiles = { 'everness_forsaken_tundra_cobblestone.png' },
     is_ground_content = false,
@@ -542,7 +542,7 @@ minetest.register_node('everness:forsaken_tundra_cobble', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:forsaken_tundra_stone', {
+Everness:register_node('everness:forsaken_tundra_stone', {
     description = S('Forsaken Tundra Stone'),
     tiles = { 'everness_forsaken_tundra_stone.png' },
     groups = { cracky = 3, stone = 1 },
@@ -551,7 +551,7 @@ minetest.register_node('everness:forsaken_tundra_stone', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:mold_cobble', {
+Everness:register_node('everness:mold_cobble', {
     description = S('Mold Cobble'),
     tiles = { 'everness_mold_stone.png' },
     is_ground_content = false,
@@ -559,7 +559,7 @@ minetest.register_node('everness:mold_cobble', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:forsaken_tundra_brick', {
+Everness:register_node('everness:forsaken_tundra_brick', {
     description = S('Forsaken Tundra Brick'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -569,7 +569,7 @@ minetest.register_node('everness:forsaken_tundra_brick', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:forsaken_tundra_rocks', {
+Everness:register_node('everness:forsaken_tundra_rocks', {
     description = S('Forsaken Tundra Rocks'),
     tiles = {
         'everness_forsaken_tundra_rocks_top.png',
@@ -582,14 +582,14 @@ minetest.register_node('everness:forsaken_tundra_rocks', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:blue_crying_obsidian', {
+Everness:register_node('everness:blue_crying_obsidian', {
     description = S('Blue Crying Obsidian'),
     tiles = { 'everness_blue_crying_obsidian.png' },
     sounds = Everness.node_sound_stone_defaults(),
     groups = { cracky = 1, level = 2 },
 })
 
-minetest.register_node('everness:blue_weeping_obsidian', {
+Everness:register_node('everness:blue_weeping_obsidian', {
     description = S('Blue Weeping Obsidian'),
     tiles = { 'everness_blue_weeping_obsidian.png' },
     sounds = Everness.node_sound_stone_defaults(),
@@ -598,7 +598,7 @@ minetest.register_node('everness:blue_weeping_obsidian', {
     light_source = 7,
 })
 
-minetest.register_node('everness:weeping_obsidian', {
+Everness:register_node('everness:weeping_obsidian', {
     description = S('Weeping Obsidian'),
     tiles = { 'everness_weeping_obsidian.png' },
     sounds = Everness.node_sound_stone_defaults(),
@@ -607,7 +607,7 @@ minetest.register_node('everness:weeping_obsidian', {
     light_source = 7,
 })
 
-minetest.register_node('everness:mold_stone_with_moss', {
+Everness:register_node('everness:mold_stone_with_moss', {
     description = S('Mold Stone'),
     tiles = {
         'everness_mold_stone_with_moss_top.png',
@@ -620,14 +620,14 @@ minetest.register_node('everness:mold_stone_with_moss', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:soul_sandstone', {
+Everness:register_node('everness:soul_sandstone', {
     description = S('Soul Sandstone'),
     tiles = { 'everness_soul_sandstone.png' },
     groups = { cracky = 3, stone = 1 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:soul_sandstone_veined', {
+Everness:register_node('everness:soul_sandstone_veined', {
     description = S('Soul Sandstone Veined'),
     tiles = {
         'everness_soul_sandstone_veined_top.png',
@@ -639,7 +639,7 @@ minetest.register_node('everness:soul_sandstone_veined', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:crystal_block_purple', {
+Everness:register_node('everness:crystal_block_purple', {
     description = S('Purple Crystal Block'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -654,7 +654,7 @@ minetest.register_node('everness:crystal_block_purple', {
     sounds = Everness.node_sound_crystal_defaults(),
 })
 
-minetest.register_node('everness:crystal_block_orange', {
+Everness:register_node('everness:crystal_block_orange', {
     description = S('Orange Crystal Block'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -672,7 +672,7 @@ minetest.register_node('everness:crystal_block_orange', {
 -- Quartz
 
 -- Quartz Block
-minetest.register_node('everness:quartz_block', {
+Everness:register_node('everness:quartz_block', {
     description = S('Quartz Block'),
     -- Textures of node; +Y, -Y, +X, -X, +Z, -Z
     tiles = {
@@ -685,7 +685,7 @@ minetest.register_node('everness:quartz_block', {
 })
 
 -- Chiseled Quartz
-minetest.register_node('everness:quartz_chiseled', {
+Everness:register_node('everness:quartz_chiseled', {
     description = S('Chiseled Quartz'),
     tiles = {
         'everness_quartz_block_chiseled_top.png',
@@ -697,7 +697,7 @@ minetest.register_node('everness:quartz_chiseled', {
 })
 
 -- Quartz Pillar
-minetest.register_node('everness:quartz_pillar', {
+Everness:register_node('everness:quartz_pillar', {
     description = S('Quartz Pillar'),
     paramtype2 = 'facedir',
     tiles = {
@@ -710,7 +710,7 @@ minetest.register_node('everness:quartz_pillar', {
     on_place = minetest.rotate_node
 })
 
-minetest.register_node('everness:forsaken_desert_brick', {
+Everness:register_node('everness:forsaken_desert_brick', {
     description = S('Forsaken Desert Brick'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -720,7 +720,7 @@ minetest.register_node('everness:forsaken_desert_brick', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:forsaken_desert_brick_red', {
+Everness:register_node('everness:forsaken_desert_brick_red', {
     description = S('Forsaken Desert Brick Red'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -730,7 +730,7 @@ minetest.register_node('everness:forsaken_desert_brick_red', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:forsaken_desert_chiseled_stone', {
+Everness:register_node('everness:forsaken_desert_chiseled_stone', {
     description = S('Forsaken Desert Chiseled Stone'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -744,7 +744,7 @@ minetest.register_node('everness:forsaken_desert_chiseled_stone', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:forsaken_desert_engraved_stone', {
+Everness:register_node('everness:forsaken_desert_engraved_stone', {
     description = S('Forsaken Desert Engraved Stone'),
     tiles = { 'everness_forsaken_desert_engraved_stone.png' },
     is_ground_content = false,
@@ -752,14 +752,14 @@ minetest.register_node('everness:forsaken_desert_engraved_stone', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:crystal_sandstone', {
+Everness:register_node('everness:crystal_sandstone', {
     description = S('Crystal Sandstone'),
     tiles = { 'everness_crystal_sandstone.png' },
     groups = { cracky = 2 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:crystal_sandstone_brick', {
+Everness:register_node('everness:crystal_sandstone_brick', {
     description = S('Crystal Sandstone Brick'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -769,7 +769,7 @@ minetest.register_node('everness:crystal_sandstone_brick', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:crystal_sandstone_chiseled', {
+Everness:register_node('everness:crystal_sandstone_chiseled', {
     description = S('Crystal Sandstone Chiseled'),
     tiles = { 'everness_crystal_sandstone_chiseled.png' },
     is_ground_content = false,
@@ -777,14 +777,14 @@ minetest.register_node('everness:crystal_sandstone_chiseled', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:cursed_sandstone_block', {
+Everness:register_node('everness:cursed_sandstone_block', {
     description = S('Cursed Sandstone Block'),
     tiles = { 'everness_cursed_sandstone_block.png' },
     groups = { cracky = 2 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:cursed_sandstone_brick', {
+Everness:register_node('everness:cursed_sandstone_brick', {
     description = S('Cursed Sandstone Brick'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -798,7 +798,7 @@ minetest.register_node('everness:cursed_sandstone_brick', {
 -- Soft / Non-Stone
 --
 
-minetest.register_node('everness:coral_dirt', {
+Everness:register_node('everness:coral_dirt', {
     description = S('Coral Dirt'),
     short_description = S('Coral Dirt'),
     tiles = { 'everness_coral_dirt.png' },
@@ -806,7 +806,7 @@ minetest.register_node('everness:coral_dirt', {
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
-minetest.register_node('everness:coral_deep_ocean_mud', {
+Everness:register_node('everness:coral_deep_ocean_mud', {
     description = S('Coral Deep Ocean Mud'),
     short_description = S('Coral Deep Ocean Mud'),
     tiles = { 'everness_mud_2.png' },
@@ -814,7 +814,7 @@ minetest.register_node('everness:coral_deep_ocean_mud', {
     sounds = Everness.node_sound_mud_defaults(),
 })
 
-minetest.register_node('everness:cursed_dirt', {
+Everness:register_node('everness:cursed_dirt', {
     description = S('Cursed Dirt'),
     short_description = S('Cursed Dirt'),
     tiles = { 'everness_cursed_dirt.png' },
@@ -822,7 +822,7 @@ minetest.register_node('everness:cursed_dirt', {
     sounds = Everness.node_sound_mud_defaults(),
 })
 
-minetest.register_node('everness:crystal_dirt', {
+Everness:register_node('everness:crystal_dirt', {
     description = S('Crystal Dirt'),
     short_description = S('Crystal Dirt'),
     tiles = { 'everness_crystal_dirt.png' },
@@ -830,7 +830,7 @@ minetest.register_node('everness:crystal_dirt', {
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
-minetest.register_node('everness:forsaken_tundra_dirt', {
+Everness:register_node('everness:forsaken_tundra_dirt', {
     description = S('Forsaken Tundra Dirt'),
     short_description = S('Forsaken Tundra Dirt'),
     tiles = { 'everness_forsaken_tundra_dirt.png' },
@@ -838,7 +838,7 @@ minetest.register_node('everness:forsaken_tundra_dirt', {
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
-minetest.register_node('everness:forsaken_tundra_dirt_with_grass', {
+Everness:register_node('everness:forsaken_tundra_dirt_with_grass', {
     description = S('Forsaken Tundra Dirt with Grass'),
     short_description = S('Forsaken Tundra Dirt with Grass'),
     tiles = {
@@ -851,7 +851,7 @@ minetest.register_node('everness:forsaken_tundra_dirt_with_grass', {
     sounds = Everness.node_sound_grass_defaults(),
 })
 
-minetest.register_node('everness:dirt_with_coral_grass', {
+Everness:register_node('everness:dirt_with_coral_grass', {
     description = S('Dirt with Coral Grass'),
     short_description = S('Dirt with Coral Grass'),
     tiles = {
@@ -864,7 +864,7 @@ minetest.register_node('everness:dirt_with_coral_grass', {
     sounds = Everness.node_sound_grass_defaults(),
 })
 
-minetest.register_node('everness:dirt_with_cursed_grass', {
+Everness:register_node('everness:dirt_with_cursed_grass', {
     description = S('Dirt with Cursed Grass'),
     short_description = S('Dirt with Cursed Grass'),
     tiles = {
@@ -877,7 +877,7 @@ minetest.register_node('everness:dirt_with_cursed_grass', {
     sounds = Everness.node_sound_mud_defaults(),
 })
 
-minetest.register_node('everness:dirt_with_crystal_grass', {
+Everness:register_node('everness:dirt_with_crystal_grass', {
     description = S('Dirt with Crystal Grass'),
     short_description = S('Dirt with Crystal Grass'),
     tiles = {
@@ -890,7 +890,7 @@ minetest.register_node('everness:dirt_with_crystal_grass', {
     sounds = Everness.node_sound_grass_defaults(),
 })
 
-minetest.register_node('everness:dry_ocean_dirt', {
+Everness:register_node('everness:dry_ocean_dirt', {
     description = S('Dry Ocean Dirt'),
     short_description = S('Dry Ocean Dirt'),
     tiles = { 'everness_forsaken_desert_dry_ocean_dirt.png' },
@@ -900,7 +900,7 @@ minetest.register_node('everness:dry_ocean_dirt', {
 
 -- Loot Chest / Icicle Markers
 
-minetest.register_node('everness:japanese_shrine_lootchest_marker', {
+Everness:register_node('everness:japanese_shrine_lootchest_marker', {
     drawtype = 'airlike',
     description = 'Japanese Shrine Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
@@ -908,7 +908,7 @@ minetest.register_node('everness:japanese_shrine_lootchest_marker', {
     paramtype2 = 'facedir',
 })
 
-minetest.register_node('everness:jungle_temple_lootchest_marker', {
+Everness:register_node('everness:jungle_temple_lootchest_marker', {
     drawtype = 'airlike',
     description = 'Jungle Temple Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
@@ -916,7 +916,7 @@ minetest.register_node('everness:jungle_temple_lootchest_marker', {
     paramtype2 = 'facedir',
 })
 
-minetest.register_node('everness:haunted_house_lootchest_marker', {
+Everness:register_node('everness:haunted_house_lootchest_marker', {
     drawtype = 'airlike',
     description = 'Haunted House Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
@@ -924,7 +924,7 @@ minetest.register_node('everness:haunted_house_lootchest_marker', {
     paramtype2 = 'facedir',
 })
 
-minetest.register_node('everness:quartz_temple_lootchest_marker', {
+Everness:register_node('everness:quartz_temple_lootchest_marker', {
     drawtype = 'airlike',
     description = 'Quartz Temple Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
@@ -932,7 +932,7 @@ minetest.register_node('everness:quartz_temple_lootchest_marker', {
     paramtype2 = 'facedir',
 })
 
-minetest.register_node('everness:forsaken_desert_temple_marker', {
+Everness:register_node('everness:forsaken_desert_temple_marker', {
     drawtype = 'airlike',
     description = 'Forsaken Temple Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
@@ -940,7 +940,7 @@ minetest.register_node('everness:forsaken_desert_temple_marker', {
     paramtype2 = 'facedir',
 })
 
-minetest.register_node('everness:forsaken_desert_temple_2_marker', {
+Everness:register_node('everness:forsaken_desert_temple_2_marker', {
     drawtype = 'airlike',
     description = 'Forsaken Temple 2 Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
@@ -948,7 +948,7 @@ minetest.register_node('everness:forsaken_desert_temple_2_marker', {
     paramtype2 = 'facedir',
 })
 
-minetest.register_node('everness:frosted_icicle_large_ceiling_marker', {
+Everness:register_node('everness:frosted_icicle_large_ceiling_marker', {
     drawtype = 'airlike',
     description = 'Frosted Icicle Large Ceiling Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
@@ -956,7 +956,7 @@ minetest.register_node('everness:frosted_icicle_large_ceiling_marker', {
     paramtype2 = 'facedir',
 })
 
-minetest.register_node('everness:frosted_icicle_large_floor_marker', {
+Everness:register_node('everness:frosted_icicle_large_floor_marker', {
     drawtype = 'airlike',
     description = 'Frosted Icicle Large Floor Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
@@ -964,7 +964,7 @@ minetest.register_node('everness:frosted_icicle_large_floor_marker', {
     paramtype2 = 'facedir',
 })
 
-minetest.register_node('everness:coral_forest_deep_ocean_house_marker', {
+Everness:register_node('everness:coral_forest_deep_ocean_house_marker', {
     drawtype = 'airlike',
     description = 'Coral Forest Deep Ocean House Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
@@ -972,7 +972,7 @@ minetest.register_node('everness:coral_forest_deep_ocean_house_marker', {
     paramtype2 = 'facedir',
 })
 
-minetest.register_node('everness:cursed_lands_deep_ocean_skull_marker', {
+Everness:register_node('everness:cursed_lands_deep_ocean_skull_marker', {
     drawtype = 'airlike',
     description = 'Cursed Lands Deep Ocean Skull Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
@@ -980,7 +980,7 @@ minetest.register_node('everness:cursed_lands_deep_ocean_skull_marker', {
     paramtype2 = 'facedir',
 })
 
-minetest.register_node('everness:frosted_icesheet_igloo_marker', {
+Everness:register_node('everness:frosted_icesheet_igloo_marker', {
     drawtype = 'airlike',
     description = 'Frosted Icesheet Igloo Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
@@ -988,7 +988,7 @@ minetest.register_node('everness:frosted_icesheet_igloo_marker', {
     paramtype2 = 'facedir',
 })
 
-minetest.register_node('everness:crystal_forest_deep_ocean_ruins_marker', {
+Everness:register_node('everness:crystal_forest_deep_ocean_ruins_marker', {
     drawtype = 'airlike',
     description = 'Crystal Forest Deep Ocean Ruins Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
@@ -998,7 +998,7 @@ minetest.register_node('everness:crystal_forest_deep_ocean_ruins_marker', {
 
 -- Everness default blocks
 
-minetest.register_node('everness:dirt_1', {
+Everness:register_node('everness:dirt_1', {
     description = S('Dirt'),
     short_description = S('Dirt'),
     tiles = { 'everness_dirt_1.png' },
@@ -1006,7 +1006,7 @@ minetest.register_node('everness:dirt_1', {
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
-minetest.register_node('everness:dirt_with_grass_1', {
+Everness:register_node('everness:dirt_with_grass_1', {
     description = S('Dirt with Grass'),
     short_description = S('Dirt with Grass'),
     tiles = {
@@ -1019,7 +1019,7 @@ minetest.register_node('everness:dirt_with_grass_1', {
     sounds = Everness.node_sound_grass_defaults(),
 })
 
-minetest.register_node('everness:dirt_with_grass_2', {
+Everness:register_node('everness:dirt_with_grass_2', {
     description = S('Dirt with Grass'),
     short_description = S('Dirt with Grass'),
     tiles = {
@@ -1032,7 +1032,7 @@ minetest.register_node('everness:dirt_with_grass_2', {
     sounds = Everness.node_sound_grass_defaults(),
 })
 
-minetest.register_node('everness:dirt_with_grass_extras_1', {
+Everness:register_node('everness:dirt_with_grass_extras_1', {
     description = S('Dirt with Grass'),
     short_description = S('Dirt with Grass'),
     tiles = {
@@ -1045,7 +1045,7 @@ minetest.register_node('everness:dirt_with_grass_extras_1', {
     sounds = Everness.node_sound_grass_defaults(),
 })
 
-minetest.register_node('everness:dirt_with_grass_extras_2', {
+Everness:register_node('everness:dirt_with_grass_extras_2', {
     description = S('Dirt with Grass'),
     short_description = S('Dirt with Grass'),
     tiles = {
@@ -1058,7 +1058,7 @@ minetest.register_node('everness:dirt_with_grass_extras_2', {
     sounds = Everness.node_sound_grass_defaults(),
 })
 
-minetest.register_node('everness:crystal_cave_dirt', {
+Everness:register_node('everness:crystal_cave_dirt', {
     description = S('Crystal Cave Dirt'),
     short_description = S('Crystal Cave Dirt'),
     tiles = { 'everness_crystal_cave_dirt.png' },
@@ -1066,7 +1066,7 @@ minetest.register_node('everness:crystal_cave_dirt', {
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
-minetest.register_node('everness:crystal_cave_dirt_with_moss', {
+Everness:register_node('everness:crystal_cave_dirt_with_moss', {
     description = S('Crystal Cave Dirt with Moss'),
     short_description = S('Crystal Cave Dirt with Moss'),
     tiles = {
@@ -1079,29 +1079,50 @@ minetest.register_node('everness:crystal_cave_dirt_with_moss', {
     sounds = Everness.node_sound_grass_defaults(),
 })
 
-minetest.register_node('everness:moss_block', {
+Everness:register_node('everness:moss_block', {
     description = S('Moss Block'),
     tiles = { 'everness_moss_block.png' },
     groups = { crumbly = 3, soil = 1 },
     sounds = Everness.node_sound_grass_defaults(),
 })
 
-minetest.register_node('everness:crystal_moss_block', {
+Everness:register_node('everness:crystal_moss_block', {
     description = S('Crystal Moss Block'),
     tiles = { 'everness_crystal_cave_moss.png' },
     groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type_under = 1 },
     sounds = Everness.node_sound_grass_defaults(),
 })
 
-minetest.register_node('everness:coral_sand', {
+Everness:register_node('everness:coral_sand', {
     description = S('Coral Sand'),
     short_description = S('Coral Sand'),
     tiles = { 'everness_coral_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, sand = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        sand = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        soil_sugarcane = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- ALL
+        falling_node = 1,
+        -- Generated
+        -- handy_dig = 7,
+        -- shovely_dig = 2,
+        -- opaque = 1,
+        -- solid = 1,
+    },
     sounds = Everness.node_sound_sand_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
 })
 
-minetest.register_node('everness:coral_white_sand', {
+Everness:register_node('everness:coral_white_sand', {
     description = S('Coral White Sand'),
     short_description = S('Coral White Sand'),
     tiles = { 'everness_coral_white_sand.png' },
@@ -1109,7 +1130,7 @@ minetest.register_node('everness:coral_white_sand', {
     sounds = Everness.node_sound_sand_defaults(),
 })
 
-minetest.register_node('everness:cursed_sand', {
+Everness:register_node('everness:cursed_sand', {
     description = S('Cursed Sand'),
     short_description = S('Cursed Sand'),
     tiles = { 'everness_cursed_sand.png' },
@@ -1117,7 +1138,7 @@ minetest.register_node('everness:cursed_sand', {
     sounds = Everness.node_sound_sand_defaults(),
 })
 
-minetest.register_node('everness:crystal_sand', {
+Everness:register_node('everness:crystal_sand', {
     description = S('Crystal Sand'),
     short_description = S('Crystal Sand'),
     tiles = { 'everness_crystal_sand.png' },
@@ -1125,7 +1146,7 @@ minetest.register_node('everness:crystal_sand', {
     sounds = Everness.node_sound_sand_defaults(),
 })
 
-minetest.register_node('everness:crystal_forest_deep_ocean_sand_with_crack', {
+Everness:register_node('everness:crystal_forest_deep_ocean_sand_with_crack', {
     description = S('Crystal Forest Deep Ocean Sand with Crack'),
     short_description = S('Crystal Forest Deep Ocean Sand with Crack'),
     tiles = { 'everness_crystal_forest_deep_ocean_sand_with_crack.png' },
@@ -1133,7 +1154,7 @@ minetest.register_node('everness:crystal_forest_deep_ocean_sand_with_crack', {
     sounds = Everness.node_sound_sand_defaults(),
 })
 
-minetest.register_node('everness:forsaken_tundra_beach_sand', {
+Everness:register_node('everness:forsaken_tundra_beach_sand', {
     description = S('Forsaken Tundra Beach Sand'),
     short_description = S('Forsaken Tundra Beach Sand'),
     tiles = { 'everness_forsaken_tundra_beach_sand.png' },
@@ -1141,7 +1162,7 @@ minetest.register_node('everness:forsaken_tundra_beach_sand', {
     sounds = Everness.node_sound_sand_defaults(),
 })
 
-minetest.register_node('everness:forsaken_tundra_beach_sand_with_shells', {
+Everness:register_node('everness:forsaken_tundra_beach_sand_with_shells', {
     description = S('Forsaken Tundra Beach Sand with Shells'),
     short_description = S('Forsaken Tundra Beach Sand'),
     tiles = { 'everness_forsaken_tundra_beach_sand_with_shells.png' },
@@ -1149,7 +1170,7 @@ minetest.register_node('everness:forsaken_tundra_beach_sand_with_shells', {
     sounds = Everness.node_sound_sand_defaults(),
 })
 
-minetest.register_node('everness:forsaken_desert_sand', {
+Everness:register_node('everness:forsaken_desert_sand', {
     description = S('Forsaken Desert Sand'),
     short_description = S('Forsaken Desert Sand'),
     tiles = { 'everness_forsaken_desert_sand.png' },
@@ -1157,7 +1178,7 @@ minetest.register_node('everness:forsaken_desert_sand', {
     sounds = Everness.node_sound_sand_defaults(),
 })
 
-minetest.register_node('everness:coral_forest_deep_ocean_sand', {
+Everness:register_node('everness:coral_forest_deep_ocean_sand', {
     description = S('Coral Forest Deep Ocean Sand'),
     short_description = S('Coral Forest Deep Ocean Sand'),
     tiles = { 'everness_deep_ocean_sand.png' },
@@ -1165,7 +1186,7 @@ minetest.register_node('everness:coral_forest_deep_ocean_sand', {
     sounds = Everness.node_sound_sand_defaults(),
 })
 
-minetest.register_node('everness:cursed_lands_deep_ocean_sand', {
+Everness:register_node('everness:cursed_lands_deep_ocean_sand', {
     description = S('Cursed Lands Deep Ocean Sand'),
     short_description = S('Cursed Lands Deep Ocean Sand'),
     tiles = { 'everness_cursed_lands_deep_ocean_sand.png' },
@@ -1173,7 +1194,7 @@ minetest.register_node('everness:cursed_lands_deep_ocean_sand', {
     sounds = Everness.node_sound_sand_defaults(),
 })
 
-minetest.register_node('everness:cursed_lands_deep_ocean_sand_with_crack', {
+Everness:register_node('everness:cursed_lands_deep_ocean_sand_with_crack', {
     description = S('Cursed Lands Deep Ocean Sand with Crack'),
     short_description = S('Cursed Lands Deep Ocean Sand with Crack'),
     tiles = { 'everness_cursed_lands_deep_ocean_sand_with_crack.png' },
@@ -1181,7 +1202,7 @@ minetest.register_node('everness:cursed_lands_deep_ocean_sand_with_crack', {
     sounds = Everness.node_sound_sand_defaults(),
 })
 
-minetest.register_node('everness:crystal_forest_deep_ocean_sand', {
+Everness:register_node('everness:crystal_forest_deep_ocean_sand', {
     description = S('Crystal Forest Deep Ocean Sand'),
     short_description = S('Crystal Forest Deep Ocean Sand'),
     tiles = { 'everness_crystal_forest_deep_ocean_sand.png' },
@@ -1189,7 +1210,7 @@ minetest.register_node('everness:crystal_forest_deep_ocean_sand', {
     sounds = Everness.node_sound_sand_defaults(),
 })
 
-minetest.register_node('everness:frosted_snowblock', {
+Everness:register_node('everness:frosted_snowblock', {
     description = S('Frosted Snow Block'),
     tiles = { 'everness_frosted_snow.png' },
     groups = { crumbly = 3, cools_lava = 1, snowy = 1 },
@@ -1203,7 +1224,7 @@ minetest.register_node('everness:frosted_snowblock', {
 })
 
 -- 'is ground content = false' to avoid tunnels in sea ice or ice rivers
-minetest.register_node('everness:frosted_ice', {
+Everness:register_node('everness:frosted_ice', {
     description = S('Frosted Ice'),
     tiles = { 'everness_frosted_ice.png' },
     is_ground_content = false,
@@ -1212,7 +1233,7 @@ minetest.register_node('everness:frosted_ice', {
     sounds = Everness.node_sound_ice_defaults(),
 })
 
-minetest.register_node('everness:frosted_ice_translucent', {
+Everness:register_node('everness:frosted_ice_translucent', {
     description = S('Frosted Ice Translucent'),
     tiles = { 'everness_frosted_ice_translucent.png' },
     is_ground_content = false,
@@ -1225,7 +1246,7 @@ minetest.register_node('everness:frosted_ice_translucent', {
 })
 
 -- Mapgen-placed ice with 'is ground content = true' to contain tunnels
-minetest.register_node('everness:frosted_cave_ice', {
+Everness:register_node('everness:frosted_cave_ice', {
     description = S('Frosted Cave Ice'),
     tiles = { 'everness_frosted_ice.png' },
     paramtype = 'light',
@@ -1236,7 +1257,7 @@ minetest.register_node('everness:frosted_cave_ice', {
 })
 
 -- Mapgen-placed ice with 'is ground content = true' to contain tunnels
-minetest.register_node('everness:frosted_cave_ice_illuminating', {
+Everness:register_node('everness:frosted_cave_ice_illuminating', {
     description = S('Frosted Cave Ice'),
     tiles = { 'everness_frosted_ice.png' },
     paramtype = 'light',
@@ -1248,7 +1269,7 @@ minetest.register_node('everness:frosted_cave_ice_illuminating', {
     is_ground_content = false
 })
 
-minetest.register_node('everness:bone', {
+Everness:register_node('everness:bone', {
     description = S('Bone'),
     tiles = { 'everness_bone_top.png', 'everness_bone_top.png', 'everness_bone.png' },
     paramtype2 = 'facedir',
@@ -1258,7 +1279,7 @@ minetest.register_node('everness:bone', {
     on_place = minetest.rotate_node
 })
 
-minetest.register_node('everness:ancient_emerald_ice', {
+Everness:register_node('everness:ancient_emerald_ice', {
     description = S('Ancient Emerald Ice'),
     tiles = { 'everness_ancient_emerald_ice.png' },
     paramtype = 'light',
@@ -1266,7 +1287,7 @@ minetest.register_node('everness:ancient_emerald_ice', {
     sounds = Everness.node_sound_ice_defaults(),
 })
 
-minetest.register_node('everness:dense_emerald_ice', {
+Everness:register_node('everness:dense_emerald_ice', {
     description = S('Dense Emerald Ice'),
     tiles = { 'everness_dense_emerald_ice.png' },
     paramtype = 'light',
@@ -1274,7 +1295,7 @@ minetest.register_node('everness:dense_emerald_ice', {
     sounds = Everness.node_sound_ice_defaults(),
 })
 
-minetest.register_node('everness:emerald_ice', {
+Everness:register_node('everness:emerald_ice', {
     description = S('Emerald Ice'),
     tiles = { 'everness_emerald_ice.png' },
     paramtype = 'light',
@@ -1282,7 +1303,7 @@ minetest.register_node('everness:emerald_ice', {
     sounds = Everness.node_sound_ice_defaults(),
 })
 
-minetest.register_node('everness:snowcobble', {
+Everness:register_node('everness:snowcobble', {
     description = 'Snow Cobble',
     tiles = { 'everness_snowcobble.png' },
     groups = { puts_out_fire = 1, cools_lava = 1, snowy = 1, cracky = 2, stone = 1 },
@@ -1297,7 +1318,7 @@ minetest.register_node('everness:snowcobble', {
     end,
 })
 
-minetest.register_node('everness:icecobble', {
+Everness:register_node('everness:icecobble', {
     description = 'Ice Cobble',
     tiles = { 'everness_icecobble.png' },
     groups = { cracky = 2, cools_lava = 1 },
@@ -1305,7 +1326,7 @@ minetest.register_node('everness:icecobble', {
     is_ground_content = false,
 })
 
-minetest.register_node('everness:cursed_mud', {
+Everness:register_node('everness:cursed_mud', {
     description = S('Cursed Mud'),
     tiles = { 'everness_cursed_mud.png' },
     drawtype = 'glasslike',
@@ -1319,7 +1340,7 @@ minetest.register_node('everness:cursed_mud', {
     sounds = Everness.node_sound_sand_defaults()
 })
 
-minetest.register_node('everness:cobweb', {
+Everness:register_node('everness:cobweb', {
     description = S('Cobweb'),
     tiles = { 'everness_cobweb.png' },
     inventory_image = 'everness_cobweb.png',
@@ -1331,11 +1352,11 @@ minetest.register_node('everness:cobweb', {
     move_resistance = 7,
     drowning = 2,
     walkable = false,
-    groups = { crumbly = 3, sand = 1, liquid = 3, disable_jump = 1 },
+    groups = { crumbly = 3, liquid = 3, disable_jump = 1 },
     sounds = Everness.node_sound_leaves_defaults()
 })
 
-minetest.register_node('everness:cave_flower', {
+Everness:register_node('everness:cave_flower', {
     description = S('Cave Flower'),
     short_description = S('Cave Flower'),
     drawtype = 'mesh',
@@ -1360,7 +1381,7 @@ minetest.register_node('everness:cave_flower', {
     use_texture_alpha = 'clip',
 })
 
-minetest.register_node('everness:cave_flower_with_particles', {
+Everness:register_node('everness:cave_flower_with_particles', {
     description = S('Cave Flower with Particles'),
     short_description = S('Cave Flower with Particles'),
     drawtype = 'mesh',
@@ -1398,7 +1419,7 @@ minetest.register_node('everness:cave_flower_with_particles', {
     use_texture_alpha = 'blend',
 })
 
-minetest.register_node('everness:forsaken_fire', {
+Everness:register_node('everness:forsaken_fire', {
     description = S('Forsaken Fire'),
     short_description = S('Forsaken Fire'),
     drawtype = 'mesh',
@@ -1437,7 +1458,7 @@ minetest.register_node('everness:forsaken_fire', {
 -- Trees
 --
 
-minetest.register_node('everness:coral_tree', {
+Everness:register_node('everness:coral_tree', {
     description = S('Coral Tree Trunk'),
     short_description = S('Coral Tree Trunk'),
     tiles = { 'everness_coral_tree.png' },
@@ -1448,7 +1469,7 @@ minetest.register_node('everness:coral_tree', {
     on_place = minetest.rotate_node
 })
 
-minetest.register_node('everness:coral_tree_bioluminescent', {
+Everness:register_node('everness:coral_tree_bioluminescent', {
     description = S('Coral Tree Bioluminescent'),
     short_description = S('Coral Tree Bioluminescent'),
     tiles = { 'everness_coral_mushrooms_bioluminescent.png' },
@@ -1460,7 +1481,7 @@ minetest.register_node('everness:coral_tree_bioluminescent', {
     light_source = 7
 })
 
-minetest.register_node('everness:cursed_dream_stone', {
+Everness:register_node('everness:cursed_dream_stone', {
     description = S('Cursed Dream Stone'),
     short_description = S('Cursed Dream Stone'),
     tiles = { 'everness_cursed_dream_stone.png' },
@@ -1472,7 +1493,7 @@ minetest.register_node('everness:cursed_dream_stone', {
     light_source = 7
 })
 
-minetest.register_node('everness:dry_tree', {
+Everness:register_node('everness:dry_tree', {
     description = S('Dry Tree Trunk'),
     short_description = S('Dry Tree Trunk'),
     tiles = { 'everness_dry_tree_top.png', 'everness_dry_tree_top.png', 'everness_dry_tree.png' },
@@ -1480,10 +1501,10 @@ minetest.register_node('everness:dry_tree', {
     is_ground_content = false,
     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
     sounds = Everness.node_sound_wood_defaults(),
-    on_place = minetest.rotate_node
+    on_place = minetest.rotate_node,
 })
 
-minetest.register_node('everness:baobab_tree', {
+Everness:register_node('everness:baobab_tree', {
     description = S('Baobab Tree Trunk'),
     short_description = S('Baobab Tree Trunk'),
     tiles = { 'everness_baobab_tree_top.png', 'everness_baobab_tree_top.png', 'everness_baobab_tree_side.png' },
@@ -1494,7 +1515,7 @@ minetest.register_node('everness:baobab_tree', {
     on_place = minetest.rotate_node
 })
 
-minetest.register_node('everness:sequoia_tree', {
+Everness:register_node('everness:sequoia_tree', {
     description = S('Sequoia Tree Trunk'),
     short_description = S('Sequoia Tree Trunk'),
     tiles = { 'everness_sequoia_tree_top.png', 'everness_sequoia_tree_top.png', 'everness_sequoia_tree_side.png' },
@@ -1505,7 +1526,7 @@ minetest.register_node('everness:sequoia_tree', {
     on_place = minetest.rotate_node
 })
 
-minetest.register_node('everness:willow_tree', {
+Everness:register_node('everness:willow_tree', {
     description = S('Willow Tree Trunk'),
     short_description = S('Sequoia Tree Trunk'),
     tiles = { 'everness_willow_tree_top.png', 'everness_willow_tree_top.png', 'everness_willow_tree_side.png' },
@@ -1516,7 +1537,7 @@ minetest.register_node('everness:willow_tree', {
     on_place = minetest.rotate_node
 })
 
-minetest.register_node('everness:willow_wood', {
+Everness:register_node('everness:willow_wood', {
     description = S('Willow Wood Planks'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -1526,7 +1547,7 @@ minetest.register_node('everness:willow_wood', {
     sounds = Everness.node_sound_wood_defaults(),
 })
 
-minetest.register_node('everness:dry_wood', {
+Everness:register_node('everness:dry_wood', {
     description = S('Dry Wood Planks'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -1536,7 +1557,7 @@ minetest.register_node('everness:dry_wood', {
     sounds = Everness.node_sound_wood_defaults(),
 })
 
-minetest.register_node('everness:hollow_tree', {
+Everness:register_node('everness:hollow_tree', {
     description = S('Hollow Tree Trunk'),
     short_description = S('Hollow Tree Trunk'),
     drawtype = 'nodebox',
@@ -1565,7 +1586,7 @@ minetest.register_node('everness:hollow_tree', {
     on_place = minetest.rotate_node
 })
 
-minetest.register_node('everness:crystal_tree', {
+Everness:register_node('everness:crystal_tree', {
     description = S('Crystal Tree Trunk'),
     short_description = S('Crystal Tree Trunk'),
     drawtype = 'nodebox',
@@ -1586,7 +1607,7 @@ minetest.register_node('everness:crystal_tree', {
     on_place = minetest.rotate_node,
 })
 
--- minetest.register_node('everness:mese_tree', {
+-- Everness:register_node('everness:mese_tree', {
 --     description = S('Mese Tree Trunk'),
 --     short_description = S('Mese Tree Trunk'),
 --     tiles = {
@@ -1607,7 +1628,7 @@ minetest.register_node('everness:crystal_tree', {
 --     on_place = minetest.rotate_node
 -- })
 
-minetest.register_node('everness:baobab_leaves', {
+Everness:register_node('everness:baobab_leaves', {
     description = S('Baobab Tree Leaves'),
     short_description = S('Baobab Tree Leaves'),
     drawtype = 'allfaces_optional',
@@ -1635,11 +1656,11 @@ minetest.register_node('everness:baobab_leaves', {
     },
     sounds = Everness.node_sound_leaves_defaults(),
     after_place_node = function(pos, placer, itemstack, pointed_thing)
-        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+        return Everness:after_place_leaves(pos, placer, itemstack, pointed_thing)
     end
 })
 
-minetest.register_node('everness:sequoia_leaves', {
+Everness:register_node('everness:sequoia_leaves', {
     description = S('Sequoia Tree Leaves'),
     short_description = S('Sequoia Tree Leaves'),
     drawtype = 'allfaces_optional',
@@ -1667,12 +1688,12 @@ minetest.register_node('everness:sequoia_leaves', {
     },
     sounds = Everness.node_sound_leaves_defaults(),
     after_place_node = function(pos, placer, itemstack, pointed_thing)
-        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+        return Everness:after_place_leaves(pos, placer, itemstack, pointed_thing)
     end
 })
 
 -- for marker only
-minetest.register_node('everness:baobab_fruit_renewable', {
+Everness:register_node('everness:baobab_fruit_renewable', {
     description = S('Baobab Fruit'),
     short_description = S('Baobab Fruit'),
     drawtype = 'plantlike',
@@ -1710,7 +1731,7 @@ minetest.register_node('everness:baobab_fruit_renewable', {
     end,
 })
 
-minetest.register_node('everness:baobab_fruit_mark', {
+Everness:register_node('everness:baobab_fruit_mark', {
     description = S('Baobab Fruit Marker'),
     short_description = S('Baobab Fruit Marker'),
     inventory_image = 'everness_baobab_tree_fruit.png^[transformFY^default_invisible_node_overlay.png',
@@ -1735,7 +1756,7 @@ minetest.register_node('everness:baobab_fruit_mark', {
     end
 })
 
-minetest.register_node('everness:baobab_fruit', {
+Everness:register_node('everness:baobab_fruit', {
     description = S('Baobab Fruit'),
     short_description = S('Baobab Fruit'),
     drawtype = 'plantlike',
@@ -1757,7 +1778,7 @@ minetest.register_node('everness:baobab_fruit', {
     sounds = Everness.node_sound_leaves_defaults(),
 })
 
-minetest.register_node('everness:baobab_sapling', {
+Everness:register_node('everness:baobab_sapling', {
     description = S('Baobab Sapling'),
     short_description = S('Baobab Sapling'),
     drawtype = 'plantlike',
@@ -1791,7 +1812,7 @@ minetest.register_node('everness:baobab_sapling', {
     end,
 })
 
-minetest.register_node('everness:willow_leaves', {
+Everness:register_node('everness:willow_leaves', {
     description = S('Willow Tree Leaves'),
     short_description = S('Willow Tree Leaves'),
     drawtype = 'allfaces_optional',
@@ -1819,11 +1840,11 @@ minetest.register_node('everness:willow_leaves', {
     },
     sounds = Everness.node_sound_leaves_defaults(),
     after_place_node = function(pos, placer, itemstack, pointed_thing)
-        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+        return Everness:after_place_leaves(pos, placer, itemstack, pointed_thing)
     end
 })
 
-minetest.register_node('everness:coral_leaves', {
+Everness:register_node('everness:coral_leaves', {
     description = S('Coral Tree Leaves'),
     short_description = S('Coral Tree Leaves'),
     drawtype = 'allfaces_optional',
@@ -1850,11 +1871,11 @@ minetest.register_node('everness:coral_leaves', {
     },
     sounds = Everness.node_sound_leaves_defaults(),
     after_place_node = function(pos, placer, itemstack, pointed_thing)
-        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+        return Everness:after_place_leaves(pos, placer, itemstack, pointed_thing)
     end
 })
 
-minetest.register_node('everness:dry_branches', {
+Everness:register_node('everness:dry_branches', {
     description = S('Dry Tree Branches'),
     short_description = S('Dry Tree Branches'),
     drawtype = 'allfaces_optional',
@@ -1881,11 +1902,11 @@ minetest.register_node('everness:dry_branches', {
     },
     sounds = Everness.node_sound_leaves_defaults(),
     after_place_node = function(pos, placer, itemstack, pointed_thing)
-        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+        return Everness:after_place_leaves(pos, placer, itemstack, pointed_thing)
     end
 })
 
-minetest.register_node('everness:crystal_leaves', {
+Everness:register_node('everness:crystal_leaves', {
     description = S('Crystal Tree Leaves'),
     short_description = S('Crystal Tree Leaves'),
     drawtype = 'allfaces_optional',
@@ -1912,11 +1933,11 @@ minetest.register_node('everness:crystal_leaves', {
     },
     sounds = Everness.node_sound_leaves_defaults(),
     after_place_node = function(pos, placer, itemstack, pointed_thing)
-        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+        return Everness:after_place_leaves(pos, placer, itemstack, pointed_thing)
     end
 })
 
-minetest.register_node('everness:coral_tree_sapling', {
+Everness:register_node('everness:coral_tree_sapling', {
     description = S('Coral Tree Sapling'),
     short_description = S('Coral Tree Sapling'),
     drawtype = 'plantlike',
@@ -1950,7 +1971,7 @@ minetest.register_node('everness:coral_tree_sapling', {
     end,
 })
 
-minetest.register_node('everness:coral_tree_bioluminescent_sapling', {
+Everness:register_node('everness:coral_tree_bioluminescent_sapling', {
     description = S('Coral Tree Bioluminescent Sapling'),
     short_description = S('Coral Tree Bioluminescent Sapling'),
     drawtype = 'plantlike',
@@ -1984,7 +2005,7 @@ minetest.register_node('everness:coral_tree_bioluminescent_sapling', {
     end,
 })
 
-minetest.register_node('everness:dry_tree_sapling', {
+Everness:register_node('everness:dry_tree_sapling', {
     description = S('Dry Tree Sapling'),
     short_description = S('Dry Tree Sapling'),
     drawtype = 'plantlike',
@@ -2018,7 +2039,7 @@ minetest.register_node('everness:dry_tree_sapling', {
     end,
 })
 
-minetest.register_node('everness:cursed_dream_tree_sapling', {
+Everness:register_node('everness:cursed_dream_tree_sapling', {
     description = S('Cursed Dream Tree Sapling'),
     short_description = S('Cursed Dream Tree Sapling'),
     drawtype = 'plantlike',
@@ -2052,7 +2073,7 @@ minetest.register_node('everness:cursed_dream_tree_sapling', {
     end,
 })
 
-minetest.register_node('everness:willow_tree_sapling', {
+Everness:register_node('everness:willow_tree_sapling', {
     description = S('Dry Tree Sapling'),
     short_description = S('Dry Tree Sapling'),
     drawtype = 'plantlike',
@@ -2086,7 +2107,7 @@ minetest.register_node('everness:willow_tree_sapling', {
     end,
 })
 
-minetest.register_node('everness:sequoia_tree_sapling', {
+Everness:register_node('everness:sequoia_tree_sapling', {
     description = S('Sequoia Tree Sapling'),
     short_description = S('Sequoia Tree Sapling'),
     drawtype = 'plantlike',
@@ -2122,7 +2143,7 @@ minetest.register_node('everness:sequoia_tree_sapling', {
     end,
 })
 
-minetest.register_node('everness:crystal_tree_sapling', {
+Everness:register_node('everness:crystal_tree_sapling', {
     description = S('Crystal Tree Sapling'),
     short_description = S('Crystal Tree Sapling'),
     drawtype = 'plantlike',
@@ -2156,7 +2177,7 @@ minetest.register_node('everness:crystal_tree_sapling', {
     end,
 })
 
-minetest.register_node('everness:crystal_tree_large_sapling', {
+Everness:register_node('everness:crystal_tree_large_sapling', {
     description = S('Crystal Tree Large Sapling'),
     short_description = S('Crystal Tree Large Sapling'),
     drawtype = 'plantlike',
@@ -2192,7 +2213,7 @@ minetest.register_node('everness:crystal_tree_large_sapling', {
 
 -- Crystal Bush
 
-minetest.register_node('everness:crystal_bush_stem', {
+Everness:register_node('everness:crystal_bush_stem', {
     description = S('Crystal Bush Stem'),
     drawtype = 'plantlike',
     visual_scale = 1.41,
@@ -2209,7 +2230,7 @@ minetest.register_node('everness:crystal_bush_stem', {
     },
 })
 
-minetest.register_node('everness:crystal_bush_leaves', {
+Everness:register_node('everness:crystal_bush_leaves', {
     description = S('Crystal Bush Leaves'),
     drawtype = 'allfaces_optional',
     tiles = { 'everness_crystal_bush_leaves.png' },
@@ -2224,11 +2245,11 @@ minetest.register_node('everness:crystal_bush_leaves', {
     },
     sounds = Everness.node_sound_leaves_defaults(),
     after_place_node = function(pos, placer, itemstack, pointed_thing)
-        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+        return Everness:after_place_leaves(pos, placer, itemstack, pointed_thing)
     end
 })
 
-minetest.register_node('everness:crystal_bush_sapling', {
+Everness:register_node('everness:crystal_bush_sapling', {
     description = S('Crystal Bush Sapling'),
     drawtype = 'plantlike',
     tiles = { 'everness_crystal_bush_sapling.png' },
@@ -2266,7 +2287,7 @@ minetest.register_node('everness:crystal_bush_sapling', {
 
 -- Cursed Bush
 
-minetest.register_node('everness:cursed_bush_stem', {
+Everness:register_node('everness:cursed_bush_stem', {
     description = S('Cursed Bush Stem'),
     drawtype = 'plantlike',
     visual_scale = 1.21,
@@ -2283,7 +2304,7 @@ minetest.register_node('everness:cursed_bush_stem', {
     },
 })
 
-minetest.register_node('everness:cursed_bush_leaves', {
+Everness:register_node('everness:cursed_bush_leaves', {
     description = S('Cursed Bush Leaves'),
     drawtype = 'allfaces_optional',
     tiles = { 'everness_cursed_bush_leaves.png' },
@@ -2298,11 +2319,11 @@ minetest.register_node('everness:cursed_bush_leaves', {
     },
     sounds = Everness.node_sound_leaves_defaults(),
     after_place_node = function(pos, placer, itemstack, pointed_thing)
-        return Everness:leaves_after_place_node(pos, placer, itemstack, pointed_thing)
+        return Everness:after_place_leaves(pos, placer, itemstack, pointed_thing)
     end
 })
 
-minetest.register_node('everness:cursed_bush_sapling', {
+Everness:register_node('everness:cursed_bush_sapling', {
     description = S('Cursed Bush Sapling'),
     drawtype = 'plantlike',
     tiles = { 'everness_cursed_bush_sapling.png' },
@@ -2342,7 +2363,7 @@ minetest.register_node('everness:cursed_bush_sapling', {
 -- Plantlife (non-cubic)
 --
 
-minetest.register_node('everness:coral_burdock_1', {
+Everness:register_node('everness:coral_burdock_1', {
     description = S('Coral Burdock'),
     short_description = S('Coral Burdock'),
     drawtype = 'plantlike',
@@ -2371,7 +2392,7 @@ minetest.register_node('everness:coral_burdock_1', {
     end,
 })
 
-minetest.register_node('everness:coral_burdock_2', {
+Everness:register_node('everness:coral_burdock_2', {
     description = S('Coral Burdock'),
     short_description = S('Coral Burdock'),
     drawtype = 'plantlike',
@@ -2395,7 +2416,7 @@ minetest.register_node('everness:coral_burdock_2', {
     drop = 'everness:coral_burdock_1',
 })
 
-minetest.register_node('everness:coral_bush', {
+Everness:register_node('everness:coral_bush', {
     description = S('Coral Bush'),
     short_description = S('Coral Bush'),
     drawtype = 'plantlike',
@@ -2417,7 +2438,7 @@ minetest.register_node('everness:coral_bush', {
     }
 })
 
-minetest.register_node('everness:coral_shrub', {
+Everness:register_node('everness:coral_shrub', {
     description = S('Coral Shrub'),
     short_description = S('Coral Shrub'),
     drawtype = 'plantlike',
@@ -2439,7 +2460,7 @@ minetest.register_node('everness:coral_shrub', {
     },
 })
 
-minetest.register_node('everness:coral_grass_orange', {
+Everness:register_node('everness:coral_grass_orange', {
     description = S('Orange Coral Grass'),
     short_description = S('Orange Coral Grass'),
     drawtype = 'plantlike',
@@ -2460,7 +2481,7 @@ minetest.register_node('everness:coral_grass_orange', {
     light_source = 6
 })
 
-minetest.register_node('everness:globulagus', {
+Everness:register_node('everness:globulagus', {
     description = S('Globulagus'),
     short_description = S('Globulagus'),
     drawtype = 'plantlike',
@@ -2481,7 +2502,7 @@ minetest.register_node('everness:globulagus', {
     light_source = 7
 })
 
-minetest.register_node('everness:coral_grass_tall', {
+Everness:register_node('everness:coral_grass_tall', {
     description = S('Tall Coral Grass'),
     short_description = S('Tall Coral Grass'),
     drawtype = 'plantlike',
@@ -2503,7 +2524,7 @@ minetest.register_node('everness:coral_grass_tall', {
     light_source = 7
 })
 
-minetest.register_node('everness:crystal_purple', {
+Everness:register_node('everness:crystal_purple', {
     description = S('Purple Crystal'),
     short_description = S('Purple Crystal'),
     drawtype = 'plantlike',
@@ -2524,7 +2545,7 @@ minetest.register_node('everness:crystal_purple', {
     },
 })
 
-minetest.register_node('everness:crystal_orange', {
+Everness:register_node('everness:crystal_orange', {
     description = S('Orange Crystal'),
     short_description = S('Orange Crystal'),
     drawtype = 'plantlike',
@@ -2545,7 +2566,7 @@ minetest.register_node('everness:crystal_orange', {
     },
 })
 
-minetest.register_node('everness:crystal_cyan', {
+Everness:register_node('everness:crystal_cyan', {
     description = S('Cyan Crystal'),
     short_description = S('Cyan Crystal'),
     drawtype = 'plantlike',
@@ -2566,7 +2587,7 @@ minetest.register_node('everness:crystal_cyan', {
     },
 })
 
-minetest.register_node('everness:coral_plant_bioluminescent', {
+Everness:register_node('everness:coral_plant_bioluminescent', {
     description = S('Coral Plant Bioluminescent'),
     short_description = S('Coral Plant Bioluminescent'),
     drawtype = 'plantlike',
@@ -2585,7 +2606,7 @@ minetest.register_node('everness:coral_plant_bioluminescent', {
     light_source = 9
 })
 
-minetest.register_node('everness:blooming_cooksonia', {
+Everness:register_node('everness:blooming_cooksonia', {
     description = S('Blooming Cooksonia'),
     short_description = S('Blooming Cooksonia'),
     drawtype = 'plantlike',
@@ -2605,7 +2626,7 @@ minetest.register_node('everness:blooming_cooksonia', {
     light_source = 9
 })
 
-minetest.register_node('everness:creeping_moss_spores', {
+Everness:register_node('everness:creeping_moss_spores', {
     description = S('Creeping Moss Spores'),
     short_description = S('Creeping Moss Spores'),
     drawtype = 'plantlike',
@@ -2625,7 +2646,7 @@ minetest.register_node('everness:creeping_moss_spores', {
     light_source = 9
 })
 
-minetest.register_node('everness:frosted_icicle', {
+Everness:register_node('everness:frosted_icicle', {
     description = S('Frosted Icicle'),
     short_description = S('Frosted Icicle'),
     drawtype = 'plantlike',
@@ -2645,7 +2666,7 @@ minetest.register_node('everness:frosted_icicle', {
     light_source = 9
 })
 
-minetest.register_node('everness:frosted_icicle_floor', {
+Everness:register_node('everness:frosted_icicle_floor', {
     description = S('Frosted Icicle Floor'),
     short_description = S('Frosted Icicle Floor'),
     drawtype = 'plantlike',
@@ -2673,7 +2694,7 @@ minetest.register_node('everness:frosted_icicle_floor', {
     },
 })
 
-minetest.register_node('everness:coral_grass_1', {
+Everness:register_node('everness:coral_grass_1', {
     description = S('Coral Grass'),
     drawtype = 'plantlike',
     waving = 1,
@@ -2702,7 +2723,7 @@ minetest.register_node('everness:coral_grass_1', {
 })
 
 for i = 2, 5 do
-    minetest.register_node('everness:coral_grass_' .. i, {
+    Everness:register_node('everness:coral_grass_' .. i, {
         description = S('Coral Grass'),
         drawtype = 'plantlike',
         waving = 1,
@@ -2732,7 +2753,7 @@ for i = 2, 5 do
     })
 end
 
-minetest.register_node('everness:red_castor_1', {
+Everness:register_node('everness:red_castor_1', {
     description = S('Red Castor'),
     drawtype = 'plantlike',
     waving = 1,
@@ -2762,7 +2783,7 @@ minetest.register_node('everness:red_castor_1', {
 })
 
 for i = 2, 4 do
-    minetest.register_node('everness:red_castor_' .. i, {
+    Everness:register_node('everness:red_castor_' .. i, {
         description = S('Red Castor'),
         drawtype = 'plantlike',
         waving = 1,
@@ -2793,7 +2814,7 @@ for i = 2, 4 do
     })
 end
 
-minetest.register_node('everness:crystal_mushrooms', {
+Everness:register_node('everness:crystal_mushrooms', {
     description = S('Crystal Mushrooms'),
     tiles = { 'everness_crystal_mushrooms.png' },
     inventory_image = 'everness_crystal_mushrooms.png',
@@ -2813,7 +2834,7 @@ minetest.register_node('everness:crystal_mushrooms', {
     light_source = 3,
 })
 
-minetest.register_node('everness:twisted_crystal_grass', {
+Everness:register_node('everness:twisted_crystal_grass', {
     description = S('Twisted Crystal Grass'),
     short_description = S('Twisted Crystal Grass'),
     drawtype = 'plantlike',
@@ -2834,7 +2855,7 @@ minetest.register_node('everness:twisted_crystal_grass', {
     waving = 1
 })
 
-minetest.register_node('everness:crystal_grass_1', {
+Everness:register_node('everness:crystal_grass_1', {
     description = S('Crystal Grass'),
     drawtype = 'plantlike',
     tiles = { 'everness_crystal_grass_1.png' },
@@ -2862,7 +2883,7 @@ minetest.register_node('everness:crystal_grass_1', {
 })
 
 for i = 2, 3 do
-    minetest.register_node('everness:crystal_grass_' .. i, {
+    Everness:register_node('everness:crystal_grass_' .. i, {
         description = S('Coral Grass'),
         drawtype = 'plantlike',
         tiles = { 'everness_crystal_grass_' .. i .. '.png' },
@@ -2891,7 +2912,7 @@ for i = 2, 3 do
     })
 end
 
-minetest.register_node('everness:marsh_grass', {
+Everness:register_node('everness:marsh_grass', {
     description = S('Marsh Grass'),
     drawtype = 'plantlike',
     waving = 1,
@@ -2913,7 +2934,7 @@ minetest.register_node('everness:marsh_grass', {
 
 -- Forsaken desert plants
 
-minetest.register_node('everness:forsaken_desert_plant_1', {
+Everness:register_node('everness:forsaken_desert_plant_1', {
     description = S('Forsaken Plant'),
     short_description = S('Forsaken Plant'),
     drawtype = 'plantlike',
@@ -2935,7 +2956,7 @@ minetest.register_node('everness:forsaken_desert_plant_1', {
     },
 })
 
-minetest.register_node('everness:forsaken_desert_plant_2', {
+Everness:register_node('everness:forsaken_desert_plant_2', {
     description = S('Forsaken Plant'),
     short_description = S('Forsaken Plant'),
     drawtype = 'plantlike',
@@ -2957,7 +2978,7 @@ minetest.register_node('everness:forsaken_desert_plant_2', {
     },
 })
 
-minetest.register_node('everness:forsaken_desert_plant_3', {
+Everness:register_node('everness:forsaken_desert_plant_3', {
     description = S('Forsaken Plant'),
     short_description = S('Forsaken Plant'),
     drawtype = 'plantlike',
@@ -2979,7 +3000,7 @@ minetest.register_node('everness:forsaken_desert_plant_3', {
     },
 })
 
-minetest.register_node('everness:cactus_blue', {
+Everness:register_node('everness:cactus_blue', {
     description = S('Blue Cactus'),
     tiles = {
         'everness_cactus_blue_top.png',
@@ -3017,7 +3038,7 @@ minetest.register_node('everness:cactus_blue', {
     on_place = minetest.rotate_node,
 })
 
-minetest.register_node('everness:cave_barrel_cactus', {
+Everness:register_node('everness:cave_barrel_cactus', {
     description = S('Cave Barrel Cactus'),
     paramtype = 'light',
     light_source = 7,
@@ -3033,7 +3054,7 @@ minetest.register_node('everness:cave_barrel_cactus', {
     sounds = Everness.node_sound_wood_defaults()
 })
 
-minetest.register_node('everness:venus_trap', {
+Everness:register_node('everness:venus_trap', {
     description = S('Venus Trap Plant'),
     paramtype = 'light',
     paramtype2 = 'facedir',
@@ -3050,7 +3071,7 @@ minetest.register_node('everness:venus_trap', {
     sounds = Everness.node_sound_leaves_defaults()
 })
 
-minetest.register_node('everness:illumi_root', {
+Everness:register_node('everness:illumi_root', {
     description = S('Illumi Root'),
     short_description = S('Illumi Root'),
     drawtype = 'plantlike',
@@ -3073,7 +3094,7 @@ minetest.register_node('everness:illumi_root', {
     },
 })
 
-minetest.register_node('everness:crystal_waterlily', {
+Everness:register_node('everness:crystal_waterlily', {
     description = S('Crystal Waterlily'),
     drawtype = 'nodebox',
     paramtype = 'light',
@@ -3142,7 +3163,7 @@ minetest.register_node('everness:crystal_waterlily', {
 
 -- Forsaken Tundra Plants
 
-minetest.register_node('everness:cactus_orange', {
+Everness:register_node('everness:cactus_orange', {
     description = S('Orange Cactus'),
     tiles = {
         'everness_cactus_top.png',
@@ -3180,7 +3201,7 @@ minetest.register_node('everness:cactus_orange', {
     on_place = minetest.rotate_node,
 })
 
-minetest.register_node('everness:agave_leaf_1', {
+Everness:register_node('everness:agave_leaf_1', {
     description = S('Agave Leaf'),
     drawtype = 'plantlike',
     waving = 1,
@@ -3209,7 +3230,7 @@ minetest.register_node('everness:agave_leaf_1', {
 })
 
 for i = 2, 3 do
-    minetest.register_node('everness:agave_leaf_' .. i, {
+    Everness:register_node('everness:agave_leaf_' .. i, {
         description = S('Agave Leaf'),
         drawtype = 'plantlike',
         waving = 1,
@@ -3241,7 +3262,7 @@ end
 
 -- Cursed Lands Plants
 
-minetest.register_node('everness:egg_plant', {
+Everness:register_node('everness:egg_plant', {
     description = S('Egg plant'),
     drawtype = 'nodebox',
     tiles = {
@@ -3275,7 +3296,7 @@ minetest.register_node('everness:egg_plant', {
     move_resistance = 7,
 })
 
-minetest.register_node('everness:ivis_moss', {
+Everness:register_node('everness:ivis_moss', {
     description = S('Ivis Moss'),
     drawtype = 'plantlike',
     waving = 1,
@@ -3297,7 +3318,7 @@ minetest.register_node('everness:ivis_moss', {
     place_param2 = 3
 })
 
-minetest.register_node('everness:ngrass_1', {
+Everness:register_node('everness:ngrass_1', {
     description = S('Ngrass'),
     drawtype = 'plantlike',
     waving = 1,
@@ -3317,7 +3338,7 @@ minetest.register_node('everness:ngrass_1', {
     light_source = 5,
 })
 
-minetest.register_node('everness:ngrass_2', {
+Everness:register_node('everness:ngrass_2', {
     description = S('Ngrass'),
     drawtype = 'plantlike',
     waving = 1,
@@ -3340,7 +3361,7 @@ minetest.register_node('everness:ngrass_2', {
 -- Bamboo
 
 -- small bamboo
-minetest.register_node('everness:bamboo_1', {
+Everness:register_node('everness:bamboo_1', {
     description = S('Bamboo'),
     -- +Y, -Y, +X, -X, +Z, -Z
     tiles = {
@@ -3407,7 +3428,7 @@ minetest.register_node('everness:bamboo_1', {
     end,
 })
 
-minetest.register_node('everness:bamboo_2', {
+Everness:register_node('everness:bamboo_2', {
     description = S('Bamboo'),
     -- +Y, -Y, +X, -X, +Z, -Z
     tiles = {
@@ -3476,7 +3497,7 @@ minetest.register_node('everness:bamboo_2', {
 
 -- large bamboo
 
-minetest.register_node('everness:bamboo_3', {
+Everness:register_node('everness:bamboo_3', {
     description = S('Bamboo'),
     -- +Y, -Y, +X, -X, +Z, -Z
     tiles = {
@@ -3539,7 +3560,7 @@ minetest.register_node('everness:bamboo_3', {
     end,
 })
 
-minetest.register_node('everness:bamboo_4', {
+Everness:register_node('everness:bamboo_4', {
     description = S('Bamboo'),
     -- +Y, -Y, +X, -X, +Z, -Z
     tiles = {
@@ -3602,7 +3623,7 @@ minetest.register_node('everness:bamboo_4', {
     end,
 })
 
-minetest.register_node('everness:bamboo_5', {
+Everness:register_node('everness:bamboo_5', {
     description = S('Bamboo'),
     -- +Y, -Y, +X, -X, +Z, -Z
     tiles = {
@@ -3665,7 +3686,7 @@ minetest.register_node('everness:bamboo_5', {
     end,
 })
 
-minetest.register_node('everness:bamboo_sprout', {
+Everness:register_node('everness:bamboo_sprout', {
     description = S('Bamboo Sprout'),
     tiles = { 'everness_bamboo_sprout.png' },
     inventory_image = 'everness_bamboo_sprout.png',
@@ -3695,7 +3716,7 @@ minetest.register_node('everness:bamboo_sprout', {
 
 -- Forsaken Tundra Plants
 
-minetest.register_node('everness:bloodspore_plant', {
+Everness:register_node('everness:bloodspore_plant', {
     description = S('Blood Spoore Plant'),
     short_description = S('Blood Spoore Plant'),
     drawtype = 'plantlike',
@@ -3714,7 +3735,7 @@ minetest.register_node('everness:bloodspore_plant', {
     light_source = 7
 })
 
-minetest.register_node('everness:bloodspore_plant_small', {
+Everness:register_node('everness:bloodspore_plant_small', {
     description = S('Blood Spoore Plant Small'),
     short_description = S('Blood Spoore Plant Small'),
     drawtype = 'plantlike',
@@ -3733,7 +3754,7 @@ minetest.register_node('everness:bloodspore_plant_small', {
     light_source = 7
 })
 
-minetest.register_node('everness:termite_block', {
+Everness:register_node('everness:termite_block', {
     description = S('Termite Block'),
     tiles = { 'everness_termite_block.png' },
     drawtype = 'glasslike',
@@ -3748,7 +3769,7 @@ minetest.register_node('everness:termite_block', {
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
-minetest.register_node('everness:bamboo_block', {
+Everness:register_node('everness:bamboo_block', {
     description = S('Bamboo Block'),
     tiles = {
         'everness_bamboo_block_top.png',
@@ -3763,7 +3784,7 @@ minetest.register_node('everness:bamboo_block', {
     on_place = minetest.rotate_node,
 })
 
-minetest.register_node('everness:bamboo_dry_block', {
+Everness:register_node('everness:bamboo_dry_block', {
     description = S('Bamboo Block'),
     tiles = {
         'everness_dry_bamboo_block_top.png',
@@ -3778,7 +3799,7 @@ minetest.register_node('everness:bamboo_dry_block', {
     on_place = minetest.rotate_node,
 })
 
-minetest.register_node('everness:bamboo_wood', {
+Everness:register_node('everness:bamboo_wood', {
     description = S('Bamboo Planks'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -3788,7 +3809,7 @@ minetest.register_node('everness:bamboo_wood', {
     sounds = Everness.node_sound_wood_defaults(),
 })
 
-minetest.register_node('everness:bamboo_mosaic_wood', {
+Everness:register_node('everness:bamboo_mosaic_wood', {
     description = S('Bamboo Mosaic'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -3798,7 +3819,7 @@ minetest.register_node('everness:bamboo_mosaic_wood', {
     sounds = Everness.node_sound_wood_defaults(),
 })
 
-minetest.register_node('everness:baobab_wood', {
+Everness:register_node('everness:baobab_wood', {
     description = S('Baobab Wood Planks'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -3808,7 +3829,7 @@ minetest.register_node('everness:baobab_wood', {
     sounds = Everness.node_sound_wood_defaults(),
 })
 
-minetest.register_node('everness:sequoia_wood', {
+Everness:register_node('everness:sequoia_wood', {
     description = S('Sequoia Wood Planks'),
     paramtype2 = 'facedir',
     place_param2 = 0,
@@ -3870,7 +3891,7 @@ local function coral_on_place(itemstack, placer, pointed_thing, params)
     return itemstack
 end
 
-minetest.register_node('everness:coral_corals', {
+Everness:register_node('everness:coral_corals', {
     description = S('Coral Corals'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -3899,7 +3920,7 @@ minetest.register_node('everness:coral_corals', {
     end,
 })
 
-minetest.register_node('everness:coral_jellyfish', {
+Everness:register_node('everness:coral_jellyfish', {
     description = S('Coral Corals'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -3928,7 +3949,7 @@ minetest.register_node('everness:coral_jellyfish', {
     end,
 })
 
-minetest.register_node('everness:coral_frosted', {
+Everness:register_node('everness:coral_frosted', {
     description = S('Coral Frosted'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -3957,7 +3978,7 @@ minetest.register_node('everness:coral_frosted', {
     end,
 })
 
-minetest.register_node('everness:coral_starfish', {
+Everness:register_node('everness:coral_starfish', {
     description = S('Coral Starfish'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -3986,7 +4007,7 @@ minetest.register_node('everness:coral_starfish', {
     end,
 })
 
-minetest.register_node('everness:sand_with_spine_kelp', {
+Everness:register_node('everness:sand_with_spine_kelp', {
     description = S('Spine Kelp'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -4057,7 +4078,7 @@ minetest.register_node('everness:sand_with_spine_kelp', {
     end
 })
 
-minetest.register_node('everness:coral_forest_deep_ocean_coral_plant_1', {
+Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_1', {
     description = S('Coral Bulbs'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -4097,7 +4118,7 @@ minetest.register_node('everness:coral_forest_deep_ocean_coral_plant_1', {
     end,
 })
 
-minetest.register_node('everness:coral_forest_deep_ocean_coral_plant_2', {
+Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_2', {
     description = S('Coral Tree'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -4137,7 +4158,7 @@ minetest.register_node('everness:coral_forest_deep_ocean_coral_plant_2', {
     end,
 })
 
-minetest.register_node('everness:coral_forest_deep_ocean_coral_plant_3', {
+Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_3', {
     description = S('Coral Palm'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -4177,7 +4198,7 @@ minetest.register_node('everness:coral_forest_deep_ocean_coral_plant_3', {
     end,
 })
 
-minetest.register_node('everness:cursed_lands_deep_ocean_coral_plant_anemone', {
+Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_anemone', {
     description = S('Coral Anemone'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -4217,7 +4238,7 @@ minetest.register_node('everness:cursed_lands_deep_ocean_coral_plant_anemone', {
     end,
 })
 
-minetest.register_node('everness:cursed_lands_deep_ocean_coral_plant_darkilluma', {
+Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_darkilluma', {
     description = S('Coral Darkilluma'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -4257,7 +4278,7 @@ minetest.register_node('everness:cursed_lands_deep_ocean_coral_plant_darkilluma'
     end,
 })
 
-minetest.register_node('everness:cursed_lands_deep_ocean_coral_plant_demon', {
+Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_demon', {
     description = S('Coral Demon'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -4297,7 +4318,7 @@ minetest.register_node('everness:cursed_lands_deep_ocean_coral_plant_demon', {
     end,
 })
 
-minetest.register_node('everness:crystal_forest_deep_ocean_coral_plant_1', {
+Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_1', {
     description = S('Crystal Forest Deep Ocean Coral Plant Cyan'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -4337,7 +4358,7 @@ minetest.register_node('everness:crystal_forest_deep_ocean_coral_plant_1', {
     end,
 })
 
-minetest.register_node('everness:crystal_forest_deep_ocean_coral_plant_2', {
+Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_2', {
     description = S('Crystal Forest Deep Ocean Coral Plant Orange'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -4377,7 +4398,7 @@ minetest.register_node('everness:crystal_forest_deep_ocean_coral_plant_2', {
     end,
 })
 
-minetest.register_node('everness:crystal_forest_deep_ocean_coral_plant_3', {
+Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_3', {
     description = S('Crystal Forest Deep Ocean Coral Plant Pink'),
     drawtype = 'plantlike_rooted',
     waving = 1,
@@ -4417,84 +4438,84 @@ minetest.register_node('everness:crystal_forest_deep_ocean_coral_plant_3', {
     end,
 })
 
-minetest.register_node('everness:crystal_coral_dark', {
+Everness:register_node('everness:crystal_coral_dark', {
     description = S('Crystal Coral Dark'),
     tiles = { 'everness_crystal_coral_dark_block.png' },
     groups = { cracky = 3 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:crystal_coral_light', {
+Everness:register_node('everness:crystal_coral_light', {
     description = S('Crystal Coral Light'),
     tiles = { 'everness_crystal_coral_light_block.png' },
     groups = { cracky = 3 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_forest_deep_ocean_coral_1', {
+Everness:register_node('everness:coral_forest_deep_ocean_coral_1', {
     description = S('Coral Forest Deep Ocean Coral Pink'),
     tiles = { 'everness_deep_ocean_coral_1.png' },
     groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_forest_deep_ocean_coral_2', {
+Everness:register_node('everness:coral_forest_deep_ocean_coral_2', {
     description = S('Coral Forest Deep Ocean Coral Cyan'),
     tiles = { 'everness_deep_ocean_coral_2.png' },
     groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_forest_deep_ocean_coral_3', {
+Everness:register_node('everness:coral_forest_deep_ocean_coral_3', {
     description = S('Coral Forest Deep Ocean Coral Green'),
     tiles = { 'everness_deep_ocean_coral_3.png' },
     groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:coral_forest_deep_ocean_coral_4', {
+Everness:register_node('everness:coral_forest_deep_ocean_coral_4', {
     description = S('Coral Forest Deep Ocean Coral Red'),
     tiles = { 'everness_deep_ocean_coral_4.png' },
     groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:cursed_lands_deep_ocean_coral_alcyonacea', {
+Everness:register_node('everness:cursed_lands_deep_ocean_coral_alcyonacea', {
     description = S('Coral Alcyonacea'),
     tiles = { 'everness_cursed_lands_deep_ocean_coral_alcyonacea.png' },
     groups = { cracky = 3, everness_cursed_lands_deep_ocean_coral = 1 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:cursed_lands_deep_ocean_coral_ostracod', {
+Everness:register_node('everness:cursed_lands_deep_ocean_coral_ostracod', {
     description = S('Coral Ostracod'),
     tiles = { 'everness_cursed_lands_deep_ocean_coral_ostracod.png' },
     groups = { cracky = 3, everness_cursed_lands_deep_ocean_coral = 1 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:cursed_lands_deep_ocean_coral_octocurse', {
+Everness:register_node('everness:cursed_lands_deep_ocean_coral_octocurse', {
     description = S('Coral Octocurse'),
     tiles = { 'everness_cursed_lands_deep_ocean_coral_octocurse.png' },
     groups = { cracky = 3, everness_cursed_lands_deep_ocean_coral = 1 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:crystal_forest_deep_ocean_coral_1', {
+Everness:register_node('everness:crystal_forest_deep_ocean_coral_1', {
     description = S('Crystal Forest Deep Ocean Coral Green'),
     tiles = { 'everness_crystal_forest_deep_ocean_coral_1.png' },
     groups = { cracky = 3, everness_crystal_forest_deep_ocean_coral = 1 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:crystal_forest_deep_ocean_coral_2', {
+Everness:register_node('everness:crystal_forest_deep_ocean_coral_2', {
     description = S('Crystal Forest Deep Ocean Coral Orange'),
     tiles = { 'everness_crystal_forest_deep_ocean_coral_2.png' },
     groups = { cracky = 3, everness_crystal_forest_deep_ocean_coral = 1 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:crystal_forest_deep_ocean_coral_3', {
+Everness:register_node('everness:crystal_forest_deep_ocean_coral_3', {
     description = S('Crystal Forest Deep Ocean Coral Cyan'),
     tiles = { 'everness_crystal_forest_deep_ocean_coral_3.png' },
     groups = { cracky = 3, everness_crystal_forest_deep_ocean_coral = 1 },
@@ -4507,7 +4528,7 @@ minetest.register_node('everness:crystal_forest_deep_ocean_coral_3', {
 
 -- Skull with candle
 
-minetest.register_node('everness:skull_with_candle', {
+Everness:register_node('everness:skull_with_candle', {
     description = S('Skull with Candle'),
     short_description = S('Skull with Candle'),
     drawtype = 'mesh',
@@ -4548,7 +4569,7 @@ minetest.register_node('everness:skull_with_candle', {
 
 -- Forsythia Bush
 
-minetest.register_node('everness:forsythia_bush', {
+Everness:register_node('everness:forsythia_bush', {
     description = S('Forsythia Bush'),
     short_description = S('Forsythia Bush'),
     drawtype = 'mesh',
@@ -4567,7 +4588,7 @@ minetest.register_node('everness:forsythia_bush', {
 
 -- Glowing Pillar
 
-minetest.register_node('everness:glowing_pillar', {
+Everness:register_node('everness:glowing_pillar', {
     description = S('Glowing Pillar'),
     short_description = S('Glowing Pillar'),
     drawtype = 'mesh',
@@ -4597,7 +4618,7 @@ minetest.register_node('everness:glowing_pillar', {
 
 -- Blue Vine Lantern
 
-minetest.register_node('everness:blue_vine_lantern', {
+Everness:register_node('everness:blue_vine_lantern', {
     description = S('Blue Vine Lantern'),
     short_description = S('Blue Vine Lantern'),
     drawtype = 'mesh',
@@ -4627,7 +4648,7 @@ minetest.register_node('everness:blue_vine_lantern', {
 
 -- Amaranita Lantern
 
-minetest.register_node('everness:amaranita_lantern', {
+Everness:register_node('everness:amaranita_lantern', {
     description = S('Amaranita Lantern'),
     short_description = S('Amaranita Lantern'),
     drawtype = 'mesh',
@@ -4655,7 +4676,7 @@ minetest.register_node('everness:amaranita_lantern', {
     light_source = 12,
 })
 
-minetest.register_node('everness:lumecorn', {
+Everness:register_node('everness:lumecorn', {
     description = S('Lumecorn'),
     short_description = S('Lumecorn'),
     drawtype = 'mesh',
@@ -4693,7 +4714,7 @@ minetest.register_node('everness:lumecorn', {
 -- Tools / 'Advanced' crafting / Non-'natural'
 --
 
-minetest.register_node('everness:tinted_glass_red', {
+Everness:register_node('everness:tinted_glass_red', {
     description = S('Tinted Glass Red'),
     drawtype = 'glasslike_framed_optional',
     tiles = { 'everness_tinted_glass_base.png^[colorize:#3A0907:122' },
@@ -4724,7 +4745,7 @@ minetest.register_lbm({
     end,
 })
 
-minetest.register_node('everness:pyrite_lantern', {
+Everness:register_node('everness:pyrite_lantern', {
     description = S('Pyrite Lantern'),
     drawtype = 'glasslike',
     tiles = { 'everness_pyrite_lantern.png' },
@@ -4736,7 +4757,7 @@ minetest.register_node('everness:pyrite_lantern', {
     light_source = 12,
 })
 
-minetest.register_node('everness:pyrite_glass', {
+Everness:register_node('everness:pyrite_glass', {
     description = S('Pyrite Glass'),
     drawtype = 'glasslike_framed_optional',
     tiles = { 'everness_pyrite_glass.png', 'default_obsidian_glass_detail.png' },
@@ -4748,7 +4769,7 @@ minetest.register_node('everness:pyrite_glass', {
     sounds = Everness.node_sound_glass_defaults(),
 })
 
-minetest.register_node('everness:lumabus_vine_lantern', {
+Everness:register_node('everness:lumabus_vine_lantern', {
     description = S('Lumabus Vine Lantern'),
     drawtype = 'mesh',
     mesh = 'everness_lumabus.obj',
@@ -4773,7 +4794,7 @@ minetest.register_node('everness:lumabus_vine_lantern', {
     },
 })
 
-minetest.register_node('everness:eye_vine_lantern', {
+Everness:register_node('everness:eye_vine_lantern', {
     description = S('Eye Vine Lantern'),
     paramtype = 'light',
     tiles = {
@@ -4791,7 +4812,7 @@ minetest.register_node('everness:eye_vine_lantern', {
     on_place = minetest.rotate_node,
 })
 
-minetest.register_node('everness:cursed_pumpkin_lantern', {
+Everness:register_node('everness:cursed_pumpkin_lantern', {
     description = S('Cursed Pumpkin Lantern'),
     short_description = S('Cursed Pumpkin Lantern'),
     tiles = {
@@ -4810,7 +4831,7 @@ minetest.register_node('everness:cursed_pumpkin_lantern', {
     groups = { snappy = 3, flammable = 4, fall_damage_add_percent = -30 }
 })
 
-minetest.register_node('everness:floating_crystal', {
+Everness:register_node('everness:floating_crystal', {
     description = S('Floating Crystal'),
     drawtype = 'plantlike',
     tiles = {
@@ -4916,7 +4937,7 @@ minetest.register_node('everness:floating_crystal', {
     end
 })
 
-minetest.register_node('everness:coral_forest_deep_ocean_lantern', {
+Everness:register_node('everness:coral_forest_deep_ocean_lantern', {
     description = S('Coral Forest Deep Ocean Lantern'),
     tiles = {
         {

@@ -948,14 +948,6 @@ function Everness.use_shell_of_underwater_breathing(self, itemstack, user, point
     return itemstack
 end
 
-function Everness.leaves_after_place_node(self, pos, placer, itemstack, pointed_thing)
-    if minetest.get_modpath('default') or minetest.global_exists('default') then
-        if default.after_place_leaves then
-            return default.after_place_leaves(pos, placer, itemstack, pointed_thing)
-        end
-    end
-end
-
 function Everness.sapling_on_place(self, itemstack, placer, pointed_thing, props)
     local _props = props or {}
     if minetest.get_modpath('default') or minetest.global_exists('default') then
@@ -972,5 +964,219 @@ function Everness.sapling_on_place(self, itemstack, placer, pointed_thing, props
 
             return itemstack
         end
+    elseif minetest.get_modpath('mcl_util') and minetest.global_exists('mcl_util') then
+        local on_place_func = mcl_util.generate_on_place_plant_function(function(pos, node)
+            local node_below = minetest.get_node_or_nil({ x = pos.x, y = pos.y - 1, z = pos.z })
+
+            if not node_below then
+                return false
+            end
+
+            local nn = node_below.name
+
+            return minetest.get_item_group(nn, 'grass_block') == 1
+                or nn == 'mcl_core:podzol'
+                or nn == 'mcl_core:podzol_snow'
+                or nn == 'mcl_core:dirt'
+                or nn == 'mcl_core:mycelium'
+                or nn == 'mcl_core:coarse_dirt'
+        end)
+
+        return on_place_func(itemstack, placer, pointed_thing)
     end
+end
+
+--
+-- Leafdecay - taken from MTG
+--
+
+-- Prevent decay of placed leaves
+
+Everness.after_place_leaves = function(self, pos, placer, itemstack, pointed_thing)
+    if placer and placer:is_player() then
+        local node = minetest.get_node(pos)
+        node.param2 = 1
+        minetest.set_node(pos, node)
+    end
+end
+
+-- Leafdecay
+local function leafdecay_after_destruct(pos, oldnode, def)
+    for _, v in pairs(minetest.find_nodes_in_area(vector.subtract(pos, def.radius),
+        vector.add(pos, def.radius), def.leaves))
+    do
+        local node = minetest.get_node(v)
+        local timer = minetest.get_node_timer(v)
+        if node.param2 ~= 1 and not timer:is_started() then
+            timer:start(math.random(20, 120) / 10)
+        end
+    end
+end
+
+local movement_gravity = tonumber(minetest.settings:get('movement_gravity')) or 9.81
+
+local function leafdecay_on_timer(pos, def)
+    if minetest.find_node_near(pos, def.radius, def.trunks) then
+        return false
+    end
+
+    local node = minetest.get_node(pos)
+    local drops = minetest.get_node_drops(node.name)
+
+    for _, item in ipairs(drops) do
+        local is_leaf
+        for _, v in pairs(def.leaves) do
+            if v == item then
+                is_leaf = true
+            end
+        end
+        if minetest.get_item_group(item, 'leafdecay_drop') ~= 0
+            or not is_leaf
+        then
+            minetest.add_item({
+                x = pos.x - 0.5 + math.random(),
+                y = pos.y - 0.5 + math.random(),
+                z = pos.z - 0.5 + math.random(),
+            }, item)
+        end
+    end
+
+    minetest.remove_node(pos)
+    minetest.check_for_falling(pos)
+
+    -- spawn a few particles for the removed node
+    minetest.add_particlespawner({
+        amount = 8,
+        time = 0.001,
+        minpos = vector.subtract(pos, { x = 0.5, y = 0.5, z = 0.5 }),
+        maxpos = vector.add(pos, { x = 0.5, y = 0.5, z = 0.5 }),
+        minvel = vector.new(-0.5, -1, -0.5),
+        maxvel = vector.new(0.5, 0, 0.5),
+        minacc = vector.new(0, -movement_gravity, 0),
+        maxacc = vector.new(0, -movement_gravity, 0),
+        minsize = 0,
+        maxsize = 0,
+        node = node,
+    })
+end
+
+function Everness.register_leafdecay(self, def)
+    assert(def.leaves)
+    assert(def.trunks)
+    assert(def.radius)
+
+    for _, v in pairs(def.trunks) do
+        minetest.override_item(v, {
+            after_destruct = function(pos, oldnode)
+                leafdecay_after_destruct(pos, oldnode, def)
+            end,
+        })
+    end
+
+    for _, v in pairs(def.leaves) do
+        minetest.override_item(v, {
+            on_timer = function(pos)
+                leafdecay_on_timer(pos, def)
+            end,
+        })
+    end
+end
+
+function Everness.register_node(self, name, def, props)
+    local _def = table.copy(def)
+    local _name = name
+
+    if _def.groups then
+        ---
+        -- Damage and digging time defining groups
+        ---
+
+        if _def.groups.crumbly then
+            -- dirt, sand
+            _def.groups.handy = 1
+            _def.groups.shovely = 1
+            _def.groups.building_block = 1
+            _def.groups.enderman_takable = 1
+
+            _def._mcl_blast_resistance = 0.5
+            _def._mcl_hardness = 2
+        end
+
+        if _def.groups.cracky then
+            -- tough but crackable stuff like stone
+            _def.groups.pickaxey = 1
+            _def.groups.building_block = 1
+
+            _def._mcl_blast_resistance = 6
+            _def._mcl_hardness = 1.5
+        end
+
+        if _def.groups.snappy then
+            -- something that can be cut using things like scissors, shears
+            _def.groups.handy = 1
+            _def.groups.hoey = 1
+            _def.groups.shearsy = 1
+            _def.groups.swordy = 1
+            _def.groups.dig_by_piston = 1
+            _def.groups.flammable = 2
+            _def.groups.fire_encouragement = 30
+            _def.groups.fire_flammability = 60
+            _def.groups.deco_block = 1
+            _def.groups.compostability = 30
+
+            _def._mcl_blast_resistance = 0.2
+            _def._mcl_hardness = 0.2
+        end
+
+        if _def.groups.choppy then
+            -- something that can be cut using force; e.g. trees, wooden planks
+            _def.groups.handy = 1
+            _def.groups.axey = 1
+            _def.groups.flammable = 2
+            _def.groups.building_block = 1
+            _def.groups.material_wood = 1
+            _def.groups.fire_encouragement = 5
+            _def.groups.fire_flammability = 5
+
+            _def._mcl_blast_resistance = 2
+            _def._mcl_hardness = 2
+        end
+
+        if _def.groups.fleshy then
+            -- living things like animals and the player. This could imply some blood effects when hitting
+            _def.groups.food = 2
+            _def.groups.eatable = 4
+            _def.groups.compostability = 65
+            _def._mcl_saturation = 2.4
+        end
+
+        if _def.groups.oddly_breakable_by_hand then
+            -- can be added to nodes that shouldn't logically be breakable by the hand but are
+            _def.groups.handy = 1
+        end
+
+        if _def.groups.explody then
+            -- especially prone to explosions
+            _def._mcl_blast_resistance = 1200
+            _def._mcl_hardness = 50
+        end
+
+        -- material groups
+        if _def.groups.sand then
+            _def.groups.soil_sugarcane = 1
+            _def.groups.material_sand = 1
+        end
+
+        if _def.groups.stone then
+            _def.groups.material_stone = 1
+        end
+
+        if _def.groups.soil then
+            _def.groups.soil_sapling = 2
+            _def.groups.soil_sugarcane = 1
+            _def.groups.cultivatable = 2
+        end
+    end
+
+    minetest.register_node(_name, _def)
 end
