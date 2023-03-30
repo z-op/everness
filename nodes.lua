@@ -26,7 +26,7 @@ local S = minetest.get_translator(minetest.get_current_modname())
 
 Everness:register_node('everness:stone_with_pyrite', {
     description = S('Pyrite Ore'),
-    tiles = { 'default_stone.png^everness_mineral_pyrite.png' },
+    tiles = { 'everness_default_stone.png^everness_mineral_pyrite.png' },
     groups = { cracky = 2 },
     drop = 'everness:pyrite_lump',
     sounds = Everness.node_sound_stone_defaults(),
@@ -130,7 +130,7 @@ Everness:register_node('everness:pyriteblock_polished', {
 
 Everness:register_node('everness:quartz_ore', {
     description = S('Quartz Ore'),
-    tiles = { 'default_stone.png^everness_quartz_ore.png' },
+    tiles = { 'everness_default_stone.png^everness_quartz_ore.png' },
     groups = { cracky = 3 },
     drop = 'everness:quartz_crystal',
     sounds = Everness.node_sound_stone_defaults(),
@@ -1728,8 +1728,8 @@ Everness:register_node('everness:baobab_fruit_renewable', {
 Everness:register_node('everness:baobab_fruit_mark', {
     description = S('Baobab Fruit Marker'),
     short_description = S('Baobab Fruit Marker'),
-    inventory_image = 'everness_baobab_tree_fruit.png^[transformFY^default_invisible_node_overlay.png',
-    wield_image = 'everness_baobab_tree_fruit.png^[transformFY^default_invisible_node_overlay.png',
+    inventory_image = 'everness_baobab_tree_fruit.png^[transformFY^everness_invisible_node_overlay.png',
+    wield_image = 'everness_baobab_tree_fruit.png^[transformFY^everness_invisible_node_overlay.png',
     drawtype = 'airlike',
     paramtype = 'light',
     sunlight_propagates = true,
@@ -3695,11 +3695,7 @@ Everness:register_node('everness:bamboo_sprout', {
         type = 'fixed',
         fixed = { -0.5, -0.5, -0.5, 0.5, -5 / 16, 0.5 },
     },
-    sounds = Everness.node_sound_dirt_defaults({
-        dig = { name = '', gain = 0 },
-        dug = { name = 'everness_grass_footstep', gain = 0.2 },
-        place = { name = 'default_place_node', gain = 0.25 },
-    }),
+    sounds = Everness.node_sound_leaves_defaults(),
     after_place_node = function(pos, placer, itemstack, pointed_thing)
         Everness:tick_bamboo_again(pos)
     end,
@@ -3890,7 +3886,7 @@ Everness:register_node('everness:coral_corals', {
     drawtype = 'plantlike_rooted',
     waving = 1,
     paramtype = 'light',
-    tiles = { 'default_coral_skeleton.png' },
+    tiles = { 'everness_coral_skeleton.png' },
     special_tiles = { { name = 'everness_coral_corals.png', tileable_vertical = true } },
     inventory_image = 'everness_coral_corals.png',
     wield_image = 'everness_coral_corals.png',
@@ -3919,7 +3915,7 @@ Everness:register_node('everness:coral_jellyfish', {
     drawtype = 'plantlike_rooted',
     waving = 1,
     paramtype = 'light',
-    tiles = { 'default_coral_skeleton.png' },
+    tiles = { 'everness_coral_skeleton.png' },
     special_tiles = { { name = 'everness_coral_jellyfish.png', tileable_vertical = true } },
     inventory_image = 'everness_coral_jellyfish.png',
     wield_image = 'everness_coral_jellyfish.png',
@@ -3948,7 +3944,7 @@ Everness:register_node('everness:coral_frosted', {
     drawtype = 'plantlike_rooted',
     waving = 1,
     paramtype = 'light',
-    tiles = { 'default_coral_skeleton.png' },
+    tiles = { 'everness_coral_skeleton.png' },
     special_tiles = { { name = 'everness_frosted_coral.png', tileable_vertical = true } },
     inventory_image = 'everness_frosted_coral.png',
     wield_image = 'everness_frosted_coral.png',
@@ -3977,7 +3973,7 @@ Everness:register_node('everness:coral_starfish', {
     drawtype = 'plantlike_rooted',
     waving = 1,
     paramtype = 'light',
-    tiles = { 'default_coral_skeleton.png' },
+    tiles = { 'everness_coral_skeleton.png' },
     special_tiles = { { name = 'everness_starfish.png', tileable_vertical = true } },
     inventory_image = 'everness_starfish.png',
     wield_image = 'everness_starfish.png',
@@ -4754,7 +4750,7 @@ Everness:register_node('everness:pyrite_lantern', {
 Everness:register_node('everness:pyrite_glass', {
     description = S('Pyrite Glass'),
     drawtype = 'glasslike_framed_optional',
-    tiles = { 'everness_pyrite_glass.png', 'default_obsidian_glass_detail.png' },
+    tiles = { 'everness_pyrite_glass.png' },
     use_texture_alpha = 'clip', -- only needed for stairs API
     paramtype = 'light',
     sunlight_propagates = true,

@@ -23,7 +23,7 @@ minetest.register_tool('everness:vine_shears', {
     inventory_image = 'everness_vine_shears.png',
     wield_image = 'everness_vine_shears.png',
     wield_scale = { x = 2, y = 2, z = 1 },
-    sound = { breaks = 'default_tool_breaks' },
+    sound = { breaks = 'everness_tool_breaks' },
     tool_capabilities = {
         full_punch_interval = 1.0,
         max_drop_level = 0,
@@ -47,7 +47,7 @@ minetest.register_tool('everness:pick_illuminating', {
         },
         damage_groups = { fleshy = 5 },
     },
-    sound = { breaks = 'default_tool_breaks' },
+    sound = { breaks = 'everness_tool_breaks' },
     groups = { pickaxe = 1, enchantability = 10 },
     on_place = function(itemstack, placer, pointed_thing)
         if pointed_thing.type == 'node' then
@@ -140,7 +140,7 @@ minetest.register_tool('everness:shovel_silk', {
         damage_groups = { fleshy = 4 },
     },
     sound = {
-        breaks = 'default_tool_breaks'
+        breaks = 'everness_tool_breaks'
     },
     -- no `shovel` group so it cannot be enchanted
     -- groups = { shovel = 1 }
@@ -185,7 +185,7 @@ minetest.register_tool('everness:shell_of_underwater_breathing', {
         },
         damage_groups = { fleshy = 1 },
     },
-    sound = { breaks = 'default_tool_breaks' },
+    sound = { breaks = 'everness_tool_breaks' },
     on_place = function(itemstack, placer, pointed_thing)
         return Everness:use_shell_of_underwater_breathing(itemstack, placer, pointed_thing)
     end,
