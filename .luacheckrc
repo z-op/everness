@@ -87,4 +87,5 @@ read_globals = {
     "mcl_stairs",
     "mcl_core",
     "mcl_util",
+    "mcl_doors",
 }
