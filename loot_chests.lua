@@ -45,6 +45,10 @@ minetest.register_lbm({
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
 
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
+
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
 
@@ -61,6 +65,10 @@ minetest.register_lbm({
                 -- Jungle Temple
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
 
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
@@ -79,6 +87,10 @@ minetest.register_lbm({
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
 
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
+
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
 
@@ -95,6 +107,10 @@ minetest.register_lbm({
                 -- Quartz Temple
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
 
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
@@ -113,6 +129,10 @@ minetest.register_lbm({
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
 
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
+
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
 
@@ -129,6 +149,10 @@ minetest.register_lbm({
                 -- Forsaken Desert Temple 2 (under)
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
 
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
@@ -147,6 +171,10 @@ minetest.register_lbm({
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
 
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
+
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
 
@@ -163,6 +191,10 @@ minetest.register_lbm({
                 -- Deep Ocean Skull
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
 
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
@@ -181,6 +213,10 @@ minetest.register_lbm({
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
 
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
+
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
 
@@ -197,6 +233,10 @@ minetest.register_lbm({
                 -- Crystal Forest Deep Ocean Ruins
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
 
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
