@@ -17,7 +17,7 @@
 --]]
 
 local S = minetest.get_translator(minetest.get_current_modname())
---[[]]
+--[[
 minetest.register_on_mods_loaded(function()
     local everness_registered_nodes = {}
     local everness_registered_nodes_length = 0
@@ -82,6 +82,7 @@ minetest.register_on_mods_loaded(function()
     print('sand', everness_registered_nodes_sand_length)
     print('total', everness_registered_nodes_length)
 end)
+--]]
 
 ---
 -- Fence / Gates
@@ -108,6 +109,18 @@ mcl_fences.register_fence_and_fence_gate(
     S('Bamboo Wood Fence'),
     S('Bamboo Wood Fence Gate'),
     'everness_fence_bamboo_wood.png',
+    { handy = 1, axey = 1, flammable = 2, fence_wood = 1, fire_encouragement = 5, fire_flammability = 20 },
+    2,
+    15,
+    { 'group:fence_wood' },
+    Everness.node_sound_wood_defaults()
+)
+
+mcl_fences.register_fence_and_fence_gate(
+    'gate_crystal_wood',
+    S('Crystal Wood Fence'),
+    S('Crystal Wood Fence Gate'),
+    'everness_crystal_wood.png',
     { handy = 1, axey = 1, flammable = 2, fence_wood = 1, fire_encouragement = 5, fire_flammability = 20 },
     2,
     15,
@@ -839,3 +852,70 @@ mcl_stairs.register_stair_and_slab(
     S('Double Crystal Forest Deep Ocean Sandstone Brick Slab'),
     nil
 )
+
+-- Crystal Wood
+
+mcl_stairs.register_stair_and_slab(
+    'crystal_wood',
+    'everness:crystal_wood',
+    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    { 'everness_crystal_wood.png' },
+    S('Crystal Wood Stair'),
+    S('Crystal Wood Slab'),
+    Everness.node_sound_wood_defaults(),
+    6,
+    2,
+    S('Double Crystal Wood Slab'),
+    nil
+)
+
+---
+-- Doors
+---
+
+mcl_doors:register_door('everness:door_bamboo', {
+    description = S('Bamboo Door'),
+    inventory_image = 'everness_door_bamboo_item.png',
+    groups = { handy = 1, axey = 1, material_wood = 1, flammable = -1 },
+    tiles_bottom = { 'everness_mcl_doors_door_bamboo_lower.png', 'everness_mcl_doors_door_bamboo_side_upper.png' },
+    tiles_top = { 'everness_mcl_doors_door_bamboo_upper.png', 'everness_mcl_doors_door_bamboo_side_upper.png' },
+    sounds = Everness.node_sound_bamboo_defaults({
+        dug = { name = 'everness_bamboo_hit', gain = 1.25 }
+    }),
+    sound_open = 'everness_door_bamboo_open',
+    sound_close = 'everness_door_bamboo_open',
+    _mcl_hardness = 3,
+    _mcl_blast_resistance = 3,
+})
+
+minetest.register_craft({
+    output = 'everness:door_bamboo 3',
+    recipe = {
+        { 'everness:bamboo_wood', 'everness:bamboo_wood' },
+        { 'everness:bamboo_wood', 'everness:bamboo_wood' },
+        { 'everness:bamboo_wood', 'everness:bamboo_wood' }
+    }
+})
+
+mcl_doors:register_trapdoor('everness:trapdoor_bamboo', {
+    description = S('Bamboo Trapdoor'),
+    tile_front = 'everness_door_trapdoor_bamboo.png',
+    tile_side = 'everness_mcl_doors_trapdoor_bamboo_side.png',
+    wield_image = 'everness_door_trapdoor_bamboo.png',
+    groups = { handy = 1, axey = 1, material_wood = 1, flammable = -1 },
+    sounds = Everness.node_sound_bamboo_defaults({
+        dug = { name = 'everness_bamboo_hit', gain = 1.25 }
+    }),
+    sound_open = 'everness_door_bamboo_open',
+    sound_close = 'everness_door_bamboo_open',
+    _mcl_hardness = 3,
+    _mcl_blast_resistance = 3,
+})
+
+minetest.register_craft({
+    output = 'everness:trapdoor_bamboo',
+    recipe = {
+        { 'everness:bamboo_wood', 'everness:bamboo_wood' },
+        { 'everness:bamboo_wood', 'everness:bamboo_wood' },
+    }
+})

@@ -95,8 +95,8 @@ doors.register('everness:door_crystal_wood', {
     sounds = Everness.node_sound_glass_defaults(),
     sound_open = 'everness_door_glass_open',
     sound_close = 'everness_door_glass_close',
-    gain_open = 0.3,
-    gain_close = 0.25,
+    gain_open = 0.2,
+    gain_close = 0.15,
     recipe = {
         { 'everness:crystal_wood', 'everness:crystal_wood' },
         { 'everness:crystal_wood', 'everness:crystal_wood' },
@@ -114,8 +114,8 @@ doors.register_trapdoor('everness:trapdoor_crystal_wood', {
     sounds = Everness.node_sound_glass_defaults(),
     sound_open = 'everness_door_glass_open',
     sound_close = 'everness_door_glass_close',
-    gain_open = 0.3,
-    gain_close = 0.25,
+    gain_open = 0.2,
+    gain_close = 0.15,
     groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
 })
 
