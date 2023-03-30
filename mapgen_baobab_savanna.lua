@@ -122,21 +122,6 @@ local acacia_log_schem
 
 if minetest.get_modpath('default') then
     acacia_log_schem = minetest.get_modpath('default') .. '/schematics/acacia_log.mts'
-elseif minetest.get_modpath('mcl_core') then
-    acacia_log_schem = {
-        size = { x = 3, y = 3, z = 1 },
-        data = {
-            { name = 'air', prob = 0 },
-            { name = 'air', prob = 0 },
-            { name = 'air', prob = 0 },
-            { name = 'mcl_core:acaciatree', param2 = 12 },
-            { name = 'mcl_core:acaciatree', param2 = 12 },
-            { name = 'mcl_core:acaciatree', param2 = 12, prob = 127 },
-            { name = 'air', prob = 0 },
-            { name = 'mcl_mushrooms:mushroom_brown', prob = 50 },
-            { name = 'air', prob = 0 },
-        },
-    }
 end
 
 if acacia_log_schem then

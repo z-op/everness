@@ -82,10 +82,4 @@ read_globals = {
     "x_obsidianmese",
     "x_farming",
     "x_clay",
-    "mcl_fences",
-    "mcl_walls",
-    "mcl_stairs",
-    "mcl_core",
-    "mcl_util",
-    "mcl_doors",
 }

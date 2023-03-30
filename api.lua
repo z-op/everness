@@ -964,25 +964,6 @@ function Everness.sapling_on_place(self, itemstack, placer, pointed_thing, props
 
             return itemstack
         end
-    elseif minetest.get_modpath('mcl_util') and minetest.global_exists('mcl_util') then
-        local on_place_func = mcl_util.generate_on_place_plant_function(function(pos, node)
-            local node_below = minetest.get_node_or_nil({ x = pos.x, y = pos.y - 1, z = pos.z })
-
-            if not node_below then
-                return false
-            end
-
-            local nn = node_below.name
-
-            return minetest.get_item_group(nn, 'grass_block') == 1
-                or nn == 'mcl_core:podzol'
-                or nn == 'mcl_core:podzol_snow'
-                or nn == 'mcl_core:dirt'
-                or nn == 'mcl_core:mycelium'
-                or nn == 'mcl_core:coarse_dirt'
-        end)
-
-        return on_place_func(itemstack, placer, pointed_thing)
     end
 end
 
@@ -1085,98 +1066,6 @@ end
 function Everness.register_node(self, name, def, props)
     local _def = table.copy(def)
     local _name = name
-
-    if _def.groups then
-        ---
-        -- Damage and digging time defining groups
-        ---
-
-        if _def.groups.crumbly then
-            -- dirt, sand
-            _def.groups.handy = 1
-            _def.groups.shovely = 1
-            _def.groups.building_block = 1
-            _def.groups.enderman_takable = 1
-
-            _def._mcl_blast_resistance = 0.5
-            _def._mcl_hardness = 2
-        end
-
-        if _def.groups.cracky then
-            -- tough but crackable stuff like stone
-            _def.groups.pickaxey = 1
-            _def.groups.building_block = 1
-
-            _def._mcl_blast_resistance = 6
-            _def._mcl_hardness = 1.5
-        end
-
-        if _def.groups.snappy then
-            -- something that can be cut using things like scissors, shears
-            _def.groups.handy = 1
-            _def.groups.hoey = 1
-            _def.groups.shearsy = 1
-            _def.groups.swordy = 1
-            _def.groups.dig_by_piston = 1
-            _def.groups.flammable = 2
-            _def.groups.fire_encouragement = 30
-            _def.groups.fire_flammability = 60
-            _def.groups.deco_block = 1
-            _def.groups.compostability = 30
-
-            _def._mcl_blast_resistance = 0.2
-            _def._mcl_hardness = 0.2
-        end
-
-        if _def.groups.choppy then
-            -- something that can be cut using force; e.g. trees, wooden planks
-            _def.groups.handy = 1
-            _def.groups.axey = 1
-            _def.groups.flammable = 2
-            _def.groups.building_block = 1
-            _def.groups.material_wood = 1
-            _def.groups.fire_encouragement = 5
-            _def.groups.fire_flammability = 5
-
-            _def._mcl_blast_resistance = 2
-            _def._mcl_hardness = 2
-        end
-
-        if _def.groups.fleshy then
-            -- living things like animals and the player. This could imply some blood effects when hitting
-            _def.groups.food = 2
-            _def.groups.eatable = 4
-            _def.groups.compostability = 65
-            _def._mcl_saturation = 2.4
-        end
-
-        if _def.groups.oddly_breakable_by_hand then
-            -- can be added to nodes that shouldn't logically be breakable by the hand but are
-            _def.groups.handy = 1
-        end
-
-        if _def.groups.explody then
-            -- especially prone to explosions
-            _def._mcl_blast_resistance = 1200
-            _def._mcl_hardness = 50
-        end
-
-        -- material groups
-        if _def.groups.sand then
-            _def.groups.soil_sugarcane = 1
-            _def.groups.material_sand = 1
-        end
-
-        if _def.groups.stone then
-            _def.groups.material_stone = 1
-        end
-
-        if _def.groups.soil then
-            _def.groups.soil_sapling = 2
-            _def.groups.soil_sugarcane = 1
-            _def.groups.cultivatable = 2
-        end
-    end
 
     minetest.register_node(_name, _def)
 end

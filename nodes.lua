@@ -1101,25 +1101,9 @@ Everness:register_node('everness:coral_sand', {
         -- MTG
         crumbly = 3,
         sand = 1,
-        -- MCL
-        handy = 1,
-        shovely = 1,
-        soil_sugarcane = 1,
-        enderman_takable = 1,
-        building_block = 1,
-        material_sand = 1,
-        -- ALL
         falling_node = 1,
-        -- Generated
-        -- handy_dig = 7,
-        -- shovely_dig = 2,
-        -- opaque = 1,
-        -- solid = 1,
     },
-    sounds = Everness.node_sound_sand_defaults(),
-    -- MCL
-    _mcl_blast_resistance = 0.5,
-    _mcl_hardness = 0.5,
+    sounds = Everness.node_sound_sand_defaults()
 })
 
 Everness:register_node('everness:coral_white_sand', {
