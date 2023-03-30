@@ -93,7 +93,7 @@ default.register_fence('everness:fence_crystal_wood', {
         'default_fence_overlay.png^[makealpha:255,126,126',
     material = 'everness:crystal_wood',
     groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
-    sounds = default.node_sound_wood_defaults()
+    sounds = Everness.node_sound_wood_defaults()
 })
 
 default.register_fence_rail('everness:fence_rail_crystal_wood', {
@@ -105,7 +105,7 @@ default.register_fence_rail('everness:fence_rail_crystal_wood', {
         'default_fence_rail_overlay.png^[makealpha:255,126,126',
     material = 'everness:crystal_wood',
     groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
-    sounds = default.node_sound_wood_defaults()
+    sounds = Everness.node_sound_wood_defaults()
 })
 
 default.register_mesepost('everness:mese_post_light_bamboo_wood', {

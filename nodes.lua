@@ -1614,7 +1614,7 @@ minetest.register_node('everness:crystal_wood', {
     tiles = { 'everness_crystal_wood.png' },
     is_ground_content = false,
     groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1 },
-    sounds = default.node_sound_wood_defaults(),
+    sounds = Everness.node_sound_wood_defaults(),
 })
 
 -- Everness:register_node('everness:mese_tree', {

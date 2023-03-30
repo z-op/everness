@@ -277,7 +277,7 @@ stairs.register_stair_and_slab(
     { 'everness_crystal_wood.png' },
     S('Crystal Wood Stair'),
     S('Crystal Wood Slab'),
-    default.node_sound_wood_defaults(),
+    Everness.node_sound_wood_defaults(),
     true
 )
 
