@@ -1056,6 +1056,11 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_ice_hit.3.ogg
 - everness_ice_hit.4.ogg
 
+**CC-BY-4.0, by SFXAFRIK**, https://freesound.org/people/SFXAFRIK/sounds/584855/
+
+- everness_door_glass_close.ogg
+- everness_door_glass_open.ogg
+
 **CC0-1.0, by Nox_Sound**, https://freesound.org
 
 - everness_stone_dug.1.ogg

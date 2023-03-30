@@ -268,6 +268,18 @@ stairs.register_stair_and_slab(
     true
 )
 
+-- Crystal Wood
+
+stairs.register_stair_and_slab(
+    'crystal_wood',
+    'everness:crystal_wood',
+    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    { 'everness_crystal_wood.png' },
+    S('Crystal Wood Stair'),
+    S('Crystal Wood Slab'),
+    default.node_sound_wood_defaults(),
+    true
+)
 
 -- Magma Cobble
 
