@@ -1100,7 +1100,7 @@ Everness:register_node('everness:coral_sand', {
     groups = {
         -- MTG
         crumbly = 3,
-        sand = 1,
+        everness_sand = 1,
         falling_node = 1,
     },
     sounds = Everness.node_sound_sand_defaults()
@@ -1110,7 +1110,7 @@ Everness:register_node('everness:coral_white_sand', {
     description = S('Coral White Sand'),
     short_description = S('Coral White Sand'),
     tiles = { 'everness_coral_white_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, sand = 1 },
+    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
     sounds = Everness.node_sound_sand_defaults(),
 })
 
@@ -1118,7 +1118,7 @@ Everness:register_node('everness:cursed_sand', {
     description = S('Cursed Sand'),
     short_description = S('Cursed Sand'),
     tiles = { 'everness_cursed_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, sand = 1 },
+    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
     sounds = Everness.node_sound_sand_defaults(),
 })
 
@@ -1126,7 +1126,7 @@ Everness:register_node('everness:crystal_sand', {
     description = S('Crystal Sand'),
     short_description = S('Crystal Sand'),
     tiles = { 'everness_crystal_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, sand = 1 },
+    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
     sounds = Everness.node_sound_sand_defaults(),
 })
 
@@ -1134,7 +1134,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_sand_with_crack', {
     description = S('Crystal Forest Deep Ocean Sand with Crack'),
     short_description = S('Crystal Forest Deep Ocean Sand with Crack'),
     tiles = { 'everness_crystal_forest_deep_ocean_sand_with_crack.png' },
-    groups = { crumbly = 3, falling_node = 1, sand = 1, rising_crystals = 1 },
+    groups = { crumbly = 3, falling_node = 1, everness_sand = 1, rising_crystals = 1 },
     sounds = Everness.node_sound_sand_defaults(),
 })
 
@@ -1142,7 +1142,7 @@ Everness:register_node('everness:forsaken_tundra_beach_sand', {
     description = S('Forsaken Tundra Beach Sand'),
     short_description = S('Forsaken Tundra Beach Sand'),
     tiles = { 'everness_forsaken_tundra_beach_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, sand = 1, mold_soil = 1 },
+    groups = { crumbly = 3, falling_node = 1, everness_sand = 1, mold_soil = 1 },
     sounds = Everness.node_sound_sand_defaults(),
 })
 
@@ -1150,7 +1150,7 @@ Everness:register_node('everness:forsaken_tundra_beach_sand_with_shells', {
     description = S('Forsaken Tundra Beach Sand with Shells'),
     short_description = S('Forsaken Tundra Beach Sand'),
     tiles = { 'everness_forsaken_tundra_beach_sand_with_shells.png' },
-    groups = { crumbly = 3, falling_node = 1, sand = 1 },
+    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
     sounds = Everness.node_sound_sand_defaults(),
 })
 
@@ -1158,7 +1158,7 @@ Everness:register_node('everness:forsaken_desert_sand', {
     description = S('Forsaken Desert Sand'),
     short_description = S('Forsaken Desert Sand'),
     tiles = { 'everness_forsaken_desert_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, sand = 1 },
+    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
     sounds = Everness.node_sound_sand_defaults(),
 })
 
@@ -1166,7 +1166,7 @@ Everness:register_node('everness:coral_forest_deep_ocean_sand', {
     description = S('Coral Forest Deep Ocean Sand'),
     short_description = S('Coral Forest Deep Ocean Sand'),
     tiles = { 'everness_deep_ocean_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, sand = 1 },
+    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
     sounds = Everness.node_sound_sand_defaults(),
 })
 
@@ -1174,7 +1174,7 @@ Everness:register_node('everness:cursed_lands_deep_ocean_sand', {
     description = S('Cursed Lands Deep Ocean Sand'),
     short_description = S('Cursed Lands Deep Ocean Sand'),
     tiles = { 'everness_cursed_lands_deep_ocean_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, sand = 1 },
+    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
     sounds = Everness.node_sound_sand_defaults(),
 })
 
@@ -1182,7 +1182,7 @@ Everness:register_node('everness:cursed_lands_deep_ocean_sand_with_crack', {
     description = S('Cursed Lands Deep Ocean Sand with Crack'),
     short_description = S('Cursed Lands Deep Ocean Sand with Crack'),
     tiles = { 'everness_cursed_lands_deep_ocean_sand_with_crack.png' },
-    groups = { crumbly = 3, falling_node = 1, sand = 1, rising_souls = 1 },
+    groups = { crumbly = 3, falling_node = 1, everness_sand = 1, rising_souls = 1 },
     sounds = Everness.node_sound_sand_defaults(),
 })
 
@@ -1190,7 +1190,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_sand', {
     description = S('Crystal Forest Deep Ocean Sand'),
     short_description = S('Crystal Forest Deep Ocean Sand'),
     tiles = { 'everness_crystal_forest_deep_ocean_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, sand = 1 },
+    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
     sounds = Everness.node_sound_sand_defaults(),
 })
 
@@ -1320,7 +1320,7 @@ Everness:register_node('everness:cursed_mud', {
     walkable = false,
     climbable = false,
     post_effect_color = { r = 49, g = 51, b = 57, a = 245 },
-    groups = { crumbly = 3, sand = 1, liquid = 3, disable_jump = 1 },
+    groups = { crumbly = 3, everness_sand = 1, liquid = 3, disable_jump = 1 },
     sounds = Everness.node_sound_sand_defaults()
 })
 
@@ -4621,7 +4621,7 @@ Everness:register_node('everness:blue_vine_lantern', {
     inventory_image = 'everness_blue_vine_lantern_item.png',
     wield_image = 'everness_blue_vine_lantern_item.png',
     paramtype = 'light',
-    groups = { snappy = 3, flammable = 2, flora = 1, attached_node = 1, bamboo_grass_under = 1 },
+    groups = { snappy = 3, flammable = 2, flora = 1, attached_node = 1, bamboo_grass_under = 1, lantern = 1 },
     selection_box = {
         type = 'fixed',
         fixed = { -0.63, -0.5, -0.63, 0.63, 3.23, 0.63 }
@@ -4651,7 +4651,7 @@ Everness:register_node('everness:amaranita_lantern', {
     inventory_image = 'everness_amaranita_lantern_item.png',
     wield_image = 'everness_amaranita_lantern_item.png',
     paramtype = 'light',
-    groups = { snappy = 3, flammable = 2, attached_node = 1, frosted_grass_under = 1 },
+    groups = { snappy = 3, flammable = 2, attached_node = 1, frosted_grass_under = 1, lantern = 1 },
     selection_box = {
         type = 'fixed',
         fixed = { -0.63, -0.5, -0.63, 0.63, 3.23, 0.63 }
@@ -4704,10 +4704,22 @@ Everness:register_node('everness:lumecorn', {
 -- Tools / 'Advanced' crafting / Non-'natural'
 --
 
+Everness:register_node('everness:glass', {
+    description = S('Everness Glass'),
+    drawtype = 'glasslike_framed_optional',
+    tiles = { 'everness_glass.png', 'everness_glass_detail.png' },
+    use_texture_alpha = 'clip', -- only needed for stairs API
+    paramtype = 'light',
+    sunlight_propagates = true,
+    is_ground_content = false,
+    groups = { cracky = 3, oddly_breakable_by_hand = 3, glass = 1 },
+    sounds = Everness.node_sound_glass_defaults(),
+})
+
 Everness:register_node('everness:tinted_glass_red', {
     description = S('Tinted Glass Red'),
     drawtype = 'glasslike_framed_optional',
-    tiles = { 'everness_tinted_glass_base.png^[colorize:#3A0907:122' },
+    tiles = { 'everness_tinted_glass_base.png^[colorize:#3A0907:122', 'everness_tinted_glass_detail.png^[colorize:#3A0907:122' },
     use_texture_alpha = 'blend', -- 'clip' needed for stairs API
     -- paramtype = 'light',
     is_ground_content = false,
@@ -4742,7 +4754,7 @@ Everness:register_node('everness:pyrite_lantern', {
     paramtype = 'light',
     sunlight_propagates = true,
     is_ground_content = false,
-    groups = { cracky = 3, oddly_breakable_by_hand = 3 },
+    groups = { cracky = 3, oddly_breakable_by_hand = 3, lantern = 1 },
     sounds = Everness.node_sound_glass_defaults(),
     light_source = 12,
 })
@@ -4774,7 +4786,7 @@ Everness:register_node('everness:lumabus_vine_lantern', {
     paramtype = 'light',
     -- wield_image = 'everness_lumabus_vine_end_bottom.png',
     -- inventory_image = 'everness_lumabus_vine_end_bottom.png',
-    groups = { cracky = 3, oddly_breakable_by_hand = 3 },
+    groups = { cracky = 3, oddly_breakable_by_hand = 3, lantern = 1 },
     sounds = Everness.node_sound_glass_defaults(),
     light_source = 7,
     paramtype2 = 'wallmounted',
@@ -4795,7 +4807,7 @@ Everness:register_node('everness:eye_vine_lantern', {
     wield_image = 'everness_eye_vine_end_bottom.png',
     inventory_image = 'everness_eye_vine_end_bottom.png',
     drawtype = 'normal',
-    groups = { snappy = 3, flammable = 2 },
+    groups = { snappy = 3, flammable = 2, lantern = 1 },
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     paramtype2 = 'facedir',
@@ -4818,7 +4830,7 @@ Everness:register_node('everness:cursed_pumpkin_lantern', {
     sounds = Everness.node_sound_wood_defaults(),
     is_ground_content = false,
     light_source = 12,
-    groups = { snappy = 3, flammable = 4, fall_damage_add_percent = -30 }
+    groups = { snappy = 3, flammable = 4, fall_damage_add_percent = -30, lantern = 1 }
 })
 
 Everness:register_node('everness:floating_crystal', {
@@ -4944,7 +4956,7 @@ Everness:register_node('everness:coral_forest_deep_ocean_lantern', {
     sunlight_propagates = true,
     is_ground_content = false,
     sounds = Everness.node_sound_glass_defaults(),
-    groups = { cracky = 3, oddly_breakable_by_hand = 3 },
+    groups = { cracky = 3, oddly_breakable_by_hand = 3, lantern = 1 },
     paramtype = 'light',
     light_source = 12,
 })

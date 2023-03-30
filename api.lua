@@ -548,6 +548,7 @@ function Everness.grow_cactus(self, pos, node, params)
 
     if minetest.get_item_group(minetest.get_node(pos).name, 'mold_soil') == 0
         or minetest.get_item_group(minetest.get_node(pos).name, 'sand') == 0
+        or minetest.get_item_group(minetest.get_node(pos).name, 'everness_sand') == 0
     then
         return
     end

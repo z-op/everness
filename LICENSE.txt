@@ -825,6 +825,9 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_crystal_forest_sun.png
 - everness_frosted_icesheet_sun_tonemap.png
 - everness_frosted_icesheet_sun.png
+- everness_glass.png
+- everness_glass_detail.png
+- everness_tinted_glass_detail.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 

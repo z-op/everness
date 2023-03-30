@@ -514,3 +514,14 @@ stairs.register_stair_and_slab(
     Everness.node_sound_stone_defaults(),
     true
 )
+
+stairs.register_stair_and_slab(
+    'everness_glass',
+    'everness:glass',
+    { cracky = 3, oddly_breakable_by_hand = 3 },
+    { 'everness_glass.png' },
+    S('Everness Glass Stair'),
+    S('Everness Glass Slab'),
+    Everness.node_sound_glass_defaults(),
+    true
+)
