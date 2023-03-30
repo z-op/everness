@@ -3861,11 +3861,9 @@ local function coral_on_place(itemstack, placer, pointed_thing, params)
         minetest.is_protected(pos_above, player_name) then
 
         if minetest.get_modpath('default') or minetest.global_exists('default') then
-            if default.log_player_action then
-                default.log_player_action(placer,
-                    'tried to place', itemstack:get_name(),
-                    'at protected position', pos_under)
-            end
+            Everness.log_player_action(placer,
+                'tried to place', itemstack:get_name(),
+                'at protected position', pos_under)
         end
 
         minetest.record_protection_violation(pos_under, player_name)

@@ -16,6 +16,8 @@
     License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
+local S = minetest.get_translator(minetest.get_current_modname())
+
 --- Base class
 ---@class Everness
 ---@field bamboo {['growth_stages']: table<number, table>, ['top_leaves_schem']: table}
@@ -949,23 +951,99 @@ function Everness.use_shell_of_underwater_breathing(self, itemstack, user, point
     return itemstack
 end
 
+--
+-- Sapling 'on place' function to check protection of node and resulting tree volume
+-- copy from MTG
+--
 function Everness.sapling_on_place(self, itemstack, placer, pointed_thing, props)
     local _props = props or {}
-    if minetest.get_modpath('default') or minetest.global_exists('default') then
-        if default.sapling_on_place then
-            itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-                _props.sapling_name,
-                -- minp, maxp to be checked, relative to sapling pos
-                -- minp_relative.y = 1 because sapling pos has been checked
-                _props.minp_relative,
-                _props.maxp_relative,
-                -- maximum interval of interior volume check
-                _props.interval
-            )
+    local sapling_name = _props.sapling_name
+    -- minp, maxp to be checked, relative to sapling pos
+    -- minp_relative.y = 1 because sapling pos has been checked
+    local minp_relative = _props.minp_relative
+    local maxp_relative = _props.maxp_relative
+    -- maximum interval of interior volume check
+    local interval = _props.interval
 
+    -- Position of sapling
+    local pos = pointed_thing.under
+    local node = minetest.get_node_or_nil(pos)
+    local pdef = node and minetest.registered_nodes[node.name]
+
+    if pdef and node and pdef.on_rightclick
+        and not (placer and placer:is_player()
+        and placer:get_player_control().sneak)
+    then
+        return pdef.on_rightclick(pos, node, placer, itemstack, pointed_thing)
+    end
+
+    if not pdef or not pdef.buildable_to then
+        pos = pointed_thing.above
+        node = minetest.get_node_or_nil(pos)
+        pdef = node and minetest.registered_nodes[node.name]
+
+        if not pdef or not pdef.buildable_to then
             return itemstack
         end
     end
+
+    local player_name = placer and placer:get_player_name() or ''
+
+    -- Check sapling position for protection
+    if minetest.is_protected(pos, player_name) then
+        minetest.record_protection_violation(pos, player_name)
+        return itemstack
+    end
+
+    -- Check tree volume for protection
+    if minetest.is_area_protected(
+            vector.add(pos, minp_relative),
+            vector.add(pos, maxp_relative),
+            player_name,
+            interval
+        )
+    then
+        minetest.record_protection_violation(pos, player_name)
+        minetest.chat_send_player(
+            player_name,
+            S('@1 will intersect protection on growth.', itemstack:get_definition().description)
+        )
+
+        return itemstack
+    end
+
+    Everness.log_player_action(placer, 'places node', sapling_name, 'at', pos)
+
+    local take_item = not minetest.is_creative_enabled(player_name)
+    local newnode = { name = sapling_name }
+    local ndef = minetest.registered_nodes[sapling_name]
+
+    minetest.set_node(pos, newnode)
+
+    -- Run callback
+    if ndef and ndef.after_place_node then
+        -- Deepcopy place_to and pointed_thing because callback can modify it
+        if ndef.after_place_node(table.copy(pos), placer,
+                itemstack, table.copy(pointed_thing)) then
+            take_item = false
+        end
+    end
+
+    -- Run script hook
+    for _, callback in ipairs(minetest.registered_on_placenodes or {}) do
+        -- Deepcopy pos, node and pointed_thing because callback can modify them
+        if callback(table.copy(pos), table.copy(newnode),
+                placer, table.copy(node or {}),
+                itemstack, table.copy(pointed_thing)) then
+            take_item = false
+        end
+    end
+
+    if take_item then
+        itemstack:take_item()
+    end
+
+    return itemstack
 end
 
 --
@@ -1069,4 +1147,59 @@ function Everness.register_node(self, name, def, props)
     local _name = name
 
     minetest.register_node(_name, _def)
+end
+
+--
+-- Log API / helpers - copy from MTG
+--
+
+local log_non_player_actions = minetest.settings:get_bool('log_non_player_actions', false)
+
+local is_pos = function(v)
+    return type(v) == 'table'
+        and type(v.x) == 'number'
+        and type(v.y) == 'number'
+        and type(v.z) == 'number'
+end
+
+function Everness.log_player_action(player, ...)
+    local msg = player:get_player_name()
+    if player.is_fake_player or not player:is_player() then
+        if not log_non_player_actions then
+            return
+        end
+
+        msg = msg .. '(' .. (type(player.is_fake_player) == 'string'
+            and player.is_fake_player or '*') .. ')'
+    end
+    for _, v in ipairs({ ... }) do
+        -- translate pos
+        local part = is_pos(v) and minetest.pos_to_string(v) or v
+        -- no leading spaces before punctuation marks
+        msg = msg .. (string.match(part, '^[;,.]') and '' or ' ') .. part
+    end
+
+    minetest.log('action', msg)
+end
+
+-- 'can grow' function - copy from MTG
+
+function Everness.can_grow(pos)
+    local node_under = minetest.get_node_or_nil({ x = pos.x, y = pos.y - 1, z = pos.z })
+
+    if not node_under then
+        return false
+    end
+
+    if minetest.get_item_group(node_under.name, 'soil') == 0 then
+        return false
+    end
+
+    local light_level = minetest.get_node_light(pos)
+
+    if not light_level or light_level < 13 then
+        return false
+    end
+
+    return true
 end
