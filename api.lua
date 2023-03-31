@@ -221,15 +221,16 @@ Everness = {
 }
 
 function Everness.grow_cactus(self, pos, node, params)
+    local node_copy = table.copy(node)
+
     if node.param2 >= 4 then
         return
     end
 
     pos.y = pos.y - 1
 
-    if minetest.get_item_group(minetest.get_node(pos).name, 'mold_soil') == 0
-        or minetest.get_item_group(minetest.get_node(pos).name, 'sand') == 0
-        or minetest.get_item_group(minetest.get_node(pos).name, 'everness_sand') == 0
+    if minetest.get_item_group(minetest.get_node(pos).name, 'sand') == 0
+        and minetest.get_item_group(minetest.get_node(pos).name, 'everness_sand') == 0
     then
         return
     end
@@ -252,7 +253,7 @@ function Everness.grow_cactus(self, pos, node, params)
         return
     end
 
-    minetest.set_node(pos, { name = node.name })
+    minetest.set_node(pos, { name = node_copy.name })
 
     return true
 end

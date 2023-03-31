@@ -849,11 +849,6 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_grass_with_blue_extra_top_2.png
 - everness_grass_with_yellow_extra_top_1.png
 
-**CC-BY-SA-3.0, Pithydon**
-
-- everness_coral_skeleton.png
-
-
 ### Sounds
 
 **CC0-1.0, by ProdMultimediasHQI**, https://freesound.org/people/ProdMultimediasHQI/sounds/512501/

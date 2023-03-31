@@ -515,7 +515,7 @@ minetest.register_abm({
         'everness:cactus_orange',
         'everness:cactus_blue'
     },
-    neighbors = { 'group:mold_soil' },
+    neighbors = { 'group:sand', 'group:everness_sand' },
     interval = 12,
     chance = 83,
     action = function(...)
