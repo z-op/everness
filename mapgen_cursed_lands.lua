@@ -35,7 +35,7 @@ minetest.register_biome({
     depth_riverbed = 2,
     node_dungeon = 'everness:cursed_brick',
     node_dungeon_alt = 'everness:cursed_brick_with_growth',
-    node_dungeon_stair = 'stairs:stair_cursed_brick',
+    node_dungeon_stair = 'everness_mapgen_stair_cursed_brick',
     y_max = y_max,
     y_min = y_min,
     heat_point = 45,

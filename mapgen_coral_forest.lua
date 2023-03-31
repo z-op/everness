@@ -35,7 +35,7 @@ minetest.register_biome({
     depth_riverbed = 2,
     node_dungeon = 'everness:coral_desert_stone_block',
     node_dungeon_alt = 'everness:coral_desert_stone_brick',
-    node_dungeon_stair = 'stairs:stair_coral_desert_stone_block',
+    node_dungeon_stair = 'everness_mapgen_stair_coral_desert_stone_block',
     y_max = y_max,
     y_min = y_min,
     heat_point = 60,
@@ -54,7 +54,7 @@ minetest.register_biome({
 minetest.register_ore({
     ore_type = 'blob',
     ore = 'everness:coral_desert_stone',
-    wherein = { 'default:stone' },
+    wherein = { 'everness_mapgen_stone' },
     clust_scarcity = 16 * 16 * 16,
     clust_size = 5,
     y_max = y_max,

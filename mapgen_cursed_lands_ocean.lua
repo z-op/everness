@@ -33,10 +33,10 @@ minetest.register_biome({
     depth_filler = 3,
     node_riverbed = 'everness:cursed_stone',
     depth_riverbed = 2,
-    node_cave_liquid = 'default:water_source',
+    node_cave_liquid = 'everness_mapgen_water_source',
     node_dungeon = 'everness:cursed_lands_deep_ocean_sandstone_block',
     node_dungeon_alt = 'everness:cursed_lands_deep_ocean_sandstone_brick',
-    node_dungeon_stair = 'stairs:stair_cursed_lands_deep_ocean_sandstone_block',
+    node_dungeon_stair = 'everness_mapgen_stair_cursed_lands_deep_ocean_sandstone_block',
     y_max = y_max,
     y_min = y_min,
     heat_point = 45,
@@ -96,7 +96,7 @@ minetest.register_decoration({
     flags = 'force_placement',
     decoration = {
         'everness:sand_with_spine_kelp',
-        'default:coral_skeleton'
+        'everness:coral_skeleton'
     },
     param2 = 48,
     param2_max = 96,

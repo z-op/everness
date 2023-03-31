@@ -19,13 +19,13 @@
 -- Get the content IDs for the nodes used.
 local c_air = minetest.get_content_id('air')
 local c_dirt_with_grass_1 = minetest.get_content_id('everness:dirt_with_grass_1')
-local c_dirt_with_rainforest_litter = minetest.get_content_id('default:dirt_with_rainforest_litter')
+local c_dirt_with_rainforest_litter = minetest.get_content_id('everness_mapgen_dirt_with_rainforest_litter')
 local c_dirt_with_cursed_grass = minetest.get_content_id('everness:dirt_with_cursed_grass')
 local c_dirt_with_crystal_grass = minetest.get_content_id('everness:dirt_with_crystal_grass')
 local c_crystal_sand = minetest.get_content_id('everness:crystal_sand')
 local c_dry_ocean_dirt = minetest.get_content_id('everness:dry_ocean_dirt')
-local c_dirt_with_snow = minetest.get_content_id('default:dirt_with_snow')
-local c_dirt_with_coniferous_litter = minetest.get_content_id('default:dirt_with_coniferous_litter')
+local c_dirt_with_snow = minetest.get_content_id('everness_mapgen_dirt_with_snow')
+local c_dirt_with_coniferous_litter = minetest.get_content_id('everness_mapgen_dirt_with_coniferous_litter')
 local c_forsaken_desert_sand = minetest.get_content_id('everness:forsaken_desert_sand')
 local c_forsaken_desert_chiseled_stone = minetest.get_content_id('everness:forsaken_desert_chiseled_stone')
 local c_forsaken_desert_brick = minetest.get_content_id('everness:forsaken_desert_brick')
@@ -214,9 +214,9 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                     vector.new(s_pos.x - 6, s_pos.y - 1, s_pos.z - 6),
                                     vector.new(s_pos.x + 6, s_pos.y + 1, s_pos.z + 6),
                                     {
-                                        'default:dirt_with_snow',
-                                        'default:dirt_with_coniferous_litter',
-                                        'default:snow'
+                                        'everness_mapgen_dirt_with_snow',
+                                        'everness_mapgen_dirt_with_coniferous_litter',
+                                        'everness_mapgen_snow'
                                     })
 
                                 if #positions < 137 then
@@ -312,15 +312,15 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             'everness:forsaken_desert_chiseled_stone',
                             'everness:forsaken_desert_brick',
                             'everness:forsaken_desert_engraved_stone',
-                            'default:stone',
-                            'default:sand',
-                            'default:gravel',
-                            'default:stone_with_coal',
-                            'default:stone_with_iron',
-                            'default:stone_with_tin',
-                            'default:stone_with_gold',
-                            'default:stone_with_mese',
-                            'default:stone_with_diamond',
+                            'everness_mapgen_stone',
+                            'everness_mapgen_sand',
+                            'everness_mapgen_gravel',
+                            'everness_mapgen_stone_with_coal',
+                            'everness_mapgen_stone_with_iron',
+                            'everness_mapgen_stone_with_tin',
+                            'everness_mapgen_stone_with_gold',
+                            'everness_mapgen_stone_with_mese',
+                            'everness_mapgen_stone_with_diamond',
                             'everness:cave_barrel_cactus',
                             'everness:venus_trap',
                             'everness:illumi_root',

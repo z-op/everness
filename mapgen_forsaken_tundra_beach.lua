@@ -35,7 +35,7 @@ minetest.register_biome({
     depth_riverbed = 2,
     node_dungeon = 'everness:forsaken_tundra_cobble',
     node_dungeon_alt = 'everness:forsaken_tundra_brick',
-    node_dungeon_stair = 'stairs:stair_forsaken_tundra_cobble',
+    node_dungeon_stair = 'everness_mapgen_stair_forsaken_tundra_cobble',
     vertical_blend = 1,
     y_max = y_max,
     y_min = y_min,
@@ -53,7 +53,7 @@ minetest.register_biome({
 minetest.register_ore({
     ore_type = 'blob',
     ore = 'everness:sulfur_stone',
-    wherein = { 'default:stone', 'everness:forsaken_tundra_stone' },
+    wherein = { 'everness_mapgen_stone', 'everness:forsaken_tundra_stone' },
     clust_scarcity = 16 * 16 * 16,
     clust_size = 5,
     y_max = y_max,

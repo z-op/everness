@@ -39,7 +39,7 @@ minetest.register_biome({
     depth_riverbed = 2,
     node_dungeon = 'everness:forsaken_desert_brick',
     node_dungeon_alt = 'everness:forsaken_desert_brick_red',
-    node_dungeon_stair = 'stairs:stair_forsaken_desert_brick',
+    node_dungeon_stair = 'everness_mapgen_stair_forsaken_desert_brick',
     y_max = y_max,
     y_min = y_min,
     heat_point = 100,

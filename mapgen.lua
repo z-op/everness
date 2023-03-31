@@ -27,7 +27,7 @@
 minetest.register_ore({
     ore_type = 'scatter',
     ore = 'everness:stone_with_pyrite',
-    wherein = 'default:stone',
+    wherein = 'everness_mapgen_stone',
     clust_scarcity = 13 * 13 * 13,
     clust_num_ores = 5,
     clust_size = 3,
@@ -38,7 +38,7 @@ minetest.register_ore({
 minetest.register_ore({
     ore_type = 'scatter',
     ore = 'everness:stone_with_pyrite',
-    wherein = 'default:stone',
+    wherein = 'everness_mapgen_stone',
     clust_scarcity = 15 * 15 * 15,
     clust_num_ores = 3,
     clust_size = 2,
@@ -49,7 +49,7 @@ minetest.register_ore({
 minetest.register_ore({
     ore_type = 'scatter',
     ore = 'everness:stone_with_pyrite',
-    wherein = 'default:stone',
+    wherein = 'everness_mapgen_stone',
     clust_scarcity = 13 * 13 * 13,
     clust_num_ores = 5,
     clust_size = 3,
@@ -62,7 +62,7 @@ minetest.register_ore({
 minetest.register_ore({
     ore_type = 'scatter',
     ore = 'everness:quartz_ore',
-    wherein = { 'default:stone' },
+    wherein = { 'everness_mapgen_stone' },
     clust_scarcity = 10 * 10 * 10,
     clust_num_ores = 6,
     clust_size = 5,

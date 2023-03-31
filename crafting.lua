@@ -20,23 +20,25 @@
 -- Blocks
 --
 
-minetest.register_craft({
-    output = 'everness:snowcobble 9',
-    recipe = {
-        { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
-        { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
-        { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
-    }
-})
+if minetest.get_modpath('default') then
+    minetest.register_craft({
+        output = 'everness:snowcobble 9',
+        recipe = {
+            { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
+            { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
+            { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
+        }
+    })
 
-minetest.register_craft({
-    output = 'everness:icecobble 9',
-    recipe = {
-        { 'default:ice', 'default:ice', 'default:ice' },
-        { 'default:ice', 'default:ice', 'default:ice' },
-        { 'default:ice', 'default:ice', 'default:ice' },
-    }
-})
+    minetest.register_craft({
+        output = 'everness:icecobble 9',
+        recipe = {
+            { 'default:ice', 'default:ice', 'default:ice' },
+            { 'default:ice', 'default:ice', 'default:ice' },
+            { 'default:ice', 'default:ice', 'default:ice' },
+        }
+    })
+end
 
 minetest.register_craft({
     output = 'everness:snowcobble 9',
@@ -124,7 +126,7 @@ minetest.register_craft({
 minetest.register_craft({
     output = 'everness:pyrite_glass',
     recipe = {
-        { 'default:glass' },
+        { 'group:glass' },
         { 'everness:pyrite_ingot' },
     }
 })
@@ -134,6 +136,24 @@ minetest.register_craft({
     recipe = {
         { 'everness:pyrite_glass' },
         { 'everness:pyrite_ingot' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:tinted_glass_red 8',
+    recipe = {
+        { 'everness:glass', 'everness:glass', 'everness:glass' },
+        { 'everness:glass', 'everness:bloodspore_plant', 'everness:glass' },
+        { 'everness:glass', 'everness:glass', 'everness:glass' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:tinted_glass_red 8',
+    recipe = {
+        { 'everness:glass', 'everness:glass', 'everness:glass' },
+        { 'everness:glass', 'everness:bloodspore_plant_small', 'everness:glass' },
+        { 'everness:glass', 'everness:glass', 'everness:glass' },
     }
 })
 
@@ -488,9 +508,9 @@ minetest.register_craft({
 minetest.register_craft({
     output = 'everness:coral_forest_deep_ocean_lantern 1',
     recipe = {
-        { 'everness:coral_deep_ocean_sandstone_block', 'default:glass', 'everness:coral_deep_ocean_sandstone_block' },
-        { 'default:glass', 'default:torch', 'default:glass' },
-        { 'everness:coral_deep_ocean_sandstone_block', 'default:glass', 'everness:coral_deep_ocean_sandstone_block' },
+        { 'everness:coral_deep_ocean_sandstone_block', 'group:glass', 'everness:coral_deep_ocean_sandstone_block' },
+        { 'group:glass', 'group:torch', 'group:glass' },
+        { 'everness:coral_deep_ocean_sandstone_block', 'group:glass', 'everness:coral_deep_ocean_sandstone_block' },
     }
 })
 
@@ -542,8 +562,8 @@ minetest.register_craft({
 minetest.register_craft({
     output = 'everness:vine_shears',
     recipe = {
-        { '', 'default:steel_ingot', '' },
-        { 'group:stick', 'group:wood', 'default:steel_ingot' },
+        { '', 'everness:pyrite_ingot', '' },
+        { 'group:stick', 'group:wood', 'everness:pyrite_ingot' },
         { '', '', 'group:stick' }
     }
 })
@@ -654,6 +674,12 @@ minetest.register_craft({
 
 minetest.register_craft({
     type = 'cooking',
+    output = 'everness:glass',
+    recipe = 'group:everness_sand',
+})
+
+minetest.register_craft({
+    type = 'cooking',
     output = 'everness:coral_desert_stone',
     recipe = 'everness:coral_desert_cobble',
 })
@@ -701,7 +727,7 @@ minetest.register_craft({
 minetest.register_craft({
     output = 'everness:coral_tree_bioluminescent_sapling',
     recipe = {
-        { 'default:meselamp' },
+        { 'group:lantern' },
         { 'everness:coral_tree_sapling' },
     }
 })
@@ -709,7 +735,7 @@ minetest.register_craft({
 minetest.register_craft({
     output = 'everness:cursed_dream_tree_sapling',
     recipe = {
-        { 'default:meselamp' },
+        { 'group:lantern' },
         { 'everness:dry_tree_sapling' },
     }
 })

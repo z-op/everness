@@ -27,15 +27,15 @@ local y_min = Everness.settings.biomes.everness_baobab_savanna.y_min
 
 minetest.register_biome({
     name = 'everness_baobab_savanna',
-    node_top = 'default:dry_dirt_with_dry_grass',
+    node_top = 'everness_mapgen_dry_dirt_with_dry_grass',
     depth_top = 1,
-    node_filler = 'default:dry_dirt',
+    node_filler = 'everness_mapgen_dry_dirt',
     depth_filler = 1,
-    node_riverbed = 'default:sand',
+    node_riverbed = 'everness_mapgen_sand',
     depth_riverbed = 2,
-    node_dungeon = 'default:cobble',
-    node_dungeon_alt = 'default:mossycobble',
-    node_dungeon_stair = 'stairs:stair_cobble',
+    node_dungeon = 'everness_mapgen_cobble',
+    node_dungeon_alt = 'everness_mapgen_mossycobble',
+    node_dungeon_stair = 'everness_mapgen_stair_cobble',
     y_max = y_max,
     y_min = y_min,
     heat_point = 80,
@@ -54,7 +54,7 @@ minetest.register_biome({
 minetest.register_decoration({
     name = 'everness:baobab_savanna_dry_dirt_with_dry_grass',
     deco_type = 'simple',
-    place_on = { 'default:dry_dirt_with_dry_grass' },
+    place_on = { 'everness_mapgen_dry_dirt_with_dry_grass' },
     sidelen = 4,
     noise_params = {
         offset = -1.5,
@@ -67,7 +67,7 @@ minetest.register_decoration({
     biomes = { 'everness_baobab_savanna' },
     y_max = y_max,
     y_min = y_min,
-    decoration = 'default:dry_dirt',
+    decoration = 'everness_mapgen_dry_dirt',
     place_offset_y = -1,
     flags = 'force_placement',
 })
@@ -75,8 +75,8 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:baobab_savanna_baobab_tree_1',
     deco_type = 'schematic',
-    place_on = { 'default:dry_dirt_with_dry_grass', 'default:dry_dirt' },
-    spawn_by = { 'default:dry_dirt_with_dry_grass', 'default:dry_dirt' },
+    place_on = { 'everness_mapgen_dry_dirt_with_dry_grass', 'everness_mapgen_dry_dirt' },
+    spawn_by = { 'everness_mapgen_dry_dirt_with_dry_grass', 'everness_mapgen_dry_dirt' },
     num_spawn_by = 8,
     sidelen = 16,
     noise_params = {
@@ -98,8 +98,8 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:baobab_savanna_baobab_tree_2',
     deco_type = 'schematic',
-    place_on = { 'default:dry_dirt_with_dry_grass', 'default:dry_dirt' },
-    spawn_by = { 'default:dry_dirt_with_dry_grass', 'default:dry_dirt' },
+    place_on = { 'everness_mapgen_dry_dirt_with_dry_grass', 'everness_mapgen_dry_dirt' },
+    spawn_by = { 'everness_mapgen_dry_dirt_with_dry_grass', 'everness_mapgen_dry_dirt' },
     num_spawn_by = 8,
     sidelen = 16,
     noise_params = {
@@ -118,29 +118,37 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
-    name = 'everness:baobab_savanna_acacia_log',
-    deco_type = 'schematic',
-    place_on = { 'default:dry_dirt_with_dry_grass' },
-    place_offset_y = 1,
-    sidelen = 16,
-    noise_params = {
-        offset = 0,
-        scale = 0.001,
-        spread = { x = 250, y = 250, z = 250 },
-        seed = 2,
-        octaves = 3,
-        persist = 0.66
-    },
-    biomes = { 'everness_baobab_savanna' },
-    y_max = y_max,
-    y_min = y_min,
-    schematic = minetest.get_modpath('default') .. '/schematics/acacia_log.mts',
-    flags = 'place_center_x',
-    rotation = 'random',
-    spawn_by = 'default:dry_dirt_with_dry_grass',
-    num_spawn_by = 8,
-})
+local acacia_log_schem
+
+if minetest.get_modpath('default') then
+    acacia_log_schem = minetest.get_modpath('default') .. '/schematics/acacia_log.mts'
+end
+
+if acacia_log_schem then
+    minetest.register_decoration({
+        name = 'everness:baobab_savanna_acacia_log',
+        deco_type = 'schematic',
+        place_on = { 'everness_mapgen_dry_dirt_with_dry_grass' },
+        place_offset_y = 1,
+        sidelen = 16,
+        noise_params = {
+            offset = 0,
+            scale = 0.001,
+            spread = { x = 250, y = 250, z = 250 },
+            seed = 2,
+            octaves = 3,
+            persist = 0.66
+        },
+        biomes = { 'everness_baobab_savanna' },
+        y_max = y_max,
+        y_min = y_min,
+        schematic = acacia_log_schem,
+        flags = 'place_center_x',
+        rotation = 'random',
+        spawn_by = 'everness_mapgen_dry_dirt_with_dry_grass',
+        num_spawn_by = 8,
+    })
+end
 
 --
 -- On Generated

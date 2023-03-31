@@ -28,6 +28,11 @@ dofile(path .. '/bamboo.lua')
 dofile(path .. '/functions.lua')
 dofile(path .. '/trees.lua')
 dofile(path .. '/vines.lua')
+dofile(path .. '/chests.lua')
+
+if minetest.get_modpath('default') then
+    dofile(path .. '/mapgen_aliases_default.lua')
+end
 
 dofile(path .. '/mapgen.lua')
 
@@ -165,7 +170,14 @@ if minetest.get_modpath('walls') and minetest.global_exists('walls') then
     dofile(path .. '/walls.lua')
 end
 
-dofile(path .. '/fences.lua')
+if minetest.get_modpath('default') or minetest.global_exists('default') then
+    if default.register_fence
+        and default.register_fence_rail
+        and default.register_mesepost
+    then
+        dofile(path .. '/fences.lua')
+    end
+end
 
 if minetest.get_modpath('doors') and minetest.global_exists('doors') then
     dofile(path .. '/doors.lua')
@@ -194,7 +206,7 @@ if minetest.get_modpath('x_farming') and minetest.global_exists('x_farming') the
     dofile(path .. '/mod_support_x_farming.lua')
 end
 
-if minetest.get_modpath('x_tumbleweed') and minetest.global_exists('XTumbleweed')  then
+if minetest.get_modpath('x_tumbleweed') and minetest.global_exists('XTumbleweed') then
     dofile(path .. '/mod_support_x_tumbleweed.lua')
 end
 
@@ -205,6 +217,8 @@ if minetest.get_modpath('x_obsidianmese')
 then
     dofile(path .. '/mod_support_x_obsidianmese.lua')
 end
+
+Everness.set_loot_chest_items()
 
 local mod_end_time = (minetest.get_us_time() - mod_start_time) / 1000000
 

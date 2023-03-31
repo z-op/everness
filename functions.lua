@@ -181,7 +181,7 @@ minetest.register_abm({
     nodenames = {
         'group:everness_spreading_dirt_type',
         'group:everness_spreading_dirt_type_under',
-     },
+    },
     interval = 8,
     chance = 50,
     catch_up = false,
@@ -226,7 +226,7 @@ minetest.register_abm({
 -- Leafdecay
 --
 
-default.register_leafdecay({
+Everness:register_leafdecay({
     trunks = {
         'everness:coral_tree',
         'everness:crystal_bush_stem',
@@ -244,7 +244,7 @@ default.register_leafdecay({
 })
 
 -- Baobab Tree
-default.register_leafdecay({
+Everness:register_leafdecay({
     trunks = {
         'everness:baobab_tree',
         'everness:crystal_tree',
@@ -265,23 +265,29 @@ default.register_leafdecay({
 
 local moss_correspondences = {
     ['everness:coral_desert_cobble'] = 'everness:coral_desert_mossy_cobble',
-    ['stairs:slab_coral_desert_cobble'] = 'stairs:slab_coral_desert_mossy_cobble',
-    ['stairs:stair_coral_desert_cobble'] = 'stairs:stair_coral_desert_mossy_cobble',
-    ['stairs:stair_inner_coral_desert_cobble'] = 'stairs:stair_inner_coral_desert_mossy_cobble',
-    ['stairs:stair_outer_coral_desert_cobble'] = 'stairs:stair_outer_coral_desert_mossy_cobble',
-    ['everness:coral_desert_cobble_wall'] = 'everness:coral_desert_mossy_cobble_wall',
 }
+
+local moss_nodenames_correspondences = {
+    'everness:coral_desert_cobble',
+}
+
+if minetest.get_modpath('default') then
+    moss_correspondences['stairs:slab_coral_desert_cobble'] = 'stairs:slab_coral_desert_mossy_cobble'
+    moss_correspondences['stairs:stair_coral_desert_cobble'] = 'stairs:stair_coral_desert_mossy_cobble'
+    moss_correspondences['stairs:stair_inner_coral_desert_cobble'] = 'stairs:stair_inner_coral_desert_mossy_cobble'
+    moss_correspondences['stairs:stair_outer_coral_desert_cobble'] = 'stairs:stair_outer_coral_desert_mossy_cobble'
+    moss_correspondences['everness:coral_desert_cobble_wall'] = 'everness:coral_desert_mossy_cobble_wall'
+
+    table.insert(moss_nodenames_correspondences, 'stairs:slab_coral_desert_cobble')
+    table.insert(moss_nodenames_correspondences, 'stairs:stair_coral_desert_cobble')
+    table.insert(moss_nodenames_correspondences, 'stairs:stair_inner_coral_desert_cobble')
+    table.insert(moss_nodenames_correspondences, 'stairs:stair_outer_coral_desert_cobble')
+    table.insert(moss_nodenames_correspondences, 'everness:coral_desert_cobble_wall')
+end
 
 minetest.register_abm({
     label = 'Everness Moss growth',
-    nodenames = {
-        'everness:coral_desert_cobble',
-        'stairs:slab_coral_desert_cobble',
-        'stairs:stair_coral_desert_cobble',
-        'stairs:stair_inner_coral_desert_cobble',
-        'stairs:stair_outer_coral_desert_cobble',
-        'everness:coral_desert_cobble_wall',
-    },
+    nodenames = moss_nodenames_correspondences,
     neighbors = { 'group:water' },
     interval = 16,
     chance = 200,
@@ -300,36 +306,42 @@ minetest.register_abm({
 --
 
 local magma_correspondences = {
-    ['default:cobble'] = 'everness:magmacobble',
-    ['stairs:slab_cobble'] = 'stairs:slab_magmacobble',
-    ['stairs:stair_cobble'] = 'stairs:stair_magmacobble',
-    ['stairs:stair_inner_cobble'] = 'stairs:stair_inner_magmacobble',
-    ['stairs:stair_outer_cobble'] = 'stairs:stair_outer_magmacobble',
-    ['walls:cobble'] = 'everness:magmacobble_wall',
     ['everness:volcanic_rock'] = 'everness:volcanic_rock_with_magma',
-    ['stairs:slab_volcanic_rock'] = 'stairs:slab_volcanic_rock_with_magma',
-    ['stairs:stair_volcanic_rock'] = 'stairs:stair_volcanic_rock_with_magma',
-    ['stairs:stair_inner_volcanic_rock'] = 'stairs:stair_inner_volcanic_rock_with_magma',
-    ['stairs:stair_outer_volcanic_rock'] = 'stairs:stair_outer_volcanic_rock_with_magma',
-    ['everness:volcanic_rock_wall'] = 'everness:volcanic_rock_with_magma_wall',
 }
 
+local magma_nodenames_correspondences = {
+    'everness:volcanic_rock'
+}
+
+if minetest.get_modpath('default') then
+    magma_correspondences['default:cobble'] = 'everness:magmacobble'
+    magma_correspondences['stairs:slab_cobble'] = 'stairs:slab_magmacobble'
+    magma_correspondences['stairs:stair_cobble'] = 'stairs:stair_magmacobble'
+    magma_correspondences['stairs:stair_inner_cobble'] = 'stairs:stair_inner_magmacobble'
+    magma_correspondences['stairs:stair_outer_cobble'] = 'stairs:stair_outer_magmacobble'
+    magma_correspondences['walls:cobble'] = 'everness:magmacobble_wall'
+    magma_correspondences['stairs:slab_volcanic_rock'] = 'stairs:slab_volcanic_rock_with_magma'
+    magma_correspondences['stairs:stair_volcanic_rock'] = 'stairs:stair_volcanic_rock_with_magma'
+    magma_correspondences['stairs:stair_inner_volcanic_rock'] = 'stairs:stair_inner_volcanic_rock_with_magma'
+    magma_correspondences['stairs:stair_outer_volcanic_rock'] = 'stairs:stair_outer_volcanic_rock_with_magma'
+    magma_correspondences['everness:volcanic_rock_wall'] = 'everness:volcanic_rock_with_magma_wall'
+
+    table.insert(magma_nodenames_correspondences, 'default:cobble')
+    table.insert(magma_nodenames_correspondences, 'stairs:slab_cobble')
+    table.insert(magma_nodenames_correspondences, 'stairs:stair_cobble')
+    table.insert(magma_nodenames_correspondences, 'stairs:stair_inner_cobble')
+    table.insert(magma_nodenames_correspondences, 'stairs:stair_outer_cobble')
+    table.insert(magma_nodenames_correspondences, 'walls:cobble')
+    table.insert(magma_nodenames_correspondences, 'stairs:slab_volcanic_rock')
+    table.insert(magma_nodenames_correspondences, 'stairs:stair_volcanic_rock')
+    table.insert(magma_nodenames_correspondences, 'stairs:stair_inner_volcanic_rock')
+    table.insert(magma_nodenames_correspondences, 'stairs:stair_outer_volcanic_rock')
+    table.insert(magma_nodenames_correspondences, 'everness:volcanic_rock_wall')
+end
+
 minetest.register_abm({
-    label = 'Magma growth',
-    nodenames = {
-        'default:cobble',
-        'stairs:slab_cobble',
-        'stairs:stair_cobble',
-        'stairs:stair_inner_cobble',
-        'stairs:stair_outer_cobble',
-        'walls:cobble',
-        'everness:volcanic_rock',
-        'stairs:slab_volcanic_rock',
-        'stairs:stair_volcanic_rock',
-        'stairs:stair_inner_volcanic_rock',
-        'stairs:stair_outer_volcanic_rock',
-        'everness:volcanic_rock_wall',
-    },
+    label = 'Everness Magma growth',
+    nodenames = magma_nodenames_correspondences,
     neighbors = { 'group:lava' },
     interval = 16,
     chance = 200,
@@ -503,7 +515,7 @@ minetest.register_abm({
         'everness:cactus_orange',
         'everness:cactus_blue'
     },
-    neighbors = { 'group:mold_soil' },
+    neighbors = { 'group:sand', 'group:everness_sand' },
     interval = 12,
     chance = 83,
     action = function(...)
@@ -518,7 +530,7 @@ minetest.register_abm({
 minetest.register_abm({
     label = 'everness:bio_bubbles',
     nodenames = { 'group:bio_bubbles' },
-    neighbors = { 'default:water_source' },
+    neighbors = { 'group:water' },
     interval = 16,
     chance = 2,
     catch_up = false,
@@ -604,7 +616,7 @@ minetest.register_abm({
 minetest.register_abm({
     label = 'everness:rising_souls',
     nodenames = { 'group:rising_souls' },
-    neighbors = { 'default:water_source' },
+    neighbors = { 'group:water' },
     interval = 16,
     chance = 2,
     catch_up = false,
@@ -696,7 +708,7 @@ minetest.register_abm({
 minetest.register_abm({
     label = 'everness:rising_souls',
     nodenames = { 'group:rising_crystals' },
-    neighbors = { 'default:water_source' },
+    neighbors = { 'group:water' },
     interval = 16,
     chance = 2,
     catch_up = false,

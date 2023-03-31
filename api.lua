@@ -16,6 +16,8 @@
     License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
+local S = minetest.get_translator(minetest.get_current_modname())
+
 --- Base class
 ---@class Everness
 ---@field bamboo {['growth_stages']: table<number, table>, ['top_leaves_schem']: table}
@@ -56,328 +58,7 @@ Everness = {
         }
     },
     loot_chest = {
-        default = {
-            {
-                name = 'default:stick',
-                max_count = 25,
-                chance = 25
-            },
-            {
-                name = 'default:paper',
-                max_count = 10,
-                chance = 25
-            },
-            {
-                name = 'default:book',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:skeleton_key',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:flint',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:obsidian_shard',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:clay_brick',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:mese_crystal_fragment',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:gold_ingot',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:bronze_ingot',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:tin_ingot',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:copper_ingot',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:steel_ingot',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:coal_lump',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:pick_stone',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:pick_bronze',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:pick_steel',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:shovel_stone',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:shovel_bronze',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:shovel_steel',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:axe_stone',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:axe_bronze',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:axe_steel',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:sword_stone',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:sword_bronze',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:sword_steel',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:bookshelf',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:sign_wall_wood',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:ladder_wood',
-                max_count = 5,
-                chance = 25
-            },
-            {
-                name = 'default:ladder_steel',
-                max_count = 5,
-                chance = 25
-            },
-            {
-                name = 'default:glass',
-                max_count = 10,
-                chance = 25
-            },
-            {
-                name = 'default:obsidian_glass',
-                max_count = 10,
-                chance = 25
-            },
-            {
-                name = 'default:tree',
-                max_count = 15,
-                chance = 25
-            },
-            {
-                name = 'default:jungletree',
-                max_count = 15,
-                chance = 25
-            },
-            {
-                name = 'default:pine_tree',
-                max_count = 15,
-                chance = 25
-            },
-            {
-                name = 'default:cactus',
-                max_count = 20,
-                chance = 25
-            },
-            {
-                name = 'default:large_cactus_seedling',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:papyrus',
-                max_count = 20,
-                chance = 25
-            },
-            {
-                name = 'default:junglegrass',
-                max_count = 20,
-                chance = 25
-            },
-            {
-                name = 'default:blueberry_bush_sapling',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:sapling',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:junglesapling',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:pine_sapling',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:acacia_sapling',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:aspen_sapling',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:clay_lump',
-                max_count = 5,
-                chance = 25
-            },
-            {
-                name = 'default:tin_lump',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:copper_lump',
-                max_count = 5,
-                chance = 25
-            },
-            {
-                name = 'default:iron_lump',
-                max_count = 5,
-                chance = 25
-            },
-            {
-                name = 'default:coalblock',
-                max_count = 5,
-                chance = 25
-            },
-            {
-                name = 'default:steelblock',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:copperblock',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:tinblock',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:bronzeblock',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:mese',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:meselamp',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:obsidian',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:mese_crystal',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:diamond',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:pick_mese',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:shovel_mese',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:axe_mese',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'default:sword_mese',
-                max_count = 2,
-                chance = 25
-            },
-            {
-                name = 'everness:forsaken_fire',
-                max_count = 1,
-                chance = 50
-            },
-        }
+        default = {},
     },
     settings = {
         biomes = {
@@ -540,14 +221,16 @@ Everness = {
 }
 
 function Everness.grow_cactus(self, pos, node, params)
+    local node_copy = table.copy(node)
+
     if node.param2 >= 4 then
         return
     end
 
     pos.y = pos.y - 1
 
-    if minetest.get_item_group(minetest.get_node(pos).name, 'mold_soil') == 0
-        or minetest.get_item_group(minetest.get_node(pos).name, 'sand') == 0
+    if minetest.get_item_group(minetest.get_node(pos).name, 'sand') == 0
+        and minetest.get_item_group(minetest.get_node(pos).name, 'everness_sand') == 0
     then
         return
     end
@@ -570,7 +253,7 @@ function Everness.grow_cactus(self, pos, node, params)
         return
     end
 
-    minetest.set_node(pos, { name = node.name })
+    minetest.set_node(pos, { name = node_copy.name })
 
     return true
 end
@@ -676,109 +359,138 @@ end
 -- Sounds
 --
 
-function Everness.node_sound_defaults(table)
-    table = table or {}
-    table.footstep = table.footstep or
-            { name = '', gain = 1.0 }
-    table.dug = table.dug or
-            { name = 'default_dug_node', gain = 0.25 }
-    table.place = table.place or
-            { name = 'default_place_node_hard', gain = 1.0 }
-    return table
-end
-
 function Everness.node_sound_frosted_snow_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_frosted_snow_footstep', gain = 0.2 }
-    table.dig = table.dig or
-            { name = 'everness_frosted_snow_footstep', gain = 0.3 }
-    table.dug = table.dug or
-            { name = 'everness_frosted_snow_footstep', gain = 0.3 }
-    table.place = table.place or
-            { name = 'default_place_node', gain = 1.0 }
-    default.node_sound_defaults(table)
+    table.footstep = table.footstep or { name = 'everness_frosted_snow_footstep', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_frosted_snow_hit', gain = 0.2 }
+    table.dug = table.dug or { name = 'everness_frosted_snow_footstep', gain = 0.3 }
+    table.place = table.place or { name = 'everness_frosted_snow_place', gain = 0.25 }
     return table
 end
 
 function Everness.node_sound_crystal_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_crystal_chime', gain = 0.2 }
-    table.dig = table.dig or
-            { name = 'everness_crystal_chime', gain = 0.3 }
-    table.dug = table.dug or
-            { name = 'default_hard_footstep', gain = 0.3 }
-    table.place = table.place or
-            { name = 'everness_crystal_chime', gain = 1.0 }
-    default.node_sound_defaults(table)
+    table.footstep = table.footstep or { name = 'everness_crystal_chime', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_crystal_chime', gain = 0.3 }
+    table.dug = table.dug or { name = 'everness_stone_footstep', gain = 0.3 }
+    table.place = table.place or { name = 'everness_crystal_chime', gain = 1.0 }
     return table
 end
 
 function Everness.node_sound_bamboo_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_bamboo_hit', gain = 0.2 }
-    table.dig = table.dig or
-            { name = 'everness_bamboo_hit', gain = 0.3 }
-    table.dug = table.dug or
-            { name = 'everness_bamboo_dug', gain = 0.1 }
-    table.place = table.place or
-            { name = 'everness_bamboo_hit', gain = 1.0 }
-    default.node_sound_defaults(table)
+    table.footstep = table.footstep or { name = 'everness_bamboo_hit', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_bamboo_hit', gain = 0.3 }
+    table.dug = table.dug or { name = 'everness_bamboo_dug', gain = 0.1 }
+    table.place = table.place or { name = 'everness_bamboo_hit', gain = 1.0 }
     return table
 end
 
 function Everness.node_sound_mud_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_mud_footstep', gain = 0.2 }
-    table.dig = table.dig or
-            { name = 'everness_mud_footstep', gain = 0.3 }
-    table.dug = table.dug or
-            { name = 'everness_mud_footstep', gain = 0.1 }
-    table.place = table.place or
-            { name = 'everness_mud_footstep', gain = 1.0 }
-    default.node_sound_defaults(table)
+    table.footstep = table.footstep or { name = 'everness_mud_footstep', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_mud_footstep', gain = 0.3 }
+    table.dug = table.dug or { name = 'everness_mud_footstep', gain = 0.1 }
+    table.place = table.place or { name = 'everness_mud_footstep', gain = 1.0 }
     return table
 end
 
 function Everness.node_sound_grass_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_grass_footstep', gain = 0.4 }
-    table.dig = table.dig or
-            { name = 'everness_grass_hit', gain = 1.2 }
-    table.dug = table.dug or
-            { name = 'everness_dirt_hit', gain = 1.0 }
-    table.place = table.place or
-            { name = 'everness_dirt_hit', gain = 1.0 }
+    table.footstep = table.footstep or { name = 'everness_grass_footstep', gain = 0.4 }
+    table.dig = table.dig or { name = 'everness_grass_hit', gain = 1.2 }
+    table.dug = table.dug or { name = 'everness_dirt_hit', gain = 1.0 }
+    table.place = table.place or { name = 'everness_dirt_hit', gain = 1.0 }
     return table
 end
 
 function Everness.node_sound_dirt_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_dirt_footstep', gain = 0.15 }
-    table.dig = table.dig or
-            { name = 'everness_dirt_hit', gain = 0.4 }
-    table.dug = table.dug or
-            { name = 'everness_dirt_hit', gain = 1.0 }
-    table.place = table.place or
-            { name = 'everness_dirt_hit', gain = 1.0 }
+    table.footstep = table.footstep or { name = 'everness_dirt_footstep', gain = 0.15 }
+    table.dig = table.dig or { name = 'everness_dirt_hit', gain = 0.4 }
+    table.dug = table.dug or { name = 'everness_dirt_hit', gain = 1.0 }
+    table.place = table.place or { name = 'everness_dirt_hit', gain = 1.0 }
     return table
 end
 
 function Everness.node_sound_ice_defaults(table)
     table = table or {}
-    table.footstep = table.footstep or
-            { name = 'everness_ice_footstep', gain = 0.2 }
-    table.dig = table.dig or
-            { name = 'everness_ice_hit', gain = 0.4 }
-    table.dug = table.dug or
-            { name = 'everness_ice_hit', gain = 1.0 }
-    table.place = table.place or
-            { name = 'everness_ice_hit', gain = 1.0 }
+    table.footstep = table.footstep or { name = 'everness_ice_footstep', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_ice_hit', gain = 0.4 }
+    table.dug = table.dug or { name = 'everness_ice_hit', gain = 1.0 }
+    table.place = table.place or { name = 'everness_ice_hit', gain = 1.0 }
+    return table
+end
+
+function Everness.node_sound_stone_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_stone_footstep', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_stone_hit', gain = 1.0 }
+    table.dug = table.dug or { name = 'everness_stone_dug', gain = 0.6 }
+    table.place = table.place or { name = 'everness_stone_place', gain = 1.0 }
+    return table
+end
+
+function Everness.node_sound_leaves_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_leaves_footstep', gain = 0.1 }
+    table.dig = table.dig or { name = 'everness_leaves_hit', gain = 0.25 }
+    table.dug = table.dug or { name = 'everness_leaves_dug', gain = 0.5 }
+    table.place = table.place or { name = 'everness_leaves_place', gain = 0.4 }
+    return table
+end
+
+function Everness.node_sound_wood_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_wood_footstep', gain = 0.15 }
+    table.dig = table.dig or { name = 'everness_wood_hit', gain = 0.5 }
+    table.dug = table.dug or { name = 'everness_wood_place', gain = 0.1 }
+    table.place = table.place or { name = 'everness_wood_place', gain = 0.15 }
+    return table
+end
+
+function Everness.node_sound_sand_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_sand_footstep', gain = 0.1 }
+    table.dig = table.dig or { name = 'everness_sand_hit', gain = 0.5 }
+    table.dug = table.dug or { name = 'everness_sand_dug', gain = 0.1 }
+    table.place = table.place or { name = 'everness_sand_place', gain = 0.15 }
+    return table
+end
+
+function Everness.node_sound_metal_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_metal_footstep', gain = 0.1 }
+    table.dig = table.dig or { name = 'everness_metal_hit', gain = 0.5 }
+    table.dug = table.dug or { name = 'everness_metal_dug', gain = 0.1 }
+    table.place = table.place or { name = 'everness_metal_place', gain = 0.15 }
+    return table
+end
+
+function Everness.node_sound_glass_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_glass_footstep', gain = 0.02 }
+    table.dig = table.dig or { name = 'everness_glass_footstep', gain = 0.05 }
+    table.dug = table.dug or { name = 'everness_glass_dug', gain = 0.4 }
+    table.place = table.place or { name = 'everness_glass_place', gain = 0.2 }
+    return table
+end
+
+function Everness.node_sound_thin_glass_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_thin_glass_footstep', gain = 0.3 }
+    table.dig = table.dig or { name = 'everness_thin_glass_footstep', gain = 0.5 }
+    table.dug = table.dug or { name = 'everness_break_thin_glass', gain = 1.0 }
+    table.place = table.place or { name = 'everness_glass_place', gain = 0.2 }
+    return table
+end
+
+function Everness.node_sound_snow_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_snow_footstep', gain = 0.1 }
+    table.dig = table.dig or { name = 'everness_snow_hit', gain = 0.2 }
+    table.dug = table.dug or { name = 'everness_snow_footstep', gain = 0.2 }
+    table.place = table.place or { name = 'everness_snow_place', gain = 0.3 }
     return table
 end
 
@@ -917,4 +629,349 @@ function Everness.use_shell_of_underwater_breathing(self, itemstack, user, point
     end
 
     return itemstack
+end
+
+--
+-- Sapling 'on place' function to check protection of node and resulting tree volume
+-- copy from MTG
+--
+function Everness.sapling_on_place(self, itemstack, placer, pointed_thing, props)
+    local _props = props or {}
+    local sapling_name = _props.sapling_name
+    -- minp, maxp to be checked, relative to sapling pos
+    -- minp_relative.y = 1 because sapling pos has been checked
+    local minp_relative = _props.minp_relative
+    local maxp_relative = _props.maxp_relative
+    -- maximum interval of interior volume check
+    local interval = _props.interval
+
+    -- Position of sapling
+    local pos = pointed_thing.under
+    local node = minetest.get_node_or_nil(pos)
+    local pdef = node and minetest.registered_nodes[node.name]
+
+    if pdef and node and pdef.on_rightclick
+        and not (placer and placer:is_player()
+        and placer:get_player_control().sneak)
+    then
+        return pdef.on_rightclick(pos, node, placer, itemstack, pointed_thing)
+    end
+
+    if not pdef or not pdef.buildable_to then
+        pos = pointed_thing.above
+        node = minetest.get_node_or_nil(pos)
+        pdef = node and minetest.registered_nodes[node.name]
+
+        if not pdef or not pdef.buildable_to then
+            return itemstack
+        end
+    end
+
+    local player_name = placer and placer:get_player_name() or ''
+
+    -- Check sapling position for protection
+    if minetest.is_protected(pos, player_name) then
+        minetest.record_protection_violation(pos, player_name)
+        return itemstack
+    end
+
+    -- Check tree volume for protection
+    if minetest.is_area_protected(
+            vector.add(pos, minp_relative),
+            vector.add(pos, maxp_relative),
+            player_name,
+            interval
+        )
+    then
+        minetest.record_protection_violation(pos, player_name)
+        minetest.chat_send_player(
+            player_name,
+            S('@1 will intersect protection on growth.', itemstack:get_definition().description)
+        )
+
+        return itemstack
+    end
+
+    Everness.log_player_action(placer, 'places node', sapling_name, 'at', pos)
+
+    local take_item = not minetest.is_creative_enabled(player_name)
+    local newnode = { name = sapling_name }
+    local ndef = minetest.registered_nodes[sapling_name]
+
+    minetest.set_node(pos, newnode)
+
+    -- Run callback
+    if ndef and ndef.after_place_node then
+        -- Deepcopy place_to and pointed_thing because callback can modify it
+        if ndef.after_place_node(table.copy(pos), placer,
+                itemstack, table.copy(pointed_thing)) then
+            take_item = false
+        end
+    end
+
+    -- Run script hook
+    for _, callback in ipairs(minetest.registered_on_placenodes or {}) do
+        -- Deepcopy pos, node and pointed_thing because callback can modify them
+        if callback(table.copy(pos), table.copy(newnode),
+                placer, table.copy(node or {}),
+                itemstack, table.copy(pointed_thing)) then
+            take_item = false
+        end
+    end
+
+    if take_item then
+        itemstack:take_item()
+    end
+
+    return itemstack
+end
+
+--
+-- Leafdecay - taken from MTG
+--
+
+-- Prevent decay of placed leaves
+
+Everness.after_place_leaves = function(self, pos, placer, itemstack, pointed_thing)
+    if placer and placer:is_player() then
+        local node = minetest.get_node(pos)
+        node.param2 = 1
+        minetest.set_node(pos, node)
+    end
+end
+
+-- Leafdecay
+local function leafdecay_after_destruct(pos, oldnode, def)
+    for _, v in pairs(minetest.find_nodes_in_area(vector.subtract(pos, def.radius),
+        vector.add(pos, def.radius), def.leaves))
+    do
+        local node = minetest.get_node(v)
+        local timer = minetest.get_node_timer(v)
+        if node.param2 ~= 1 and not timer:is_started() then
+            timer:start(math.random(20, 120) / 10)
+        end
+    end
+end
+
+local movement_gravity = tonumber(minetest.settings:get('movement_gravity')) or 9.81
+
+local function leafdecay_on_timer(pos, def)
+    if minetest.find_node_near(pos, def.radius, def.trunks) then
+        return false
+    end
+
+    local node = minetest.get_node(pos)
+    local drops = minetest.get_node_drops(node.name)
+
+    for _, item in ipairs(drops) do
+        local is_leaf
+        for _, v in pairs(def.leaves) do
+            if v == item then
+                is_leaf = true
+            end
+        end
+        if minetest.get_item_group(item, 'leafdecay_drop') ~= 0
+            or not is_leaf
+        then
+            minetest.add_item({
+                x = pos.x - 0.5 + math.random(),
+                y = pos.y - 0.5 + math.random(),
+                z = pos.z - 0.5 + math.random(),
+            }, item)
+        end
+    end
+
+    minetest.remove_node(pos)
+    minetest.check_for_falling(pos)
+
+    -- spawn a few particles for the removed node
+    minetest.add_particlespawner({
+        amount = 8,
+        time = 0.001,
+        minpos = vector.subtract(pos, { x = 0.5, y = 0.5, z = 0.5 }),
+        maxpos = vector.add(pos, { x = 0.5, y = 0.5, z = 0.5 }),
+        minvel = vector.new(-0.5, -1, -0.5),
+        maxvel = vector.new(0.5, 0, 0.5),
+        minacc = vector.new(0, -movement_gravity, 0),
+        maxacc = vector.new(0, -movement_gravity, 0),
+        minsize = 0,
+        maxsize = 0,
+        node = node,
+    })
+end
+
+function Everness.register_leafdecay(self, def)
+    assert(def.leaves)
+    assert(def.trunks)
+    assert(def.radius)
+
+    for _, v in pairs(def.trunks) do
+        minetest.override_item(v, {
+            after_destruct = function(pos, oldnode)
+                leafdecay_after_destruct(pos, oldnode, def)
+            end,
+        })
+    end
+
+    for _, v in pairs(def.leaves) do
+        minetest.override_item(v, {
+            on_timer = function(pos)
+                leafdecay_on_timer(pos, def)
+            end,
+        })
+    end
+end
+
+function Everness.register_node(self, name, def, props)
+    local _def = table.copy(def)
+    local _name = name
+
+    minetest.register_node(_name, _def)
+end
+
+--
+-- Log API / helpers - copy from MTG
+--
+
+local log_non_player_actions = minetest.settings:get_bool('log_non_player_actions', false)
+
+local is_pos = function(v)
+    return type(v) == 'table'
+        and type(v.x) == 'number'
+        and type(v.y) == 'number'
+        and type(v.z) == 'number'
+end
+
+function Everness.log_player_action(player, ...)
+    local msg = player:get_player_name()
+    if player.is_fake_player or not player:is_player() then
+        if not log_non_player_actions then
+            return
+        end
+
+        msg = msg .. '(' .. (type(player.is_fake_player) == 'string'
+            and player.is_fake_player or '*') .. ')'
+    end
+    for _, v in ipairs({ ... }) do
+        -- translate pos
+        local part = is_pos(v) and minetest.pos_to_string(v) or v
+        -- no leading spaces before punctuation marks
+        msg = msg .. (string.match(part, '^[;,.]') and '' or ' ') .. part
+    end
+
+    minetest.log('action', msg)
+end
+
+function Everness.set_inventory_action_loggers(def, name)
+    def.on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
+        Everness.log_player_action(player, 'moves stuff in', name, 'at', pos)
+    end
+    def.on_metadata_inventory_put = function(pos, listname, index, stack, player)
+        Everness.log_player_action(player, 'moves', stack:get_name(), 'to', name, 'at', pos)
+    end
+    def.on_metadata_inventory_take = function(pos, listname, index, stack, player)
+        Everness.log_player_action(player, 'takes', stack:get_name(), 'from', name, 'at', pos)
+    end
+end
+
+-- 'can grow' function - copy from MTG
+
+function Everness.can_grow(pos)
+    local node_under = minetest.get_node_or_nil({ x = pos.x, y = pos.y - 1, z = pos.z })
+
+    if not node_under then
+        return false
+    end
+
+    if minetest.get_item_group(node_under.name, 'soil') == 0 then
+        return false
+    end
+
+    local light_level = minetest.get_node_light(pos)
+
+    if not light_level or light_level < 13 then
+        return false
+    end
+
+    return true
+end
+
+--
+-- This method may change in future.
+-- Copy from MTG
+--
+
+function Everness.can_interact_with_node(player, pos)
+    if player and player:is_player() then
+        if minetest.check_player_privs(player, 'protection_bypass') then
+            return true
+        end
+    else
+        return false
+    end
+
+    local meta = minetest.get_meta(pos)
+    local owner = meta:get_string('owner')
+
+    if not owner or owner == '' or owner == player:get_player_name() then
+        return true
+    end
+
+    -- Is player wielding the right key?
+    local item = player:get_wielded_item()
+
+    if minetest.get_item_group(item:get_name(), 'key') == 1 then
+        local key_meta = item:get_meta()
+
+        if key_meta:get_string('secret') == '' then
+            local key_oldmeta = item:get_metadata()
+
+            if key_oldmeta == '' or not minetest.parse_json(key_oldmeta) then
+                return false
+            end
+
+            key_meta:set_string('secret', minetest.parse_json(key_oldmeta).secret)
+            item:set_metadata('')
+        end
+
+        return meta:get_string('key_lock_secret') == key_meta:get_string('secret')
+    end
+
+    return false
+end
+
+--
+-- Optimized helper to put all items in an inventory into a drops list
+-- copy from MTG
+--
+
+function Everness.get_inventory_drops(pos, inventory, drops)
+    local inv = minetest.get_meta(pos):get_inventory()
+    local n = #drops
+    for i = 1, inv:get_size(inventory) do
+        local stack = inv:get_stack(inventory, i)
+        if stack:get_count() > 0 then
+            drops[n + 1] = stack:to_table()
+            n = n + 1
+        end
+    end
+end
+
+function Everness.set_loot_chest_items()
+    local loot_items = {}
+
+    for name, def in pairs(minetest.registered_items) do
+        if def.groups
+            and next(def.groups)
+            and (not def.groups.not_in_creative_inventory or def.groups.not_in_creative_inventory == 0)
+        then
+            table.insert(loot_items, {
+                name = name,
+                max_count = 25,
+                chance = 25
+            })
+        end
+    end
+
+    Everness.loot_chest.default = table.copy(loot_items)
 end

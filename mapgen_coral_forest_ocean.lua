@@ -33,10 +33,10 @@ minetest.register_biome({
     depth_filler = 3,
     node_riverbed = 'everness:coral_white_sand',
     depth_riverbed = 2,
-    node_cave_liquid = 'default:water_source',
+    node_cave_liquid = 'everness_mapgen_water_source',
     node_dungeon = 'everness:coral_desert_cobble',
     node_dungeon_alt = 'everness:coral_desert_mossy_cobble',
-    node_dungeon_stair = 'stairs:stair_coral_desert_cobble',
+    node_dungeon_stair = 'everness_mapgen_stair_coral_desert_cobble',
     y_max = y_max,
     y_min = y_min,
     heat_point = 60,
@@ -51,7 +51,7 @@ minetest.register_biome({
 minetest.register_ore({
     ore_type = 'blob',
     ore = 'everness:coral_desert_stone',
-    wherein = { 'default:stone' },
+    wherein = { 'everness_mapgen_stone' },
     clust_scarcity = 16 * 16 * 16,
     clust_size = 5,
     y_max = y_max,
@@ -97,6 +97,6 @@ minetest.register_decoration({
     decoration = {
         'everness:coral_corals',
         'everness:coral_jellyfish',
-        'default:coral_skeleton'
+        'everness:coral_skeleton'
     },
 })

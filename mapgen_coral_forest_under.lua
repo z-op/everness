@@ -27,10 +27,10 @@ local y_min = Everness.settings.biomes.everness_coral_forest_under.y_min
 
 minetest.register_biome({
     name = 'everness_coral_forest_under',
-    node_cave_liquid = { 'default:water_source', 'default:lava_source' },
+    node_cave_liquid = { 'everness_mapgen_water_source', 'everness_mapgen_lava_source' },
     node_dungeon = 'everness:coral_desert_cobble',
     node_dungeon_alt = 'everness:coral_desert_mossy_cobble',
-    node_dungeon_stair = 'stairs:stair_coral_desert_cobble',
+    node_dungeon_stair = 'everness_mapgen_stair_coral_desert_cobble',
     y_max = y_max,
     y_min = y_min,
     heat_point = 60,
@@ -49,7 +49,7 @@ minetest.register_biome({
 minetest.register_ore({
     ore_type = 'blob',
     ore = 'everness:coral_desert_stone',
-    wherein = { 'default:stone' },
+    wherein = { 'everness_mapgen_stone' },
     clust_scarcity = 16 * 16 * 16,
     clust_size = 5,
     y_max = y_max,
@@ -75,7 +75,7 @@ minetest.register_ore({
 minetest.register_decoration({
     name = 'everness:coral_forest_under_desert_stone_with_moss_floors',
     deco_type = 'simple',
-    place_on = { 'default:stone' },
+    place_on = { 'everness_mapgen_stone' },
     place_offset_y = -1,
     sidelen = 16,
     fill_ratio = 10,
@@ -91,7 +91,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:coral_forest_under_mold_stone_ceilings',
     deco_type = 'simple',
-    place_on = { 'default:stone' },
+    place_on = { 'everness_mapgen_stone' },
     sidelen = 16,
     fill_ratio = 0.4,
     biomes = { 'everness_coral_forest_under' },

@@ -30,7 +30,8 @@ local path_nodes_bamboo_forest = {
             'x_obsidianmese_path_dirt_base.png^(everness_grass_top_1.png^[mask:x_obsidianmese_path_overlay.png)',
             'x_obsidianmese_path_dirt_base.png',
             'x_obsidianmese_dirt_path_side.png'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
     ['everness:dirt_with_grass_2'] = {
         name = 'dirt_with_grass_2',
@@ -41,7 +42,8 @@ local path_nodes_bamboo_forest = {
             'x_obsidianmese_path_dirt_base.png^(everness_grass_top_2.png^[mask:x_obsidianmese_path_overlay.png)',
             'x_obsidianmese_path_dirt_base.png',
             'x_obsidianmese_dirt_path_side.png'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
     ['everness:dirt_with_grass_extras_1'] = {
         name = 'dirt_with_grass_extras_1',
@@ -52,7 +54,8 @@ local path_nodes_bamboo_forest = {
             'x_obsidianmese_path_dirt_base.png^(everness_grass_top_1.png^[mask:x_obsidianmese_path_overlay.png)',
             'x_obsidianmese_path_dirt_base.png',
             'x_obsidianmese_dirt_path_side.png'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
     ['everness:dirt_with_grass_extras_2'] = {
         name = 'dirt_with_grass_extras_2',
@@ -63,7 +66,8 @@ local path_nodes_bamboo_forest = {
             'x_obsidianmese_path_dirt_base.png^(everness_grass_top_2.png^[mask:x_obsidianmese_path_overlay.png)',
             'x_obsidianmese_path_dirt_base.png',
             'x_obsidianmese_dirt_path_side.png'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
     ['everness:dirt_1'] = {
         name = 'dirt_1',
@@ -74,7 +78,8 @@ local path_nodes_bamboo_forest = {
             'x_obsidianmese_path_dirt_base.png^(everness_dirt_1.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png',
             'x_obsidianmese_dirt_path_side.png'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
 }
 
@@ -90,7 +95,8 @@ local path_nodes_crystal_forest = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#755069:127^(everness_crystal_grass.png^[mask:x_obsidianmese_path_overlay.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#755069:127',
             'x_obsidianmese_dirt_path_side.png^[colorize:#755069:127'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
     ['everness:crystal_dirt'] = {
         name = 'crystal_dirt',
@@ -101,7 +107,8 @@ local path_nodes_crystal_forest = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#755069:127^(everness_crystal_dirt.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#755069:127',
             'x_obsidianmese_dirt_path_side.png^[colorize:#755069:127'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
 }
 
@@ -115,7 +122,8 @@ local path_nodes_crystal_forest_dunes = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#845D88:170^(everness_crystal_sand.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#845D88:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#845D88:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     },
 }
 
@@ -129,7 +137,8 @@ local path_nodes_crystal_forest_shore = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#845D88:170^(everness_crystal_sand.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#845D88:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#845D88:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     },
 }
 
@@ -143,7 +152,8 @@ local path_nodes_crystal_forest_ocean = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#845D88:170^(everness_crystal_sand.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#845D88:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#845D88:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     },
 }
 
@@ -157,7 +167,8 @@ local path_nodes_crystal_forest_under = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#EEDDB2:127^(everness_crystal_cave_dirt_top.png^[mask:x_obsidianmese_path_overlay.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#EEDDB2:127',
             'x_obsidianmese_dirt_path_side.png^[colorize:#EEDDB2:127'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
     ['everness:crystal_cave_dirt'] = {
         name = 'crystal_cave_dirt',
@@ -168,7 +179,8 @@ local path_nodes_crystal_forest_under = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#EEDDB2:127^(everness_crystal_cave_dirt.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#EEDDB2:127',
             'x_obsidianmese_dirt_path_side.png^[colorize:#EEDDB2:127'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
 }
 
@@ -184,7 +196,8 @@ local path_nodes_forsaken_tundra = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#151611:170^(everness_forsaken_tundra_grass.png^[mask:x_obsidianmese_path_overlay.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#151611:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#151611:170'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
     ['everness:forsaken_tundra_dirt'] = {
         name = 'forsaken_tundra_dirt',
@@ -195,7 +208,8 @@ local path_nodes_forsaken_tundra = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#151611:170^(everness_forsaken_tundra_dirt.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#151611:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#151611:170'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
     ['everness:forsaken_tundra_beach_sand'] = {
         name = 'forsaken_tundra_beach_sand',
@@ -206,7 +220,8 @@ local path_nodes_forsaken_tundra = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#4C4341:170^(everness_forsaken_tundra_beach_sand.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#4C4341:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#4C4341:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     },
 }
 
@@ -220,7 +235,8 @@ local path_nodes_forsaken_tundra_beach = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#4C4341:170^(everness_forsaken_tundra_beach_sand.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#4C4341:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#4C4341:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     },
     ['everness:forsaken_tundra_beach_sand_with_shells'] = {
         name = 'forsaken_tundra_beach_sand_with_shells',
@@ -231,7 +247,8 @@ local path_nodes_forsaken_tundra_beach = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#4C4341:170^(everness_forsaken_tundra_beach_sand_with_shells.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#4C4341:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#4C4341:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     },
 }
 
@@ -245,7 +262,8 @@ local path_nodes_forsaken_tundra_ocean = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#4C4341:170^(everness_forsaken_tundra_beach_sand.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#4C4341:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#4C4341:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     },
     ['everness:forsaken_tundra_beach_sand_with_shells'] = {
         name = 'forsaken_tundra_beach_sand_with_shells',
@@ -256,7 +274,8 @@ local path_nodes_forsaken_tundra_ocean = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#4C4341:170^(everness_forsaken_tundra_beach_sand_with_shells.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#4C4341:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#4C4341:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     },
 }
 
@@ -272,7 +291,8 @@ local path_nodes_forsaken_desert = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#D1906A:170^(everness_forsaken_desert_sand.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#D1906A:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#D1906A:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     }
 }
 
@@ -286,7 +306,8 @@ local path_nodes_forsaken_desert_ocean = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#AB7D54:127^(everness_forsaken_desert_dry_ocean_dirt.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#AB7D54:127',
             'x_obsidianmese_dirt_path_side.png^[colorize:#AB7D54:127'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     }
 }
 
@@ -300,7 +321,8 @@ local path_nodes_forsaken_desert_under = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#D1906A:170^(everness_forsaken_desert_sand.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#D1906A:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#D1906A:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     }
 }
 
@@ -316,7 +338,8 @@ local path_nodes_cursed_lands_and_dunes_ocean = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#696151:170^(everness_cursed_grass.png^[mask:x_obsidianmese_path_overlay.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#696151:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#696151:170'
-        }
+        },
+        sounds = Everness.node_sound_mud_defaults()
     },
     ['everness:cursed_dirt'] = {
         name = 'cursed_dirt',
@@ -327,7 +350,8 @@ local path_nodes_cursed_lands_and_dunes_ocean = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#696151:170^(everness_cursed_dirt.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#696151:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#696151:170'
-        }
+        },
+        sounds = Everness.node_sound_mud_defaults()
     },
     ['everness:cursed_sand'] = {
         name = 'cursed_sand',
@@ -338,7 +362,8 @@ local path_nodes_cursed_lands_and_dunes_ocean = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#856F58:170^(everness_cursed_sand.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#856F58:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#856F58:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     },
 }
 
@@ -354,7 +379,8 @@ local path_nodes_coral_forest_and_dunes = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#AA683F:127^(everness_coral_grass.png^[mask:x_obsidianmese_path_overlay.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#AA683F:127',
             'x_obsidianmese_dirt_path_side.png^[colorize:#AA683F:127'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
     ['everness:coral_dirt'] = {
         name = 'coral_dirt',
@@ -365,7 +391,8 @@ local path_nodes_coral_forest_and_dunes = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#AA683F:127^(everness_coral_dirt.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#AA683F:127',
             'x_obsidianmese_dirt_path_side.png^[colorize:#AA683F:127'
-        }
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
     ['everness:coral_sand'] = {
         name = 'coral_sand',
@@ -376,7 +403,8 @@ local path_nodes_coral_forest_and_dunes = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#AB633D:170^(everness_coral_sand.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#AB633D:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#AB633D:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     },
     ['everness:coral_white_sand'] = {
         name = 'coral_white_sand',
@@ -387,7 +415,8 @@ local path_nodes_coral_forest_and_dunes = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#F9F4FB:170^(everness_coral_white_sand.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#F9F4FB:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#F9F4FB:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     },
 }
 
@@ -401,7 +430,8 @@ local path_nodes_coral_forest_ocean = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#F9F4FB:170^(everness_coral_white_sand.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#F9F4FB:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#F9F4FB:170'
-        }
+        },
+        sounds = Everness.node_sound_sand_defaults()
     },
 }
 
@@ -417,7 +447,8 @@ local path_nodes_frosted_icesheet = {
             'x_obsidianmese_path_dirt_base.png^[colorize:#FCFCFC:170^(everness_frosted_snow.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png^[colorize:#FCFCFC:170',
             'x_obsidianmese_dirt_path_side.png^[colorize:#FCFCFC:170'
-        }
+        },
+        sounds = Everness.node_sound_snow_defaults()
     },
 }
 
