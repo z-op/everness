@@ -1282,6 +1282,10 @@ https://freesound.org/people/cabled_mess/sounds/384421/
 - everness_skull_with_candle.obj
 - everness_venus_trap.obj
 
+**CC-BY-SA-3.0, by sofar**
+
+- everness_chest_open
+
 ### Assets
 
 **CC-BY-SA-4.0, by SaKeL**
