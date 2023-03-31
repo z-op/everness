@@ -214,6 +214,8 @@ then
     dofile(path .. '/mod_support_x_obsidianmese.lua')
 end
 
+Everness.set_loot_chest_items()
+
 local mod_end_time = (minetest.get_us_time() - mod_start_time) / 1000000
 
 print('[Mod] everness loaded.. [' .. mod_end_time .. 's]')
