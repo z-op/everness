@@ -20,23 +20,25 @@
 -- Blocks
 --
 
-minetest.register_craft({
-    output = 'everness:snowcobble 9',
-    recipe = {
-        { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
-        { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
-        { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
-    }
-})
+if minetest.get_modpath('default') then
+    minetest.register_craft({
+        output = 'everness:snowcobble 9',
+        recipe = {
+            { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
+            { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
+            { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
+        }
+    })
 
-minetest.register_craft({
-    output = 'everness:icecobble 9',
-    recipe = {
-        { 'default:ice', 'default:ice', 'default:ice' },
-        { 'default:ice', 'default:ice', 'default:ice' },
-        { 'default:ice', 'default:ice', 'default:ice' },
-    }
-})
+    minetest.register_craft({
+        output = 'everness:icecobble 9',
+        recipe = {
+            { 'default:ice', 'default:ice', 'default:ice' },
+            { 'default:ice', 'default:ice', 'default:ice' },
+            { 'default:ice', 'default:ice', 'default:ice' },
+        }
+    })
+end
 
 minetest.register_craft({
     output = 'everness:snowcobble 9',

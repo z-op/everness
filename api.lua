@@ -1182,6 +1182,18 @@ function Everness.log_player_action(player, ...)
     minetest.log('action', msg)
 end
 
+function Everness.set_inventory_action_loggers(def, name)
+    def.on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
+        Everness.log_player_action(player, 'moves stuff in', name, 'at', pos)
+    end
+    def.on_metadata_inventory_put = function(pos, listname, index, stack, player)
+        Everness.log_player_action(player, 'moves', stack:get_name(), 'to', name, 'at', pos)
+    end
+    def.on_metadata_inventory_take = function(pos, listname, index, stack, player)
+        Everness.log_player_action(player, 'takes', stack:get_name(), 'from', name, 'at', pos)
+    end
+end
+
 -- 'can grow' function - copy from MTG
 
 function Everness.can_grow(pos)
@@ -1202,4 +1214,65 @@ function Everness.can_grow(pos)
     end
 
     return true
+end
+
+--
+-- This method may change in future.
+-- Copy from MTG
+--
+
+function Everness.can_interact_with_node(player, pos)
+    if player and player:is_player() then
+        if minetest.check_player_privs(player, 'protection_bypass') then
+            return true
+        end
+    else
+        return false
+    end
+
+    local meta = minetest.get_meta(pos)
+    local owner = meta:get_string('owner')
+
+    if not owner or owner == '' or owner == player:get_player_name() then
+        return true
+    end
+
+    -- Is player wielding the right key?
+    local item = player:get_wielded_item()
+
+    if minetest.get_item_group(item:get_name(), 'key') == 1 then
+        local key_meta = item:get_meta()
+
+        if key_meta:get_string('secret') == '' then
+            local key_oldmeta = item:get_metadata()
+
+            if key_oldmeta == '' or not minetest.parse_json(key_oldmeta) then
+                return false
+            end
+
+            key_meta:set_string('secret', minetest.parse_json(key_oldmeta).secret)
+            item:set_metadata('')
+        end
+
+        return meta:get_string('key_lock_secret') == key_meta:get_string('secret')
+    end
+
+    return false
+end
+
+--
+-- Optimized helper to put all items in an inventory into a drops list
+-- copy from MTG
+--
+
+function Everness.get_inventory_drops(pos, inventory, drops)
+    local inv = minetest.get_meta(pos):get_inventory()
+    local n = #drops
+    for i = 1, inv:get_size(inventory) do
+        local stack = inv:get_stack(inventory, i)
+        if stack:get_count() > 0 then
+            drops[n + 1] = stack:to_table()
+            n = n + 1
+        end
+    end
 end

@@ -1527,7 +1527,7 @@ Everness:register_node('everness:willow_wood', {
     place_param2 = 0,
     tiles = { 'everness_willow_wood.png' },
     is_ground_content = false,
-    groups = { choppy = 3, oddly_breakable_by_hand = 2, flammable = 3, wood = 1 },
+    groups = { choppy = 3, oddly_breakable_by_hand = 2, flammable = 3, wood = 1, everness_wood = 1 },
     sounds = Everness.node_sound_wood_defaults(),
 })
 
@@ -1537,7 +1537,7 @@ Everness:register_node('everness:dry_wood', {
     place_param2 = 0,
     tiles = { 'everness_dry_wood.png' },
     is_ground_content = false,
-    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1 },
+    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1, everness_wood = 1 },
     sounds = Everness.node_sound_wood_defaults(),
 })
 
@@ -1597,7 +1597,7 @@ minetest.register_node('everness:crystal_wood', {
     place_param2 = 0,
     tiles = { 'everness_crystal_wood.png' },
     is_ground_content = false,
-    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1 },
+    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1, everness_wood = 1 },
     sounds = Everness.node_sound_wood_defaults(),
 })
 
@@ -3795,7 +3795,7 @@ Everness:register_node('everness:bamboo_wood', {
     place_param2 = 0,
     tiles = { 'everness_dry_bamboo_block_side.png' },
     is_ground_content = false,
-    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1 },
+    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1, everness_wood = 1 },
     sounds = Everness.node_sound_wood_defaults(),
 })
 
@@ -3805,7 +3805,7 @@ Everness:register_node('everness:bamboo_mosaic_wood', {
     place_param2 = 0,
     tiles = { 'everness_bamboo_mosaic.png' },
     is_ground_content = false,
-    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1 },
+    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1, everness_wood = 1 },
     sounds = Everness.node_sound_wood_defaults(),
 })
 
@@ -3815,7 +3815,7 @@ Everness:register_node('everness:baobab_wood', {
     place_param2 = 0,
     tiles = { 'everness_baobab_wood.png' },
     is_ground_content = false,
-    groups = { choppy = 3, oddly_breakable_by_hand = 2, flammable = 3, wood = 1 },
+    groups = { choppy = 3, oddly_breakable_by_hand = 2, flammable = 3, wood = 1, everness_wood = 1 },
     sounds = Everness.node_sound_wood_defaults(),
 })
 
@@ -3825,7 +3825,7 @@ Everness:register_node('everness:sequoia_wood', {
     place_param2 = 0,
     tiles = { 'everness_sequoia_wood.png' },
     is_ground_content = false,
-    groups = { choppy = 3, oddly_breakable_by_hand = 2, flammable = 3, wood = 1 },
+    groups = { choppy = 3, oddly_breakable_by_hand = 2, flammable = 3, wood = 1, everness_wood = 1 },
     sounds = Everness.node_sound_wood_defaults(),
 })
 

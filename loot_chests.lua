@@ -33,7 +33,7 @@ minetest.register_lbm({
     },
     run_at_every_load = true,
     action = function(pos, node)
-        minetest.set_node(pos, { name = 'default:chest', param2 = minetest.get_node(pos).param2 })
+        minetest.set_node(pos, { name = 'everness:chest', param2 = minetest.get_node(pos).param2 })
 
         local rand = PcgRandom(pos.x * pos.y * pos.z)
         local inv = minetest.get_inventory({ type = 'node', pos = pos })

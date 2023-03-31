@@ -828,6 +828,14 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_glass.png
 - everness_glass_detail.png
 - everness_tinted_glass_detail.png
+- everness_chest_front.png
+- everness_chest_inside.png
+- everness_chest_side.png
+- everness_chest_top.png
+- everness_chest_ui_bg.png -- Derived from texture by XSSheep (CC BY 4.0)
+- everness_chest_ui_bg_hb_slot.png -- Derived from texture by XSSheep (CC BY 4.0)
+- everness_chest_ui_bg_slot.png -- Derived from texture by XSSheep (CC BY 4.0)
+- everness_gui_hb_bg.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
@@ -1071,6 +1079,11 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 
 - everness_door_glass_close.ogg
 - everness_door_glass_open.ogg
+
+**CC-BY-4.0, by SFXAFRIK**, https://freesound.org/people/SFXAFRIK/sounds/584850/
+
+- everness_chest_open.ogg
+- everness_chest_close.ogg
 
 **CC0-1.0, by Nox_Sound**, https://freesound.org
 

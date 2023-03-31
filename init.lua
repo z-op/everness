@@ -28,6 +28,7 @@ dofile(path .. '/bamboo.lua')
 dofile(path .. '/functions.lua')
 dofile(path .. '/trees.lua')
 dofile(path .. '/vines.lua')
+dofile(path .. '/chests.lua')
 
 dofile(path .. '/mapgen.lua')
 
