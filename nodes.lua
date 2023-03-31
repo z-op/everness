@@ -26,7 +26,7 @@ local S = minetest.get_translator(minetest.get_current_modname())
 
 Everness:register_node('everness:stone_with_pyrite', {
     description = S('Pyrite Ore'),
-    tiles = { 'everness_default_stone.png^everness_mineral_pyrite.png' },
+    tiles = { 'everness_stone.png^everness_mineral_pyrite.png' },
     groups = { cracky = 2 },
     drop = 'everness:pyrite_lump',
     sounds = Everness.node_sound_stone_defaults(),
@@ -130,7 +130,7 @@ Everness:register_node('everness:pyriteblock_polished', {
 
 Everness:register_node('everness:quartz_ore', {
     description = S('Quartz Ore'),
-    tiles = { 'everness_default_stone.png^everness_quartz_ore.png' },
+    tiles = { 'everness_stone.png^everness_quartz_ore.png' },
     groups = { cracky = 3 },
     drop = 'everness:quartz_crystal',
     sounds = Everness.node_sound_stone_defaults(),
@@ -1201,8 +1201,12 @@ Everness:register_node('everness:frosted_snowblock', {
     sounds = Everness.node_sound_frosted_snow_defaults(),
     on_construct = function(pos)
         pos.y = pos.y - 1
-        if minetest.get_node(pos).name == 'default:dirt_with_grass' then
-            minetest.set_node(pos, { name = 'default:dirt_with_snow' })
+
+        local alias_dirt_with_grass = minetest.registered_aliases['everness_mapgen_dirt_with_grass']
+        local alias_dirt_with_snow = minetest.registered_aliases['everness_mapgen_dirt_with_snow']
+
+        if minetest.get_node(pos).name == alias_dirt_with_grass then
+            minetest.set_node(pos, { name = alias_dirt_with_snow })
         end
     end,
 })
@@ -1296,8 +1300,12 @@ Everness:register_node('everness:snowcobble', {
 
     on_construct = function(pos)
         pos.y = pos.y - 1
-        if minetest.get_node(pos).name == 'default:dirt_with_grass' then
-            minetest.set_node(pos, { name = 'default:dirt_with_snow' })
+
+        local alias_dirt_with_grass = minetest.registered_aliases['everness_mapgen_dirt_with_grass']
+        local alias_dirt_with_snow = minetest.registered_aliases['everness_mapgen_dirt_with_snow']
+
+        if minetest.get_node(pos).name == alias_dirt_with_grass then
+            minetest.set_node(pos, { name = alias_dirt_with_snow })
         end
     end,
 })
@@ -3839,7 +3847,7 @@ local function coral_on_place(itemstack, placer, pointed_thing, params)
     end
 
     local ignore_water = params.ignore_water or false
-    local node_under_name = params.node_under_name or 'default:coral_skeleton'
+    local node_under_name = params.node_under_name or 'everness:coral_skeleton'
     local player_name = placer:get_player_name()
     local pos_under = pointed_thing.under
     local pos_above = pointed_thing.above
@@ -3852,7 +3860,7 @@ local function coral_on_place(itemstack, placer, pointed_thing, params)
     end
 
     if node_under.name ~= node_under_name
-        or (minetest.get_node(pos_above).name ~= 'default:water_source' and not ignore_water)
+        or (minetest.get_item_group(minetest.get_node(pos_above).name, 'water') == 0 and not ignore_water)
     then
         return itemstack
     end
@@ -3896,7 +3904,7 @@ Everness:register_node('everness:coral_corals', {
             { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
-    node_dig_prediction = 'default:coral_skeleton',
+    node_dig_prediction = 'everness:coral_skeleton',
     node_placement_prediction = '',
     sounds = Everness.node_sound_stone_defaults({
         dig = { name = 'everness_plant_hit', gain = 0.2 },
@@ -3904,7 +3912,7 @@ Everness:register_node('everness:coral_corals', {
     }),
     on_place = coral_on_place,
     after_destruct = function(pos, oldnode)
-        minetest.set_node(pos, { name = 'default:coral_skeleton' })
+        minetest.set_node(pos, { name = 'everness:coral_skeleton' })
     end,
 })
 
@@ -3925,7 +3933,7 @@ Everness:register_node('everness:coral_jellyfish', {
             { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
-    node_dig_prediction = 'default:coral_skeleton',
+    node_dig_prediction = 'everness:coral_skeleton',
     node_placement_prediction = '',
     sounds = Everness.node_sound_stone_defaults({
         dig = { name = 'everness_plant_hit', gain = 0.2 },
@@ -3933,7 +3941,7 @@ Everness:register_node('everness:coral_jellyfish', {
     }),
     on_place = coral_on_place,
     after_destruct = function(pos, oldnode)
-        minetest.set_node(pos, { name = 'default:coral_skeleton' })
+        minetest.set_node(pos, { name = 'everness:coral_skeleton' })
     end,
 })
 
@@ -3954,7 +3962,7 @@ Everness:register_node('everness:coral_frosted', {
             { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
-    node_dig_prediction = 'default:coral_skeleton',
+    node_dig_prediction = 'everness:coral_skeleton',
     node_placement_prediction = '',
     sounds = Everness.node_sound_stone_defaults({
         dig = { name = 'everness_plant_hit', gain = 0.2 },
@@ -3962,7 +3970,7 @@ Everness:register_node('everness:coral_frosted', {
     }),
     on_place = coral_on_place,
     after_destruct = function(pos, oldnode)
-        minetest.set_node(pos, { name = 'default:coral_skeleton' })
+        minetest.set_node(pos, { name = 'everness:coral_skeleton' })
     end,
 })
 
@@ -3983,7 +3991,7 @@ Everness:register_node('everness:coral_starfish', {
             { -4 / 16, 0.5, -4 / 16, 4 / 16, 1.5, 4 / 16 },
         },
     },
-    node_dig_prediction = 'default:coral_skeleton',
+    node_dig_prediction = 'everness:coral_skeleton',
     node_placement_prediction = '',
     sounds = Everness.node_sound_stone_defaults({
         dig = { name = 'everness_plant_hit', gain = 0.2 },
@@ -3991,7 +3999,7 @@ Everness:register_node('everness:coral_starfish', {
     }),
     on_place = coral_on_place,
     after_destruct = function(pos, oldnode)
-        minetest.set_node(pos, { name = 'default:coral_skeleton' })
+        minetest.set_node(pos, { name = 'everness:coral_skeleton' })
     end,
 })
 
@@ -4507,6 +4515,13 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_3', {
     description = S('Crystal Forest Deep Ocean Coral Cyan'),
     tiles = { 'everness_crystal_forest_deep_ocean_coral_3.png' },
     groups = { cracky = 3, everness_crystal_forest_deep_ocean_coral = 1 },
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
+Everness:register_node('everness:coral_skeleton', {
+    description = S('Coral Skeleton'),
+    tiles = { 'everness_coral_skeleton.png' },
+    groups = { cracky = 3 },
     sounds = Everness.node_sound_stone_defaults(),
 })
 

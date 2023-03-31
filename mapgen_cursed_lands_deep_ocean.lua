@@ -33,10 +33,10 @@ minetest.register_biome({
     depth_filler = 3,
     node_riverbed = 'everness:cursed_lands_deep_ocean_sand',
     depth_riverbed = 2,
-    node_cave_liquid = 'default:water_source',
+    node_cave_liquid = 'everness_mapgen_water_source',
     node_dungeon = 'everness:cursed_lands_deep_ocean_sandstone_block',
     node_dungeon_alt = 'everness:cursed_lands_deep_ocean_sandstone_brick',
-    node_dungeon_stair = 'stairs:stair_cursed_lands_deep_ocean_sandstone_block',
+    node_dungeon_stair = 'everness_mapgen_stair_cursed_lands_deep_ocean_sandstone_block',
     y_max = y_max,
     y_min = y_min,
     heat_point = 45,
@@ -51,7 +51,7 @@ minetest.register_decoration({
     name = 'everness:forsaken_lands_deep_ocean_coral_alcyonacea',
     deco_type = 'schematic',
     place_on = { 'everness:cursed_lands_deep_ocean_sand' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'everness_mapgen_water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
@@ -66,7 +66,7 @@ minetest.register_decoration({
     name = 'everness:forsaken_lands_deep_ocean_coral_ostracod',
     deco_type = 'schematic',
     place_on = { 'everness:cursed_lands_deep_ocean_sand' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'everness_mapgen_water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
@@ -81,7 +81,7 @@ minetest.register_decoration({
     name = 'everness:forsaken_lands_deep_ocean_coral_octocurse',
     deco_type = 'schematic',
     place_on = { 'everness:cursed_lands_deep_ocean_sand' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'everness_mapgen_water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
@@ -104,7 +104,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:cursed_lands_deep_ocean_sand_with_crack' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'everness_mapgen_water_source',
     num_spawn_by = 8,
 })
 
@@ -127,7 +127,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:cursed_lands_deep_ocean_coral_plant_anemone' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'everness_mapgen_water_source',
     num_spawn_by = 8,
 })
 
@@ -150,7 +150,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:cursed_lands_deep_ocean_coral_plant_darkilluma' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'everness_mapgen_water_source',
     num_spawn_by = 8,
 })
 
@@ -173,7 +173,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:cursed_lands_deep_ocean_coral_plant_demon' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'everness_mapgen_water_source',
     num_spawn_by = 8,
 })
 
@@ -181,7 +181,7 @@ minetest.register_decoration({
 -- On Generated
 --
 
-local c_water_source = minetest.get_content_id('default:water_source')
+local c_water_source = minetest.get_content_id('everness_mapgen_water_source')
 local c_cursed_lands_deep_ocean_sand = minetest.get_content_id('everness:cursed_lands_deep_ocean_sand')
 
 -- Localize data buffer table outside the loop, to be re-used for all
@@ -250,7 +250,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             local water_source_positions = minetest.find_nodes_in_area(
                                 vector.new(s_pos.x - 5, s_pos.y, s_pos.z - 5),
                                 vector.new(s_pos.x + 5, s_pos.y + 11, s_pos.z + 5),
-                                { 'default:water_source' }
+                                { 'everness_mapgen_water_source' }
                             )
 
                             if #water_source_positions > skull_volume / 3 then

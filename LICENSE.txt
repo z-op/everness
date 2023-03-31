@@ -835,7 +835,8 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_chest_ui_bg.png -- Derived from texture by XSSheep (CC BY 4.0)
 - everness_chest_ui_bg_hb_slot.png -- Derived from texture by XSSheep (CC BY 4.0)
 - everness_chest_ui_bg_slot.png -- Derived from texture by XSSheep (CC BY 4.0)
-- everness_gui_hb_bg.png
+- everness_stone.png
+- everness_coral_skeleton.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
@@ -852,9 +853,6 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 
 - everness_coral_skeleton.png
 
-**CC-BY-SA-3.0, Cisoun's texture pack**
-
-- everness_default_stone.png
 
 ### Sounds
 
