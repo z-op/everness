@@ -37,6 +37,8 @@ dofile(path .. '/chests.lua')
 
 if minetest.get_modpath('default') then
     dofile(path .. '/mapgen_aliases_default.lua')
+elseif minetest.get_modpath('mcl_core') then
+    dofile(path .. '/mapgen_aliases_mcl.lua')
 end
 
 dofile(path .. '/mapgen.lua')
