@@ -1587,6 +1587,7 @@ Everness:register_node('everness:hollow_tree', {
         'everness_hollow_tree_top.png',
         'everness_hollow_tree_side.png'
     },
+    use_texture_alpha = 'clip',
     paramtype2 = 'facedir',
     is_ground_content = false,
     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
@@ -3025,6 +3026,7 @@ Everness:register_node('everness:cactus_blue', {
         'everness_cactus_blue_top.png',
         'everness_cactus_blue_side.png'
     },
+    use_texture_alpha = 'clip',
     paramtype = 'light',
     paramtype2 = 'facedir',
     light_source = 7,
@@ -3188,6 +3190,7 @@ Everness:register_node('everness:cactus_orange', {
         'everness_cactus_top.png',
         'everness_cactus_side.png'
     },
+    use_texture_alpha = 'clip',
     paramtype = 'light',
     paramtype2 = 'facedir',
     light_source = 4,
@@ -3288,6 +3291,7 @@ Everness:register_node('everness:egg_plant', {
         'everness_egg_plant_bottom.png',
         'everness_egg_plant_side.png',
     },
+    use_texture_alpha = 'clip',
     -- Use texture of a taller grass stage in inventory
     inventory_image = 'everness_egg_plant_item.png',
     wield_image = 'everness_egg_plant_item.png',
@@ -3390,6 +3394,7 @@ Everness:register_node('everness:bamboo_1', {
         'everness_bamboo_small_1.png',
         'everness_bamboo_small_1.png^[transformFX'
     },
+    use_texture_alpha = 'clip',
     drawtype = 'nodebox',
     paramtype = 'light',
     sunlight_propagates = true,
@@ -3457,6 +3462,7 @@ Everness:register_node('everness:bamboo_2', {
         'everness_bamboo_small_2.png',
         'everness_bamboo_small_2.png^[transformFX'
     },
+    use_texture_alpha = 'clip',
     drawtype = 'nodebox',
     paramtype = 'light',
     sunlight_propagates = true,
@@ -3526,6 +3532,7 @@ Everness:register_node('everness:bamboo_3', {
         'everness_bamboo_large_1.png',
         'everness_bamboo_large_1.png^[transformFX'
     },
+    use_texture_alpha = 'clip',
     drawtype = 'nodebox',
     paramtype = 'light',
     sunlight_propagates = true,
@@ -3589,6 +3596,7 @@ Everness:register_node('everness:bamboo_4', {
         'everness_bamboo_large_2.png',
         'everness_bamboo_large_2.png^[transformFX'
     },
+    use_texture_alpha = 'clip',
     drawtype = 'nodebox',
     paramtype = 'light',
     sunlight_propagates = true,
@@ -3652,6 +3660,7 @@ Everness:register_node('everness:bamboo_5', {
         'everness_bamboo_large_3.png',
         'everness_bamboo_large_3.png^[transformFX'
     },
+    use_texture_alpha = 'clip',
     drawtype = 'nodebox',
     paramtype = 'light',
     sunlight_propagates = true,
