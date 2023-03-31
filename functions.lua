@@ -300,19 +300,22 @@ minetest.register_abm({
 --
 
 local magma_correspondences = {
-    ['default:cobble'] = 'everness:magmacobble',
-    ['stairs:slab_cobble'] = 'stairs:slab_magmacobble',
-    ['stairs:stair_cobble'] = 'stairs:stair_magmacobble',
-    ['stairs:stair_inner_cobble'] = 'stairs:stair_inner_magmacobble',
-    ['stairs:stair_outer_cobble'] = 'stairs:stair_outer_magmacobble',
-    ['walls:cobble'] = 'everness:magmacobble_wall',
     ['everness:volcanic_rock'] = 'everness:volcanic_rock_with_magma',
-    ['stairs:slab_volcanic_rock'] = 'stairs:slab_volcanic_rock_with_magma',
-    ['stairs:stair_volcanic_rock'] = 'stairs:stair_volcanic_rock_with_magma',
-    ['stairs:stair_inner_volcanic_rock'] = 'stairs:stair_inner_volcanic_rock_with_magma',
-    ['stairs:stair_outer_volcanic_rock'] = 'stairs:stair_outer_volcanic_rock_with_magma',
-    ['everness:volcanic_rock_wall'] = 'everness:volcanic_rock_with_magma_wall',
 }
+
+if minetest.get_modpath('default') then
+    magma_correspondences['default:cobble'] = 'everness:magmacobble'
+    magma_correspondences['stairs:slab_cobble'] = 'stairs:slab_magmacobble'
+    magma_correspondences['stairs:stair_cobble'] = 'stairs:stair_magmacobble'
+    magma_correspondences['stairs:stair_inner_cobble'] = 'stairs:stair_inner_magmacobble'
+    magma_correspondences['stairs:stair_outer_cobble'] = 'stairs:stair_outer_magmacobble'
+    magma_correspondences['walls:cobble'] = 'everness:magmacobble_wall'
+    magma_correspondences['stairs:slab_volcanic_rock'] = 'stairs:slab_volcanic_rock_with_magma'
+    magma_correspondences['stairs:stair_volcanic_rock'] = 'stairs:stair_volcanic_rock_with_magma'
+    magma_correspondences['stairs:stair_inner_volcanic_rock'] = 'stairs:stair_inner_volcanic_rock_with_magma'
+    magma_correspondences['stairs:stair_outer_volcanic_rock'] = 'stairs:stair_outer_volcanic_rock_with_magma'
+    magma_correspondences['everness:volcanic_rock_wall'] = 'everness:volcanic_rock_with_magma_wall'
+end
 
 minetest.register_abm({
     label = 'Magma growth',
@@ -518,7 +521,7 @@ minetest.register_abm({
 minetest.register_abm({
     label = 'everness:bio_bubbles',
     nodenames = { 'group:bio_bubbles' },
-    neighbors = { 'default:water_source' },
+    neighbors = { 'group:water' },
     interval = 16,
     chance = 2,
     catch_up = false,
@@ -604,7 +607,7 @@ minetest.register_abm({
 minetest.register_abm({
     label = 'everness:rising_souls',
     nodenames = { 'group:rising_souls' },
-    neighbors = { 'default:water_source' },
+    neighbors = { 'group:water' },
     interval = 16,
     chance = 2,
     catch_up = false,
@@ -696,7 +699,7 @@ minetest.register_abm({
 minetest.register_abm({
     label = 'everness:rising_souls',
     nodenames = { 'group:rising_crystals' },
-    neighbors = { 'default:water_source' },
+    neighbors = { 'group:water' },
     interval = 16,
     chance = 2,
     catch_up = false,
