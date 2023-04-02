@@ -6783,9 +6783,9 @@ Everness:register_node('everness:termite_block', {
         handy = 1,
         shovely = 1,
         building_block = 1,
-        _mcl_blast_resistance = 0.5,
-        _mcl_hardness = 0.5,
     },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
 })
 

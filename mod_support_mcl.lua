@@ -853,3 +853,86 @@ minetest.register_craft({
         { 'everness:bamboo_wood', 'everness:bamboo_wood' },
     }
 })
+
+mcl_doors:register_door('everness:door_bone_pyrite', {
+    description = S('Bone Pyrit Door'),
+    inventory_image = 'everness_door_bone_pyrite_item.png',
+    groups = { handy = 1, axey = 1, material_wood = 1, flammable = -1 },
+    tiles_bottom = { 'everness_mcl_doors_door_bone_pyrite_lower.png', 'everness_mcl_doors_door_bone_pyrite_side_upper.png' },
+    tiles_top = { 'everness_mcl_doors_door_bone_pyrite_upper.png', 'everness_mcl_doors_door_bone_pyrite_side_upper.png' },
+    sounds = Everness.node_sound_wood_defaults(),
+    _mcl_hardness = 3,
+    _mcl_blast_resistance = 3,
+})
+
+minetest.register_craft({
+    output = 'everness:door_bone_pyrite 3',
+    recipe = {
+        { 'everness:pyrite_ingot', 'everness:bone' },
+        { 'everness:pyrite_ingot', 'everness:bone' },
+        { 'everness:pyrite_ingot', 'everness:bone' }
+    }
+})
+
+mcl_doors:register_door('everness:door_willow', {
+    description = S('Willow Door'),
+    inventory_image = 'everness_door_willow_item.png',
+    groups = { handy = 1, axey = 1, material_wood = 1, flammable = -1 },
+    tiles_bottom = { 'everness_mcl_doors_door_willow_lower.png', 'everness_mcl_doors_door_willow_side_lower.png' },
+    tiles_top = { 'everness_mcl_doors_door_willow_upper.png', 'everness_mcl_doors_door_willow_side_upper.png' },
+    sounds = Everness.node_sound_wood_defaults(),
+    _mcl_hardness = 3,
+    _mcl_blast_resistance = 3,
+})
+
+minetest.register_craft({
+    output = 'everness:door_willow 3',
+    recipe = {
+        { 'everness:willow_wood', 'everness:willow_wood' },
+        { 'everness:willow_wood', 'everness:willow_wood' },
+        { 'everness:willow_wood', 'everness:willow_wood' }
+    }
+})
+
+mcl_doors:register_door('everness:door_crystal_wood', {
+    description = S('Crystal Wood Door'),
+    inventory_image = 'everness_door_crystal_wood_item.png',
+    groups = { handy = 1, axey = 1, material_wood = 1, flammable = -1 },
+    tiles_bottom = { 'everness_mcl_doors_door_crystal_wood_lower.png', 'everness_mcl_doors_door_crystal_wood_side_lower.png' },
+    tiles_top = { 'everness_mcl_doors_door_crystal_wood_upper.png', 'everness_mcl_doors_door_crystal_wood_side_upper.png' },
+    sounds = Everness.node_sound_glass_defaults(),
+    sound_open = 'everness_door_glass_open',
+    sound_close = 'everness_door_glass_close',
+    _mcl_hardness = 3,
+    _mcl_blast_resistance = 3,
+})
+
+minetest.register_craft({
+    output = 'everness:door_crystal_wood 3',
+    recipe = {
+        { 'everness:crystal_wood', 'everness:crystal_wood' },
+        { 'everness:crystal_wood', 'everness:crystal_wood' },
+        { 'everness:crystal_wood', 'everness:crystal_wood' }
+    }
+})
+
+mcl_doors:register_trapdoor('everness:trapdoor_crystal_wood', {
+    description = S('Crystal Wood Trapdoor'),
+    tile_front = 'everness_door_trapdoor_crystal_wood.png',
+    tile_side = 'everness_mcl_doors_trapdoor_crystal_wood_side.png',
+    wield_image = 'everness_door_trapdoor_crystal_wood.png',
+    groups = { handy = 1, axey = 1, material_wood = 1, flammable = -1 },
+    sounds = Everness.node_sound_glass_defaults(),
+    sound_open = 'everness_door_glass_open',
+    sound_close = 'everness_door_glass_close',
+    _mcl_hardness = 3,
+    _mcl_blast_resistance = 3,
+})
+
+minetest.register_craft({
+    output = 'everness:trapdoor_crystal_wood',
+    recipe = {
+        { 'everness:crystal_wood', 'everness:crystal_wood' },
+        { 'everness:crystal_wood', 'everness:crystal_wood' },
+    }
+})
