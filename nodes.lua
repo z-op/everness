@@ -27,7 +27,19 @@ local S = minetest.get_translator(minetest.get_current_modname())
 Everness:register_node('everness:stone_with_pyrite', {
     description = S('Pyrite Ore'),
     tiles = { 'everness_stone.png^everness_mineral_pyrite.png' },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 4,
+        building_block = 1,
+        material_stone = 1,
+        blast_furnace_smeltable = 1
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 3,
+    _mcl_silk_touch_drop = true,
+    -- _mcl_fortune_drop = mcl_core.fortune_drop_ore,
     drop = 'everness:pyrite_lump',
     sounds = Everness.node_sound_stone_defaults(),
 })
@@ -36,7 +48,15 @@ Everness:register_node('everness:pyriteblock', {
     description = S('Pyrite Block'),
     tiles = { 'everness_pyrite_block.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 4,
+        building_block = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 3,
     sounds = Everness.node_sound_metal_defaults(),
 })
 
@@ -44,7 +64,15 @@ Everness:register_node('everness:pyriteblock_forged', {
     description = S('Forged Pyrite Block'),
     tiles = { 'everness_pyrite_block_forged.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 4,
+        building_block = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 3,
     sounds = Everness.node_sound_metal_defaults(),
 })
 
@@ -54,7 +82,15 @@ Everness:register_node('everness:pyriteblock_brick', {
     place_param2 = 0,
     tiles = { 'everness_pyriteblock_brick.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 4,
+        building_block = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 3,
     sounds = Everness.node_sound_metal_defaults(),
 })
 
@@ -64,7 +100,15 @@ Everness:register_node('everness:pyriteblock_slab_brick', {
     place_param2 = 0,
     tiles = { 'everness_pyrite_block_slab_brick.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 4,
+        building_block = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 3,
     sounds = Everness.node_sound_metal_defaults(),
 })
 
@@ -74,7 +118,15 @@ Everness:register_node('everness:pyriteblock_spiral', {
     place_param2 = 0,
     tiles = { 'everness_pyrite_block_spiral.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 4,
+        building_block = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 3,
     sounds = Everness.node_sound_metal_defaults(),
 })
 
@@ -84,7 +136,15 @@ Everness:register_node('everness:pyrite_pillar_bottom', {
     place_param2 = 0,
     tiles = { 'everness_pyrite_pillar_bottom.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 4,
+        building_block = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 3,
     sounds = Everness.node_sound_metal_defaults(),
 })
 
@@ -94,7 +154,15 @@ Everness:register_node('everness:pyrite_pillar_middle', {
     place_param2 = 0,
     tiles = { 'everness_pyrite_pillar_middle.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 4,
+        building_block = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 3,
     sounds = Everness.node_sound_metal_defaults(),
 })
 
@@ -104,7 +172,15 @@ Everness:register_node('everness:pyrite_pillar_top', {
     place_param2 = 0,
     tiles = { 'everness_pyrite_pillar_top.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 4,
+        building_block = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 3,
     sounds = Everness.node_sound_metal_defaults(),
 })
 
@@ -114,7 +190,15 @@ Everness:register_node('everness:pyrite_pillar_small', {
     place_param2 = 0,
     tiles = { 'everness_pyrite_pillar_small.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 4,
+        building_block = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 3,
     sounds = Everness.node_sound_metal_defaults(),
 })
 
@@ -124,14 +208,34 @@ Everness:register_node('everness:pyriteblock_polished', {
     place_param2 = 0,
     tiles = { 'everness_pyrite_block_polished.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 4,
+        building_block = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 3,
     sounds = Everness.node_sound_metal_defaults(),
 })
 
 Everness:register_node('everness:quartz_ore', {
     description = S('Quartz Ore'),
     tiles = { 'everness_stone.png^everness_quartz_ore.png' },
-    groups = { cracky = 3 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        xp = 3
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 3,
+    _mcl_silk_touch_drop = true,
+    -- _mcl_fortune_drop = mcl_core.fortune_drop_ore,
     drop = 'everness:quartz_crystal',
     sounds = Everness.node_sound_stone_defaults(),
 })
@@ -143,16 +247,38 @@ Everness:register_node('everness:quartz_ore', {
 Everness:register_node('everness:coral_desert_stone', {
     description = S('Coral Desert Stone'),
     tiles = { 'everness_coral_desert_stone.png' },
-    groups = { cracky = 3, stone = 1 },
     drop = 'everness:coral_desert_cobble',
-    legacy_mineral = true,
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1,
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:coral_sandstone', {
     description = S('Coral Sandstone'),
     tiles = { 'everness_coral_sandstone.png' },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -162,7 +288,18 @@ Everness:register_node('everness:coral_sandstone_brick', {
     place_param2 = 0,
     tiles = { 'everness_coral_sandstone_brick.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -170,7 +307,18 @@ Everness:register_node('everness:coral_sandstone_chiseled', {
     description = S('Coral Sandstone Chiseled Block'),
     tiles = { 'everness_coral_sandstone_chiseled.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -178,14 +326,36 @@ Everness:register_node('everness:coral_sandstone_carved_1', {
     description = S('Coral Sandstone Carved Block'),
     tiles = { 'everness_coral_sandstone_carved_1.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:coral_white_sandstone', {
     description = S('Coral White Sandstone'),
     tiles = { 'everness_coral_white_sandstone.png' },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -195,7 +365,18 @@ Everness:register_node('everness:coral_white_sandstone_brick', {
     place_param2 = 0,
     tiles = { 'everness_coral_white_sandstone_brick.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -209,7 +390,18 @@ Everness:register_node('everness:coral_white_sandstone_pillar', {
         'everness_coral_white_sandstone_pillar.png',
     },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -217,7 +409,20 @@ Everness:register_node('everness:coral_desert_stone_block', {
     description = S('Coral Desert Stone Block'),
     tiles = { 'everness_coral_desert_stone_block.png' },
     is_ground_content = false,
-    groups = { cracky = 2, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -227,14 +432,38 @@ Everness:register_node('everness:coral_desert_stone_brick', {
     place_param2 = 0,
     tiles = { 'everness_coral_desert_stone_brick.png' },
     is_ground_content = false,
-    groups = { cracky = 2, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:coral_bones', {
     description = S('Coral Bones'),
     tiles = { 'everness_coral_bones.png' },
-    groups = { cracky = 3, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        stone = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 2,
+        coral_block = 2
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -242,7 +471,18 @@ Everness:register_node('everness:coral_desert_cobble', {
     description = S('Coral Desert Cobblestone'),
     tiles = { 'everness_coral_desert_cobble.png' },
     is_ground_content = false,
-    groups = { cracky = 3, stone = 2 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        stone = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        cobble = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -250,7 +490,18 @@ Everness:register_node('everness:coral_desert_mossy_cobble', {
     description = S('Coral Mossy Cobblestone'),
     tiles = { 'everness_coral_desert_mossy_cobble.png' },
     is_ground_content = false,
-    groups = { cracky = 3, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        stone = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        cobble = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -264,16 +515,40 @@ Everness:register_node('everness:coral_desert_stone_with_moss', {
             tileable_vertical = false
         }
     },
-    groups = { cracky = 3, stone = 1, everness_spreading_dirt_type_under = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- Everness
+        everness_spreading_dirt_type_under = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1,
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
     drop = 'everness:coral_desert_cobble',
-    legacy_mineral = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:coral_deep_ocean_sandstone_block', {
     description = S('Coral Deep Ocean Sandstone Block'),
     tiles = { 'everness_deep_ocean_sandstone_block.png' },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -282,14 +557,36 @@ Everness:register_node('everness:coral_deep_ocean_sandstone_brick', {
     paramtype2 = 'facedir',
     place_param2 = 0,
     tiles = { 'everness_deep_ocean_sandstone_brick.png' },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:cursed_lands_deep_ocean_sandstone_block', {
     description = S('Cursed Lands Deep Ocean Sandstone Block'),
     tiles = { 'everness_cursed_lands_deep_ocean_sandblock.png' },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -298,14 +595,36 @@ Everness:register_node('everness:cursed_lands_deep_ocean_sandstone_brick', {
     paramtype2 = 'facedir',
     place_param2 = 0,
     tiles = { 'everness_cursed_lands_deep_ocean_sand_brick.png' },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:crystal_forest_deep_ocean_sandstone_block', {
     description = S('Crystal Forest Deep Ocean Sandstone Block'),
     tiles = { 'everness_crystal_forest_deep_ocean_sandstone_block.png' },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -314,14 +633,37 @@ Everness:register_node('everness:crystal_forest_deep_ocean_sandstone_brick', {
     paramtype2 = 'facedir',
     place_param2 = 0,
     tiles = { 'everness_crystal_forest_deep_ocean_sandstone_brick.png' },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:forsaken_desert_stone', {
     description = S('Forsaken Desert Stone'),
     tiles = { 'everness_forsaken_desert_stone.png' },
-    groups = { cracky = 3, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1,
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
     drop = 'everness:forsaken_desert_cobble_red',
     sounds = Everness.node_sound_stone_defaults(),
 })
@@ -330,7 +672,18 @@ Everness:register_node('everness:forsaken_desert_cobble_red', {
     description = S('Forsaken Desert Cobblestone Red'),
     tiles = { 'everness_forsaken_desert_cobble_red.png' },
     is_ground_content = false,
-    groups = { cracky = 3, stone = 2 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        stone = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        cobble = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -338,7 +691,18 @@ Everness:register_node('everness:forsaken_desert_cobble', {
     description = S('Forsaken Desert Cobblestone'),
     tiles = { 'everness_forsaken_desert_cobble.png' },
     is_ground_content = false,
-    groups = { cracky = 3, stone = 2 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        stone = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        cobble = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -346,7 +710,17 @@ Everness:register_node('everness:volcanic_rock', {
     description = S('Volcanic Rock'),
     tiles = { 'everness_volcanic_rock.png' },
     sounds = Everness.node_sound_stone_defaults(),
-    groups = { cracky = 1, level = 2 },
+    groups = {
+        -- MTG
+        cracky = 1,
+        level = 2,
+        -- MCL
+        pickaxey = 5,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 1200,
+    _mcl_hardness = 50,
     is_ground_content = false,
 })
 
@@ -364,14 +738,35 @@ Everness:register_node('everness:volcanic_rock_with_magma', {
         },
     },
     sounds = Everness.node_sound_stone_defaults(),
-    groups = { cracky = 1, level = 2 },
+    groups = {
+        -- MTG
+        cracky = 1,
+        level = 2,
+        -- MCL
+        pickaxey = 5,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 1200,
+    _mcl_hardness = 50,
     paramtype = 'light',
     light_source = 3,
 })
 
 Everness:register_node('everness:magmacobble', {
     description = 'Magma Cobblestone',
-    groups = { cracky = 3, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        stone = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        cobble = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_stone_defaults(),
     tiles = {
         {
@@ -404,7 +799,19 @@ Everness:register_node('everness:magmacobble', {
 Everness:register_node('everness:cursed_stone', {
     description = S('Cursed Stone'),
     tiles = { 'everness_cursed_stone.png' },
-    groups = { cracky = 3, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1,
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults()
 })
 
@@ -414,7 +821,19 @@ Everness:register_node('everness:cursed_brick', {
     place_param2 = 0,
     tiles = { 'everness_cursed_brick.png' },
     is_ground_content = false,
-    groups = { cracky = 2, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        stonebrick = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -424,7 +843,19 @@ Everness:register_node('everness:cursed_brick_with_growth', {
     place_param2 = 0,
     tiles = { 'everness_cursed_brick_with_growth.png' },
     is_ground_content = false,
-    groups = { cracky = 2, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        stonebrick = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -434,7 +865,19 @@ Everness:register_node('everness:cursed_brick_mixed', {
     place_param2 = 0,
     tiles = { 'everness_cursed_brick_mixed.png' },
     is_ground_content = false,
-    groups = { cracky = 2, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        stonebrick = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -444,7 +887,19 @@ Everness:register_node('everness:cursed_brick_carved', {
     place_param2 = 0,
     tiles = { 'everness_cursed_brick_carved.png' },
     is_ground_content = false,
-    groups = { cracky = 2, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        stonebrick = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -458,7 +913,19 @@ Everness:register_node('everness:volcanic_sulfur', {
 Everness:register_node('everness:sulfur_stone', {
     description = S('Sulfur Stone'),
     tiles = { 'everness_sulfur_stone.png' },
-    groups = { cracky = 3, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1,
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
     on_construct = function(pos)
         Everness:tick_sulfur_stone(pos)
@@ -538,14 +1005,37 @@ Everness:register_node('everness:forsaken_tundra_cobble', {
     description = S('Forsaken Tundra Cobblestone'),
     tiles = { 'everness_forsaken_tundra_cobblestone.png' },
     is_ground_content = false,
-    groups = { cracky = 3, stone = 2 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        stone = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        cobble = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:forsaken_tundra_stone', {
     description = S('Forsaken Tundra Stone'),
     tiles = { 'everness_forsaken_tundra_stone.png' },
-    groups = { cracky = 3, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1,
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
     drop = 'everness:forsaken_tundra_cobble',
     legacy_mineral = true,
     sounds = Everness.node_sound_stone_defaults(),
@@ -555,8 +1045,19 @@ Everness:register_node('everness:mold_cobble', {
     description = S('Mold Cobble'),
     tiles = { 'everness_mold_stone.png' },
     is_ground_content = false,
-    groups = { cracky = 3, stone = 2 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        stone = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        cobble = 1
+    },
     sounds = Everness.node_sound_stone_defaults(),
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 2,
 })
 
 Everness:register_node('everness:forsaken_tundra_brick', {
@@ -576,7 +1077,19 @@ Everness:register_node('everness:forsaken_tundra_rocks', {
         'everness_forsaken_tundra_rocks_top.png',
         'everness_forsaken_tundra_rocks_side.png',
     },
-    groups = { cracky = 3, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1,
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
     drop = 'everness:coral_desert_cobble',
     legacy_mineral = true,
     sounds = Everness.node_sound_stone_defaults(),
@@ -586,14 +1099,34 @@ Everness:register_node('everness:blue_crying_obsidian', {
     description = S('Blue Crying Obsidian'),
     tiles = { 'everness_blue_crying_obsidian.png' },
     sounds = Everness.node_sound_stone_defaults(),
-    groups = { cracky = 1, level = 2 },
+    groups = {
+        -- MTG
+        cracky = 1,
+        level = 2,
+        -- MCL
+        pickaxey = 5,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 1200,
+    _mcl_hardness = 50,
 })
 
 Everness:register_node('everness:blue_weeping_obsidian', {
     description = S('Blue Weeping Obsidian'),
     tiles = { 'everness_blue_weeping_obsidian.png' },
     sounds = Everness.node_sound_stone_defaults(),
-    groups = { cracky = 1, level = 2 },
+    groups = {
+        -- MTG
+        cracky = 1,
+        level = 2,
+        -- MCL
+        pickaxey = 5,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 1200,
+    _mcl_hardness = 50,
     paramtype = 'light',
     light_source = 7,
 })
@@ -602,7 +1135,17 @@ Everness:register_node('everness:weeping_obsidian', {
     description = S('Weeping Obsidian'),
     tiles = { 'everness_weeping_obsidian.png' },
     sounds = Everness.node_sound_stone_defaults(),
-    groups = { cracky = 1, level = 2 },
+    groups = {
+        -- MTG
+        cracky = 1,
+        level = 2,
+        -- MCL
+        pickaxey = 5,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 1200,
+    _mcl_hardness = 50,
     paramtype = 'light',
     light_source = 7,
 })
@@ -614,7 +1157,21 @@ Everness:register_node('everness:mold_stone_with_moss', {
         'everness_mold_stone.png',
         'everness_mold_stone_with_moss_side.png'
     },
-    groups = { cracky = 3, stone = 1, everness_spreading_dirt_type_under = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- Everness
+        everness_spreading_dirt_type_under = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1,
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
     is_ground_content = false,
     drop = 'everness:mold_cobble',
     sounds = Everness.node_sound_stone_defaults(),
@@ -623,7 +1180,20 @@ Everness:register_node('everness:mold_stone_with_moss', {
 Everness:register_node('everness:soul_sandstone', {
     description = S('Soul Sandstone'),
     tiles = { 'everness_soul_sandstone.png' },
-    groups = { cracky = 3, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -634,7 +1204,22 @@ Everness:register_node('everness:soul_sandstone_veined', {
         'everness_soul_sandstone.png',
         'everness_soul_sandstone_veined_side.png'
     },
-    groups = { cracky = 3, stone = 1, everness_spreading_dirt_type_under = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- Everness
+        everness_spreading_dirt_type_under = 1,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     drop = 'everness:soul_sandstone',
     sounds = Everness.node_sound_stone_defaults(),
 })
@@ -649,7 +1234,16 @@ Everness:register_node('everness:crystal_block_purple', {
         'everness_crystal_block_purple.png'
     },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
     light_source = 7,
     sounds = Everness.node_sound_crystal_defaults(),
 })
@@ -664,7 +1258,16 @@ Everness:register_node('everness:crystal_block_orange', {
         'everness_crystal_block_orange.png'
     },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
     light_source = 7,
     sounds = Everness.node_sound_crystal_defaults(),
 })
@@ -680,7 +1283,17 @@ Everness:register_node('everness:quartz_block', {
         'everness_quartz_block_bottom.png',
         'everness_quartz_block_side.png',
     },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        quartz_block = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -692,7 +1305,17 @@ Everness:register_node('everness:quartz_chiseled', {
         'everness_quartz_block_chiseled_top.png',
         'everness_quartz_block_chiseled.png',
     },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        quartz_block = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -705,7 +1328,17 @@ Everness:register_node('everness:quartz_pillar', {
         'everness_quartz_block_lines_top.png',
         'everness_quartz_block_lines.png',
     },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        quartz_block = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
     on_place = minetest.rotate_node
 })
@@ -716,7 +1349,18 @@ Everness:register_node('everness:forsaken_desert_brick', {
     place_param2 = 0,
     tiles = { 'everness_forsaken_desert_brick.png' },
     is_ground_content = false,
-    groups = { cracky = 2, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        pickaxey = 1,
+        stonebrick = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -726,7 +1370,18 @@ Everness:register_node('everness:forsaken_desert_brick_red', {
     place_param2 = 0,
     tiles = { 'everness_forsaken_desert_brick_red.png' },
     is_ground_content = false,
-    groups = { cracky = 2, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        pickaxey = 1,
+        stonebrick = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -740,7 +1395,18 @@ Everness:register_node('everness:forsaken_desert_chiseled_stone', {
         'everness_forsaken_desert_chiseled_stone_side.png'
     },
     is_ground_content = false,
-    groups = { cracky = 2, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        pickaxey = 1,
+        stonebrick = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -748,14 +1414,36 @@ Everness:register_node('everness:forsaken_desert_engraved_stone', {
     description = S('Forsaken Desert Engraved Stone'),
     tiles = { 'everness_forsaken_desert_engraved_stone.png' },
     is_ground_content = false,
-    groups = { cracky = 2, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        pickaxey = 1,
+        stonebrick = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:crystal_sandstone', {
     description = S('Crystal Sandstone'),
     tiles = { 'everness_crystal_sandstone.png' },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -765,7 +1453,18 @@ Everness:register_node('everness:crystal_sandstone_brick', {
     place_param2 = 0,
     tiles = { 'everness_crystal_sandstone_brick.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -773,14 +1472,36 @@ Everness:register_node('everness:crystal_sandstone_chiseled', {
     description = S('Crystal Sandstone Chiseled'),
     tiles = { 'everness_crystal_sandstone_chiseled.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:cursed_sandstone_block', {
     description = S('Cursed Sandstone Block'),
     tiles = { 'everness_cursed_sandstone_block.png' },
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -790,7 +1511,18 @@ Everness:register_node('everness:cursed_sandstone_brick', {
     place_param2 = 0,
     tiles = { 'everness_cursed_sandstone_brick.png' },
     is_ground_content = false,
-    groups = { cracky = 2 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -802,7 +1534,24 @@ Everness:register_node('everness:coral_dirt', {
     description = S('Coral Dirt'),
     short_description = S('Coral Dirt'),
     tiles = { 'everness_coral_dirt.png' },
-    groups = { crumbly = 3, soil = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        -- path_creation_possible = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
@@ -818,7 +1567,24 @@ Everness:register_node('everness:cursed_dirt', {
     description = S('Cursed Dirt'),
     short_description = S('Cursed Dirt'),
     tiles = { 'everness_cursed_dirt.png' },
-    groups = { crumbly = 3, soil = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        -- path_creation_possible = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_mud_defaults(),
 })
 
@@ -826,7 +1592,24 @@ Everness:register_node('everness:crystal_dirt', {
     description = S('Crystal Dirt'),
     short_description = S('Crystal Dirt'),
     tiles = { 'everness_crystal_dirt.png' },
-    groups = { crumbly = 3, soil = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        -- path_creation_possible = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
@@ -834,7 +1617,24 @@ Everness:register_node('everness:forsaken_tundra_dirt', {
     description = S('Forsaken Tundra Dirt'),
     short_description = S('Forsaken Tundra Dirt'),
     tiles = { 'everness_forsaken_tundra_dirt.png' },
-    groups = { crumbly = 3, soil = 1, mold_soil = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        -- path_creation_possible = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
@@ -846,7 +1646,28 @@ Everness:register_node('everness:forsaken_tundra_dirt_with_grass', {
         'everness_forsaken_tundra_dirt.png',
         { name = 'everness_forsaken_tundra_dirt.png^everness_forsaken_tundra_grass_side.png', tileable_vertical = false }
     },
-    groups = { crumbly = 3, soil = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 2,
+        grass_block = 1,
+        grass_block_no_snow = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        -- spreading_dirt_type = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        compostability = 30,
+        -- path_creation_possible = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.6,
+    _mcl_hardness = 0.6,
     -- drop = 'everness:forsaken_tundra_dirt',
     sounds = Everness.node_sound_grass_defaults(),
 })
@@ -859,7 +1680,29 @@ Everness:register_node('everness:dirt_with_coral_grass', {
         'everness_coral_dirt.png',
         { name = 'everness_coral_dirt.png^everness_coral_grass_side.png', tileable_vertical = false }
     },
-    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 2,
+        grass_block = 1,
+        grass_block_no_snow = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        compostability = 30,
+        -- path_creation_possible = 1,
+        -- Everness
+        everness_spreading_dirt_type = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.6,
+    _mcl_hardness = 0.6,
     drop = 'everness:coral_dirt',
     sounds = Everness.node_sound_grass_defaults(),
 })
@@ -872,7 +1715,29 @@ Everness:register_node('everness:dirt_with_cursed_grass', {
         'everness_cursed_dirt.png',
         { name = 'everness_cursed_dirt.png^everness_cursed_grass_side.png', tileable_vertical = false }
     },
-    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 2,
+        grass_block = 1,
+        grass_block_no_snow = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        compostability = 30,
+        -- path_creation_possible = 1,
+        -- Everness
+        everness_spreading_dirt_type = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.6,
+    _mcl_hardness = 0.6,
     drop = 'everness:cursed_dirt',
     sounds = Everness.node_sound_mud_defaults(),
 })
@@ -885,7 +1750,29 @@ Everness:register_node('everness:dirt_with_crystal_grass', {
         'everness_crystal_dirt.png',
         { name = 'everness_crystal_dirt.png^everness_crystal_grass_side.png', tileable_vertical = false }
     },
-    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 2,
+        grass_block = 1,
+        grass_block_no_snow = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        compostability = 30,
+        -- path_creation_possible = 1,
+        -- Everness
+        everness_spreading_dirt_type = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.6,
+    _mcl_hardness = 0.6,
     drop = 'everness:crystal_dirt',
     sounds = Everness.node_sound_grass_defaults(),
 })
@@ -894,7 +1781,22 @@ Everness:register_node('everness:dry_ocean_dirt', {
     description = S('Dry Ocean Dirt'),
     short_description = S('Dry Ocean Dirt'),
     tiles = { 'everness_forsaken_desert_dry_ocean_dirt.png' },
-    groups = { crumbly = 3 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        -- path_creation_possible = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
@@ -905,6 +1807,7 @@ Everness:register_node('everness:japanese_shrine_lootchest_marker', {
     description = 'Japanese Shrine Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
 })
 
@@ -913,6 +1816,7 @@ Everness:register_node('everness:jungle_temple_lootchest_marker', {
     description = 'Jungle Temple Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
 })
 
@@ -921,6 +1825,7 @@ Everness:register_node('everness:haunted_house_lootchest_marker', {
     description = 'Haunted House Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
 })
 
@@ -929,6 +1834,7 @@ Everness:register_node('everness:quartz_temple_lootchest_marker', {
     description = 'Quartz Temple Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
 })
 
@@ -937,6 +1843,7 @@ Everness:register_node('everness:forsaken_desert_temple_marker', {
     description = 'Forsaken Temple Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
 })
 
@@ -945,6 +1852,7 @@ Everness:register_node('everness:forsaken_desert_temple_2_marker', {
     description = 'Forsaken Temple 2 Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
 })
 
@@ -953,6 +1861,7 @@ Everness:register_node('everness:frosted_icicle_large_ceiling_marker', {
     description = 'Frosted Icicle Large Ceiling Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
 })
 
@@ -961,6 +1870,7 @@ Everness:register_node('everness:frosted_icicle_large_floor_marker', {
     description = 'Frosted Icicle Large Floor Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
 })
 
@@ -969,6 +1879,7 @@ Everness:register_node('everness:coral_forest_deep_ocean_house_marker', {
     description = 'Coral Forest Deep Ocean House Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
 })
 
@@ -977,6 +1888,7 @@ Everness:register_node('everness:cursed_lands_deep_ocean_skull_marker', {
     description = 'Cursed Lands Deep Ocean Skull Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
 })
 
@@ -985,6 +1897,7 @@ Everness:register_node('everness:frosted_icesheet_igloo_marker', {
     description = 'Frosted Icesheet Igloo Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
 })
 
@@ -993,6 +1906,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_ruins_marker', {
     description = 'Crystal Forest Deep Ocean Ruins Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
 })
 
@@ -1002,7 +1916,24 @@ Everness:register_node('everness:dirt_1', {
     description = S('Dirt'),
     short_description = S('Dirt'),
     tiles = { 'everness_dirt_1.png' },
-    groups = { crumbly = 3, soil = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        -- path_creation_possible = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
@@ -1014,7 +1945,29 @@ Everness:register_node('everness:dirt_with_grass_1', {
         'everness_dirt_1.png',
         { name = 'everness_dirt_1.png^everness_grass_side_1.png', tileable_vertical = false }
     },
-    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 2,
+        grass_block = 1,
+        grass_block_no_snow = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        compostability = 30,
+        -- path_creation_possible = 1,
+        -- Everness
+        everness_spreading_dirt_type = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.6,
+    _mcl_hardness = 0.6,
     drop = 'everness:dirt_1',
     sounds = Everness.node_sound_grass_defaults(),
 })
@@ -1027,7 +1980,29 @@ Everness:register_node('everness:dirt_with_grass_2', {
         'everness_dirt_1.png',
         { name = 'everness_dirt_1.png^everness_grass_side_1.png', tileable_vertical = false }
     },
-    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 2,
+        grass_block = 1,
+        grass_block_no_snow = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        compostability = 30,
+        -- path_creation_possible = 1,
+        -- Everness
+        everness_spreading_dirt_type = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.6,
+    _mcl_hardness = 0.6,
     drop = 'everness:dirt_1',
     sounds = Everness.node_sound_grass_defaults(),
 })
@@ -1040,7 +2015,29 @@ Everness:register_node('everness:dirt_with_grass_extras_1', {
         'everness_dirt_1.png',
         { name = 'everness_dirt_1.png^everness_grass_side_1.png', tileable_vertical = false }
     },
-    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 2,
+        grass_block = 1,
+        grass_block_no_snow = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        compostability = 30,
+        -- path_creation_possible = 1,
+        -- Everness
+        everness_spreading_dirt_type = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.6,
+    _mcl_hardness = 0.6,
     drop = 'everness:dirt_1',
     sounds = Everness.node_sound_grass_defaults(),
 })
@@ -1053,7 +2050,29 @@ Everness:register_node('everness:dirt_with_grass_extras_2', {
         'everness_dirt_1.png',
         { name = 'everness_dirt_1.png^everness_grass_side_1.png', tileable_vertical = false }
     },
-    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 2,
+        grass_block = 1,
+        grass_block_no_snow = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        compostability = 30,
+        -- path_creation_possible = 1,
+        -- Everness
+        everness_spreading_dirt_type = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.6,
+    _mcl_hardness = 0.6,
     drop = 'everness:dirt_1',
     sounds = Everness.node_sound_grass_defaults(),
 })
@@ -1062,7 +2081,24 @@ Everness:register_node('everness:crystal_cave_dirt', {
     description = S('Crystal Cave Dirt'),
     short_description = S('Crystal Cave Dirt'),
     tiles = { 'everness_crystal_cave_dirt.png' },
-    groups = { crumbly = 3, soil = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        -- path_creation_possible = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
@@ -1075,21 +2111,86 @@ Everness:register_node('everness:crystal_cave_dirt_with_moss', {
         'everness_crystal_cave_dirt_side.png'
     },
     drop = 'everness:crystal_cave_dirt',
-    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type_under = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 2,
+        grass_block = 1,
+        grass_block_no_snow = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        compostability = 30,
+        -- path_creation_possible = 1,
+        -- Everness
+        everness_spreading_dirt_type_under = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.6,
+    _mcl_hardness = 0.6,
     sounds = Everness.node_sound_grass_defaults(),
 })
 
 Everness:register_node('everness:moss_block', {
     description = S('Moss Block'),
     tiles = { 'everness_moss_block.png' },
-    groups = { crumbly = 3, soil = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- Everness
+        everness_spreading_dirt_type_under = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 2,
+        grass_block = 1,
+        grass_block_no_snow = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        compostability = 30,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.6,
+    _mcl_hardness = 0.6,
     sounds = Everness.node_sound_grass_defaults(),
 })
 
 Everness:register_node('everness:crystal_moss_block', {
     description = S('Crystal Moss Block'),
     tiles = { 'everness_crystal_cave_moss.png' },
-    groups = { crumbly = 3, soil = 1, everness_spreading_dirt_type_under = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 2,
+        grass_block = 1,
+        grass_block_no_snow = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+        compostability = 30,
+        -- path_creation_possible = 1,
+        -- Everness
+        everness_spreading_dirt_type = 1,
+        -- ALL
+        soil = 1,
+    },
+    _mcl_blast_resistance = 0.6,
+    _mcl_hardness = 0.6,
     sounds = Everness.node_sound_grass_defaults(),
 })
 
@@ -1110,11 +2211,6 @@ Everness:register_node('everness:coral_sand', {
         material_sand = 1,
         -- ALL
         falling_node = 1,
-        -- Generated
-        -- handy_dig = 7,
-        -- shovely_dig = 2,
-        -- opaque = 1,
-        -- solid = 1,
     },
     sounds = Everness.node_sound_sand_defaults(),
     -- MCL
@@ -1126,94 +2222,284 @@ Everness:register_node('everness:coral_white_sand', {
     description = S('Coral White Sand'),
     short_description = S('Coral White Sand'),
     tiles = { 'everness_coral_white_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        everness_sand = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        soil_sugarcane = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- ALL
+        falling_node = 1,
+    },
     sounds = Everness.node_sound_sand_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
 })
 
 Everness:register_node('everness:cursed_sand', {
     description = S('Cursed Sand'),
     short_description = S('Cursed Sand'),
     tiles = { 'everness_cursed_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        everness_sand = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        soil_sugarcane = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- ALL
+        falling_node = 1,
+    },
     sounds = Everness.node_sound_sand_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
 })
 
 Everness:register_node('everness:crystal_sand', {
     description = S('Crystal Sand'),
     short_description = S('Crystal Sand'),
     tiles = { 'everness_crystal_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        everness_sand = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        soil_sugarcane = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- ALL
+        falling_node = 1,
+    },
     sounds = Everness.node_sound_sand_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
 })
 
 Everness:register_node('everness:crystal_forest_deep_ocean_sand_with_crack', {
     description = S('Crystal Forest Deep Ocean Sand with Crack'),
     short_description = S('Crystal Forest Deep Ocean Sand with Crack'),
     tiles = { 'everness_crystal_forest_deep_ocean_sand_with_crack.png' },
-    groups = { crumbly = 3, falling_node = 1, everness_sand = 1, rising_crystals = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        everness_sand = 1,
+        rising_crystals = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        soil_sugarcane = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- ALL
+        falling_node = 1,
+    },
     sounds = Everness.node_sound_sand_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
 })
 
 Everness:register_node('everness:forsaken_tundra_beach_sand', {
     description = S('Forsaken Tundra Beach Sand'),
     short_description = S('Forsaken Tundra Beach Sand'),
     tiles = { 'everness_forsaken_tundra_beach_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, everness_sand = 1, mold_soil = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        everness_sand = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        soil_sugarcane = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- ALL
+        falling_node = 1,
+    },
     sounds = Everness.node_sound_sand_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
 })
 
 Everness:register_node('everness:forsaken_tundra_beach_sand_with_shells', {
     description = S('Forsaken Tundra Beach Sand with Shells'),
     short_description = S('Forsaken Tundra Beach Sand'),
     tiles = { 'everness_forsaken_tundra_beach_sand_with_shells.png' },
-    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        everness_sand = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        soil_sugarcane = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- ALL
+        falling_node = 1,
+    },
     sounds = Everness.node_sound_sand_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
 })
 
 Everness:register_node('everness:forsaken_desert_sand', {
     description = S('Forsaken Desert Sand'),
     short_description = S('Forsaken Desert Sand'),
     tiles = { 'everness_forsaken_desert_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        everness_sand = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        soil_sugarcane = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- ALL
+        falling_node = 1,
+    },
     sounds = Everness.node_sound_sand_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
 })
 
 Everness:register_node('everness:coral_forest_deep_ocean_sand', {
     description = S('Coral Forest Deep Ocean Sand'),
     short_description = S('Coral Forest Deep Ocean Sand'),
     tiles = { 'everness_deep_ocean_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        everness_sand = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        soil_sugarcane = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- ALL
+        falling_node = 1,
+    },
     sounds = Everness.node_sound_sand_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
 })
 
 Everness:register_node('everness:cursed_lands_deep_ocean_sand', {
     description = S('Cursed Lands Deep Ocean Sand'),
     short_description = S('Cursed Lands Deep Ocean Sand'),
     tiles = { 'everness_cursed_lands_deep_ocean_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        everness_sand = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        soil_sugarcane = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- ALL
+        falling_node = 1,
+    },
     sounds = Everness.node_sound_sand_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
 })
 
 Everness:register_node('everness:cursed_lands_deep_ocean_sand_with_crack', {
     description = S('Cursed Lands Deep Ocean Sand with Crack'),
     short_description = S('Cursed Lands Deep Ocean Sand with Crack'),
     tiles = { 'everness_cursed_lands_deep_ocean_sand_with_crack.png' },
-    groups = { crumbly = 3, falling_node = 1, everness_sand = 1, rising_souls = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        everness_sand = 1,
+        rising_souls = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        soil_sugarcane = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- ALL
+        falling_node = 1,
+    },
     sounds = Everness.node_sound_sand_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
 })
 
 Everness:register_node('everness:crystal_forest_deep_ocean_sand', {
     description = S('Crystal Forest Deep Ocean Sand'),
     short_description = S('Crystal Forest Deep Ocean Sand'),
     tiles = { 'everness_crystal_forest_deep_ocean_sand.png' },
-    groups = { crumbly = 3, falling_node = 1, everness_sand = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        everness_sand = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        soil_sugarcane = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- ALL
+        falling_node = 1,
+    },
     sounds = Everness.node_sound_sand_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
 })
 
 Everness:register_node('everness:frosted_snowblock', {
     description = S('Frosted Snow Block'),
     tiles = { 'everness_frosted_snow.png' },
-    groups = { crumbly = 3, cools_lava = 1, snowy = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        cools_lava = 1,
+        snowy = 1,
+        -- MCL
+        shovely = 2,
+        building_block = 1,
+        snow_cover = 1
+    },
+    _mcl_blast_resistance = 0.1,
+    _mcl_hardness = 0.1,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_frosted_snow_defaults(),
     on_construct = function(pos)
         pos.y = pos.y - 1
@@ -1233,7 +2519,21 @@ Everness:register_node('everness:frosted_ice', {
     tiles = { 'everness_frosted_ice.png' },
     is_ground_content = false,
     paramtype = 'light',
-    groups = { cracky = 3, cools_lava = 1, slippery = 3 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        cools_lava = 1,
+        -- MCL
+        handy = 1,
+        pickaxey = 1,
+        building_block = 1,
+        ice = 1,
+        -- ALL
+        slippery = 3
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_ice_defaults(),
 })
 
@@ -1242,7 +2542,21 @@ Everness:register_node('everness:frosted_ice_translucent', {
     tiles = { 'everness_frosted_ice_translucent.png' },
     is_ground_content = false,
     paramtype = 'light',
-    groups = { cracky = 3, cools_lava = 1, slippery = 3 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        cools_lava = 1,
+        -- MCL
+        handy = 1,
+        pickaxey = 1,
+        building_block = 1,
+        ice = 1,
+        -- ALL
+        slippery = 3
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_ice_defaults(),
     drawtype = 'glasslike',
     -- opaque, clip, blend
@@ -1254,8 +2568,22 @@ Everness:register_node('everness:frosted_cave_ice', {
     description = S('Frosted Cave Ice'),
     tiles = { 'everness_frosted_ice.png' },
     paramtype = 'light',
-    groups = { cracky = 3, cools_lava = 1, slippery = 3,
-        not_in_creative_inventory = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        cools_lava = 1,
+        -- MCL
+        handy = 1,
+        pickaxey = 1,
+        building_block = 1,
+        ice = 1,
+        -- ALL
+        slippery = 3,
+        not_in_creative_inventory = 1
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
+    _mcl_silk_touch_drop = true,
     drop = 'everness:frosted_ice',
     sounds = Everness.node_sound_ice_defaults(),
 })
@@ -1265,8 +2593,22 @@ Everness:register_node('everness:frosted_cave_ice_illuminating', {
     description = S('Frosted Cave Ice'),
     tiles = { 'everness_frosted_ice.png' },
     paramtype = 'light',
-    groups = { cracky = 3, cools_lava = 1, slippery = 3,
-        not_in_creative_inventory = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        cools_lava = 1,
+        -- MCL
+        handy = 1,
+        pickaxey = 1,
+        building_block = 1,
+        ice = 1,
+        -- ALL
+        slippery = 3,
+        not_in_creative_inventory = 1
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
+    _mcl_silk_touch_drop = true,
     drop = 'everness:frosted_ice',
     sounds = Everness.node_sound_ice_defaults(),
     light_source = 9,
@@ -1278,7 +2620,18 @@ Everness:register_node('everness:bone', {
     tiles = { 'everness_bone_top.png', 'everness_bone_top.png', 'everness_bone.png' },
     paramtype2 = 'facedir',
     is_ground_content = false,
-    groups = { cracky = 3, choppy = 2, oddly_breakable_by_hand = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        choppy = 2,
+        oddly_breakable_by_hand = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 2,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node
 })
@@ -1287,7 +2640,19 @@ Everness:register_node('everness:ancient_emerald_ice', {
     description = S('Ancient Emerald Ice'),
     tiles = { 'everness_ancient_emerald_ice.png' },
     paramtype = 'light',
-    groups = { cracky = 3, cools_lava = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        cools_lava = 1,
+        -- MCL
+        handy = 1,
+        pickaxey = 1,
+        building_block = 1,
+        ice = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_ice_defaults(),
 })
 
@@ -1295,7 +2660,19 @@ Everness:register_node('everness:dense_emerald_ice', {
     description = S('Dense Emerald Ice'),
     tiles = { 'everness_dense_emerald_ice.png' },
     paramtype = 'light',
-    groups = { cracky = 3, cools_lava = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        cools_lava = 1,
+        -- MCL
+        handy = 1,
+        pickaxey = 1,
+        building_block = 1,
+        ice = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_ice_defaults(),
 })
 
@@ -1303,14 +2680,40 @@ Everness:register_node('everness:emerald_ice', {
     description = S('Emerald Ice'),
     tiles = { 'everness_emerald_ice.png' },
     paramtype = 'light',
-    groups = { cracky = 3, cools_lava = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        cools_lava = 1,
+        -- MCL
+        handy = 1,
+        pickaxey = 1,
+        building_block = 1,
+        ice = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_ice_defaults(),
 })
 
 Everness:register_node('everness:snowcobble', {
     description = 'Snow Cobble',
     tiles = { 'everness_snowcobble.png' },
-    groups = { puts_out_fire = 1, cools_lava = 1, snowy = 1, cracky = 2, stone = 1 },
+    groups = {
+        -- MTG
+        puts_out_fire = 1,
+        cools_lava = 1,
+        snowy = 1,
+        cracky = 2,
+        stone = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        cobble = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_snow_defaults(),
     is_ground_content = false,
 
@@ -1329,7 +2732,19 @@ Everness:register_node('everness:snowcobble', {
 Everness:register_node('everness:icecobble', {
     description = 'Ice Cobble',
     tiles = { 'everness_icecobble.png' },
-    groups = { cracky = 2, cools_lava = 1 },
+    groups = {
+        -- MTG
+        puts_out_fire = 1,
+        cools_lava = 1,
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        cobble = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_ice_defaults(),
     is_ground_content = false,
 })
@@ -1344,8 +2759,26 @@ Everness:register_node('everness:cursed_mud', {
     walkable = false,
     climbable = false,
     post_effect_color = { r = 49, g = 51, b = 57, a = 245 },
-    groups = { crumbly = 3, everness_sand = 1, liquid = 3, disable_jump = 1 },
-    sounds = Everness.node_sound_sand_defaults()
+    groups = {
+        -- MTG
+        crumbly = 3,
+        everness_sand = 1,
+        liquid = 3,
+        disable_jump = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        soil_sugarcane = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- ALL
+        falling_node = 1,
+    },
+    sounds = Everness.node_sound_sand_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
 })
 
 Everness:register_node('everness:cobweb', {
@@ -1360,7 +2793,21 @@ Everness:register_node('everness:cobweb', {
     move_resistance = 7,
     drowning = 2,
     walkable = false,
-    groups = { crumbly = 3, liquid = 3, disable_jump = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        liquid = 3,
+        -- MCL
+        swordy_cobweb = 1,
+        shearsy_cobweb = 1,
+        fake_liquid = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        -- ALL
+        disable_jump = 1,
+    },
     sounds = Everness.node_sound_leaves_defaults()
 })
 
@@ -1381,7 +2828,31 @@ Everness:register_node('everness:cave_flower', {
         type = 'fixed',
         fixed = { -0.5, -0.5, -0.5, 0.5, -0.25, 0.5 }
     },
-    groups = { snappy = 3, flora = 1, attached_node = 1, bamboo_grass_under = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        bamboo_grass_under = 1,
+        -- MCL
+        deco_block = 1,
+        dig_by_piston = 1,
+        dig_immediate = 3,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        enderman_takable = 1,
+        plant = 1,
+        flower = 1,
+        place_flowerlike = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        compostability = 65,
+        -- ALL
+        flammable = 1,
+        attached_node = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_wood_defaults(),
     sunlight_propagates = true,
     light_source = 7,
@@ -1418,7 +2889,31 @@ Everness:register_node('everness:cave_flower_with_particles', {
         type = 'fixed',
         fixed = { -0.5, -0.5, -0.5, 0.5, -0.25, 0.5 }
     },
-    groups = { snappy = 3, flora = 1, attached_node = 1, bamboo_grass_under = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        bamboo_grass_under = 1,
+        -- MCL
+        deco_block = 1,
+        dig_by_piston = 1,
+        dig_immediate = 3,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        enderman_takable = 1,
+        plant = 1,
+        flower = 1,
+        place_flowerlike = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        compostability = 65,
+        -- ALL
+        flammable = 1,
+        attached_node = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     sunlight_propagates = true,
     light_source = 12,
@@ -1454,7 +2949,16 @@ Everness:register_node('everness:forsaken_fire', {
         type = 'fixed',
         fixed = { -0.5, -0.5, -0.5, 0.5, 0.25, 0.5 }
     },
-    groups = { cracky = 3, level = 2 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        level = 2,
+        -- MCL
+        pickaxey = 2,
+        building_block = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 5,
     sounds = Everness.node_sound_metal_defaults(),
     light_source = 13,
     liquids_pointable = false,
@@ -1472,7 +2976,24 @@ Everness:register_node('everness:coral_tree', {
     tiles = { 'everness_coral_tree.png' },
     paramtype2 = 'facedir',
     is_ground_content = false,
-    groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
+    groups = {
+        -- MTG
+        choppy = 2,
+        oddly_breakable_by_hand = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 5,
+        -- ALL
+        tree = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 2,
+    _mcl_hardness = 2,
+    -- _mcl_stripped_variant = stripped_variant,
     sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node
 })
@@ -1484,7 +3005,24 @@ Everness:register_node('everness:coral_tree_bioluminescent', {
     paramtype = 'light',
     sunlight_propagates = true,
     is_ground_content = false,
-    groups = { choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
+    groups = {
+        -- MTG
+        choppy = 2,
+        oddly_breakable_by_hand = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 5,
+        -- ALL
+        tree = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 2,
+    _mcl_hardness = 2,
+    -- _mcl_stripped_variant = stripped_variant,
     sounds = Everness.node_sound_wood_defaults(),
     light_source = 7
 })
@@ -1496,7 +3034,18 @@ Everness:register_node('everness:cursed_dream_stone', {
     paramtype = 'light',
     sunlight_propagates = true,
     is_ground_content = false,
-    groups = { cracky = 2, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        -- ALL
+        stone = 1,
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
     light_source = 7
 })
@@ -1507,7 +3056,24 @@ Everness:register_node('everness:dry_tree', {
     tiles = { 'everness_dry_tree_top.png', 'everness_dry_tree_top.png', 'everness_dry_tree.png' },
     paramtype2 = 'facedir',
     is_ground_content = false,
-    groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
+    groups = {
+        -- MTG
+        choppy = 2,
+        oddly_breakable_by_hand = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 5,
+        -- ALL
+        tree = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 2,
+    _mcl_hardness = 2,
+    -- _mcl_stripped_variant = stripped_variant,
     sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node,
 })
@@ -1518,7 +3084,24 @@ Everness:register_node('everness:baobab_tree', {
     tiles = { 'everness_baobab_tree_top.png', 'everness_baobab_tree_top.png', 'everness_baobab_tree_side.png' },
     paramtype2 = 'facedir',
     is_ground_content = false,
-    groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
+    groups = {
+        -- MTG
+        choppy = 2,
+        oddly_breakable_by_hand = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 5,
+        -- ALL
+        tree = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 2,
+    _mcl_hardness = 2,
+    -- _mcl_stripped_variant = stripped_variant,
     sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node
 })
@@ -1529,7 +3112,24 @@ Everness:register_node('everness:sequoia_tree', {
     tiles = { 'everness_sequoia_tree_top.png', 'everness_sequoia_tree_top.png', 'everness_sequoia_tree_side.png' },
     paramtype2 = 'facedir',
     is_ground_content = false,
-    groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
+    groups = {
+        -- MTG
+        choppy = 2,
+        oddly_breakable_by_hand = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 5,
+        -- ALL
+        tree = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 2,
+    _mcl_hardness = 2,
+    -- _mcl_stripped_variant = stripped_variant,
     sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node
 })
@@ -1540,7 +3140,24 @@ Everness:register_node('everness:willow_tree', {
     tiles = { 'everness_willow_tree_top.png', 'everness_willow_tree_top.png', 'everness_willow_tree_side.png' },
     paramtype2 = 'facedir',
     is_ground_content = false,
-    groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
+    groups = {
+        -- MTG
+        choppy = 2,
+        oddly_breakable_by_hand = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 5,
+        -- ALL
+        tree = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 2,
+    _mcl_hardness = 2,
+    -- _mcl_stripped_variant = stripped_variant,
     sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node
 })
@@ -1551,7 +3168,25 @@ Everness:register_node('everness:willow_wood', {
     place_param2 = 0,
     tiles = { 'everness_willow_wood.png' },
     is_ground_content = false,
-    groups = { choppy = 3, oddly_breakable_by_hand = 2, flammable = 3, wood = 1, everness_wood = 1 },
+    groups = {
+        -- MTG
+        choppy = 3,
+        oddly_breakable_by_hand = 2,
+        -- Everness
+        everness_wood = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 20,
+        -- ALL
+        flammable = 3,
+        wood = 1,
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_wood_defaults(),
 })
 
@@ -1561,7 +3196,25 @@ Everness:register_node('everness:dry_wood', {
     place_param2 = 0,
     tiles = { 'everness_dry_wood.png' },
     is_ground_content = false,
-    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1, everness_wood = 1 },
+    groups = {
+        -- MTG
+        choppy = 3,
+        oddly_breakable_by_hand = 2,
+        -- Everness
+        everness_wood = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 20,
+        -- ALL
+        flammable = 3,
+        wood = 1,
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_wood_defaults(),
 })
 
@@ -1590,7 +3243,24 @@ Everness:register_node('everness:hollow_tree', {
     use_texture_alpha = 'clip',
     paramtype2 = 'facedir',
     is_ground_content = false,
-    groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
+    groups = {
+        -- MTG
+        choppy = 2,
+        oddly_breakable_by_hand = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 5,
+        -- ALL
+        tree = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 2,
+    _mcl_hardness = 2,
+    -- _mcl_stripped_variant = stripped_variant,
     sounds = Everness.node_sound_wood_defaults(),
     on_place = minetest.rotate_node
 })
@@ -1611,7 +3281,24 @@ Everness:register_node('everness:crystal_tree', {
     paramtype = 'light',
     is_ground_content = false,
     sunlight_propagates = true,
-    groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1 },
+    groups = {
+        -- MTG
+        choppy = 2,
+        oddly_breakable_by_hand = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 5,
+        -- ALL
+        tree = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 2,
+    _mcl_hardness = 2,
+    -- _mcl_stripped_variant = stripped_variant,
     sounds = Everness.node_sound_glass_defaults(),
     on_place = minetest.rotate_node,
 })
@@ -1622,7 +3309,25 @@ minetest.register_node('everness:crystal_wood', {
     place_param2 = 0,
     tiles = { 'everness_crystal_wood.png' },
     is_ground_content = false,
-    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1, everness_wood = 1 },
+    groups = {
+        -- MTG
+        choppy = 3,
+        oddly_breakable_by_hand = 2,
+        -- Everness
+        everness_wood = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 20,
+        -- ALL
+        flammable = 3,
+        wood = 1,
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_wood_defaults(),
 })
 
@@ -1657,7 +3362,29 @@ Everness:register_node('everness:baobab_leaves', {
     paramtype = 'light',
     is_ground_content = false,
     sunlight_propagates = true,
-    groups = { snappy = 3, leafdecay = 3, flammable = 2, leaves = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        leafdecay = 3,
+        -- MCL
+        handy = 1,
+        hoey = 1,
+        shearsy = 1,
+        swordy = 1,
+        dig_by_piston = 1,
+        fire_encouragement = 30,
+        fire_flammability = 60,
+        deco_block = 1,
+        compostability = 30,
+        -- ALL
+        flammable = 2,
+        leaves = 1,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    _mcl_silk_touch_drop = true,
+    -- _mcl_fortune_drop = { get_drops(1), get_drops(2), get_drops(3), get_drops(4) },
     drop = {
         max_items = 1,
         items = {
@@ -1689,7 +3416,29 @@ Everness:register_node('everness:sequoia_leaves', {
     paramtype = 'light',
     is_ground_content = false,
     sunlight_propagates = true,
-    groups = { snappy = 3, leafdecay = 3, flammable = 2, leaves = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        leafdecay = 3,
+        -- MCL
+        handy = 1,
+        hoey = 1,
+        shearsy = 1,
+        swordy = 1,
+        dig_by_piston = 1,
+        fire_encouragement = 30,
+        fire_flammability = 60,
+        deco_block = 1,
+        compostability = 30,
+        -- ALL
+        flammable = 2,
+        leaves = 1,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    _mcl_silk_touch_drop = true,
+    -- _mcl_fortune_drop = { get_drops(1), get_drops(2), get_drops(3), get_drops(4) },
     drop = {
         max_items = 1,
         items = {
@@ -1738,8 +3487,29 @@ Everness:register_node('everness:baobab_fruit_renewable', {
         type = 'fixed',
         fixed = { -0.25, -0.5, -0.25, 0.25, 1, 0.25 }
     },
-    groups = { fleshy = 3, dig_immediate = 3, flammable = 2,
-        leafdecay = 3, leafdecay_drop = 1, not_in_creative_inventory = 1 },
+    groups = {
+        -- MTG
+        fleshy = 3,
+        dig_immediate = 3,
+        leafdecay = 3,
+        leafdecay_drop = 1,
+        not_in_creative_inventory = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    -- _mcl_fortune_drop = fortune_wheat_seed_drop,
     sounds = Everness.node_sound_leaves_defaults(),
     place_param2 = 0,
     after_dig_node = function(pos, oldnode, oldmetadata, digger)
@@ -1793,7 +3563,26 @@ Everness:register_node('everness:baobab_fruit', {
         type = 'fixed',
         fixed = { -0.25, -0.5, -0.25, 0.25, 1, 0.25 }
     },
-    groups = { dig_immediate = 3, attached_node = 1, compost = 65 },
+    groups = {
+        -- MTG
+        dig_immediate = 3,
+        compost = 65,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 65,
+        -- ALL
+        flammable = 2,
+        attached_node = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
 })
 
@@ -1811,7 +3600,25 @@ Everness:register_node('everness:baobab_sapling', {
         type = 'fixed',
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
-    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    groups = {
+        -- MTG
+        snappy = 2,
+        flammable = 2,
+        -- MCL
+        plant = 1,
+        non_mycelium_plant = 1,
+        deco_block = 1,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        dig_immediate = 3,
+        attached_node = 1,
+        sapling = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
@@ -1841,7 +3648,29 @@ Everness:register_node('everness:willow_leaves', {
     paramtype = 'light',
     is_ground_content = false,
     sunlight_propagates = true,
-    groups = { snappy = 3, leafdecay = 3, flammable = 2, leaves = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        leafdecay = 3,
+        -- MCL
+        handy = 1,
+        hoey = 1,
+        shearsy = 1,
+        swordy = 1,
+        dig_by_piston = 1,
+        fire_encouragement = 30,
+        fire_flammability = 60,
+        deco_block = 1,
+        compostability = 30,
+        -- ALL
+        flammable = 2,
+        leaves = 1,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    _mcl_silk_touch_drop = true,
+    -- _mcl_fortune_drop = { get_drops(1), get_drops(2), get_drops(3), get_drops(4) },
     drop = {
         max_items = 1,
         items = {
@@ -1872,7 +3701,31 @@ Everness:register_node('everness:coral_leaves', {
     special_tiles = { 'everness_coral_leaves.png' },
     paramtype = 'light',
     is_ground_content = false,
-    groups = { snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, falling_leaves = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        leafdecay = 3,
+        -- Everness
+        falling_leaves = 1,
+        -- MCL
+        handy = 1,
+        hoey = 1,
+        shearsy = 1,
+        swordy = 1,
+        dig_by_piston = 1,
+        fire_encouragement = 30,
+        fire_flammability = 60,
+        deco_block = 1,
+        compostability = 30,
+        -- ALL
+        flammable = 2,
+        leaves = 1,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    _mcl_silk_touch_drop = true,
+    -- _mcl_fortune_drop = { get_drops(1), get_drops(2), get_drops(3), get_drops(4) },
     drop = {
         max_items = 1,
         items = {
@@ -1903,7 +3756,30 @@ Everness:register_node('everness:dry_branches', {
     special_tiles = { 'everness_dry_branches.png' },
     paramtype = 'light',
     is_ground_content = false,
-    groups = { snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, falling_leaves = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        leafdecay = 3,
+        -- Everness
+        falling_leaves = 1,
+        -- MCL
+        handy = 1,
+        hoey = 1,
+        shearsy = 1,
+        swordy = 1,
+        dig_by_piston = 1,
+        fire_encouragement = 30,
+        fire_flammability = 60,
+        deco_block = 1,
+        compostability = 30,
+        -- ALL
+        flammable = 2,
+        leaves = 1,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    _mcl_silk_touch_drop = true,
     drop = {
         max_items = 1,
         items = {
@@ -1934,7 +3810,30 @@ Everness:register_node('everness:crystal_leaves', {
     special_tiles = { 'everness_crystal_leaves.png' },
     paramtype = 'light',
     is_ground_content = false,
-    groups = { snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, falling_leaves = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        leafdecay = 3,
+        -- Everness
+        falling_leaves = 1,
+        -- MCL
+        handy = 1,
+        hoey = 1,
+        shearsy = 1,
+        swordy = 1,
+        dig_by_piston = 1,
+        fire_encouragement = 30,
+        fire_flammability = 60,
+        deco_block = 1,
+        compostability = 30,
+        -- ALL
+        flammable = 2,
+        leaves = 1,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    _mcl_silk_touch_drop = true,
     drop = {
         max_items = 1,
         items = {
@@ -1970,7 +3869,25 @@ Everness:register_node('everness:coral_tree_sapling', {
         type = 'fixed',
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
-    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    groups = {
+        -- MTG
+        snappy = 2,
+        flammable = 2,
+        -- MCL
+        plant = 1,
+        non_mycelium_plant = 1,
+        deco_block = 1,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        dig_immediate = 3,
+        attached_node = 1,
+        sapling = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
@@ -2004,7 +3921,25 @@ Everness:register_node('everness:coral_tree_bioluminescent_sapling', {
         type = 'fixed',
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
-    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    groups = {
+        -- MTG
+        snappy = 2,
+        flammable = 2,
+        -- MCL
+        plant = 1,
+        non_mycelium_plant = 1,
+        deco_block = 1,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        dig_immediate = 3,
+        attached_node = 1,
+        sapling = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
@@ -2038,7 +3973,25 @@ Everness:register_node('everness:dry_tree_sapling', {
         type = 'fixed',
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
-    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    groups = {
+        -- MTG
+        snappy = 2,
+        flammable = 2,
+        -- MCL
+        plant = 1,
+        non_mycelium_plant = 1,
+        deco_block = 1,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        dig_immediate = 3,
+        attached_node = 1,
+        sapling = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
@@ -2072,7 +4025,25 @@ Everness:register_node('everness:cursed_dream_tree_sapling', {
         type = 'fixed',
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
-    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    groups = {
+        -- MTG
+        snappy = 2,
+        flammable = 2,
+        -- MCL
+        plant = 1,
+        non_mycelium_plant = 1,
+        deco_block = 1,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        dig_immediate = 3,
+        attached_node = 1,
+        sapling = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
@@ -2106,7 +4077,25 @@ Everness:register_node('everness:willow_tree_sapling', {
         type = 'fixed',
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
-    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    groups = {
+        -- MTG
+        snappy = 2,
+        flammable = 2,
+        -- MCL
+        plant = 1,
+        non_mycelium_plant = 1,
+        deco_block = 1,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        dig_immediate = 3,
+        attached_node = 1,
+        sapling = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
@@ -2142,7 +4131,25 @@ Everness:register_node('everness:sequoia_tree_sapling', {
         type = 'fixed',
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
-    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    groups = {
+        -- MTG
+        snappy = 2,
+        flammable = 2,
+        -- MCL
+        plant = 1,
+        non_mycelium_plant = 1,
+        deco_block = 1,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        dig_immediate = 3,
+        attached_node = 1,
+        sapling = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
@@ -2176,7 +4183,25 @@ Everness:register_node('everness:crystal_tree_sapling', {
         type = 'fixed',
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
-    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    groups = {
+        -- MTG
+        snappy = 2,
+        flammable = 2,
+        -- MCL
+        plant = 1,
+        non_mycelium_plant = 1,
+        deco_block = 1,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        dig_immediate = 3,
+        attached_node = 1,
+        sapling = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
@@ -2210,7 +4235,25 @@ Everness:register_node('everness:crystal_tree_large_sapling', {
         type = 'fixed',
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
     },
-    groups = { snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1 },
+    groups = {
+        -- MTG
+        snappy = 2,
+        flammable = 2,
+        -- MCL
+        plant = 1,
+        non_mycelium_plant = 1,
+        deco_block = 1,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        dig_immediate = 3,
+        attached_node = 1,
+        sapling = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     on_timer = function(...)
         Everness.grow_sapling(...)
@@ -2241,7 +4284,23 @@ Everness:register_node('everness:crystal_bush_stem', {
     wield_image = 'everness_crystal_bush_stem.png',
     paramtype = 'light',
     sunlight_propagates = true,
-    groups = { choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
+    groups = {
+        -- MTG
+        choppy = 2,
+        oddly_breakable_by_hand = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 20,
+        -- ALL
+        flammable = 2,
+        wood = 1,
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_wood_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2254,7 +4313,28 @@ Everness:register_node('everness:crystal_bush_leaves', {
     drawtype = 'allfaces_optional',
     tiles = { 'everness_crystal_bush_leaves.png' },
     paramtype = 'light',
-    groups = { snappy = 3, flammable = 2, leaves = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        leafdecay = 3,
+        -- MCL
+        handy = 1,
+        hoey = 1,
+        shearsy = 1,
+        swordy = 1,
+        dig_by_piston = 1,
+        fire_encouragement = 30,
+        fire_flammability = 60,
+        deco_block = 1,
+        compostability = 30,
+        -- ALL
+        flammable = 2,
+        leaves = 1,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    _mcl_silk_touch_drop = true,
     drop = {
         max_items = 1,
         items = {
@@ -2284,8 +4364,25 @@ Everness:register_node('everness:crystal_bush_sapling', {
         type = 'fixed',
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 2 / 16, 4 / 16 }
     },
-    groups = { snappy = 2, dig_immediate = 3, flammable = 2,
-        attached_node = 1, sapling = 1 },
+    groups = {
+        -- MTG
+        snappy = 2,
+        flammable = 2,
+        -- MCL
+        plant = 1,
+        non_mycelium_plant = 1,
+        deco_block = 1,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        dig_immediate = 3,
+        attached_node = 1,
+        sapling = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
 
     on_construct = function(pos)
@@ -2315,7 +4412,23 @@ Everness:register_node('everness:cursed_bush_stem', {
     wield_image = 'everness_cursed_bush_stem.png',
     paramtype = 'light',
     sunlight_propagates = true,
-    groups = { choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
+    groups = {
+        -- MTG
+        choppy = 2,
+        oddly_breakable_by_hand = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 20,
+        -- ALL
+        flammable = 2,
+        wood = 1,
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_wood_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2328,7 +4441,28 @@ Everness:register_node('everness:cursed_bush_leaves', {
     drawtype = 'allfaces_optional',
     tiles = { 'everness_cursed_bush_leaves.png' },
     paramtype = 'light',
-    groups = { snappy = 3, flammable = 2, leaves = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        leafdecay = 3,
+        -- MCL
+        handy = 1,
+        hoey = 1,
+        shearsy = 1,
+        swordy = 1,
+        dig_by_piston = 1,
+        fire_encouragement = 30,
+        fire_flammability = 60,
+        deco_block = 1,
+        compostability = 30,
+        -- ALL
+        flammable = 2,
+        leaves = 1,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    _mcl_silk_touch_drop = true,
     drop = {
         max_items = 1,
         items = {
@@ -2358,8 +4492,25 @@ Everness:register_node('everness:cursed_bush_sapling', {
         type = 'fixed',
         fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 2 / 16, 4 / 16 }
     },
-    groups = { snappy = 2, dig_immediate = 3, flammable = 2,
-        attached_node = 1, sapling = 1 },
+    groups = {
+        -- MTG
+        snappy = 2,
+        flammable = 2,
+        -- MCL
+        plant = 1,
+        non_mycelium_plant = 1,
+        deco_block = 1,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        dig_immediate = 3,
+        attached_node = 1,
+        sapling = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
 
     on_construct = function(pos)
@@ -2397,7 +4548,28 @@ Everness:register_node('everness:coral_burdock_1', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, coral_grass = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        coral_grass = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2426,7 +4598,28 @@ Everness:register_node('everness:coral_burdock_2', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, coral_grass = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        coral_grass = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2449,7 +4642,28 @@ Everness:register_node('everness:coral_bush', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, coral_grass = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        coral_grass = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2471,7 +4685,28 @@ Everness:register_node('everness:coral_shrub', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, coral_grass = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        coral_grass = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2491,7 +4726,28 @@ Everness:register_node('everness:coral_grass_orange', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 2, attached_node = 1, flora = 1, coral_grass_under = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        coral_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2512,7 +4768,28 @@ Everness:register_node('everness:globulagus', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 2, attached_node = 1, flora = 1, coral_grass_under = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        coral_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2534,7 +4811,28 @@ Everness:register_node('everness:coral_grass_tall', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 2, attached_node = 1, flora = 1, coral_grass_under = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        coral_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2555,7 +4853,22 @@ Everness:register_node('everness:crystal_purple', {
     paramtype2 = 'wallmounted',
     sunlight_propagates = true,
     walkable = false,
-    groups = { cracky = 3, attached_node = 1, flora = 1, crystal_grass_under = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        crystal_grass_under = 1,
+        -- MCL
+        handy = 1,
+        deco_block = 1,
+        -- glass = 1,
+        -- building_block = 1,
+        material_glass = 1,
+        -- ALL
+        flora = 1,
+        attached_node = 1,
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
     sounds = Everness.node_sound_crystal_defaults(),
     light_source = 7,
     selection_box = {
@@ -2576,7 +4889,22 @@ Everness:register_node('everness:crystal_orange', {
     paramtype2 = 'wallmounted',
     sunlight_propagates = true,
     walkable = false,
-    groups = { cracky = 3, attached_node = 1, flora = 1, crystal_grass_under = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        crystal_grass_under = 1,
+        -- MCL
+        handy = 1,
+        deco_block = 1,
+        -- glass = 1,
+        -- building_block = 1,
+        material_glass = 1,
+        -- ALL
+        flora = 1,
+        attached_node = 1,
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
     sounds = Everness.node_sound_crystal_defaults(),
     light_source = 7,
     selection_box = {
@@ -2597,8 +4925,23 @@ Everness:register_node('everness:crystal_cyan', {
     paramtype2 = 'wallmounted',
     sunlight_propagates = true,
     walkable = false,
-    groups = { cracky = 3, attached_node = 1, flora = 1, crystal_grass_under = 1 },
-    sounds = Everness.node_sound_thin_glass_defaults(),
+    groups = {
+        -- MTG
+        cracky = 3,
+        crystal_grass_under = 1,
+        -- MCL
+        handy = 1,
+        deco_block = 1,
+        -- glass = 1,
+        -- building_block = 1,
+        material_glass = 1,
+        -- ALL
+        flora = 1,
+        attached_node = 1,
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
+    sounds = Everness.node_sound_crystal_defaults(),
     light_source = 12,
     selection_box = {
         type = 'fixed',
@@ -2620,7 +4963,28 @@ Everness:register_node('everness:coral_plant_bioluminescent', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, coral_grass_under = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        coral_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 3,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 9
 })
@@ -2640,7 +5004,28 @@ Everness:register_node('everness:blooming_cooksonia', {
     walkable = false,
     buildable_to = true,
     is_ground_content = true,
-    groups = { snappy = 3, flammable = 2, attached_node = 1, frosted_grass_under = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        frosted_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 9
 })
@@ -2660,7 +5045,28 @@ Everness:register_node('everness:creeping_moss_spores', {
     walkable = false,
     buildable_to = true,
     is_ground_content = true,
-    groups = { snappy = 3, flammable = 2, attached_node = 1, frosted_grass_under = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        frosted_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 9
 })
@@ -2680,7 +5086,15 @@ Everness:register_node('everness:frosted_icicle', {
     walkable = false,
     buildable_to = true,
     is_ground_content = true,
-    groups = { oddly_breakable_by_hand = 3 },
+    groups = {
+        -- MTG
+        oddly_breakable_by_hand = 3,
+        -- MCL
+        handy = 1,
+        deco_block = 1,
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
     sounds = Everness.node_sound_ice_defaults(),
     light_source = 9
 })
@@ -2700,7 +5114,18 @@ Everness:register_node('everness:frosted_icicle_floor', {
     walkable = false,
     buildable_to = true,
     is_ground_content = true,
-    groups = { snappy = 3, attached_node = 1, frosted_grass_under = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        frosted_grass_under = 1,
+        -- MCL
+        handy = 1,
+        deco_block = 1,
+        -- ALL
+        attached_node = 1
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
     sounds = Everness.node_sound_ice_defaults(),
     light_source = 9,
     selection_box = {
@@ -2725,7 +5150,29 @@ Everness:register_node('everness:coral_grass_1', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, coral_grass = 1, normal_grass = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        coral_grass = 1,
+        normal_grass = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2755,14 +5202,29 @@ for i = 2, 5 do
         buildable_to = true,
         drop = 'everness:coral_grass_1',
         groups = {
+            -- MTG
             snappy = 3,
             flora = 1,
-            attached_node = 1,
-            not_in_creative_inventory = 1,
             coral_grass = 1,
             normal_grass = 1,
-            flammable = 1
+            not_in_creative_inventory = 1,
+            -- MCL
+            handy = 1,
+            shearsy = 1,
+            deco_block = 1,
+            plant = 1,
+            non_mycelium_plant = 1,
+            fire_encouragement = 60,
+            fire_flammability = 100,
+            dig_by_water = 1,
+            destroy_by_lava_flow = 1,
+            compostability = 30,
+            -- ALL
+            attached_node = 1,
+            flammable = 1,
         },
+        _mcl_blast_resistance = 0,
+        _mcl_hardness = 0,
         sounds = Everness.node_sound_leaves_defaults(),
         light_source = i,
         selection_box = {
@@ -2784,7 +5246,29 @@ Everness:register_node('everness:red_castor_1', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass = 1, normal_grass = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        cursed_grass = 1,
+        normal_grass = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2815,14 +5299,29 @@ for i = 2, 4 do
         buildable_to = true,
         drop = 'everness:red_castor_1',
         groups = {
+            -- MTG
             snappy = 3,
             flora = 1,
-            attached_node = 1,
-            not_in_creative_inventory = 1,
             cursed_grass = 1,
             normal_grass = 1,
-            flammable = 1
+            not_in_creative_inventory = 1,
+            -- MCL
+            handy = 1,
+            shearsy = 1,
+            deco_block = 1,
+            plant = 1,
+            non_mycelium_plant = 1,
+            fire_encouragement = 60,
+            fire_flammability = 100,
+            dig_by_water = 1,
+            destroy_by_lava_flow = 1,
+            compostability = 30,
+            -- ALL
+            attached_node = 1,
+            flammable = 1,
         },
+        _mcl_blast_resistance = 0,
+        _mcl_hardness = 0,
         sounds = Everness.node_sound_leaves_defaults(),
         light_source = i,
         selection_box = {
@@ -2843,7 +5342,30 @@ Everness:register_node('everness:crystal_mushrooms', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { mushroom = 1, food_mushroom = 1, snappy = 3, attached_node = 1, flammable = 1, crystal_grass = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        crystal_grass = 1,
+        mushroom = 1,
+        food_mushroom = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     on_use = minetest.item_eat(1),
     selection_box = {
@@ -2864,7 +5386,28 @@ Everness:register_node('everness:twisted_crystal_grass', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 1, attached_node = 1, crystal_grass_under = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        crystal_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     selection_box = {
@@ -2885,7 +5428,29 @@ Everness:register_node('everness:crystal_grass_1', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, crystal_grass = 1, normal_grass = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        crystal_grass = 1,
+        normal_grass = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_thin_glass_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2914,14 +5479,29 @@ for i = 2, 3 do
         buildable_to = true,
         drop = 'everness:crystal_grass_1',
         groups = {
+            -- MTG
             snappy = 3,
             flora = 1,
-            attached_node = 1,
-            not_in_creative_inventory = 1,
             crystal_grass = 1,
             normal_grass = 1,
-            flammable = 1
+            not_in_creative_inventory = 1,
+            -- MCL
+            handy = 1,
+            shearsy = 1,
+            deco_block = 1,
+            plant = 1,
+            non_mycelium_plant = 1,
+            fire_encouragement = 60,
+            fire_flammability = 100,
+            dig_by_water = 1,
+            destroy_by_lava_flow = 1,
+            compostability = 30,
+            -- ALL
+            attached_node = 1,
+            flammable = 1,
         },
+        _mcl_blast_resistance = 0,
+        _mcl_hardness = 0,
         sounds = Everness.node_sound_thin_glass_defaults(),
         light_source = i,
         selection_box = {
@@ -2943,7 +5523,28 @@ Everness:register_node('everness:marsh_grass', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        cursed_grass = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2967,7 +5568,27 @@ Everness:register_node('everness:forsaken_desert_plant_1', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -2989,7 +5610,27 @@ Everness:register_node('everness:forsaken_desert_plant_2', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 3,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -3011,7 +5652,27 @@ Everness:register_node('everness:forsaken_desert_plant_3', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 3,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -3030,7 +5691,19 @@ Everness:register_node('everness:cactus_blue', {
     paramtype = 'light',
     paramtype2 = 'facedir',
     light_source = 7,
-    groups = { choppy = 3 },
+    groups = {
+        -- MTG
+        choppy = 3,
+        -- MCL
+        handy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        plant = 1,
+        enderman_takable = 1,
+        compostability = 50
+    },
+    _mcl_blast_resistance = 0.4,
+    _mcl_hardness = 0.4,
     damage_per_second = 1,
     drawtype = 'nodebox',
     node_box = {
@@ -3062,7 +5735,19 @@ Everness:register_node('everness:cave_barrel_cactus', {
     description = S('Cave Barrel Cactus'),
     paramtype = 'light',
     light_source = 7,
-    groups = { choppy = 3 },
+    groups = {
+        -- MTG
+        choppy = 3,
+        -- MCL
+        handy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        plant = 1,
+        enderman_takable = 1,
+        compostability = 50
+    },
+    _mcl_blast_resistance = 0.4,
+    _mcl_hardness = 0.4,
     drawtype = 'mesh',
     mesh = 'everness_barrel_cactus.obj',
     tiles = { 'everness_cave_barrel_cactus_mesh.png' },
@@ -3078,7 +5763,19 @@ Everness:register_node('everness:venus_trap', {
     description = S('Venus Trap Plant'),
     paramtype = 'light',
     paramtype2 = 'facedir',
-    groups = { choppy = 3 },
+    groups = {
+        -- MTG
+        choppy = 3,
+        -- MCL
+        handy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        plant = 1,
+        enderman_takable = 1,
+        compostability = 50
+    },
+    _mcl_blast_resistance = 0.4,
+    _mcl_hardness = 0.4,
     drawtype = 'mesh',
     mesh = 'everness_venus_trap.obj',
     tiles = { 'everness_venus_trap_mesh.png' },
@@ -3104,7 +5801,27 @@ Everness:register_node('everness:illumi_root', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 3,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     light_source = 7,
     visual_scale = 1.69,
     sounds = Everness.node_sound_leaves_defaults(),
@@ -3131,7 +5848,21 @@ Everness:register_node('everness:crystal_waterlily', {
     walkable = true,
     buildable_to = true,
     floodable = true,
-    groups = { snappy = 3, flower = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flower = 1,
+        flammable = 1,
+        flora = 1,
+        -- MCL
+        deco_block = 1,
+        plant = 1,
+        compostability = 65,
+        destroy_by_lava_flow = 1,
+        dig_immediate = 3,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+    },
     sounds = Everness.node_sound_leaves_defaults(),
     node_placement_prediction = '',
     node_box = {
@@ -3194,7 +5925,19 @@ Everness:register_node('everness:cactus_orange', {
     paramtype = 'light',
     paramtype2 = 'facedir',
     light_source = 4,
-    groups = { choppy = 3 },
+    groups = {
+        -- MTG
+        choppy = 3,
+        -- MCL
+        handy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        plant = 1,
+        enderman_takable = 1,
+        compostability = 50
+    },
+    _mcl_blast_resistance = 0.4,
+    _mcl_hardness = 0.4,
     damage_per_second = 1,
     drawtype = 'nodebox',
     node_box = {
@@ -3234,7 +5977,29 @@ Everness:register_node('everness:agave_leaf_1', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, normal_grass = 1, flammable = 1, forsaken_tundra_grass_under = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        normal_grass = 1,
+        forsaken_tundra_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -3264,14 +6029,29 @@ for i = 2, 3 do
         buildable_to = true,
         drop = 'everness:agave_leaf_1',
         groups = {
+            -- MTG
             snappy = 3,
             flora = 1,
-            attached_node = 1,
-            not_in_creative_inventory = 1,
             normal_grass = 1,
+            forsaken_tundra_grass_under = 1,
+            not_in_creative_inventory = 1,
+            -- MCL
+            handy = 1,
+            shearsy = 1,
+            deco_block = 1,
+            plant = 1,
+            non_mycelium_plant = 1,
+            fire_encouragement = 60,
+            fire_flammability = 100,
+            dig_by_water = 1,
+            destroy_by_lava_flow = 1,
+            compostability = 30,
+            -- ALL
+            attached_node = 1,
             flammable = 1,
-            forsaken_tundra_grass_under = 1
         },
+        _mcl_blast_resistance = 0,
+        _mcl_hardness = 0,
         sounds = Everness.node_sound_leaves_defaults(),
         light_source = 4 + i,
         selection_box = {
@@ -3299,7 +6079,29 @@ Everness:register_node('everness:egg_plant', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass_under = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        normal_grass = 1,
+        cursed_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     node_box = {
         type = 'fixed',
@@ -3329,7 +6131,29 @@ Everness:register_node('everness:ivis_moss', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass_under = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        normal_grass = 1,
+        cursed_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -3351,7 +6175,29 @@ Everness:register_node('everness:ngrass_1', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass_under = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        normal_grass = 1,
+        cursed_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -3371,7 +6217,29 @@ Everness:register_node('everness:ngrass_2', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, cursed_grass_under = 1, flammable = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        normal_grass = 1,
+        cursed_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     selection_box = {
         type = 'fixed',
@@ -3424,13 +6292,24 @@ Everness:register_node('everness:bamboo_1', {
         }
     },
     groups = {
+        -- MTG
         snappy = 3,
-        flammable = 2,
         bamboo = 1,
         bamboo_small = 1,
         bamboo_grass = 1,
-        not_in_creative_inventory = 1
+        not_in_creative_inventory = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        choppy = 1,
+        dig_by_piston = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        -- ALL
+        flammable = 2
     },
+    _mcl_blast_resistance = 1,
+    _mcl_hardness = 1.5,
     selection_box = {
         type = 'fixed',
         fixed = { -0.3125, -0.5000, -0.3125, -0.06250, 0.5000, -0.06250 },
@@ -3492,13 +6371,24 @@ Everness:register_node('everness:bamboo_2', {
         }
     },
     groups = {
+        -- MTG
         snappy = 3,
-        flammable = 2,
         bamboo = 1,
         bamboo_small = 1,
         bamboo_grass = 1,
-        not_in_creative_inventory = 1
+        not_in_creative_inventory = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        choppy = 1,
+        dig_by_piston = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        -- ALL
+        flammable = 2
     },
+    _mcl_blast_resistance = 1,
+    _mcl_hardness = 1.5,
     selection_box = {
         type = 'fixed',
         fixed = { -0.3125, -0.5000, -0.3125, -0.06250, 0.5000, -0.06250 },
@@ -3562,13 +6452,24 @@ Everness:register_node('everness:bamboo_3', {
         }
     },
     groups = {
+        -- MTG
         snappy = 3,
-        flammable = 2,
         bamboo = 1,
         bamboo_large = 1,
         bamboo_grass = 1,
-        not_in_creative_inventory = 1
+        not_in_creative_inventory = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        choppy = 1,
+        dig_by_piston = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        -- ALL
+        flammable = 2
     },
+    _mcl_blast_resistance = 1,
+    _mcl_hardness = 1.5,
     selection_box = {
         type = 'fixed',
         fixed = { -0.3125, -0.5000, -0.3125, 0.06250, 0.5000, 0.06250 },
@@ -3626,13 +6527,24 @@ Everness:register_node('everness:bamboo_4', {
         }
     },
     groups = {
+        -- MTG
         snappy = 3,
-        flammable = 2,
         bamboo = 1,
         bamboo_large = 1,
         bamboo_grass = 1,
-        not_in_creative_inventory = 1
+        not_in_creative_inventory = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        choppy = 1,
+        dig_by_piston = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        -- ALL
+        flammable = 2
     },
+    _mcl_blast_resistance = 1,
+    _mcl_hardness = 1.5,
     selection_box = {
         type = 'fixed',
         fixed = { -0.3125, -0.5000, -0.3125, 0.06250, 0.5000, 0.06250 },
@@ -3690,13 +6602,24 @@ Everness:register_node('everness:bamboo_5', {
         }
     },
     groups = {
+        -- MTG
         snappy = 3,
-        flammable = 2,
         bamboo = 1,
         bamboo_large = 1,
         bamboo_grass = 1,
-        not_in_creative_inventory = 1
+        not_in_creative_inventory = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        choppy = 1,
+        dig_by_piston = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        -- ALL
+        flammable = 2
     },
+    _mcl_blast_resistance = 1,
+    _mcl_hardness = 1.5,
     selection_box = {
         type = 'fixed',
         fixed = { -0.3125, -0.5000, -0.3125, 0.06250, 0.5000, 0.06250 },
@@ -3719,7 +6642,27 @@ Everness:register_node('everness:bamboo_sprout', {
     inventory_image = 'everness_bamboo_sprout.png',
     wield_image = 'everness_bamboo_sprout.png',
     drawtype = 'plantlike',
-    groups = { seed = 1, snappy = 3, flammable = 2, attached_node = 1, bamboo = 1, bamboo_grass = 1 },
+    groups = {
+        -- MTG
+        seed = 1,
+        snappy = 3,
+        flammable = 2,
+        bamboo = 1,
+        bamboo_grass = 1,
+        -- MCL
+        plant = 1,
+        non_mycelium_plant = 1,
+        deco_block = 1,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        dig_immediate = 3,
+        attached_node = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     paramtype = 'light',
     paramtype2 = 'meshoptions',
     walkable = false,
@@ -3753,7 +6696,29 @@ Everness:register_node('everness:bloodspore_plant', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, forsaken_tundra_grass = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        normal_grass = 1,
+        forsaken_tundra_grass = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 3,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7
 })
@@ -3772,7 +6737,29 @@ Everness:register_node('everness:bloodspore_plant_small', {
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
-    groups = { snappy = 3, flammable = 3, attached_node = 1, flora = 1, forsaken_tundra_grass_under = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        normal_grass = 1,
+        forsaken_tundra_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 3,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7
 })
@@ -3788,7 +6775,17 @@ Everness:register_node('everness:termite_block', {
     climbable = false,
     post_effect_color = { r = 47, g = 28, b = 18, a = 255 },
     damage_per_second = 1,
-    groups = { crumbly = 3, disable_jump = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        disable_jump = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        building_block = 1,
+        _mcl_blast_resistance = 0.5,
+        _mcl_hardness = 0.5,
+    },
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
@@ -3800,7 +6797,19 @@ Everness:register_node('everness:bamboo_block', {
         'everness_bamboo_block_side.png'
     },
     paramtype2 = 'facedir',
-    groups = { choppy = 3 },
+    groups = {
+        -- MTG
+        choppy = 3,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        fire_encouragement = 5,
+        fire_flammability = 20,
+        -- ALL
+        flammable = 3,
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_bamboo_defaults({
         dug = { name = 'everness_bamboo_hit', gain = 1.25 }
     }),
@@ -3815,7 +6824,19 @@ Everness:register_node('everness:bamboo_dry_block', {
         'everness_dry_bamboo_block_side.png'
     },
     paramtype2 = 'facedir',
-    groups = { choppy = 3 },
+    groups = {
+        -- MTG
+        choppy = 3,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        fire_encouragement = 5,
+        fire_flammability = 20,
+        -- ALL
+        flammable = 3,
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_bamboo_defaults({
         dug = { name = 'everness_bamboo_hit', gain = 1.25 }
     }),
@@ -3828,7 +6849,25 @@ Everness:register_node('everness:bamboo_wood', {
     place_param2 = 0,
     tiles = { 'everness_dry_bamboo_block_side.png' },
     is_ground_content = false,
-    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1, everness_wood = 1 },
+    groups = {
+        -- MTG
+        choppy = 3,
+        oddly_breakable_by_hand = 2,
+        -- Everness
+        everness_wood = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        fire_encouragement = 5,
+        fire_flammability = 20,
+        building_block = 1,
+        material_wood = 1,
+        -- ALL
+        flammable = 2,
+        wood = 1,
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_wood_defaults(),
 })
 
@@ -3838,7 +6877,22 @@ Everness:register_node('everness:bamboo_mosaic_wood', {
     place_param2 = 0,
     tiles = { 'everness_bamboo_mosaic.png' },
     is_ground_content = false,
-    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1, everness_wood = 1 },
+    groups = {
+        -- MTG
+        choppy = 2,
+        oddly_breakable_by_hand = 2,
+        everness_wood = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        fire_encouragement = 5,
+        fire_flammability = 20,
+        -- ALL
+        flammable = 2,
+        wood = 1,
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_wood_defaults(),
 })
 
@@ -3848,7 +6902,25 @@ Everness:register_node('everness:baobab_wood', {
     place_param2 = 0,
     tiles = { 'everness_baobab_wood.png' },
     is_ground_content = false,
-    groups = { choppy = 3, oddly_breakable_by_hand = 2, flammable = 3, wood = 1, everness_wood = 1 },
+    groups = {
+        -- MTG
+        choppy = 3,
+        oddly_breakable_by_hand = 2,
+        -- Everness
+        everness_wood = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 20,
+        -- ALL
+        flammable = 3,
+        wood = 1,
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_wood_defaults(),
 })
 
@@ -3858,7 +6930,25 @@ Everness:register_node('everness:sequoia_wood', {
     place_param2 = 0,
     tiles = { 'everness_sequoia_wood.png' },
     is_ground_content = false,
-    groups = { choppy = 3, oddly_breakable_by_hand = 2, flammable = 3, wood = 1, everness_wood = 1 },
+    groups = {
+        -- MTG
+        choppy = 3,
+        oddly_breakable_by_hand = 2,
+        -- Everness
+        everness_wood = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 20,
+        -- ALL
+        flammable = 3,
+        wood = 1,
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_wood_defaults(),
 })
 
@@ -3921,7 +7011,18 @@ Everness:register_node('everness:coral_corals', {
     special_tiles = { { name = 'everness_coral_corals.png', tileable_vertical = true } },
     inventory_image = 'everness_coral_corals.png',
     wield_image = 'everness_coral_corals.png',
-    groups = { snappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -3950,7 +7051,18 @@ Everness:register_node('everness:coral_jellyfish', {
     special_tiles = { { name = 'everness_coral_jellyfish.png', tileable_vertical = true } },
     inventory_image = 'everness_coral_jellyfish.png',
     wield_image = 'everness_coral_jellyfish.png',
-    groups = { snappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -3979,7 +7091,18 @@ Everness:register_node('everness:coral_frosted', {
     special_tiles = { { name = 'everness_frosted_coral.png', tileable_vertical = true } },
     inventory_image = 'everness_frosted_coral.png',
     wield_image = 'everness_frosted_coral.png',
-    groups = { snappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -4008,7 +7131,18 @@ Everness:register_node('everness:coral_starfish', {
     special_tiles = { { name = 'everness_starfish.png', tileable_vertical = true } },
     inventory_image = 'everness_starfish.png',
     wield_image = 'everness_starfish.png',
-    groups = { snappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -4038,7 +7172,18 @@ Everness:register_node('everness:sand_with_spine_kelp', {
     wield_image = 'everness_spine_kelp.png',
     paramtype = 'light',
     paramtype2 = 'leveled',
-    groups = { nappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -4109,7 +7254,18 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_1', {
     special_tiles = { { name = 'everness_deep_ocean_coral_plant_1.png', tileable_vertical = true } },
     inventory_image = 'everness_deep_ocean_coral_plant_1.png',
     wield_image = 'everness_deep_ocean_coral_plant_1.png',
-    groups = { snappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -4149,7 +7305,18 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_2', {
     special_tiles = { { name = 'everness_deep_ocean_coral_plant_2.png', tileable_vertical = true } },
     inventory_image = 'everness_deep_ocean_coral_plant_2.png',
     wield_image = 'everness_deep_ocean_coral_plant_2.png',
-    groups = { snappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -4189,7 +7356,18 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_3', {
     special_tiles = { { name = 'everness_deep_ocean_coral_plant_3.png', tileable_vertical = true } },
     inventory_image = 'everness_deep_ocean_coral_plant_3.png',
     wield_image = 'everness_deep_ocean_coral_plant_3.png',
-    groups = { snappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -4229,7 +7407,18 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_anemone', {
     special_tiles = { { name = 'everness_cursed_lands_deep_ocean_coral_anemone.png', tileable_vertical = true } },
     inventory_image = 'everness_cursed_lands_deep_ocean_coral_anemone.png',
     wield_image = 'everness_cursed_lands_deep_ocean_coral_anemone.png',
-    groups = { snappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -4269,7 +7458,18 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_darkilluma'
     special_tiles = { { name = 'everness_cursed_lands_deep_ocean_coral_darkilluma.png', tileable_vertical = true } },
     inventory_image = 'everness_cursed_lands_deep_ocean_coral_darkilluma.png',
     wield_image = 'everness_cursed_lands_deep_ocean_coral_darkilluma.png',
-    groups = { snappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -4309,7 +7509,18 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_demon', {
     special_tiles = { { name = 'everness_cursed_lands_deep_ocean_coral_demon.png', tileable_vertical = true } },
     inventory_image = 'everness_cursed_lands_deep_ocean_coral_demon.png',
     wield_image = 'everness_cursed_lands_deep_ocean_coral_demon.png',
-    groups = { snappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -4349,7 +7560,18 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_1', {
     special_tiles = { { name = 'everness_crystal_forest_deep_ocean_coral_plant_1.png', tileable_vertical = true } },
     inventory_image = 'everness_crystal_forest_deep_ocean_coral_plant_1.png',
     wield_image = 'everness_crystal_forest_deep_ocean_coral_plant_1.png',
-    groups = { snappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -4389,7 +7611,18 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_2', {
     special_tiles = { { name = 'everness_crystal_forest_deep_ocean_coral_plant_2.png', tileable_vertical = true } },
     inventory_image = 'everness_crystal_forest_deep_ocean_coral_plant_2.png',
     wield_image = 'everness_crystal_forest_deep_ocean_coral_plant_2.png',
-    groups = { snappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -4429,7 +7662,18 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_3', {
     special_tiles = { { name = 'everness_crystal_forest_deep_ocean_coral_plant_3.png', tileable_vertical = true } },
     inventory_image = 'everness_crystal_forest_deep_ocean_coral_plant_3.png',
     wield_image = 'everness_crystal_forest_deep_ocean_coral_plant_3.png',
-    groups = { snappy = 3 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+        coral_plant = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
     selection_box = {
         type = 'fixed',
         fixed = {
@@ -4462,91 +7706,254 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_3', {
 Everness:register_node('everness:crystal_coral_dark', {
     description = S('Crystal Coral Dark'),
     tiles = { 'everness_crystal_coral_dark_block.png' },
-    groups = { cracky = 3 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 1,
+        coral_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:crystal_coral_light', {
     description = S('Crystal Coral Light'),
     tiles = { 'everness_crystal_coral_light_block.png' },
-    groups = { cracky = 3 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 1,
+        coral_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:coral_forest_deep_ocean_coral_1', {
     description = S('Coral Forest Deep Ocean Coral Pink'),
     tiles = { 'everness_deep_ocean_coral_1.png' },
-    groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- Everness
+        everness_coral_forest_deep_ocean_coral = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 1,
+        coral_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:coral_forest_deep_ocean_coral_2', {
     description = S('Coral Forest Deep Ocean Coral Cyan'),
     tiles = { 'everness_deep_ocean_coral_2.png' },
-    groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- Everness
+        everness_coral_forest_deep_ocean_coral = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 1,
+        coral_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:coral_forest_deep_ocean_coral_3', {
     description = S('Coral Forest Deep Ocean Coral Green'),
     tiles = { 'everness_deep_ocean_coral_3.png' },
-    groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- Everness
+        everness_coral_forest_deep_ocean_coral = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 1,
+        coral_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:coral_forest_deep_ocean_coral_4', {
     description = S('Coral Forest Deep Ocean Coral Red'),
     tiles = { 'everness_deep_ocean_coral_4.png' },
-    groups = { cracky = 3, everness_coral_forest_deep_ocean_coral = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- Everness
+        everness_coral_forest_deep_ocean_coral = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 1,
+        coral_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:cursed_lands_deep_ocean_coral_alcyonacea', {
     description = S('Coral Alcyonacea'),
     tiles = { 'everness_cursed_lands_deep_ocean_coral_alcyonacea.png' },
-    groups = { cracky = 3, everness_cursed_lands_deep_ocean_coral = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- Everness
+        everness_cursed_lands_deep_ocean_coral = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 1,
+        coral_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:cursed_lands_deep_ocean_coral_ostracod', {
     description = S('Coral Ostracod'),
     tiles = { 'everness_cursed_lands_deep_ocean_coral_ostracod.png' },
-    groups = { cracky = 3, everness_cursed_lands_deep_ocean_coral = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- Everness
+        everness_cursed_lands_deep_ocean_coral = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 1,
+        coral_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:cursed_lands_deep_ocean_coral_octocurse', {
     description = S('Coral Octocurse'),
     tiles = { 'everness_cursed_lands_deep_ocean_coral_octocurse.png' },
-    groups = { cracky = 3, everness_cursed_lands_deep_ocean_coral = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- Everness
+        everness_cursed_lands_deep_ocean_coral = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 1,
+        coral_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:crystal_forest_deep_ocean_coral_1', {
     description = S('Crystal Forest Deep Ocean Coral Green'),
     tiles = { 'everness_crystal_forest_deep_ocean_coral_1.png' },
-    groups = { cracky = 3, everness_crystal_forest_deep_ocean_coral = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- Everness
+        everness_crystal_forest_deep_ocean_coral_1 = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 1,
+        coral_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:crystal_forest_deep_ocean_coral_2', {
     description = S('Crystal Forest Deep Ocean Coral Orange'),
     tiles = { 'everness_crystal_forest_deep_ocean_coral_2.png' },
-    groups = { cracky = 3, everness_crystal_forest_deep_ocean_coral = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- Everness
+        everness_crystal_forest_deep_ocean_coral_1 = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 1,
+        coral_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:crystal_forest_deep_ocean_coral_3', {
     description = S('Crystal Forest Deep Ocean Coral Cyan'),
     tiles = { 'everness_crystal_forest_deep_ocean_coral_3.png' },
-    groups = { cracky = 3, everness_crystal_forest_deep_ocean_coral = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- Everness
+        everness_crystal_forest_deep_ocean_coral_1 = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 1,
+        coral_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
 Everness:register_node('everness:coral_skeleton', {
     description = S('Coral Skeleton'),
     tiles = { 'everness_coral_skeleton.png' },
-    groups = { cracky = 3 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        coral = 1,
+        coral_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    _mcl_silk_touch_drop = true,
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -4587,7 +7994,20 @@ Everness:register_node('everness:skull_with_candle', {
         type = 'fixed',
         fixed = { -1 / 2 + 3 / 16, -1 / 2, -1 / 2 + 3 / 16, 1 / 2 - 3 / 16, 0.1, 1 / 2 - 3 / 16 }
     },
-    groups = { choppy = 2, dig_immediate = 3, flammable = 1, attached_node = 1, torch = 1 },
+    groups = {
+        -- MTG
+        choppy = 2,
+        dig_immediate = 3,
+        torch = 1,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        attached_node = 1
+    },
+    _mcl_blast_resistance = 2,
+    _mcl_hardness = 2,
     sounds = Everness.node_sound_wood_defaults(),
     sunlight_propagates = true,
     light_source = 12,
@@ -4608,7 +8028,28 @@ Everness:register_node('everness:forsythia_bush', {
     paramtype = 'light',
     is_ground_content = false,
     walkable = true,
-    groups = { snappy = 3, flora = 1, attached_node = 1, bamboo_grass_under = 1, flammable = 2 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        bamboo_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
     sunlight_propagates = true,
     use_texture_alpha = 'clip',
@@ -4629,7 +8070,28 @@ Everness:register_node('everness:glowing_pillar', {
     inventory_image = 'everness_glowing_pillar_item.png',
     wield_image = 'everness_glowing_pillar_item.png',
     paramtype = 'light',
-    groups = { snappy = 3, flammable = 2, forsaken_tundra_grass_under = 1, flora = 1, attached_node = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        forsaken_tundra_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     selection_box = {
         type = 'fixed',
         fixed = { -0.63, -0.5, -0.63, 0.63, 3.23, 0.63 }
@@ -4659,7 +8121,29 @@ Everness:register_node('everness:blue_vine_lantern', {
     inventory_image = 'everness_blue_vine_lantern_item.png',
     wield_image = 'everness_blue_vine_lantern_item.png',
     paramtype = 'light',
-    groups = { snappy = 3, flammable = 2, flora = 1, attached_node = 1, bamboo_grass_under = 1, lantern = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        bamboo_grass_under = 1,
+        lantern = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     selection_box = {
         type = 'fixed',
         fixed = { -0.63, -0.5, -0.63, 0.63, 3.23, 0.63 }
@@ -4689,7 +8173,29 @@ Everness:register_node('everness:amaranita_lantern', {
     inventory_image = 'everness_amaranita_lantern_item.png',
     wield_image = 'everness_amaranita_lantern_item.png',
     paramtype = 'light',
-    groups = { snappy = 3, flammable = 2, attached_node = 1, frosted_grass_under = 1, lantern = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        frosted_grass_under = 1,
+        lantern = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     selection_box = {
         type = 'fixed',
         fixed = { -0.63, -0.5, -0.63, 0.63, 3.23, 0.63 }
@@ -4727,7 +8233,29 @@ Everness:register_node('everness:lumecorn', {
     wield_image = 'everness_lumecorn_item.png',
     paramtype = 'light',
     waving = 1,
-    groups = { snappy = 3, flammable = 2, attached_node = 1, flora = 1, coral_grass_under = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        coral_grass_under = 1,
+        lantern = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     selection_box = {
         type = 'fixed',
         fixed = { -0.63, -0.5, -0.63, 0.63, 3.23, 0.63 }
@@ -4750,7 +8278,17 @@ Everness:register_node('everness:glass', {
     paramtype = 'light',
     sunlight_propagates = true,
     is_ground_content = false,
-    groups = { cracky = 3, oddly_breakable_by_hand = 3, glass = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        oddly_breakable_by_hand = 3,
+        -- MCL
+        handy = 1,
+        building_block = 1,
+        material_glass = 1
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
     sounds = Everness.node_sound_glass_defaults(),
 })
 
@@ -4763,7 +8301,17 @@ Everness:register_node('everness:tinted_glass_red', {
     is_ground_content = false,
     sunlight_propagates = false,
     sounds = Everness.node_sound_glass_defaults(),
-    groups = { cracky = 3 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        oddly_breakable_by_hand = 3,
+        -- MCL
+        handy = 1,
+        building_block = 1,
+        material_glass = 1
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
 })
 
 minetest.register_lbm({
@@ -4792,7 +8340,18 @@ Everness:register_node('everness:pyrite_lantern', {
     paramtype = 'light',
     sunlight_propagates = true,
     is_ground_content = false,
-    groups = { cracky = 3, oddly_breakable_by_hand = 3, lantern = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        oddly_breakable_by_hand = 3,
+        lantern = 1,
+        -- MCL
+        handy = 1,
+        building_block = 1,
+        material_glass = 1
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
     sounds = Everness.node_sound_glass_defaults(),
     light_source = 12,
 })
@@ -4801,11 +8360,21 @@ Everness:register_node('everness:pyrite_glass', {
     description = S('Pyrite Glass'),
     drawtype = 'glasslike_framed_optional',
     tiles = { 'everness_pyrite_glass.png' },
-    use_texture_alpha = 'clip', -- only needed for stairs API
+    use_texture_alpha = 'clip',
     paramtype = 'light',
     sunlight_propagates = true,
     is_ground_content = false,
-    groups = { cracky = 3, oddly_breakable_by_hand = 3 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        oddly_breakable_by_hand = 3,
+        -- MCL
+        handy = 1,
+        building_block = 1,
+        material_glass = 1
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
     sounds = Everness.node_sound_glass_defaults(),
 })
 
@@ -4824,7 +8393,18 @@ Everness:register_node('everness:lumabus_vine_lantern', {
     paramtype = 'light',
     -- wield_image = 'everness_lumabus_vine_end_bottom.png',
     -- inventory_image = 'everness_lumabus_vine_end_bottom.png',
-    groups = { cracky = 3, oddly_breakable_by_hand = 3, lantern = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        oddly_breakable_by_hand = 3,
+        lantern = 1,
+        -- MCL
+        handy = 1,
+        building_block = 1,
+        material_glass = 1
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
     sounds = Everness.node_sound_glass_defaults(),
     light_source = 7,
     paramtype2 = 'wallmounted',
@@ -4845,7 +8425,18 @@ Everness:register_node('everness:eye_vine_lantern', {
     wield_image = 'everness_eye_vine_end_bottom.png',
     inventory_image = 'everness_eye_vine_end_bottom.png',
     drawtype = 'normal',
-    groups = { snappy = 3, flammable = 2, lantern = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        oddly_breakable_by_hand = 3,
+        lantern = 1,
+        -- MCL
+        handy = 1,
+        building_block = 1,
+        material_glass = 1
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     paramtype2 = 'facedir',
@@ -4868,7 +8459,20 @@ Everness:register_node('everness:cursed_pumpkin_lantern', {
     sounds = Everness.node_sound_wood_defaults(),
     is_ground_content = false,
     light_source = 12,
-    groups = { snappy = 3, flammable = 4, fall_damage_add_percent = -30, lantern = 1 }
+    groups = {
+        -- MTG
+        snappy = 3,
+        lantern = 1,
+        fall_damage_add_percent = -30,
+        -- MCL
+        handy = 1,
+        building_block = 1,
+        material_glass = 1,
+        -- ALL
+        flammable = 4,
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
 })
 
 Everness:register_node('everness:floating_crystal', {
@@ -4890,7 +8494,18 @@ Everness:register_node('everness:floating_crystal', {
     sunlight_propagates = true,
     buildable_to = true,
     walkable = false,
-    groups = { snappy = 3, not_in_creative_inventory = 1 },
+    groups = {
+        -- MTG
+        snappy = 3,
+        not_in_creative_inventory = 1,
+        -- MLC
+        handy = 1,
+        glass = 1,
+        building_block = 1,
+        material_glass = 1,
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
     selection_box = {
         type = 'fixed',
         fixed = { -0.25, -0.4, -0.25, 0.25, 0.4, 0.25 },
@@ -4994,7 +8609,18 @@ Everness:register_node('everness:coral_forest_deep_ocean_lantern', {
     sunlight_propagates = true,
     is_ground_content = false,
     sounds = Everness.node_sound_glass_defaults(),
-    groups = { cracky = 3, oddly_breakable_by_hand = 3, lantern = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        oddly_breakable_by_hand = 3,
+        lantern = 1,
+        -- MCL
+        handy = 1,
+        building_block = 1,
+        material_glass = 1,
+    },
+    _mcl_blast_resistance = 0.3,
+    _mcl_hardness = 0.3,
     paramtype = 'light',
     light_source = 12,
 })
