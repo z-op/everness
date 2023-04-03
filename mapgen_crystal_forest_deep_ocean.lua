@@ -33,10 +33,10 @@ minetest.register_biome({
     depth_filler = 3,
     node_riverbed = 'everness:crystal_forest_deep_ocean_sand',
     depth_riverbed = 2,
-    node_cave_liquid = 'everness_mapgen_water_source',
+    node_cave_liquid = 'default:water_source',
     node_dungeon = 'everness:crystal_forest_deep_ocean_sandstone_block',
     node_dungeon_alt = 'everness:crystal_forest_deep_ocean_sandstone_brick',
-    node_dungeon_stair = 'everness_mapgen_stair_crystal_forest_deep_ocean_sandstone_block',
+    node_dungeon_stair = 'stairs:stair_crystal_forest_deep_ocean_sandstone_block',
     y_max = y_max,
     y_min = y_min,
     heat_point = 35,
@@ -51,7 +51,7 @@ minetest.register_decoration({
     name = 'everness:crystal_forest_deep_ocean_coral_1',
     deco_type = 'schematic',
     place_on = { 'everness:crystal_forest_deep_ocean_sand' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.003,
@@ -66,7 +66,7 @@ minetest.register_decoration({
     name = 'everness:crystal_forest_deep_ocean_coral_2',
     deco_type = 'schematic',
     place_on = { 'everness:crystal_forest_deep_ocean_sand' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.003,
@@ -81,7 +81,7 @@ minetest.register_decoration({
     name = 'everness:crystal_forest_deep_ocean_coral_3',
     deco_type = 'schematic',
     place_on = { 'everness:crystal_forest_deep_ocean_sand' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.003,
@@ -104,7 +104,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:crystal_forest_deep_ocean_sand_with_crack' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
 })
 
@@ -127,7 +127,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:crystal_forest_deep_ocean_coral_plant_1' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
 })
 
@@ -150,7 +150,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:crystal_forest_deep_ocean_coral_plant_2' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
 })
 
@@ -173,7 +173,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:crystal_forest_deep_ocean_coral_plant_3' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
 })
 
@@ -181,7 +181,7 @@ minetest.register_decoration({
 -- On Generated
 --
 
-local c_water_source = minetest.get_content_id('everness_mapgen_water_source')
+local c_water_source = minetest.get_content_id('default:water_source')
 local c_crystal_forest_deep_ocean_sand = minetest.get_content_id('everness:crystal_forest_deep_ocean_sand')
 
 -- Localize data buffer table outside the loop, to be re-used for all
@@ -249,7 +249,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             local water_source_positions = minetest.find_nodes_in_area(
                                 vector.new(s_pos.x - (ruins_size.x / 2), s_pos.y, s_pos.z - (ruins_size.z / 2)),
                                 vector.new(s_pos.x + (ruins_size.x / 2), s_pos.y + ruins_size.y, s_pos.z + (ruins_size.z / 2)),
-                                { 'everness_mapgen_water_source' }
+                                { 'default:water_source' }
                             )
 
                             if #water_source_positions > (ruins_volume - ruins_volume / 3) then

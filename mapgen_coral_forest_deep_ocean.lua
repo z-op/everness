@@ -33,10 +33,10 @@ minetest.register_biome({
     depth_filler = 3,
     node_riverbed = 'everness:coral_forest_deep_ocean_sand',
     depth_riverbed = 2,
-    node_cave_liquid = 'everness_mapgen_water_source',
+    node_cave_liquid = 'default:water_source',
     node_dungeon = 'everness:coral_deep_ocean_sandstone_block',
     node_dungeon_alt = 'everness:coral_deep_ocean_sandstone_brick',
-    node_dungeon_stair = 'everness_mapgen_stair_coral_deep_ocean_sandstone_block',
+    node_dungeon_stair = 'stairs:stair_coral_deep_ocean_sandstone_block',
     y_max = y_max,
     y_min = y_min,
     heat_point = 60,
@@ -51,7 +51,7 @@ minetest.register_biome({
 minetest.register_ore({
     ore_type = 'blob',
     ore = 'everness:coral_desert_stone',
-    wherein = { 'everness_mapgen_stone' },
+    wherein = { 'default:stone' },
     clust_scarcity = 16 * 16 * 16,
     clust_size = 5,
     y_max = y_max,
@@ -78,7 +78,7 @@ minetest.register_decoration({
     name = 'everness:coral_forest_deep_ocean_coral_reef_pink',
     deco_type = 'schematic',
     place_on = { 'everness:coral_forest_deep_ocean_sand' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     noise_params = {
@@ -100,7 +100,7 @@ minetest.register_decoration({
     name = 'everness:coral_forest_deep_ocean_coral_reef_cyan',
     deco_type = 'schematic',
     place_on = { 'everness:coral_forest_deep_ocean_sand' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     noise_params = {
@@ -122,7 +122,7 @@ minetest.register_decoration({
     name = 'everness:coral_forest_deep_ocean_coral_reef_green',
     deco_type = 'schematic',
     place_on = { 'everness:coral_forest_deep_ocean_sand' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     noise_params = {
@@ -144,7 +144,7 @@ minetest.register_decoration({
     name = 'everness:coral_forest_deep_ocean_coral_reef_red',
     deco_type = 'schematic',
     place_on = { 'everness:coral_forest_deep_ocean_sand' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     noise_params = {
@@ -166,7 +166,7 @@ minetest.register_decoration({
     name = 'everness:everness_coral_forest_deep_ocean_pink',
     deco_type = 'schematic',
     place_on = { 'everness:coral_forest_deep_ocean_sand' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
@@ -181,7 +181,7 @@ minetest.register_decoration({
     name = 'everness:everness_coral_forest_deep_ocean_cyan',
     deco_type = 'schematic',
     place_on = { 'everness:coral_forest_deep_ocean_sand' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
@@ -196,7 +196,7 @@ minetest.register_decoration({
     name = 'everness:everness_coral_forest_deep_ocean_green',
     deco_type = 'schematic',
     place_on = { 'everness:coral_forest_deep_ocean_sand' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
@@ -211,7 +211,7 @@ minetest.register_decoration({
     name = 'everness:everness_coral_forest_deep_ocean_red',
     deco_type = 'schematic',
     place_on = { 'everness:coral_forest_deep_ocean_sand' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
@@ -234,7 +234,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:coral_deep_ocean_mud' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
 })
 
@@ -257,7 +257,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:coral_forest_deep_ocean_coral_plant_1' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
 })
 
@@ -280,7 +280,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:coral_forest_deep_ocean_coral_plant_2' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
 })
 
@@ -303,7 +303,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:coral_forest_deep_ocean_coral_plant_3' },
-    spawn_by = 'everness_mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
 })
 
@@ -311,7 +311,7 @@ minetest.register_decoration({
 -- On Generated
 --
 
-local c_water_source = minetest.get_content_id('everness_mapgen_water_source')
+local c_water_source = minetest.get_content_id('default:water_source')
 local c_coral_forest_deep_ocean_sand = minetest.get_content_id('everness:coral_forest_deep_ocean_sand')
 
 -- Localize data buffer table outside the loop, to be re-used for all
@@ -380,7 +380,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             local water_source_positions = minetest.find_nodes_in_area(
                                 vector.new(s_pos.x - 5, s_pos.y, s_pos.z - 6),
                                 vector.new(s_pos.x + 5, s_pos.y + 17, s_pos.z + 6),
-                                { 'everness_mapgen_water_source' }
+                                { 'default:water_source' }
                             )
 
                             if #water_source_positions > (house_volume - house_volume / 3) then

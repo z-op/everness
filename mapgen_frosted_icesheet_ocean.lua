@@ -27,16 +27,16 @@ local y_min = Everness.settings.biomes.everness_frosted_icesheet_ocean.y_min
 
 minetest.register_biome({
     name = 'everness_frosted_icesheet_ocean',
-    node_top = 'everness_mapgen_sand',
+    node_top = 'default:sand',
     depth_top = 1,
-    node_filler = 'everness_mapgen_sand',
+    node_filler = 'default:sand',
     depth_filler = 3,
     node_water_top = 'everness:frosted_ice',
     depth_water_top = 2,
-    node_cave_liquid = 'everness_mapgen_water_source',
+    node_cave_liquid = 'default:water_source',
     node_dungeon = 'everness:icecobble',
     node_dungeon_alt = 'everness:snowcobble',
-    node_dungeon_stair = 'everness_mapgen_stair_ice',
+    node_dungeon_stair = 'stairs:stair_ice',
     y_max = y_max,
     y_min = y_min,
     heat_point = 0,
@@ -52,7 +52,7 @@ minetest.register_biome({
 minetest.register_decoration({
     name = 'everness:frosted_icesheet_ocean_corals',
     deco_type = 'simple',
-    place_on = { 'everness_mapgen_sand' },
+    place_on = { 'default:sand' },
     place_offset_y = -1,
     sidelen = 4,
     noise_params = {

@@ -27,10 +27,10 @@ local y_min = Everness.settings.biomes.everness_forsaken_tundra_under.y_min
 
 minetest.register_biome({
     name = 'everness_forsaken_tundra_under',
-    node_cave_liquid = { 'everness_mapgen_water_source', 'everness_mapgen_lava_source' },
+    node_cave_liquid = { 'default:water_source', 'default:lava_source' },
     node_dungeon = 'everness:forsaken_tundra_cobble',
     node_dungeon_alt = 'everness:forsaken_tundra_brick',
-    node_dungeon_stair = 'everness_mapgen_stair_forsaken_tundra_cobble',
+    node_dungeon_stair = 'stairs:stair_forsaken_tundra_cobble',
     y_max = y_max,
     y_min = y_min,
     heat_point = 10,
@@ -47,7 +47,7 @@ minetest.register_biome({
 minetest.register_ore({
     ore_type = 'blob',
     ore = 'everness:sulfur_stone',
-    wherein = { 'everness_mapgen_stone', 'everness:forsaken_tundra_stone' },
+    wherein = { 'default:stone', 'everness:forsaken_tundra_stone' },
     clust_scarcity = 16 * 16 * 16,
     clust_size = 5,
     y_max = y_max,
@@ -71,7 +71,7 @@ minetest.register_ore({
 minetest.register_decoration({
     name = 'everness:forsaken_tundra_under_mold_stone_floors',
     deco_type = 'simple',
-    place_on = { 'everness_mapgen_stone' },
+    place_on = { 'default:stone' },
     sidelen = 16,
     place_offset_y = -1,
     fill_ratio = 10,
@@ -87,7 +87,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:forsaken_tundra_under_mold_stone_ceilings',
     deco_type = 'simple',
-    place_on = { 'everness_mapgen_stone' },
+    place_on = { 'default:stone' },
     sidelen = 16,
     fill_ratio = 0.4,
     biomes = { 'everness_forsaken_tundra_under' },
@@ -102,7 +102,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:forsaken_tundra_under_obsidian_floors',
     deco_type = 'simple',
-    place_on = { 'everness_mapgen_stone', 'everness:mold_stone_with_moss' },
+    place_on = { 'default:stone', 'everness:mold_stone_with_moss' },
     sidelen = 16,
     place_offset_y = -1,
     fill_ratio = 0.02,
@@ -120,7 +120,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:forsaken_tundra_under_obsidian_ceilings',
     deco_type = 'simple',
-    place_on = { 'everness_mapgen_stone', 'everness:moss_block' },
+    place_on = { 'default:stone', 'everness:moss_block' },
     sidelen = 16,
     place_offset_y = -1,
     fill_ratio = 0.02,

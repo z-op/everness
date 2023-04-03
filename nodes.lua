@@ -460,7 +460,6 @@ Everness:register_node('everness:coral_bones', {
         pickaxey = 1,
         building_block = 1,
         coral = 2,
-        coral_block = 2
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
@@ -2504,8 +2503,8 @@ Everness:register_node('everness:frosted_snowblock', {
     on_construct = function(pos)
         pos.y = pos.y - 1
 
-        local alias_dirt_with_grass = minetest.registered_aliases['everness_mapgen_dirt_with_grass']
-        local alias_dirt_with_snow = minetest.registered_aliases['everness_mapgen_dirt_with_snow']
+        local alias_dirt_with_grass = minetest.registered_aliases['default:dirt_with_grass']
+        local alias_dirt_with_snow = minetest.registered_aliases['default:dirt_with_snow']
 
         if minetest.get_node(pos).name == alias_dirt_with_grass then
             minetest.set_node(pos, { name = alias_dirt_with_snow })
@@ -2720,8 +2719,8 @@ Everness:register_node('everness:snowcobble', {
     on_construct = function(pos)
         pos.y = pos.y - 1
 
-        local alias_dirt_with_grass = minetest.registered_aliases['everness_mapgen_dirt_with_grass']
-        local alias_dirt_with_snow = minetest.registered_aliases['everness_mapgen_dirt_with_snow']
+        local alias_dirt_with_grass = minetest.registered_aliases['default:dirt_with_grass']
+        local alias_dirt_with_snow = minetest.registered_aliases['default:dirt_with_snow']
 
         if minetest.get_node(pos).name == alias_dirt_with_grass then
             minetest.set_node(pos, { name = alias_dirt_with_snow })
@@ -7018,7 +7017,6 @@ Everness:register_node('everness:coral_corals', {
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7058,7 +7056,6 @@ Everness:register_node('everness:coral_jellyfish', {
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7098,7 +7095,6 @@ Everness:register_node('everness:coral_frosted', {
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7138,7 +7134,6 @@ Everness:register_node('everness:coral_starfish', {
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7179,7 +7174,6 @@ Everness:register_node('everness:sand_with_spine_kelp', {
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7261,7 +7255,6 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_1', {
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7312,7 +7305,6 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_2', {
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7363,7 +7355,6 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_3', {
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7414,7 +7405,6 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_anemone', {
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7465,7 +7455,6 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_darkilluma'
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7516,7 +7505,6 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_demon', {
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7567,7 +7555,6 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_1', {
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7618,7 +7605,6 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_2', {
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7669,7 +7655,6 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_3', {
         dig_immediate = 3,
         deco_block = 1,
         coral = 1,
-        coral_plant = 1,
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -7713,7 +7698,6 @@ Everness:register_node('everness:crystal_coral_dark', {
         pickaxey = 1,
         building_block = 1,
         coral = 1,
-        coral_block = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
@@ -7731,7 +7715,6 @@ Everness:register_node('everness:crystal_coral_light', {
         pickaxey = 1,
         building_block = 1,
         coral = 1,
-        coral_block = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
@@ -7751,7 +7734,6 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_1', {
         pickaxey = 1,
         building_block = 1,
         coral = 1,
-        coral_block = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
@@ -7771,7 +7753,6 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_2', {
         pickaxey = 1,
         building_block = 1,
         coral = 1,
-        coral_block = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
@@ -7791,7 +7772,6 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_3', {
         pickaxey = 1,
         building_block = 1,
         coral = 1,
-        coral_block = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
@@ -7811,7 +7791,6 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_4', {
         pickaxey = 1,
         building_block = 1,
         coral = 1,
-        coral_block = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
@@ -7831,7 +7810,6 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_alcyonacea', {
         pickaxey = 1,
         building_block = 1,
         coral = 1,
-        coral_block = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
@@ -7851,7 +7829,6 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_ostracod', {
         pickaxey = 1,
         building_block = 1,
         coral = 1,
-        coral_block = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
@@ -7871,7 +7848,6 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_octocurse', {
         pickaxey = 1,
         building_block = 1,
         coral = 1,
-        coral_block = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
@@ -7891,7 +7867,6 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_1', {
         pickaxey = 1,
         building_block = 1,
         coral = 1,
-        coral_block = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
@@ -7911,7 +7886,6 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_2', {
         pickaxey = 1,
         building_block = 1,
         coral = 1,
-        coral_block = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
@@ -7931,7 +7905,6 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_3', {
         pickaxey = 1,
         building_block = 1,
         coral = 1,
-        coral_block = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
@@ -7949,7 +7922,6 @@ Everness:register_node('everness:coral_skeleton', {
         pickaxey = 1,
         building_block = 1,
         coral = 1,
-        coral_block = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,

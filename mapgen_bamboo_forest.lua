@@ -31,11 +31,11 @@ minetest.register_biome({
     depth_top = 1,
     node_filler = 'everness:dirt_1',
     depth_filler = 1,
-    node_riverbed = 'everness_mapgen_sand',
+    node_riverbed = 'default:sand',
     depth_riverbed = 2,
     node_dungeon = 'everness:bamboo_wood',
     node_dungeon_alt = 'everness:bamboo_mosaic_wood',
-    node_dungeon_stair = 'everness_mapgen_stair_bamboo_wood',
+    node_dungeon_stair = 'stairs:stair_bamboo_wood',
     y_max = y_max,
     y_min = y_min,
     heat_point = 80,
@@ -248,14 +248,14 @@ register_grass_decoration(0.03, 0.03, 1)
 
 -- Flowers
 
-register_flower(436, 'everness_mapgen_flowers_rose')
-register_flower(19822, 'everness_mapgen_flowers_tulip')
-register_flower(1220999, 'everness_mapgen_flowers_dandelion_yellow')
-register_flower(800081, 'everness_mapgen_flowers_chrysanthemum_green')
-register_flower(36662, 'everness_mapgen_flowers_geranium')
-register_flower(1133, 'everness_mapgen_flowers_viola')
-register_flower(73133, 'everness_mapgen_flowers_dandelion_white')
-register_flower(42, 'everness_mapgen_flowers_tulip_black')
+register_flower(436, 'flowers:rose')
+register_flower(19822, 'flowers:tulip')
+register_flower(1220999, 'flowers:dandelion_yellow')
+register_flower(800081, 'flowers:chrysanthemum_green')
+register_flower(36662, 'flowers:geranium')
+register_flower(1133, 'flowers:viola')
+register_flower(73133, 'flowers:dandelion_white')
+register_flower(42, 'flowers:tulip_black')
 
 --
 -- On Generated

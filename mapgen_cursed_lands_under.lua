@@ -27,10 +27,10 @@ local y_min = Everness.settings.biomes.everness_cursed_lands_under.y_min
 
 minetest.register_biome({
     name = 'everness_cursed_lands_under',
-    node_cave_liquid = { 'everness_mapgen_water_source', 'everness_mapgen_lava_source' },
+    node_cave_liquid = { 'default:water_source', 'default:lava_source' },
     node_dungeon = 'everness:cursed_brick',
     node_dungeon_alt = 'everness:cursed_brick_with_growth',
-    node_dungeon_stair = 'everness_mapgen_stair_cursed_brick',
+    node_dungeon_stair = 'stairs:stair_cursed_brick',
     y_max = y_max,
     y_min = y_min,
     heat_point = 45,
@@ -44,7 +44,7 @@ minetest.register_biome({
 minetest.register_decoration({
     name = 'everness:cursed_lands_under_soul_sandstone_floors',
     deco_type = 'simple',
-    place_on = { 'everness_mapgen_stone' },
+    place_on = { 'default:stone' },
     place_offset_y = -1,
     sidelen = 16,
     fill_ratio = 10,
@@ -60,7 +60,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:cursed_lands_under_mold_stone_ceilings',
     deco_type = 'simple',
-    place_on = { 'everness_mapgen_stone' },
+    place_on = { 'default:stone' },
     sidelen = 16,
     fill_ratio = 0.4,
     biomes = { 'everness_cursed_lands_under' },

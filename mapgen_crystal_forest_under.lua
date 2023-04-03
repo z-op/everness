@@ -27,9 +27,9 @@ local y_min = Everness.settings.biomes.everness_crystal_forest_under.y_min
 
 minetest.register_biome({
     name = 'everness_crystal_forest_under',
-    node_cave_liquid = { 'everness_mapgen_water_source', 'everness_mapgen_lava_source' },
-    node_dungeon = 'everness_mapgen_cobble',
-    node_dungeon_alt = 'everness_mapgen_mossycobble',
+    node_cave_liquid = { 'default:water_source', 'default:lava_source' },
+    node_dungeon = 'default:cobble',
+    node_dungeon_alt = 'default:mossycobble',
     node_dungeon_stair = 'everness_mapgen_stair_cobblestair_cobble',
     y_max = y_max,
     y_min = y_min,
@@ -44,7 +44,7 @@ minetest.register_biome({
 minetest.register_decoration({
     name = 'everness:crystal_forest_under_floors',
     deco_type = 'simple',
-    place_on = { 'everness_mapgen_stone' },
+    place_on = { 'default:stone' },
     sidelen = 16,
     place_offset_y = -1,
     fill_ratio = 10,
@@ -61,7 +61,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:crystal_forest_under_ceilings',
     deco_type = 'simple',
-    place_on = { 'everness_mapgen_stone' },
+    place_on = { 'default:stone' },
     sidelen = 16,
     fill_ratio = 0.4,
     biomes = { 'everness_crystal_forest_under' },
@@ -204,7 +204,7 @@ minetest.register_decoration({
 minetest.register_decoration({
     name = 'everness:crystal_forest_under_crystal_cyan_ceiling',
     deco_type = 'simple',
-    place_on = { 'everness_mapgen_stone' },
+    place_on = { 'default:stone' },
     sidelen = 16,
     noise_params = {
         offset = 0,

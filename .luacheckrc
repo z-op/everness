@@ -88,4 +88,5 @@ read_globals = {
     "mcl_core",
     "mcl_util",
     "mcl_doors",
+    "mcl_vars",
 }
