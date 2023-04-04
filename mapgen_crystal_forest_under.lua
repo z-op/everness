@@ -30,7 +30,7 @@ minetest.register_biome({
     node_cave_liquid = { 'default:water_source', 'default:lava_source' },
     node_dungeon = 'default:cobble',
     node_dungeon_alt = 'default:mossycobble',
-    node_dungeon_stair = 'everness_mapgen_stair_cobblestair_cobble',
+    node_dungeon_stair = 'stairs:stair_cobble',
     y_max = y_max,
     y_min = y_min,
     heat_point = 35,

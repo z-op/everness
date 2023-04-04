@@ -162,6 +162,7 @@ minetest.register_alias('stairs:stair_outer_quartz_chiseled', 'mcl_stairs:stair_
 minetest.register_alias('stairs:stair_quartz_chiseled', 'mcl_stairs:stair_quartz_chiseled')
 minetest.register_alias('stairs:stair_inner_quartz_chiseled', 'mcl_stairs:stair_quartz_chiseled_inner')
 minetest.register_alias('stairs:slab_quartz_chiseled', 'mcl_stairs:slab_quartz_chiseled')
+minetest.register_alias('stairs:stair_coral_desert_stone_block', 'mcl_stairs:stair_coral_desert_stone_block')
 
 minetest.register_alias('everness:cursed_brick_wall', 'everness:cursedbrickwall')
 minetest.register_alias('walls:cobble', 'mcl_walls:cobble')

@@ -166,7 +166,7 @@ local function register_grass_decoration(offset, scale, length)
         biomes = { 'everness_bamboo_forest' },
         y_max = y_max,
         y_min = y_min,
-        decoration = 'everness_mapgen_grass_' .. length,
+        decoration = 'default:grass_' .. length,
     })
 end
 
@@ -187,7 +187,7 @@ local function register_flower(seed, flower_name)
         biomes = { 'everness_bamboo_forest' },
         y_max = y_max,
         y_min = y_min,
-        decoration = flower_name,
+        decoration = 'flowers:' .. flower_name,
     })
 end
 
@@ -248,14 +248,14 @@ register_grass_decoration(0.03, 0.03, 1)
 
 -- Flowers
 
-register_flower(436, 'flowers:rose')
-register_flower(19822, 'flowers:tulip')
-register_flower(1220999, 'flowers:dandelion_yellow')
-register_flower(800081, 'flowers:chrysanthemum_green')
-register_flower(36662, 'flowers:geranium')
-register_flower(1133, 'flowers:viola')
-register_flower(73133, 'flowers:dandelion_white')
-register_flower(42, 'flowers:tulip_black')
+register_flower(436, 'rose')
+register_flower(19822, 'tulip')
+register_flower(1220999, 'dandelion_yellow')
+register_flower(800081, 'chrysanthemum_green')
+register_flower(36662, 'geranium')
+register_flower(1133, 'viola')
+register_flower(73133, 'dandelion_white')
+register_flower(42, 'tulip_black')
 
 --
 -- On Generated

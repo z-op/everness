@@ -8567,17 +8567,18 @@ Everness:register_node('everness:floating_crystal', {
 Everness:register_node('everness:coral_forest_deep_ocean_lantern', {
     description = S('Coral Forest Deep Ocean Lantern'),
     tiles = {
+        { name = 'everness_coral_forest_deep_ocean_lantern_top.png' },
+        { name = 'everness_coral_forest_deep_ocean_lantern_bottom.png' },
         {
             name = 'everness_coral_forest_deep_ocean_lantern_animated.png',
             animation = {
                 type = 'vertical_frames',
                 aspect_w = 16,
                 aspect_h = 16,
-                length = 1,
+                length = 2,
             },
         },
     },
-    drawtype = 'glasslike',
     sunlight_propagates = true,
     is_ground_content = false,
     sounds = Everness.node_sound_glass_defaults(),
@@ -8594,5 +8595,5 @@ Everness:register_node('everness:coral_forest_deep_ocean_lantern', {
     _mcl_blast_resistance = 0.3,
     _mcl_hardness = 0.3,
     paramtype = 'light',
-    light_source = 12,
+    light_source = 14,
 })

@@ -35,7 +35,7 @@ minetest.register_biome({
     depth_riverbed = 2,
     node_dungeon = 'default:cobble',
     node_dungeon_alt = 'default:mossycobble',
-    node_dungeon_stair = 'everness_mapgen_stair_cobblestair_cobble',
+    node_dungeon_stair = 'stairs:stair_cobble',
     vertical_blend = 1,
     y_max = y_max,
     y_min = y_min,
