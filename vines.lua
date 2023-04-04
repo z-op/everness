@@ -34,7 +34,31 @@ minetest.register_node('everness:vine_cave', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -78,7 +102,32 @@ minetest.register_node('everness:vine_cave_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        vine_end = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -122,7 +171,31 @@ minetest.register_node('everness:vine_cave_with_mese_leaves', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -168,7 +241,31 @@ minetest.register_node('everness:whispering_gourd_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -212,7 +309,32 @@ minetest.register_node('everness:whispering_gourd_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        vine_end = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -256,7 +378,31 @@ minetest.register_node('everness:whispering_gourd_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -302,7 +448,31 @@ minetest.register_node('everness:bulb_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -346,7 +516,32 @@ minetest.register_node('everness:bulb_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        vine_end = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -390,7 +585,31 @@ minetest.register_node('everness:bulb_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -436,7 +655,31 @@ minetest.register_node('everness:willow_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -480,7 +723,32 @@ minetest.register_node('everness:willow_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        vine_end = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -526,7 +794,31 @@ minetest.register_node('everness:eye_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -569,7 +861,32 @@ minetest.register_node('everness:eye_vine_end', {
     wield_image = 'everness_eye_vine_end_bottom.png',
     inventory_image = 'everness_eye_vine_end_bottom.png',
     drawtype = 'normal',
-    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        vine_end = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     drop = '',
@@ -615,7 +932,31 @@ minetest.register_node('everness:eye_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -661,7 +1002,31 @@ minetest.register_node('everness:lumabus_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -708,7 +1073,32 @@ minetest.register_node('everness:lumabus_vine_end', {
     paramtype = 'light',
     -- wield_image = 'everness_lumabus_vine_end_bottom.png',
     -- inventory_image = 'everness_lumabus_vine_end_bottom.png',
-    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        vine_end = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     drop = '',
@@ -756,7 +1146,31 @@ minetest.register_node('everness:lumabus_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -802,7 +1216,31 @@ minetest.register_node('everness:ivis_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -846,7 +1284,32 @@ minetest.register_node('everness:ivis_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        vine_end = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -890,7 +1353,31 @@ minetest.register_node('everness:ivis_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -936,7 +1423,31 @@ minetest.register_node('everness:flowered_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -980,7 +1491,32 @@ minetest.register_node('everness:flowered_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        vine_end = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -1024,7 +1560,31 @@ minetest.register_node('everness:flowered_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -1070,7 +1630,31 @@ minetest.register_node('everness:reeds_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -1114,7 +1698,32 @@ minetest.register_node('everness:reeds_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        vine_end = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -1158,7 +1767,31 @@ minetest.register_node('everness:reeds_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -1204,7 +1837,31 @@ minetest.register_node('everness:tenanea_flowers_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -1248,7 +1905,32 @@ minetest.register_node('everness:tenanea_flowers_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        vine_end = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -1292,7 +1974,31 @@ minetest.register_node('everness:tenanea_flowers_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -1338,7 +2044,31 @@ minetest.register_node('everness:twisted_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -1382,7 +2112,32 @@ minetest.register_node('everness:twisted_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        vine_end = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -1426,7 +2181,31 @@ minetest.register_node('everness:twisted_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -1472,7 +2251,31 @@ minetest.register_node('everness:golden_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -1516,7 +2319,32 @@ minetest.register_node('everness:golden_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        vine_end = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -1560,7 +2388,31 @@ minetest.register_node('everness:golden_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,
@@ -1606,7 +2458,31 @@ minetest.register_node('everness:dense_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -1650,7 +2526,32 @@ minetest.register_node('everness:dense_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, vine_end = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        vine_end = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 12,
     waving = 2,
@@ -1694,7 +2595,31 @@ minetest.register_node('everness:dense_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
-    groups = { vine = 1, snappy = 3, flammable = 2, falling_vines = 1 },
+    groups = {
+        -- MTG
+        vine = 1,
+        snappy = 3,
+        falling_vines = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        shearsy = 1,
+        swordy = 1,
+        deco_block = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 50,
+        fire_encouragement = 15,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 2,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    on_rotate = function()
+        return false
+    end,
     sounds = Everness.node_sound_leaves_defaults(),
     light_source = 7,
     waving = 2,

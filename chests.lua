@@ -326,7 +326,20 @@ Everness.chest.register_chest('everness:chest', {
     sounds = Everness.node_sound_wood_defaults(),
     sound_open = 'everness_chest_open',
     sound_close = 'everness_chest_close',
-    groups = { choppy = 2, oddly_breakable_by_hand = 2 },
+    groups = {
+        -- MTG
+        choppy = 2,
+        oddly_breakable_by_hand = 2,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        container = 2,
+        deco_block = 1,
+        material_wood = 1,
+        flammable = -1,
+    },
+    _mcl_blast_resistance = 2.5,
+    _mcl_hardness = 2.5,
 })
 
 minetest.register_craft({

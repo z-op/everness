@@ -32,6 +32,13 @@ minetest.register_tool('everness:vine_shears', {
             wool = { times = { [3] = 0.2 }, uses = 30, maxlevel = 3 }
         }
     },
+    -- MCL
+    _mcl_toollike_wield = true,
+    _mcl_diggroups = {
+        shearsy = { speed = 1.5, level = 1, uses = 238 },
+        shearsy_wool = { speed = 5, level = 1, uses = 238 },
+        shearsy_cobweb = { speed = 15, level = 1, uses = 238 }
+    },
 })
 
 minetest.register_tool('everness:pick_illuminating', {
@@ -124,6 +131,11 @@ minetest.register_tool('everness:pick_illuminating', {
 
         return itemstack
     end,
+    -- MCL
+    _mcl_toollike_wield = true,
+    _mcl_diggroups = {
+        pickaxey = { speed = 8, level = 5, uses = 1562 }
+    },
 })
 
 minetest.register_tool('everness:shovel_silk', {
@@ -144,6 +156,11 @@ minetest.register_tool('everness:shovel_silk', {
     },
     -- no `shovel` group so it cannot be enchanted
     -- groups = { shovel = 1 }
+    -- MCL
+    _mcl_toollike_wield = true,
+    _mcl_diggroups = {
+        shovely = { speed = 8, level = 5, uses = 1562 }
+    },
 })
 
 local old_handle_node_drops = minetest.handle_node_drops
@@ -192,4 +209,6 @@ minetest.register_tool('everness:shell_of_underwater_breathing', {
     on_secondary_use = function(itemstack, user, pointed_thing)
         return Everness:use_shell_of_underwater_breathing(itemstack, user, pointed_thing)
     end,
+    -- MCL
+    _mcl_toollike_wield = true,
 })

@@ -27,10 +27,10 @@ local y_min = Everness.settings.biomes.everness_bamboo_forest_under.y_min
 
 minetest.register_biome({
     name = 'everness_bamboo_forest_under',
-    node_cave_liquid = { 'everness_mapgen_water_source', 'everness_mapgen_lava_source' },
+    node_cave_liquid = { 'default:water_source', 'default:lava_source' },
     node_dungeon = 'everness:bamboo_wood',
     node_dungeon_alt = 'everness:bamboo_mosaic_wood',
-    node_dungeon_stair = 'everness_mapgen_stair_bamboo_wood',
+    node_dungeon_stair = 'stairs:stair_bamboo_wood',
     y_max = y_max,
     y_min = y_min,
     heat_point = 80,
@@ -44,7 +44,7 @@ minetest.register_biome({
 minetest.register_decoration({
     name = 'everness:bamboo_forest_under_floors',
     deco_type = 'simple',
-    place_on = { 'everness_mapgen_stone' },
+    place_on = { 'default:stone' },
     sidelen = 16,
     fill_ratio = 10,
     biomes = { 'everness_bamboo_forest_under' },
@@ -54,14 +54,14 @@ minetest.register_decoration({
     flags = 'all_floors,force_placement',
     decoration = {
         'everness:moss_block',
-        'everness_mapgen_clay'
+        'default:clay'
     },
 })
 
 minetest.register_decoration({
     name = 'everness:bamboo_forest_under_ceiling',
     deco_type = 'simple',
-    place_on = { 'everness_mapgen_stone' },
+    place_on = { 'default:stone' },
     sidelen = 16,
     fill_ratio = 0.4,
     biomes = { 'everness_bamboo_forest_under' },
@@ -156,7 +156,7 @@ minetest.register_decoration({
     deco_type = 'simple',
     place_on = {
         'everness:moss_block',
-        'everness_mapgen_clay'
+        'default:clay'
     },
     sidelen = 16,
     noise_params = {

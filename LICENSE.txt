@@ -488,7 +488,7 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_baobab_tree_sapling.png
 - everness_baobab_tree_side.png
 - everness_baobab_tree_top.png
-- everness_baobab_wood.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_baobab_wood.png
 - everness_bloodspore_plant_small.png
 - everness_bloodspore_plant.png
 - everness_blooming_cooksonia.png
@@ -837,6 +837,25 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_chest_ui_bg_slot.png -- Derived from texture by XSSheep (CC BY 4.0)
 - everness_stone.png
 - everness_coral_skeleton.png
+- everness_mcl_doors_door_bamboo_lower.png
+- everness_mcl_doors_door_bamboo_side_upper.png
+- everness_mcl_doors_door_bamboo_upper.png
+- everness_mcl_doors_door_bone_pyrite_lower.png
+- everness_mcl_doors_door_bone_pyrite_side_upper.png
+- everness_mcl_doors_door_bone_pyrite_upper.png
+- everness_mcl_doors_door_crystal_wood_lower.png
+- everness_mcl_doors_door_crystal_wood_side_lower.png
+- everness_mcl_doors_door_crystal_wood_side_upper.png
+- everness_mcl_doors_door_crystal_wood_upper.png
+- everness_mcl_doors_door_willow_lower.png
+- everness_mcl_doors_door_willow_side_lower.png
+- everness_mcl_doors_door_willow_side_upper.png
+- everness_mcl_doors_door_willow_upper.png
+- everness_mcl_doors_trapdoor_bamboo_side.png
+- everness_mcl_doors_trapdoor_crystal_wood_side.png
+- everness_coral_forest_deep_ocean_lantern_animated.png
+- everness_coral_forest_deep_ocean_lantern_bottom.png
+- everness_coral_forest_deep_ocean_lantern_top.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
@@ -848,6 +867,7 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_grass_top_2.png
 - everness_grass_with_blue_extra_top_2.png
 - everness_grass_with_yellow_extra_top_1.png
+- everness_rising_soul_particle.png
 
 ### Sounds
 

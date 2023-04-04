@@ -31,11 +31,11 @@ minetest.register_biome({
     depth_top = 1,
     node_filler = 'everness:dirt_1',
     depth_filler = 1,
-    node_riverbed = 'everness_mapgen_sand',
+    node_riverbed = 'default:sand',
     depth_riverbed = 2,
     node_dungeon = 'everness:bamboo_wood',
     node_dungeon_alt = 'everness:bamboo_mosaic_wood',
-    node_dungeon_stair = 'everness_mapgen_stair_bamboo_wood',
+    node_dungeon_stair = 'stairs:stair_bamboo_wood',
     y_max = y_max,
     y_min = y_min,
     heat_point = 80,
@@ -82,6 +82,22 @@ local jungle_log_schem
 if minetest.get_modpath('default') then
     jungle_tree_schem = minetest.get_modpath('default') .. '/schematics/jungle_tree.mts'
     jungle_log_schem = minetest.get_modpath('default') .. '/schematics/jungle_log.mts'
+elseif minetest.get_modpath('mcl_core') then
+    jungle_tree_schem = minetest.get_modpath('mcl_core') .. '/schematics/mcl_core_jungle_tree.mts'
+    jungle_log_schem = {
+        size = { x = 3, y = 3, z = 1 },
+        data = {
+            { name = 'air', prob = 0 },
+            { name = 'air', prob = 0 },
+            { name = 'air', prob = 0 },
+            { name = 'mcl_core:jungletree', param2 = 12 },
+            { name = 'mcl_core:jungletree', param2 = 12 },
+            { name = 'mcl_core:jungletree', param2 = 12, prob = 127 },
+            { name = 'air', prob = 0 },
+            { name = 'mcl_mushrooms:mushroom_brown', prob = 50 },
+            { name = 'air', prob = 0 },
+        },
+    }
 end
 
 if jungle_tree_schem then
@@ -150,7 +166,7 @@ local function register_grass_decoration(offset, scale, length)
         biomes = { 'everness_bamboo_forest' },
         y_max = y_max,
         y_min = y_min,
-        decoration = 'everness_mapgen_grass_' .. length,
+        decoration = 'default:grass_' .. length,
     })
 end
 
@@ -171,7 +187,7 @@ local function register_flower(seed, flower_name)
         biomes = { 'everness_bamboo_forest' },
         y_max = y_max,
         y_min = y_min,
-        decoration = flower_name,
+        decoration = 'flowers:' .. flower_name,
     })
 end
 
@@ -232,14 +248,14 @@ register_grass_decoration(0.03, 0.03, 1)
 
 -- Flowers
 
-register_flower(436, 'everness_mapgen_flowers_rose')
-register_flower(19822, 'everness_mapgen_flowers_tulip')
-register_flower(1220999, 'everness_mapgen_flowers_dandelion_yellow')
-register_flower(800081, 'everness_mapgen_flowers_chrysanthemum_green')
-register_flower(36662, 'everness_mapgen_flowers_geranium')
-register_flower(1133, 'everness_mapgen_flowers_viola')
-register_flower(73133, 'everness_mapgen_flowers_dandelion_white')
-register_flower(42, 'everness_mapgen_flowers_tulip_black')
+register_flower(436, 'rose')
+register_flower(19822, 'tulip')
+register_flower(1220999, 'dandelion_yellow')
+register_flower(800081, 'chrysanthemum_green')
+register_flower(36662, 'geranium')
+register_flower(1133, 'viola')
+register_flower(73133, 'dandelion_white')
+register_flower(42, 'tulip_black')
 
 --
 -- On Generated
