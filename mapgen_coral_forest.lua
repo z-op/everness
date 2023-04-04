@@ -144,7 +144,8 @@ minetest.register_decoration({
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:coral_burdock_1', 'everness:coral_burdock_2' },
-    spawn_by = 'everness:coral_tree'
+    spawn_by = 'everness:coral_tree',
+    param2 = 8
 })
 
 minetest.register_decoration({
