@@ -21,6 +21,11 @@ minetest = minetest.global_exists('minetest') and minetest --[[@as Minetest]]
 local path = minetest.get_modpath('everness')
 local mod_start_time = minetest.get_us_time()
 
+-- MineClone2 support
+if minetest.get_modpath('mcl_core') and minetest.global_exists('mcl_core') then
+    dofile(path .. '/mod_support_mcl_aliases.lua')
+end
+
 dofile(path .. '/api.lua')
 dofile(path .. '/nodes.lua')
 dofile(path .. '/nodes_farming.lua')
@@ -28,6 +33,7 @@ dofile(path .. '/bamboo.lua')
 dofile(path .. '/functions.lua')
 dofile(path .. '/trees.lua')
 dofile(path .. '/vines.lua')
+dofile(path .. '/chests.lua')
 
 dofile(path .. '/mapgen.lua')
 
@@ -51,6 +57,10 @@ if Everness.settings.biomes.everness_coral_forest_ocean.enabled then
     dofile(path .. '/mapgen_coral_forest_ocean.lua')
 end
 
+if Everness.settings.biomes.everness_coral_forest_deep_ocean.enabled then
+    dofile(path .. '/mapgen_coral_forest_deep_ocean.lua')
+end
+
 if Everness.settings.biomes.everness_coral_forest_under.enabled then
     dofile(path .. '/mapgen_coral_forest_under.lua')
 end
@@ -65,6 +75,10 @@ end
 
 if Everness.settings.biomes.everness_crystal_forest_ocean.enabled then
     dofile(path .. '/mapgen_crystal_forest_ocean.lua')
+end
+
+if Everness.settings.biomes.everness_crystal_forest_deep_ocean.enabled then
+    dofile(path .. '/mapgen_crystal_forest_deep_ocean.lua')
 end
 
 if Everness.settings.biomes.everness_crystal_forest_shore.enabled then
@@ -85,6 +99,10 @@ end
 
 if Everness.settings.biomes.everness_cursed_lands_ocean.enabled then
     dofile(path .. '/mapgen_cursed_lands_ocean.lua')
+end
+
+if Everness.settings.biomes.everness_cursed_lands_deep_ocean.enabled then
+    dofile(path .. '/mapgen_cursed_lands_deep_ocean.lua')
 end
 
 if Everness.settings.biomes.everness_cursed_lands_swamp.enabled then
@@ -153,7 +171,14 @@ if minetest.get_modpath('walls') and minetest.global_exists('walls') then
     dofile(path .. '/walls.lua')
 end
 
-dofile(path .. '/fences.lua')
+if minetest.get_modpath('default') or minetest.global_exists('default') then
+    if default.register_fence
+        and default.register_fence_rail
+        and default.register_mesepost
+    then
+        dofile(path .. '/fences.lua')
+    end
+end
 
 if minetest.get_modpath('doors') and minetest.global_exists('doors') then
     dofile(path .. '/doors.lua')
@@ -163,7 +188,11 @@ dofile(path .. '/tools.lua')
 dofile(path .. '/craftitems.lua')
 dofile(path .. '/crafting.lua')
 dofile(path .. '/loot_chests.lua')
-dofile(path .. '/skybox.lua')
+
+if Everness.settings.features.everness_feature_skybox then
+    dofile(path .. '/skybox.lua')
+end
+
 dofile(path .. '/env_sounds.lua')
 
 if Everness.settings.features.everness_feature_sneak_pickup then
@@ -174,13 +203,28 @@ end
 -- Mod Support
 --
 
-if minetest.get_modpath('x_farming') then
+if minetest.get_modpath('x_farming') and minetest.global_exists('x_farming') then
     dofile(path .. '/mod_support_x_farming.lua')
 end
 
-if minetest.get_modpath('x_tumbleweed') and minetest.global_exists('XTumbleweed')  then
+if minetest.get_modpath('x_tumbleweed') and minetest.global_exists('XTumbleweed') then
     dofile(path .. '/mod_support_x_tumbleweed.lua')
 end
+
+if minetest.get_modpath('x_obsidianmese')
+    and minetest.global_exists('x_obsidianmese')
+    -- backwards compatibility check
+    and x_obsidianmese.register_path_node
+then
+    dofile(path .. '/mod_support_x_obsidianmese.lua')
+end
+
+-- MineClone2
+if minetest.get_modpath('mcl_core') and minetest.global_exists('mcl_core') then
+    dofile(path .. '/mod_support_mcl.lua')
+end
+
+Everness.set_loot_chest_items()
 
 local mod_end_time = (minetest.get_us_time() - mod_start_time) / 1000000
 

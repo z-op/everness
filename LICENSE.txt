@@ -488,7 +488,7 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_baobab_tree_sapling.png
 - everness_baobab_tree_side.png
 - everness_baobab_tree_top.png
-- everness_baobab_wood.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_baobab_wood.png
 - everness_bloodspore_plant_small.png
 - everness_bloodspore_plant.png
 - everness_blooming_cooksonia.png
@@ -523,14 +523,13 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_coral_desert_mossy_cobble.png
 - everness_coral_desert_stone.png
 - everness_coral_dirt.png
-- everness_coral_grass_1.png -- Derived from texture by paramat (CC BY-SA 3.0)
-- everness_coral_grass_2.png -- Derived from texture by paramat (CC BY-SA 3.0)
-- everness_coral_grass_3.png -- Derived from texture by paramat (CC BY-SA 3.0)
-- everness_coral_grass_4.png -- Derived from texture by paramat (CC BY-SA 3.0)
-- everness_coral_grass_5.png -- Derived from texture by paramat (CC BY-SA 3.0)
+- everness_coral_grass_1.png
+- everness_coral_grass_2.png
+- everness_coral_grass_3.png
+- everness_coral_grass_4.png
+- everness_coral_grass_5.png
 - everness_coral_grass_globulagus.png
 - everness_coral_grass_orange.png
-- everness_coral_grass_side_2.png
 - everness_coral_grass_side.png
 - everness_coral_grass_tall.png
 - everness_coral_grass.png
@@ -825,6 +824,37 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_crystal_forest_sun.png
 - everness_frosted_icesheet_sun_tonemap.png
 - everness_frosted_icesheet_sun.png
+- everness_glass.png
+- everness_glass_detail.png
+- everness_tinted_glass_detail.png
+- everness_chest_front.png
+- everness_chest_inside.png
+- everness_chest_side.png
+- everness_chest_top.png
+- everness_chest_ui_bg.png -- Derived from texture by XSSheep (CC BY 4.0)
+- everness_chest_ui_bg_hb_slot.png -- Derived from texture by XSSheep (CC BY 4.0)
+- everness_chest_ui_bg_slot.png -- Derived from texture by XSSheep (CC BY 4.0)
+- everness_stone.png
+- everness_coral_skeleton.png
+- everness_mcl_doors_door_bamboo_lower.png
+- everness_mcl_doors_door_bamboo_side_upper.png
+- everness_mcl_doors_door_bamboo_upper.png
+- everness_mcl_doors_door_bone_pyrite_lower.png
+- everness_mcl_doors_door_bone_pyrite_side_upper.png
+- everness_mcl_doors_door_bone_pyrite_upper.png
+- everness_mcl_doors_door_crystal_wood_lower.png
+- everness_mcl_doors_door_crystal_wood_side_lower.png
+- everness_mcl_doors_door_crystal_wood_side_upper.png
+- everness_mcl_doors_door_crystal_wood_upper.png
+- everness_mcl_doors_door_willow_lower.png
+- everness_mcl_doors_door_willow_side_lower.png
+- everness_mcl_doors_door_willow_side_upper.png
+- everness_mcl_doors_door_willow_upper.png
+- everness_mcl_doors_trapdoor_bamboo_side.png
+- everness_mcl_doors_trapdoor_crystal_wood_side.png
+- everness_coral_forest_deep_ocean_lantern_animated.png
+- everness_coral_forest_deep_ocean_lantern_bottom.png
+- everness_coral_forest_deep_ocean_lantern_top.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
@@ -836,10 +866,11 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_grass_top_2.png
 - everness_grass_with_blue_extra_top_2.png
 - everness_grass_with_yellow_extra_top_1.png
+- everness_rising_soul_particle.png
 
 ### Sounds
 
-**CC0-1.0, by ProdMultimediasHQI**, https://freesound.org
+**CC0-1.0, by ProdMultimediasHQI**, https://freesound.org/people/ProdMultimediasHQI/sounds/512501/
 
 - everness_frosted_snow_footstep.1.ogg
 - everness_frosted_snow_footstep.2.ogg
@@ -998,6 +1029,263 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_item_drop_pickup.3.ogg
 - everness_item_drop_pickup.4.ogg
 
+**CC-BY-3.0, by murraysortz**, https://freesound.org
+
+- everness_underwater_bubbles.1.ogg
+- everness_underwater_bubbles.2.ogg
+- everness_underwater_bubbles.3.ogg
+
+**CC0-1.0, by Yuval**, https://freesound.org
+
+- everness_grass_footstep.1.ogg
+- everness_grass_footstep.2.ogg
+- everness_grass_footstep.3.ogg
+
+**CC0-1.0, by kyles**, https://freesound.org
+
+- everness_dirt_hit.1.ogg
+- everness_dirt_hit.2.ogg
+- everness_dirt_hit.3.ogg
+
+**CC0-1.0, by Nox_Sound**, https://freesound.org
+
+- everness_grass_hit.1.ogg
+- everness_grass_hit.3.ogg
+- everness_grass_hit.2.ogg
+
+**CC0-1.0, by Nox_Sound**, https://freesound.org/people/Nox_Sound/sounds/613849/
+
+- everness_snow_footstep.1.ogg
+- everness_snow_footstep.2.ogg
+- everness_snow_footstep.3.ogg
+- everness_snow_footstep.4.ogg
+
+**CC0-1.0, by Fission9**, https://freesound.org
+
+- everness_dirt_footstep.1.ogg
+- everness_dirt_footstep.2.ogg
+- everness_dirt_footstep.3.ogg
+- everness_dirt_footstep.4.ogg
+- everness_wood_footstep.1.ogg
+- everness_wood_footstep.2.ogg
+- everness_wood_footstep.3.ogg
+- everness_wood_footstep.4.ogg
+- everness_wood_footstep.5.ogg
+- everness_wood_footstep.6.ogg
+
+**CC-BY-4.0, by InspectorJ**, https://freesound.org
+
+- everness_ice_footstep.1.ogg
+- everness_ice_footstep.2.ogg
+- everness_ice_footstep.3.ogg
+- everness_ice_footstep.4.ogg
+
+**CC-BY-4.0, by EminYILDIRIM**, https://freesound.org
+
+- everness_ice_hit.1.ogg
+- everness_ice_hit.2.ogg
+- everness_ice_hit.3.ogg
+- everness_ice_hit.4.ogg
+
+**CC-BY-4.0, by SFXAFRIK**, https://freesound.org/people/SFXAFRIK/sounds/584855/
+
+- everness_door_glass_close.ogg
+- everness_door_glass_open.ogg
+
+**CC-BY-4.0, by SFXAFRIK**, https://freesound.org/people/SFXAFRIK/sounds/584850/
+
+- everness_chest_open.ogg
+- everness_chest_close.ogg
+
+**CC0-1.0, by Nox_Sound**, https://freesound.org
+
+- everness_stone_dug.1.ogg
+- everness_stone_dug.2.ogg
+- everness_stone_dug.3.ogg
+- everness_stone_footstep.1.ogg
+- everness_stone_footstep.2.ogg
+- everness_stone_footstep.3.ogg
+- everness_stone_footstep.4.ogg
+- everness_stone_footstep.5.ogg
+
+**CC0-1.0, by lolamadeus**, https://freesound.org
+
+- everness_stone_hit.1.ogg
+- everness_stone_hit.2.ogg
+- everness_stone_hit.3.ogg
+
+**CC-BY-4.0, by F.M.Audio**, https://freesound.org
+
+- everness_stone_place.1.ogg
+- everness_stone_place.2.ogg
+- everness_stone_place.3.ogg
+- everness_stone_place.4.ogg
+
+**CC-BY-4.0, by elektroproleter**, https://freesound.org
+
+- everness_leaves_footstep.1.ogg
+- everness_leaves_footstep.2.ogg
+- everness_leaves_footstep.3.ogg
+- everness_leaves_footstep.4.ogg
+
+**CC-BY-4.0, by Abacagi**, https://freesound.org
+
+- everness_leaves_hit.1.ogg
+- everness_leaves_hit.2.ogg
+
+**CC-BY-4.0, by JanKoehl**, https://freesound.org
+
+- everness_leaves_dug.1.ogg
+- everness_leaves_dug.2.ogg
+
+**CC0-1.0, by vgraham1**, https://freesound.org
+
+- everness_leaves_place.1.ogg
+- everness_leaves_place.2.ogg
+
+**CC0-1.0, by worthahep88**, https://freesound.org
+
+- everness_plant_hit.1.ogg
+- everness_plant_hit.2.ogg
+- everness_plant_hit.3.ogg
+
+**CC0-1.0, by igroglaz**, https://freesound.org
+
+- everness_wood_hit.1.ogg
+- everness_wood_hit.2.ogg
+- everness_wood_hit.3.ogg
+- everness_wood_hit.4.ogg
+- everness_wood_hit.5.ogg
+- everness_wood_hit.6.ogg
+
+**CC-BY-4.0, by RICHERlandTV**, https://freesound.org
+
+- everness_wood_place.1.ogg
+- everness_wood_place.2.ogg
+- everness_wood_place.3.ogg
+
+**CC0-1.0, by pan14**, https://freesound.org
+
+- everness_sand_footstep.1.ogg
+- everness_sand_footstep.2.ogg
+- everness_sand_footstep.3.ogg
+
+**CC-BY-3.0, by Coral_Island_Studios**, https://freesound.org
+
+- everness_sand_place.1.ogg
+- everness_sand_place.2.ogg
+- everness_sand_place.3.ogg
+- everness_sand_place.4.ogg
+- everness_sand_place.5.ogg
+
+**CC0-1.0, by schneidi67**, https://freesound.org
+
+- everness_sand_dug.1.ogg
+- everness_sand_dug.2.ogg
+- everness_sand_dug.3.ogg
+
+**CC0-1.0, by Lukeo135**, https://freesound.org
+
+- everness_sand_hit.1.ogg
+- everness_sand_hit.2.ogg
+- everness_sand_hit.3.ogg
+
+**CC0-1.0, by GiocoSound**, https://freesound.org
+
+- everness_metal_footstep.1.ogg
+- everness_metal_footstep.2.ogg
+- everness_metal_footstep.3.ogg
+- everness_metal_footstep.4.ogg
+- everness_metal_footstep.5.ogg
+
+**CC-BY-4.0, by DasDeer**, https://freesound.org
+
+- everness_metal_hit.1.ogg
+- everness_metal_hit.2.ogg
+- everness_metal_hit.3.ogg
+
+**CC-BY-4.0, by MoveAwayPodcast**, https://freesound.org
+
+- everness_metal_place.1.ogg
+- everness_metal_place.2.ogg
+- everness_metal_place.3.ogg
+
+**CC0-1.0, by craigsmith**, https://freesound.org
+
+- everness_metal_dug.1.ogg
+- everness_metal_dug.2.ogg
+- everness_metal_dug.3.ogg
+
+**CC0-1.0, by courtneyeck**, https://freesound.org
+
+- everness_glass_footstep.1.ogg
+- everness_glass_footstep.2.ogg
+- everness_glass_footstep.3.ogg
+
+**CC0-1.0, by Robson220pl**, https://freesound.org
+
+- everness_glass_place.1.ogg
+- everness_glass_place.2.ogg
+- everness_glass_place.3.ogg
+
+**CC-BY-4.0, by elfgrunge**, https://freesound.org
+
+- everness_glass_dug.1.ogg
+- everness_glass_dug.2.ogg
+
+**CC-BY-3.0, by Mito551**, https://freesound.org
+
+- everness_thin_glass_footstep.ogg
+
+**CC-BY-3.0, by cmusounddesign**, http://www.freesound.org/people/cmusounddesign/sounds/71947/
+
+- everness_break_thin_glass.1.ogg
+
+**CC-BY-3.0, by Tomlija**, http://www.freesound.org/people/Tomlija/sounds/97669/
+
+- everness_break_thin_glass.2.ogg
+
+**CC-BY-3.0, by lsprice**, http://www.freesound.org/people/lsprice/sounds/88808/
+
+- everness_break_thin_glass.3.ogg
+
+**CC-BY-3.0, by alexo400**, https://freesound.org/people/alexo400/sounds/543385/
+
+- everness_snow_place.1.ogg
+- everness_snow_place.2.ogg
+- everness_snow_place.3.ogg
+
+**CC-BY-3.0, by soundscalpel.com**
+https://freesound.org/people/soundscalpel.com/sounds/110619/
+https://freesound.org/people/soundscalpel.com/sounds/110609/
+https://freesound.org/people/soundscalpel.com/sounds/110620/
+
+- everness_snow_hit.1.ogg
+- everness_snow_hit.2.ogg
+- everness_snow_hit.3.ogg
+
+**CC-BY-3.0, by soundscalpel.com**
+https://freesound.org/people/cabled_mess/sounds/384423/
+https://freesound.org/people/cabled_mess/sounds/384422/
+https://freesound.org/people/cabled_mess/sounds/384421/
+
+- everness_frosted_snow_place.1.ogg
+- everness_frosted_snow_place.2.ogg
+- everness_frosted_snow_place.3.ogg
+
+**CC-BY-3.0, by AtevonHes**, https://freesound.org/people/AtevonHes/sounds/454783/
+
+- everness_frosted_snow_hit.1.ogg
+- everness_frosted_snow_hit.2.ogg
+- everness_frosted_snow_hit.3.ogg
+- everness_frosted_snow_hit.4.ogg
+
+**CC-BY-4.0, by HerbertBoland**, https://freesound.org/people/AtevonHes/sounds/454783/
+
+- everness_tool_breaks.1.ogg
+- everness_tool_breaks.2.ogg
+- everness_tool_breaks.3.ogg
+
 ### Models
 
 **CC-BY-SA-4.0, by SaKeL**
@@ -1012,6 +1300,10 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_lumecorn.obj
 - everness_skull_with_candle.obj
 - everness_venus_trap.obj
+
+**CC-BY-SA-3.0, by sofar**
+
+- everness_chest_open
 
 ### Assets
 
@@ -1032,47 +1324,130 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 
 **CC-BY-SA-4.0, by SaKeL**
 
-- everness_coral_volcano.lua
 - everness_baobab_tree.lua
+- everness_baobab_tree.mts
 - everness_cemetery.lua
+- everness_cemetery.mts
 - everness_coral_bones_tree.lua
-- everness_coral_tree_bioluminescent.lua
-- everness_coral_tree_from_sapling.lua
-- everness_coral_tree.lua
-- everness_coral_volcano_x_clay.lua
-- everness_crystal_bush.lua
-- everness_crystal_forest_ruins_1.lua
-- everness_crystal_forest_ruins_2.lua
-- everness_crystal_orange_cluster.lua
-- everness_crystal_purple_cluster.lua
-- everness_crystal_tree_large.lua
-- everness_crystal_tree.lua
-- everness_cursed_dream_tree.lua
-- everness_dry_tree.lua
-- everness_forsaken_desert_temple_2.lua
-- everness_forsaken_desert_temple.lua
-- everness_forsaken_tundra_rocks.lua
-- everness_forsythia_on_moss.lua
-- everness_frosted_crystal.lua
-- everness_frosted_lands_fossils.lua
-- everness_frosted_lands_stalagmite.lua
-- everness_frosted_lands_volcanic_rock.lua
-- everness_giant_sequoia_tree.lua
-- everness_haunted_house.lua
-- everness_hollow_tree_large.lua
-- everness_hollow_tree.lua
-- everness_japanese_shrine.lua
-- everness_jungle_temple.lua
-- everness_large_bamboo.lua
-- everness_marsh_grass.lua
-- everness_quartz_temple.lua
-- everness_ruins_1.lua
-- everness_small_bamboo.lua
-- everness_sulfur_volcano.lua
-- everness_termite_nest.lua
-- everness_willow_tree.lua
+- everness_coral_bones_tree.mts
+- everness_coral_forest_deep_ocean_coral_cyan.lua
+- everness_coral_forest_deep_ocean_coral_cyan.mts
+- everness_coral_forest_deep_ocean_coral_green.lua
+- everness_coral_forest_deep_ocean_coral_green.mts
+- everness_coral_forest_deep_ocean_coral_pink.lua
+- everness_coral_forest_deep_ocean_coral_pink.mts
+- everness_coral_forest_deep_ocean_coral_red.lua
+- everness_coral_forest_deep_ocean_coral_red.mts
+- everness_coral_forest_deep_ocean_coral_reef_cyan.lua
+- everness_coral_forest_deep_ocean_coral_reef_cyan.mts
+- everness_coral_forest_deep_ocean_coral_reef_green.lua
+- everness_coral_forest_deep_ocean_coral_reef_green.mts
+- everness_coral_forest_deep_ocean_coral_reef_pink.lua
+- everness_coral_forest_deep_ocean_coral_reef_pink.mts
+- everness_coral_forest_deep_ocean_coral_reef_red.lua
+- everness_coral_forest_deep_ocean_coral_reef_red.mts
+- everness_coral_forest_deep_ocean_house.lua
+- everness_coral_forest_deep_ocean_house.mts
 - everness_coral_tree_bioluminescent_from_sapling.lua
+- everness_coral_tree_bioluminescent_from_sapling.mts
+- everness_coral_tree_bioluminescent.lua
+- everness_coral_tree_bioluminescent.mts
+- everness_coral_tree_from_sapling.lua
+- everness_coral_tree_from_sapling.mts
+- everness_coral_tree.lua
+- everness_coral_tree.mts
+- everness_coral_volcano_x_clay.lua
+- everness_coral_volcano_x_clay.mts
+- everness_coral_volcano.lua
+- everness_coral_volcano.mts
+- everness_crystal_bush.lua
+- everness_crystal_bush.mts
+- everness_crystal_forest_deep_ocean_coral_1.lua
+- everness_crystal_forest_deep_ocean_coral_1.mts
+- everness_crystal_forest_deep_ocean_coral_2.lua
+- everness_crystal_forest_deep_ocean_coral_2.mts
+- everness_crystal_forest_deep_ocean_coral_3.lua
+- everness_crystal_forest_deep_ocean_coral_3.mts
+- everness_crystal_forest_deep_ocean_ruins.lua
+- everness_crystal_forest_deep_ocean_ruins.mts
+- everness_crystal_forest_ruins_1.lua
+- everness_crystal_forest_ruins_1.mts
+- everness_crystal_forest_ruins_2.lua
+- everness_crystal_forest_ruins_2.mts
+- everness_crystal_orange_cluster.lua
+- everness_crystal_orange_cluster.mts
+- everness_crystal_purple_cluster.lua
+- everness_crystal_purple_cluster.mts
+- everness_crystal_tree_large.lua
+- everness_crystal_tree_large.mts
+- everness_crystal_tree.lua
+- everness_crystal_tree.mts
+- everness_cursed_bush.mts
 - everness_cursed_dream_tree_from_sapling.lua
+- everness_cursed_dream_tree_from_sapling.mts
+- everness_cursed_dream_tree.lua
+- everness_cursed_dream_tree.mts
+- everness_cursed_lands_deep_ocean_skull.lua
+- everness_cursed_lands_deep_ocean_skull.mts
 - everness_dry_tree_from_sapling.lua
+- everness_dry_tree_from_sapling.mts
+- everness_dry_tree.lua
+- everness_dry_tree.mts
+- everness_forsaken_desert_temple_2.lua
+- everness_forsaken_desert_temple_2.mts
+- everness_forsaken_desert_temple.lua
+- everness_forsaken_desert_temple.mts
+- everness_forsaken_lands_deep_ocean_coral_alcyonacea.lua
+- everness_forsaken_lands_deep_ocean_coral_alcyonacea.mts
+- everness_forsaken_lands_deep_ocean_coral_octocurse.lua
+- everness_forsaken_lands_deep_ocean_coral_octocurse.mts
+- everness_forsaken_lands_deep_ocean_coral_ostracod.lua
+- everness_forsaken_lands_deep_ocean_coral_ostracod.mts
+- everness_forsaken_tundra_rocks.lua
+- everness_forsaken_tundra_rocks.mts
+- everness_forsythia_on_moss.lua
+- everness_forsythia_on_moss.mts
+- everness_frosted_icesheet_igloo.lua
+- everness_frosted_icesheet_igloo.mts
+- everness_frosted_icicle_large_ceiling.lua
+- everness_frosted_icicle_large_ceiling.mts
+- everness_frosted_icicle_large_floor.lua
+- everness_frosted_icicle_large_floor.mts
+- everness_frosted_lands_fossils.lua
+- everness_frosted_lands_fossils.mts
+- everness_frosted_lands_stalagmite.lua
+- everness_frosted_lands_stalagmite.mts
+- everness_frosted_lands_volcanic_rock.lua
+- everness_frosted_lands_volcanic_rock.mts
 - everness_giant_sequoia_tree_from_sapling.lua
+- everness_giant_sequoia_tree_from_sapling.mts
+- everness_giant_sequoia_tree.lua
+- everness_giant_sequoia_tree.mts
+- everness_haunted_house.lua
+- everness_haunted_house.mts
+- everness_hollow_tree_large.lua
+- everness_hollow_tree_large.mts
+- everness_hollow_tree.lua
+- everness_hollow_tree.mts
+- everness_japanese_shrine.lua
+- everness_japanese_shrine.mts
+- everness_jungle_temple.lua
+- everness_jungle_temple.mts
+- everness_large_bamboo.lua
+- everness_large_bamboo.mts
+- everness_marsh_grass.lua
+- everness_marsh_grass.mts
+- everness_quartz_temple.lua
+- everness_quartz_temple.mts
+- everness_ruins_1.lua
+- everness_ruins_1.mts
+- everness_small_bamboo.lua
+- everness_small_bamboo.mts
+- everness_sulfur_volcano.lua
+- everness_sulfur_volcano.mts
+- everness_termite_nest.lua
+- everness_termite_nest.mts
 - everness_willow_tree_from_sapling.lua
+- everness_willow_tree_from_sapling.mts
+- everness_willow_tree.lua
+- everness_willow_tree.mts

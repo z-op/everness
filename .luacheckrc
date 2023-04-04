@@ -18,7 +18,12 @@ exclude_files = {
 }
 
 globals = {
-    'Everness'
+    'Everness',
+    minetest = {
+        fields = {
+            "handle_node_drops"
+        }
+    }
 }
 
 read_globals = {
@@ -74,4 +79,14 @@ read_globals = {
     "doors",
     "xpanes",
     "XTumbleweed",
+    "x_obsidianmese",
+    "x_farming",
+    "x_clay",
+    "mcl_fences",
+    "mcl_walls",
+    "mcl_stairs",
+    "mcl_core",
+    "mcl_util",
+    "mcl_doors",
+    "mcl_vars",
 }

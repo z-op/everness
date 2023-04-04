@@ -118,29 +118,52 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
-    name = 'everness:baobab_savanna_acacia_log',
-    deco_type = 'schematic',
-    place_on = { 'default:dry_dirt_with_dry_grass' },
-    place_offset_y = 1,
-    sidelen = 16,
-    noise_params = {
-        offset = 0,
-        scale = 0.001,
-        spread = { x = 250, y = 250, z = 250 },
-        seed = 2,
-        octaves = 3,
-        persist = 0.66
-    },
-    biomes = { 'everness_baobab_savanna' },
-    y_max = y_max,
-    y_min = y_min,
-    schematic = minetest.get_modpath('default') .. '/schematics/acacia_log.mts',
-    flags = 'place_center_x',
-    rotation = 'random',
-    spawn_by = 'default:dry_dirt_with_dry_grass',
-    num_spawn_by = 8,
-})
+local acacia_log_schem
+
+if minetest.get_modpath('default') then
+    acacia_log_schem = minetest.get_modpath('default') .. '/schematics/acacia_log.mts'
+elseif minetest.get_modpath('mcl_core') then
+    acacia_log_schem = {
+        size = { x = 3, y = 3, z = 1 },
+        data = {
+            { name = 'air', prob = 0 },
+            { name = 'air', prob = 0 },
+            { name = 'air', prob = 0 },
+            { name = 'mcl_core:acaciatree', param2 = 12 },
+            { name = 'mcl_core:acaciatree', param2 = 12 },
+            { name = 'mcl_core:acaciatree', param2 = 12, prob = 127 },
+            { name = 'air', prob = 0 },
+            { name = 'mcl_mushrooms:mushroom_brown', prob = 50 },
+            { name = 'air', prob = 0 },
+        },
+    }
+end
+
+if acacia_log_schem then
+    minetest.register_decoration({
+        name = 'everness:baobab_savanna_acacia_log',
+        deco_type = 'schematic',
+        place_on = { 'default:dry_dirt_with_dry_grass' },
+        place_offset_y = 1,
+        sidelen = 16,
+        noise_params = {
+            offset = 0,
+            scale = 0.001,
+            spread = { x = 250, y = 250, z = 250 },
+            seed = 2,
+            octaves = 3,
+            persist = 0.66
+        },
+        biomes = { 'everness_baobab_savanna' },
+        y_max = y_max,
+        y_min = y_min,
+        schematic = acacia_log_schem,
+        flags = 'place_center_x',
+        rotation = 'random',
+        spawn_by = 'default:dry_dirt_with_dry_grass',
+        num_spawn_by = 8,
+    })
+end
 
 --
 -- On Generated

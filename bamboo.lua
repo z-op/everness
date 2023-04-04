@@ -91,6 +91,7 @@ function Everness.grow_bamboo(self, pos, elapsed)
 
     if minetest.get_item_group(node_below.name, 'soil') == 0
         and minetest.get_item_group(node_below.name, 'sand') == 0
+        and minetest.get_item_group(node_below.name, 'everness_sand') == 0
     then
 
         if minetest.get_item_group(node_below.name, 'bamboo') > 0 then

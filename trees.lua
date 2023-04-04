@@ -54,6 +54,20 @@ function Everness.grow_willow_tree(pos)
     local path = minetest.get_modpath('everness') .. '/schematics/everness_willow_tree_from_sapling.mts'
     minetest.place_schematic({ x = pos.x - 19, y = pos.y, z = pos.z - 19 },
         path, 'random', nil, false)
+
+    -- trigger vines
+    minetest.after(1, function(v_pos)
+        local size = { x = 39, y = 27, z = 39 }
+        local positions = minetest.find_nodes_in_area(
+            vector.round(vector.new(v_pos.x - (size.x / 2), v_pos.y, v_pos.z - (size.z / 2))),
+            vector.round(vector.new(v_pos.x + (size.x / 2), v_pos.y + size.y, v_pos.z + (size.z / 2))),
+            { 'group:vine' }
+        )
+
+        for _, vine_pos in ipairs(positions) do
+            Everness:tick_vine(vine_pos)
+        end
+    end, pos)
 end
 
 function Everness.grow_sequoia_tree(pos)
@@ -81,7 +95,7 @@ function Everness.grow_cursed_dream_tree(pos)
 end
 
 function Everness.grow_sapling(pos)
-    if not default.can_grow(pos) then
+    if not Everness.can_grow(pos) then
         -- try again 5 min later
         minetest.get_node_timer(pos):start(300)
         return

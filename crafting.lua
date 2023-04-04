@@ -20,23 +20,25 @@
 -- Blocks
 --
 
-minetest.register_craft({
-    output = 'everness:snowcobble 9',
-    recipe = {
-        { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
-        { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
-        { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
-    }
-})
+if minetest.get_modpath('default') then
+    minetest.register_craft({
+        output = 'everness:snowcobble 9',
+        recipe = {
+            { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
+            { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
+            { 'default:snowblock', 'default:snowblock', 'default:snowblock' },
+        }
+    })
 
-minetest.register_craft({
-    output = 'everness:icecobble 9',
-    recipe = {
-        { 'default:ice', 'default:ice', 'default:ice' },
-        { 'default:ice', 'default:ice', 'default:ice' },
-        { 'default:ice', 'default:ice', 'default:ice' },
-    }
-})
+    minetest.register_craft({
+        output = 'everness:icecobble 9',
+        recipe = {
+            { 'default:ice', 'default:ice', 'default:ice' },
+            { 'default:ice', 'default:ice', 'default:ice' },
+            { 'default:ice', 'default:ice', 'default:ice' },
+        }
+    })
+end
 
 minetest.register_craft({
     output = 'everness:snowcobble 9',
@@ -96,6 +98,15 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    output = 'everness:trapdoor_crystal_wood 2',
+    recipe = {
+        { 'everness:crystal_wood', 'everness:crystal_wood', 'everness:crystal_wood' },
+        { 'everness:crystal_wood', 'everness:crystal_wood', 'everness:crystal_wood' },
+        { '', '', '' },
+    }
+})
+
+minetest.register_craft({
     output = 'everness:bamboo_mosaic_wood',
     recipe = {
         { 'everness:bamboo_wood', 'everness:bamboo_wood' },
@@ -115,7 +126,7 @@ minetest.register_craft({
 minetest.register_craft({
     output = 'everness:pyrite_glass',
     recipe = {
-        { 'default:glass' },
+        { 'group:glass' },
         { 'everness:pyrite_ingot' },
     }
 })
@@ -125,6 +136,24 @@ minetest.register_craft({
     recipe = {
         { 'everness:pyrite_glass' },
         { 'everness:pyrite_ingot' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:tinted_glass_red 8',
+    recipe = {
+        { 'everness:glass', 'everness:glass', 'everness:glass' },
+        { 'everness:glass', 'everness:bloodspore_plant', 'everness:glass' },
+        { 'everness:glass', 'everness:glass', 'everness:glass' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:tinted_glass_red 8',
+    recipe = {
+        { 'everness:glass', 'everness:glass', 'everness:glass' },
+        { 'everness:glass', 'everness:bloodspore_plant_small', 'everness:glass' },
+        { 'everness:glass', 'everness:glass', 'everness:glass' },
     }
 })
 
@@ -221,6 +250,13 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    output = 'everness:coral_wood 4',
+    recipe = {
+        { 'everness:coral_tree' },
+    }
+})
+
+minetest.register_craft({
     output = 'everness:willow_wood 4',
     recipe = {
         { 'everness:willow_tree' },
@@ -231,6 +267,13 @@ minetest.register_craft({
     output = 'everness:sequoia_wood 4',
     recipe = {
         { 'everness:sequoia_tree' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:crystal_wood 4',
+    recipe = {
+        { 'everness:crystal_tree' },
     }
 })
 
@@ -247,6 +290,22 @@ minetest.register_craft({
     recipe = {
         { 'everness:coral_sandstone', 'everness:coral_sandstone' },
         { 'everness:coral_sandstone', 'everness:coral_sandstone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:coral_deep_ocean_sandstone_block 4',
+    recipe = {
+        { 'everness:coral_forest_deep_ocean_sand', 'everness:coral_forest_deep_ocean_sand' },
+        { 'everness:coral_forest_deep_ocean_sand', 'everness:coral_forest_deep_ocean_sand' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:coral_deep_ocean_sandstone_brick 4',
+    recipe = {
+        { 'everness:coral_deep_ocean_sandstone_block', 'everness:coral_deep_ocean_sandstone_block' },
+        { 'everness:coral_deep_ocean_sandstone_block', 'everness:coral_deep_ocean_sandstone_block' },
     }
 })
 
@@ -453,6 +512,56 @@ minetest.register_craft({
     }
 })
 
+minetest.register_craft({
+    output = 'everness:coral_forest_deep_ocean_lantern 1',
+    recipe = {
+        { 'everness:coral_deep_ocean_sandstone_block', 'group:glass', 'everness:coral_deep_ocean_sandstone_block' },
+        { 'group:glass', 'group:torch', 'group:glass' },
+        { 'everness:coral_deep_ocean_sandstone_block', 'group:glass', 'everness:coral_deep_ocean_sandstone_block' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:cursed_lands_deep_ocean_sandstone_block 4',
+    recipe = {
+        { 'everness:cursed_lands_deep_ocean_sand', 'everness:cursed_lands_deep_ocean_sand' },
+        { 'everness:cursed_lands_deep_ocean_sand', 'everness:cursed_lands_deep_ocean_sand' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:cursed_lands_deep_ocean_sandstone_brick 4',
+    recipe = {
+        { 'everness:cursed_lands_deep_ocean_sandstone_block', 'everness:cursed_lands_deep_ocean_sandstone_block' },
+        { 'everness:cursed_lands_deep_ocean_sandstone_block', 'everness:cursed_lands_deep_ocean_sandstone_block' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:crystal_forest_deep_ocean_sandstone_block 4',
+    recipe = {
+        { 'everness:crystal_forest_deep_ocean_sand', 'everness:crystal_forest_deep_ocean_sand' },
+        { 'everness:crystal_forest_deep_ocean_sand', 'everness:crystal_forest_deep_ocean_sand' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:crystal_forest_deep_ocean_sandstone_brick 4',
+    recipe = {
+        { 'everness:crystal_forest_deep_ocean_sandstone_block', 'everness:crystal_forest_deep_ocean_sandstone_block' },
+        { 'everness:crystal_forest_deep_ocean_sandstone_block', 'everness:crystal_forest_deep_ocean_sandstone_block' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:shell_of_underwater_breathing',
+    recipe = {
+        { '', '', 'group:everness_crystal_forest_deep_ocean_coral' },
+        { '', 'group:everness_cursed_lands_deep_ocean_coral', '' },
+        { 'group:everness_coral_forest_deep_ocean_coral', '', '' },
+    }
+})
+
 --
 -- Tools
 --
@@ -460,8 +569,8 @@ minetest.register_craft({
 minetest.register_craft({
     output = 'everness:vine_shears',
     recipe = {
-        { '', 'default:steel_ingot', '' },
-        { 'group:stick', 'group:wood', 'default:steel_ingot' },
+        { '', 'everness:pyrite_ingot', '' },
+        { 'group:stick', 'group:wood', 'everness:pyrite_ingot' },
         { '', '', 'group:stick' }
     }
 })
@@ -520,6 +629,12 @@ minetest.register_craft({
 
 minetest.register_craft({
     type = 'fuel',
+    recipe = 'everness:crystal_wood',
+    burntime = 15,
+})
+
+minetest.register_craft({
+    type = 'fuel',
     recipe = 'everness:bamboo_mosaic_wood',
     burntime = 15,
 })
@@ -533,6 +648,12 @@ minetest.register_craft({
 minetest.register_craft({
     type = 'fuel',
     recipe = 'everness:trapdoor_bamboo',
+    burntime = 7,
+})
+
+minetest.register_craft({
+    type = 'fuel',
+    recipe = 'everness:trapdoor_crystal_wood',
     burntime = 7,
 })
 
@@ -557,6 +678,12 @@ minetest.register_craft({
 --
 -- Cooking recipes
 --
+
+minetest.register_craft({
+    type = 'cooking',
+    output = 'everness:glass',
+    recipe = 'group:everness_sand',
+})
 
 minetest.register_craft({
     type = 'cooking',
@@ -607,7 +734,7 @@ minetest.register_craft({
 minetest.register_craft({
     output = 'everness:coral_tree_bioluminescent_sapling',
     recipe = {
-        { 'default:meselamp' },
+        { 'group:lantern' },
         { 'everness:coral_tree_sapling' },
     }
 })
@@ -615,7 +742,7 @@ minetest.register_craft({
 minetest.register_craft({
     output = 'everness:cursed_dream_tree_sapling',
     recipe = {
-        { 'default:meselamp' },
+        { 'group:lantern' },
         { 'everness:dry_tree_sapling' },
     }
 })

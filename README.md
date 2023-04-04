@@ -9,6 +9,7 @@ It also adds structures, dungeons with loot chests, and custom skyboxes based on
 
 ## Features
 
+* supports MineClone2 - see attached `minetest.example.mcl.conf` for best optimized settings
 * player name tag will hide when sneaking
 * item magnet pickup when holding sneak
 * granular biome settings
@@ -26,6 +27,7 @@ Additionally adds extra biomes to the MT game default biomes:
 * Coral Forest
 * Coral Forest Dunes
 * Coral Forest Ocean
+* Coral Forest Deep Ocean
 * Coral Forest Under
 * Frosted Icesheet
 * Frosted Icesheet Ocean
@@ -34,11 +36,13 @@ Additionally adds extra biomes to the MT game default biomes:
 * Cursed Lands Dunes
 * Cursed Lands Swamp
 * Cursed Lands Ocean
+* Cursed Lands Deep Ocean
 * Cursed Lands Under
 * Crystal Forest
 * Crystal Forest Dunes
 * Crystal Forest Shore
 * Crystal Forest Ocean
+* Crystal Forest Deep Ocean
 * Crystal Forest Under
 * Bamboo Forest
 * Bamboo Forest Under
@@ -61,14 +65,27 @@ https://bitbucket.org/minetest_gamers/everness/issues
 
 ## Dependencies
 
-- default
+- *none*
 
 ## Optional Dependencies
 
-- xpanes
-- doors
-- stairs
-- walls
+- default (MTG)
+- xpanes (MTG)
+- doors (MTG)
+- stairs (MTG)
+- walls (MTG)
+- x_obsidianmese (for paths)
+- x_tumbleweed (adds tumbleweeds to deserts)
+- x_farming (bonemeal, recipes...)
+- x_clay (mapgen structures, loot chests...)
+- mcl_core (MCL)
+- mcl_fences (MCL)
+- mcl_walls (MCL)
+- mcl_stairs (MCL)
+- mcl_util (MCL)
+- mcl_autogroup (MCL)
+- mcl_doors (MCL)
+- mcl_mapgen_core (MCL)
 
 ## License
 

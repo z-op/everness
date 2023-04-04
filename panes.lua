@@ -21,9 +21,10 @@ local S = minetest.get_translator(minetest.get_current_modname())
 xpanes.register_pane('pyrite_pane', {
     description = S('Pyrite Glass Pane'),
     textures = { 'everness_pyrite_glass.png', '', 'everness_xpanes_edge_pyrite.png' },
+    use_texture_alpha = 'clip',
     inventory_image = 'everness_pyrite_glass.png',
     wield_image = 'everness_pyrite_glass.png',
-    sounds = default.node_sound_glass_defaults(),
+    sounds = Everness.node_sound_glass_defaults(),
     groups = { snappy = 2, cracky = 3, oddly_breakable_by_hand = 3 },
     recipe = {
         { 'everness:pyrite_glass', 'everness:pyrite_glass', 'everness:pyrite_glass' },

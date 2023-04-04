@@ -23,7 +23,7 @@ walls.register(
     S('Coral Cobblestone Wall'),
     { 'everness_coral_desert_cobble.png' },
     'everness:coral_desert_cobble',
-    default.node_sound_stone_defaults()
+    Everness.node_sound_stone_defaults()
 )
 
 walls.register(
@@ -31,7 +31,7 @@ walls.register(
     S('Coral Mossy Cobblestone Wall'),
     { 'everness_coral_desert_mossy_cobble.png' },
     'everness:coral_desert_mossy_cobble',
-    default.node_sound_stone_defaults()
+    Everness.node_sound_stone_defaults()
 )
 
 walls.register(
@@ -39,7 +39,7 @@ walls.register(
     S('Cursed Brick Wall'),
     { 'everness_cursed_brick.png' },
     'everness:cursed_brick',
-    default.node_sound_stone_defaults()
+    Everness.node_sound_stone_defaults()
 )
 
 walls.register(
@@ -47,7 +47,7 @@ walls.register(
     S('Cursed Brick with Growth Wall'),
     { 'everness_cursed_brick_with_growth.png' },
     'everness:cursed_brick_with_growth',
-    default.node_sound_stone_defaults()
+    Everness.node_sound_stone_defaults()
 )
 
 walls.register(
@@ -55,7 +55,7 @@ walls.register(
     S('Forsaken Tundra Cobblestone Wall'),
     { 'everness_forsaken_tundra_cobblestone.png' },
     'everness:forsaken_tundra_cobble',
-    default.node_sound_stone_defaults()
+    Everness.node_sound_stone_defaults()
 )
 
 walls.register(
@@ -63,7 +63,7 @@ walls.register(
     S('Forsaken Tundra Stone Wall'),
     { 'everness_forsaken_tundra_stone.png' },
     'everness:forsaken_tundra_stone',
-    default.node_sound_stone_defaults()
+    Everness.node_sound_stone_defaults()
 )
 
 walls.register(
@@ -71,7 +71,7 @@ walls.register(
     S('Forsaken Tundra Brick Wall'),
     { 'everness_forsaken_tundra_brick.png' },
     'everness:forsaken_tundra_brick',
-    default.node_sound_stone_defaults()
+    Everness.node_sound_stone_defaults()
 )
 
 walls.register(
@@ -89,7 +89,7 @@ walls.register(
         },
     },
     'everness:magmacobble',
-    default.node_sound_stone_defaults()
+    Everness.node_sound_stone_defaults()
 )
 
 walls.register(
@@ -97,7 +97,7 @@ walls.register(
     S('Volcanic Rock Wall'),
     { 'everness_volcanic_rock.png' },
     'everness:volcanic_rock',
-    default.node_sound_stone_defaults()
+    Everness.node_sound_stone_defaults()
 )
 
 walls.register(
@@ -115,5 +115,5 @@ walls.register(
         },
     },
     'everness:volcanic_rock_with_magma',
-    default.node_sound_stone_defaults()
+    Everness.node_sound_stone_defaults()
 )

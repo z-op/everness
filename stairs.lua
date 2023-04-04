@@ -27,7 +27,7 @@ stairs.register_stair_and_slab(
     { 'everness_coral_desert_stone.png' },
     'Coral Desert Stone Stair',
     'Coral Desert Stone Slab',
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -38,7 +38,7 @@ stairs.register_stair_and_slab(
     { 'everness_coral_desert_cobble.png' },
     'Coral Desert Cobblestone Stair',
     'Coral Desert Cobblestone Slab',
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -49,7 +49,7 @@ stairs.register_stair_and_slab(
     { 'everness_coral_desert_mossy_cobble.png' },
     'Coral Mossy Cobblestone Stair',
     'Coral Mossy Cobblestone Slab',
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -60,7 +60,7 @@ stairs.register_stair_and_slab(
     { 'everness_cursed_brick.png' },
     'Cursed Brick Stair',
     'Cursed Brick Slab',
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -71,7 +71,7 @@ stairs.register_stair_and_slab(
     { 'everness_cursed_brick_with_growth.png' },
     'Cursed Brick with Growth Stair',
     'Cursed Brick with Growth Slab',
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -88,7 +88,7 @@ stairs.register_stair_and_slab(
     },
     S('Quartz Block Stair'),
     S('Quartz Block Slab'),
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -103,7 +103,7 @@ stairs.register_stair_and_slab(
     },
     S('Quartz Chiseled Stair'),
     S('Quartz Chiseled Slab'),
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -118,7 +118,7 @@ stairs.register_stair_and_slab(
     },
     S('Quartz Pillar Stair'),
     S('Quartz Pillar Slab'),
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -131,7 +131,20 @@ stairs.register_stair_and_slab(
     { 'everness_dry_wood.png' },
     S('Dry Wood Stair'),
     S('Dry Wood Slab'),
-    default.node_sound_wood_defaults(),
+    Everness.node_sound_wood_defaults(),
+    true
+)
+
+-- Coral Wood
+
+stairs.register_stair_and_slab(
+    'coral_wood',
+    'everness:coral_wood',
+    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 3 },
+    { 'everness_coral_wood.png' },
+    S('Coral Wood Stair'),
+    S('Coral Wood Slab'),
+    Everness.node_sound_wood_defaults(),
     true
 )
 
@@ -144,7 +157,7 @@ stairs.register_stair_and_slab(
     { 'everness_dry_bamboo_block_side.png' },
     S('Bamboo Wood Stair'),
     S('Bamboo Wood Slab'),
-    default.node_sound_wood_defaults(),
+    Everness.node_sound_wood_defaults(),
     true
 )
 
@@ -155,7 +168,7 @@ stairs.register_stair_and_slab(
     { 'everness_bamboo_mosaic.png' },
     S('Bamboo Mosaic Wood Stair'),
     S('Bamboo Mosaic Wood Slab'),
-    default.node_sound_wood_defaults(),
+    Everness.node_sound_wood_defaults(),
     true
 )
 
@@ -168,7 +181,7 @@ stairs.register_stair_and_slab(
     { 'everness_forsaken_desert_brick.png' },
     S('Forsaken Desert Brick Stair'),
     S('Forsaken Desert Brick Slab'),
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -179,7 +192,7 @@ stairs.register_stair_and_slab(
     { 'everness_forsaken_desert_brick_red.png' },
     S('Forsaken Desert Brick Red Stair'),
     S('Forsaken Desert Brick Red Slab'),
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -190,7 +203,7 @@ stairs.register_stair_and_slab(
     { 'everness_forsaken_desert_chiseled_stone_side.png' },
     S('Forsaken Desert Chiseled Stone Stair'),
     S('Forsaken Desert Chiseled Stone Slab'),
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -203,7 +216,7 @@ stairs.register_stair_and_slab(
     { 'everness_baobab_wood.png' },
     S('Baobab Wood Stair'),
     S('Baobab Wood Slab'),
-    default.node_sound_wood_defaults(),
+    Everness.node_sound_wood_defaults(),
     true
 )
 
@@ -216,7 +229,7 @@ stairs.register_stair_and_slab(
     { 'everness_sequoia_wood.png' },
     S('Sequoia Wood Stair'),
     S('Sequoia Wood Slab'),
-    default.node_sound_wood_defaults(),
+    Everness.node_sound_wood_defaults(),
     true
 )
 
@@ -229,7 +242,7 @@ stairs.register_stair_and_slab(
     { 'everness_forsaken_tundra_cobblestone.png' },
     S('Forsaken Tundra Cobblestone Stair'),
     S('Forsaken Tundra Cobblestone Slab'),
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -240,7 +253,7 @@ stairs.register_stair_and_slab(
     { 'everness_forsaken_tundra_stone.png' },
     S('Forsaken Tundra Stone Stair'),
     S('Forsaken Tundra Stone Slab'),
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -251,7 +264,7 @@ stairs.register_stair_and_slab(
     { 'everness_forsaken_tundra_brick.png' },
     S('Forsaken Tundra Brick Stair'),
     S('Forsaken Tundra Brick Slab'),
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -264,10 +277,22 @@ stairs.register_stair_and_slab(
     { 'everness_willow_wood.png' },
     S('Willow Wood Stair'),
     S('Willow Wood Slab'),
-    default.node_sound_wood_defaults(),
+    Everness.node_sound_wood_defaults(),
     true
 )
 
+-- Crystal Wood
+
+stairs.register_stair_and_slab(
+    'crystal_wood',
+    'everness:crystal_wood',
+    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    { 'everness_crystal_wood.png' },
+    S('Crystal Wood Stair'),
+    S('Crystal Wood Slab'),
+    Everness.node_sound_wood_defaults(),
+    true
+)
 
 -- Magma Cobble
 
@@ -275,18 +300,20 @@ stairs.register_stair_and_slab(
     'magmacobble',
     'everness:magmacobble',
     { cracky = 3, stone = 1 },
-    {{
-        name = 'everness_magmacobble_animated.png',
-        animation = {
-            type = 'vertical_frames',
-            aspect_w = 16,
-            aspect_h = 16,
-            length = 3.0,
-        },
-    }},
+    {
+        {
+            name = 'everness_magmacobble_animated.png',
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 3.0,
+            },
+        }
+    },
     S('Magma Cobblestone Stair'),
     S('Magma Cobblestone Slab'),
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -299,7 +326,7 @@ stairs.register_stair_and_slab(
     { 'everness_volcanic_rock.png' },
     S('Volcanic Rock Stair'),
     S('Volcanic Rock Slab'),
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
     true
 )
 
@@ -320,6 +347,194 @@ stairs.register_stair_and_slab(
     },
     S('Volcanic Rock with Magma Stair'),
     S('Volcanic Rock with Magma Slab'),
-    default.node_sound_stone_defaults(),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+-- Coral Forest Deep Ocean
+
+stairs.register_stair_and_slab(
+    'coral_deep_ocean_sandstone_block',
+    'everness:coral_deep_ocean_sandstone_block',
+    { cracky = 2 },
+    { 'everness_deep_ocean_sandstone_block.png' },
+    S('Coral Depp Ocean Sandstone Block Stair'),
+    S('Coral Depp Ocean Sandstone Block Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'coral_deep_ocean_sandstone_brick',
+    'everness:coral_deep_ocean_sandstone_brick',
+    { cracky = 2 },
+    { 'everness_deep_ocean_sandstone_brick.png' },
+    S('Coral Depp Ocean Sandstone Brick Stair'),
+    S('Coral Depp Ocean Sandstone Brick Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+-- Coral White Sandstone
+
+stairs.register_stair_and_slab(
+    'coral_white_sandstone',
+    'everness:coral_white_sandstone',
+    { cracky = 2 },
+    { 'everness_coral_white_sandstone.png' },
+    S('Coral White Sandstone Stair'),
+    S('Coral White Sandstone Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'coral_white_sandstone_pillar',
+    'everness:coral_white_sandstone_pillar',
+    { cracky = 2 },
+    {
+        'everness_coral_white_sandstone.png',
+        'everness_coral_white_sandstone.png',
+        'everness_coral_white_sandstone_pillar.png',
+    },
+    S('Coral White Sandstone Pillar Stair'),
+    S('Coral White Sandstone Pillar Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'coral_white_sandstone_brick',
+    'everness:coral_white_sandstone_brick',
+    { cracky = 2 },
+    { 'everness_coral_white_sandstone_brick.png' },
+    S('Coral White Sandstone Brick Stair'),
+    S('Coral White Sandstone Brick Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+-- Coral Desert Stone
+
+stairs.register_stair_and_slab(
+    'coral_desert_stone_block',
+    'everness:coral_desert_stone_block',
+    { cracky = 2 },
+    { 'everness_coral_desert_stone_block.png' },
+    S('Coral Desert Stone Block Stair'),
+    S('Coral Desert Stone Block Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'coral_desert_stone_brick',
+    'everness:coral_desert_stone_brick',
+    { cracky = 2 },
+    { 'everness_coral_desert_stone_brick.png' },
+    S('Coral Desert Stone Brick Stair'),
+    S('Coral Desert Stone Brick Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+-- Coral Sandstone
+
+stairs.register_stair_and_slab(
+    'coral_sandstone',
+    'everness:coral_sandstone',
+    { cracky = 2 },
+    { 'everness_coral_sandstone.png' },
+    S('Coral Sandstone Stair'),
+    S('Coral Sandstone Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'coral_sandstone_brick',
+    'everness:coral_sandstone_brick',
+    { cracky = 2 },
+    { 'everness_coral_sandstone_brick.png' },
+    S('Coral Sandstone Brick Stair'),
+    S('Coral Sandstone Brick Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'coral_sandstone_chiseled',
+    'everness:coral_sandstone_chiseled',
+    { cracky = 2 },
+    { 'everness_coral_sandstone_chiseled.png' },
+    S('Coral Sandstone Chiseled Stair'),
+    S('Coral Sandstone Chiseled Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'coral_sandstone_carved_1',
+    'everness:coral_sandstone_carved_1',
+    { cracky = 2 },
+    { 'everness_coral_sandstone_carved_1.png' },
+    S('Coral Sandstone Carved Stair'),
+    S('Coral Sandstone Carved Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'cursed_lands_deep_ocean_sandstone_block',
+    'everness:cursed_lands_deep_ocean_sandstone_block',
+    { cracky = 2 },
+    { 'everness_cursed_lands_deep_ocean_sandblock.png' },
+    S('Cursed Lands Deep Ocean Sandstone Block Stair'),
+    S('Cursed Lands Deep Ocean Sandstone Block Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'cursed_lands_deep_ocean_sandstone_brick',
+    'everness:cursed_lands_deep_ocean_sandstone_brick',
+    { cracky = 2 },
+    { 'everness_cursed_lands_deep_ocean_sand_brick.png' },
+    S('Cursed Lands Deep Ocean Sandstone Brick Stair'),
+    S('Cursed Lands Deep Ocean Sandstone Brick Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'crystal_forest_deep_ocean_sandstone_block',
+    'everness:crystal_forest_deep_ocean_sandstone_block',
+    { cracky = 2 },
+    { 'everness_crystal_forest_deep_ocean_sandstone_block.png' },
+    S('Crystal Forest Deep Ocean Sandstone Block Stair'),
+    S('Crystal Forest Deep Ocean Sandstone Block Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'crystal_forest_deep_ocean_sandstone_brick',
+    'everness:crystal_forest_deep_ocean_sandstone_brick',
+    { cracky = 2 },
+    { 'everness_crystal_forest_deep_ocean_sandstone_brick.png' },
+    S('Crystal Forest Deep Ocean Sandstone Brick Stair'),
+    S('Crystal Forest Deep Ocean Sandstone Brick Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'everness_glass',
+    'everness:glass',
+    { cracky = 3, oddly_breakable_by_hand = 3 },
+    { 'everness_glass.png' },
+    S('Everness Glass Stair'),
+    S('Everness Glass Slab'),
+    Everness.node_sound_glass_defaults(),
     true
 )

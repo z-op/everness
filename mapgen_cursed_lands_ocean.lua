@@ -34,9 +34,9 @@ minetest.register_biome({
     node_riverbed = 'everness:cursed_stone',
     depth_riverbed = 2,
     node_cave_liquid = 'default:water_source',
-    node_dungeon = 'default:cobble',
-    node_dungeon_alt = 'default:mossycobble',
-    node_dungeon_stair = 'stairs:stair_cobble',
+    node_dungeon = 'everness:cursed_lands_deep_ocean_sandstone_block',
+    node_dungeon_alt = 'everness:cursed_lands_deep_ocean_sandstone_brick',
+    node_dungeon_stair = 'stairs:stair_cursed_lands_deep_ocean_sandstone_block',
     y_max = y_max,
     y_min = y_min,
     heat_point = 45,
@@ -94,7 +94,10 @@ minetest.register_decoration({
     y_max = y_max - (y_max + 5),
     y_min = y_max - (y_max + 10),
     flags = 'force_placement',
-    decoration = 'everness:sand_with_spine_kelp',
+    decoration = {
+        'everness:sand_with_spine_kelp',
+        'everness:coral_skeleton'
+    },
     param2 = 48,
     param2_max = 96,
 })

@@ -33,9 +33,9 @@ minetest.register_biome({
     depth_filler = 1,
     node_riverbed = 'everness:coral_dirt',
     depth_riverbed = 2,
-    node_dungeon = 'everness:coral_desert_cobble',
-    node_dungeon_alt = 'everness:coral_desert_mossy_cobble',
-    node_dungeon_stair = 'stairs:stair_coral_desert_cobble',
+    node_dungeon = 'everness:coral_desert_stone_block',
+    node_dungeon_alt = 'everness:coral_desert_stone_brick',
+    node_dungeon_stair = 'stairs:stair_coral_desert_stone_block',
     y_max = y_max,
     y_min = y_min,
     heat_point = 60,
@@ -144,7 +144,8 @@ minetest.register_decoration({
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:coral_burdock_1', 'everness:coral_burdock_2' },
-    spawn_by = 'everness:coral_tree'
+    spawn_by = 'everness:coral_tree',
+    param2 = 8
 })
 
 minetest.register_decoration({

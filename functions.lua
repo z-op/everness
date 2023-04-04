@@ -181,7 +181,7 @@ minetest.register_abm({
     nodenames = {
         'group:everness_spreading_dirt_type',
         'group:everness_spreading_dirt_type_under',
-     },
+    },
     interval = 8,
     chance = 50,
     catch_up = false,
@@ -226,7 +226,7 @@ minetest.register_abm({
 -- Leafdecay
 --
 
-default.register_leafdecay({
+Everness:register_leafdecay({
     trunks = {
         'everness:coral_tree',
         'everness:crystal_bush_stem',
@@ -244,7 +244,7 @@ default.register_leafdecay({
 })
 
 -- Baobab Tree
-default.register_leafdecay({
+Everness:register_leafdecay({
     trunks = {
         'everness:baobab_tree',
         'everness:crystal_tree',
@@ -265,23 +265,29 @@ default.register_leafdecay({
 
 local moss_correspondences = {
     ['everness:coral_desert_cobble'] = 'everness:coral_desert_mossy_cobble',
-    ['stairs:slab_coral_desert_cobble'] = 'stairs:slab_coral_desert_mossy_cobble',
-    ['stairs:stair_coral_desert_cobble'] = 'stairs:stair_coral_desert_mossy_cobble',
-    ['stairs:stair_inner_coral_desert_cobble'] = 'stairs:stair_inner_coral_desert_mossy_cobble',
-    ['stairs:stair_outer_coral_desert_cobble'] = 'stairs:stair_outer_coral_desert_mossy_cobble',
-    ['everness:coral_desert_cobble_wall'] = 'everness:coral_desert_mossy_cobble_wall',
 }
+
+local moss_nodenames_correspondences = {
+    'everness:coral_desert_cobble',
+}
+
+if minetest.get_modpath('default') then
+    moss_correspondences['stairs:slab_coral_desert_cobble'] = 'stairs:slab_coral_desert_mossy_cobble'
+    moss_correspondences['stairs:stair_coral_desert_cobble'] = 'stairs:stair_coral_desert_mossy_cobble'
+    moss_correspondences['stairs:stair_inner_coral_desert_cobble'] = 'stairs:stair_inner_coral_desert_mossy_cobble'
+    moss_correspondences['stairs:stair_outer_coral_desert_cobble'] = 'stairs:stair_outer_coral_desert_mossy_cobble'
+    moss_correspondences['everness:coral_desert_cobble_wall'] = 'everness:coral_desert_mossy_cobble_wall'
+
+    table.insert(moss_nodenames_correspondences, 'stairs:slab_coral_desert_cobble')
+    table.insert(moss_nodenames_correspondences, 'stairs:stair_coral_desert_cobble')
+    table.insert(moss_nodenames_correspondences, 'stairs:stair_inner_coral_desert_cobble')
+    table.insert(moss_nodenames_correspondences, 'stairs:stair_outer_coral_desert_cobble')
+    table.insert(moss_nodenames_correspondences, 'everness:coral_desert_cobble_wall')
+end
 
 minetest.register_abm({
     label = 'Everness Moss growth',
-    nodenames = {
-        'everness:coral_desert_cobble',
-        'stairs:slab_coral_desert_cobble',
-        'stairs:stair_coral_desert_cobble',
-        'stairs:stair_inner_coral_desert_cobble',
-        'stairs:stair_outer_coral_desert_cobble',
-        'everness:coral_desert_cobble_wall',
-    },
+    nodenames = moss_nodenames_correspondences,
     neighbors = { 'group:water' },
     interval = 16,
     chance = 200,
@@ -300,36 +306,42 @@ minetest.register_abm({
 --
 
 local magma_correspondences = {
-    ['default:cobble'] = 'everness:magmacobble',
-    ['stairs:slab_cobble'] = 'stairs:slab_magmacobble',
-    ['stairs:stair_cobble'] = 'stairs:stair_magmacobble',
-    ['stairs:stair_inner_cobble'] = 'stairs:stair_inner_magmacobble',
-    ['stairs:stair_outer_cobble'] = 'stairs:stair_outer_magmacobble',
-    ['walls:cobble'] = 'everness:magmacobble_wall',
     ['everness:volcanic_rock'] = 'everness:volcanic_rock_with_magma',
-    ['stairs:slab_volcanic_rock'] = 'stairs:slab_volcanic_rock_with_magma',
-    ['stairs:stair_volcanic_rock'] = 'stairs:stair_volcanic_rock_with_magma',
-    ['stairs:stair_inner_volcanic_rock'] = 'stairs:stair_inner_volcanic_rock_with_magma',
-    ['stairs:stair_outer_volcanic_rock'] = 'stairs:stair_outer_volcanic_rock_with_magma',
-    ['everness:volcanic_rock_wall'] = 'everness:volcanic_rock_with_magma_wall',
 }
 
+local magma_nodenames_correspondences = {
+    'everness:volcanic_rock'
+}
+
+if minetest.get_modpath('default') then
+    magma_correspondences['default:cobble'] = 'everness:magmacobble'
+    magma_correspondences['stairs:slab_cobble'] = 'stairs:slab_magmacobble'
+    magma_correspondences['stairs:stair_cobble'] = 'stairs:stair_magmacobble'
+    magma_correspondences['stairs:stair_inner_cobble'] = 'stairs:stair_inner_magmacobble'
+    magma_correspondences['stairs:stair_outer_cobble'] = 'stairs:stair_outer_magmacobble'
+    magma_correspondences['walls:cobble'] = 'everness:magmacobble_wall'
+    magma_correspondences['stairs:slab_volcanic_rock'] = 'stairs:slab_volcanic_rock_with_magma'
+    magma_correspondences['stairs:stair_volcanic_rock'] = 'stairs:stair_volcanic_rock_with_magma'
+    magma_correspondences['stairs:stair_inner_volcanic_rock'] = 'stairs:stair_inner_volcanic_rock_with_magma'
+    magma_correspondences['stairs:stair_outer_volcanic_rock'] = 'stairs:stair_outer_volcanic_rock_with_magma'
+    magma_correspondences['everness:volcanic_rock_wall'] = 'everness:volcanic_rock_with_magma_wall'
+
+    table.insert(magma_nodenames_correspondences, 'default:cobble')
+    table.insert(magma_nodenames_correspondences, 'stairs:slab_cobble')
+    table.insert(magma_nodenames_correspondences, 'stairs:stair_cobble')
+    table.insert(magma_nodenames_correspondences, 'stairs:stair_inner_cobble')
+    table.insert(magma_nodenames_correspondences, 'stairs:stair_outer_cobble')
+    table.insert(magma_nodenames_correspondences, 'walls:cobble')
+    table.insert(magma_nodenames_correspondences, 'stairs:slab_volcanic_rock')
+    table.insert(magma_nodenames_correspondences, 'stairs:stair_volcanic_rock')
+    table.insert(magma_nodenames_correspondences, 'stairs:stair_inner_volcanic_rock')
+    table.insert(magma_nodenames_correspondences, 'stairs:stair_outer_volcanic_rock')
+    table.insert(magma_nodenames_correspondences, 'everness:volcanic_rock_wall')
+end
+
 minetest.register_abm({
-    label = 'Magma growth',
-    nodenames = {
-        'default:cobble',
-        'stairs:slab_cobble',
-        'stairs:stair_cobble',
-        'stairs:stair_inner_cobble',
-        'stairs:stair_outer_cobble',
-        'walls:cobble',
-        'everness:volcanic_rock',
-        'stairs:slab_volcanic_rock',
-        'stairs:stair_volcanic_rock',
-        'stairs:stair_inner_volcanic_rock',
-        'stairs:stair_outer_volcanic_rock',
-        'everness:volcanic_rock_wall',
-    },
+    label = 'Everness Magma growth',
+    nodenames = magma_nodenames_correspondences,
     neighbors = { 'group:lava' },
     interval = 16,
     chance = 200,
@@ -355,7 +367,7 @@ minetest.register_abm({
     chance = 16,
     catch_up = false,
     action = function(pos, node)
-        if not minetest.settings:get_bool('enable_particles') then
+        if not minetest.settings:get_bool('enable_particles', true) then
             return
         end
 
@@ -429,7 +441,7 @@ minetest.register_abm({
     chance = 16,
     catch_up = false,
     action = function(pos, node)
-        if not minetest.settings:get_bool('enable_particles') then
+        if not minetest.settings:get_bool('enable_particles', true) then
             return
         end
 
@@ -503,10 +515,275 @@ minetest.register_abm({
         'everness:cactus_orange',
         'everness:cactus_blue'
     },
-    neighbors = { 'group:mold_soil' },
+    neighbors = { 'group:sand', 'group:everness_sand' },
     interval = 12,
     chance = 83,
     action = function(...)
         Everness:grow_cactus(...)
+    end
+})
+
+--
+-- Bio Bubbles
+--
+
+minetest.register_abm({
+    label = 'everness:bio_bubbles',
+    nodenames = { 'group:bio_bubbles' },
+    neighbors = { 'group:water' },
+    interval = 16,
+    chance = 2,
+    catch_up = false,
+    action = function(pos, node)
+        if not minetest.settings:get_bool('enable_particles', true) then
+            return
+        end
+
+        local water_above = minetest.find_nodes_in_area(pos, { x = pos.x, y = pos.y + 10, z = pos.z }, { 'group:water' })
+
+        if #water_above < 10 then
+            return
+        end
+
+        -- particles
+        local particlespawner_def = {
+            amount = 50,
+            time = 10,
+            minpos = vector.new({ x = pos.x - 0.1, y = pos.y + 0.6, z = pos.z - 0.1 }),
+            maxpos = vector.new({ x = pos.x + 0.1, y = pos.y + 0.6, z = pos.z + 0.1 }),
+            minvel = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxvel = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minacc = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxacc = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minexptime = 5,
+            maxexptime = 7,
+            minsize = 2,
+            maxsize = 3.5,
+            texture = 'everness_bubble.png',
+            glow = 7
+        }
+
+        if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
+            -- new syntax, after v5.6.0
+            particlespawner_def = {
+                amount = 50,
+                time = 10,
+                size = {
+                    min = 2,
+                    max = 3.5,
+                },
+                exptime = {
+                    min = 5,
+                    max = 7
+                },
+                pos = {
+                    min = vector.new({ x = pos.x - 0.1, y = pos.y + 0.6, z = pos.z - 0.1 }),
+                    max = vector.new({ x = pos.x + 0.1, y = pos.y + 0.6, z = pos.z + 0.1 }),
+                },
+                vel = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                acc = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                texture = {
+                    name = 'everness_bubble.png',
+                    alpha_tween = {
+                        1, 0,
+                        style = 'fwd',
+                        reps = 1
+                    },
+                    scale_tween = {
+                        0.5, 1,
+                        style = 'fwd',
+                        reps = 1
+                    }
+                },
+                glow = 7
+            }
+        end
+
+        minetest.add_particlespawner(particlespawner_def)
+    end
+})
+
+--
+-- Rising Souls
+--
+
+minetest.register_abm({
+    label = 'everness:rising_souls',
+    nodenames = { 'group:rising_souls' },
+    neighbors = { 'group:water' },
+    interval = 16,
+    chance = 2,
+    catch_up = false,
+    action = function(pos, node)
+        if not minetest.settings:get_bool('enable_particles', true) then
+            return
+        end
+
+        local water_above = minetest.find_nodes_in_area(pos, { x = pos.x, y = pos.y + 10, z = pos.z }, { 'group:water' })
+
+        if #water_above < 10 then
+            return
+        end
+
+        -- particles
+        local particlespawner_def = {
+            amount = 17,
+            time = 10,
+            minpos = vector.new({ x = pos.x - 0.3, y = pos.y + 0.6, z = pos.z - 0.3 }),
+            maxpos = vector.new({ x = pos.x + 0.3, y = pos.y + 0.6, z = pos.z + 0.3 }),
+            minvel = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxvel = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minacc = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxacc = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minexptime = 4,
+            maxexptime = 6,
+            minsize = 4,
+            maxsize = 6,
+            texture = 'everness_rising_soul_particle.png',
+            glow = 7
+        }
+
+        if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
+            -- new syntax, after v5.6.0
+            particlespawner_def = {
+                amount = 17,
+                time = 10,
+                size = {
+                    min = 4,
+                    max = 6,
+                },
+                exptime = {
+                    min = 4,
+                    max = 6
+                },
+                pos = {
+                    min = vector.new({ x = pos.x - 0.3, y = pos.y + 0.6, z = pos.z - 0.3 }),
+                    max = vector.new({ x = pos.x + 0.3, y = pos.y + 0.6, z = pos.z + 0.3 }),
+                },
+                vel = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                acc = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                texture = {
+                    name = 'everness_rising_soul_particle.png',
+                    animation = {
+                        type = 'vertical_frames',
+                        aspect_w = 16,
+                        aspect_h = 16,
+                        length = 2,
+                    },
+                    alpha_tween = {
+                        1, 0,
+                        style = 'fwd',
+                        reps = 1
+                    },
+                    scale_tween = {
+                        0.5, 1,
+                        style = 'fwd',
+                        reps = 1
+                    }
+                },
+                glow = 7
+            }
+        end
+
+        minetest.add_particlespawner(particlespawner_def)
+    end
+})
+
+--
+-- Rising Crystals
+--
+
+minetest.register_abm({
+    label = 'everness:rising_souls',
+    nodenames = { 'group:rising_crystals' },
+    neighbors = { 'group:water' },
+    interval = 16,
+    chance = 2,
+    catch_up = false,
+    action = function(pos, node)
+        if not minetest.settings:get_bool('enable_particles', true) then
+            return
+        end
+
+        local water_above = minetest.find_nodes_in_area(pos, { x = pos.x, y = pos.y + 10, z = pos.z }, { 'group:water' })
+
+        if #water_above < 10 then
+            return
+        end
+
+        -- particles
+        local particlespawner_def = {
+            amount = 17,
+            time = 10,
+            minpos = vector.new({ x = pos.x - 0.3, y = pos.y + 0.6, z = pos.z - 0.3 }),
+            maxpos = vector.new({ x = pos.x + 0.3, y = pos.y + 0.6, z = pos.z + 0.3 }),
+            minvel = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxvel = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minacc = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+            maxacc = vector.new({ x = 0.1, y = 0.5, z = 0.1 }),
+            minexptime = 4,
+            maxexptime = 6,
+            minsize = 4,
+            maxsize = 6,
+            texture = 'everness_rising_soul_particle.png',
+            glow = 7
+        }
+
+        if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
+            -- new syntax, after v5.6.0
+            particlespawner_def = {
+                amount = 25,
+                time = 10,
+                size = {
+                    min = 6,
+                    max = 8,
+                },
+                exptime = {
+                    min = 4,
+                    max = 6
+                },
+                pos = {
+                    min = vector.new({ x = pos.x - 0.3, y = pos.y + 0.6, z = pos.z - 0.3 }),
+                    max = vector.new({ x = pos.x + 0.3, y = pos.y + 0.6, z = pos.z + 0.3 }),
+                },
+                vel = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                acc = {
+                    min = vector.new({ x = -0.1, y = 0.25, z = -0.1 }),
+                    max = vector.new({ x = 0.1, y = 0.5, z = 0.1 })
+                },
+                texture = {
+                    name = 'everness_crystal_forest_deep_ocean_sand_bubbles.png',
+                    animation = {
+                        type = 'vertical_frames',
+                        aspect_w = 16,
+                        aspect_h = 16,
+                        length = 1,
+                    },
+                    alpha_tween = {
+                        1, 0.5,
+                        style = 'fwd',
+                        reps = 1
+                    }
+                },
+                glow = 7
+            }
+        end
+
+        minetest.add_particlespawner(particlespawner_def)
     end
 })

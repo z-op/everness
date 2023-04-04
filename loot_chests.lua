@@ -26,10 +26,14 @@ minetest.register_lbm({
         'everness:quartz_temple_lootchest_marker',
         'everness:forsaken_desert_temple_marker',
         'everness:forsaken_desert_temple_2_marker',
+        'everness:coral_forest_deep_ocean_house_marker',
+        'everness:cursed_lands_deep_ocean_skull_marker',
+        'everness:frosted_icesheet_igloo_marker',
+        'everness:crystal_forest_deep_ocean_ruins_marker',
     },
     run_at_every_load = true,
     action = function(pos, node)
-        minetest.set_node(pos, { name = 'default:chest', param2 = minetest.get_node(pos).param2 })
+        minetest.set_node(pos, { name = 'everness:chest', param2 = minetest.get_node(pos).param2 })
 
         local rand = PcgRandom(pos.x * pos.y * pos.z)
         local inv = minetest.get_inventory({ type = 'node', pos = pos })
@@ -40,6 +44,10 @@ minetest.register_lbm({
                 -- Japanese Shrine
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
 
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
@@ -58,6 +66,10 @@ minetest.register_lbm({
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
 
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
+
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
 
@@ -74,6 +86,10 @@ minetest.register_lbm({
                 -- Haunted House
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
 
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
@@ -92,6 +108,10 @@ minetest.register_lbm({
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
 
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
+
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
 
@@ -109,6 +129,10 @@ minetest.register_lbm({
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
 
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
+
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)
 
@@ -125,6 +149,94 @@ minetest.register_lbm({
                 -- Forsaken Desert Temple 2 (under)
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
+
+                if rand:next(0, 100) <= item_def.chance then
+                    local stack = ItemStack(item_def.name)
+
+                    if minetest.registered_tools[item_def.name] then
+                        stack:set_wear(rand:next(1, 65535))
+                    else
+                        stack:set_count(rand:next(1, item_def.max_count))
+                    end
+
+                    inv:set_stack('main', index, stack)
+                end
+            elseif node.name == 'everness:coral_forest_deep_ocean_house_marker' then
+                --
+                -- Deep Ocean House
+                --
+                local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
+
+                if rand:next(0, 100) <= item_def.chance then
+                    local stack = ItemStack(item_def.name)
+
+                    if minetest.registered_tools[item_def.name] then
+                        stack:set_wear(rand:next(1, 65535))
+                    else
+                        stack:set_count(rand:next(1, item_def.max_count))
+                    end
+
+                    inv:set_stack('main', index, stack)
+                end
+            elseif node.name == 'everness:cursed_lands_deep_ocean_skull_marker' then
+                --
+                -- Deep Ocean Skull
+                --
+                local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
+
+                if rand:next(0, 100) <= item_def.chance then
+                    local stack = ItemStack(item_def.name)
+
+                    if minetest.registered_tools[item_def.name] then
+                        stack:set_wear(rand:next(1, 65535))
+                    else
+                        stack:set_count(rand:next(1, item_def.max_count))
+                    end
+
+                    inv:set_stack('main', index, stack)
+                end
+            elseif node.name == 'everness:frosted_icesheet_igloo_marker' then
+                --
+                -- Igloo
+                --
+                local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
+
+                if rand:next(0, 100) <= item_def.chance then
+                    local stack = ItemStack(item_def.name)
+
+                    if minetest.registered_tools[item_def.name] then
+                        stack:set_wear(rand:next(1, 65535))
+                    else
+                        stack:set_count(rand:next(1, item_def.max_count))
+                    end
+
+                    inv:set_stack('main', index, stack)
+                end
+            elseif node.name == 'everness:crystal_forest_deep_ocean_ruins_marker' then
+                --
+                -- Crystal Forest Deep Ocean Ruins
+                --
+                local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                if not minetest.registered_items[item_def.name] then
+                    return
+                end
 
                 if rand:next(0, 100) <= item_def.chance then
                     local stack = ItemStack(item_def.name)

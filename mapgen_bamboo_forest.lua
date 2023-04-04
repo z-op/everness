@@ -33,9 +33,9 @@ minetest.register_biome({
     depth_filler = 1,
     node_riverbed = 'default:sand',
     depth_riverbed = 2,
-    node_dungeon = 'default:cobble',
-    node_dungeon_alt = 'default:mossycobble',
-    node_dungeon_stair = 'stairs:stair_cobble',
+    node_dungeon = 'everness:bamboo_wood',
+    node_dungeon_alt = 'everness:bamboo_mosaic_wood',
+    node_dungeon_stair = 'stairs:stair_bamboo_wood',
     y_max = y_max,
     y_min = y_min,
     heat_point = 80,
@@ -76,50 +76,78 @@ minetest.register_decoration({
 
 -- Jungle tree and log
 
-minetest.register_decoration({
-    name = 'everness:bamboo_forest_jungle_tree',
-    deco_type = 'schematic',
-    place_on = { 'everness:dirt_with_grass_1' },
-    sidelen = 16,
-    noise_params = {
-        offset = 0.0015,
-        scale = 0.0021,
-        spread = { x = 250, y = 250, z = 250 },
-        seed = 2,
-        octaves = 3,
-        persist = 0.66
-    },
-    biomes = { 'everness_bamboo_forest' },
-    y_max = y_max,
-    y_min = y_min,
-    schematic = minetest.get_modpath('default') .. '/schematics/jungle_tree.mts',
-    flags = 'place_center_x, place_center_z',
-    rotation = 'random',
-})
+local jungle_tree_schem
+local jungle_log_schem
 
-minetest.register_decoration({
-    name = 'everness:bamboo_forest_jungle_log',
-    deco_type = 'schematic',
-    place_on = { 'everness:dirt_with_grass_1' },
-    place_offset_y = 1,
-    sidelen = 16,
-    noise_params = {
-        offset = 0.0015,
-        scale = 0.0021,
-        spread = { x = 250, y = 250, z = 250 },
-        seed = 2,
-        octaves = 3,
-        persist = 0.66
-    },
-    biomes = { 'everness_bamboo_forest' },
-    y_max = y_max,
-    y_min = y_min,
-    schematic = minetest.get_modpath('default') .. '/schematics/jungle_log.mts',
-    flags = 'place_center_x',
-    rotation = 'random',
-    spawn_by = 'everness:dirt_with_grass_1',
-    num_spawn_by = 8,
-})
+if minetest.get_modpath('default') then
+    jungle_tree_schem = minetest.get_modpath('default') .. '/schematics/jungle_tree.mts'
+    jungle_log_schem = minetest.get_modpath('default') .. '/schematics/jungle_log.mts'
+elseif minetest.get_modpath('mcl_core') then
+    jungle_tree_schem = minetest.get_modpath('mcl_core') .. '/schematics/mcl_core_jungle_tree.mts'
+    jungle_log_schem = {
+        size = { x = 3, y = 3, z = 1 },
+        data = {
+            { name = 'air', prob = 0 },
+            { name = 'air', prob = 0 },
+            { name = 'air', prob = 0 },
+            { name = 'mcl_core:jungletree', param2 = 12 },
+            { name = 'mcl_core:jungletree', param2 = 12 },
+            { name = 'mcl_core:jungletree', param2 = 12, prob = 127 },
+            { name = 'air', prob = 0 },
+            { name = 'mcl_mushrooms:mushroom_brown', prob = 50 },
+            { name = 'air', prob = 0 },
+        },
+    }
+end
+
+if jungle_tree_schem then
+    minetest.register_decoration({
+        name = 'everness:bamboo_forest_jungle_tree',
+        deco_type = 'schematic',
+        place_on = { 'everness:dirt_with_grass_1' },
+        sidelen = 16,
+        noise_params = {
+            offset = 0.0015,
+            scale = 0.0021,
+            spread = { x = 250, y = 250, z = 250 },
+            seed = 2,
+            octaves = 3,
+            persist = 0.66
+        },
+        biomes = { 'everness_bamboo_forest' },
+        y_max = y_max,
+        y_min = y_min,
+        schematic = jungle_tree_schem,
+        flags = 'place_center_x, place_center_z',
+        rotation = 'random',
+    })
+end
+
+if jungle_log_schem then
+    minetest.register_decoration({
+        name = 'everness:bamboo_forest_jungle_log',
+        deco_type = 'schematic',
+        place_on = { 'everness:dirt_with_grass_1' },
+        place_offset_y = 1,
+        sidelen = 16,
+        noise_params = {
+            offset = 0.0015,
+            scale = 0.0021,
+            spread = { x = 250, y = 250, z = 250 },
+            seed = 2,
+            octaves = 3,
+            persist = 0.66
+        },
+        biomes = { 'everness_bamboo_forest' },
+        y_max = y_max,
+        y_min = y_min,
+        schematic = jungle_log_schem,
+        flags = 'place_center_x',
+        rotation = 'random',
+        spawn_by = 'everness:dirt_with_grass_1',
+        num_spawn_by = 8,
+    })
+end
 
 local function register_grass_decoration(offset, scale, length)
     minetest.register_decoration({
@@ -165,48 +193,50 @@ end
 
 -- Bush
 
-minetest.register_decoration({
-    name = 'everness:bamboo_forest_bush',
-    deco_type = 'schematic',
-    place_on = { 'everness:dirt_with_grass_1' },
-    sidelen = 16,
-    noise_params = {
-        offset = -0.004,
-        scale = 0.01,
-        spread = { x = 100, y = 100, z = 100 },
-        seed = 137,
-        octaves = 3,
-        persist = 0.7,
-    },
-    biomes = { 'everness_bamboo_forest' },
-    y_max = y_max,
-    y_min = y_min,
-    schematic = minetest.get_modpath('default') .. '/schematics/bush.mts',
-    flags = 'place_center_x, place_center_z',
-})
+if minetest.get_modpath('default') then
+    minetest.register_decoration({
+        name = 'everness:bamboo_forest_bush',
+        deco_type = 'schematic',
+        place_on = { 'everness:dirt_with_grass_1' },
+        sidelen = 16,
+        noise_params = {
+            offset = -0.004,
+            scale = 0.01,
+            spread = { x = 100, y = 100, z = 100 },
+            seed = 137,
+            octaves = 3,
+            persist = 0.7,
+        },
+        biomes = { 'everness_bamboo_forest' },
+        y_max = y_max,
+        y_min = y_min,
+        schematic = minetest.get_modpath('default') .. '/schematics/bush.mts',
+        flags = 'place_center_x, place_center_z',
+    })
 
--- Blueberry bush
+    -- Blueberry bush
 
-minetest.register_decoration({
-    name = 'everness:bamboo_forest_blueberry_bush',
-    deco_type = 'schematic',
-    place_on = { 'everness:dirt_with_grass_1' },
-    sidelen = 16,
-    noise_params = {
-        offset = -0.004,
-        scale = 0.01,
-        spread = { x = 100, y = 100, z = 100 },
-        seed = 697,
-        octaves = 3,
-        persist = 0.7,
-    },
-    biomes = { 'everness_bamboo_forest' },
-    y_max = y_max,
-    y_min = y_min,
-    place_offset_y = 1,
-    schematic = minetest.get_modpath('default') .. '/schematics/blueberry_bush.mts',
-    flags = 'place_center_x, place_center_z',
-})
+    minetest.register_decoration({
+        name = 'everness:bamboo_forest_blueberry_bush',
+        deco_type = 'schematic',
+        place_on = { 'everness:dirt_with_grass_1' },
+        sidelen = 16,
+        noise_params = {
+            offset = -0.004,
+            scale = 0.01,
+            spread = { x = 100, y = 100, z = 100 },
+            seed = 697,
+            octaves = 3,
+            persist = 0.7,
+        },
+        biomes = { 'everness_bamboo_forest' },
+        y_max = y_max,
+        y_min = y_min,
+        place_offset_y = 1,
+        schematic = minetest.get_modpath('default') .. '/schematics/blueberry_bush.mts',
+        flags = 'place_center_x, place_center_z',
+    })
+end
 
 -- Grasses
 

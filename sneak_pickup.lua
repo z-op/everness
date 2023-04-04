@@ -95,8 +95,7 @@ minetest.register_globalstep(function(dtime)
         DELAY = 0
     end
 
-    -- every 1 second
-    if TIMER > 1 then
+    if TIMER > 0.5 then
         for _, player in ipairs(minetest.get_connected_players()) do
             local player_meta = player:get_meta()
             local control = player:get_player_control()

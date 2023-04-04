@@ -131,7 +131,7 @@ minetest.register_node('everness:coral_dirt_soil', {
     },
     drop = 'everness:coral_dirt',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:coral_dirt',
         dry = 'everness:coral_dirt_soil',
@@ -147,7 +147,7 @@ minetest.register_node('everness:dirt_1_soil', {
     },
     drop = 'everness:dirt_1',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:dirt_1',
         dry = 'everness:dirt_1_soil',
@@ -163,7 +163,7 @@ minetest.register_node('everness:crystal_dirt_soil', {
     },
     drop = 'everness:crystal_dirt',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:crystal_dirt',
         dry = 'everness:crystal_dirt_soil',
@@ -179,7 +179,7 @@ minetest.register_node('everness:crystal_cave_dirt_soil', {
     },
     drop = 'everness:crystal_cave_dirt',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:crystal_cave_dirt',
         dry = 'everness:crystal_cave_dirt_soil',
@@ -195,7 +195,7 @@ minetest.register_node('everness:cursed_dirt_soil', {
     },
     drop = 'everness:cursed_dirt',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:cursed_dirt',
         dry = 'everness:cursed_dirt_soil',
@@ -212,7 +212,7 @@ minetest.register_node('everness:coral_dirt_soil_wet', {
     },
     drop = 'everness:coral_dirt',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:coral_dirt',
         dry = 'everness:coral_dirt_soil',
@@ -228,7 +228,7 @@ minetest.register_node('everness:dirt_1_soil_wet', {
     },
     drop = 'everness:dirt_1',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:dirt_1',
         dry = 'everness:dirt_1_soil',
@@ -244,7 +244,7 @@ minetest.register_node('everness:crystal_dirt_soil_wet', {
     },
     drop = 'everness:crystal_dirt',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:crystal_dirt',
         dry = 'everness:crystal_dirt_soil',
@@ -260,7 +260,7 @@ minetest.register_node('everness:crystal_cave_dirt_soil_wet', {
     },
     drop = 'everness:crystal_cave_dirt',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:crystal_cave_dirt',
         dry = 'everness:crystal_cave_dirt_soil',
@@ -276,7 +276,7 @@ minetest.register_node('everness:cursed_dirt_soil_wet', {
     },
     drop = 'everness:cursed_dirt',
     groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
-    sounds = default.node_sound_dirt_defaults(),
+    sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:cursed_dirt',
         dry = 'everness:cursed_dirt_soil',

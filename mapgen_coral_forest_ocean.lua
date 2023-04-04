@@ -94,5 +94,9 @@ minetest.register_decoration({
     y_max = y_max - 5 > y_min and y_max - 5 or y_max,
     y_min = y_max - 11 > y_min and y_max - 11 or y_min,
     flags = 'force_placement',
-    decoration = { 'everness:coral_corals', 'everness:coral_jellyfish' },
+    decoration = {
+        'everness:coral_corals',
+        'everness:coral_jellyfish',
+        'everness:coral_skeleton'
+    },
 })

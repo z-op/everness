@@ -219,28 +219,6 @@ minetest.register_decoration({
     flags = 'all_floors',
 })
 
-minetest.register_decoration({
-    name = 'everness:forsaken_tundra_under_willow_tree',
-    deco_type = 'schematic',
-    place_on = { 'everness:mold_stone_with_moss' },
-    place_offset_y = -1,
-    sidelen = 16,
-    noise_params = {
-        offset = 0,
-        scale = 0.002,
-        spread = { x = 250, y = 250, z = 250 },
-        seed = 2,
-        octaves = 3,
-        persist = 0.66
-    },
-    biomes = { 'everness_forsaken_tundra_under' },
-    y_max = y_max - 1500 > y_min and y_max - 1500 or y_max,
-    y_min = y_min,
-    schematic = minetest.get_modpath('everness') .. '/schematics/everness_willow_tree.mts',
-    flags = 'place_center_x, place_center_z, all_floors, force_placement',
-    rotation = 'random',
-})
-
 local function register_agave_leaf_decoration(offset, scale, length)
     minetest.register_decoration({
         name = 'everness:forsaken_tundra_under_agave_leaf_' .. length,
@@ -269,3 +247,89 @@ end
 register_agave_leaf_decoration(-0.03, 0.09, 3)
 register_agave_leaf_decoration(-0.015, 0.075, 2)
 register_agave_leaf_decoration(0, 0.06, 1)
+
+--
+-- On Generated
+--
+
+local c_air = minetest.get_content_id('air')
+local c_mold_stone_with_moss = minetest.get_content_id('everness:mold_stone_with_moss')
+
+-- Localize data buffer table outside the loop, to be re-used for all
+-- mapchunks, therefore minimising memory use.
+local data = {}
+local chance = 50
+local disp = 16
+local rotations = { '0', '90', '180', '270' }
+local everness_forsaken_tundra_under_y_max = y_max - 1500 > y_min and y_max - 1500 or y_max
+local everness_forsaken_tundra_under_y_min = y_min
+
+-- size = { x = 39, y = 28, z = 39 }
+local willow_tree_volume = 39 * 39 * 28
+local willow_tree_schem = minetest.get_modpath('everness') .. '/schematics/everness_willow_tree.mts'
+
+minetest.register_on_generated(function(minp, maxp, blockseed)
+    local rand = PcgRandom(blockseed)
+
+    local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
+    local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
+    -- Get the content ID data from the voxelmanip in the form of a flat array.
+    -- Set the buffer parameter to use and reuse 'data' for this.
+    vm:get_data(data)
+    local sidelength = maxp.x - minp.x + 1
+
+    local x_disp = rand:next(0, disp)
+    local z_disp = rand:next(0, disp)
+
+    if everness_forsaken_tundra_under_y_min < maxp.y
+        and maxp.y < everness_forsaken_tundra_under_y_max
+    then
+        for y = minp.y, maxp.y do
+            local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
+
+            if data[vi + area.ystride] == c_air and data[vi] == c_mold_stone_with_moss then
+                local rotation = rotations[rand:next(1, #rotations)]
+                local s_pos = area:position(vi)
+                local biome_data = minetest.get_biome_data(s_pos)
+
+                if not biome_data then
+                    return
+                end
+
+                local biome_name = minetest.get_biome_name(biome_data.biome)
+
+                if not biome_name then
+                    return
+                end
+
+                if biome_name == 'everness_forsaken_tundra_under' and rand:next(0, 100) < chance then
+                    --
+                    -- Willow Tree
+                    --
+
+                    local schem_pos = vector.new(s_pos.x, s_pos.y, s_pos.z)
+                    local air_positions = minetest.find_nodes_in_area(
+                        vector.new(s_pos.x - 19, s_pos.y, s_pos.z - 19),
+                        vector.new(s_pos.x + 19, s_pos.y + 28, s_pos.z + 19),
+                        {'air'},
+                        true
+                    )
+
+                    if air_positions.air and #air_positions.air > (willow_tree_volume / 2) then
+                        minetest.place_schematic_on_vmanip(
+                            vm,
+                            schem_pos,
+                            willow_tree_schem,
+                            rotation,
+                            nil,
+                            true,
+                            'place_center_x, place_center_z'
+                        )
+
+                        minetest.log('action', '[Everness] Willow Tree was placed at ' .. schem_pos:to_string())
+                    end
+                end
+            end
+        end
+    end
+end)

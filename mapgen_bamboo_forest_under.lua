@@ -28,9 +28,9 @@ local y_min = Everness.settings.biomes.everness_bamboo_forest_under.y_min
 minetest.register_biome({
     name = 'everness_bamboo_forest_under',
     node_cave_liquid = { 'default:water_source', 'default:lava_source' },
-    node_dungeon = 'default:cobble',
-    node_dungeon_alt = 'default:mossycobble',
-    node_dungeon_stair = 'stairs:stair_cobble',
+    node_dungeon = 'everness:bamboo_wood',
+    node_dungeon_alt = 'everness:bamboo_mosaic_wood',
+    node_dungeon_stair = 'stairs:stair_bamboo_wood',
     y_max = y_max,
     y_min = y_min,
     heat_point = 80,
