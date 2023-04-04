@@ -250,6 +250,13 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    output = 'everness:coral_wood 4',
+    recipe = {
+        { 'everness:coral_tree' },
+    }
+})
+
+minetest.register_craft({
     output = 'everness:willow_wood 4',
     recipe = {
         { 'everness:willow_tree' },

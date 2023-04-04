@@ -135,6 +135,19 @@ stairs.register_stair_and_slab(
     true
 )
 
+-- Coral Wood
+
+stairs.register_stair_and_slab(
+    'coral_wood',
+    'everness:coral_wood',
+    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 3 },
+    { 'everness_coral_wood.png' },
+    S('Coral Wood Stair'),
+    S('Coral Wood Slab'),
+    Everness.node_sound_wood_defaults(),
+    true
+)
+
 -- Bamboo Wood
 
 stairs.register_stair_and_slab(

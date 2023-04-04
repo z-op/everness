@@ -321,7 +321,7 @@ mcl_stairs.register_stair_and_slab(
 mcl_stairs.register_stair_and_slab(
     'dry_wood',
     'everness:dry_wood',
-    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    { handy = 1, axey = 1, building_block = 1, material_wood = 1, fire_encouragement = 5, fire_flammability = 20, flammable = 3, wood = 1, },
     { 'everness_dry_wood.png' },
     S('Dry Wood Stair'),
     S('Dry Wood Slab'),
@@ -332,12 +332,28 @@ mcl_stairs.register_stair_and_slab(
     nil
 )
 
+-- Coral Wood
+
+mcl_stairs.register_stair_and_slab(
+    'coral_wood',
+    'everness:coral_wood',
+    { handy = 1, axey = 1, building_block = 1, material_wood = 1, fire_encouragement = 5, fire_flammability = 20, flammable = 3, wood = 1, },
+    { 'everness_coral_wood.png' },
+    S('Coral Wood Stair'),
+    S('Coral Wood Slab'),
+    Everness.node_sound_wood_defaults(),
+    6,
+    2,
+    S('Double Coral Wood Slab'),
+    nil
+)
+
 -- Bamboo Wood
 
 mcl_stairs.register_stair_and_slab(
     'bamboo_wood',
     'everness:bamboo_wood',
-    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    { handy = 1, axey = 1, building_block = 1, material_wood = 1, fire_encouragement = 5, fire_flammability = 20, flammable = 3, wood = 1, },
     { 'everness_dry_bamboo_block_side.png' },
     S('Bamboo Wood Stair'),
     S('Bamboo Wood Slab'),
@@ -351,7 +367,7 @@ mcl_stairs.register_stair_and_slab(
 mcl_stairs.register_stair_and_slab(
     'bamboo_mosaic_wood',
     'everness:bamboo_mosaic_wood',
-    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    { handy = 1, axey = 1, building_block = 1, material_wood = 1, fire_encouragement = 5, fire_flammability = 20, flammable = 3, wood = 1, },
     { 'everness_bamboo_mosaic.png' },
     S('Bamboo Mosaic Wood Stair'),
     S('Bamboo Mosaic Wood Slab'),
@@ -411,7 +427,7 @@ mcl_stairs.register_stair_and_slab(
 mcl_stairs.register_stair_and_slab(
     'baobab_wood',
     'everness:baobab_wood',
-    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    { handy = 1, axey = 1, building_block = 1, material_wood = 1, fire_encouragement = 5, fire_flammability = 20, flammable = 3, wood = 1, },
     { 'everness_baobab_wood.png' },
     S('Baobab Wood Stair'),
     S('Baobab Wood Slab'),
@@ -427,7 +443,7 @@ mcl_stairs.register_stair_and_slab(
 mcl_stairs.register_stair_and_slab(
     'sequoia_wood',
     'everness:sequoia_wood',
-    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    { handy = 1, axey = 1, building_block = 1, material_wood = 1, fire_encouragement = 5, fire_flammability = 20, flammable = 3, wood = 1, },
     { 'everness_sequoia_wood.png' },
     S('Sequoia Wood Stair'),
     S('Sequoia Wood Slab'),
@@ -487,7 +503,7 @@ mcl_stairs.register_stair_and_slab(
 mcl_stairs.register_stair_and_slab(
     'willow_wood',
     'everness:willow_wood',
-    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    { handy = 1, axey = 1, building_block = 1, material_wood = 1, fire_encouragement = 5, fire_flammability = 20, flammable = 3, wood = 1, },
     { 'everness_willow_wood.png' },
     S('Willow Wood Stair'),
     S('Willow Wood Slab'),
@@ -792,7 +808,7 @@ mcl_stairs.register_stair_and_slab(
 mcl_stairs.register_stair_and_slab(
     'crystal_wood',
     'everness:crystal_wood',
-    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    { handy = 1, axey = 1, building_block = 1, material_wood = 1, fire_encouragement = 5, fire_flammability = 20, flammable = 3, wood = 1, },
     { 'everness_crystal_wood.png' },
     S('Crystal Wood Stair'),
     S('Crystal Wood Slab'),

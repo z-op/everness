@@ -2997,6 +2997,33 @@ Everness:register_node('everness:coral_tree', {
     on_place = minetest.rotate_node
 })
 
+Everness:register_node('everness:coral_wood', {
+    description = S('Coral Wood Planks'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_coral_wood.png' },
+    groups = {
+        -- MTG
+        choppy = 3,
+        oddly_breakable_by_hand = 2,
+        -- Everness
+        everness_wood = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 20,
+        -- ALL
+        flammable = 3,
+        wood = 1,
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 2,
+    sounds = Everness.node_sound_wood_defaults(),
+})
+
 Everness:register_node('everness:coral_tree_bioluminescent', {
     description = S('Coral Tree Bioluminescent'),
     short_description = S('Coral Tree Bioluminescent'),
