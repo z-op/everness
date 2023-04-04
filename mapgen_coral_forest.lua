@@ -220,6 +220,7 @@ register_coral_grass_decoration(0.03, 0.03, 1)
 --
 
 local deco_id_coral_bones_tree = minetest.get_decoration_id('everness:coral_forest_coral_bones_tree')
+local coral_bones_tree_size = { x = 16, y = 35, z = 16 }
 
 minetest.set_gen_notify('decoration', { deco_id_coral_bones_tree })
 
@@ -231,7 +232,10 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
         -- Coral bone tree - fix light
         --
         for _, pos in ipairs(gennotify['decoration#' .. deco_id_coral_bones_tree] or {}) do
-            minetest.fix_light(vector.offset(pos, -1, -1, -1), vector.offset(pos, 14, 35, 14))
+            minetest.fix_light(
+                vector.round(vector.new(pos.x - (coral_bones_tree_size.x / 2), pos.y, pos.z - (coral_bones_tree_size.z / 2))),
+                vector.round(vector.new(pos.x + (coral_bones_tree_size.x / 2), pos.y + coral_bones_tree_size.y, pos.z + (coral_bones_tree_size.z / 2)))
+            )
         end
     end
 end)

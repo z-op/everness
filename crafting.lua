@@ -394,6 +394,23 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    output = 'everness:coral_bones_brick 4',
+    recipe = {
+        { 'everness:coral_bones_block', 'everness:coral_bones_block' },
+        { 'everness:coral_bones_block', 'everness:coral_bones_block' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:coral_bones_block 9',
+    recipe = {
+        { 'everness:coral_bones', 'everness:coral_bones', 'everness:coral_bones' },
+        { 'everness:coral_bones', 'everness:coral_bones', 'everness:coral_bones' },
+        { 'everness:coral_bones', 'everness:coral_bones', 'everness:coral_bones' },
+    }
+})
+
+minetest.register_craft({
     output = 'everness:crystal_sandstone 4',
     recipe = {
         { 'everness:crystal_sand', 'everness:crystal_sand' },

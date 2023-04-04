@@ -538,3 +538,27 @@ stairs.register_stair_and_slab(
     Everness.node_sound_glass_defaults(),
     true
 )
+
+-- Coral Bones
+
+stairs.register_stair_and_slab(
+    'coral_bones_block',
+    'everness:coral_bones_block',
+    { cracky = 2, stone = 1 },
+    { 'everness_coral_bones_block.png' },
+    S('Coral Bones Block Stair'),
+    S('Coral Bones Block Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'coral_bones_brick',
+    'everness:coral_bones_brick',
+    { cracky = 2, stone = 1 },
+    { 'everness_coral_bones_brick.png' },
+    S('Coral Bones Brick Stair'),
+    S('Coral Bones Brick Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)

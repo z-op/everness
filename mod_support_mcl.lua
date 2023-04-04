@@ -235,7 +235,7 @@ mcl_stairs.register_stair_and_slab(
 mcl_stairs.register_stair_and_slab(
     'cursed_brick',
     'everness:cursed_brick',
-    { pickaxey = 2 },
+    { pickaxey = 1 },
     { 'everness_cursed_brick.png' },
     S('Cursed Brick Stair'),
     S('Cursed Brick Slab'),
@@ -249,7 +249,7 @@ mcl_stairs.register_stair_and_slab(
 mcl_stairs.register_stair_and_slab(
     'cursed_brick_with_growth',
     'everness:cursed_brick_with_growth',
-    { pickaxey = 2 },
+    { pickaxey = 1 },
     { 'everness_cursed_brick_with_growth.png' },
     S('Cursed Brick with Growth Stair'),
     S('Cursed Brick with Growth Slab'),
@@ -257,6 +257,34 @@ mcl_stairs.register_stair_and_slab(
     6,
     2,
     S('Double Cursed Brick with Growth Slab'),
+    nil
+)
+
+mcl_stairs.register_stair_and_slab(
+    'coral_bones_block',
+    'everness:coral_bones_block',
+    { pickaxey = 1 },
+    { 'everness_coral_bones_block.png' },
+    S('Coral Bones Block Stair'),
+    S('Coral Bones Block Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    2,
+    S('Double Coral Bones Block Slab'),
+    nil
+)
+
+mcl_stairs.register_stair_and_slab(
+    'coral_bones_brick',
+    'everness:coral_bones_brick',
+    { pickaxey = 1 },
+    { 'everness_coral_bones_brick.png' },
+    S('Coral Bones Brick Stair'),
+    S('Coral Bones Brick Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    2,
+    S('Double Coral Bones Brick Slab'),
     nil
 )
 

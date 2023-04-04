@@ -458,8 +458,49 @@ Everness:register_node('everness:coral_bones', {
         stone = 1,
         -- MCL
         pickaxey = 1,
+        building_block = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
+Everness:register_node('everness:coral_bones_block', {
+    description = S('Coral Bones Block'),
+    tiles = { 'everness_coral_bones_block.png' },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
         building_block = 1,
-        coral = 2,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_hardness = 1.5,
+    _mcl_blast_resistance = 6,
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
+Everness:register_node('everness:coral_bones_brick', {
+    description = S('Coral Bones Brick'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_coral_bones_brick.png' },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
