@@ -108,11 +108,6 @@ minetest.register_alias('default:stone_with_diamond', 'mcl_core:stone_with_diamo
 minetest.register_alias('default:lava_source', 'mcl_core:lava_source')
 minetest.register_alias('default:mossycobble', 'mcl_core:mossycobble')
 minetest.register_alias('default:clay', 'mcl_colorblocks:hardened_clay')
-minetest.register_alias('default:grass_1', 'mcl_flowers:tallgrass')
-minetest.register_alias('default:grass_2', 'mcl_flowers:tallgrass')
-minetest.register_alias('default:grass_3', 'mcl_flowers:tallgrass')
-minetest.register_alias('default:grass_4', 'mcl_flowers:tallgrass')
-minetest.register_alias('default:grass_5', 'mcl_flowers:tallgrass')
 minetest.register_alias('default:dry_dirt_with_dry_grass', 'mcl_core:dirt_with_grass')
 minetest.register_alias('default:dry_dirt', 'mcl_core:coarse_dirt')
 minetest.register_alias('default:coral_skeleton', 'mcl_core:bone_block')
@@ -174,12 +169,12 @@ minetest.register_alias('doors:hidden', 'air')
 minetest.register_alias('everness:cobweb', 'mcl_core:cobweb')
 
 
+-- Legacy - was replaced by everness:flowers_*
 minetest.register_alias('flowers:rose', 'mcl_flowers:wither_rose')
 minetest.register_alias('flowers:tulip', 'mcl_flowers:tulip_orange')
 minetest.register_alias('flowers:dandelion_yellow', 'mcl_flowers:dandelion')
 minetest.register_alias('flowers:geranium', 'mcl_flowers:allium')
 minetest.register_alias('flowers:viola', 'mcl_flowers:azure_bluet')
 minetest.register_alias('flowers:tulip_black', 'mcl_flowers:tulip_white')
-
 minetest.register_alias('flowers:dandelion_white', 'mcl_flowers:tulip_pink')
 minetest.register_alias('flowers:chrysanthemum_green', 'mcl_flowers:tulip_white')

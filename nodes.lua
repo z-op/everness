@@ -4600,6 +4600,271 @@ Everness:register_node('everness:cursed_bush_sapling', {
 -- Plantlife (non-cubic)
 --
 
+Everness:register_node('everness:flowers_1', {
+    description = S('Flowers'),
+    short_description = S('Flowers'),
+    drawtype = 'nodebox',
+    -- Textures of node; +Y, -Y, +X, -X, +Z, -Z
+    tiles = {
+        'everness_flowers.png',
+        'everness_flowers.png^[transformFY',
+        'everness_flowers_side_x.png',
+        'everness_flowers_side_x.png^[transformFX',
+        'everness_flowers_side_z.png^[transformFX',
+        'everness_flowers_side_z.png',
+    },
+    use_texture_alpha = 'clip',
+    inventory_image = 'everness_flowers.png',
+    wield_image = 'everness_flowers.png',
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    sunlight_propagates = true,
+    walkable = false,
+    buildable_to = true,
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        bamboo_grass = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    selection_box = {
+        type = 'fixed',
+        fixed = { -8 / 16, -0.5, -8 / 16, 8 / 16, -5 / 16, 8 / 16 },
+    },
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            { 0, -0.3125, -0.0625, 0.5, -0.3125, 0.5 }, -- 3 small flowers top (A)
+            { 0.375, -0.5, 0.0625, 0.4375, -0.3125, 0.125 }, -- stem A
+            { 0.0625, -0.5, 0, 0.125, -0.3125, 0.0625 }, -- stem A
+            { 0.1875, -0.5, 0.3125, 0.25, -0.3125, 0.375 }, -- stem A
+        }
+    },
+    on_place = function(itemstack, placer, pointed_thing)
+        local stack = ItemStack('everness:flowers_' .. math.random(1, 4))
+        local ret = minetest.item_place(stack, placer, pointed_thing)
+        return ItemStack('everness:flowers_1 ' .. itemstack:get_count() - (1 - ret:get_count()))
+    end,
+})
+
+Everness:register_node('everness:flowers_2', {
+    description = S('Flowers'),
+    short_description = S('Flowers'),
+    drawtype = 'nodebox',
+    -- Textures of node; +Y, -Y, +X, -X, +Z, -Z
+    tiles = {
+        'everness_flowers.png',
+        'everness_flowers.png^[transformFY',
+        'everness_flowers_side_x.png',
+        'everness_flowers_side_x.png^[transformFX',
+        'everness_flowers_side_z.png^[transformFX',
+        'everness_flowers_side_z.png',
+    },
+    use_texture_alpha = 'clip',
+    inventory_image = 'everness_flowers.png',
+    wield_image = 'everness_flowers.png',
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    sunlight_propagates = true,
+    walkable = false,
+    buildable_to = true,
+    drop = 'everness:flowers_1',
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        bamboo_grass = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+        not_in_creative_inventory = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    selection_box = {
+        type = 'fixed',
+        fixed = { -8 / 16, -0.5, -8 / 16, 8 / 16, -5 / 16, 8 / 16 },
+    },
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            { 0, -0.3125, -0.0625, 0.5, -0.3125, 0.5 }, -- 3 small flowers top (A)
+            { 0.375, -0.5, 0.0625, 0.4375, -0.3125, 0.125 }, -- stem A
+            { 0.0625, -0.5, 0, 0.125, -0.3125, 0.0625 }, -- stem A
+            { 0.1875, -0.5, 0.3125, 0.25, -0.3125, 0.375 }, -- stem A
+            { -0.5, -0.4375, 0, 0, -0.4375, 0.5 }, -- 1 big flower top (D)
+            { -0.25, -0.5, 0.1875, -0.1875, -0.4375, 0.25 }, -- stem D
+        }
+    }
+})
+
+Everness:register_node('everness:flowers_3', {
+    description = S('Flowers'),
+    short_description = S('Flowers'),
+    drawtype = 'nodebox',
+    -- Textures of node; +Y, -Y, +X, -X, +Z, -Z
+    tiles = {
+        'everness_flowers.png',
+        'everness_flowers.png^[transformFY',
+        'everness_flowers_side_x.png',
+        'everness_flowers_side_x.png^[transformFX',
+        'everness_flowers_side_z.png^[transformFX',
+        'everness_flowers_side_z.png',
+    },
+    use_texture_alpha = 'clip',
+    inventory_image = 'everness_flowers.png',
+    wield_image = 'everness_flowers.png',
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    sunlight_propagates = true,
+    walkable = false,
+    buildable_to = true,
+    drop = 'everness:flowers_1',
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        bamboo_grass = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+        not_in_creative_inventory = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    selection_box = {
+        type = 'fixed',
+        fixed = { -8 / 16, -0.5, -8 / 16, 8 / 16, -5 / 16, 8 / 16 },
+    },
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            { 0, -0.3125, -0.0625, 0.5, -0.3125, 0.5 }, -- 3 small flowers top (A)
+            { 0.375, -0.5, 0.0625, 0.4375, -0.3125, 0.125 }, -- stem A
+            { 0.0625, -0.5, 0, 0.125, -0.3125, 0.0625 }, -- stem A
+            { 0.1875, -0.5, 0.3125, 0.25, -0.3125, 0.375 }, -- stem A
+            { -0.5, -0.4375, 0, 0, -0.4375, 0.5 }, -- 1 big flower top (D)
+            { -0.25, -0.5, 0.1875, -0.1875, -0.4375, 0.25 }, -- stem D
+            { -0.5, -0.375, -0.5, 0, -0.375, 0 }, -- 2 small and 1 medium flowers top (C)
+            { -0.125, -0.5, -0.1875, -0.0625, -0.375, -0.125 }, -- stem C
+            { -0.4375, -0.5, -0.25, -0.375, -0.375, -0.1875 }, -- stem C
+            { -0.3125, -0.5, -0.375, -0.1875, -0.375, -0.375 }, -- stem C
+            { -0.25, -0.5, -0.4375, -0.25, -0.375, -0.3125 }, -- stem C
+        }
+    }
+})
+
+Everness:register_node('everness:flowers_4', {
+    description = S('Flowers'),
+    short_description = S('Flowers'),
+    drawtype = 'nodebox',
+    -- Textures of node; +Y, -Y, +X, -X, +Z, -Z
+    tiles = {
+        'everness_flowers.png',
+        'everness_flowers.png^[transformFY',
+        'everness_flowers_side_x.png',
+        'everness_flowers_side_x.png^[transformFX',
+        'everness_flowers_side_z.png^[transformFX',
+        'everness_flowers_side_z.png',
+    },
+    use_texture_alpha = 'clip',
+    inventory_image = 'everness_flowers.png',
+    wield_image = 'everness_flowers.png',
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    sunlight_propagates = true,
+    walkable = false,
+    buildable_to = true,
+    drop = 'everness:flowers_1',
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        bamboo_grass = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+        not_in_creative_inventory = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    selection_box = {
+        type = 'fixed',
+        fixed = { -8 / 16, -0.5, -8 / 16, 8 / 16, -5 / 16, 8 / 16 },
+    },
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            { 0, -0.3125, -0.0625, 0.5, -0.3125, 0.5 }, -- 3 small flowers top (A)
+            { 0.375, -0.5, 0.0625, 0.4375, -0.3125, 0.125 }, -- stem A
+            { 0.0625, -0.5, 0, 0.125, -0.3125, 0.0625 }, -- stem A
+            { 0.1875, -0.5, 0.3125, 0.25, -0.3125, 0.375 }, -- stem A
+            { 0, -0.375, -0.5, 0.5, -0.375, -0.0625 }, -- 1 big flower top (B)
+            { 0.1875, -0.5, -0.3125, 0.25, -0.375, -0.25 }, -- stem B
+            { -0.5, -0.375, -0.5, 0, -0.375, 0 }, -- 2 small and 1 medium flowers top (C)
+            { -0.125, -0.5, -0.1875, -0.0625, -0.375, -0.125 }, -- stem C
+            { -0.4375, -0.5, -0.25, -0.375, -0.375, -0.1875 }, -- stem C
+            { -0.3125, -0.5, -0.375, -0.1875, -0.375, -0.375 }, -- stem C
+            { -0.25, -0.5, -0.4375, -0.25, -0.375, -0.3125 }, -- stem C
+            { -0.5, -0.4375, 0, 0, -0.4375, 0.5 }, -- 1 big flower top (D)
+            { -0.25, -0.5, 0.1875, -0.1875, -0.4375, 0.25 }, -- stem D
+        }
+    }
+})
+
 Everness:register_node('everness:coral_burdock_1', {
     description = S('Coral Burdock'),
     short_description = S('Coral Burdock'),

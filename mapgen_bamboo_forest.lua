@@ -149,48 +149,6 @@ if jungle_log_schem then
     })
 end
 
-local function register_grass_decoration(offset, scale, length)
-    minetest.register_decoration({
-        name = 'everness:bamboo_forest_grass_' .. length,
-        deco_type = 'simple',
-        place_on = { 'everness:dirt_with_grass_1' },
-        sidelen = 16,
-        noise_params = {
-            offset = offset,
-            scale = scale,
-            spread = { x = 200, y = 200, z = 200 },
-            seed = 329,
-            octaves = 3,
-            persist = 0.6
-        },
-        biomes = { 'everness_bamboo_forest' },
-        y_max = y_max,
-        y_min = y_min,
-        decoration = 'default:grass_' .. length,
-    })
-end
-
-local function register_flower(seed, flower_name)
-    minetest.register_decoration({
-        name = 'everness:bamboo_forest_' .. flower_name,
-        deco_type = 'simple',
-        place_on = { 'everness:dirt_with_grass_1' },
-        sidelen = 16,
-        noise_params = {
-            offset = -0.02,
-            scale = 0.04,
-            spread = { x = 200, y = 200, z = 200 },
-            seed = seed,
-            octaves = 3,
-            persist = 0.6
-        },
-        biomes = { 'everness_bamboo_forest' },
-        y_max = y_max,
-        y_min = y_min,
-        decoration = 'flowers:' .. flower_name,
-    })
-end
-
 -- Bush
 
 if minetest.get_modpath('default') then
@@ -238,24 +196,32 @@ if minetest.get_modpath('default') then
     })
 end
 
--- Grasses
-
-register_grass_decoration(-0.03, 0.09, 5)
-register_grass_decoration(-0.015, 0.075, 4)
-register_grass_decoration(0, 0.06, 3)
-register_grass_decoration(0.015, 0.045, 2)
-register_grass_decoration(0.03, 0.03, 1)
-
 -- Flowers
+local function register_flower_decoration(offset, scale, length)
+    minetest.register_decoration({
+        name = 'everness:bamboo_forest_flowers_' .. length,
+        deco_type = 'simple',
+        place_on = { 'everness:dirt_with_grass_1' },
+        sidelen = 16,
+        noise_params = {
+            offset = offset,
+            scale = scale,
+            spread = { x = 200, y = 200, z = 200 },
+            seed = 329,
+            octaves = 3,
+            persist = 0.6
+        },
+        biomes = { 'everness_bamboo_forest' },
+        y_max = y_max,
+        y_min = y_min,
+        decoration = 'everness:flowers_' .. length,
+    })
+end
 
-register_flower(436, 'rose')
-register_flower(19822, 'tulip')
-register_flower(1220999, 'dandelion_yellow')
-register_flower(800081, 'chrysanthemum_green')
-register_flower(36662, 'geranium')
-register_flower(1133, 'viola')
-register_flower(73133, 'dandelion_white')
-register_flower(42, 'tulip_black')
+register_flower_decoration(-0.03, 0.09, 4)
+register_flower_decoration(-0.015, 0.075, 3)
+register_flower_decoration(0, 0.06, 2)
+register_flower_decoration(0.015, 0.045, 1)
 
 --
 -- On Generated
