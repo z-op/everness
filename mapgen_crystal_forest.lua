@@ -63,6 +63,7 @@ minetest.register_decoration({
     y_max = y_max,
     y_min = y_min,
     decoration = 'everness:crystal_mushrooms',
+    param2 = 40
 })
 
 minetest.register_decoration({
@@ -109,6 +110,27 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
+minetest.register_decoration({
+    name = 'everness:crystal_forest_crystal_bush',
+    deco_type = 'schematic',
+    place_on = { 'everness:dirt_with_crystal_grass' },
+    sidelen = 16,
+    place_offset_y = 1,
+    noise_params = {
+        offset = -0.004,
+        scale = 0.01,
+        spread = { x = 100, y = 100, z = 100 },
+        seed = 137,
+        octaves = 3,
+        persist = 0.7,
+    },
+    biomes = { 'everness_crystal_forest' },
+    y_max = y_max,
+    y_min = y_min,
+    schematic = minetest.get_modpath('everness') .. '/schematics/everness_crystal_bush.mts',
+    flags = 'place_center_x, place_center_z',
+})
+
 local function register_crystal_grass_decoration(offset, scale, length)
     minetest.register_decoration({
         name = 'everness:crystal_forest_crystal_grass_' .. length,
@@ -135,24 +157,3 @@ end
 register_crystal_grass_decoration(-0.03, 0.09, 3)
 register_crystal_grass_decoration(-0.015, 0.075, 2)
 register_crystal_grass_decoration(0, 0.06, 1)
-
-minetest.register_decoration({
-    name = 'everness:crystal_forest_crystal_bush',
-    deco_type = 'schematic',
-    place_on = { 'everness:dirt_with_crystal_grass' },
-    sidelen = 16,
-    place_offset_y = 1,
-    noise_params = {
-        offset = -0.004,
-        scale = 0.01,
-        spread = { x = 100, y = 100, z = 100 },
-        seed = 137,
-        octaves = 3,
-        persist = 0.7,
-    },
-    biomes = { 'everness_crystal_forest' },
-    y_max = y_max,
-    y_min = y_min,
-    schematic = minetest.get_modpath('everness') .. '/schematics/everness_crystal_bush.mts',
-    flags = 'place_center_x, place_center_z',
-})

@@ -198,7 +198,8 @@ minetest.register_decoration({
     y_max = y_max - 500 > y_min and y_max - 500 or y_max,
     y_min = y_min,
     decoration = 'everness:twisted_crystal_grass',
-    flags = 'all_floors'
+    flags = 'all_floors',
+    param2 = 40
 })
 
 minetest.register_decoration({

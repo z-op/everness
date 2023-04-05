@@ -855,6 +855,8 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_coral_forest_deep_ocean_lantern_animated.png
 - everness_coral_forest_deep_ocean_lantern_bottom.png
 - everness_coral_forest_deep_ocean_lantern_top.png
+- everness_coral_bones_block.png
+- everness_coral_bones_brick.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 

@@ -5406,6 +5406,8 @@ Everness:register_node('everness:crystal_mushrooms', {
     wield_image = 'everness_crystal_mushrooms.png',
     drawtype = 'plantlike',
     paramtype = 'light',
+    paramtype2 = 'meshoptions',
+    place_param2 = 40,
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
@@ -5437,7 +5439,7 @@ Everness:register_node('everness:crystal_mushrooms', {
     on_use = minetest.item_eat(1),
     selection_box = {
         type = 'fixed',
-        fixed = { -3 / 16, -0.5, -3 / 16, 3 / 16, -2 / 16, 3 / 16 },
+        fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16 },
     },
     light_source = 3,
 })
@@ -5450,6 +5452,8 @@ Everness:register_node('everness:twisted_crystal_grass', {
     inventory_image = 'everness_twisted_crystal_grass.png',
     wield_image = 'everness_twisted_crystal_grass.png',
     paramtype = 'light',
+    paramtype2 = 'meshoptions',
+    place_param2 = 40,
     sunlight_propagates = true,
     walkable = false,
     buildable_to = true,
