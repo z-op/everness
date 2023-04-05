@@ -682,10 +682,6 @@ local skybox_defs = {
 }
 
 local function should_flip(player)
-    if not player then
-        return
-    end
-
     local player_meta = player:get_meta()
     local player_time = player_meta:get_int('everness_timeofday')
     -- 0 not defined (for player meta)
@@ -732,10 +728,6 @@ minetest.register_globalstep(function(dtime)
 
             local should_flip_data = should_flip(player)
 
-            if not should_flip_data then
-                should_flip_data = {}
-            end
-
             -- flip sun/moon when morning/afternoon
             if player_biome_name == biome_name and should_flip_data.should_flip then
                 if skybox_defs[biome_name] then
@@ -746,9 +738,7 @@ minetest.register_globalstep(function(dtime)
                             sun_params.texture = sun_params.texture .. '^[transformFY'
                         end
 
-                        if player then
-                            player:set_sun(sun_params)
-                        end
+                        player:set_sun(sun_params)
                     end
 
                     -- if skybox_defs[biome_name].moon_parameters then
@@ -771,70 +761,40 @@ minetest.register_globalstep(function(dtime)
                             sun_params.texture = sun_params.texture .. '^[transformFY'
                         end
 
-                        if player then
-                            player:set_sun(sun_params)
-                        end
+                        player:set_sun(sun_params)
                     else
-                        if player then
-                            player:set_sun()
-                        end
+                        player:set_sun()
                     end
 
                     if skybox_defs[biome_name].moon_parameters then
-                        if player then
-                            player:set_moon(skybox_defs[biome_name].moon_parameters)
-                        end
+                        player:set_moon(skybox_defs[biome_name].moon_parameters)
                     else
-                        if player then
-                            player:set_moon()
-                        end
+                        player:set_moon()
                     end
 
                     if skybox_defs[biome_name].star_parameters then
-                        if player then
-                            player:set_stars(skybox_defs[biome_name].star_parameters)
-                        end
+                        player:set_stars(skybox_defs[biome_name].star_parameters)
                     else
-                        if player then
-                            player:set_stars()
-                        end
+                        player:set_stars()
                     end
 
                     if skybox_defs[biome_name].sky_parameters then
-                        if player then
-                            player:set_sky(skybox_defs[biome_name].sky_parameters)
-                        end
+                        player:set_sky(skybox_defs[biome_name].sky_parameters)
                     else
-                        if player then
-                            player:set_sky()
-                        end
+                        player:set_sky()
                     end
 
                     if skybox_defs[biome_name].cloud_parameters then
-                        if player then
-                            player:set_clouds(skybox_defs[biome_name].cloud_parameters)
-                        end
+                        player:set_clouds(skybox_defs[biome_name].cloud_parameters)
                     else
-                        if player then
-                            player:set_clouds()
-                        end
-                    end
-                else
-                    if player then
-                        player:set_sun()
-                    end
-                    if player then
-                        player:set_moon()
-                    end
-                    if player then
-                        player:set_stars()
-                    end
-                    if player then
-                        player:set_sky()
-                    end
-                    if player then
                         player:set_clouds()
                     end
+                else
+                    player:set_sun()
+                    player:set_moon()
+                    player:set_stars()
+                    player:set_sky()
+                    player:set_clouds()
                 end
             end
 
@@ -842,47 +802,35 @@ minetest.register_globalstep(function(dtime)
                 -- hide sun, moon, stars ... underground
                 player_meta:set_int('everness_is_underground', 1)
 
-                if player then
-                    player:set_sun({
-                        visible = false,
-                        sunrise_visible = false
-                    })
-                end
+                player:set_sun({
+                    visible = false,
+                    sunrise_visible = false
+                })
 
-                if player then
-                    player:set_moon({
-                        visible = false
-                    })
-                end
+                player:set_moon({
+                    visible = false
+                })
 
-                if player then
-                    player:set_stars({
-                        visible = false
-                    })
-                end
+                player:set_stars({
+                    visible = false
+                })
 
             elseif player_pos.y > -256 and is_underground ~= 0 or (is_underground == 0 and player_meta:get_string('everness_biome_name') ~= biome_name) then
                 -- show sun, moon, stars ... underground
                 player_meta:set_int('everness_is_underground', 0)
 
-                if player then
-                    player:set_sun({
-                        visible = true
-                    })
-                end
+                player:set_sun({
+                    visible = true
+                })
 
-                if player then
-                    player:set_moon({
-                        visible = true
-                    })
-                end
+                player:set_moon({
+                    visible = true
+                })
 
-                if player then
-                    player:set_stars({
-                        visible = true,
-                        sunrise_visible = true
-                    })
-                end
+                player:set_stars({
+                    visible = true,
+                    sunrise_visible = true
+                })
             end
         end
 
