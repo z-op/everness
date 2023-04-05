@@ -775,7 +775,8 @@ minetest.register_globalstep(function(dtime)
                     if skybox_defs[biome_name].star_parameters then
                         player:set_stars(skybox_defs[biome_name].star_parameters)
                     else
-                        player:set_stars()
+                        -- passing empty object otherwise it will break on MT 5.6.0
+                        player:set_stars({})
                     end
 
                     if skybox_defs[biome_name].sky_parameters then
@@ -792,7 +793,8 @@ minetest.register_globalstep(function(dtime)
                 else
                     player:set_sun()
                     player:set_moon()
-                    player:set_stars()
+                    -- passing empty object otherwise it will break on MT 5.6.0
+                    player:set_stars({})
                     player:set_sky()
                     player:set_clouds()
                 end
