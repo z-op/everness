@@ -988,7 +988,7 @@ function Everness.set_loot_chest_items()
         then
             table.insert(loot_items, {
                 name = name,
-                max_count = 25,
+                max_count = 10,
                 chance = 25
             })
         end
