@@ -456,7 +456,7 @@ DAMAGES.
 
 ### Code
 
-GNU Lesser General Public License v2.1 or later (see included LICENSE file)
+GNU Lesser General Public License v2.1 or later
 
 ### Textures
 
@@ -599,7 +599,7 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_dense_vine_1.png
 - everness_dense_vine_2.png
 - everness_dense_vine_end.png
-- everness_dirt_1.png -- Derived from texture Pixel Perfection by XSSheep (CC-BY-SA-4.0)
+- everness_dirt_1.png
 - everness_door_bamboo_item.png
 - everness_door_bamboo.png
 - everness_door_bone_pyrite_item.png
@@ -613,7 +613,7 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_dry_branches.png
 - everness_dry_tree_top.png
 - everness_dry_tree.png
-- everness_dry_wood.png -- Derived from texture by BlockMen (CC BY-SA 3.0)
+- everness_dry_wood.png
 - everness_egg_plant_bottom.png
 - everness_egg_plant_item.png
 - everness_egg_plant_side.png
@@ -860,17 +860,24 @@ GNU Lesser General Public License v2.1 or later (see included LICENSE file)
 - everness_flowers.png
 - everness_flowers_side_x.png
 - everness_flowers_side_z.png
+- everness_dry_grass_1.png -- thanks to Khaz
+- everness_dry_grass_2.png -- thanks to Khaz
+- everness_dry_grass_3.png -- thanks to Khaz
+- everness_dry_grass_4.png -- thanks to Khaz
+- everness_dry_grass_top.png
+- everness_dry_grass_side.png
+- everness_grass_top.png
+- everness_grass_side.png
+- everness_grass_extras_1.png
+- everness_grass_extras_2.png
+- everness_dirt.png
+- everness_dry_dirt.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
 - everness_cobweb.png
 - everness_fire_animated.png
 - everness_flame_particle.png
-- everness_grass_side_1.png
-- everness_grass_top_1.png
-- everness_grass_top_2.png
-- everness_grass_with_blue_extra_top_2.png
-- everness_grass_with_yellow_extra_top_1.png
 - everness_rising_soul_particle.png
 
 ### Sounds

@@ -27,19 +27,7 @@ local path_nodes_bamboo_forest = {
         descritption = 'Dirt with Grass Path',
         drop = 'everness:dirt_1',
         tiles = {
-            'x_obsidianmese_path_dirt_base.png^(everness_grass_top_1.png^[mask:x_obsidianmese_path_overlay.png)',
-            'x_obsidianmese_path_dirt_base.png',
-            'x_obsidianmese_dirt_path_side.png'
-        },
-        sounds = Everness.node_sound_dirt_defaults()
-    },
-    ['everness:dirt_with_grass_2'] = {
-        name = 'dirt_with_grass_2',
-        mod_origin = 'everness',
-        descritption = 'Dirt with Grass Path',
-        drop = 'everness:dirt_1',
-        tiles = {
-            'x_obsidianmese_path_dirt_base.png^(everness_grass_top_2.png^[mask:x_obsidianmese_path_overlay.png)',
+            'x_obsidianmese_path_dirt_base.png^(everness_grass_top.png^[mask:x_obsidianmese_path_overlay.png)',
             'x_obsidianmese_path_dirt_base.png',
             'x_obsidianmese_dirt_path_side.png'
         },
@@ -51,7 +39,7 @@ local path_nodes_bamboo_forest = {
         descritption = 'Dirt with Grass Path',
         drop = 'everness:dirt_1',
         tiles = {
-            'x_obsidianmese_path_dirt_base.png^(everness_grass_top_1.png^[mask:x_obsidianmese_path_overlay.png)',
+            'x_obsidianmese_path_dirt_base.png^(everness_grass_top.png^[mask:x_obsidianmese_path_overlay.png)',
             'x_obsidianmese_path_dirt_base.png',
             'x_obsidianmese_dirt_path_side.png'
         },
@@ -63,7 +51,7 @@ local path_nodes_bamboo_forest = {
         descritption = 'Dirt with Grass Path',
         drop = 'everness:dirt_1',
         tiles = {
-            'x_obsidianmese_path_dirt_base.png^(everness_grass_top_2.png^[mask:x_obsidianmese_path_overlay.png)',
+            'x_obsidianmese_path_dirt_base.png^(everness_grass_top.png^[mask:x_obsidianmese_path_overlay.png)',
             'x_obsidianmese_path_dirt_base.png',
             'x_obsidianmese_dirt_path_side.png'
         },
@@ -75,12 +63,39 @@ local path_nodes_bamboo_forest = {
         descritption = 'Dirt Path',
         drop = 'everness:dirt_1',
         tiles = {
-            'x_obsidianmese_path_dirt_base.png^(everness_dirt_1.png^[mask:x_obsidianmese_path_overlay_2.png)',
+            'x_obsidianmese_path_dirt_base.png^(everness_dirt.png^[mask:x_obsidianmese_path_overlay_2.png)',
             'x_obsidianmese_path_dirt_base.png',
             'x_obsidianmese_dirt_path_side.png'
         },
         sounds = Everness.node_sound_dirt_defaults()
+    }
+}
+
+local path_nodes_baobab_savanna = {
+    ['everness:dry_dirt_with_dry_grass'] = {
+        name = 'dry_dirt_with_dry_grass',
+        mod_origin = 'everness',
+        descritption = 'Dry Dirt with Dry Grass Path',
+        drop = 'everness:dry_dirt',
+        tiles = {
+            'x_obsidianmese_path_dirt_base.png^[colorize:#B88C5E:127^(everness_dry_grass_top.png^[mask:x_obsidianmese_path_overlay.png)',
+            'x_obsidianmese_path_dirt_base.png^[colorize:#B88C5E:127',
+            'x_obsidianmese_dirt_path_side.png^[colorize:#B88C5E:127'
+        },
+        sounds = Everness.node_sound_dirt_defaults()
     },
+    ['everness:dry_dirt'] = {
+        name = 'dry_dirt',
+        mod_origin = 'everness',
+        descritption = 'Dry Dirt Path',
+        drop = 'everness:dry_dirt',
+        tiles = {
+            'x_obsidianmese_path_dirt_base.png^[colorize:#B88C5E:127^(everness_dry_dirt.png^[mask:x_obsidianmese_path_overlay_2.png)',
+            'x_obsidianmese_path_dirt_base.png^[colorize:#B88C5E:127',
+            'x_obsidianmese_dirt_path_side.png^[colorize:#B88C5E:127'
+        },
+        sounds = Everness.node_sound_dirt_defaults()
+    }
 }
 
 -- Crystal Forest
@@ -458,6 +473,12 @@ if Everness.settings.biomes.everness_bamboo_forest.enabled then
     x_obsidianmese:register_path_node(path_nodes_bamboo_forest)
 end
 
+-- Baobab Savanna
+
+if Everness.settings.biomes.everness_baobab_savanna.enabled then
+    x_obsidianmese:register_path_node(path_nodes_baobab_savanna)
+end
+
 -- Crystal Forest
 
 if Everness.settings.biomes.everness_crystal_forest.enabled then
@@ -530,6 +551,7 @@ if Everness.settings.biomes.everness_forsaken_desert_under.enabled then
 end
 
 -- Frosted Icesheet
+
 if Everness.settings.biomes.everness_frosted_icesheet.enabled then
     x_obsidianmese:register_path_node(path_nodes_frosted_icesheet)
 end

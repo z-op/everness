@@ -26,10 +26,10 @@ local grass_covered_mapping = {
     ['everness:crystal_dirt'] = { 'everness:dirt_with_crystal_grass' },
     ['everness:dirt_1'] = {
         'everness:dirt_with_grass_1',
-        'everness:dirt_with_grass_2',
         'everness:dirt_with_grass_extras_1',
         'everness:dirt_with_grass_extras_2',
     },
+    ['everness:dry_dirt'] = { 'everness:dry_dirt_with_dry_grass' }
 }
 
 local grass_covered_mapping_under = {
@@ -48,6 +48,7 @@ minetest.register_abm({
         'everness:cursed_dirt',
         'everness:crystal_dirt',
         'everness:dirt_1',
+        'everness:dry_dirt',
     },
     neighbors = {
         'air',
@@ -55,6 +56,7 @@ minetest.register_abm({
         'group:cursed_grass',
         'group:crystal_grass',
         'group:bamboo_grass',
+        'group:everness_dry_grass'
     },
     interval = 6,
     chance = 50,
@@ -83,7 +85,7 @@ minetest.register_abm({
                 n3_name = n3_def[math.random(1, #n3_def)]
             end
 
-            minetest.set_node(pos, {name = n3_name})
+            minetest.set_node(pos, { name = n3_name })
             return
         end
 
@@ -99,12 +101,13 @@ minetest.register_abm({
         elseif minetest.get_item_group(name, 'bamboo_grass') ~= 0 and node.name == 'everness:dirt_1' then
             local bamboo_grass_covered_types = {
                 'everness:dirt_with_grass_1',
-                'everness:dirt_with_grass_2',
                 'everness:dirt_with_grass_extras_1',
                 'everness:dirt_with_grass_extras_2'
             }
 
             minetest.set_node(pos, { name = bamboo_grass_covered_types[math.random(1, #bamboo_grass_covered_types)] })
+        elseif minetest.get_item_group(name, 'everness_dry_grass') ~= 0 and node.name == 'everness:dry_dirt' then
+            minetest.set_node(pos, { name = 'everness:dry_dirt_with_dry_grass' })
         end
     end
 })
@@ -204,13 +207,14 @@ minetest.register_abm({
             elseif node.name == 'everness:dirt_with_crystal_grass' then
                 minetest.set_node(pos, { name = 'everness:crystal_dirt' })
             elseif node.name == 'everness:dirt_with_grass_1'
-                or node.name == 'everness:dirt_with_grass_2'
                 or node.name == 'everness:dirt_with_grass_extras_1'
                 or node.name == 'everness:dirt_with_grass_extras_2'
             then
                 minetest.set_node(pos, { name = 'everness:dirt_1' })
             elseif node.name == 'everness:coral_desert_stone_with_moss' then
                 minetest.set_node(pos, { name = 'everness:coral_desert_stone' })
+            elseif node.name == 'everness:dry_dirt_with_dry_grass' then
+                minetest.set_node(pos, { name = 'everness:dry_dirt' })
             elseif node.name == 'everness:soul_sandstone_veined' then
                 minetest.set_node(pos, { name = 'everness:soul_sandstone' })
             elseif node.name == 'everness:crystal_cave_dirt_with_moss' then

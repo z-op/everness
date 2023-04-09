@@ -107,6 +107,15 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    output = 'everness:trapdoor_cursed_wood 2',
+    recipe = {
+        { 'everness:dry_wood', 'everness:dry_wood', 'everness:dry_wood' },
+        { 'everness:dry_wood', 'everness:dry_wood', 'everness:dry_wood' },
+        { '', '', '' },
+    }
+})
+
+minetest.register_craft({
     output = 'everness:bamboo_mosaic_wood',
     recipe = {
         { 'everness:bamboo_wood', 'everness:bamboo_wood' },

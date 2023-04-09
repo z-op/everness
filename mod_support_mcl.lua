@@ -980,3 +980,42 @@ minetest.register_craft({
         { 'everness:crystal_wood', 'everness:crystal_wood' },
     }
 })
+
+mcl_doors:register_door('everness:door_cursed_wood', {
+    description = S('Cursed Wood Door'),
+    inventory_image = 'everness_door_cursed_wood_item.png',
+    groups = { handy = 1, axey = 1, material_wood = 1, flammable = -1 },
+    tiles_bottom = { 'everness_mcl_doors_door_cursed_wood_lower.png', 'everness_mcl_doors_door_cursed_wood_side_upper.png' },
+    tiles_top = { 'everness_mcl_doors_door_cursed_wood_upper.png', 'everness_mcl_doors_door_cursed_wood_side_upper.png' },
+    sounds = Everness.node_sound_wood_defaults(),
+    _mcl_hardness = 3,
+    _mcl_blast_resistance = 3,
+})
+
+minetest.register_craft({
+    output = 'everness:door_cursed_wood 3',
+    recipe = {
+        { 'everness:dry_wood', 'everness:dry_wood' },
+        { 'everness:dry_wood', 'everness:dry_wood' },
+        { 'everness:dry_wood', 'everness:dry_wood' }
+    }
+})
+
+mcl_doors:register_trapdoor('everness:trapdoor_cursed_wood', {
+    description = S('Cursed Wood Trapdoor'),
+    tile_front = 'everness_door_trapdoor_cursed_wood.png',
+    tile_side = 'everness_mcl_doors_trapdoor_cursed_wood_side.png',
+    wield_image = 'everness_door_trapdoor_cursed_wood.png',
+    groups = { handy = 1, axey = 1, material_wood = 1, flammable = -1 },
+    sounds = Everness.node_sound_wood_defaults(),
+    _mcl_hardness = 3,
+    _mcl_blast_resistance = 3,
+})
+
+minetest.register_craft({
+    output = 'everness:trapdoor_cursed_wood',
+    recipe = {
+        { 'everness:dry_wood', 'everness:dry_wood' },
+        { 'everness:dry_wood', 'everness:dry_wood' },
+    }
+})

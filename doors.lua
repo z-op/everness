@@ -125,3 +125,27 @@ doors.register_fencegate('everness:gate_crystal_wood', {
     material = 'everness:crystal_wood',
     groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 }
 })
+
+doors.register('everness:door_cursed_wood', {
+    description = S('Cursed Wood Door'),
+    tiles = { 'everness_door_cursed_wood.png' },
+    inventory_image = 'everness_door_cursed_wood_item.png',
+    use_texture_alpha = 'blend',
+    groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
+    sounds = Everness.node_sound_wood_defaults(),
+    recipe = {
+        { 'everness:dry_wood', 'everness:dry_wood' },
+        { 'everness:dry_wood', 'everness:dry_wood' },
+        { 'everness:dry_wood', 'everness:dry_wood' },
+    }
+})
+
+doors.register_trapdoor('everness:trapdoor_cursed_wood', {
+    description = S('Cursed Wood Trapdoor'),
+    inventory_image = 'everness_door_trapdoor_cursed_wood.png',
+    wield_image = 'everness_door_trapdoor_cursed_wood.png',
+    tile_front = 'everness_door_trapdoor_cursed_wood.png',
+    tile_side = 'everness_door_trapdoor_cursed_wood_side.png',
+    sounds = Everness.node_sound_wood_defaults(),
+    groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
+})
