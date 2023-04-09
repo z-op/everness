@@ -133,6 +133,10 @@ doors.register('everness:door_cursed_wood', {
     use_texture_alpha = 'blend',
     groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
     sounds = Everness.node_sound_wood_defaults(),
+    sound_open = 'everness_creaky_door_open',
+    sound_close = 'everness_creaky_door_close',
+    gain_open = 0.15,
+    gain_close = 0.15,
     recipe = {
         { 'everness:dry_wood', 'everness:dry_wood' },
         { 'everness:dry_wood', 'everness:dry_wood' },
@@ -147,5 +151,9 @@ doors.register_trapdoor('everness:trapdoor_cursed_wood', {
     tile_front = 'everness_door_trapdoor_cursed_wood.png',
     tile_side = 'everness_door_trapdoor_cursed_wood_side.png',
     sounds = Everness.node_sound_wood_defaults(),
+    sound_open = 'everness_creaky_door_open',
+    sound_close = 'everness_creaky_door_close',
+    gain_open = 0.15,
+    gain_close = 0.15,
     groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
 })

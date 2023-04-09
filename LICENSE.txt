@@ -1298,6 +1298,16 @@ https://freesound.org/people/cabled_mess/sounds/384421/
 - everness_tool_breaks.2.ogg
 - everness_tool_breaks.3.ogg
 
+**CC0-1.0, by Rudmer_Rotteveel**
+
+https://freesound.org/people/Rudmer_Rotteveel/sounds/590949/
+https://freesound.org/people/Rudmer_Rotteveel/sounds/590948/
+https://freesound.org/people/Rudmer_Rotteveel/sounds/590950/
+
+- everness_creaky_door_open.1.ogg
+- everness_creaky_door_open.2.ogg
+- everness_creaky_door_close.ogg
+
 ### Models
 
 **CC-BY-SA-4.0, by SaKeL**
