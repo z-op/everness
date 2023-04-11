@@ -97,17 +97,17 @@ end
 Everness.chest.open_chests = {}
 
 minetest.register_on_player_receive_fields(function(player, formname, fields)
-    if formname ~= 'everness:chest' then
-        return
-    end
-
-    if not player or not fields.quit then
-        return
-    end
-
     local pn = player:get_player_name()
 
-    if not Everness.chest.open_chests[pn] then
+    if formname ~= 'everness:chest' then
+        if Everness.chest.open_chests[pn] then
+            Everness.chest.chest_lid_close(pn)
+        end
+
+        return
+    end
+
+    if not (fields.quit and Everness.chest.open_chests[pn]) then
         return
     end
 
@@ -185,14 +185,26 @@ function Everness.chest.register_chest(prefixed_name, d)
                 return itemstack
             end
 
+            local cn = clicker:get_player_name()
+
+            if Everness.chest.open_chests[cn] then
+                Everness.chest.chest_lid_close(cn)
+            end
+
             minetest.sound_play(def.sound_open, { gain = 0.3, pos = pos, max_hear_distance = 10 }, true)
 
             if not Everness.chest.chest_lid_obstructed(pos) then
                 minetest.swap_node(pos, { name = name .. '_open', param2 = node.param2 })
             end
 
-            minetest.after(0.2, minetest.show_formspec, clicker:get_player_name(), 'everness:chest', Everness.chest.get_chest_formspec(pos))
-            Everness.chest.open_chests[clicker:get_player_name()] = { pos = pos, sound = def.sound_close, swap = name }
+            minetest.after(
+                0.2,
+                minetest.show_formspec,
+                cn,
+                'everness:chest',
+                Everness.chest.get_chest_formspec(pos)
+            )
+            Everness.chest.open_chests[cn] = { pos = pos, sound = def.sound_close, swap = name }
         end
 
         def.on_blast = function() end
@@ -311,6 +323,18 @@ function Everness.chest.register_chest(prefixed_name, d)
 
     minetest.register_node(prefixed_name, def_closed)
     minetest.register_node(prefixed_name .. '_open', def_opened)
+
+    -- close opened chests on load
+    minetest.register_lbm({
+        label = 'Everness close opened chests on load',
+        name = 'everness:close_' .. prefixed_name:gsub(':', '_') .. '_open',
+        nodenames = { prefixed_name .. '_open' },
+        run_at_every_load = true,
+        action = function(pos, node)
+            node.name = prefixed_name
+            minetest.swap_node(pos, node)
+        end
+    })
 end
 
 Everness.chest.register_chest('everness:chest', {
