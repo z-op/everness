@@ -23,6 +23,7 @@ local mod_start_time = minetest.get_us_time()
 
 -- Legacy backwards compatibility
 minetest.register_alias('everness:dirt_with_grass_2', 'everness:dirt_with_grass_1')
+minetest.register_alias('everness:path_dirt_with_grass_2', 'everness:path_dirt_with_grass_1')
 
 -- MineClone2 support
 if minetest.get_modpath('mcl_core') and minetest.global_exists('mcl_core') then
