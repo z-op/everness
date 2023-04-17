@@ -138,7 +138,25 @@ minetest.register_node('everness:coral_dirt_soil', {
         'everness_coral_dirt.png'
     },
     drop = 'everness:coral_dirt',
-    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        not_in_creative_inventory = 1,
+        soil = 2,
+        grassland = 1,
+        field = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:coral_dirt',
@@ -154,7 +172,25 @@ minetest.register_node('everness:dirt_1_soil', {
         'everness_dirt.png'
     },
     drop = 'everness:dirt_1',
-    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        not_in_creative_inventory = 1,
+        soil = 2,
+        grassland = 1,
+        field = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:dirt_1',
@@ -170,7 +206,25 @@ minetest.register_node('everness:crystal_dirt_soil', {
         'everness_crystal_dirt.png'
     },
     drop = 'everness:crystal_dirt',
-    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        not_in_creative_inventory = 1,
+        soil = 2,
+        grassland = 1,
+        field = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:crystal_dirt',
@@ -186,7 +240,25 @@ minetest.register_node('everness:crystal_cave_dirt_soil', {
         'everness_crystal_cave_dirt.png'
     },
     drop = 'everness:crystal_cave_dirt',
-    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        not_in_creative_inventory = 1,
+        soil = 2,
+        grassland = 1,
+        field = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:crystal_cave_dirt',
@@ -202,7 +274,25 @@ minetest.register_node('everness:cursed_dirt_soil', {
         'everness_cursed_dirt.png'
     },
     drop = 'everness:cursed_dirt',
-    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        not_in_creative_inventory = 1,
+        soil = 2,
+        grassland = 1,
+        field = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:cursed_dirt',
@@ -218,7 +308,25 @@ minetest.register_node('everness:dry_dirt_soil', {
         'everness_dry_dirt.png'
     },
     drop = 'everness:dry_dirt',
-    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 2, grassland = 1, field = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        not_in_creative_inventory = 1,
+        soil = 2,
+        grassland = 1,
+        field = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:dry_dirt',
@@ -235,7 +343,26 @@ minetest.register_node('everness:coral_dirt_soil_wet', {
         'everness_coral_dirt.png^(everness_coral_dirt.png^[mask:everness_farming_soil_wet_side_overlay.png^[multiply:#A05F3A80)',
     },
     drop = 'everness:coral_dirt',
-    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        not_in_creative_inventory = 1,
+        soil = 3,
+        wet = 1,
+        grassland = 1,
+        field = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:coral_dirt',
@@ -251,7 +378,26 @@ minetest.register_node('everness:dirt_1_soil_wet', {
         'everness_dirt.png^(everness_dirt.png^[mask:everness_farming_soil_wet_side_overlay.png^[multiply:#51341E80)',
     },
     drop = 'everness:dirt_1',
-    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        not_in_creative_inventory = 1,
+        soil = 3,
+        wet = 1,
+        grassland = 1,
+        field = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:dirt_1',
@@ -267,7 +413,26 @@ minetest.register_node('everness:crystal_dirt_soil_wet', {
         'everness_crystal_dirt.png^(everness_crystal_dirt.png^[mask:everness_farming_soil_wet_side_overlay.png^[multiply:#75506980)',
     },
     drop = 'everness:crystal_dirt',
-    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        not_in_creative_inventory = 1,
+        soil = 3,
+        wet = 1,
+        grassland = 1,
+        field = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:crystal_dirt',
@@ -283,7 +448,26 @@ minetest.register_node('everness:crystal_cave_dirt_soil_wet', {
         'everness_crystal_cave_dirt.png^(everness_crystal_cave_dirt.png^[mask:everness_farming_soil_wet_side_overlay.png^[multiply:#CCB17E80)',
     },
     drop = 'everness:crystal_cave_dirt',
-    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        not_in_creative_inventory = 1,
+        soil = 3,
+        wet = 1,
+        grassland = 1,
+        field = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:crystal_cave_dirt',
@@ -299,7 +483,26 @@ minetest.register_node('everness:cursed_dirt_soil_wet', {
         'everness_cursed_dirt.png^(everness_cursed_dirt.png^[mask:everness_farming_soil_wet_side_overlay.png^[multiply:#625B4B80)',
     },
     drop = 'everness:cursed_dirt',
-    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        not_in_creative_inventory = 1,
+        soil = 3,
+        wet = 1,
+        grassland = 1,
+        field = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:cursed_dirt',
@@ -315,7 +518,26 @@ minetest.register_node('everness:dry_dirt_soil_wet', {
         'everness_dry_dirt.png^(everness_dry_dirt.png^[mask:everness_farming_soil_wet_side_overlay.png^[multiply:#9F754780)',
     },
     drop = 'everness:dry_dirt',
-    groups = { crumbly = 3, not_in_creative_inventory = 1, soil = 3, wet = 1, grassland = 1, field = 1 },
+    groups = {
+        -- MTG
+        crumbly = 3,
+        not_in_creative_inventory = 1,
+        soil = 3,
+        wet = 1,
+        grassland = 1,
+        field = 1,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        dirt = 1,
+        soil_sapling = 2,
+        soil_sugarcane = 1,
+        cultivatable = 2,
+        enderman_takable = 1,
+        building_block = 1,
+    },
+    _mcl_blast_resistance = 0.5,
+    _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
     soil = {
         base = 'everness:dry_dirt',
