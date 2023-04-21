@@ -2024,7 +2024,6 @@ Everness:register_node('everness:dry_dirt_with_dry_grass', {
         cultivatable = 2,
         enderman_takable = 1,
         building_block = 1,
-        compostability = 30,
         -- path_creation_possible = 1,
         -- Everness
         everness_spreading_dirt_type = 1,
@@ -4653,6 +4652,7 @@ Everness:register_node('everness:flowers_1', {
         snappy = 3,
         flora = 1,
         bamboo_grass = 1,
+        flower = 1,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -4718,6 +4718,7 @@ Everness:register_node('everness:flowers_2', {
         snappy = 3,
         flora = 1,
         bamboo_grass = 1,
+
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -4781,6 +4782,7 @@ Everness:register_node('everness:flowers_3', {
         snappy = 3,
         flora = 1,
         bamboo_grass = 1,
+        flower = 1,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -4849,6 +4851,7 @@ Everness:register_node('everness:flowers_4', {
         snappy = 3,
         flora = 1,
         bamboo_grass = 1,
+        flower = 1,
         -- MCL
         handy = 1,
         shearsy = 1,
