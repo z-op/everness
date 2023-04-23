@@ -42,7 +42,7 @@ local function pick_dropped_items(player)
     end
 
     -- sort with the oldest objects first
-    table.sort(objects_to_collect, function (a, b)
+    table.sort(objects_to_collect, function(a, b)
         return b:get_luaentity().age < a:get_luaentity().age
     end)
 

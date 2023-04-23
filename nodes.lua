@@ -275,7 +275,8 @@ Everness:register_node('everness:coral_sandstone', {
         sandstone = 1,
         normal_sandstone = 1,
         building_block = 1,
-        material_stone = 1
+        material_stone = 1,
+        stone = 1
     },
     _mcl_blast_resistance = 0.8,
     _mcl_hardness = 0.8,
@@ -296,7 +297,8 @@ Everness:register_node('everness:coral_sandstone_brick', {
         sandstone = 1,
         normal_sandstone = 1,
         building_block = 1,
-        material_stone = 1
+        material_stone = 1,
+        stone = 1
     },
     _mcl_blast_resistance = 0.8,
     _mcl_hardness = 0.8,
@@ -315,7 +317,8 @@ Everness:register_node('everness:coral_sandstone_chiseled', {
         sandstone = 1,
         normal_sandstone = 1,
         building_block = 1,
-        material_stone = 1
+        material_stone = 1,
+        stone = 1
     },
     _mcl_blast_resistance = 0.8,
     _mcl_hardness = 0.8,
@@ -334,7 +337,8 @@ Everness:register_node('everness:coral_sandstone_carved_1', {
         sandstone = 1,
         normal_sandstone = 1,
         building_block = 1,
-        material_stone = 1
+        material_stone = 1,
+        stone = 1
     },
     _mcl_blast_resistance = 0.8,
     _mcl_hardness = 0.8,
@@ -352,7 +356,8 @@ Everness:register_node('everness:coral_white_sandstone', {
         sandstone = 1,
         normal_sandstone = 1,
         building_block = 1,
-        material_stone = 1
+        material_stone = 1,
+        stone = 1
     },
     _mcl_blast_resistance = 0.8,
     _mcl_hardness = 0.8,
@@ -373,7 +378,8 @@ Everness:register_node('everness:coral_white_sandstone_brick', {
         sandstone = 1,
         normal_sandstone = 1,
         building_block = 1,
-        material_stone = 1
+        material_stone = 1,
+        stone = 1
     },
     _mcl_blast_resistance = 0.8,
     _mcl_hardness = 0.8,
@@ -398,7 +404,8 @@ Everness:register_node('everness:coral_white_sandstone_pillar', {
         sandstone = 1,
         normal_sandstone = 1,
         building_block = 1,
-        material_stone = 1
+        material_stone = 1,
+        stone = 1
     },
     _mcl_blast_resistance = 0.8,
     _mcl_hardness = 0.8,
@@ -8710,6 +8717,7 @@ Everness:register_node('everness:glass', {
         -- MTG
         cracky = 3,
         oddly_breakable_by_hand = 3,
+        glass = 1,
         -- MCL
         handy = 1,
         building_block = 1,
@@ -8733,6 +8741,7 @@ Everness:register_node('everness:tinted_glass_red', {
         -- MTG
         cracky = 3,
         oddly_breakable_by_hand = 3,
+        glass = 1,
         -- MCL
         handy = 1,
         building_block = 1,
@@ -8796,6 +8805,7 @@ Everness:register_node('everness:pyrite_glass', {
         -- MTG
         cracky = 3,
         oddly_breakable_by_hand = 3,
+        glass = 1,
         -- MCL
         handy = 1,
         building_block = 1,
