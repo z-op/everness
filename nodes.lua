@@ -30,6 +30,7 @@ Everness:register_node('everness:stone_with_pyrite', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 4,
         building_block = 1,
@@ -226,6 +227,7 @@ Everness:register_node('everness:quartz_ore', {
     groups = {
         -- MTG
         cracky = 3,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         building_block = 1,
@@ -587,6 +589,7 @@ Everness:register_node('everness:coral_deep_ocean_sandstone_block', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         sandstone = 1,
@@ -607,6 +610,7 @@ Everness:register_node('everness:coral_deep_ocean_sandstone_brick', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         sandstone = 1,
@@ -625,6 +629,7 @@ Everness:register_node('everness:cursed_lands_deep_ocean_sandstone_block', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         sandstone = 1,
@@ -645,6 +650,7 @@ Everness:register_node('everness:cursed_lands_deep_ocean_sandstone_brick', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         sandstone = 1,
@@ -663,6 +669,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_sandstone_block', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         sandstone = 1,
@@ -683,6 +690,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_sandstone_brick', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         sandstone = 1,
@@ -761,6 +769,7 @@ Everness:register_node('everness:volcanic_rock', {
         -- MTG
         cracky = 1,
         level = 2,
+        stone = 1,
         -- MCL
         pickaxey = 5,
         building_block = 1,
@@ -789,6 +798,7 @@ Everness:register_node('everness:volcanic_rock_with_magma', {
         -- MTG
         cracky = 1,
         level = 2,
+        stone = 1,
         -- MCL
         pickaxey = 5,
         building_block = 1,
@@ -953,7 +963,17 @@ Everness:register_node('everness:cursed_brick_carved', {
 Everness:register_node('everness:volcanic_sulfur', {
     description = S('Volcanic Sulfur Stone'),
     tiles = { 'everness_volcanic_sulfur_stone.png' },
-    groups = { cracky = 3, stone = 1 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        stonebrick = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -1113,7 +1133,16 @@ Everness:register_node('everness:forsaken_tundra_brick', {
     place_param2 = 0,
     tiles = { 'everness_forsaken_tundra_brick.png' },
     is_ground_content = false,
-    groups = { cracky = 2, stone = 1 },
+    groups = {
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        stonebrick = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
     sounds = Everness.node_sound_stone_defaults(),
 })
 
@@ -1150,6 +1179,7 @@ Everness:register_node('everness:blue_crying_obsidian', {
         -- MTG
         cracky = 1,
         level = 2,
+        stone = 1,
         -- MCL
         pickaxey = 5,
         building_block = 1,
@@ -1167,6 +1197,7 @@ Everness:register_node('everness:blue_weeping_obsidian', {
         -- MTG
         cracky = 1,
         level = 2,
+        stone = 1,
         -- MCL
         pickaxey = 5,
         building_block = 1,
@@ -1186,6 +1217,7 @@ Everness:register_node('everness:weeping_obsidian', {
         -- MTG
         cracky = 1,
         level = 2,
+        stone = 1,
         -- MCL
         pickaxey = 5,
         building_block = 1,
@@ -1333,6 +1365,7 @@ Everness:register_node('everness:quartz_block', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         quartz_block = 1,
@@ -1355,6 +1388,7 @@ Everness:register_node('everness:quartz_chiseled', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         quartz_block = 1,
@@ -1378,6 +1412,7 @@ Everness:register_node('everness:quartz_pillar', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         quartz_block = 1,
@@ -1482,6 +1517,7 @@ Everness:register_node('everness:crystal_sandstone', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         sandstone = 1,
@@ -1503,6 +1539,7 @@ Everness:register_node('everness:crystal_sandstone_brick', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         sandstone = 1,
@@ -1522,6 +1559,7 @@ Everness:register_node('everness:crystal_sandstone_chiseled', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         sandstone = 1,
@@ -1540,6 +1578,7 @@ Everness:register_node('everness:cursed_sandstone_block', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         sandstone = 1,
@@ -1561,6 +1600,7 @@ Everness:register_node('everness:cursed_sandstone_brick', {
     groups = {
         -- MTG
         cracky = 2,
+        stone = 1,
         -- MCL
         pickaxey = 1,
         sandstone = 1,
