@@ -24,6 +24,14 @@ local S = minetest.get_translator(minetest.get_current_modname())
 -- Ores
 --
 
+minetest.register_node('everness:coral_desert_stone_with_coal', {
+    description = S('Coal Ore'),
+    tiles = { 'everness_coral_desert_stone.png^everness_mineral_coal.png' },
+    groups = { cracky = 3 },
+    drop = 'default:coal_lump',
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
 Everness:register_node('everness:stone_with_pyrite', {
     description = S('Pyrite Ore'),
     tiles = { 'everness_stone.png^everness_mineral_pyrite.png' },

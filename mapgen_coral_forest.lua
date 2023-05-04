@@ -33,6 +33,7 @@ minetest.register_biome({
     depth_filler = 1,
     node_riverbed = 'everness:coral_dirt',
     depth_riverbed = 2,
+    node_stone = 'everness:coral_desert_stone',
     node_dungeon = 'everness:coral_desert_stone_block',
     node_dungeon_alt = 'everness:coral_desert_stone_brick',
     node_dungeon_stair = 'stairs:stair_coral_desert_stone_block',
@@ -49,12 +50,12 @@ minetest.register_biome({
 -- Blob ore.
 -- These before scatter ores to avoid other ores in blobs.
 
--- Coral Desert Stone
+-- Coral sand
 
 minetest.register_ore({
     ore_type = 'blob',
-    ore = 'everness:coral_desert_stone',
-    wherein = { 'default:stone' },
+    ore = 'everness:coral_sand',
+    wherein = { 'everness:coral_desert_stone' },
     clust_scarcity = 16 * 16 * 16,
     clust_size = 5,
     y_max = y_max,
@@ -64,10 +65,48 @@ minetest.register_ore({
         offset = 0.5,
         scale = 0.2,
         spread = { x = 5, y = 5, z = 5 },
-        seed = -316,
+        seed = 2316,
         octaves = 1,
         persist = 0.0
     },
+    biomes = { 'everness_coral_forest' }
+})
+
+-- Dirt
+
+minetest.register_ore({
+    ore_type = 'blob',
+    ore = 'everness:coral_dirt',
+    wherein = { 'everness:coral_desert_stone' },
+    clust_scarcity = 16 * 16 * 16,
+    clust_size = 5,
+    y_max = y_max,
+    y_min = y_min,
+    noise_threshold = 0.0,
+    noise_params = {
+        offset = 0.5,
+        scale = 0.2,
+        spread = { x = 5, y = 5, z = 5 },
+        seed = 17676,
+        octaves = 1,
+        persist = 0.0
+    },
+    biomes = { 'everness_coral_forest' }
+})
+
+-- Scatter ores
+
+-- Coal
+
+minetest.register_ore({
+    ore_type = 'scatter',
+    ore = 'everness:coral_desert_stone_with_coal',
+    wherein = 'everness:coral_desert_stone',
+    clust_scarcity = 8 * 8 * 8,
+    clust_num_ores = 9,
+    clust_size = 3,
+    y_max = y_max,
+    y_min = y_min,
     biomes = { 'everness_coral_forest' }
 })
 
