@@ -28,9 +28,9 @@ local y_min = Everness.settings.biomes.everness_crystal_forest_under.y_min
 minetest.register_biome({
     name = 'everness_crystal_forest_under',
     node_cave_liquid = { 'default:water_source', 'default:lava_source' },
-    node_dungeon = 'default:cobble',
-    node_dungeon_alt = 'default:mossycobble',
-    node_dungeon_stair = 'stairs:stair_cobble',
+    node_dungeon = 'everness:crystal_cobble',
+    node_dungeon_alt = 'everness:crystal_stone_brick',
+    node_dungeon_stair = 'stairs:stair_crystal_cobble',
     y_max = y_max,
     y_min = y_min,
     heat_point = 35,

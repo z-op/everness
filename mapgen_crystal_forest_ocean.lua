@@ -33,14 +33,88 @@ minetest.register_biome({
     depth_filler = 3,
     node_riverbed = 'everness:crystal_sand',
     depth_riverbed = 2,
+    node_stone = 'everness:crystal_stone',
     node_cave_liquid = 'default:water_source',
-    node_dungeon = 'default:cobble',
-    node_dungeon_alt = 'default:mossycobble',
-    node_dungeon_stair = 'stairs:stair_cobble',
+    node_dungeon = 'everness:crystal_cobble',
+    node_dungeon_alt = 'everness:crystal_stone_brick',
+    node_dungeon_stair = 'stairs:stair_crystal_cobble',
     y_max = y_max,
     y_min = y_min,
     heat_point = 35,
     humidity_point = 50,
+})
+
+--
+-- Register ores
+--
+
+-- Blob ore.
+-- These before scatter ores to avoid other ores in blobs.
+
+-- Clay
+
+minetest.register_ore({
+    ore_type = 'blob',
+    ore = 'default:clay',
+    wherein = { 'everness:crystal_sand' },
+    clust_scarcity = 16 * 16 * 16,
+    clust_size = 5,
+    y_max = y_max,
+    y_min = y_min,
+    noise_threshold = 0.0,
+    noise_params = {
+        offset = 0.5,
+        scale = 0.2,
+        spread = { x = 5, y = 5, z = 5 },
+        seed = -316,
+        octaves = 1,
+        persist = 0.0
+    },
+    biomes = { 'everness_crystal_forest_ocean' }
+})
+
+-- Crystal sand
+
+minetest.register_ore({
+    ore_type = 'blob',
+    ore = 'everness:crystal_sand',
+    wherein = { 'everness:crystal_stone' },
+    clust_scarcity = 16 * 16 * 16,
+    clust_size = 5,
+    y_max = y_max,
+    y_min = y_min,
+    noise_threshold = 0.0,
+    noise_params = {
+        offset = 0.5,
+        scale = 0.2,
+        spread = { x = 5, y = 5, z = 5 },
+        seed = 2316,
+        octaves = 1,
+        persist = 0.0
+    },
+    biomes = { 'everness_crystal_forest_ocean' }
+})
+
+-- Dirt
+
+minetest.register_ore({
+    ore_type = 'blob',
+    ore = 'everness:crystal_dirt',
+    wherein = { 'everness:crystal_stone' },
+    clust_scarcity = 16 * 16 * 16,
+    clust_size = 5,
+    y_max = y_max,
+    y_min = y_min,
+    noise_threshold = 0.0,
+    noise_params = {
+        offset = 0.5,
+        scale = 0.2,
+        spread = { x = 5, y = 5, z = 5 },
+        seed = 17676,
+        octaves = 1,
+        persist = 0.0
+    },
+    biomes = { 'everness_crystal_forest_ocean' }
 })
 
 --

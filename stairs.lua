@@ -506,6 +506,7 @@ stairs.register_stair_and_slab(
     true
 )
 
+-- Crystal
 stairs.register_stair_and_slab(
     'crystal_forest_deep_ocean_sandstone_block',
     'everness:crystal_forest_deep_ocean_sandstone_block',
@@ -524,6 +525,28 @@ stairs.register_stair_and_slab(
     { 'everness_crystal_forest_deep_ocean_sandstone_brick.png' },
     S('Crystal Forest Deep Ocean Sandstone Brick Stair'),
     S('Crystal Forest Deep Ocean Sandstone Brick Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'crystal_cobble',
+    'everness:crystal_cobble',
+    { cracky = 2 },
+    { 'everness_crystal_cobble.png' },
+    S('Crystal Cobblestone Stair'),
+    S('Crystal Cobblestone Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'crystal_stone_brick',
+    'everness:crystal_stone_brick',
+    { cracky = 2 },
+    { 'everness_crystal_stone_brick.png' },
+    S('Crystal Stone Brick Stair'),
+    S('Crystal Stone Brick Slab'),
     Everness.node_sound_stone_defaults(),
     true
 )

@@ -32,6 +32,14 @@ minetest.register_node('everness:coral_desert_stone_with_coal', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
+minetest.register_node('everness:crystal_stone_with_coal', {
+    description = S('Coal Ore'),
+    tiles = { 'everness_crystal_stone.png^everness_mineral_coal.png' },
+    groups = { cracky = 3 },
+    drop = 'default:coal_lump',
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
 Everness:register_node('everness:stone_with_pyrite', {
     description = S('Pyrite Ore'),
     tiles = { 'everness_stone.png^everness_mineral_pyrite.png' },
@@ -258,6 +266,26 @@ Everness:register_node('everness:coral_desert_stone', {
     description = S('Coral Desert Stone'),
     tiles = { 'everness_coral_desert_stone.png' },
     drop = 'everness:coral_desert_cobble',
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1,
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
+Everness:register_node('everness:crystal_stone', {
+    description = S('Crystal Stone'),
+    tiles = { 'everness_crystal_stone.png' },
+    drop = 'everness:crystal_cobble',
     groups = {
         -- MTG
         cracky = 3,
@@ -521,6 +549,50 @@ Everness:register_node('everness:coral_bones_brick', {
     },
     _mcl_hardness = 1.5,
     _mcl_blast_resistance = 6,
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
+Everness:register_node('everness:crystal_cobble', {
+    description = S('Crystal Cobblestone'),
+    tiles = { 'everness_crystal_cobble.png' },
+    is_ground_content = false,
+    groups = {
+        -- MTG
+        cracky = 3,
+        stone = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        cobble = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 2,
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
+Everness:register_node('everness:crystal_stone_brick', {
+    description = S('Crystal Stone Brick'),
+    paramtype2 = 'facedir',
+    drawtype = 'allfaces',
+    place_param2 = 0,
+    tiles = { 'everness_crystal_stone_brick.png' },
+    use_texture_alpha = 'blend',
+    is_ground_content = false,
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        sandstone = 1,
+        normal_sandstone = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1
+    },
+    _mcl_blast_resistance = 0.8,
+    _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
 })
 

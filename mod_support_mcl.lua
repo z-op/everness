@@ -831,6 +831,34 @@ mcl_stairs.register_stair_and_slab(
     nil
 )
 
+mcl_stairs.register_stair_and_slab(
+    'crystal_cobble',
+    'everness:crystal_cobble',
+    { pickaxey = 2 },
+    { 'everness_crystal_cobble.png' },
+    S('Crystal Cobblestone Stair'),
+    S('Crystal Cobblestone Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    2,
+    S('Double Crystal Cobblestone Slab'),
+    nil
+)
+
+mcl_stairs.register_stair_and_slab(
+    'crystal_stone_brick',
+    'everness:crystal_stone_brick',
+    { pickaxey = 2 },
+    { 'everness_crystal_stone_brick.png' },
+    S('Crystal Stone Brick Stair'),
+    S('Crystal Stone Brick Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    2,
+    S('Double Crystal Stone Brick Slab'),
+    nil
+)
+
 -- Crystal Wood
 
 mcl_stairs.register_stair_and_slab(

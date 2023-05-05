@@ -872,6 +872,9 @@ GNU Lesser General Public License v2.1 or later
 - everness_grass_extras_2.png
 - everness_dirt.png
 - everness_dry_dirt.png
+- everness_crystal_stone_brick.png
+- everness_crystal_stone.png
+- everness_crystal_cobble.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
