@@ -875,6 +875,7 @@ GNU Lesser General Public License v2.1 or later
 - everness_crystal_stone_brick.png
 - everness_crystal_stone.png
 - everness_crystal_cobble.png
+- everness_cursed_stone_carved.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 

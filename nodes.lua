@@ -34,7 +34,15 @@ minetest.register_node('everness:coral_desert_stone_with_coal', {
 
 minetest.register_node('everness:crystal_stone_with_coal', {
     description = S('Coal Ore'),
-    tiles = { 'everness_crystal_stone.png^everness_mineral_coal.png' },
+    tiles = { 'everness_crystal_stone.png^[sheet:2x2:1,1^everness_mineral_coal.png' },
+    groups = { cracky = 3 },
+    drop = 'default:coal_lump',
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
+minetest.register_node('everness:cursed_stone_carved_with_coal', {
+    description = S('Coal Ore'),
+    tiles = { 'everness_cursed_stone_carved.png^[sheet:2x2:1,1^everness_mineral_coal.png' },
     groups = { cracky = 3 },
     drop = 'default:coal_lump',
     sounds = Everness.node_sound_stone_defaults(),
@@ -284,7 +292,13 @@ Everness:register_node('everness:coral_desert_stone', {
 
 Everness:register_node('everness:crystal_stone', {
     description = S('Crystal Stone'),
-    tiles = { 'everness_crystal_stone.png' },
+    tiles = {
+        {
+            name = 'everness_crystal_stone.png',
+            align_style = 'world',
+            scale = 2
+        }
+    },
     drop = 'everness:crystal_cobble',
     groups = {
         -- MTG
@@ -935,7 +949,35 @@ Everness:register_node('everness:magmacobble', {
 
 Everness:register_node('everness:cursed_stone', {
     description = S('Cursed Stone'),
-    tiles = { 'everness_cursed_stone.png' },
+    tiles = {
+        { name = 'everness_cursed_stone.png' }
+    },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1,
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
+    sounds = Everness.node_sound_stone_defaults()
+})
+
+Everness:register_node('everness:cursed_stone_carved', {
+    description = S('Cursed Stone Carved'),
+    tiles = {
+        {
+            name = 'everness_cursed_stone_carved.png',
+            align_style = 'world',
+            scale = 2
+        }
+    },
+    drop = 'everness:cursed_stone',
     groups = {
         -- MTG
         cracky = 3,
@@ -1246,7 +1288,6 @@ Everness:register_node('everness:forsaken_tundra_rocks', {
     _mcl_blast_resistance = 6,
     _mcl_hardness = 1.5,
     _mcl_silk_touch_drop = true,
-    drop = 'everness:coral_desert_cobble',
     legacy_mineral = true,
     sounds = Everness.node_sound_stone_defaults(),
 })

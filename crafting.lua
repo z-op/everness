@@ -753,6 +753,18 @@ minetest.register_craft({
     recipe = 'everness:forsaken_desert_cobble_red',
 })
 
+minetest.register_craft({
+    type = 'cooking',
+    output = 'everness:cursed_stone_carved',
+    recipe = 'everness:cursed_stone',
+})
+
+minetest.register_craft({
+    type = 'cooking',
+    output = 'everness:crystal_stone',
+    recipe = 'everness:crystal_cobble',
+})
+
 --
 -- Saplings
 --

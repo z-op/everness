@@ -33,6 +33,7 @@ minetest.register_biome({
     depth_filler = 1,
     node_riverbed = 'everness:cursed_dirt',
     depth_riverbed = 2,
+    node_stone = 'everness:cursed_stone_carved',
     node_dungeon = 'everness:cursed_brick',
     node_dungeon_alt = 'everness:cursed_brick_with_growth',
     node_dungeon_stair = 'stairs:stair_cursed_brick',
@@ -40,6 +41,134 @@ minetest.register_biome({
     y_min = y_min,
     heat_point = 45,
     humidity_point = 85,
+})
+
+--
+-- Register ores
+--
+
+-- Stratum ores.
+-- These obviously first.
+
+minetest.register_ore({
+    ore_type = 'stratum',
+    ore = 'everness:cursed_stone',
+    wherein = { 'everness:cursed_stone_carved' },
+    clust_scarcity = 1,
+    y_max = (y_max - y_max) + 46,
+    y_min = (y_max - y_max) + 4,
+    noise_params = {
+        offset = 28,
+        scale = 16,
+        spread = { x = 128, y = 128, z = 128 },
+        seed = 90122,
+        octaves = 1,
+    },
+    stratum_thickness = 4,
+    biomes = { 'everness_cursed_lands' },
+})
+
+minetest.register_ore({
+    ore_type = 'stratum',
+    ore = 'everness:cursed_stone',
+    wherein = { 'everness:cursed_stone_carved' },
+    clust_scarcity = 1,
+    y_max = (y_max - y_max) + 42,
+    y_min = (y_max - y_max) + 6,
+    noise_params = {
+        offset = 24,
+        scale = 16,
+        spread = { x = 128, y = 128, z = 128 },
+        seed = 90122,
+        octaves = 1,
+    },
+    stratum_thickness = 2,
+    biomes = { 'everness_cursed_lands' },
+})
+
+-- Blob ore.
+-- These before scatter ores to avoid other ores in blobs.
+
+-- Sand
+
+minetest.register_ore({
+    ore_type = 'blob',
+    ore = 'everness:cursed_sand',
+    wherein = { 'everness:cursed_stone_carved' },
+    clust_scarcity = 16 * 16 * 16,
+    clust_size = 5,
+    y_max = y_max,
+    y_min = y_min,
+    noise_threshold = 0.0,
+    noise_params = {
+        offset = 0.5,
+        scale = 0.2,
+        spread = { x = 5, y = 5, z = 5 },
+        seed = 2316,
+        octaves = 1,
+        persist = 0.0
+    },
+    biomes = { 'everness_cursed_lands' }
+})
+
+-- Dirt
+
+minetest.register_ore({
+    ore_type = 'blob',
+    ore = 'everness:cursed_dirt',
+    wherein = { 'everness:cursed_stone_carved' },
+    clust_scarcity = 16 * 16 * 16,
+    clust_size = 5,
+    y_max = y_max,
+    y_min = y_min,
+    noise_threshold = 0.0,
+    noise_params = {
+        offset = 0.5,
+        scale = 0.2,
+        spread = { x = 5, y = 5, z = 5 },
+        seed = 766,
+        octaves = 1,
+        persist = 0.0
+    },
+    biomes = { 'everness_cursed_lands' }
+})
+
+-- Mud
+
+minetest.register_ore({
+    ore_type = 'blob',
+    ore = 'everness:cursed_mud',
+    wherein = { 'everness:cursed_stone_carved' },
+    clust_scarcity = 16 * 16 * 16,
+    clust_size = 5,
+    y_max = y_max,
+    y_min = y_min,
+    noise_threshold = 0.0,
+    noise_params = {
+        offset = 0.5,
+        scale = 0.2,
+        spread = { x = 5, y = 5, z = 5 },
+        seed = 17676,
+        octaves = 1,
+        persist = 0.0
+    },
+    biomes = { 'everness_cursed_lands' }
+})
+
+-- Scatter ores
+
+-- Coal
+
+minetest.register_ore({
+    ore_type = 'scatter',
+    ore = 'everness:cursed_stone_carved_with_coal',
+    wherein = 'everness:cursed_stone_carved',
+    clust_scarcity = 8 * 8 * 8,
+    clust_num_ores = 9,
+    clust_size = 3,
+    y_max = y_max,
+    y_min = y_min,
+    biomes = { 'everness_cursed_lands' }
 })
 
 --
