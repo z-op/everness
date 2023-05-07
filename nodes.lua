@@ -1472,6 +1472,30 @@ Everness:register_node('everness:crystal_block_orange', {
     sounds = Everness.node_sound_crystal_defaults(),
 })
 
+Everness:register_node('everness:crystal_block_cyan', {
+    description = S('Cyan Crystal Block'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = {
+        'everness_crystal_block_cyan_top.png',
+        'everness_crystal_block_cyan_top.png',
+        'everness_crystal_block_cyan.png'
+    },
+    is_ground_content = false,
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    light_source = 7,
+    sounds = Everness.node_sound_crystal_defaults(),
+})
+
 -- Quartz
 
 -- Quartz Block

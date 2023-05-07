@@ -629,6 +629,21 @@ minetest.register_craft({
     recipe = { 'everness:crystal_block_orange' }
 })
 
+minetest.register_craft({
+    output = 'everness:crystal_block_cyan',
+    recipe = {
+        { 'everness:crystal_cyan', 'everness:crystal_cyan', 'everness:crystal_cyan' },
+        { 'everness:crystal_cyan', 'everness:crystal_cyan', 'everness:crystal_cyan' },
+        { 'everness:crystal_cyan', 'everness:crystal_cyan', 'everness:crystal_cyan' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:crystal_cyan 9',
+    type = 'shapeless',
+    recipe = { 'everness:crystal_block_cyan' }
+})
+
 --
 -- Tools
 --
