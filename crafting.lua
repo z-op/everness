@@ -588,6 +588,47 @@ minetest.register_craft({
     }
 })
 
+-- minetest.register_craft({
+--     output = 'default:mese_crystal_fragment',
+--     recipe = {
+--         { 'everness:mese_tree_fruit', 'everness:mese_tree_fruit', 'everness:mese_tree_fruit' },
+--         { 'everness:mese_tree_fruit', 'everness:mese_tree_fruit', 'everness:mese_tree_fruit' },
+--         { 'everness:mese_tree_fruit', 'everness:mese_tree_fruit', 'everness:mese_tree_fruit' },
+--     }
+-- })
+
+-- Crystals
+
+minetest.register_craft({
+    output = 'everness:crystal_block_purple',
+    recipe = {
+        { 'everness:crystal_purple', 'everness:crystal_purple', 'everness:crystal_purple' },
+        { 'everness:crystal_purple', 'everness:crystal_purple', 'everness:crystal_purple' },
+        { 'everness:crystal_purple', 'everness:crystal_purple', 'everness:crystal_purple' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:crystal_purple 9',
+    type = 'shapeless',
+    recipe = { 'everness:crystal_block_purple' }
+})
+
+minetest.register_craft({
+    output = 'everness:crystal_block_orange',
+    recipe = {
+        { 'everness:crystal_orange', 'everness:crystal_orange', 'everness:crystal_orange' },
+        { 'everness:crystal_orange', 'everness:crystal_orange', 'everness:crystal_orange' },
+        { 'everness:crystal_orange', 'everness:crystal_orange', 'everness:crystal_orange' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:crystal_orange 9',
+    type = 'shapeless',
+    recipe = { 'everness:crystal_block_orange' }
+})
+
 --
 -- Tools
 --
