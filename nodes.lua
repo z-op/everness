@@ -7584,8 +7584,9 @@ local function coral_on_place(itemstack, placer, pointed_thing, params)
         return itemstack
     end
 
-    local ignore_water = params.ignore_water or false
-    local node_under_name = params.node_under_name or 'everness:coral_skeleton'
+    local _params = params or {}
+    local ignore_water = _params.ignore_water or false
+    local node_under_name = _params.node_under_name or 'everness:coral_skeleton'
     local player_name = placer:get_player_name()
     local pos_under = pointed_thing.under
     local pos_above = pointed_thing.above
