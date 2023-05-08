@@ -875,6 +875,22 @@ mcl_stairs.register_stair_and_slab(
     nil
 )
 
+-- Mese Wood
+
+mcl_stairs.register_stair_and_slab(
+    'mese_wood',
+    'everness:mese_wood',
+    { handy = 1, axey = 1, building_block = 1, material_wood = 1, fire_encouragement = 5, fire_flammability = 20, flammable = 3, wood = 1, },
+    { 'everness_mese_wood.png' },
+    S('Mese Wood Stair'),
+    S('Mese Wood Slab'),
+    Everness.node_sound_wood_defaults(),
+    6,
+    2,
+    S('Double Mese Wood Slab'),
+    nil
+)
+
 ---
 -- Doors
 ---

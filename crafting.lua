@@ -287,6 +287,13 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    output = 'everness:mese_wood 4',
+    recipe = {
+        { 'everness:mese_tree' },
+    }
+})
+
+minetest.register_craft({
     output = 'everness:coral_sandstone 4',
     recipe = {
         { 'everness:coral_sand', 'everness:coral_sand' },
@@ -588,14 +595,14 @@ minetest.register_craft({
     }
 })
 
--- minetest.register_craft({
---     output = 'default:mese_crystal_fragment',
---     recipe = {
---         { 'everness:mese_tree_fruit', 'everness:mese_tree_fruit', 'everness:mese_tree_fruit' },
---         { 'everness:mese_tree_fruit', 'everness:mese_tree_fruit', 'everness:mese_tree_fruit' },
---         { 'everness:mese_tree_fruit', 'everness:mese_tree_fruit', 'everness:mese_tree_fruit' },
---     }
--- })
+minetest.register_craft({
+    output = 'default:mese_crystal_fragment',
+    recipe = {
+        { 'everness:mese_tree_fruit', 'everness:mese_tree_fruit', 'everness:mese_tree_fruit' },
+        { 'everness:mese_tree_fruit', 'everness:mese_tree_fruit', 'everness:mese_tree_fruit' },
+        { 'everness:mese_tree_fruit', 'everness:mese_tree_fruit', 'everness:mese_tree_fruit' },
+    }
+})
 
 -- Crystals
 
@@ -718,6 +725,12 @@ minetest.register_craft({
 minetest.register_craft({
     type = 'fuel',
     recipe = 'everness:bamboo_mosaic_wood',
+    burntime = 15,
+})
+
+minetest.register_craft({
+    type = 'fuel',
+    recipe = 'everness:mese_wood',
     burntime = 15,
 })
 

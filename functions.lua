@@ -237,12 +237,15 @@ Everness:register_leafdecay({
         'everness:cursed_bush_stem',
         'everness:willow_tree',
         'everness:sequoia_tree',
+        'everness:mese_tree',
     },
     leaves = {
         'everness:coral_leaves',
         'everness:crystal_bush_leaves',
         'everness:willow_leaves',
         'everness:sequoia_leaves',
+        'everness:mese_leaves',
+        'everness:mese_tree_fruit'
     },
     radius = 3
 })

@@ -94,6 +94,12 @@ function Everness.grow_cursed_dream_tree(pos)
         path, 'random', nil, false)
 end
 
+function Everness.grow_mese_tree(pos)
+    local path = minetest.get_modpath('everness') .. '/schematics/everness_mese_tree.mts'
+    minetest.place_schematic({ x = pos.x - 3, y = pos.y, z = pos.z - 3 },
+        path, 'random', nil, false)
+end
+
 function Everness.grow_sapling(pos)
     if not Everness.can_grow(pos) then
         -- try again 5 min later
@@ -136,5 +142,8 @@ function Everness.grow_sapling(pos)
     elseif node.name == 'everness:cursed_dream_tree_sapling' then
         minetest.log('action', 'A cursed dream tree large sapling grows into a bush at ' .. minetest.pos_to_string(pos))
         Everness.grow_cursed_dream_tree(pos)
+    elseif node.name == 'everness:mese_tree_sapling' then
+        minetest.log('action', 'A mese tree large sapling grows into a bush at ' .. minetest.pos_to_string(pos))
+        Everness.grow_mese_tree(pos)
     end
 end

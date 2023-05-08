@@ -294,6 +294,19 @@ stairs.register_stair_and_slab(
     true
 )
 
+-- Mese Wood
+
+stairs.register_stair_and_slab(
+    'mese_wood',
+    'everness:mese_wood',
+    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    { 'everness_mese_wood.png' },
+    S('Mese Wood Stair'),
+    S('Mese Wood Slab'),
+    Everness.node_sound_wood_defaults(),
+    true
+)
+
 -- Magma Cobble
 
 stairs.register_stair_and_slab(

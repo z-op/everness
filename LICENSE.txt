@@ -878,6 +878,13 @@ GNU Lesser General Public License v2.1 or later
 - everness_cursed_stone_carved.png
 - everness_crystal_block_cyan_top.png
 - everness_crystal_block_cyan.png
+- everness_mese_leaves.png
+- everness_mese_tree_fruit_item.png
+- everness_mese_tree_fruit_side.png
+- everness_mese_tree_fruit_top.png
+- everness_mese_tree_sapling.png
+- everness_mese_tree_top.png
+- everness_mese_wood.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
@@ -1479,3 +1486,5 @@ https://freesound.org/people/Rudmer_Rotteveel/sounds/590950/
 - everness_willow_tree_from_sapling.mts
 - everness_willow_tree.lua
 - everness_willow_tree.mts
+- everness_mese_tree.lua
+- everness_mese_tree.mts

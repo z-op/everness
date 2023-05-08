@@ -69,3 +69,94 @@ minetest.register_ore({
     y_max = -5,
     y_min = -31000,
 })
+
+--
+-- Decorations
+--
+
+local all_biomes_mese_tree_place_on = {
+    'everness:coral_desert_stone_with_moss',
+    'everness:coral_sand',
+    'everness:crystal_moss_block',
+    'everness:crystal_sand',
+    'everness:cursed_dirt',
+    'everness:cursed_sand',
+    'everness:cursed_stone',
+    'everness:dirt_with_coral_grass',
+    'everness:dirt_with_crystal_grass',
+    'everness:dirt_with_cursed_grass',
+    'everness:dirt_with_grass_1',
+    'everness:dry_dirt',
+    'everness:dry_dirt_with_dry_grass',
+    'everness:forsaken_desert_brick',
+    'everness:forsaken_desert_chiseled_stone',
+    'everness:forsaken_desert_engraved_stone',
+    'everness:forsaken_desert_sand',
+    'everness:forsaken_tundra_beach_sand',
+    'everness:forsaken_tundra_dirt',
+    'everness:forsaken_tundra_dirt_with_grass',
+    'everness:frosted_ice',
+    'everness:frosted_ice_translucent',
+    'everness:frosted_snowblock',
+    'everness:sulfur_stone',
+    'everness:volcanic_sulfur'
+}
+
+if minetest.get_modpath('default') then
+    table.insert_all(all_biomes_mese_tree_place_on, {
+        'default:desert_sand',
+        'default:dirt',
+        'default:dirt_with_coniferous_litter',
+        'default:dirt_with_grass',
+        'default:dirt_with_rainforest_litter',
+        'default:dirt_with_snow',
+        'default:dry_dirt',
+        'default:dry_dirt_with_dry_grass',
+        'default:gravel',
+        'default:permafrost_with_moss',
+        'default:permafrost_with_stones',
+        'default:sand',
+        'default:silver_sand',
+        'default:stone'
+    })
+end
+
+minetest.register_decoration({
+    name = 'everness:all_biomes_mese_tree',
+    deco_type = 'schematic',
+    place_on = all_biomes_mese_tree_place_on,
+    sidelen = 16,
+    noise_params = {
+        offset = 0,
+        scale = 0.002,
+        spread = { x = 250, y = 250, z = 250 },
+        seed = 2,
+        octaves = 3,
+        persist = 0.66
+    },
+    y_max = 250,
+    y_min = 80,
+    schematic = minetest.get_modpath('everness') .. '/schematics/everness_mese_tree.mts',
+    flags = 'place_center_x, place_center_z',
+    rotation = 'random',
+})
+
+minetest.register_decoration({
+    name = 'everness:all_biomes_mese_tree_2',
+    deco_type = 'schematic',
+    place_on = all_biomes_mese_tree_place_on,
+    sidelen = 16,
+    noise_params = {
+        offset = -0.004,
+        scale = 0.01,
+        spread = { x = 100, y = 100, z = 100 },
+        seed = 137,
+        octaves = 3,
+        persist = 0.7,
+    },
+    y_max = 250,
+    y_min = 80,
+    schematic = minetest.get_modpath('everness') .. '/schematics/everness_mese_tree.mts',
+    flags = 'place_center_x, place_center_z',
+    rotation = 'random'
+})

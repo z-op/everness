@@ -197,6 +197,22 @@ x_farming.x_bonemeal:register_tree_defs({
             return true
         end
     },
+    {
+        -- sapling name
+        name = 'everness:mese_tree_sapling',
+        -- 1 out of `chance`, e.g. 2 = 50% chance
+        chance = 4,
+        -- grow tree from sapling
+        grow_tree = function(pos)
+            if not x_farming.x_bonemeal.is_on_soil(pos) then
+                return false
+            end
+
+            Everness.grow_mese_tree(pos)
+
+            return true
+        end
+    },
 })
 
 --

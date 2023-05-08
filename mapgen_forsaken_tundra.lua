@@ -121,25 +121,6 @@ minetest.register_decoration({
 })
 
 minetest.register_decoration({
-    name = 'everness:forsaken_tundra_volcanic_sulfur_on_top_of_sulfur_stone',
-    deco_type = 'simple',
-    place_on = { 'everness:sulfur_stone' },
-    sidelen = 4,
-    noise_params = {
-        offset = -4,
-        scale = 4,
-        spread = { x = 50, y = 50, z = 50 },
-        seed = 7013,
-        octaves = 3,
-        persist = 0.7,
-    },
-    biomes = { 'everness_forsaken_tundra' },
-    y_max = y_max,
-    y_min = y_min,
-    decoration = { 'everness:volcanic_sulfur' },
-})
-
-minetest.register_decoration({
     name = 'everness:forsaken_tundra_dirt_with_grass',
     deco_type = 'simple',
     place_on = {
@@ -164,45 +145,22 @@ minetest.register_decoration({
 })
 
 minetest.register_decoration({
-    name = 'everness:forsaken_tundra_bloodpore_plant',
+    name = 'everness:forsaken_tundra_volcanic_sulfur_on_top_of_sulfur_stone',
     deco_type = 'simple',
-    place_on = { 'everness:forsaken_tundra_dirt_with_grass' },
-    sidelen = 16,
+    place_on = { 'everness:sulfur_stone' },
+    sidelen = 4,
     noise_params = {
-        offset = -0.03,
-        scale = 0.09,
-        spread = { x = 200, y = 200, z = 200 },
-        seed = 329,
+        offset = -4,
+        scale = 4,
+        spread = { x = 50, y = 50, z = 50 },
+        seed = 7013,
         octaves = 3,
-        persist = 0.6
+        persist = 0.7,
     },
     biomes = { 'everness_forsaken_tundra' },
     y_max = y_max,
     y_min = y_min,
-    decoration = 'everness:bloodspore_plant',
-    param2 = 8,
-})
-
-minetest.register_decoration({
-    name = 'everness:forsaken_tundra_bloodspore_plant_on_dirt',
-    deco_type = 'simple',
-    place_on = { 'everness:forsaken_tundra_dirt' },
-    spawn_by = 'everness:forsaken_tundra_dirt_with_grass',
-    num_spawn_by = 1,
-    sidelen = 16,
-    noise_params = {
-        offset = -0.03,
-        scale = 0.09,
-        spread = { x = 200, y = 200, z = 200 },
-        seed = 329,
-        octaves = 3,
-        persist = 0.6
-    },
-    biomes = { 'everness_forsaken_tundra' },
-    y_max = y_max,
-    y_min = y_min,
-    decoration = 'everness:bloodspore_plant',
-    param2 = 8,
+    decoration = { 'everness:volcanic_sulfur' },
 })
 
 minetest.register_decoration({
@@ -247,4 +205,46 @@ minetest.register_decoration({
     rotation = 'random',
     spawn_by = { 'everness:forsaken_tundra_dirt', 'everness:volcanic_sulfur' },
     num_spawn_by = 8,
+})
+
+minetest.register_decoration({
+    name = 'everness:forsaken_tundra_bloodpore_plant',
+    deco_type = 'simple',
+    place_on = { 'everness:forsaken_tundra_dirt_with_grass' },
+    sidelen = 16,
+    noise_params = {
+        offset = -0.03,
+        scale = 0.09,
+        spread = { x = 200, y = 200, z = 200 },
+        seed = 329,
+        octaves = 3,
+        persist = 0.6
+    },
+    biomes = { 'everness_forsaken_tundra' },
+    y_max = y_max,
+    y_min = y_min,
+    decoration = 'everness:bloodspore_plant',
+    param2 = 8,
+})
+
+minetest.register_decoration({
+    name = 'everness:forsaken_tundra_bloodspore_plant_on_dirt',
+    deco_type = 'simple',
+    place_on = { 'everness:forsaken_tundra_dirt' },
+    spawn_by = 'everness:forsaken_tundra_dirt_with_grass',
+    num_spawn_by = 1,
+    sidelen = 16,
+    noise_params = {
+        offset = -0.03,
+        scale = 0.09,
+        spread = { x = 200, y = 200, z = 200 },
+        seed = 329,
+        octaves = 3,
+        persist = 0.6
+    },
+    biomes = { 'everness_forsaken_tundra' },
+    y_max = y_max,
+    y_min = y_min,
+    decoration = 'everness:bloodspore_plant',
+    param2 = 8,
 })

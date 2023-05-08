@@ -3616,26 +3616,83 @@ minetest.register_node('everness:crystal_wood', {
     sounds = Everness.node_sound_wood_defaults(),
 })
 
--- Everness:register_node('everness:mese_tree', {
---     description = S('Mese Tree Trunk'),
---     short_description = S('Mese Tree Trunk'),
---     tiles = {
---         {
---             name = 'everness_mese_tree_side_animated.png',
---             animation = {
---                 type = 'vertical_frames',
---                 aspect_w = 16,
---                 aspect_h = 16,
---                 length = 2
---             }
---         },
---     },
---     paramtype2 = 'facedir',
---     is_ground_content = false,
---     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
---     sounds = Everness.node_sound_wood_defaults(),
---     on_place = minetest.rotate_node
--- })
+Everness:register_node('everness:mese_tree', {
+    description = S('Mese Tree Trunk'),
+    short_description = S('Mese Tree Trunk'),
+    tiles = {
+        { name = 'everness_mese_tree_top.png' },
+        { name = 'everness_mese_tree_top.png' },
+        {
+            name = 'everness_mese_tree_side_animated.png',
+            align_style = 'world',
+            scale = 8,
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 8
+            }
+        },
+    },
+    paramtype2 = 'facedir',
+    is_ground_content = false,
+    groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2 },
+    sounds = Everness.node_sound_wood_defaults(),
+    on_place = minetest.rotate_node
+})
+
+Everness:register_node('everness:mese_leaves', {
+    description = S('Mese Tree Leaves'),
+    short_description = S('Mese Tree Leaves'),
+    drawtype = 'allfaces_optional',
+    waving = 1,
+    tiles = { 'everness_mese_leaves.png' },
+    special_tiles = { 'everness_mese_leaves.png' },
+    paramtype = 'light',
+    is_ground_content = false,
+    sunlight_propagates = true,
+    groups = {
+        -- MTG
+        snappy = 3,
+        leafdecay = 3,
+        -- MCL
+        handy = 1,
+        hoey = 1,
+        shearsy = 1,
+        swordy = 1,
+        dig_by_piston = 1,
+        fire_encouragement = 30,
+        fire_flammability = 60,
+        deco_block = 1,
+        compostability = 30,
+        -- ALL
+        flammable = 2,
+        leaves = 1,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    _mcl_silk_touch_drop = true,
+    drop = {
+        max_items = 1,
+        items = {
+            {
+                -- player will get sapling with 1/30 chance
+                items = { 'everness:mese_tree_sapling' },
+                rarity = 60,
+            },
+            {
+                -- player will get leaves only if he get no saplings,
+                -- this is because max_items is 1
+                items = { 'everness:mese_leaves' },
+            }
+        }
+    },
+    sounds = Everness.node_sound_leaves_defaults(),
+    after_place_node = function(pos, placer, itemstack, pointed_thing)
+        return Everness:after_place_leaves(pos, placer, itemstack, pointed_thing)
+    end
+})
 
 Everness:register_node('everness:baobab_leaves', {
     description = S('Baobab Tree Leaves'),
@@ -6708,6 +6765,120 @@ for i = 2, 3 do
     })
 end
 
+-- Mese Fruit
+
+Everness:register_node('everness:mese_tree_fruit', {
+    description = S('Mese Fruit'),
+    drawtype = 'nodebox',
+    tiles = {
+        'everness_mese_tree_fruit_top.png',
+        'everness_mese_tree_fruit_top.png',
+        'everness_mese_tree_fruit_side.png',
+    },
+    use_texture_alpha = 'clip',
+    inventory_image = 'everness_mese_tree_fruit_item.png',
+    wield_image = 'everness_mese_tree_fruit_item.png',
+    paramtype = 'light',
+    paramtype2 = 'wallmounted',
+    sunlight_propagates = true,
+    walkable = false,
+    buildable_to = false,
+    groups = {
+        -- MTG
+        snappy = 3,
+        leafdecay = 3,
+        leafdecay_drop = 1,
+        -- MCL
+        handy = 1,
+        hoey = 1,
+        shearsy = 1,
+        swordy = 1,
+        dig_by_piston = 1,
+        fire_encouragement = 30,
+        fire_flammability = 60,
+        deco_block = 1,
+        compostability = 30,
+        -- ALL
+        -- attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_shears_drop = true,
+    _mcl_blast_resistance = 0.2,
+    _mcl_hardness = 0.2,
+    sounds = Everness.node_sound_leaves_defaults(),
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            -- bottom
+            { -8 / 16, -7 / 16, -8 / 16, 8 / 16, -7 / 16, 8 / 16 },
+            -- body (middle)
+            { -4 / 16, -8 / 16, -4 / 16, 4 / 16, -1 / 16, 4 / 16 },
+            -- top
+            { -3 / 16, -1 / 16, -3 / 16, 3 / 16, 0, 3 / 16 }
+        }
+    },
+    selection_box = {
+        type = 'fixed',
+        fixed = { -8 / 16, -8 / 16, -8 / 16, 8 / 16, -5 / 16, 8 / 16 },
+    },
+    light_source = 14,
+    after_place_node = function(pos, placer, itemstack, pointed_thing)
+        minetest.get_meta(pos):set_int('everness_prevent_leafdecay', 1)
+    end
+})
+
+Everness:register_node('everness:mese_tree_sapling', {
+    description = S('Mese Tree Sapling'),
+    short_description = S('Mese Tree Sapling'),
+    drawtype = 'plantlike',
+    tiles = { 'everness_mese_tree_sapling.png' },
+    inventory_image = 'everness_mese_tree_sapling.png',
+    wield_image = 'everness_mese_tree_sapling.png',
+    paramtype = 'light',
+    sunlight_propagates = true,
+    walkable = false,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
+    },
+    groups = {
+        -- MTG
+        snappy = 2,
+        flammable = 2,
+        -- MCL
+        plant = 1,
+        non_mycelium_plant = 1,
+        deco_block = 1,
+        dig_by_water = 1,
+        dig_by_piston = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        dig_immediate = 3,
+        attached_node = 1,
+        sapling = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    on_timer = function(...)
+        Everness.grow_sapling(...)
+    end,
+    on_construct = function(pos)
+        minetest.get_node_timer(pos):start(math.random(300, 1500))
+    end,
+    on_place = function(itemstack, placer, pointed_thing)
+        local on_place_props = {
+            sapling_name = 'everness:mese_tree_sapling',
+            minp_relative = { x = -3, y = 1, z = -3 },
+            maxp_relative = { x = 3, y = 11, z = 3 },
+            interval = 4,
+        }
+
+        return Everness:sapling_on_place(itemstack, placer, pointed_thing, on_place_props)
+    end,
+})
+
 -- Cursed Lands Plants
 
 Everness:register_node('everness:egg_plant', {
@@ -7576,6 +7747,34 @@ Everness:register_node('everness:sequoia_wood', {
     paramtype2 = 'facedir',
     place_param2 = 0,
     tiles = { 'everness_sequoia_wood.png' },
+    is_ground_content = false,
+    groups = {
+        -- MTG
+        choppy = 3,
+        oddly_breakable_by_hand = 2,
+        -- Everness
+        everness_wood = 1,
+        -- MCL
+        handy = 1,
+        axey = 1,
+        building_block = 1,
+        material_wood = 1,
+        fire_encouragement = 5,
+        fire_flammability = 20,
+        -- ALL
+        flammable = 3,
+        wood = 1,
+    },
+    _mcl_blast_resistance = 3,
+    _mcl_hardness = 2,
+    sounds = Everness.node_sound_wood_defaults(),
+})
+
+Everness:register_node('everness:mese_wood', {
+    description = S('Mese Wood Planks'),
+    paramtype2 = 'facedir',
+    place_param2 = 0,
+    tiles = { 'everness_mese_wood.png' },
     is_ground_content = false,
     groups = {
         -- MTG
@@ -9124,7 +9323,6 @@ Everness:register_node('everness:floating_crystal', {
         not_in_creative_inventory = 1,
         -- MLC
         handy = 1,
-        glass = 1,
         building_block = 1,
         material_glass = 1,
     },
