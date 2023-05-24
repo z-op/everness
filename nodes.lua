@@ -8710,7 +8710,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_1', {
         -- MTG
         cracky = 3,
         -- Everness
-        everness_crystal_forest_deep_ocean_coral_1 = 1,
+        everness_crystal_forest_deep_ocean_coral = 1,
         -- MCL
         pickaxey = 1,
         building_block = 1,
@@ -8729,7 +8729,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_2', {
         -- MTG
         cracky = 3,
         -- Everness
-        everness_crystal_forest_deep_ocean_coral_1 = 1,
+        everness_crystal_forest_deep_ocean_coral = 1,
         -- MCL
         pickaxey = 1,
         building_block = 1,
@@ -8748,7 +8748,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_3', {
         -- MTG
         cracky = 3,
         -- Everness
-        everness_crystal_forest_deep_ocean_coral_1 = 1,
+        everness_crystal_forest_deep_ocean_coral = 1,
         -- MCL
         pickaxey = 1,
         building_block = 1,
