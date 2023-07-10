@@ -4406,8 +4406,8 @@ Everness:register_node('everness:cursed_dream_tree_sapling', {
 })
 
 Everness:register_node('everness:willow_tree_sapling', {
-    description = S('Dry Tree Sapling'),
-    short_description = S('Dry Tree Sapling'),
+    description = S('Willow Tree Sapling'),
+    short_description = S('Willow Tree Sapling'),
     drawtype = 'plantlike',
     tiles = { 'everness_willow_tree_sapling.png' },
     inventory_image = 'everness_willow_tree_sapling.png',
