@@ -985,9 +985,13 @@ function Everness.set_loot_chest_items()
     local loot_items = {}
 
     for name, def in pairs(minetest.registered_items) do
+        local craft_recipe = minetest.get_craft_recipe(name)
+        local mod_name = name:split(':')[1]
+
         if def.groups
             and next(def.groups)
             and (not def.groups.not_in_creative_inventory or def.groups.not_in_creative_inventory == 0)
+            and (craft_recipe.items or mod_name == 'default')
         then
             table.insert(loot_items, {
                 name = name,
