@@ -140,6 +140,16 @@ minetest.register_craft({
     }
 })
 
+if minetest.get_modpath('default') then
+    minetest.register_craft({
+        output = 'everness:pyrite_glass',
+        recipe = {
+            { 'default:glass' },
+            { 'everness:pyrite_ingot' },
+        }
+    })
+end
+
 minetest.register_craft({
     output = 'everness:pyrite_lantern',
     recipe = {
@@ -553,6 +563,17 @@ minetest.register_craft({
         { 'everness:coral_deep_ocean_sandstone_block', 'group:glass', 'everness:coral_deep_ocean_sandstone_block' },
     }
 })
+
+if minetest.get_modpath('default') then
+    minetest.register_craft({
+        output = 'everness:coral_forest_deep_ocean_lantern 1',
+        recipe = {
+            { 'everness:coral_deep_ocean_sandstone_block', 'default:glass', 'everness:coral_deep_ocean_sandstone_block' },
+            { 'default:glass', 'group:torch', 'default:glass' },
+            { 'everness:coral_deep_ocean_sandstone_block', 'default:glass', 'everness:coral_deep_ocean_sandstone_block' },
+        }
+    })
+end
 
 minetest.register_craft({
     output = 'everness:cursed_lands_deep_ocean_sandstone_block 4',
