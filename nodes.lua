@@ -7818,7 +7818,7 @@ local function coral_on_place(itemstack, placer, pointed_thing, params)
 
     if def_under and def_under.on_rightclick and not placer:get_player_control().sneak then
         return def_under.on_rightclick(pos_under, node_under,
-                placer, itemstack, pointed_thing) or itemstack
+            placer, itemstack, pointed_thing) or itemstack
     end
 
     if node_under.name ~= node_under_name
@@ -7883,7 +7883,7 @@ Everness:register_node('everness:coral_corals', {
         dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = coral_on_place,
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:coral_skeleton' })
     end,
 })
@@ -7922,7 +7922,7 @@ Everness:register_node('everness:coral_jellyfish', {
         dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = coral_on_place,
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:coral_skeleton' })
     end,
 })
@@ -7961,7 +7961,7 @@ Everness:register_node('everness:coral_frosted', {
         dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = coral_on_place,
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:coral_skeleton' })
     end,
 })
@@ -8000,7 +8000,7 @@ Everness:register_node('everness:coral_starfish', {
         dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = coral_on_place,
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:coral_skeleton' })
     end,
 })
@@ -8081,7 +8081,7 @@ Everness:register_node('everness:sand_with_spine_kelp', {
         return itemstack
     end,
 
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:cursed_stone' })
     end
 })
@@ -8131,7 +8131,7 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_1', {
             }
         )
     end,
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:coral_forest_deep_ocean_sand' })
     end,
 })
@@ -8181,7 +8181,7 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_2', {
             }
         )
     end,
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:coral_forest_deep_ocean_sand' })
     end,
 })
@@ -8231,7 +8231,7 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_3', {
             }
         )
     end,
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:coral_forest_deep_ocean_sand' })
     end,
 })
@@ -8281,7 +8281,7 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_anemone', {
             }
         )
     end,
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:cursed_lands_deep_ocean_sand' })
     end,
 })
@@ -8331,7 +8331,7 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_darkilluma'
             }
         )
     end,
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:cursed_lands_deep_ocean_sand' })
     end,
 })
@@ -8381,7 +8381,7 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_demon', {
             }
         )
     end,
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:cursed_lands_deep_ocean_sand' })
     end,
 })
@@ -8431,7 +8431,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_1', {
             }
         )
     end,
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:crystal_forest_deep_ocean_sand' })
     end,
 })
@@ -8481,7 +8481,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_2', {
             }
         )
     end,
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:crystal_forest_deep_ocean_sand' })
     end,
 })
@@ -8531,7 +8531,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_3', {
             }
         )
     end,
-    after_destruct = function(pos, oldnode)
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
         minetest.set_node(pos, { name = 'everness:crystal_forest_deep_ocean_sand' })
     end,
 })
