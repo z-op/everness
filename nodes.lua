@@ -9350,20 +9350,86 @@ Everness:register_node('everness:floating_crystal', {
 
         meta:set_int('activated', 1)
 
-        local position = { x = pos.x, y = pos.y, z = pos.z }
-        local position_prev = { x = pos.x, y = pos.y, z = pos.z }
+        minetest.sound_play(
+            'everness_thin_glass_footstep',
+            {
+                gain = 1.0,
+                max_hear_distance = 16,
+                pos = pos
+            },
+            true
+        )
 
+        -- Initial values
+        local position = vector.new(pos.x, pos.y, pos.z)
+        local position_prev = vector.new(pos.x, pos.y, pos.z)
+
+        -- For "number" of crystals do..
         for i = 1, math.random(2, 6), 1 do
+            -- Only air positions
             local positions = minetest.find_nodes_in_area(
                 { x = position.x - 3, y = position.y - 1, z = position.z - 3 },
                 { x = position.x + 3, y = position.y + 1, z = position.z + 3 },
                 { 'air' }
             )
 
+            if #positions == 0 then
+                -- No positions available/found
+                break
+            end
+
+            -- Get light for `positions`
+            local positions_with_light = {}
+
+            for k, v in ipairs(positions) do
+                table.insert(positions_with_light, {
+                    pos = v,
+                    light = minetest.get_node_light(v)
+                })
+            end
+
+            table.shuffle(positions_with_light)
+
+            -- Sort with the lowest light first
+            table.sort(positions_with_light, function(a, b)
+                return a.light < b.light
+            end)
+
             local temp_pos
 
-            while not temp_pos or vector.distance(position_prev, temp_pos) < 2 do
-                temp_pos = positions[math.random(1, #positions)]
+            -- Find next position
+            for j, v in ipairs(positions_with_light) do
+                temp_pos = v.pos
+                local blocking_sight = false
+                local ray = minetest.raycast(position_prev, temp_pos, false, false)
+
+                for pt in ray do
+                    if pt.type == 'node' then
+                        local node_under = minetest.get_node(pt.under)
+                        local node_def = minetest.registered_nodes[node_under.name]
+
+                        if node_def then
+                            if node_def.walkable then
+                                blocking_sight = node_def.walkable
+                                break
+                            end
+                        end
+                    end
+                end
+
+                if vector.distance(position_prev, temp_pos) > 1
+                    and not vector.equals(position_prev, temp_pos)
+                    and not blocking_sight
+                then
+                    break
+                else
+                    temp_pos = nil
+                end
+            end
+
+            if not temp_pos then
+                -- No suitable next position found
+                break
             end
 
             position_prev = position
