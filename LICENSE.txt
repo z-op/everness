@@ -1174,7 +1174,7 @@ GNU Lesser General Public License v2.1 or later
 - everness_plant_hit.2.ogg
 - everness_plant_hit.3.ogg
 
-**CC0-1.0, by igroglaz**, https://freesound.org
+**CC0-1.0, by GiocoSound**, https://freesound.org/people/GiocoSound/
 
 - everness_wood_hit.1.ogg
 - everness_wood_hit.2.ogg

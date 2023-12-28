@@ -444,7 +444,7 @@ end
 function Everness.node_sound_wood_defaults(table)
     table = table or {}
     table.footstep = table.footstep or { name = 'everness_wood_footstep', gain = 0.15 }
-    table.dig = table.dig or { name = 'everness_wood_hit', gain = 0.5 }
+    table.dig = table.dig or { name = 'everness_wood_hit', gain = 0.8 }
     table.dug = table.dug or { name = 'everness_wood_place', gain = 0.1 }
     table.place = table.place or { name = 'everness_wood_place', gain = 0.15 }
     return table
