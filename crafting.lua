@@ -703,6 +703,15 @@ minetest.register_craft({
     }
 })
 
+minetest.register_craft({
+    output = 'everness:hammer',
+    recipe = {
+        { 'group:everness_obsidian', 'group:everness_obsidian', 'group:everness_obsidian' },
+        { 'group:everness_obsidian', 'everness:pyriteblock_forged', 'group:everness_obsidian' },
+        { '', 'group:stick', '' }
+    }
+})
+
 --
 -- Fuels
 --

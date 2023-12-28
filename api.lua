@@ -218,6 +218,7 @@ Everness = {
             everness_feature_skybox = minetest.settings:get_bool('everness_feature_skybox', true),
         }
     },
+    hammer_cid_data = {}
 }
 
 function Everness.grow_cactus(self, pos, node, params)
@@ -1002,4 +1003,288 @@ function Everness.set_loot_chest_items()
     end
 
     Everness.loot_chest.default = table.copy(loot_items)
+end
+
+--
+-- Hammer
+-- Modified version of default:tnt from MT
+-- @license MIT
+
+local function rand_pos(center, pos, radius)
+    local def
+    local reg_nodes = minetest.registered_nodes
+    local i = 0
+
+    repeat
+        -- Give up and use the center if this takes too long
+        if i > 4 then
+            pos.x, pos.z = center.x, center.z
+            break
+        end
+
+        pos.x = center.x + math.random(-radius, radius)
+        pos.z = center.z + math.random(-radius, radius)
+        def = reg_nodes[minetest.get_node(pos).name]
+        i = i + 1
+    until def and not def.walkable
+end
+
+local function eject_drops(drops, pos, radius)
+    local drop_pos = vector.new(pos)
+
+    for _, item in pairs(drops) do
+        local count = math.min(item:get_count(), item:get_stack_max())
+
+        while count > 0 do
+            local take = math.max(
+                1,
+                math.min(
+                    radius * radius,
+                    count,
+                    item:get_stack_max()
+                )
+            )
+
+            -- `drop_pos` is being randomized here
+            rand_pos(pos, drop_pos, radius)
+
+            local dropitem = ItemStack(item)
+
+            dropitem:set_count(take)
+
+            local obj = minetest.add_item(drop_pos, dropitem)
+
+            if obj then
+                obj:get_luaentity().collect = true
+                obj:set_acceleration({ x = 0, y = -10, z = 0 })
+                obj:set_velocity({
+                    x = math.random(-2, 2),
+                    y = math.random(0, 2),
+                    z = math.random(-2, 2)
+                })
+            end
+
+            count = count - take
+        end
+    end
+end
+
+-- Populate `drops` table
+local function add_drop(drops, item)
+    item = ItemStack(item)
+
+    local name = item:get_name()
+    local drop = drops[name]
+
+    if drop == nil then
+        drops[name] = item
+    else
+        drop:set_count(drop:get_count() + item:get_count())
+    end
+end
+
+local function destroy(drops, npos, cid, c_air, can_dig, owner)
+    if minetest.is_protected(npos, owner) then
+        return cid
+    end
+
+    local def = Everness.hammer_cid_data[cid]
+
+    if not def then
+        return cid
+    elseif def.can_dig and not def.can_dig(npos, minetest.get_player_by_name(owner)) then
+        return cid
+    else
+        local node_drops = minetest.get_node_drops(def.name, '')
+
+        for _, item in pairs(node_drops) do
+            add_drop(drops, item)
+        end
+
+        return c_air
+    end
+end
+
+function Everness.hammer_after_dig_node(pos, node, metadata, digger, can_dig)
+    if not digger then
+        return
+    end
+
+    local wielditem = digger:get_wielded_item()
+
+    if wielditem:get_name() ~= 'everness:hammer' then
+        return
+    end
+
+    local radius = 1
+    local look_dir = vector.round(digger:get_look_dir())
+    local look_dir_multi = vector.round(vector.multiply(look_dir, radius / 2))
+    pos = vector.round(vector.add(pos, look_dir_multi))
+    local c_air = minetest.CONTENT_AIR
+    local c_ignore = minetest.CONTENT_IGNORE
+    local vm = VoxelManip()
+    local pr = PseudoRandom(os.time())
+    local p1 = vector.subtract(pos, radius)
+    local p2 = vector.add(pos, radius)
+    local minp, maxp = vm:read_from_map(p1, p2)
+    local voxel_area = VoxelArea:new({MinEdge = minp, MaxEdge = maxp})
+    local data = vm:get_data()
+    -- `drops` are being populated in `add_drop` method, called from `destroy` method
+    local drops = {}
+    local p_name = digger:get_player_name()
+
+    if not core.is_creative_enabled(p_name) then
+        local wielditem_meta = wielditem:get_meta()
+        local wielditem_wear = wielditem_meta:get_int('everness_wear')
+        local node_def = minetest.registered_nodes[node.name]
+        local wielditem_def = wielditem:get_definition()
+        local dig_params = minetest.get_dig_params(node_def and node_def.groups, wielditem_def and wielditem_def.tool_capabilities, wielditem:get_wear())
+        local new_wear = wielditem_wear + dig_params.wear
+
+        -- Add wear
+        wielditem_meta:set_int('everness_wear', new_wear)
+
+        -- Draw wear bar texture overlay
+        local px_width = 14
+        local px_one = 65535 / px_width
+        local px_color = px_width - math.floor(new_wear / px_one)
+
+        local inventory_overlay = '[combine:16x16'
+
+        for i = 1, px_width do
+            if i > px_color then
+                inventory_overlay = inventory_overlay .. ':' .. i .. ',14=[combine\\:1x1\\^[noalpha\\^[colorize\\:#000000\\:255'
+            else
+                local color
+
+                if px_color < px_width / 4 then
+                    -- below 25%
+                    color = '#FF0000'
+                elseif px_color < (px_width / 4) * 2 then
+                    -- below 50%
+                    color = '#FFA500'
+                elseif px_color < (px_width / 4) * 3 then
+                    -- below 75%
+                    color = '#FFFF00'
+                else
+                    -- above 75%
+                    color = '#00FF00'
+                end
+
+                inventory_overlay = inventory_overlay .. ':' .. i .. ',14=[combine\\:1x1\\^[noalpha\\^[colorize\\:' .. color .. '\\:255'
+            end
+        end
+
+        wielditem_meta:set_string('inventory_overlay', inventory_overlay)
+
+        if wielditem_wear > 65535 then
+            -- Break tool
+            minetest.sound_play(wielditem_def.sound.breaks, {
+                pos = pos,
+                gain = 0.5
+            }, true)
+
+            digger:set_wielded_item(ItemStack(''))
+        elseif wielditem:get_name() == 'everness:hammer' then
+            -- Save wear
+            digger:set_wielded_item(wielditem)
+        end
+    end
+
+    -- Digging blast
+    for z = -radius, radius do
+        for y = -radius, radius do
+            local vi = voxel_area:index(pos.x + (-radius), pos.y + y, pos.z + z)
+
+            for x = -radius, radius do
+                local r = vector.length(vector.new(x, y, z))
+
+                if (radius * radius) / (r * r) >= (pr:next(30, 60) / 100) then
+                    local cid = data[vi]
+                    local p = vector.new(pos.x + x, pos.y + y, pos.z + z)
+
+                    if cid ~= c_air and cid ~= c_ignore then
+                        data[vi] = destroy(drops, p, cid, c_air, can_dig, p_name)
+                    end
+                end
+
+                vi = vi + 1
+            end
+        end
+    end
+
+    vm:set_data(data)
+    vm:write_to_map()
+    vm:update_map()
+    vm:update_liquids()
+
+    -- Call `check_single_for_falling` for everything within 1.5x blast radius
+    for y = math.round(-radius * 1.5), math.round(radius * 1.5) do
+        for z = math.round(-radius * 1.5), math.round(radius * 1.5) do
+            for x = math.round(-radius * 1.5), math.round(radius * 1.5) do
+                local rad = vector.new(x, y, z)
+                local s = vector.add(pos, rad)
+
+                minetest.check_single_for_falling(s)
+            end
+        end
+    end
+
+    eject_drops(drops, pos, radius)
+
+    -- Get texture for particles from majority of the dug nodes
+    local node_for_particles
+    local most = 0
+
+    for name, stack in pairs(drops) do
+        local count = stack:get_count()
+
+        if count > most then
+            most = count
+            local def = minetest.registered_nodes[name]
+
+            if def then
+                node_for_particles = { name = name }
+            end
+
+            -- Play sounds
+            if def and def.sounds and def.sounds.dug then
+                for i = 1, math.random(2, 5) do
+                    local drop_pos = vector.new(pos)
+
+                    -- `drop_pos` is being randomized here
+                    rand_pos(pos, drop_pos, radius)
+
+                    minetest.after(
+                        math.random(2, 8) / 10,
+                        function()
+                            minetest.sound_play(def.sounds.dug, {
+                                pos = drop_pos,
+                                pitch = math.random(1, 10) / 10
+                            }, true)
+                        end
+                    )
+                end
+            end
+        end
+    end
+
+    if node_for_particles then
+        minetest.add_particlespawner({
+            amount = 64,
+            time = 0.1,
+            minpos = vector.subtract(pos, radius / 2),
+            maxpos = vector.add(pos, radius / 2),
+            minvel = {x = -2, y = 0, z = -2},
+            maxvel = {x = 2, y = 5,  z = 2},
+            minacc = {x = 0, y = -10, z = 0},
+            maxacc = {x = 0, y = -10, z = 0},
+            minexptime = 0.8,
+            maxexptime = 2.0,
+            minsize = radius * 0.33,
+            maxsize = radius,
+            node = node_for_particles,
+            collisiondetection = true,
+        })
+    end
 end

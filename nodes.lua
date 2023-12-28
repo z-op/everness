@@ -1304,7 +1304,9 @@ Everness:register_node('everness:blue_crying_obsidian', {
         -- MCL
         pickaxey = 5,
         building_block = 1,
-        material_stone = 1
+        material_stone = 1,
+        -- Everness
+        everness_obsidian = 1
     },
     _mcl_blast_resistance = 1200,
     _mcl_hardness = 50,
@@ -1322,7 +1324,9 @@ Everness:register_node('everness:blue_weeping_obsidian', {
         -- MCL
         pickaxey = 5,
         building_block = 1,
-        material_stone = 1
+        material_stone = 1,
+        -- Everness
+        everness_obsidian = 1
     },
     _mcl_blast_resistance = 1200,
     _mcl_hardness = 50,
@@ -1342,7 +1346,9 @@ Everness:register_node('everness:weeping_obsidian', {
         -- MCL
         pickaxey = 5,
         building_block = 1,
-        material_stone = 1
+        material_stone = 1,
+        -- Everness
+        everness_obsidian = 1
     },
     _mcl_blast_resistance = 1200,
     _mcl_hardness = 50,
@@ -9353,7 +9359,7 @@ Everness:register_node('everness:floating_crystal', {
         minetest.sound_play(
             'everness_thin_glass_footstep',
             {
-                gain = 1.0,
+                gain = 0.7,
                 max_hear_distance = 16,
                 pos = pos
             },
