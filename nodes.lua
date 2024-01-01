@@ -9336,7 +9336,7 @@ Everness:register_node('everness:floating_crystal', {
     _mcl_hardness = 0.3,
     selection_box = {
         type = 'fixed',
-        fixed = { -0.25, -0.4, -0.25, 0.25, 0.4, 0.25 },
+        fixed = { -0.25, -0.25, -0.25, 0.25, 0.25, 0.25 },
     },
     drop = '',
     sounds = Everness.node_sound_thin_glass_defaults(),

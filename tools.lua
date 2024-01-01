@@ -122,7 +122,18 @@ minetest.register_tool('everness:pick_illuminating', {
                 if not minetest.settings:get_bool('creative_mode')
                     or not minetest.check_player_privs(placer:get_player_name(), { creative = true })
                 then
-                    itemstack:add_wear(65535 / (150 - 1))
+                    local wear_to_add = 65535 / (150 - 1)
+
+                    if itemstack:get_wear() + wear_to_add > 65535 then
+                        local itemstack_def = itemstack:get_definition()
+                        -- Break tool
+                        minetest.sound_play(itemstack_def.sound.breaks, {
+                            pos = pos,
+                            gain = 0.5
+                        }, true)
+                    end
+
+                    itemstack:add_wear(wear_to_add)
                 end
 
                 return itemstack

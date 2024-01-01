@@ -587,7 +587,19 @@ function Everness.use_shell_of_underwater_breathing(self, itemstack, user, point
         if not minetest.settings:get_bool('creative_mode')
             or not minetest.check_player_privs(user:get_player_name(), { creative = true })
         then
-            itemstack:add_wear(65535 / 20)
+            local wear_to_add = 65535 / 20
+
+            if itemstack:get_wear() + wear_to_add > 65535 then
+                local itemstack_def = itemstack:get_definition()
+
+                -- Break tool
+                minetest.sound_play(itemstack_def.sound.breaks, {
+                    pos = pos_player,
+                    gain = 0.5
+                }, true)
+            end
+
+            itemstack:add_wear(wear_to_add)
         end
 
         minetest.sound_play('everness_underwater_bubbles', {
@@ -597,7 +609,7 @@ function Everness.use_shell_of_underwater_breathing(self, itemstack, user, point
         })
 
         minetest.add_particlespawner({
-            amount = 20,
+            amount = 40,
             time = 0.1,
             pos = {
                 min = vector.new(pos_player.x - 0.25, pos_player.y + 1.25, pos_player.z - 0.25),
@@ -1169,7 +1181,7 @@ function Everness.hammer_after_dig_node(pos, node, metadata, digger, can_dig)
     local drops = {}
     local p_name = digger:get_player_name()
 
-    if not core.is_creative_enabled(p_name) then
+    if not minetest.settings:get_bool('creative_mode') then
         local wielditem_meta = wielditem:get_meta()
         local wielditem_wear = wielditem_meta:get_int('everness_wear')
         local node_def = minetest.registered_nodes[node.name]
@@ -1190,7 +1202,11 @@ function Everness.hammer_after_dig_node(pos, node, metadata, digger, can_dig)
                 gain = 0.5
             }, true)
 
-            digger:set_wielded_item(ItemStack(''))
+            if wielditem:get_name() == 'everness:hammer'
+                or wielditem:get_name() == 'everness:hammer_sharp'
+            then
+                digger:set_wielded_item(ItemStack(''))
+            end
         elseif wielditem:get_name() == 'everness:hammer'
             or wielditem:get_name() == 'everness:hammer_sharp'
         then
@@ -1311,7 +1327,7 @@ end
 -- was last active
 function Everness.cool_lava(pos, node, dtime_s, prev_cool_lava_action)
     if node.name == 'default:lava_source' or node.name == 'mcl_core:lava_source' then
-        if math.random(1, 5) == 1 then
+        if math.random(1, 10) == 1 then
             local obi_nodes = {
                 { name = 'everness:blue_crying_obsidian', color = '#2978A6'},
                 { name = 'everness:blue_weeping_obsidian', color = '#25B8FF'},
