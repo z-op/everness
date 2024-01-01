@@ -1,7 +1,7 @@
                   GNU LESSER GENERAL PUBLIC LICENSE
                        Version 2.1, February 1999
 
- Copyright (C) 2023 SaKeL <juraj.vajda@gmail.com>
+ Copyright (C) 2024 SaKeL <juraj.vajda@gmail.com>
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
 
@@ -885,6 +885,10 @@ GNU Lesser General Public License v2.1 or later
 - everness_mese_tree_sapling.png
 - everness_mese_tree_top.png
 - everness_mese_wood.png
+- everness_hammer_mesh.png
+- everness_hammer_sharp_mesh.png
+- everness_hammer_sharp_item.png
+- everness_hammer_item.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
@@ -1321,6 +1325,12 @@ https://freesound.org/people/Rudmer_Rotteveel/sounds/590950/
 - everness_creaky_door_open.2.ogg
 - everness_creaky_door_close.ogg
 
+**CC-BY-SA-3.0, celeron55, Perttu Ahola**
+
+- everness_cool_lava.1.ogg
+- everness_cool_lava.2.ogg
+- everness_cool_lava.3.ogg
+
 ### Models
 
 **CC-BY-SA-4.0, by SaKeL**
@@ -1335,6 +1345,7 @@ https://freesound.org/people/Rudmer_Rotteveel/sounds/590950/
 - everness_lumecorn.obj
 - everness_skull_with_candle.obj
 - everness_venus_trap.obj
+- everness_hammer_pick.obj
 
 **CC-BY-SA-3.0, by sofar**
 
@@ -1354,6 +1365,7 @@ https://freesound.org/people/Rudmer_Rotteveel/sounds/590950/
 - everness_mesh_bush.blend
 - everness_skull_with_candle.blend
 - everness_venus_trap.blend
+- everness_hammer_pick.blend
 
 ### Schematics
 

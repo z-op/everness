@@ -1,6 +1,6 @@
 --[[
     Everness. Never ending discovery in Everness mapgen.
-    Copyright (C) 2023 SaKeL <juraj.vajda@gmail.com>
+    Copyright (C) 2024 SaKeL <juraj.vajda@gmail.com>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -1105,6 +1105,42 @@ local function destroy(drops, npos, cid, c_air, can_dig, owner)
     end
 end
 
+-- Draw wear bar texture overlay
+function Everness.draw_wear_bar(itemstack, wear)
+    local itemstack_meta = itemstack:get_meta()
+    local px_width = 14
+    local px_one = 65535 / px_width
+    local px_color = px_width - math.floor(wear / px_one)
+
+    local inventory_overlay = '[combine:16x16'
+
+    for i = 1, px_width do
+        if i > px_color then
+            inventory_overlay = inventory_overlay .. ':' .. i .. ',14=[combine\\:1x1\\^[noalpha\\^[colorize\\:#000000\\:255'
+        else
+            local color
+
+            if px_color < px_width / 4 then
+                -- below 25%
+                color = '#FF0000'
+            elseif px_color < (px_width / 4) * 2 then
+                -- below 50%
+                color = '#FFA500'
+            elseif px_color < (px_width / 4) * 3 then
+                -- below 75%
+                color = '#FFFF00'
+            else
+                -- above 75%
+                color = '#00FF00'
+            end
+
+            inventory_overlay = inventory_overlay .. ':' .. i .. ',14=[combine\\:1x1\\^[noalpha\\^[colorize\\:' .. color .. '\\:255'
+        end
+    end
+
+    itemstack_meta:set_string('inventory_overlay', inventory_overlay)
+end
+
 function Everness.hammer_after_dig_node(pos, node, metadata, digger, can_dig)
     if not digger then
         return
@@ -1112,7 +1148,7 @@ function Everness.hammer_after_dig_node(pos, node, metadata, digger, can_dig)
 
     local wielditem = digger:get_wielded_item()
 
-    if wielditem:get_name() ~= 'everness:hammer' then
+    if not (wielditem:get_name() == 'everness:hammer' or wielditem:get_name() == 'everness:hammer_sharp') then
         return
     end
 
@@ -1145,37 +1181,7 @@ function Everness.hammer_after_dig_node(pos, node, metadata, digger, can_dig)
         wielditem_meta:set_int('everness_wear', new_wear)
 
         -- Draw wear bar texture overlay
-        local px_width = 14
-        local px_one = 65535 / px_width
-        local px_color = px_width - math.floor(new_wear / px_one)
-
-        local inventory_overlay = '[combine:16x16'
-
-        for i = 1, px_width do
-            if i > px_color then
-                inventory_overlay = inventory_overlay .. ':' .. i .. ',14=[combine\\:1x1\\^[noalpha\\^[colorize\\:#000000\\:255'
-            else
-                local color
-
-                if px_color < px_width / 4 then
-                    -- below 25%
-                    color = '#FF0000'
-                elseif px_color < (px_width / 4) * 2 then
-                    -- below 50%
-                    color = '#FFA500'
-                elseif px_color < (px_width / 4) * 3 then
-                    -- below 75%
-                    color = '#FFFF00'
-                else
-                    -- above 75%
-                    color = '#00FF00'
-                end
-
-                inventory_overlay = inventory_overlay .. ':' .. i .. ',14=[combine\\:1x1\\^[noalpha\\^[colorize\\:' .. color .. '\\:255'
-            end
-        end
-
-        wielditem_meta:set_string('inventory_overlay', inventory_overlay)
+        Everness.draw_wear_bar(wielditem, new_wear)
 
         if wielditem_wear > 65535 then
             -- Break tool
@@ -1185,7 +1191,9 @@ function Everness.hammer_after_dig_node(pos, node, metadata, digger, can_dig)
             }, true)
 
             digger:set_wielded_item(ItemStack(''))
-        elseif wielditem:get_name() == 'everness:hammer' then
+        elseif wielditem:get_name() == 'everness:hammer'
+            or wielditem:get_name() == 'everness:hammer_sharp'
+        then
             -- Save wear
             digger:set_wielded_item(wielditem)
         end
@@ -1199,7 +1207,16 @@ function Everness.hammer_after_dig_node(pos, node, metadata, digger, can_dig)
             for x = -radius, radius do
                 local r = vector.length(vector.new(x, y, z))
 
-                if (radius * radius) / (r * r) >= (pr:next(30, 60) / 100) then
+                if wielditem:get_name() == 'everness:hammer' then
+                    if (radius * radius) / (r * r) >= (pr:next(30, 60) / 100) then
+                        local cid = data[vi]
+                        local p = vector.new(pos.x + x, pos.y + y, pos.z + z)
+
+                        if cid ~= c_air and cid ~= c_ignore then
+                            data[vi] = destroy(drops, p, cid, c_air, can_dig, p_name)
+                        end
+                    end
+                else
                     local cid = data[vi]
                     local p = vector.new(pos.x + x, pos.y + y, pos.z + z)
 
@@ -1286,5 +1303,73 @@ function Everness.hammer_after_dig_node(pos, node, metadata, digger, can_dig)
             node = node_for_particles,
             collisiondetection = true,
         })
+    end
+end
+
+-- Function triggered for each qualifying node.
+-- `dtime_s` is the in-game time (in seconds) elapsed since the block
+-- was last active
+function Everness.cool_lava(pos, node, dtime_s, prev_cool_lava_action)
+    if node.name == 'default:lava_source' or node.name == 'mcl_core:lava_source' then
+        if math.random(1, 5) == 1 then
+            local obi_nodes = {
+                { name = 'everness:blue_crying_obsidian', color = '#2978A6'},
+                { name = 'everness:blue_weeping_obsidian', color = '#25B8FF'},
+                { name = 'everness:weeping_obsidian', color = '#C90FFF'},
+            }
+            local rand_node = obi_nodes[math.random(1, #obi_nodes)]
+
+            minetest.set_node(pos, {
+                name = rand_node.name
+            })
+
+            minetest.sound_play('everness_cool_lava',
+                {
+                    pos = pos,
+                    max_hear_distance = 16,
+                    gain = 0.2
+                },
+                true
+            )
+
+            if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
+                -- new syntax, after v5.6.0
+                minetest.add_particlespawner({
+                    amount = 80,
+                    time = 1,
+                    size = {
+                        min = 0.5,
+                        max = 1,
+                    },
+                    exptime = 1,
+                    pos = pos,
+                    glow = 7,
+                    attract = {
+                        kind = 'point',
+                        strength = 0.5,
+                        origin = pos,
+                        die_on_contact = true
+                    },
+                    radius = 3,
+                    texture = {
+                        name = 'everness_particle.png^[colorize:' .. rand_node.color .. ':255',
+                        alpha_tween = {
+                            0, 1,
+                            style = 'fwd',
+                            reps = 1
+                        },
+                        scale_tween = {
+                            0.25, 1,
+                            style = 'fwd',
+                            reps = 1
+                        }
+                    }
+                })
+            end
+        else
+            prev_cool_lava_action(pos, node, dtime_s)
+        end
+    else
+        prev_cool_lava_action(pos, node, dtime_s)
     end
 end

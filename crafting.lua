@@ -1,6 +1,6 @@
 --[[
     Everness. Never ending discovery in Everness mapgen.
-    Copyright (C) 2023 SaKeL <juraj.vajda@gmail.com>
+    Copyright (C) 2024 SaKeL <juraj.vajda@gmail.com>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -709,6 +709,15 @@ minetest.register_craft({
         { 'group:everness_obsidian', 'group:everness_obsidian', 'group:everness_obsidian' },
         { 'group:everness_obsidian', 'everness:pyriteblock_forged', 'group:everness_obsidian' },
         { '', 'group:stick', '' }
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:hammer_sharp',
+    recipe = {
+        { 'everness:pyriteblock_forged', 'everness:pyriteblock_forged', 'everness:pyriteblock_forged' },
+        { 'everness:pyriteblock_forged', 'everness:hammer', 'everness:pyriteblock_forged' },
+        { '', 'everness:hammer', '' }
     }
 })
 

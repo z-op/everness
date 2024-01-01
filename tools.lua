@@ -1,6 +1,6 @@
 --[[
     Everness. Never ending discovery in Everness mapgen.
-    Copyright (C) 2023 SaKeL <juraj.vajda@gmail.com>
+    Copyright (C) 2024 SaKeL <juraj.vajda@gmail.com>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -218,6 +218,7 @@ minetest.register_tool('everness:shell_of_underwater_breathing', {
 --
 
 minetest.register_on_mods_loaded(function()
+    -- Hammer functionality and populating `cid_data` for lated VoxelManipulation
     for name, def in pairs(minetest.registered_nodes) do
         if def.walkable and def.pointable and def.diggable then
             local prev_after_dig = def.after_dig_node
@@ -253,6 +254,64 @@ minetest.register_node('everness:hammer', {
     drawtype = 'mesh',
     mesh = 'everness_hammer_pick.obj',
     tiles = { 'everness_hammer_mesh.png' },
+    wield_scale = { x = 2, y = 2, z = 2 },
+    node_placement_prediction = '',
+    range = 4.0,
+    tool_capabilities = {
+        full_punch_interval = 1.0,
+        max_drop_level = 3,
+        groupcaps = {
+            cracky = { times = { [1] = 2.0, [2] = 1.0, [3] = 0.50 }, uses = 30, maxlevel = 3 },
+        },
+        damage_groups = { fleshy = 5 },
+        -- MCL
+        punch_attack_uses = 781,
+    },
+    stack_max = 1,
+    sound = { breaks = 'everness_tool_breaks' },
+    -- MCL
+    _mcl_toollike_wield = true,
+    groups = {
+        -- MCL
+        tool = 1,
+        dig_speed_class = 5
+    },
+    -- MCL
+    _mcl_diggroups = {
+        pickaxey = { speed = 8, level = 5, uses = 1562 }
+    },
+    on_place = function(itemstack, placer, pointed_thing)
+        -- disable placing (returns `nil`)
+        if pointed_thing.type == 'node' then
+            local pos = minetest.get_pointed_thing_position(pointed_thing)
+
+            if not pos or not placer then
+                return
+            end
+
+            local pointed_node = minetest.get_node(pos)
+            local pointed_node_def = minetest.registered_nodes[pointed_node.name]
+
+            if not pointed_node then
+                return
+            end
+
+            -- check if we have to use default on_place first
+            if pointed_node_def.on_rightclick then
+                return pointed_node_def.on_rightclick(pos, pointed_node, placer, itemstack, pointed_thing)
+            end
+        end
+    end
+})
+
+minetest.register_node('everness:hammer_sharp', {
+    description = S('Sharp') .. ' ' .. S('Hammer'),
+    mod_origin = 'evermess',
+    inventory_image = 'everness_hammer_sharp_item.png',
+    use_texture_alpha = 'clip',
+    drawtype = 'mesh',
+    mesh = 'everness_hammer_pick.obj',
+    tiles = { 'everness_hammer_sharp_mesh.png' },
     wield_scale = { x = 2, y = 2, z = 2 },
     node_placement_prediction = '',
     range = 4.0,

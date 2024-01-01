@@ -1,6 +1,6 @@
 --[[
     Everness. Never ending discovery in Everness mapgen.
-    Copyright (C) 2023 SaKeL <juraj.vajda@gmail.com>
+    Copyright (C) 2024 SaKeL <juraj.vajda@gmail.com>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -794,3 +794,72 @@ minetest.register_abm({
         minetest.add_particlespawner(particlespawner_def)
     end
 })
+
+-- Override lava cooling to include some variations of obsidian
+minetest.register_on_mods_loaded(function()
+    for _, abm in pairs(minetest.registered_abms) do
+        if abm.label == 'Lava cooling' and abm.action ~= nil then
+            local prev_cool_lava_action = abm.action
+
+            abm.action = function(pos, node, dtime_s)
+                Everness.cool_lava(pos, node, dtime_s, prev_cool_lava_action)
+            end
+        end
+    end
+end)
+
+-- Calculates `everness:hammer_sharp` wear when crafting
+minetest.register_craft_predict(function(itemstack, player, old_craft_grid, craft_inv)
+    if itemstack and itemstack:get_name() == 'everness:hammer_sharp' then
+        local stack_meta = itemstack:get_meta()
+        local hammers = 0
+        local wear_total = 0
+
+        for k, stack in pairs(old_craft_grid) do
+            if stack:get_name() == 'everness:hammer' then
+                local meta = stack:get_meta()
+                wear_total = wear_total + meta:get_int('everness_wear')
+                hammers = hammers + 1
+            end
+        end
+
+        local average_wear = wear_total / hammers
+
+        stack_meta:set_int('everness_wear', math.ceil(average_wear))
+
+        -- Draw wear bar texture overlay
+        if average_wear > 0 then
+            Everness.draw_wear_bar(itemstack, average_wear)
+        end
+
+        return itemstack
+    end
+end)
+
+-- Calculates `everness:hammer_sharp` wear when crafting
+minetest.register_on_craft(function(itemstack, player, old_craft_grid, craft_inv)
+    if itemstack and itemstack:get_name() == 'everness:hammer_sharp' then
+        local stack_meta = itemstack:get_meta()
+        local hammers = 0
+        local wear_total = 0
+
+        for k, stack in pairs(old_craft_grid) do
+            if stack:get_name() == 'everness:hammer' then
+                local meta = stack:get_meta()
+                wear_total = wear_total + meta:get_int('everness_wear')
+                hammers = hammers + 1
+            end
+        end
+
+        local average_wear = wear_total / hammers
+
+        stack_meta:set_int('everness_wear', math.ceil(average_wear))
+
+        -- Draw wear bar texture overlay
+        if average_wear > 0 then
+            Everness.draw_wear_bar(itemstack, average_wear)
+        end
+
+        return itemstack
+    end
+end)
