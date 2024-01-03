@@ -3,7 +3,7 @@
     GNU Lesser General Public License, version 2.1
     Copyright (C) 2011-2018 celeron55, Perttu Ahola <celeron55@gmail.com>
     Copyright (C) 2011-2018 Various Minetest developers and contributors
-    Copyright (C) 2022 SaKeL <juraj.vajda@gmail.com>
+    Copyright (C) 2022 SaKeL
 
     This program is free software; you can redistribute it and/or modify it under the terms
     of the GNU Lesser General Public License as published by the Free Software Foundation;

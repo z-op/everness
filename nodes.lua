@@ -1,6 +1,6 @@
 --[[
     Everness. Never ending discovery in Everness mapgen.
-    Copyright (C) 2022 SaKeL <juraj.vajda@gmail.com>
+    Copyright (C) 2022 SaKeL
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
