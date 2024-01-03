@@ -554,6 +554,17 @@ stairs.register_stair_and_slab(
 )
 
 stairs.register_stair_and_slab(
+    'crystal_mossy_cobble',
+    'everness:crystal_mossy_cobble',
+    { cracky = 2 },
+    { 'everness_crystal_mossy_cobble.png' },
+    S('Crystal Mossy Cobblestone Stair'),
+    S('Crystal Mossy Cobblestone Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
     'crystal_stone_brick',
     'everness:crystal_stone_brick',
     { cracky = 2 },

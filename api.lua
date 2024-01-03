@@ -495,6 +495,15 @@ function Everness.node_sound_snow_defaults(table)
     return table
 end
 
+function Everness.node_sound_gravel_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_gravel_footstep', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_gravel_hit', gain = 1.0 }
+    table.dug = table.dug or { name = 'everness_gravel_dug', gain = 0.6 }
+    table.place = table.place or { name = 'everness_gravel_place', gain = 1.0 }
+    return table
+end
+
 --
 -- Forsted Cave Icicles
 --

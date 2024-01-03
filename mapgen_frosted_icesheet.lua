@@ -36,7 +36,7 @@ minetest.register_biome({
     node_water_top = 'everness:frosted_ice',
     depth_water_top = 2,
     node_river_water = 'everness:frosted_ice',
-    node_riverbed = 'default:gravel',
+    node_riverbed = 'everness:gravel',
     depth_riverbed = 2,
     node_dungeon = 'everness:icecobble',
     node_dungeon_alt = 'everness:snowcobble',

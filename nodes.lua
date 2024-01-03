@@ -585,6 +585,25 @@ Everness:register_node('everness:crystal_cobble', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
+Everness:register_node('everness:crystal_mossy_cobble', {
+    description = S('Crystal Cobblestone'),
+    tiles = { 'everness_crystal_mossy_cobble.png' },
+    is_ground_content = false,
+    groups = {
+        -- MTG
+        cracky = 3,
+        stone = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        cobble = 1
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 2,
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
 Everness:register_node('everness:crystal_stone_brick', {
     description = S('Crystal Stone Brick'),
     paramtype2 = 'facedir',
@@ -1187,6 +1206,32 @@ Everness:register_node('everness:sulfur_stone', {
         minetest.add_particlespawner(particlespawner_def)
 
         Everness:tick_sulfur_stone(pos)
+    end,
+    after_destruct = function(pos, oldnode)
+        pos.y = pos.y + 1
+
+        if minetest.get_node(pos).name == 'everness:flame_permanent' then
+            minetest.remove_node(pos)
+        end
+    end,
+    on_ignite = function(pos, igniter)
+        local flame_pos = { x = pos.x, y = pos.y + 1, z = pos.z }
+
+        if minetest.get_node(flame_pos).name == 'air' then
+            minetest.set_node(flame_pos, {name = 'everness:flame_permanent'})
+        end
+    end,
+    -- MCL
+    _on_ignite = function(player, pointed_thing)
+        local pos = pointed_thing.under
+        local flame_pos = { x = pos.x, y = pos.y + 1, z = pos.z }
+
+        if minetest.get_node(flame_pos).name == 'air' then
+            minetest.set_node(flame_pos, {name = 'everness:flame_permanent'})
+            return true
+        end
+
+        return false
     end
 })
 
@@ -1401,6 +1446,18 @@ Everness:register_node('everness:soul_sandstone', {
     _mcl_blast_resistance = 0.8,
     _mcl_hardness = 0.8,
     sounds = Everness.node_sound_stone_defaults(),
+    after_destruct = function(pos)
+        pos.y = pos.y + 1
+        if minetest.get_node(pos).name == 'everness:flame_permanent_blue' then
+            minetest.remove_node(pos)
+        end
+    end,
+    on_ignite = function(pos)
+        local flame_pos = {x = pos.x, y = pos.y + 1, z = pos.z}
+        if minetest.get_node(flame_pos).name == 'air' then
+            minetest.set_node(flame_pos, {name = 'everness:flame_permanent_blue'})
+        end
+    end
 })
 
 Everness:register_node('everness:soul_sandstone_veined', {
@@ -1428,6 +1485,18 @@ Everness:register_node('everness:soul_sandstone_veined', {
     _mcl_hardness = 0.8,
     drop = 'everness:soul_sandstone',
     sounds = Everness.node_sound_stone_defaults(),
+    after_destruct = function(pos)
+        pos.y = pos.y + 1
+        if minetest.get_node(pos).name == 'everness:flame_permanent_purple' then
+            minetest.remove_node(pos)
+        end
+    end,
+    on_ignite = function(pos)
+        local flame_pos = {x = pos.x, y = pos.y + 1, z = pos.z}
+        if minetest.get_node(flame_pos).name == 'air' then
+            minetest.set_node(flame_pos, {name = 'everness:flame_permanent_purple'})
+        end
+    end
 })
 
 Everness:register_node('everness:crystal_block_purple', {
@@ -2028,20 +2097,190 @@ Everness:register_node('everness:dry_ocean_dirt', {
         dirt = 1,
         soil_sapling = 2,
         soil_sugarcane = 1,
-        -- cultivatable = 2,
         enderman_takable = 1,
         building_block = 1,
-        -- path_creation_possible = 1,
     },
     _mcl_blast_resistance = 0.5,
     _mcl_hardness = 0.5,
     sounds = Everness.node_sound_dirt_defaults(),
 })
 
+Everness:register_node('everness:gravel', {
+    description = 'Everness ' .. S('Gravel'),
+    tiles = { 'everness_gravel.png' },
+    groups = {
+        -- MTG
+        crumbly = 2,
+        -- MCL
+        handy = 1,
+        shovely = 1,
+        enderman_takable = 1,
+        building_block = 1,
+        material_sand = 1,
+        -- All
+        falling_node = 1,
+    },
+    -- MCL
+    _mcl_blast_resistance = 0.6,
+    _mcl_hardness = 0.6,
+    sounds = Everness.node_sound_gravel_defaults(),
+    drop = {
+        max_items = 1,
+        items = {
+            -- { items = { 'default:flint' }, rarity = 16 },
+            { items = { 'everness:gravel' } }
+        }
+    }
+})
+
+Everness:register_node('everness:flame_permanent', {
+    description = S('Permanent Fire'),
+    drawtype = 'firelike',
+    use_texture_alpha = 'blend',
+    tiles = {
+        {
+            name = 'everness_flame_permanent.png',
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 4
+            }
+        }
+    },
+    inventory_image = 'everness_flame_permanent_item.png',
+    paramtype = 'light',
+    light_source = 13,
+    walkable = false,
+    buildable_to = true,
+    sunlight_propagates = true,
+    floodable = true,
+    damage_per_second = 4,
+    groups = {
+        igniter = 2,
+        dig_immediate = 3,
+        fire = 1
+    },
+    drop = '',
+    on_flood = function(pos, oldnode, newnode)
+        -- Play flame extinguish sound if liquid is not an 'igniter'
+        if minetest.get_item_group(newnode.name, 'igniter') == 0 then
+            minetest.sound_play('everness_extinguish_flame',
+                {
+                    pos = pos,
+                    max_hear_distance = 16,
+                    gain = 1.0,
+                    pitch = math.random(5, 20) / 10
+                },
+                true
+            )
+        end
+
+        -- Remove the flame
+        return false
+    end
+})
+
+Everness:register_node('everness:flame_permanent_purple', {
+    description = S('Permanent Fire'),
+    drawtype = 'firelike',
+    use_texture_alpha = 'blend',
+    tiles = {
+        {
+            name = 'everness_flame_permanent_purple.png',
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 4
+            }
+        }
+    },
+    inventory_image = 'everness_flame_permanent_purple_item.png',
+    paramtype = 'light',
+    light_source = 13,
+    walkable = false,
+    buildable_to = true,
+    sunlight_propagates = true,
+    floodable = true,
+    damage_per_second = 4,
+    groups = {
+        igniter = 2,
+        dig_immediate = 3,
+        fire = 1
+    },
+    drop = '',
+    on_flood = function(pos, oldnode, newnode)
+        -- Play flame extinguish sound if liquid is not an 'igniter'
+        if minetest.get_item_group(newnode.name, 'igniter') == 0 then
+            minetest.sound_play('everness_extinguish_flame',
+                {
+                    pos = pos,
+                    max_hear_distance = 16,
+                    gain = 1.0,
+                    pitch = math.random(5, 20) / 10
+                },
+                true
+            )
+        end
+
+        -- Remove the flame
+        return false
+    end
+})
+
+Everness:register_node('everness:flame_permanent_blue', {
+    description = S('Permanent Fire'),
+    drawtype = 'firelike',
+    use_texture_alpha = 'blend',
+    tiles = {
+        {
+            name = 'everness_flame_permanent_blue.png',
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 4
+            }
+        }
+    },
+    inventory_image = 'everness_flame_permanent_blue_item.png',
+    paramtype = 'light',
+    light_source = 13,
+    walkable = false,
+    buildable_to = true,
+    sunlight_propagates = true,
+    floodable = true,
+    damage_per_second = 4,
+    groups = {
+        igniter = 2,
+        dig_immediate = 3,
+        fire = 1
+    },
+    drop = '',
+    on_flood = function(pos, oldnode, newnode)
+        -- Play flame extinguish sound if liquid is not an 'igniter'
+        if minetest.get_item_group(newnode.name, 'igniter') == 0 then
+            minetest.sound_play('everness_extinguish_flame',
+                {
+                    pos = pos,
+                    max_hear_distance = 16,
+                    gain = 1.0,
+                    pitch = math.random(5, 20) / 10
+                },
+                true
+            )
+        end
+
+        -- Remove the flame
+        return false
+    end
+})
+
 -- Loot Chest / Icicle Markers
 
 Everness:register_node('everness:japanese_shrine_lootchest_marker', {
-    drawtype = 'airlike',
+    -- drawtype = 'airlike',
     description = 'Japanese Shrine Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
@@ -5101,6 +5340,277 @@ Everness:register_node('everness:flowers_4', {
     walkable = false,
     buildable_to = true,
     drop = 'everness:flowers_1',
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        bamboo_grass = 1,
+        flower = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+        not_in_creative_inventory = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    selection_box = {
+        type = 'fixed',
+        fixed = { -8 / 16, -0.5, -8 / 16, 8 / 16, -5 / 16, 8 / 16 },
+    },
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            { 0, -0.3125, -0.0625, 0.5, -0.3125, 0.5 }, -- 3 small flowers top (A)
+            { 0.375, -0.5, 0.0625, 0.4375, -0.3125, 0.125 }, -- stem A
+            { 0.0625, -0.5, 0, 0.125, -0.3125, 0.0625 }, -- stem A
+            { 0.1875, -0.5, 0.3125, 0.25, -0.3125, 0.375 }, -- stem A
+            { 0, -0.375, -0.5, 0.5, -0.375, -0.0625 }, -- 1 big flower top (B)
+            { 0.1875, -0.5, -0.3125, 0.25, -0.375, -0.25 }, -- stem B
+            { -0.5, -0.375, -0.5, 0, -0.375, 0 }, -- 2 small and 1 medium flowers top (C)
+            { -0.125, -0.5, -0.1875, -0.0625, -0.375, -0.125 }, -- stem C
+            { -0.4375, -0.5, -0.25, -0.375, -0.375, -0.1875 }, -- stem C
+            { -0.3125, -0.5, -0.375, -0.1875, -0.375, -0.375 }, -- stem C
+            { -0.25, -0.5, -0.4375, -0.25, -0.375, -0.3125 }, -- stem C
+            { -0.5, -0.4375, 0, 0, -0.4375, 0.5 }, -- 1 big flower top (D)
+            { -0.25, -0.5, 0.1875, -0.1875, -0.4375, 0.25 }, -- stem D
+        }
+    }
+})
+
+--  Magenta Flowers
+
+Everness:register_node('everness:flowers_magenta_1', {
+    description = S('Magenta Flowers'),
+    short_description = S('Magenta Flowers'),
+    drawtype = 'nodebox',
+    -- Textures of node; +Y, -Y, +X, -X, +Z, -Z
+    tiles = {
+        'everness_flowers_magenta.png',
+        'everness_flowers_magenta.png^[transformFY',
+        'everness_flowers_magenta_side_x.png',
+        'everness_flowers_magenta_side_x.png^[transformFX',
+        'everness_flowers_magenta_side_z.png^[transformFX',
+        'everness_flowers_magenta_side_z.png',
+    },
+    use_texture_alpha = 'clip',
+    inventory_image = 'everness_flowers_magenta.png',
+    wield_image = 'everness_flowers_magenta.png',
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    sunlight_propagates = true,
+    walkable = false,
+    buildable_to = true,
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        bamboo_grass = 1,
+        flower = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    selection_box = {
+        type = 'fixed',
+        fixed = { -8 / 16, -0.5, -8 / 16, 8 / 16, -5 / 16, 8 / 16 },
+    },
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            { 0, -0.3125, -0.0625, 0.5, -0.3125, 0.5 }, -- 3 small flowers top (A)
+            { 0.375, -0.5, 0.0625, 0.4375, -0.3125, 0.125 }, -- stem A
+            { 0.0625, -0.5, 0, 0.125, -0.3125, 0.0625 }, -- stem A
+            { 0.1875, -0.5, 0.3125, 0.25, -0.3125, 0.375 }, -- stem A
+        }
+    },
+    on_place = function(itemstack, placer, pointed_thing)
+        local stack = ItemStack('everness:flowers_magenta_' .. math.random(1, 4))
+        local ret = minetest.item_place(stack, placer, pointed_thing)
+        return ItemStack('everness:flowers_magenta_1 ' .. itemstack:get_count() - (1 - ret:get_count()))
+    end,
+})
+
+Everness:register_node('everness:flowers_magenta_2', {
+    description = S('Magenta Flowers'),
+    short_description = S('Magenta Flowers'),
+    drawtype = 'nodebox',
+    -- Textures of node; +Y, -Y, +X, -X, +Z, -Z
+    tiles = {
+        'everness_flowers_magenta.png',
+        'everness_flowers_magenta.png^[transformFY',
+        'everness_flowers_magenta_side_x.png',
+        'everness_flowers_magenta_side_x.png^[transformFX',
+        'everness_flowers_magenta_side_z.png^[transformFX',
+        'everness_flowers_magenta_side_z.png',
+    },
+    use_texture_alpha = 'clip',
+    inventory_image = 'everness_flowers_magenta.png',
+    wield_image = 'everness_flowers_magenta.png',
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    sunlight_propagates = true,
+    walkable = false,
+    buildable_to = true,
+    drop = 'everness:flowers_magenta_1',
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        bamboo_grass = 1,
+
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+        not_in_creative_inventory = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    selection_box = {
+        type = 'fixed',
+        fixed = { -8 / 16, -0.5, -8 / 16, 8 / 16, -5 / 16, 8 / 16 },
+    },
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            { 0, -0.3125, -0.0625, 0.5, -0.3125, 0.5 }, -- 3 small flowers top (A)
+            { 0.375, -0.5, 0.0625, 0.4375, -0.3125, 0.125 }, -- stem A
+            { 0.0625, -0.5, 0, 0.125, -0.3125, 0.0625 }, -- stem A
+            { 0.1875, -0.5, 0.3125, 0.25, -0.3125, 0.375 }, -- stem A
+            { -0.5, -0.4375, 0, 0, -0.4375, 0.5 }, -- 1 big flower top (D)
+            { -0.25, -0.5, 0.1875, -0.1875, -0.4375, 0.25 }, -- stem D
+        }
+    }
+})
+
+Everness:register_node('everness:flowers_magenta_3', {
+    description = S('Magenta Flowers'),
+    short_description = S('Magenta Flowers'),
+    drawtype = 'nodebox',
+    -- Textures of node; +Y, -Y, +X, -X, +Z, -Z
+    tiles = {
+        'everness_flowers_magenta.png',
+        'everness_flowers_magenta.png^[transformFY',
+        'everness_flowers_magenta_side_x.png',
+        'everness_flowers_magenta_side_x.png^[transformFX',
+        'everness_flowers_magenta_side_z.png^[transformFX',
+        'everness_flowers_magenta_side_z.png',
+    },
+    use_texture_alpha = 'clip',
+    inventory_image = 'everness_flowers_magenta.png',
+    wield_image = 'everness_flowers_magenta.png',
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    sunlight_propagates = true,
+    walkable = false,
+    buildable_to = true,
+    drop = 'everness:flowers_magenta_1',
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
+        bamboo_grass = 1,
+        flower = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 1,
+        not_in_creative_inventory = 1,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    selection_box = {
+        type = 'fixed',
+        fixed = { -8 / 16, -0.5, -8 / 16, 8 / 16, -5 / 16, 8 / 16 },
+    },
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            { 0, -0.3125, -0.0625, 0.5, -0.3125, 0.5 }, -- 3 small flowers top (A)
+            { 0.375, -0.5, 0.0625, 0.4375, -0.3125, 0.125 }, -- stem A
+            { 0.0625, -0.5, 0, 0.125, -0.3125, 0.0625 }, -- stem A
+            { 0.1875, -0.5, 0.3125, 0.25, -0.3125, 0.375 }, -- stem A
+            { -0.5, -0.4375, 0, 0, -0.4375, 0.5 }, -- 1 big flower top (D)
+            { -0.25, -0.5, 0.1875, -0.1875, -0.4375, 0.25 }, -- stem D
+            { -0.5, -0.375, -0.5, 0, -0.375, 0 }, -- 2 small and 1 medium flowers top (C)
+            { -0.125, -0.5, -0.1875, -0.0625, -0.375, -0.125 }, -- stem C
+            { -0.4375, -0.5, -0.25, -0.375, -0.375, -0.1875 }, -- stem C
+            { -0.3125, -0.5, -0.375, -0.1875, -0.375, -0.375 }, -- stem C
+            { -0.25, -0.5, -0.4375, -0.25, -0.375, -0.3125 }, -- stem C
+        }
+    }
+})
+
+Everness:register_node('everness:flowers_magenta_4', {
+    description = S('Magenta Flowers'),
+    short_description = S('Magenta Flowers'),
+    drawtype = 'nodebox',
+    -- Textures of node; +Y, -Y, +X, -X, +Z, -Z
+    tiles = {
+        'everness_flowers_magenta.png',
+        'everness_flowers_magenta.png^[transformFY',
+        'everness_flowers_magenta_side_x.png',
+        'everness_flowers_magenta_side_x.png^[transformFX',
+        'everness_flowers_magenta_side_z.png^[transformFX',
+        'everness_flowers_magenta_side_z.png',
+    },
+    use_texture_alpha = 'clip',
+    inventory_image = 'everness_flowers_magenta.png',
+    wield_image = 'everness_flowers_magenta.png',
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    sunlight_propagates = true,
+    walkable = false,
+    buildable_to = true,
+    drop = 'everness:flowers_magenta_1',
     groups = {
         -- MTG
         snappy = 3,
@@ -9370,7 +9880,7 @@ Everness:register_node('everness:floating_crystal', {
         local position = vector.new(pos.x, pos.y, pos.z)
         local position_prev = vector.new(pos.x, pos.y, pos.z)
 
-        -- For "number" of crystals do..
+        -- For 'number' of crystals do..
         for i = 1, math.random(2, 6), 1 do
             -- Only air positions
             local positions = minetest.find_nodes_in_area(

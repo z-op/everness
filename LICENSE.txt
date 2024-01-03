@@ -1,7 +1,7 @@
                   GNU LESSER GENERAL PUBLIC LICENSE
                        Version 2.1, February 1999
 
- Copyright (C) 2024 SaKeL <juraj.vajda@gmail.com>
+ Copyright (C) 2024 SaKeL
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
 
@@ -889,10 +889,27 @@ GNU Lesser General Public License v2.1 or later
 - everness_hammer_sharp_mesh.png
 - everness_hammer_sharp_item.png
 - everness_hammer_item.png
+- everness_cobweb.png
+- everness_flowers_magenta.png
+- everness_flowers_magenta_side_z.png
+- everness_flowers_magenta_side_x.png
+- everness_cursed_bar.png
+- everness_cursed_bar_top.png
+- everness_door_cursed_steel_bar.png
+- everness_door_cursed_steel_bar_item.png
+- everness_flame_permanent.png
+- everness_flame_permanent_blue.png
+- everness_flame_permanent_blue_item.png
+- everness_flame_permanent_item.png
+- everness_flame_permanent_purple.png
+- everness_flame_permanent_purple_item.png
+- everness_gravel.png
+- everness_trapdoor_cursed_steel_bar.png
+- everness_trapdoor_cursed_steel_bar_side.png
+- everness_crystal_mossy_cobble.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
-- everness_cobweb.png
 - everness_fire_animated.png
 - everness_flame_particle.png
 - everness_rising_soul_particle.png
@@ -1330,6 +1347,35 @@ https://freesound.org/people/Rudmer_Rotteveel/sounds/590950/
 - everness_cool_lava.1.ogg
 - everness_cool_lava.2.ogg
 - everness_cool_lava.3.ogg
+
+**CC-BY-4.0, by jorickhoofd**, https://freesound.org/people/jorickhoofd/
+
+- everness_gravel_hit.1.ogg
+- everness_gravel_hit.2.ogg
+- everness_gravel_hit.3.ogg
+- everness_gravel_place.1.ogg
+- everness_gravel_place.2.ogg
+- everness_gravel_place.3.ogg
+
+**CC-BY-3.0, by test_sound**, https://freesound.org/people/test_sound/
+
+- everness_gravel_dug.1.ogg
+- everness_gravel_dug.2.ogg
+- everness_gravel_dug.3.ogg
+- everness_gravel_dug.4.ogg
+
+**CC0-1.0, by Ali_6868**, https://freesound.org/people/Ali_6868/
+
+- everness_gravel_footstep.1.ogg
+- everness_gravel_footstep.2.ogg
+- everness_gravel_footstep.3.ogg
+- everness_gravel_footstep.4.ogg
+- everness_gravel_footstep.5.ogg
+- everness_gravel_footstep.6.ogg
+
+**CC-BY-4.0, by DelonOW**, https://freesound.org/people/DelonOW/
+
+- everness_extinguish_flame.1.ogg
 
 ### Models
 

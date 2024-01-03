@@ -223,6 +223,32 @@ register_flower_decoration(-0.015, 0.075, 3)
 register_flower_decoration(0, 0.06, 2)
 register_flower_decoration(0.015, 0.045, 1)
 
+local function register_flower_magenta_decoration(offset, scale, length)
+    minetest.register_decoration({
+        name = 'everness:bamboo_forest_flowers_magenta' .. length,
+        deco_type = 'simple',
+        place_on = { 'everness:dirt_with_grass_1' },
+        sidelen = 16,
+        noise_params = {
+            offset = offset,
+            scale = scale,
+            spread = { x = 200, y = 200, z = 200 },
+            seed = 329,
+            octaves = 3,
+            persist = 0.6
+        },
+        biomes = { 'everness_bamboo_forest' },
+        y_max = y_max,
+        y_min = y_min,
+        decoration = 'everness:flowers_magenta_' .. length,
+    })
+end
+
+register_flower_magenta_decoration(-0.03, 0.09, 4)
+register_flower_magenta_decoration(-0.015, 0.075, 3)
+register_flower_magenta_decoration(0, 0.06, 2)
+register_flower_magenta_decoration(0.015, 0.045, 1)
+
 --
 -- On Generated
 --

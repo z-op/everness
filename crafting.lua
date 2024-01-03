@@ -809,6 +809,12 @@ minetest.register_craft({
     burntime = 6,
 })
 
+minetest.register_craft({
+    type = 'fuel',
+    recipe = 'everness:sulfur_stone',
+    burntime = 370,
+})
+
 --
 -- Cooking recipes
 --
@@ -871,6 +877,12 @@ minetest.register_craft({
     type = 'cooking',
     output = 'everness:crystal_stone',
     recipe = 'everness:crystal_cobble',
+})
+
+minetest.register_craft({
+    type = 'cooking',
+    output = 'everness:crystal_stone',
+    recipe = 'everness:crystal_mossy_cobble',
 })
 
 --

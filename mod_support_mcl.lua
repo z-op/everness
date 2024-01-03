@@ -846,6 +846,20 @@ mcl_stairs.register_stair_and_slab(
 )
 
 mcl_stairs.register_stair_and_slab(
+    'crystal_mossy_cobble',
+    'everness:crystal_mossy_cobble',
+    { pickaxey = 2 },
+    { 'everness_crystal_mossy_cobble.png' },
+    S('Crystal Mossy Cobblestone Stair'),
+    S('Crystal Mossy Cobblestone Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    2,
+    S('Double Crystal Mossy Cobblestone Slab'),
+    nil
+)
+
+mcl_stairs.register_stair_and_slab(
     'crystal_stone_brick',
     'everness:crystal_stone_brick',
     { pickaxey = 2 },

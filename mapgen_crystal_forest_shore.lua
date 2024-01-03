@@ -36,7 +36,7 @@ minetest.register_biome({
     node_stone = 'everness:crystal_stone',
     node_cave_liquid = 'default:water_source',
     node_dungeon = 'everness:crystal_cobble',
-    node_dungeon_alt = 'everness:crystal_stone_brick',
+    node_dungeon_alt = 'everness:crystal_mossy_cobble',
     node_dungeon_stair = 'stairs:stair_crystal_cobble',
     y_max = y_max,
     y_min = y_min,
