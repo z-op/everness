@@ -12,8 +12,6 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 local S = minetest.get_translator(minetest.get_current_modname())
@@ -211,6 +209,16 @@ Everness = {
                 enabled = minetest.settings:get_bool('everness_forsaken_tundra_under', true),
                 y_max = tonumber(minetest.settings:get('everness_forsaken_tundra_under_y_max')) or -256,
                 y_min = tonumber(minetest.settings:get('everness_forsaken_tundra_under_y_min')) or -31000,
+            },
+            everness_mineral_waters = {
+                enabled = minetest.settings:get_bool('everness_mineral_waters', true),
+                y_max = tonumber(minetest.settings:get('everness_mineral_waters_y_max')) or 31000,
+                y_min = tonumber(minetest.settings:get('everness_mineral_waters_y_min')) or 1,
+            },
+            everness_mineral_waters_under = {
+                enabled = minetest.settings:get_bool('everness_mineral_waters_under', true),
+                y_max = tonumber(minetest.settings:get('everness_mineral_waters_under_y_max')) or -256,
+                y_min = tonumber(minetest.settings:get('everness_mineral_waters_under_y_min')) or -31000,
             },
         },
         features = {
@@ -922,14 +930,30 @@ end
 
 -- 'can grow' function - copy from MTG
 
-function Everness.can_grow(pos)
+function Everness.can_grow(pos, groups_under)
     local node_under = minetest.get_node_or_nil({ x = pos.x, y = pos.y - 1, z = pos.z })
 
     if not node_under then
         return false
     end
 
-    if minetest.get_item_group(node_under.name, 'soil') == 0 then
+    local _groups_under  = groups_under
+
+    if not groups_under then
+        _groups_under = { 'soil' }
+    end
+
+    local has_fertile_under = false
+
+    -- Check is one of the `groups_under` are under the sapling
+    for i, v in ipairs(_groups_under) do
+        if minetest.get_item_group(node_under.name, v) > 0 then
+            has_fertile_under = true
+            break
+        end
+    end
+
+    if not has_fertile_under then
         return false
     end
 

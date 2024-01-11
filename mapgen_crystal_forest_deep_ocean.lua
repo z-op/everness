@@ -12,8 +12,6 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -33,7 +31,7 @@ minetest.register_biome({
     depth_filler = 3,
     node_riverbed = 'everness:crystal_forest_deep_ocean_sand',
     depth_riverbed = 2,
-    node_cave_liquid = 'default:water_source',
+    node_cave_liquid = 'mapgen_water_source',
     node_dungeon = 'everness:crystal_forest_deep_ocean_sandstone_block',
     node_dungeon_alt = 'everness:crystal_forest_deep_ocean_sandstone_brick',
     node_dungeon_stair = 'stairs:stair_crystal_forest_deep_ocean_sandstone_block',
@@ -51,7 +49,7 @@ minetest.register_decoration({
     name = 'everness:crystal_forest_deep_ocean_coral_1',
     deco_type = 'schematic',
     place_on = { 'everness:crystal_forest_deep_ocean_sand' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'mapgen_water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.003,
@@ -66,7 +64,7 @@ minetest.register_decoration({
     name = 'everness:crystal_forest_deep_ocean_coral_2',
     deco_type = 'schematic',
     place_on = { 'everness:crystal_forest_deep_ocean_sand' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'mapgen_water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.003,
@@ -81,7 +79,7 @@ minetest.register_decoration({
     name = 'everness:crystal_forest_deep_ocean_coral_3',
     deco_type = 'schematic',
     place_on = { 'everness:crystal_forest_deep_ocean_sand' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'mapgen_water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.003,
@@ -104,7 +102,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:crystal_forest_deep_ocean_sand_with_crack' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'mapgen_water_source',
     num_spawn_by = 8,
 })
 
@@ -127,7 +125,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:crystal_forest_deep_ocean_coral_plant_1' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'mapgen_water_source',
     num_spawn_by = 8,
 })
 
@@ -150,7 +148,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:crystal_forest_deep_ocean_coral_plant_2' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'mapgen_water_source',
     num_spawn_by = 8,
 })
 
@@ -173,7 +171,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:crystal_forest_deep_ocean_coral_plant_3' },
-    spawn_by = 'default:water_source',
+    spawn_by = 'mapgen_water_source',
     num_spawn_by = 8,
 })
 

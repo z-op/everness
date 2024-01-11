@@ -12,8 +12,6 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 -- Get the content IDs for the nodes used.
@@ -38,21 +36,27 @@ local c_frosted_ice = minetest.get_content_id('everness:frosted_ice')
 local data = {}
 local chance = 15
 local disp = 16
+local water_level = tonumber(minetest.settings:get('water_level'))
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
     local rand = PcgRandom(blockseed)
 
+    -- Load the voxelmanip with the result of engine mapgen
     local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
+    -- 'area' is used later to get the voxelmanip indexes for positions
     local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
     -- Get the content ID data from the voxelmanip in the form of a flat array.
     -- Set the buffer parameter to use and reuse 'data' for this.
     vm:get_data(data)
+    -- Side length of mapchunk
     local sidelength = maxp.x - minp.x + 1
 
     local x_disp = rand:next(0, disp)
     local z_disp = rand:next(0, disp)
 
-    if maxp.y > 0 then
+    if maxp.y >= water_level then
+        -- Above sea level
+
         for y = minp.y, maxp.y do
             local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
 
@@ -265,9 +269,13 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
         end
 
         vm:write_to_map(true)
+
+        -- @TODO
+        -- Try below approach
+        -- After modifying the Mapgen VoxelManip object's internal buffer, it may be necessary to update lighting information using either: `VoxelManip:calc_lighting()` or `VoxelManip:set_lighting()`
         minetest.fix_light(minp, maxp)
     else
-        -- Under
+        -- Under sea level
         for y = minp.y, maxp.y do
             local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
 

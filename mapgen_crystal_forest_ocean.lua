@@ -12,8 +12,6 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -34,7 +32,7 @@ minetest.register_biome({
     node_riverbed = 'everness:crystal_sand',
     depth_riverbed = 2,
     node_stone = 'everness:crystal_stone',
-    node_cave_liquid = 'default:water_source',
+    node_cave_liquid = 'mapgen_water_source',
     node_dungeon = 'everness:crystal_cobble',
     node_dungeon_alt = 'everness:crystal_mossy_cobble',
     node_dungeon_stair = 'stairs:stair_crystal_cobble',

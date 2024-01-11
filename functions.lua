@@ -12,8 +12,6 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -238,6 +236,7 @@ Everness:register_leafdecay({
         'everness:willow_tree',
         'everness:sequoia_tree',
         'everness:mese_tree',
+        'everness:palm_tree'
     },
     leaves = {
         'everness:coral_leaves',
@@ -245,7 +244,9 @@ Everness:register_leafdecay({
         'everness:willow_leaves',
         'everness:sequoia_leaves',
         'everness:mese_leaves',
-        'everness:mese_tree_fruit'
+        'everness:mese_tree_fruit',
+        'everness:palm_leaves',
+        'everness:coconut'
     },
     radius = 3
 })
@@ -272,10 +273,12 @@ Everness:register_leafdecay({
 
 local moss_correspondences = {
     ['everness:coral_desert_cobble'] = 'everness:coral_desert_mossy_cobble',
+    ['everness:crystal_cobble'] = 'everness:crystal_mossy_cobble',
 }
 
 local moss_nodenames_correspondences = {
     'everness:coral_desert_cobble',
+    'everness:crystal_cobble',
 }
 
 if minetest.get_modpath('default') then

@@ -12,8 +12,6 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 local skybox_defs = {
@@ -678,7 +676,28 @@ local skybox_defs = {
                 fog_moon_tint = '#BE972D'
             }
         }
-    }
+    },
+    everness_mineral_waters = {
+        sky_parameters = {
+            type = 'regular',
+            sky_color = {
+                day_sky = '#264890',
+                day_horizon = '#3884CF',
+                dawn_sky = '#B4BAFA',
+                dawn_horizon = '#FDA47E',
+                night_sky = '#A3609E',
+                night_horizon = '#C7A8D9',
+                fog_sun_tint = '#FDA47E',
+                fog_moon_tint = '#FAE0EB'
+            }
+        },
+        -- sun_parameters = {
+        --     texture = 'everness_bamboo_forest_sun.png',
+        --     scale = 1.57,
+        --     tonemap = 'everness_bamboo_forest_sun_tonemap.png',
+        --     sunrise = 'everness_bamboo_forest_sunrisebg.png',
+        -- },
+    },
 }
 
 local function should_flip(player)

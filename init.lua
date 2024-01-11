@@ -12,8 +12,6 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 minetest = minetest.global_exists('minetest') and minetest --[[@as Minetest]]
@@ -38,6 +36,7 @@ dofile(path .. '/functions.lua')
 dofile(path .. '/trees.lua')
 dofile(path .. '/vines.lua')
 dofile(path .. '/chests.lua')
+dofile(path .. '/torches.lua')
 
 dofile(path .. '/mapgen.lua')
 
@@ -161,6 +160,14 @@ if Everness.settings.biomes.everness_frosted_icesheet.enabled then
     dofile(path .. '/mapgen_frosted_icesheet.lua')
 end
 
+if Everness.settings.biomes.everness_mineral_waters.enabled then
+    dofile(path .. '/mapgen_mineral_waters.lua')
+end
+
+if Everness.settings.biomes.everness_mineral_waters_under.enabled then
+    dofile(path .. '/mapgen_mineral_waters_under.lua')
+end
+
 dofile(path .. '/mapgen_after.lua')
 
 if minetest.get_modpath('xpanes') and minetest.global_exists('xpanes') then
@@ -188,6 +195,7 @@ if minetest.get_modpath('doors') and minetest.global_exists('doors') then
     dofile(path .. '/doors.lua')
 end
 
+dofile(path .. '/buckets.lua')
 dofile(path .. '/tools.lua')
 dofile(path .. '/craftitems.lua')
 dofile(path .. '/crafting.lua')
