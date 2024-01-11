@@ -44,6 +44,14 @@ Everness:register_node('everness:cursed_stone_carved_with_coal', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
+Everness:register_node('everness:mineral_stone_with_coal', {
+    description = S('Coal Ore'),
+    tiles = { 'everness_mineral_stone.png^[sheet:2x2:1,1^everness_mineral_coal.png' },
+    groups = { cracky = 3 },
+    drop = 'default:coal_lump',
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
 Everness:register_node('everness:stone_with_pyrite', {
     description = S('Pyrite Ore'),
     tiles = { 'everness_stone.png^everness_mineral_pyrite.png' },

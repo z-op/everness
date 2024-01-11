@@ -43,6 +43,26 @@ minetest.register_biome({
 })
 
 --
+-- Register ores
+--
+
+-- Scatter ores
+
+-- Coal
+
+minetest.register_ore({
+    ore_type = 'scatter',
+    ore = 'everness:mineral_stone_with_coal',
+    wherein = 'everness:mineral_stone',
+    clust_scarcity = 8 * 8 * 8,
+    clust_num_ores = 9,
+    clust_size = 3,
+    y_max = y_max,
+    y_min = y_min,
+    biomes = { 'everness_mineral_waters' }
+})
+
+--
 -- Register decorations
 --
 
@@ -112,12 +132,12 @@ minetest.register_decoration({
     place_on = { 'everness:mineral_sand' },
     sidelen = 16,
     noise_params = {
-        offset = 0,
+        offset = -0.004,
         scale = 0.02,
-        spread = { x = 200, y = 200, z = 200 },
-        seed = 329,
+        spread = { x = 100, y = 100, z = 100 },
+        seed = 137,
         octaves = 3,
-        persist = 0.6
+        persist = 0.7,
     },
     biomes = { 'everness_mineral_waters' },
     y_max = y_max,
@@ -136,22 +156,6 @@ minetest.register_decoration({
 })
 
 --
--- ABM
---
-
-minetest.register_abm({
-    label = 'everness:water_geyser',
-    nodenames = { 'everness:water_geyser' },
-    interval = 16,
-    chance = 16,
-    catch_up = false,
-    action = function(pos, node)
-        minetest.swap_node(pos, { name = 'everness:water_geyser_active' })
-        minetest.get_node_timer(pos):start(1)
-    end
-})
-
---
 -- On Generated
 --
 
@@ -165,6 +169,9 @@ local c_everness_mineral_sand = minetest.get_content_id('everness:mineral_sand')
 local c_everness_mineral_sandstone = minetest.get_content_id('everness:mineral_sandstone')
 local c_everness_mineral_sandstone_block = minetest.get_content_id('everness:mineral_sandstone_block')
 local c_everness_mineral_waters_marker = minetest.get_content_id('everness:mineral_waters_marker')
+local c_everness_mineral_stone_with_coal = minetest.get_content_id('everness:mineral_stone_with_coal')
+
+local biome_id_everness_mineral_waters = minetest.get_biome_id('everness_mineral_waters')
 
 local pool_build_nodes = {
     {
@@ -178,11 +185,6 @@ local pool_build_nodes = {
         c_everness_mineral_sandstone_block
     }
 }
-
--- Localize data buffer table outside the loop, to be re-used for all
--- mapchunks, therefore minimising memory use
-local data = {}
-local water_level = tonumber(minetest.settings:get('water_level'))
 
 local function find_irecursive(table, c_id)
     local found = false
@@ -201,113 +203,102 @@ local function find_irecursive(table, c_id)
     return found
 end
 
+-- Localize data buffer table outside the loop, to be re-used for all
+-- mapchunks, therefore minimising memory use
+local data = {}
+
 -- Called after generating a piece of world. Modifying nodes inside the area is a bit faster than usual.
 minetest.register_on_generated(function(minp, maxp, blockseed)
     -- Start time of mapchunk generation.
     -- local t0 = os.clock()
     local rand = PcgRandom(blockseed)
-
     -- Load the voxelmanip with the result of engine mapgen
     local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
+    -- Returns an array containing the biome IDs of nodes in the most recently generated chunk by the current mapgen
+    local biomemap = minetest.get_mapgen_object('biomemap')
     -- 'area' is used later to get the voxelmanip indexes for positions
     local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
     -- Get the content ID data from the voxelmanip in the form of a flat array.
     -- Set the buffer parameter to use and reuse 'data' for this.
     vm:get_data(data)
 
-    if maxp.y >= water_level then
+    if maxp.y >= y_min then
         -- Above sea level
         local rand_version = rand:next(1, 2)
 
         if rand_version == 1 then
+            --
+            -- Pools
+            --
             for y = minp.y, maxp.y do
-                local precision_perc = 75
-
                 for z = minp.z, maxp.z do
+                    local precision_perc = 75
+
                     for x = minp.x, maxp.x do
                         local ai = area:index(x, y, z)
                         local node_name = minetest.get_name_from_content_id(data[ai])
                         local node_def = minetest.registered_nodes[node_name]
-                        local position = area:position(ai)
-                        local biome_data = minetest.get_biome_data(position)
-
-                        if not biome_data then
-                            return
-                        end
-
-                        local biome_name = minetest.get_biome_name(biome_data.biome)
-
-                        if not biome_name then
-                            return
-                        end
 
                         if
                             data[ai + area.ystride] == minetest.CONTENT_AIR
                             and node_def
                             and node_def.walkable
-                            and biome_name == 'everness_mineral_waters'
+                            and table.indexof(biomemap, biome_id_everness_mineral_waters) ~= -1
                         then
                             local length = 5 + rand:next(0, 10)
                             local width = 5 + rand:next(0, 10)
                             local height = 3 + rand:next(0, 4)
-                            local walkable_nodes = {}
+                            local walkable_nodes = 0
 
                             -- find space for lake (walkable rectangle)
-                            -- for hi = 1, height do
-                                for li = 1, length do
-                                    for wi = 1, width do
-                                        local p = vector.new(position.x + li, position.y, position.z + wi)
-                                        -- local p_above = vector.new(position.x + li, position.y + 1, position.z + wi)
-                                        local n_name = minetest.get_name_from_content_id(data[area:indexp(p)])
-                                        -- local n_name_above = minetest.get_name_from_content_id(data[area:indexp(p_above)])
-                                        local n_def = minetest.registered_nodes[n_name]
-                                        local b_data = minetest.get_biome_data(p)
+                            for li = 1, length do
+                                for wi = 1, width do
+                                    local ai_rec = (ai + li) + (area.zstride * wi)
+                                    local n_name = minetest.get_name_from_content_id(data[ai_rec])
+                                    local n_def = minetest.registered_nodes[n_name]
+                                    local b_data = minetest.get_biome_data(area:position(ai_rec))
 
-                                        if not b_data then
-                                            return
-                                        end
+                                    if not b_data then
+                                        return
+                                    end
 
-                                        local b_name = minetest.get_biome_name(b_data.biome)
+                                    local b_name = minetest.get_biome_name(b_data.biome)
 
-                                        if not b_name then
-                                            return
-                                        end
+                                    if not b_name then
+                                        return
+                                    end
 
-                                        if b_name ~= 'everness_mineral_waters'
-                                            or minetest.get_item_group(n_name, 'tree') > 0
-                                            or minetest.get_item_group(n_name, 'leaves') > 0
-                                        then
-                                            -- bordering with anohter biome, be more precise in placing
-                                            precision_perc = 100
-                                        end
+                                    if b_name ~= 'everness_mineral_waters'
+                                        -- for mese trees, they dont have specific biome
+                                        or minetest.get_item_group(n_name, 'tree') > 0
+                                        or minetest.get_item_group(n_name, 'leaves') > 0
+                                    then
+                                        -- bordering with anohter biome, be more precise in placing
+                                        precision_perc = 100
+                                    end
 
-                                        if n_def
-                                            and n_def.walkable
-                                            and b_name == 'everness_mineral_waters'
-                                            -- and n_name_above == 'air'
-                                            and minetest.get_item_group(n_name, 'tree') == 0
-                                            and minetest.get_item_group(n_name, 'leaves') == 0
-                                        then
-                                            table.insert(walkable_nodes, p)
-                                        end
+                                    if n_def
+                                        and n_def.walkable
+                                        and data[ai_rec + area.ystride] == minetest.CONTENT_AIR
+                                    then
+                                        walkable_nodes = walkable_nodes + 1
                                     end
                                 end
-                            -- end
+                            end
 
                             -- build pool (cuboid)
                             local pool_build_nodes_group = pool_build_nodes[rand:next(1, #pool_build_nodes)]
 
-                            if #walkable_nodes >= (width * length / 100) * precision_perc then
-                                -- offset y so the pools are sticking out / sinking in from the ground
-                                local pos_offset = vector.new(position)
-                                pos_offset.y = (position.y - height) + rand:next(0, math.ceil(height / 2))
+                            if walkable_nodes >= (width * length / 100) * precision_perc then
+                                -- offset y so the pools are sticking out / sinking in from the ground vertically
+                                local ai_offset_y = ai - (area.ystride * height) + (area.ystride * rand:next(0, math.ceil(height / 2)))
 
                                 for hi = 1, height do
                                     for li = 1, length do
                                         for wi = 1, width do
                                             local mineral_stone = pool_build_nodes_group[rand:next(1, #pool_build_nodes_group)]
-                                            local p_offset = vector.new(position.x + li, pos_offset.y + hi, position.z + wi)
-                                            local current_c_id = data[area:indexp(p_offset)]
+                                            local ai_cub = (ai_offset_y + li) + (area.ystride * hi) + (area.zstride * wi)
+                                            local current_c_id = data[ai_cub]
 
                                             -- Check for water and build nodes before replacing, this will make pools connected and will not replace already built walls from another pool near by
                                             if hi == 1
@@ -315,14 +306,14 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                                 and not find_irecursive(pool_build_nodes, current_c_id)
                                             then
                                                 -- build pool floor
-                                                data[area:indexp(p_offset)] = mineral_stone
+                                                data[ai_cub] = mineral_stone
                                             elseif hi ~= 1
                                                 and (wi == 1 or wi == width)
                                                 and current_c_id ~= c_everness_mineral_water_source
                                                 and not find_irecursive(pool_build_nodes, current_c_id)
                                             then
                                                 -- build pool wall
-                                                data[area:indexp(p_offset)] = mineral_stone
+                                                data[ai_cub] = mineral_stone
                                             elseif hi ~= 1
                                                 and (li == 1 or li == length)
                                                 and (wi ~= 1 or wi ~= width)
@@ -330,10 +321,10 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                                 and not find_irecursive(pool_build_nodes, current_c_id)
                                             then
                                                 -- build pool wall
-                                                data[area:indexp(p_offset)] = mineral_stone
+                                                data[ai_cub] = mineral_stone
                                             else
                                                 -- fill in the pool with water
-                                                data[area:indexp(p_offset)] = c_everness_mineral_water_source
+                                                data[ai_cub] = c_everness_mineral_water_source
                                             end
 
                                             -- place loot chest marker in the middle of the pool floor
@@ -341,10 +332,10 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                                 and height > 4
                                                 and math.ceil(length / 2) == li
                                                 and math.ceil(width / 2) == wi
-                                                and data[area:indexp(p_offset) - area.ystride] ~= c_everness_mineral_water_source
+                                                and data[ai_cub - area.ystride] ~= c_everness_mineral_water_source
                                                 and rand:next(0, 100) < 3
                                             then
-                                                data[area:indexp(p_offset)] = c_everness_mineral_waters_marker
+                                                data[ai_cub] = c_everness_mineral_waters_marker
                                             end
                                         end
                                     end
@@ -355,6 +346,9 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                 end
             end
         elseif rand_version == 2 then
+            --
+            -- Lakes
+            --
             for z = minp.z, maxp.z do
                 for y = minp.y, maxp.y do
                     for x = minp.x, maxp.x do
@@ -363,10 +357,6 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
 
                         -- +Y, -Y, +X, -X, +Z, -Z
                         -- top, bottom, right, left, front, back
-                        -- above
-                        -- local c_above = data[ai + area.ystride]
-                        -- below
-                        -- local c_below = data[ai - area.ystride]
                         -- right
                         local c_right = data[ai + 1]
                         -- left
@@ -386,53 +376,64 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                 c_right == c_everness_mineral_sand
                                 or c_right == c_everness_mineral_water_source
                                 or c_right == c_everness_mineral_stone
+                                or c_right == c_everness_mineral_stone_with_coal
                             )
                             and (
                                 c_left == c_everness_mineral_sand
                                 or c_left == c_everness_mineral_water_source
                                 or c_left == c_everness_mineral_stone
+                                or c_left == c_everness_mineral_stone_with_coal
                             )
                             and (
                                 c_front == c_everness_mineral_sand
                                 or c_front == c_everness_mineral_water_source
                                 or c_front == c_everness_mineral_stone
+                                or c_front == c_everness_mineral_stone_with_coal
                             )
                             and (
                                 c_back == c_everness_mineral_sand
                                 or c_back == c_everness_mineral_water_source
                                 or c_back == c_everness_mineral_stone
+                                or c_back == c_everness_mineral_stone_with_coal
                             )
                         then
                             -- dig below
-                            while keep_going and while_count < max_dig_depth do
+                            while keep_going and while_count <= max_dig_depth do
                                 local while_index = ai - area.ystride * while_count
 
                                 if
                                     -- below
-                                    data[while_index] == c_everness_mineral_stone
+                                    (
+                                        data[while_index] == c_everness_mineral_stone
+                                        or data[while_index] == c_everness_mineral_stone_with_coal
+                                    )
                                     and (
                                         -- right
                                         data[while_index + 1 + area.ystride] == c_everness_mineral_sand
                                         or data[while_index + 1 + area.ystride] == c_everness_mineral_water_source
                                         or data[while_index + 1 + area.ystride] == c_everness_mineral_stone
+                                        or data[while_index + 1 + area.ystride] == c_everness_mineral_stone_with_coal
                                     )
                                     and (
                                         -- left
                                         data[while_index - 1 + area.ystride] == c_everness_mineral_sand
                                         or data[while_index - 1 + area.ystride] == c_everness_mineral_water_source
                                         or data[while_index - 1 + area.ystride] == c_everness_mineral_stone
+                                        or data[while_index - 1 + area.ystride] == c_everness_mineral_stone_with_coal
                                     )
                                     and (
                                         -- front
                                         data[while_index + area.zstride + area.ystride] == c_everness_mineral_sand
                                         or data[while_index + area.zstride + area.ystride] == c_everness_mineral_water_source
                                         or data[while_index + area.zstride + area.ystride] == c_everness_mineral_stone
+                                        or data[while_index + area.zstride + area.ystride] == c_everness_mineral_stone_with_coal
                                     )
                                     and (
                                         -- back
                                         data[while_index - area.zstride + area.ystride] == c_everness_mineral_sand
                                         or data[while_index - area.zstride + area.ystride] == c_everness_mineral_water_source
                                         or data[while_index - area.zstride + area.ystride] == c_everness_mineral_stone
+                                        or data[while_index - area.zstride + area.ystride] == c_everness_mineral_stone_with_coal
                                     )
                                 then
                                     data[while_index + area.ystride] = c_everness_mineral_water_source
@@ -451,6 +452,8 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
         vm:set_data(data)
         -- Generate all registered decorations within the VoxelManip `vm` and in the area from `pos1` to `pos2`
         minetest.generate_decorations(vm)
+        -- Set the lighting within the `VoxelManip` to a uniform value
+        vm:set_lighting({ day = 0, night = 0 })
         -- Calculate lighting for what has been created.
         vm:calc_lighting()
         -- Liquid nodes were placed so set them flowing.

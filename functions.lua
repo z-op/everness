@@ -798,6 +798,100 @@ minetest.register_abm({
     end
 })
 
+-- Mineral Waters Water Geyser
+minetest.register_abm({
+    label = 'everness:water_geyser',
+    nodenames = { 'everness:water_geyser' },
+    interval = 16,
+    chance = 16,
+    catch_up = false,
+    action = function(pos, node)
+        minetest.swap_node(pos, { name = 'everness:water_geyser_active' })
+        minetest.get_node_timer(pos):start(1)
+    end
+})
+
+-- Generate bamboo tops after mineral waters biome generates decorations
+minetest.register_lbm({
+    -- Descriptive label for profiling purposes (optional).
+    -- Definitions with identical labels will be listed as one.
+    label = 'everness_mineral_waters_bamboo_large',
+
+    -- Identifier of the LBM, should follow the modname:<whatever> convention
+    name = 'everness:mineral_waters_bamboo_large',
+
+    -- List of node names to trigger the LBM on.
+    -- Names of non-registered nodes and groups (as group:groupname)
+    -- will work as well.
+    nodenames = { 'everness:bamboo_3' },
+
+    -- Whether to run the LBM's action every time a block gets activated,
+    -- and not only the first time the block gets activated after the LBM
+    -- was introduced.
+    run_at_every_load = true,
+
+    -- Function triggered for each qualifying node.
+    -- `dtime_s` is the in-game time (in seconds) elapsed since the block
+    -- was last active
+    action = function(pos, node, dtime_s)
+        if minetest.get_node(vector.new(pos.x, pos.y + 1, pos.z)).name ~= 'air' then
+            return
+        end
+
+        local node_below = minetest.get_node(vector.new(pos.x, pos.y - 1, pos.z))
+
+        -- Get bamboo height
+        local while_counter = 1
+        local bamboo_height = 0
+        local bamboo_below = node_below
+
+        while bamboo_below.name == 'everness:bamboo_3' do
+            bamboo_below = minetest.get_node(vector.new(pos.x, pos.y - while_counter, pos.z))
+            bamboo_height = bamboo_height + 1
+            while_counter = while_counter + 1
+        end
+
+        -- Add top bamboo nodes with leaves based on their generated height
+        if bamboo_height > 4 then
+            for i = 1, 3 do
+                local pos_i = vector.new(pos.x, pos.y + i, pos.z)
+
+                if minetest.get_node(pos_i).name == 'air' then
+                    if i == 1 then
+                        minetest.set_node(pos_i, {
+                            name = 'everness:bamboo_4',
+                            param2 = node_below.param2
+                        })
+                    else
+                        minetest.set_node(pos_i, {
+                            name = 'everness:bamboo_5',
+                            param2 = node_below.param2
+                        })
+                    end
+                end
+            end
+        else
+            for i = 1, 2 do
+                local pos_i = vector.new(pos.x, pos.y + i, pos.z)
+
+                if minetest.get_node(pos_i).name == 'air' then
+                    if i == 1 then
+                        minetest.set_node(pos_i, {
+                            name = 'everness:bamboo_4',
+                            param2 = node_below.param2
+                        })
+                    else
+                        minetest.set_node(pos_i, {
+                            name = 'everness:bamboo_5',
+                            param2 = node_below.param2
+                        })
+                    end
+                end
+            end
+        end
+    end
+})
+
 -- Override lava cooling to include some variations of obsidian
 minetest.register_on_mods_loaded(function()
     for _, abm in pairs(minetest.registered_abms) do

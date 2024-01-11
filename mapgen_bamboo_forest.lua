@@ -277,7 +277,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     --
     -- Bamboo
     --
-    for _, pos in ipairs(gennotify['decoration#' .. d_everness_bamboo_forest_large_bamboo] or {}) do
+    for _, pos in ipairs(gennotify['decoration#' .. (d_everness_bamboo_forest_large_bamboo or '')] or {}) do
         -- For bamboo large this is position of the 'place_on' node, e.g. 'everness:dirt_with_grass_extras_2'
         local vi = area:indexp(pos)
         local while_counter = 1
@@ -297,23 +297,27 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
         -- Add top bamboo nodes with leaves based on their generated height
         if bamboo_height > 4 then
             for i = 1, 3 do
-                if i == 1 then
-                    data[last_vi + area.ystride * i] = c_everness_bamboo_4
-                else
-                    data[last_vi + area.ystride * i] = c_everness_bamboo_5
-                end
+                if data[last_vi + area.ystride * i] == minetest.CONTENT_AIR then
+                    if i == 1 then
+                        data[last_vi + area.ystride * i] = c_everness_bamboo_4
+                    else
+                        data[last_vi + area.ystride * i] = c_everness_bamboo_5
+                    end
 
-                p2data[last_vi + area.ystride * i] = p2data[vi + area.ystride]
+                    p2data[last_vi + area.ystride * i] = p2data[vi + area.ystride]
+                end
             end
         else
             for i = 1, 2 do
-                if i == 1 then
-                    data[last_vi + area.ystride * i] = c_everness_bamboo_4
-                else
-                    data[last_vi + area.ystride * i] = c_everness_bamboo_5
-                end
+                if data[last_vi + area.ystride * i] == minetest.CONTENT_AIR then
+                    if i == 1 then
+                        data[last_vi + area.ystride * i] = c_everness_bamboo_4
+                    else
+                        data[last_vi + area.ystride * i] = c_everness_bamboo_5
+                    end
 
-                p2data[last_vi + area.ystride * i] = p2data[vi + area.ystride]
+                    p2data[last_vi + area.ystride * i] = p2data[vi + area.ystride]
+                end
             end
         end
     end
