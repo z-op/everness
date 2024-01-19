@@ -25,12 +25,13 @@ local y_min = Everness.settings.biomes.everness_mineral_waters_under.y_min
 
 minetest.register_biome({
     name = 'everness_mineral_waters_under',
-    node_cave_liquid = { 'mapgen_water_source', 'mapgen_lava_source' },
+    node_cave_liquid = 'air',
     node_dungeon = 'everness:mineral_stone_brick',
     node_dungeon_alt = 'everness:mineral_stone_brick_with_growth',
-    node_dungeon_stair = 'stairs:stair_bamboo_wood',
+    node_dungeon_stair = 'stairs:stair_mineral_stone_brick',
     y_max = y_max,
     y_min = y_min,
+    vertical_blend = 16,
     heat_point = 78,
     humidity_point = 58,
 })
@@ -45,7 +46,7 @@ minetest.register_biome({
 minetest.register_ore({
     ore_type = 'blob',
     ore = 'everness:mineral_stone',
-    wherein = {'default:stone'},
+    wherein = { 'mapgen_stone' },
     clust_scarcity = 16 * 16 * 16,
     clust_size = 5,
     y_max = y_max,

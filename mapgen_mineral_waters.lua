@@ -37,7 +37,7 @@ minetest.register_biome({
     node_dungeon_stair = 'stairs:stair_mineral_stone_brick',
     y_max = y_max,
     y_min = y_min,
-    vertical_blend = 4,
+    vertical_blend = 16,
     heat_point = 78,
     humidity_point = 58,
 })
