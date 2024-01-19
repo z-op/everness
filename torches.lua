@@ -211,13 +211,29 @@ minetest.register_node('everness:mineral_torch_ceiling', {
     on_rotate = false
 })
 
--- minetest.register_craft({
---     output = 'everness:mineral_torch 4',
---     recipe = {
---         { 'everness:coal_lump' },
---         { 'group:stick' },
---     }
--- })
+minetest.register_craft({
+    output = 'everness:mineral_torch 16',
+    recipe = {
+        { 'everness:lotus_flower_pink' },
+        { 'everness:palm_tree_wood' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:mineral_torch 16',
+    recipe = {
+        { 'everness:lotus_flower_purple' },
+        { 'everness:palm_tree_wood' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:mineral_torch 16',
+    recipe = {
+        { 'everness:lotus_flower_white' },
+        { 'everness:palm_tree_wood' },
+    }
+})
 
 minetest.register_craft({
     type = 'fuel',

@@ -701,6 +701,7 @@ function Everness.sapling_on_place(self, itemstack, placer, pointed_thing, props
             local nn = node_below.name
 
             return minetest.get_item_group(nn, 'grass_block') == 1
+                or (nn == 'everness:mineral_sand' and itemstack:get_name() == 'everness:palm_tree_sapling')
                 or nn == 'mcl_core:podzol'
                 or nn == 'mcl_core:podzol_snow'
                 or nn == 'mcl_core:dirt'
@@ -961,7 +962,7 @@ function Everness.can_grow(pos, groups_under)
         return false
     end
 
-    local _groups_under  = groups_under
+    local _groups_under = groups_under
 
     if not groups_under then
         _groups_under = { 'soil' }

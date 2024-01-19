@@ -834,7 +834,7 @@ minetest.register_abm({
             maxexptime = 5,
             minsize = 5,
             maxsize = 7,
-            texture = 'water_geyser_particle.png',
+            texture = 'everness_water_geyser_particle.png',
             vertical = true,
             collisiondetection = true,
             collision_removal = true
@@ -866,7 +866,7 @@ minetest.register_abm({
                     max = vector.new(0, -3, 2)
                 },
                 texture = {
-                    name = 'water_geyser_particle.png',
+                    name = 'everness_water_geyser_particle.png',
                     scale_tween = {
                         5, 10,
                         style = 'fwd',
@@ -1024,14 +1024,16 @@ minetest.register_abm({
         'everness:lotus_flower_purple',
         'everness:lotus_flower_pink',
         'everness:lotus_leaf',
-        'everness:lotus_leaf_2'
+        'everness:lotus_leaf_2',
+        'everness:lotus_leaf_3'
     },
     neighbors = {
         'everness:lotus_flower_white',
         'everness:lotus_flower_purple',
         'everness:lotus_flower_pink',
         'everness:lotus_leaf',
-        'everness:lotus_leaf_2'
+        'everness:lotus_leaf_2',
+        'everness:lotus_leaf_3'
     },
     max_y = Everness.settings.biomes.everness_mineral_waters.y_max,
     min_y = Everness.settings.biomes.everness_mineral_waters.y_min,
@@ -1060,7 +1062,8 @@ minetest.register_abm({
         }
         local leaf_node_names = {
             'everness:lotus_leaf',
-            'everness:lotus_leaf_2'
+            'everness:lotus_leaf_2',
+            'everness:lotus_leaf_3'
         }
         local node_name = flower_node_names[math.random(1, #flower_node_names)]
         local found_flower_positions = minetest.find_nodes_in_area(pos0, pos1, flower_node_names)

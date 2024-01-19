@@ -23,33 +23,85 @@ local S = minetest.get_translator(minetest.get_current_modname())
 Everness:register_node('everness:coral_desert_stone_with_coal', {
     description = S('Coal Ore'),
     tiles = { 'everness_coral_desert_stone.png^everness_mineral_coal.png' },
-    groups = { cracky = 3 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        xp = 1,
+        blast_furnace_smeltable = 1
+    },
     drop = 'default:coal_lump',
     sounds = Everness.node_sound_stone_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
 })
 
 Everness:register_node('everness:crystal_stone_with_coal', {
     description = S('Coal Ore'),
     tiles = { 'everness_crystal_stone.png^[sheet:2x2:1,1^everness_mineral_coal.png' },
-    groups = { cracky = 3 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        xp = 1,
+        blast_furnace_smeltable = 1
+    },
     drop = 'default:coal_lump',
     sounds = Everness.node_sound_stone_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
 })
 
 Everness:register_node('everness:cursed_stone_carved_with_coal', {
     description = S('Coal Ore'),
     tiles = { 'everness_cursed_stone_carved.png^[sheet:2x2:1,1^everness_mineral_coal.png' },
-    groups = { cracky = 3 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        xp = 1,
+        blast_furnace_smeltable = 1
+    },
     drop = 'default:coal_lump',
     sounds = Everness.node_sound_stone_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
 })
 
 Everness:register_node('everness:mineral_stone_with_coal', {
     description = S('Coal Ore'),
     tiles = { 'everness_mineral_stone.png^[sheet:2x2:1,1^everness_mineral_coal.png' },
-    groups = { cracky = 3 },
+    groups = {
+        -- MTG
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        xp = 1,
+        blast_furnace_smeltable = 1
+    },
     drop = 'default:coal_lump',
     sounds = Everness.node_sound_stone_defaults(),
+    -- MCL
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = true,
 })
 
 Everness:register_node('everness:stone_with_pyrite', {
@@ -58,7 +110,6 @@ Everness:register_node('everness:stone_with_pyrite', {
     groups = {
         -- MTG
         cracky = 2,
-        stone = 1,
         -- MCL
         pickaxey = 4,
         building_block = 1,
@@ -68,7 +119,6 @@ Everness:register_node('everness:stone_with_pyrite', {
     _mcl_blast_resistance = 3,
     _mcl_hardness = 3,
     _mcl_silk_touch_drop = true,
-    -- _mcl_fortune_drop = mcl_core.fortune_drop_ore,
     drop = 'everness:pyrite_lump',
     sounds = Everness.node_sound_stone_defaults(),
 })
@@ -265,7 +315,6 @@ Everness:register_node('everness:quartz_ore', {
     _mcl_blast_resistance = 3,
     _mcl_hardness = 3,
     _mcl_silk_touch_drop = true,
-    -- _mcl_fortune_drop = mcl_core.fortune_drop_ore,
     drop = 'everness:quartz_crystal',
     sounds = Everness.node_sound_stone_defaults(),
 })
@@ -1840,7 +1889,7 @@ Everness:register_node('everness:cursed_sandstone_brick', {
 })
 
 Everness:register_node('everness:mineral_stone', {
-    description = S('Mineral') .. ' ' ..S('Stone'),
+    description = S('Mineral') .. ' ' .. S('Stone'),
     tiles = {
         {
             name = 'everness_mineral_stone.png',
@@ -1866,7 +1915,7 @@ Everness:register_node('everness:mineral_stone', {
 })
 
 Everness:register_node('everness:mineral_stone_cobble', {
-    description = S('Mineral') .. ' ' ..S('Cobblestone'),
+    description = S('Mineral') .. ' ' .. S('Cobblestone'),
     tiles = {
         {
             name = 'everness_mineral_cobblestone.png',
@@ -3222,10 +3271,10 @@ Everness:register_node('everness:mineral_sand', {
         -- MCL
         handy = 1,
         shovely = 1,
-        soil_sugarcane = 1,
         enderman_takable = 1,
         building_block = 1,
         material_sand = 1,
+        soil_sapling = 2,
         -- ALL
         falling_node = 1,
     },
@@ -3735,14 +3784,14 @@ for _, color in ipairs({ 'pink', 'purple', 'white' }) do
     def.on_place = function(itemstack, placer, pointed_thing)
         local pos = pointed_thing.above
         local node = minetest.get_node(pointed_thing.under)
-        local def = minetest.registered_nodes[node.name]
+        local node_def = minetest.registered_nodes[node.name]
 
-        if def and def.on_rightclick then
-            return def.on_rightclick(pointed_thing.under, node, placer, itemstack, pointed_thing)
+        if node_def and node_def.on_rightclick then
+            return node_def.on_rightclick(pointed_thing.under, node, placer, itemstack, pointed_thing)
         end
 
-        if def
-            and def.liquidtype == 'source'
+        if node_def
+            and node_def.liquidtype == 'source'
             and minetest.get_item_group(node.name, 'water') > 0
         then
             local player_name = placer and placer:get_player_name() or ''
@@ -4591,7 +4640,6 @@ Everness:register_node('everness:mese_tree', {
 Everness:register_node('everness:palm_tree', {
     description = S('Palm') .. ' ' .. S('Tree') .. ' ' .. S('Trunk'),
     short_description = S('Palm') .. ' ' .. S('Tree') .. ' ' .. S('Trunk'),
-    tiles = { 'everness_palm_tree_side.png' },
     tiles = { 'everness_palm_tree_top.png', 'everness_palm_tree_top.png', 'everness_palm_tree_side.png' },
     paramtype2 = 'facedir',
     use_texture_alpha = 'blend', -- only needed for stairs API
@@ -4841,7 +4889,6 @@ Everness:register_node('everness:sequoia_leaves', {
     _mcl_blast_resistance = 0.2,
     _mcl_hardness = 0.2,
     _mcl_silk_touch_drop = true,
-    -- _mcl_fortune_drop = { get_drops(1), get_drops(2), get_drops(3), get_drops(4) },
     drop = {
         max_items = 1,
         items = {
@@ -4912,7 +4959,6 @@ Everness:register_node('everness:baobab_fruit_renewable', {
     },
     _mcl_blast_resistance = 0,
     _mcl_hardness = 0,
-    -- _mcl_fortune_drop = fortune_wheat_seed_drop,
     sounds = Everness.node_sound_leaves_defaults(),
     place_param2 = 0,
     after_dig_node = function(pos, oldnode, oldmetadata, digger)
@@ -5073,7 +5119,6 @@ Everness:register_node('everness:willow_leaves', {
     _mcl_blast_resistance = 0.2,
     _mcl_hardness = 0.2,
     _mcl_silk_touch_drop = true,
-    -- _mcl_fortune_drop = { get_drops(1), get_drops(2), get_drops(3), get_drops(4) },
     drop = {
         max_items = 1,
         items = {
@@ -5128,7 +5173,6 @@ Everness:register_node('everness:coral_leaves', {
     _mcl_blast_resistance = 0.2,
     _mcl_hardness = 0.2,
     _mcl_silk_touch_drop = true,
-    -- _mcl_fortune_drop = { get_drops(1), get_drops(2), get_drops(3), get_drops(4) },
     drop = {
         max_items = 1,
         items = {
@@ -8945,8 +8989,8 @@ Everness:register_node('everness:coconut', {
         tree = 1,
         flammable = 2,
     },
-    _mcl_blast_resistance = 2,
-    _mcl_hardness = 2,
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
     sounds = Everness.node_sound_wood_defaults()
 })
 
@@ -10244,8 +10288,7 @@ Everness:register_node('everness:mineral_water_weed_1', {
         snappy = 3,
         -- MCL
         dig_immediate = 3,
-        deco_block = 1,
-        coral = 1,
+        deco_block = 1
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -10297,8 +10340,7 @@ Everness:register_node('everness:mineral_water_weed_2', {
         snappy = 3,
         -- MCL
         dig_immediate = 3,
-        deco_block = 1,
-        coral = 1,
+        deco_block = 1
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -10351,8 +10393,7 @@ Everness:register_node('everness:mineral_water_weed_3', {
         snappy = 3,
         -- MCL
         dig_immediate = 3,
-        deco_block = 1,
-        coral = 1,
+        deco_block = 1
     },
     _mcl_hardness = 0,
     _mcl_blast_resistance = 0,
@@ -11279,8 +11320,9 @@ Everness:register_node('everness:water_geyser', {
         'everness_mineral_stone.png^[multiply:#E0D3DC:127'
     },
     paramtype = 'light',
-    -- wield_image = 'everness_lumabus_vine_end_bottom.png',
-    -- inventory_image = 'everness_lumabus_vine_end_bottom.png',
+    wield_image = 'everness_water_geyser_item.png',
+    inventory_image = 'everness_water_geyser_item.png',
+    stack_max = 1,
     groups = {
         -- MTG
         cracky = 2,
@@ -11306,17 +11348,14 @@ Everness:register_node('everness:water_geyser_active', {
         'everness_mineral_stone.png^[colorize:#E0D3DC:127'
     },
     paramtype = 'light',
-    -- wield_image = 'everness_lumabus_vine_end_bottom.png',
-    -- inventory_image = 'everness_lumabus_vine_end_bottom.png',
     groups = {
         -- MTG
         cracky = 3,
         -- MCL
         pickaxey = 1,
         building_block = 1,
-        material_stone = 1,
         -- ALL
-        stone = 1,
+        not_in_creative_inventory = 1
     },
     drop = 'everness:water_geyser',
     walkable = false,
@@ -11419,8 +11458,8 @@ for i, v in ipairs({ 'blank', 'flowers', 'lines', 'tribal' }) do
             local inv = minetest.get_meta(pos):get_inventory()
             local n = #drops
 
-            for i = 1, inv:get_size('main') do
-                local stack = inv:get_stack('main', i)
+            for j = 1, inv:get_size('main') do
+                local stack = inv:get_stack('main', j)
                 if stack:get_count() > 0 then
                     drops[n + 1] = stack:to_table()
                     n = n + 1
@@ -11434,8 +11473,8 @@ for i, v in ipairs({ 'blank', 'flowers', 'lines', 'tribal' }) do
         on_destruct = function(pos)
             local inv = minetest.get_meta(pos):get_inventory()
 
-            for i = 1, inv:get_size('main') do
-                local stack = inv:get_stack('main', i)
+            for j = 1, inv:get_size('main') do
+                local stack = inv:get_stack('main', j)
 
                 if stack:get_count() > 0 then
                     local obj = minetest.add_item(pos, stack)
@@ -11612,8 +11651,13 @@ Everness:register_node('everness:sand_castle_wall', {
     walkable = true,
     groups = {
         cracky = 3,
-        wall = 1,
-        stone = 2
+        stone = 2,
+        -- MCL
+        pickaxey = 1,
+        deco_block = 1,
     },
+    -- MCL
+    _mcl_hardness = 2,
+    _mcl_blast_resistance = 6,
     sounds = Everness.node_sound_stone_defaults(),
 })

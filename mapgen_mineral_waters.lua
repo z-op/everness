@@ -34,7 +34,7 @@ minetest.register_biome({
     depth_riverbed = 2,
     node_dungeon = 'everness:mineral_stone_brick',
     node_dungeon_alt = 'everness:mineral_stone_brick_with_growth',
-    node_dungeon_stair = 'stairs:stair_bamboo_wood',
+    node_dungeon_stair = 'stairs:stair_mineral_stone_brick',
     y_max = y_max,
     y_min = y_min,
     vertical_blend = 4,
@@ -593,11 +593,13 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                         and data[idx - area.ystride] == c_everness_mineral_water_source
                                     then
                                         data[idx] = c_lotus_leaves[rand:next(1, #c_lotus_leaves)]
+                                        p2data[idx] = rand:next(0, 3)
                                     end
                                 end
                             end
                         elseif rand:next(0, 100) < 4 then
                             data[ai + area.ystride] = c_lotus_leaves[rand:next(1, #c_lotus_leaves)]
+                            p2data[ai + area.ystride] = rand:next(0, 3)
 
                             -- add some more leaves around the leaf
                             for i = -1, 1 do
@@ -610,6 +612,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                         and data[idx - area.ystride] == c_everness_mineral_water_source
                                     then
                                         data[idx] = c_lotus_leaves[rand:next(1, #c_lotus_leaves)]
+                                        p2data[idx] = rand:next(0, 3)
                                     end
                                 end
                             end

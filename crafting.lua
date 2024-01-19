@@ -630,6 +630,74 @@ minetest.register_craft({
     }
 })
 
+minetest.register_craft({
+    output = 'everness:mineral_stone_block 9',
+    recipe = {
+        { 'everness:mineral_stone', 'everness:mineral_stone', 'everness:mineral_stone' },
+        { 'everness:mineral_stone', 'everness:mineral_stone', 'everness:mineral_stone' },
+        { 'everness:mineral_stone', 'everness:mineral_stone', 'everness:mineral_stone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:mineral_stone_brick 4',
+    recipe = {
+        { 'everness:mineral_stone', 'everness:mineral_stone' },
+        { 'everness:mineral_stone', 'everness:mineral_stone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:mineral_sandstone',
+    recipe = {
+        { 'everness:mineral_sand', 'everness:mineral_sand' },
+        { 'everness:mineral_sand', 'everness:mineral_sand' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:mineral_sand 4',
+    recipe = {
+        { 'everness:mineral_sandstone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:mineral_sandstone_block 9',
+    recipe = {
+        { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone' },
+        { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone' },
+        { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:mineral_stone_brick_with_growth 3',
+    recipe = {
+        { 'group:flora', 'group:flora', 'group:flora'},
+        { 'everness:mineral_stone_brick', 'everness:mineral_stone_brick', 'everness:mineral_stone_brick'},
+        { 'group:flora', 'group:flora', 'group:flora'},
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:mineral_stone_brick_with_flower_growth 6',
+    recipe = {
+        { 'everness:mineral_stone_brick_with_growth', 'everness:mineral_stone_brick_with_growth', 'everness:mineral_stone_brick_with_growth'},
+        { 'group:flower', 'group:flower', 'group:flower'},
+        { 'everness:mineral_stone_brick_with_growth', 'everness:mineral_stone_brick_with_growth', 'everness:mineral_stone_brick_with_growth'}
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:sand_castle_wall 6',
+    recipe = {
+        { '', '', '' },
+        { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone'},
+        { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone'},
+    }
+})
+
 -- Crystals
 
 minetest.register_craft({
@@ -900,65 +968,6 @@ minetest.register_craft({
     type = 'cooking',
     output = 'everness:mineral_stone',
     recipe = 'everness:mineral_stone_cobble',
-})
-
-minetest.register_craft({
-    output = 'everness:mineral_stone_block 9',
-    recipe = {
-        { 'everness:mineral_stone', 'everness:mineral_stone', 'everness:mineral_stone' },
-        { 'everness:mineral_stone', 'everness:mineral_stone', 'everness:mineral_stone' },
-        { 'everness:mineral_stone', 'everness:mineral_stone', 'everness:mineral_stone' },
-    }
-})
-
-minetest.register_craft({
-    output = 'everness:mineral_stone_brick 4',
-    recipe = {
-        { 'everness:mineral_stone', 'everness:mineral_stone' },
-        { 'everness:mineral_stone', 'everness:mineral_stone' },
-    }
-})
-
-minetest.register_craft({
-    output = 'everness:mineral_sandstone',
-    recipe = {
-        { 'everness:mineral_sand', 'everness:mineral_sand' },
-        { 'everness:mineral_sand', 'everness:mineral_sand' },
-    }
-})
-
-minetest.register_craft({
-    output = 'everness:mineral_sand 4',
-    recipe = {
-        { 'everness:mineral_sandstone' },
-    }
-})
-
-minetest.register_craft({
-    output = 'everness:mineral_sandstone_block 9',
-    recipe = {
-        { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone' },
-        { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone' },
-        { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone' },
-    }
-})
-
-minetest.register_craft({
-    output = 'everness:mineral_stone_brick_with_growth 3',
-    recipe = {
-        { 'group:flora', 'group:flora', 'group:flora'},
-        { 'everness:mineral_stone_brick', 'everness:mineral_stone_brick', 'everness:mineral_stone_brick'},
-        { 'group:flora', 'group:flora', 'group:flora'},
-    }
-})
-
-minetest.register_craft({
-    output = 'everness:mineral_stone_brick_with_flower_growth 6',
-    recipe = {
-        { 'everness:mineral_stone_brick_with_growth', 'everness:mineral_stone_brick_with_growth', 'everness:mineral_stone_brick_with_growth'},
-        { 'group:flower', 'group:flower', 'group:flower'},
-        { 'everness:mineral_stone_brick_with_growth', 'everness:mineral_stone_brick_with_growth', 'everness:mineral_stone_brick_with_growth'}
-    }
 })
 
 minetest.register_craft({

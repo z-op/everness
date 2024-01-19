@@ -903,6 +903,167 @@ mcl_stairs.register_stair_and_slab(
     nil
 )
 
+-- Mineral Waters
+
+mcl_stairs.register_stair_and_slab(
+    'mineral_stone',
+    'everness:mineral_stone',
+    { pickaxey = 3, stone = 1 },
+    {{
+        name = 'everness_mineral_stone.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Stair'),
+    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    1.5,
+    S('Double') .. ' ' .. S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Slab'),
+    nil
+)
+
+mcl_stairs.register_stair_and_slab(
+    'mineral_stone_cobble',
+    'everness:mineral_stone_cobble',
+    { pickaxey = 3, stone = 2 },
+    {{
+        name = 'everness_mineral_cobblestone.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Mineral') .. ' ' .. S('Cobblestone') .. ' ' .. S('Stair'),
+    S('Mineral') .. ' ' .. S('Cobblestone') .. ' ' .. S('Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    1.5,
+    S('Double') .. ' ' .. S('Mineral') .. ' ' .. S('Cobblestone') .. ' ' .. S('Slab'),
+    nil
+)
+
+mcl_stairs.register_stair_and_slab(
+    'mineral_stone_block',
+    'everness:mineral_stone_block',
+    { pickaxey = 2, stone = 1 },
+    {{
+        name = 'everness_mineral_stone_block.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Block') .. ' ' .. S('Stair'),
+    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Block') .. ' ' .. S('Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    1.5,
+    S('Double') .. ' ' .. S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Block') .. ' ' .. S('Slab'),
+    nil
+)
+
+mcl_stairs.register_stair_and_slab(
+    'mineral_stone_brick',
+    'everness:mineral_stone_brick',
+    { pickaxey = 2, stone = 1 },
+    {{
+        name = 'everness_mineral_stone_brick.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('Stair'),
+    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    1.5,
+    S('Double') .. ' ' .. S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('Slab'),
+    nil
+)
+
+mcl_stairs.register_stair_and_slab(
+    'mineral_sandstone',
+    'everness:mineral_sandstone',
+    { pickaxey = 3 },
+    { 'everness_mineral_sandstone.png' },
+    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Stair'),
+    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    1.5,
+    S('Double') .. ' ' .. S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Slab'),
+    nil
+)
+
+mcl_stairs.register_stair_and_slab(
+    'mineral_sandstone_block',
+    'everness:mineral_sandstone_block',
+    { pickaxey = 2 },
+    {{
+        name = 'everness_mineral_sandstone_block.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Block') .. ' ' .. S('Stair'),
+    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Block') .. ' ' .. S('Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    1.5,
+    S('Double') .. ' ' .. S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Block') .. ' ' .. S('Slab'),
+    nil
+)
+
+mcl_stairs.register_stair_and_slab(
+    'mineral_stone_brick_with_growth',
+    'everness:mineral_stone_brick_with_growth',
+    { pickaxey = 2, stone = 1 },
+    {{
+        name = 'everness_mineral_stone_brick_with_growth.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('with Growth') .. ' ' .. S('Stair'),
+    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('with Growth') .. ' ' .. S('Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    1.5,
+    S('Double') .. ' ' .. S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('with Growth') .. ' ' .. S('Slab'),
+    nil
+)
+
+mcl_stairs.register_stair_and_slab(
+    'mineral_stone_brick_with_flower_growth',
+    'everness:mineral_stone_brick_with_flower_growth',
+    { pickaxey = 2, stone = 1 },
+    {{
+        name = 'everness_mineral_stone_brick_with_flower_growth.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('with Flower Growth') .. ' ' .. S('Stair'),
+    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('with Flower Growth') .. ' ' .. S('Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    1.5,
+    S('Double') .. ' ' .. S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('with Flower Growth') .. ' ' .. S('Slab'),
+    nil
+)
+
+-- Palm Wood
+mcl_stairs.register_stair_and_slab(
+    'palm_tree_wood',
+    'everness:palm_tree_wood',
+    { handy = 1, axey = 1, building_block = 1, material_wood = 1, fire_encouragement = 5, fire_flammability = 20, flammable = 3, wood = 1, },
+    {{
+        name = 'everness_palm_tree_wood.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Palm') .. ' ' .. S('Tree') .. ' ' .. S('Wood') .. ' ' .. S('Planks') .. ' ' .. S('Stair'),
+    S('Palm') .. ' ' .. S('Tree') .. ' ' .. S('Wood') .. ' ' .. S('Planks') .. ' ' .. S('Slab'),
+    Everness.node_sound_wood_defaults(),
+    6,
+    2,
+    S('Double') .. ' ' .. S('Palm') .. ' ' .. S('Tree') .. ' ' .. S('Wood') .. ' ' .. S('Planks') .. ' ' .. S('Slab'),
+    nil
+)
+
 ---
 -- Doors
 ---

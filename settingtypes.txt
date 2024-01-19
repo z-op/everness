@@ -376,7 +376,7 @@ everness_mineral_waters_y_min (y min) int 1
 
 # Enable/ Disable Mineral Waters Under Biome
 # Disabling this biome might result in missing recipes.
-everness_mineral_waters_under (Mineral Waters) bool true
+everness_mineral_waters_under (Mineral Waters) bool false
 
 # Upper limit for biome.
 everness_mineral_waters_under_y_max (y max) int -256
