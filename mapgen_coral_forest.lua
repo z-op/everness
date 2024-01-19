@@ -259,7 +259,7 @@ register_coral_grass_decoration(0.03, 0.03, 1)
 local deco_id_coral_bones_tree = minetest.get_decoration_id('everness:coral_forest_coral_bones_tree')
 local coral_bones_tree_size = { x = 16, y = 35, z = 16 }
 
-minetest.set_gen_notify('decoration', { deco_id_coral_bones_tree })
+minetest.set_gen_notify({ decoration = true }, { deco_id_coral_bones_tree })
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
     local gennotify = minetest.get_mapgen_object('gennotify')

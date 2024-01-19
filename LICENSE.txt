@@ -1377,6 +1377,43 @@ https://freesound.org/people/Rudmer_Rotteveel/sounds/590950/
 
 - everness_extinguish_flame.1.ogg
 
+**CC-BY-4.0, by nuFF3**, https://freesound.org
+
+- everness_footstep.1.ogg
+- everness_footstep.2.ogg
+- everness_footstep.3.ogg
+- everness_footstep.4.ogg
+- everness_footstep.5.ogg
+- everness_footstep.6.ogg
+
+**CC-BY-4.0, by Anikadl**, https://freesound.org
+
+- everness_hit.1.ogg
+- everness_hit.2.ogg
+- everness_hit.3.ogg
+- everness_hit.4.ogg
+- everness_hit.5.ogg
+- everness_hit.6.ogg
+
+**CC0-1.0, by kyles**, https://freesound.org, mixed with default_place_node_hard.1.ogg by Mito551 (CC-BY-SA 3.0)
+
+- everness_place.1.ogg
+- everness_place.2.ogg
+- everness_place.3.ogg
+
+**CC0-1.0, by Kinoton**, https://freesound.org, mixed with default_hard_footstep.1.ogg by Erdie (CC-BY-SA 3.0)
+
+- everness_dug.1.ogg
+- everness_dug.2.ogg
+- everness_dug.3.ogg
+
+**CC0-1.0, by Nox_Sound**, https://freesound.org/people/Nox_Sound/sounds/576593/
+
+- everness_water_footstep.1.ogg
+- everness_water_footstep.2.ogg
+- everness_water_footstep.3.ogg
+- everness_water_footstep.4.ogg
+
 ### Models
 
 **CC-BY-SA-4.0, by SaKeL**
@@ -1449,8 +1486,8 @@ https://freesound.org/people/Rudmer_Rotteveel/sounds/590950/
 - everness_coral_tree_from_sapling.mts
 - everness_coral_tree.lua
 - everness_coral_tree.mts
-- everness_coral_volcano_x_clay.lua
-- everness_coral_volcano_x_clay.mts
+- everness_coral_volcano_everness.lua
+- everness_coral_volcano_everness.mts
 - everness_coral_volcano.lua
 - everness_coral_volcano.mts
 - everness_crystal_bush.lua

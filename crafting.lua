@@ -623,6 +623,13 @@ minetest.register_craft({
     }
 })
 
+minetest.register_craft({
+    output = 'default:paper',
+    recipe = {
+        { 'everness:lotus_leaf_3', 'everness:lotus_leaf_3', 'everness:lotus_leaf_3' },
+    }
+})
+
 -- Crystals
 
 minetest.register_craft({
@@ -813,6 +820,12 @@ minetest.register_craft({
     burntime = 370,
 })
 
+minetest.register_craft({
+    type = 'fuel',
+    recipe = 'everness:lotus_leaf_3',
+    burntime = 1,
+})
+
 --
 -- Cooking recipes
 --
@@ -942,10 +955,22 @@ minetest.register_craft({
 minetest.register_craft({
     output = 'everness:mineral_stone_brick_with_flower_growth 6',
     recipe = {
-        { 'everness:mineral_stone_brick', 'everness:mineral_stone_brick', 'everness:mineral_stone_brick'},
+        { 'everness:mineral_stone_brick_with_growth', 'everness:mineral_stone_brick_with_growth', 'everness:mineral_stone_brick_with_growth'},
         { 'group:flower', 'group:flower', 'group:flower'},
-        { 'everness:mineral_stone_brick', 'everness:mineral_stone_brick', 'everness:mineral_stone_brick'}
+        { 'everness:mineral_stone_brick_with_growth', 'everness:mineral_stone_brick_with_growth', 'everness:mineral_stone_brick_with_growth'}
     }
+})
+
+minetest.register_craft({
+    type = 'cooking',
+    output = 'everness:lotus_leaf_3',
+    recipe = 'everness:lotus_leaf',
+})
+
+minetest.register_craft({
+    type = 'cooking',
+    output = 'everness:lotus_leaf_3',
+    recipe = 'everness:lotus_leaf_2',
 })
 
 --

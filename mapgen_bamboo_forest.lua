@@ -260,7 +260,7 @@ local c_everness_bamboo_5 = minetest.get_content_id('everness:bamboo_5')
 
 local d_everness_bamboo_forest_large_bamboo = minetest.get_decoration_id('everness:bamboo_forest_large_bamboo')
 
-minetest.set_gen_notify('decoration', { d_everness_bamboo_forest_large_bamboo })
+minetest.set_gen_notify({ decoration = true }, { d_everness_bamboo_forest_large_bamboo })
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
     -- Load the voxelmanip with the result of engine mapgen

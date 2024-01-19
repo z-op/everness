@@ -368,6 +368,14 @@ end
 -- Sounds
 --
 
+function Everness.node_sound_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = '', gain = 1.0 }
+    table.dug = table.dug or { name = 'everness_stone_hit', gain = 1.0 }
+    table.place = table.place or { name = 'everness_stone_dug', gain = 0.6 }
+    return table
+end
+
 function Everness.node_sound_frosted_snow_defaults(table)
     table = table or {}
     table.footstep = table.footstep or { name = 'everness_frosted_snow_footstep', gain = 0.2 }
@@ -509,6 +517,22 @@ function Everness.node_sound_gravel_defaults(table)
     table.dig = table.dig or { name = 'everness_gravel_hit', gain = 1.0 }
     table.dug = table.dug or { name = 'everness_gravel_dug', gain = 0.6 }
     table.place = table.place or { name = 'everness_gravel_place', gain = 1.0 }
+    return table
+end
+
+function Everness.node_sound_ceramic_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_ceramic_footstep', gain = 0.2 }
+    table.dig = table.dig or { name = 'everness_ceramic_hit', gain = 1.0 }
+    table.dug = table.dug or { name = 'everness_ceramic_dug', gain = 1.0 }
+    table.place = table.place or { name = 'everness_ceramic_place', gain = 1.0 }
+    return table
+end
+
+function Everness.node_sound_water_defaults(table)
+    table = table or {}
+    table.footstep = table.footstep or { name = 'everness_water_footstep', gain = 0.05 }
+    Everness.node_sound_defaults(table)
     return table
 end
 
@@ -1421,4 +1445,41 @@ function Everness.cool_lava(pos, node, dtime_s, prev_cool_lava_action)
     else
         prev_cool_lava_action(pos, node, dtime_s)
     end
+end
+function Everness.get_pot_formspec(pos, label, model_texture)
+    local spos = pos.x .. ',' .. pos.y .. ',' .. pos.z
+    local hotbar_bg = ''
+    local list_bg = ''
+
+    for i = 0, 7, 1 do
+        hotbar_bg = hotbar_bg .. 'image[' .. 0 + i .. ', ' .. 4.85 .. ';1,1;everness_chest_ui_bg_hb_slot.png]'
+    end
+
+    for row = 0, 2, 1 do
+        for i = 0, 7, 1 do
+            list_bg = list_bg .. 'image[' .. 0 + i .. ',' .. 6.08 + row .. ';1,1;everness_chest_ui_bg_slot.png]'
+        end
+    end
+
+    local model = 'model[0,0.5;2.5,2.5;everness_ceramic_pot;everness_ceramic_pot.obj;' .. model_texture .. ';0,0;true;false;]'
+
+    local formspec = {
+        'size[8,9]',
+        'listcolors[#FFFFFF00;#FFFFFF1A;#5E5957]',
+        'background[5,5;1,1;everness_chest_ui_bg.png;true]',
+        'list[nodemeta:' .. spos .. ';main;0.5,3;1,1;]',
+        'list[current_player;main;0,4.85;8,1;]',
+        'list[current_player;main;0,6.08;8,3;8]',
+        'listring[nodemeta:' .. spos .. ';main]',
+        'listring[current_player;main]',
+        list_bg,
+        hotbar_bg,
+        'image[0.5,3;1,1;everness_chest_ui_bg_hb_slot.png]',
+        'label[2.5,0.5;' .. minetest.formspec_escape(label) .. ']',
+        model
+    }
+
+    formspec = table.concat(formspec, '')
+
+    return formspec
 end

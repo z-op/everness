@@ -195,7 +195,10 @@ if minetest.get_modpath('doors') and minetest.global_exists('doors') then
     dofile(path .. '/doors.lua')
 end
 
-dofile(path .. '/buckets.lua')
+if not minetest.get_modpath('bucket') and not minetest.get_modpath('mcl_buckets') then
+    dofile(path .. '/buckets.lua')
+end
+
 dofile(path .. '/tools.lua')
 dofile(path .. '/craftitems.lua')
 dofile(path .. '/crafting.lua')
@@ -236,7 +239,13 @@ if minetest.get_modpath('mcl_core') and minetest.global_exists('mcl_core') then
     dofile(path .. '/mod_support_mcl.lua')
 end
 
-Everness.set_loot_chest_items()
+-- Minetest Game
+dofile(path .. '/mod_support_mtg.lua')
+
+minetest.register_on_mods_loaded(function()
+    Everness.set_loot_chest_items()
+end)
+
 
 local mod_end_time = (minetest.get_us_time() - mod_start_time) / 1000000
 

@@ -316,7 +316,7 @@ minetest.register_decoration({
 local deco_id_frosted_icicle_large_ceiling = minetest.get_decoration_id('everness:frosted_icicle_large_ceiling')
 local deco_id_frosted_icicle_large_floor = minetest.get_decoration_id('everness:frosted_icicle_large_floor')
 
-minetest.set_gen_notify('decoration', { deco_id_frosted_icicle_large_ceiling, deco_id_frosted_icicle_large_floor })
+minetest.set_gen_notify({ decoration = true }, { deco_id_frosted_icicle_large_ceiling, deco_id_frosted_icicle_large_floor })
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
     local gennotify = minetest.get_mapgen_object('gennotify')

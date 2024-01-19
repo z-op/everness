@@ -690,13 +690,7 @@ local skybox_defs = {
                 fog_sun_tint = '#FDA47E',
                 fog_moon_tint = '#FAE0EB'
             }
-        },
-        -- sun_parameters = {
-        --     texture = 'everness_bamboo_forest_sun.png',
-        --     scale = 1.57,
-        --     tonemap = 'everness_bamboo_forest_sun_tonemap.png',
-        --     sunrise = 'everness_bamboo_forest_sunrisebg.png',
-        -- },
+        }
     },
 }
 

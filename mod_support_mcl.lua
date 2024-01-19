@@ -1079,3 +1079,19 @@ minetest.register_craft({
         { 'everness:dry_wood', 'everness:dry_wood' },
     }
 })
+
+--
+-- Buckets
+--
+
+mcl_buckets.register_liquid({
+    source_place = 'everness:mineral_water_source',
+    source_take = { 'everness:mineral_water_source' },
+    bucketname = 'everness:bucket_mineral_water',
+    inventory_image = 'everness_mcl_bucket_mineral_water.png',
+    name = S('Mineral') .. ' ' .. S('Water') .. ' ' .. S('Bucket'),
+    longdesc = S('A bucket can be used to collect and release liquids. This one is filled with mineral water.'),
+    usagehelp = S('Place it to empty the bucket and create a mineral water source.'),
+    tt_help = S('Places a mineral water source'),
+    groups = { water_bucket = 1 },
+})

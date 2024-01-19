@@ -716,7 +716,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
-    label = 'everness:rising_souls',
+    label = 'everness:rising_crystals',
     nodenames = { 'group:rising_crystals' },
     neighbors = { 'group:water' },
     interval = 16,
@@ -807,7 +807,96 @@ minetest.register_abm({
     catch_up = false,
     action = function(pos, node)
         minetest.swap_node(pos, { name = 'everness:water_geyser_active' })
-        minetest.get_node_timer(pos):start(1)
+
+        local meta = minetest.get_meta(pos)
+        local partcile_time = math.random(5, 15)
+
+        -- player
+        for _, object in ipairs(minetest.get_objects_in_area(vector.new(pos.x - 0.5, pos.y - 0.5, pos.z - 0.5), vector.new(pos.x + 0.5, pos.y + 1, pos.z + 0.5))) do
+            if object:is_player()
+                and object:get_hp() > 0
+            then
+                object:add_velocity(vector.new(0, math.random(27, 32), 0))
+            end
+        end
+
+        -- particles
+        local particlespawner_def = {
+            amount = 80,
+            time = partcile_time,
+            minpos = vector.new(pos.x, pos.y + 1.5, pos.z),
+            maxpos = vector.new(pos.x, pos.y + 2, pos.z),
+            minvel = vector.new(0, 13, 0),
+            maxvel = vector.new(0, 15, 0),
+            minacc = vector.new(0, -1, 1),
+            maxacc = vector.new(0, -3, 2),
+            minexptime = 3,
+            maxexptime = 5,
+            minsize = 5,
+            maxsize = 7,
+            texture = 'water_geyser_particle.png',
+            vertical = true,
+            collisiondetection = true,
+            collision_removal = true
+        }
+
+        if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
+            -- new syntax, above v5.6.0
+            particlespawner_def = {
+                amount = 80,
+                time = partcile_time,
+                size = {
+                    min = 5,
+                    max = 7,
+                },
+                exptime = {
+                    min = 3,
+                    max = 5
+                },
+                pos = {
+                    min = vector.new(pos.x, pos.y + 1.5, pos.z),
+                    max = vector.new(pos.x, pos.y + 2, pos.z)
+                },
+                vel = {
+                    min = vector.new(0, 13, 0),
+                    max = vector.new(0, 15, 0)
+                },
+                acc = {
+                    min = vector.new(0, -1, 1),
+                    max = vector.new(0, -3, 2)
+                },
+                texture = {
+                    name = 'water_geyser_particle.png',
+                    scale_tween = {
+                        5, 10,
+                        style = 'fwd',
+                        reps = 1
+                    },
+                    alpha_tween = {
+                        1, 0,
+                        style = 'fwd',
+                        reps = 1
+                    },
+                    blend = 'alpha',
+                },
+                vertical = true,
+                collisiondetection = true,
+                collision_removal = true
+            }
+        end
+
+        local particle_id = minetest.add_particlespawner(particlespawner_def)
+        meta:set_int('particle_id', particle_id)
+
+        minetest.sound_play({
+            name = 'everness_water_geyser',
+            gain = 1.5,
+            pitch = math.random(10, 30) / 10
+        }, {
+            pos = pos
+        })
+
+        minetest.get_node_timer(pos):start(partcile_time)
     end
 })
 
@@ -888,6 +977,140 @@ minetest.register_lbm({
                     end
                 end
             end
+        end
+    end
+})
+
+-- Activate timers on lotus flowers
+minetest.register_lbm({
+    -- Descriptive label for profiling purposes (optional).
+    -- Definitions with identical labels will be listed as one.
+    label = 'everness_lotus_flower_timers',
+
+    -- Identifier of the LBM, should follow the modname:<whatever> convention
+    name = 'everness:everness_lotus_flower_timers',
+
+    -- List of node names to trigger the LBM on.
+    -- Names of non-registered nodes and groups (as group:groupname)
+    -- will work as well.
+    nodenames = {
+        'everness:lotus_flower_white',
+        'everness:lotus_flower_purple',
+        'everness:lotus_flower_pink'
+    },
+
+    -- Whether to run the LBM's action every time a block gets activated,
+    -- and not only the first time the block gets activated after the LBM
+    -- was introduced.
+    run_at_every_load = true,
+
+    -- Function triggered for each qualifying node.
+    -- `dtime_s` is the in-game time (in seconds) elapsed since the block
+    -- was last active
+    action = function(pos, node, dtime_s)
+        local timer = minetest.get_node_timer(pos)
+
+        if not timer:is_started() then
+            minetest.get_node_timer(pos):start(1)
+        end
+    end
+})
+
+-- Spread lotus flowers and leafs around them
+minetest.register_abm({
+    label = 'Lotus Flowers and Leafs spread',
+    nodenames = {
+        'everness:lotus_flower_white',
+        'everness:lotus_flower_purple',
+        'everness:lotus_flower_pink',
+        'everness:lotus_leaf',
+        'everness:lotus_leaf_2'
+    },
+    neighbors = {
+        'everness:lotus_flower_white',
+        'everness:lotus_flower_purple',
+        'everness:lotus_flower_pink',
+        'everness:lotus_leaf',
+        'everness:lotus_leaf_2'
+    },
+    max_y = Everness.settings.biomes.everness_mineral_waters.y_max,
+    min_y = Everness.settings.biomes.everness_mineral_waters.y_min,
+    interval = 13,
+    chance = 300,
+    action = function(pos, node)
+        local under = minetest.get_node(vector.new(pos.x, pos.y - 1, pos.z))
+        local def = minetest.registered_nodes[under.name] or {}
+
+        if def.liquidtype ~= 'source' and minetest.get_item_group(under.name, 'water') == 0 then
+            return
+        end
+
+        local light = minetest.get_node_light(pos)
+
+        if not light or light < 13 then
+            return
+        end
+
+        local pos0 = vector.subtract(pos, 4)
+        local pos1 = vector.add(pos, 4)
+        local flower_node_names = {
+            'everness:lotus_flower_white',
+            'everness:lotus_flower_purple',
+            'everness:lotus_flower_pink'
+        }
+        local leaf_node_names = {
+            'everness:lotus_leaf',
+            'everness:lotus_leaf_2'
+        }
+        local node_name = flower_node_names[math.random(1, #flower_node_names)]
+        local found_flower_positions = minetest.find_nodes_in_area(pos0, pos1, flower_node_names)
+
+        -- Testing shows that a threshold of 1 result in an appropriate maximum
+        -- density of approximately 7 flowers per 9x9 area.
+        if #found_flower_positions > 1 then
+            -- Spread leafs
+            local rand_flower_pos = found_flower_positions[math.random(1, #found_flower_positions)]
+            pos0 = vector.subtract(rand_flower_pos, 4)
+            pos1 = vector.add(rand_flower_pos, 4)
+            local found_leaf_positions = minetest.find_nodes_in_area(pos0, pos1, leaf_node_names)
+
+            if #found_leaf_positions > 25 then
+                return
+            end
+
+            node_name = leaf_node_names[math.random(1, #leaf_node_names)]
+        end
+
+        local water_positions = minetest.find_nodes_in_area_under_air(pos0, pos1, 'group:water')
+
+        table.shuffle(water_positions)
+        -- Sort with the closest first
+        table.sort(water_positions, function(a, b)
+            return vector.distance(a, pos) < vector.distance(b, pos)
+        end)
+
+        local water_pos
+
+        -- find water source since we are looking only for `group:water`
+        for _, p in ipairs(water_positions) do
+            local n = minetest.get_node(p)
+            local d = minetest.registered_nodes[n.name] or {}
+
+            if d.liquidtype == 'source' then
+                water_pos = p
+                break
+            end
+        end
+
+        if not water_pos then
+            return
+        end
+
+        local water_above = vector.new(water_pos.x, water_pos.y + 1, water_pos.z)
+        light = minetest.get_node_light(water_above)
+
+        if light and light >= 13 then
+            minetest.set_node(water_above, { name = node_name })
         end
     end
 })

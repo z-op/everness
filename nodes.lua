@@ -332,7 +332,9 @@ Everness:register_node('everness:coral_sandstone', {
         normal_sandstone = 1,
         building_block = 1,
         material_stone = 1,
-        stone = 1
+        stone = 1,
+        -- Everness
+        everness_sandstone = 1
     },
     _mcl_blast_resistance = 0.8,
     _mcl_hardness = 0.8,
@@ -1956,6 +1958,8 @@ Everness:register_node('everness:mineral_sandstone', {
         normal_sandstone = 1,
         building_block = 1,
         material_stone = 1,
+        -- Everness
+        everness_sandstone = 1
     },
     _mcl_blast_resistance = 0.8,
     _mcl_hardness = 0.8,
@@ -2487,6 +2491,7 @@ Everness:register_node('everness:japanese_shrine_lootchest_marker', {
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
+    drop = ''
 })
 
 Everness:register_node('everness:jungle_temple_lootchest_marker', {
@@ -2496,6 +2501,7 @@ Everness:register_node('everness:jungle_temple_lootchest_marker', {
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
+    drop = ''
 })
 
 Everness:register_node('everness:haunted_house_lootchest_marker', {
@@ -2505,6 +2511,7 @@ Everness:register_node('everness:haunted_house_lootchest_marker', {
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
+    drop = ''
 })
 
 Everness:register_node('everness:quartz_temple_lootchest_marker', {
@@ -2514,6 +2521,7 @@ Everness:register_node('everness:quartz_temple_lootchest_marker', {
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
+    drop = ''
 })
 
 Everness:register_node('everness:forsaken_desert_temple_marker', {
@@ -2523,6 +2531,7 @@ Everness:register_node('everness:forsaken_desert_temple_marker', {
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
+    drop = ''
 })
 
 Everness:register_node('everness:forsaken_desert_temple_2_marker', {
@@ -2532,6 +2541,7 @@ Everness:register_node('everness:forsaken_desert_temple_2_marker', {
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
+    drop = ''
 })
 
 Everness:register_node('everness:frosted_icicle_large_ceiling_marker', {
@@ -2541,6 +2551,7 @@ Everness:register_node('everness:frosted_icicle_large_ceiling_marker', {
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
+    drop = ''
 })
 
 Everness:register_node('everness:frosted_icicle_large_floor_marker', {
@@ -2550,6 +2561,7 @@ Everness:register_node('everness:frosted_icicle_large_floor_marker', {
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
+    drop = ''
 })
 
 Everness:register_node('everness:coral_forest_deep_ocean_house_marker', {
@@ -2559,6 +2571,7 @@ Everness:register_node('everness:coral_forest_deep_ocean_house_marker', {
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
+    drop = ''
 })
 
 Everness:register_node('everness:cursed_lands_deep_ocean_skull_marker', {
@@ -2568,6 +2581,7 @@ Everness:register_node('everness:cursed_lands_deep_ocean_skull_marker', {
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
+    drop = ''
 })
 
 Everness:register_node('everness:frosted_icesheet_igloo_marker', {
@@ -2577,6 +2591,7 @@ Everness:register_node('everness:frosted_icesheet_igloo_marker', {
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
+    drop = ''
 })
 
 Everness:register_node('everness:crystal_forest_deep_ocean_ruins_marker', {
@@ -2586,6 +2601,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_ruins_marker', {
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
+    drop = ''
 })
 
 Everness:register_node('everness:mineral_waters_marker', {
@@ -2595,6 +2611,7 @@ Everness:register_node('everness:mineral_waters_marker', {
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
+    drop = ''
 })
 
 -- Everness default blocks
@@ -3654,6 +3671,468 @@ Everness:register_node('everness:cave_flower_with_particles', {
     liquids_pointable = false,
     -- opaque, clip, blend
     use_texture_alpha = 'blend',
+})
+
+local lotus_flower_def = {
+    drawtype = 'mesh',
+    mesh = 'everness_lotus_flower.obj',
+    paramtype = 'light',
+    paramtype2 = 'meshoptions',
+    place_param2 = 8,
+    is_ground_content = false,
+    walkable = true,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -0.5, -0.5, -0.5, 0.5, 0, 0.5 }
+    },
+    collision_box = {
+        type = 'fixed',
+        fixed = { -0.5, -0.5, -0.5, 0.5, 0, 0.5 },
+    },
+    node_placement_prediction = '',
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        deco_block = 1,
+        dig_by_piston = 1,
+        dig_immediate = 3,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        enderman_takable = 1,
+        place_flowerlike = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        -- X Farming
+        compostability = 65,
+        -- ALL
+        flower = 1,
+        flammable = 1
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    sunlight_propagates = true,
+    light_source = 3,
+    liquids_pointable = true,
+    floodable = true,
+    use_texture_alpha = 'blend'
+}
+
+for _, color in ipairs({ 'pink', 'purple', 'white' }) do
+    local def = table.copy(lotus_flower_def)
+
+    def.description = S('Lotus') .. ' ' .. S('Flower') .. ' ' .. S(color)
+    def.short_description = S('Lotus') .. ' ' .. S('Flower') .. ' ' .. S(color)
+    def.tiles = {
+        { name = 'everness_lotus_flower_' .. color .. '_mesh.png' },
+        { name = 'everness_lotus_flower_mesh_not_animated.png' }
+    }
+    def.inventory_image = 'everness_lotus_flower_' .. color .. '_item.png'
+    def.wield_image = 'everness_lotus_flower_' .. color .. '_item.png'
+
+    def.on_place = function(itemstack, placer, pointed_thing)
+        local pos = pointed_thing.above
+        local node = minetest.get_node(pointed_thing.under)
+        local def = minetest.registered_nodes[node.name]
+
+        if def and def.on_rightclick then
+            return def.on_rightclick(pointed_thing.under, node, placer, itemstack, pointed_thing)
+        end
+
+        if def
+            and def.liquidtype == 'source'
+            and minetest.get_item_group(node.name, 'water') > 0
+        then
+            local player_name = placer and placer:get_player_name() or ''
+
+            if not minetest.is_protected(pos, player_name) then
+                minetest.set_node(pos, { name = 'everness:lotus_flower_' .. color, param2 = math.random(0, 3) })
+                minetest.get_node_timer(pos):start(1)
+
+                if not minetest.is_creative_enabled(player_name) then
+                    itemstack:take_item()
+                end
+            else
+                minetest.chat_send_player(player_name, 'Node is protected')
+                minetest.record_protection_violation(pos, player_name)
+            end
+        else
+            itemstack = minetest.item_place(itemstack, placer, pointed_thing)
+        end
+
+        return itemstack
+    end
+
+    def.on_flood = function(pos, oldnode, newnode)
+        minetest.add_item(pos, ItemStack('everness:lotus_flower_' .. color .. ' 1'))
+        -- Remove the node
+        return false
+    end
+
+    def.on_timer = function(pos, elapsed)
+        if minetest.get_node_light(pos) <= 11 then
+            minetest.set_node(pos, { name = 'everness:lotus_flower_' .. color .. '_animated' })
+        end
+
+        minetest.get_node_timer(pos):start(math.random(25, 35))
+    end
+
+    -- Animated Def
+    local def_anim = table.copy(def)
+
+    def_anim.description = S('Lotus') .. ' ' .. S('Flower') .. ' ' .. S(color) .. ' ' .. S('Animated')
+    def_anim.short_description = S('Lotus') .. ' ' .. S('Flower') .. ' ' .. S(color) .. ' ' .. S('Animated')
+    def_anim.tiles = {
+        { name = 'everness_lotus_flower_' .. color .. '_mesh.png' },
+        {
+            name = 'everness_lotus_flower_' .. color .. '_mesh_animated.png',
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 64,
+                aspect_h = 32,
+                length = 2
+            },
+            backface_culling = false
+        }
+    }
+    def_anim.light_source = 6
+    def_anim.groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        deco_block = 1,
+        dig_by_piston = 1,
+        dig_immediate = 3,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        place_flowerlike = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        -- ALL
+        flammable = 1,
+        not_in_creative_inventory = 1
+    }
+    def_anim.drop = 'everness:lotus_flower_' .. color
+
+    def_anim.on_timer = function(pos, elapsed)
+        if minetest.get_node_light(pos) > 11 then
+            minetest.set_node(pos, { name = 'everness:lotus_flower_' .. color })
+        end
+
+        minetest.get_node_timer(pos):start(math.random(25, 35))
+    end
+
+    Everness:register_node('everness:lotus_flower_' .. color, def)
+    Everness:register_node('everness:lotus_flower_' .. color .. '_animated', def_anim)
+end
+
+Everness:register_node('everness:lotus_leaf', {
+    description = S('Lotus') .. ' ' .. S('Leaf'),
+    short_description = S('Lotus') .. ' ' .. S('Leaf'),
+    drawtype = 'nodebox',
+    -- Textures of node; +Y, -Y, +X, -X, +Z, -Z
+    tiles = {
+        'everness_lotus_leaf_y.png',
+        'everness_lotus_leaf_y.png^[transformFY'
+    },
+    inventory_image = 'everness_lotus_leaf_item.png',
+    wield_image = 'everness_lotus_leaf_item.png',
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    is_ground_content = false,
+    walkable = true,
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            { -0.4375, -0.4688, -0.4375, 0.4375, -0.4688, 0.4375 },
+            { -0.4375, -0.4688, -0.4375, -0.4375, -0.4063, 0.4375 },
+            { 0.4375, -0.4688, -0.4375, 0.4375, -0.4063, 0.4375 },
+            { -0.4375, -0.4688, -0.4375, 0.4375, -0.4063, -0.4375 },
+            { -0.4375, -0.4688, 0.4375, -0.0625, -0.4063, 0.4375 },
+            { 0.0625, -0.4688, 0.4375, 0.4375, -0.4063, 0.4375 },
+        }
+    },
+    selection_box = {
+        type = 'fixed',
+        fixed = { -0.5, -0.4688, -0.5, 0.5, -0.375, 0.5 }
+    },
+    collision_box = {
+        type = 'fixed',
+        fixed = { -0.5, -0.4688, -0.5, 0.5, -0.375, 0.5 },
+    },
+    node_placement_prediction = '',
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        deco_block = 1,
+        dig_by_piston = 1,
+        dig_immediate = 3,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        enderman_takable = 1,
+        place_flowerlike = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        -- X Farming
+        compostability = 65,
+        -- ALL
+        flora = 1,
+        flammable = 1
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    sunlight_propagates = true,
+    liquids_pointable = true,
+    floodable = true,
+    use_texture_alpha = 'clip',
+
+    on_place = function(itemstack, placer, pointed_thing)
+        local pos = pointed_thing.above
+        local node = minetest.get_node(pointed_thing.under)
+        local def = minetest.registered_nodes[node.name]
+
+        if def and def.on_rightclick then
+            return def.on_rightclick(pointed_thing.under, node, placer, itemstack, pointed_thing)
+        end
+
+        if def
+            and def.liquidtype == 'source'
+            and minetest.get_item_group(node.name, 'water') > 0
+        then
+            local player_name = placer and placer:get_player_name() or ''
+
+            if not minetest.is_protected(pos, player_name) then
+                minetest.set_node(pos, {name = 'everness:lotus_leaf', param2 = math.random(0, 3)})
+
+                if not minetest.is_creative_enabled(player_name) then
+                    itemstack:take_item()
+                end
+            else
+                minetest.chat_send_player(player_name, 'Node is protected')
+                minetest.record_protection_violation(pos, player_name)
+            end
+        else
+            itemstack = minetest.item_place(itemstack, placer, pointed_thing)
+        end
+
+        return itemstack
+    end,
+
+    on_flood = function(pos, oldnode, newnode)
+        minetest.add_item(pos, ItemStack('everness:lotus_leaf 1'))
+        -- Remove the node
+        return false
+    end
+})
+
+Everness:register_node('everness:lotus_leaf_2', {
+    description = S('Lotus') .. ' ' .. S('Leaf'),
+    short_description = S('Lotus') .. ' ' .. S('Leaf'),
+    drawtype = 'nodebox',
+    -- Textures of node; +Y, -Y, +X, -X, +Z, -Z
+    tiles = {
+        'everness_lotus_leaf_2_y.png',
+        'everness_lotus_leaf_2_y.png^[transformFY'
+    },
+    inventory_image = 'everness_lotus_leaf_2_item.png',
+    wield_image = 'everness_lotus_leaf_2_item.png',
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    is_ground_content = false,
+    walkable = true,
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            { -0.4375, -0.4688, -0.4375, 0.4375, -0.4688, 0.4375 },
+            { -0.4375, -0.4688, -0.4375, -0.4375, -0.4063, 0.4375 },
+            { 0.4375, -0.4688, -0.4375, 0.4375, -0.4063, 0.4375 },
+            { -0.4375, -0.4688, -0.4375, 0.4375, -0.4063, -0.4375 },
+            { -0.4375, -0.4688, 0.4375, -0.0625, -0.4063, 0.4375 },
+            { 0.0625, -0.4688, 0.4375, 0.4375, -0.4063, 0.4375 },
+        }
+    },
+    selection_box = {
+        type = 'fixed',
+        fixed = { -0.5, -0.4688, -0.5, 0.5, -0.375, 0.5 }
+    },
+    collision_box = {
+        type = 'fixed',
+        fixed = { -0.5, -0.4688, -0.5, 0.5, -0.375, 0.5 },
+    },
+    node_placement_prediction = '',
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        deco_block = 1,
+        dig_by_piston = 1,
+        dig_immediate = 3,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        enderman_takable = 1,
+        place_flowerlike = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        -- X Farming
+        compostability = 65,
+        -- ALL
+        flora = 1,
+        flammable = 1
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    sunlight_propagates = true,
+    liquids_pointable = true,
+    floodable = true,
+    use_texture_alpha = 'clip',
+
+    on_place = function(itemstack, placer, pointed_thing)
+        local pos = pointed_thing.above
+        local node = minetest.get_node(pointed_thing.under)
+        local def = minetest.registered_nodes[node.name]
+
+        if def and def.on_rightclick then
+            return def.on_rightclick(pointed_thing.under, node, placer, itemstack, pointed_thing)
+        end
+
+        if def
+            and def.liquidtype == 'source'
+            and minetest.get_item_group(node.name, 'water') > 0
+        then
+            local player_name = placer and placer:get_player_name() or ''
+
+            if not minetest.is_protected(pos, player_name) then
+                minetest.set_node(pos, {name = 'everness:lotus_leaf_2', param2 = math.random(0, 3)})
+
+                if not minetest.is_creative_enabled(player_name) then
+                    itemstack:take_item()
+                end
+            else
+                minetest.chat_send_player(player_name, 'Node is protected')
+                minetest.record_protection_violation(pos, player_name)
+            end
+        else
+            itemstack = minetest.item_place(itemstack, placer, pointed_thing)
+        end
+
+        return itemstack
+    end,
+
+    on_flood = function(pos, oldnode, newnode)
+        minetest.add_item(pos, ItemStack('everness:lotus_leaf_2 1'))
+        -- Remove the node
+        return false
+    end
+})
+
+Everness:register_node('everness:lotus_leaf_3', {
+    description = S('Lotus') .. ' ' .. S('Leaf') .. ' ' .. S('Dry'),
+    short_description = S('Lotus') .. ' ' .. S('Leaf') .. ' ' .. S('Dry'),
+    drawtype = 'nodebox',
+    -- Textures of node; +Y, -Y, +X, -X, +Z, -Z
+    tiles = {
+        'everness_lotus_leaf_3_y.png',
+        'everness_lotus_leaf_3_y.png^[transformFY'
+    },
+    inventory_image = 'everness_lotus_leaf_3_item.png',
+    wield_image = 'everness_lotus_leaf_3_item.png',
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    is_ground_content = false,
+    walkable = true,
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            { -0.4375, -0.4688, -0.4375, 0.4375, -0.4688, 0.4375 },
+            { -0.4375, -0.4688, -0.4375, -0.4375, -0.4063, 0.4375 },
+            { 0.4375, -0.4688, -0.4375, 0.4375, -0.4063, 0.4375 },
+            { -0.4375, -0.4688, -0.4375, 0.4375, -0.4063, -0.4375 },
+            { -0.4375, -0.4688, 0.4375, -0.0625, -0.4063, 0.4375 },
+            { 0.0625, -0.4688, 0.4375, 0.4375, -0.4063, 0.4375 },
+        }
+    },
+    selection_box = {
+        type = 'fixed',
+        fixed = { -0.5, -0.4688, -0.5, 0.5, -0.375, 0.5 }
+    },
+    collision_box = {
+        type = 'fixed',
+        fixed = { -0.5, -0.4688, -0.5, 0.5, -0.375, 0.5 },
+    },
+    node_placement_prediction = '',
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        deco_block = 1,
+        dig_by_piston = 1,
+        dig_immediate = 3,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        enderman_takable = 1,
+        place_flowerlike = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        -- X Farming
+        compostability = 65,
+        -- ALL
+        flora = 1,
+        flammable = 1
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    sunlight_propagates = true,
+    liquids_pointable = true,
+    floodable = true,
+    use_texture_alpha = 'clip',
+
+    on_place = function(itemstack, placer, pointed_thing)
+        local pos = pointed_thing.above
+        local node = minetest.get_node(pointed_thing.under)
+        local def = minetest.registered_nodes[node.name]
+
+        if def and def.on_rightclick then
+            return def.on_rightclick(pointed_thing.under, node, placer, itemstack, pointed_thing)
+        end
+
+        if def
+            and def.liquidtype == 'source'
+            and minetest.get_item_group(node.name, 'water') > 0
+        then
+            local player_name = placer and placer:get_player_name() or ''
+
+            if not minetest.is_protected(pos, player_name) then
+                minetest.set_node(pos, {name = 'everness:lotus_leaf_3', param2 = math.random(0, 3)})
+
+                if not minetest.is_creative_enabled(player_name) then
+                    itemstack:take_item()
+                end
+            else
+                minetest.chat_send_player(player_name, 'Node is protected')
+                minetest.record_protection_violation(pos, player_name)
+            end
+        else
+            itemstack = minetest.item_place(itemstack, placer, pointed_thing)
+        end
+
+        return itemstack
+    end,
+
+    on_flood = function(pos, oldnode, newnode)
+        minetest.add_item(pos, ItemStack('everness:lotus_leaf_3 1'))
+        -- Remove the node
+        return false
+    end
 })
 
 Everness:register_node('everness:forsaken_fire', {
@@ -8814,7 +9293,7 @@ local function coral_on_place(itemstack, placer, pointed_thing, params)
     end
 
     node_under.name = itemstack:get_name()
-    minetest.set_node(pos_under, node_under)
+    minetest.set_node(pos_under, { name = node_under.name, param2 = params.param2 or node_under.param2})
     if not minetest.is_creative_enabled(player_name) then
         itemstack:take_item()
     end
@@ -9750,6 +10229,166 @@ Everness:register_node('everness:coral_skeleton', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
+Everness:register_node('everness:mineral_water_weed_1', {
+    description = S('Mineral Water Weed'),
+    drawtype = 'plantlike_rooted',
+    waving = 1,
+    paramtype = 'light',
+    tiles = { 'everness_mineral_stone.png^[sheet:2x2:1,1' },
+    special_tiles = { { name = 'everness_mineral_water_weed_1.png', tileable_vertical = true } },
+    inventory_image = 'everness_mineral_water_weed_1.png',
+    wield_image = 'everness_mineral_water_weed_1.png',
+    paramtype2 = 'wallmounted',
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
+    selection_box = {
+        type = 'fixed',
+        fixed = {
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -1 / 2 + 1 / 16, 0.5, -1 / 2 + 1 / 16, 1 / 2 - 1 / 16, 1, 1 / 2 - 1 / 16 }
+        },
+    },
+    node_dig_prediction = 'everness:mineral_stone',
+    node_placement_prediction = '',
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
+    }),
+    on_place = function(itemstack, placer, pointed_thing)
+        local fdir = placer and minetest.dir_to_wallmounted(placer:get_look_dir()) or 0
+
+        coral_on_place(
+            itemstack,
+            placer,
+            pointed_thing,
+            {
+                ignore_water = true,
+                node_under_name = 'everness:mineral_stone',
+                param2 = fdir
+            }
+        )
+    end,
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        minetest.set_node(pos, { name = 'everness:mineral_stone' })
+    end,
+})
+
+Everness:register_node('everness:mineral_water_weed_2', {
+    description = S('Mineral Water Weed'),
+    drawtype = 'plantlike_rooted',
+    waving = 1,
+    paramtype = 'light',
+    tiles = { 'everness_mineral_stone.png^[sheet:2x2:1,1' },
+    special_tiles = { { name = 'everness_mineral_water_weed_2.png', tileable_vertical = true } },
+    inventory_image = 'everness_mineral_water_weed_2.png',
+    wield_image = 'everness_mineral_water_weed_2.png',
+    paramtype2 = 'wallmounted',
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
+    selection_box = {
+        type = 'fixed',
+        fixed = {
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -1 / 2 + 1 / 16, 0.5, -1 / 2 + 1 / 16, 1 / 2 - 1 / 16, 1, 1 / 2 - 1 / 16 }
+        },
+    },
+    node_dig_prediction = 'everness:mineral_stone',
+    node_placement_prediction = '',
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
+    }),
+    on_place = function(itemstack, placer, pointed_thing)
+        local fdir = placer and minetest.dir_to_wallmounted(placer:get_look_dir()) or 0
+
+        coral_on_place(
+            itemstack,
+            placer,
+            pointed_thing,
+            {
+                ignore_water = true,
+                node_under_name = 'everness:mineral_stone',
+                param2 = fdir
+            }
+        )
+    end,
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        minetest.set_node(pos, { name = 'everness:mineral_stone' })
+    end,
+})
+
+Everness:register_node('everness:mineral_water_weed_3', {
+    description = S('Mineral Water Weed'),
+    drawtype = 'plantlike_rooted',
+    waving = 1,
+    paramtype = 'light',
+    light_source = 7,
+    tiles = { 'everness_mineral_stone.png^[sheet:2x2:1,1' },
+    special_tiles = { { name = 'everness_mineral_water_weed_3.png', tileable_vertical = true } },
+    inventory_image = 'everness_mineral_water_weed_3.png',
+    wield_image = 'everness_mineral_water_weed_3.png',
+    paramtype2 = 'wallmounted',
+    groups = {
+        -- MTG
+        snappy = 3,
+        -- MCL
+        dig_immediate = 3,
+        deco_block = 1,
+        coral = 1,
+    },
+    _mcl_hardness = 0,
+    _mcl_blast_resistance = 0,
+    _mcl_silk_touch_drop = true,
+    selection_box = {
+        type = 'fixed',
+        fixed = {
+            { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 },
+            { -1 / 2 + 1 / 16, 0.5, -1 / 2 + 1 / 16, 1 / 2 - 1 / 16, 1, 1 / 2 - 1 / 16 }
+        },
+    },
+    node_dig_prediction = 'everness:mineral_stone',
+    node_placement_prediction = '',
+    sounds = Everness.node_sound_stone_defaults({
+        dig = { name = 'everness_plant_hit', gain = 0.2 },
+        dug = { name = 'everness_grass_footstep', gain = 0.25 },
+    }),
+    on_place = function(itemstack, placer, pointed_thing)
+        local fdir = placer and minetest.dir_to_wallmounted(placer:get_look_dir()) or 0
+
+        coral_on_place(
+            itemstack,
+            placer,
+            pointed_thing,
+            {
+                ignore_water = true,
+                node_under_name = 'everness:mineral_stone',
+                param2 = fdir
+            }
+        )
+    end,
+    after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        minetest.set_node(pos, { name = 'everness:mineral_stone' })
+    end,
+})
+
 --
 -- Meshes
 --
@@ -9826,6 +10465,45 @@ Everness:register_node('everness:forsythia_bush', {
         snappy = 3,
         flora = 1,
         bamboo_grass_under = 1,
+        -- MCL
+        handy = 1,
+        shearsy = 1,
+        deco_block = 1,
+        plant = 1,
+        non_mycelium_plant = 1,
+        fire_encouragement = 60,
+        fire_flammability = 100,
+        dig_by_water = 1,
+        destroy_by_lava_flow = 1,
+        compostability = 30,
+        -- ALL
+        attached_node = 1,
+        flammable = 2,
+    },
+    _mcl_blast_resistance = 0,
+    _mcl_hardness = 0,
+    sounds = Everness.node_sound_leaves_defaults(),
+    sunlight_propagates = true,
+    use_texture_alpha = 'clip',
+})
+
+-- Rose Bush
+
+Everness:register_node('everness:rose_bush', {
+    description = S('Rose Bush'),
+    short_description = S('Rose Bush'),
+    drawtype = 'mesh',
+    mesh = 'everness_forsythia_mesh.obj',
+    tiles = { 'everness_rose_bush_mesh.png' },
+    inventory_image = 'everness_rose_bush_item.png',
+    wield_image = 'everness_rose_bush_item.png',
+    paramtype = 'light',
+    is_ground_content = false,
+    walkable = true,
+    groups = {
+        -- MTG
+        snappy = 3,
+        flora = 1,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -10487,7 +11165,6 @@ Everness:register_node('everness:coral_forest_deep_ocean_lantern', {
     light_source = 14,
 })
 
-
 --
 -- Liquids
 --
@@ -10539,7 +11216,7 @@ Everness:register_node('everness:mineral_water_source', {
     },
     liquid_renewable = false,
     liquid_range = 2,
-    sounds = default.node_sound_water_defaults(),
+    sounds = Everness.node_sound_water_defaults(),
 })
 
 Everness:register_node('everness:mineral_water_flowing', {
@@ -10591,7 +11268,7 @@ Everness:register_node('everness:mineral_water_flowing', {
         not_in_creative_inventory = 1,
         cools_lava = 1
     },
-    sounds = default.node_sound_water_defaults(),
+    sounds = Everness.node_sound_water_defaults(),
 })
 
 Everness:register_node('everness:water_geyser', {
@@ -10626,7 +11303,7 @@ Everness:register_node('everness:water_geyser_active', {
     drawtype = 'mesh',
     mesh = 'everness_water_geyser.obj',
     tiles = {
-        'everness_mineral_stone.png^[multiply:#E0D3DC:127'
+        'everness_mineral_stone.png^[colorize:#E0D3DC:127'
     },
     paramtype = 'light',
     -- wield_image = 'everness_lumabus_vine_end_bottom.png',
@@ -10646,95 +11323,15 @@ Everness:register_node('everness:water_geyser_active', {
     climbable = false,
     _mcl_blast_resistance = 6,
     _mcl_hardness = 1.5,
+    move_resistance = 2,
+    damage_per_second = 1,
     sounds = Everness.node_sound_stone_defaults(),
     on_timer = function(pos, elapsed)
-        local meta = minetest.get_meta(pos)
-        local partcile_time = math.random(5, 15)
+        local n = minetest.get_node(pos)
 
-        -- player
-        for _, object in ipairs(minetest.get_objects_in_area(vector.new(pos.x - 0.5, pos.y - 0.5, pos.z - 0.5), vector.new(pos.x + 0.5, pos.y + 1, pos.z + 0.5))) do
-            if object:is_player()
-                and object:get_hp() > 0
-            then
-                object:add_velocity(vector.new(0, math.random(27, 32), 0))
-            end
+        if n and n.name == 'everness:water_geyser_active' then
+            minetest.swap_node(pos, { name = 'everness:water_geyser' })
         end
-
-        -- particles
-        local particlespawner_def = {
-            amount = 80,
-            time = partcile_time,
-            minpos = vector.new(pos.x, pos.y + 1.5, pos.z),
-            maxpos = vector.new(pos.x, pos.y + 2, pos.z),
-            minvel = vector.new(0, 13, 0),
-            maxvel = vector.new(0, 15, 0),
-            minacc = vector.new(0, -1, 1),
-            maxacc = vector.new(0, -3, 2),
-            minexptime = 3,
-            maxexptime = 5,
-            minsize = 20,
-            maxsize = 30,
-            texture = 'water_geyser_particle.png',
-            vertical = true,
-            collisiondetection = true,
-            collision_removal = true
-        }
-
-        if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
-            -- new syntax, above v5.6.0
-            particlespawner_def = {
-                amount = 80,
-                time = partcile_time,
-                size = {
-                    min = 5,
-                    max = 7,
-                },
-                exptime = {
-                    min = 3,
-                    max = 5
-                },
-                pos = {
-                    min = vector.new(pos.x, pos.y + 1.5, pos.z),
-                    max = vector.new(pos.x, pos.y + 2, pos.z)
-                },
-                vel = {
-                    min = vector.new(0, 13, 0),
-                    max = vector.new(0, 15, 0)
-                },
-                acc = {
-                    min = vector.new(0, -1, 1),
-                    max = vector.new(0, -3, 2)
-                },
-                texture = {
-                    name = 'water_geyser_particle.png',
-                    scale_tween = {
-                        5, 10,
-                        style = 'fwd',
-                        reps = 1
-                    },
-                    alpha_tween = {
-                        1, 0,
-                        style = 'fwd',
-                        reps = 1
-                    },
-                    blend = 'alpha',
-                },
-                vertical = true,
-                collisiondetection = true,
-                collision_removal = true
-            }
-        end
-
-        local particle_id = minetest.add_particlespawner(particlespawner_def)
-        meta:set_int('particle_id', particle_id)
-
-        minetest.after(partcile_time, function(v_pos)
-            local n = minetest.get_node(v_pos)
-
-            if n and n.name == 'everness:water_geyser_active' then
-                minetest.swap_node(v_pos, { name = 'everness:water_geyser' })
-            end
-        end, pos)
 
         return false
     end,
@@ -10747,4 +11344,276 @@ Everness:register_node('everness:water_geyser_active', {
             meta:set_int('particle_id', 0)
         end
     end
+})
+
+for i, v in ipairs({ 'blank', 'flowers', 'lines', 'tribal' }) do
+    Everness:register_node('everness:ceramic_pot_' .. i, {
+        description = S('Ceramic') .. ' ' .. S('Pot') .. ' ' .. S(v),
+        drawtype = 'mesh',
+        mesh = 'everness_ceramic_pot.obj',
+        tiles = { 'everness_ceramic_pot_' .. i .. '_mesh.png' },
+        wield_scale = { x = 2, y = 2, z = 2 },
+        is_ground_content = false,
+        paramtype = 'light',
+        sunlight_propagates = true,
+        use_texture_alpha = 'clip',
+        paramtype2 = '4dir',
+        groups = {
+            -- MTG
+            cracky = 3,
+            -- MCL
+            pickaxey = 1,
+            building_block = 1,
+            material_stone = 1,
+            -- ALL
+            oddly_breakable_by_hand = 3
+        },
+        _mcl_blast_resistance = 6,
+        _mcl_hardness = 1.5,
+        _mcl_silk_touch_drop = true,
+        sounds = Everness.node_sound_ceramic_defaults(),
+        on_construct = function(pos)
+            local meta = minetest.get_meta(pos)
+            local inv = meta:get_inventory()
+            meta:set_string('infotext', S('Ceramic') .. ' ' .. S('Pot') .. ' ' .. S(v))
+            meta:set_string('owner', '')
+            inv:set_size('main', 1)
+        end,
+        after_place_node = function(pos, placer, itemstack, pointed_thing)
+            local meta = minetest.get_meta(pos)
+
+            meta:set_string('owner', placer:get_player_name() or '')
+        end,
+        on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
+            local p_name = clicker:get_player_name()
+
+            if minetest.is_protected(pos, p_name) then
+                return itemstack
+            end
+
+            local meta = minetest.get_meta(pos)
+            local inv = meta:get_inventory()
+            local inv_stack = inv:get_stack('main', 1)
+            local label_copy = {
+                S('Ceramic') .. ' ' .. S('Pot') .. ' ' .. S(v)
+            }
+
+            if meta:get_string('owner') ~= '' then
+                label_copy[#label_copy + 1] = ' (' .. S('owned by') .. ' ' .. meta:get_string('owner') .. ')'
+            end
+
+            label_copy[#label_copy + 1] = '\n' .. inv_stack:get_description()
+
+            label_copy = table.concat(label_copy, '')
+
+            minetest.show_formspec(p_name, 'everness:ceramic_pot_' .. i, Everness.get_pot_formspec(pos, label_copy, 'everness_ceramic_pot_' .. i .. '_mesh.png'))
+
+            minetest.sound_play('everness_ceramic_hit', { gain = 1.0, pos = pos, max_hear_distance = 10 }, true)
+        end,
+        on_blast = function(pos, intensity)
+            if minetest.is_protected(pos, '') then
+                return
+            end
+
+            local drops = {}
+            local inv = minetest.get_meta(pos):get_inventory()
+            local n = #drops
+
+            for i = 1, inv:get_size('main') do
+                local stack = inv:get_stack('main', i)
+                if stack:get_count() > 0 then
+                    drops[n + 1] = stack:to_table()
+                    n = n + 1
+                end
+            end
+
+            drops[#drops + 1] = 'everness:ceramic_pot_' .. i
+            minetest.remove_node(pos)
+            return drops
+        end,
+        on_destruct = function(pos)
+            local inv = minetest.get_meta(pos):get_inventory()
+
+            for i = 1, inv:get_size('main') do
+                local stack = inv:get_stack('main', i)
+
+                if stack:get_count() > 0 then
+                    local obj = minetest.add_item(pos, stack)
+
+                    if obj then
+                        obj:get_luaentity().collect = true
+                        obj:set_acceleration({ x = 0, y = -10, z = 0 })
+                        obj:set_velocity({
+                            x = 0,
+                            y = 5,
+                            z = 0
+                        })
+                    end
+                end
+            end
+        end,
+
+        allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+            if minetest.is_protected(pos, player:get_player_name()) then
+                return 0
+            end
+
+            return stack:get_count()
+        end,
+
+        allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+            if minetest.is_protected(pos, player:get_player_name()) then
+                return 0
+            end
+
+            return stack:get_count()
+        end,
+
+        on_metadata_inventory_put = function(pos, listname, index, stack, player)
+            local meta = minetest.get_meta(pos)
+            local inv = meta:get_inventory()
+            local inv_stack = inv:get_stack('main', 1)
+            local label_copy = {
+                S('Ceramic') .. ' ' .. S('Pot') .. ' ' .. S(v)
+            }
+
+            if meta:get_string('owner') ~= '' then
+                label_copy[#label_copy + 1] = ' (' .. S('owned by') .. ' ' .. meta:get_string('owner') .. ')'
+            end
+
+            label_copy[#label_copy + 1] = '\n' .. inv_stack:get_description()
+
+            label_copy = table.concat(label_copy, '')
+
+            minetest.show_formspec(player:get_player_name(), 'everness:ceramic_pot_' .. i, Everness.get_pot_formspec(pos, label_copy, 'everness_ceramic_pot_' .. i .. '_mesh.png'))
+        end,
+
+        on_metadata_inventory_take = function(pos, listname, index, stack, player)
+            local meta = minetest.get_meta(pos)
+            local inv = meta:get_inventory()
+            local inv_stack = inv:get_stack('main', 1)
+            local label_copy = {
+                S('Ceramic') .. ' ' .. S('Pot') .. ' ' .. S(v)
+            }
+
+            if meta:get_string('owner') ~= '' then
+                label_copy[#label_copy + 1] = ' (' .. S('owned by') .. ' ' .. meta:get_string('owner') .. ')'
+            end
+
+            label_copy[#label_copy + 1] = '\n' .. inv_stack:get_description()
+
+            label_copy = table.concat(label_copy, '')
+
+            minetest.show_formspec(player:get_player_name(), 'everness:ceramic_pot_' .. i, Everness.get_pot_formspec(pos, label_copy, 'everness_ceramic_pot_' .. i .. '_mesh.png'))
+        end
+    })
+end
+
+local fence_collision_extra = minetest.settings:get_bool('enable_fence_tall') and 3/8 or 0
+
+Everness:register_node('everness:sand_castle_wall', {
+    description = S('Sand') .. ' ' .. S('Castle') .. ' ' .. S('Wall'),
+    drawtype = 'nodebox',
+    node_box = {
+        type = 'connected',
+        fixed = {
+            -- Main pillar
+            { -0.2500, -0.5000, -0.2500, 0.2500, 0.3750, 0.2500 },
+            -- Main pillar tops
+            { -0.2500, 0.3750, -0.2500, -0.1875, 0.4375, 0.2500 },
+            { 0.1875, 0.3750, -0.2500, 0.2500, 0.4375, 0.2500 },
+            { -0.1875, 0.3750, -0.2500, 0.1875, 0.4375, -0.1875 },
+            { -0.1875, 0.3750, 0.1875, 0.1875, 0.4375, 0.2500 },
+            { -0.2500, 0.4375, 0.1875, -0.1875, 0.5000, 0.2500 },
+            { -0.1250, 0.4375, 0.1875, -0.06250, 0.5000, 0.2500 },
+            { 0.06250, 0.4375, 0.1875, 0.1250, 0.5000, 0.2500 },
+            { 0.1875, 0.4375, 0.1875, 0.2500, 0.5000, 0.2500 },
+            { 0.1875, 0.4375, -0.2500, 0.2500, 0.5000, -0.1875 },
+            { 0.1875, 0.4375, -0.1250, 0.2500, 0.5000, -0.06250 },
+            { 0.1875, 0.4375, 0.06250, 0.2500, 0.5000, 0.1250 },
+            { -0.2500, 0.4375, -0.2500, -0.1875, 0.5000, -0.1875 },
+            { -0.2500, 0.4375, -0.1250, -0.1875, 0.5000, -0.06250 },
+            { -0.2500, 0.4375, 0.06250, -0.1875, 0.5000, 0.1250 },
+            { -0.1250, 0.4375, -0.2500, -0.06250, 0.5000, -0.1875 },
+            { 0.06250, 0.4375, -0.2500, 0.1250, 0.5000, -0.1875 },
+        },
+        connect_front = {
+            -- Connected side
+            { -0.1875, -0.5000, -0.5000, 0.1875, 0.3125, -0.2500 },
+            -- Connected side tops
+            { -0.1875, 0.3750, -0.5000, -0.1250, 0.4375, -0.4375 },
+            { -0.1875, 0.3750, -0.3750, -0.1250, 0.4375, -0.3125 },
+            { -0.1875, 0.3125, -0.5000, -0.1250, 0.3750, -0.2500 },
+            { 0.1250, 0.3750, -0.3750, 0.1875, 0.4375, -0.3125 },
+            { 0.1250, 0.3750, -0.5000, 0.1875, 0.4375, -0.4375 },
+            { 0.1250, 0.3125, -0.5000, 0.1875, 0.3750, -0.2500 },
+        },
+
+        connect_back = {
+            -- Connected side
+            { -0.1875, -0.5000, 0.2500, 0.1875, 0.3125, 0.5000 },
+            -- Connected side tops
+            { -0.1875, 0.3750, 0.4375, -0.1250, 0.4375, 0.5000 },
+            { -0.1875, 0.3750, 0.3125, -0.1250, 0.4375, 0.3750 },
+            { -0.1875, 0.3125, 0.2500, -0.1250, 0.3750, 0.5000 },
+            { 0.1250, 0.3750, 0.3125, 0.1875, 0.4375, 0.3750 },
+            { 0.1250, 0.3750, 0.4375, 0.1875, 0.4375, 0.5000 },
+            { 0.1250, 0.3125, 0.2500, 0.1875, 0.3750, 0.5000 },
+        },
+
+        connect_left = {
+            -- Connected side
+            { -0.2500, 0.3125, 0.1875, -0.5000, -0.5000, -0.1875 },
+            -- Connected side tops
+            { -0.4375, 0.4375, -0.1250, -0.5000, 0.3750, -0.1875 },
+            { -0.3125, 0.4375, -0.1250, -0.3750, 0.3750, -0.1875 },
+            { -0.2500, 0.3750, -0.1250, -0.5000, 0.3125, -0.1875 },
+            { -0.3125, 0.4375, 0.1875, -0.3750, 0.3750, 0.1250 },
+            { -0.4375, 0.4375, 0.1875, -0.5000, 0.3750, 0.1250 },
+            { -0.2500, 0.3750, 0.1875, -0.5000, 0.3125, 0.1250 },
+        },
+        connect_right = {
+            -- Connected side
+            { 0.2500, -0.5000, -0.1875, 0.5000, 0.3125, 0.1875 },
+            -- Connected side tops
+            { 0.4375, 0.3750, 0.1250, 0.5000, 0.4375, 0.1875 },
+            { 0.3125, 0.3750, 0.1250, 0.3750, 0.4375, 0.1875 },
+            { 0.2500, 0.3125, 0.1250, 0.5000, 0.3750, 0.1875 },
+            { 0.3125, 0.3750, -0.1875, 0.3750, 0.4375, -0.1250 },
+            { 0.4375, 0.3750, -0.1875, 0.5000, 0.4375, -0.1250 },
+            { 0.2500, 0.3125, -0.1875, 0.5000, 0.3750, -0.1250 },
+        },
+    },
+    selection_box = {
+        type = 'connected',
+        fixed = { -1/4, -1/2, -1/4, 1/4, 1/2 + fence_collision_extra, 1/4 },
+        connect_front = { -1/4, -1/2, -1/2, 1/4, 1/2 + fence_collision_extra, -1/4 },
+        connect_left = { -1/2, -1/2, -1/4, -1/4, 1/2 + fence_collision_extra, 1/4 },
+        connect_back = { -1/4, -1/2, 1/4, 1/4, 1/2 + fence_collision_extra, 1/2 },
+        connect_right = { 1/4, -1/2, -1/4, 1/2, 1/2 + fence_collision_extra, 1/4 },
+    },
+    collision_box = {
+        type = 'connected',
+        fixed = { -1/4, -1/2, -1/4, 1/4, 1/2 + fence_collision_extra, 1/4 },
+        connect_front = { -1/4, -1/2, -1/2, 1/4, 1/2 + fence_collision_extra, -1/4 },
+        connect_left = { -1/2, -1/2, -1/4, -1/4, 1/2 + fence_collision_extra, 1/4 },
+        connect_back = { -1/4, -1/2, 1/4, 1/4, 1/2 + fence_collision_extra, 1/2 },
+        connect_right = { 1/4, -1/2, -1/4, 1/2, 1/2 + fence_collision_extra, 1/4 },
+    },
+    connects_to = {
+        'group:wall',
+        'group:stone',
+        'group:fence',
+        'group:everness_sandstone'
+    },
+    paramtype = 'light',
+    is_ground_content = false,
+    tiles = { 'everness_mineral_sandstone.png' },
+    walkable = true,
+    groups = {
+        cracky = 3,
+        wall = 1,
+        stone = 2
+    },
+    sounds = Everness.node_sound_stone_defaults(),
 })
