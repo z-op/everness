@@ -62,6 +62,18 @@ minetest.register_ore({
     biomes = { 'everness_mineral_waters' }
 })
 
+minetest.register_ore({
+    ore_type = 'scatter',
+    ore = 'everness:mineral_stone_with_ceramic_sherds',
+    wherein = 'everness:mineral_stone',
+    clust_scarcity = 14 * 14 * 14,
+    clust_num_ores = 5,
+    clust_size = 3,
+    y_max = y_max,
+    y_min = y_min,
+    biomes = { 'everness_mineral_waters' }
+})
+
 --
 -- Register decorations
 -- placeholder node `everness:crystal_stone` will be replaced in VM
@@ -104,10 +116,10 @@ minetest.register_decoration({
     y_min = y_min,
     decoration = { 'everness:crystal_stone' },
     _decoration = {
-        'everness:ceramic_pot_1',
-        'everness:ceramic_pot_2',
-        'everness:ceramic_pot_3',
-        'everness:ceramic_pot_4'
+        'everness:ceramic_pot_blank',
+        'everness:ceramic_pot_flowers',
+        'everness:ceramic_pot_lines',
+        'everness:ceramic_pot_tribal'
     }
 })
 
@@ -171,16 +183,17 @@ local c_everness_mineral_sandstone = minetest.get_content_id('everness:mineral_s
 local c_everness_mineral_sandstone_block = minetest.get_content_id('everness:mineral_sandstone_block')
 local c_everness_mineral_waters_marker = minetest.get_content_id('everness:mineral_waters_marker')
 local c_everness_mineral_stone_with_coal = minetest.get_content_id('everness:mineral_stone_with_coal')
+local c_everness_mineral_stone_with_ceramic_sherds = minetest.get_content_id('everness:mineral_stone_with_ceramic_sherds')
 local c_everness_lotus_flower_white = minetest.get_content_id('everness:lotus_flower_white')
 local c_everness_lotus_flower_purple = minetest.get_content_id('everness:lotus_flower_purple')
 local c_everness_lotus_flower_pink = minetest.get_content_id('everness:lotus_flower_pink')
 local c_everness_lotus_lotus_leaf = minetest.get_content_id('everness:lotus_leaf')
 local c_everness_lotus_lotus_leaf_2 = minetest.get_content_id('everness:lotus_leaf_2')
 local c_everness_lotus_lotus_leaf_3 = minetest.get_content_id('everness:lotus_leaf_3')
-local c_everness_ceramic_pot_1 = minetest.get_content_id('everness:ceramic_pot_1')
-local c_everness_ceramic_pot_2 = minetest.get_content_id('everness:ceramic_pot_2')
-local c_everness_ceramic_pot_3 = minetest.get_content_id('everness:ceramic_pot_3')
-local c_everness_ceramic_pot_4 = minetest.get_content_id('everness:ceramic_pot_4')
+local c_everness_ceramic_pot_blank = minetest.get_content_id('everness:ceramic_pot_blank')
+local c_everness_ceramic_pot_flowers = minetest.get_content_id('everness:ceramic_pot_flowers')
+local c_everness_ceramic_pot_lines = minetest.get_content_id('everness:ceramic_pot_lines')
+local c_everness_ceramic_pot_tribal = minetest.get_content_id('everness:ceramic_pot_tribal')
 local c_everness_mineral_water_weed_1 = minetest.get_content_id('everness:mineral_water_weed_1')
 local c_everness_mineral_water_weed_2 = minetest.get_content_id('everness:mineral_water_weed_2')
 local c_everness_mineral_water_weed_3 = minetest.get_content_id('everness:mineral_water_weed_3')
@@ -216,10 +229,10 @@ local c_lotus_leaves = {
     c_everness_lotus_lotus_leaf_3
 }
 local c_pots = {
-    c_everness_ceramic_pot_1,
-    c_everness_ceramic_pot_2,
-    c_everness_ceramic_pot_3,
-    c_everness_ceramic_pot_4
+    c_everness_ceramic_pot_blank,
+    c_everness_ceramic_pot_flowers,
+    c_everness_ceramic_pot_lines,
+    c_everness_ceramic_pot_tribal
 }
 local c_water_weeds = {
     c_everness_mineral_water_weed_1,
@@ -467,24 +480,28 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                 or c_right == c_everness_mineral_water_source
                                 or c_right == c_everness_mineral_stone
                                 or c_right == c_everness_mineral_stone_with_coal
+                                or c_right == c_everness_mineral_stone_with_ceramic_sherds
                             )
                             and (
                                 c_left == c_everness_mineral_sand
                                 or c_left == c_everness_mineral_water_source
                                 or c_left == c_everness_mineral_stone
                                 or c_left == c_everness_mineral_stone_with_coal
+                                or c_left == c_everness_mineral_stone_with_ceramic_sherds
                             )
                             and (
                                 c_front == c_everness_mineral_sand
                                 or c_front == c_everness_mineral_water_source
                                 or c_front == c_everness_mineral_stone
                                 or c_front == c_everness_mineral_stone_with_coal
+                                or c_front == c_everness_mineral_stone_with_ceramic_sherds
                             )
                             and (
                                 c_back == c_everness_mineral_sand
                                 or c_back == c_everness_mineral_water_source
                                 or c_back == c_everness_mineral_stone
                                 or c_back == c_everness_mineral_stone_with_coal
+                                or c_back == c_everness_mineral_stone_with_ceramic_sherds
                             )
                         then
                             -- dig below
@@ -496,6 +513,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                     (
                                         data[while_index] == c_everness_mineral_stone
                                         or data[while_index] == c_everness_mineral_stone_with_coal
+                                        or data[while_index] == c_everness_mineral_stone_with_ceramic_sherds
                                     )
                                     and (
                                         -- right
@@ -503,6 +521,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                         or data[while_index + 1 + area.ystride] == c_everness_mineral_water_source
                                         or data[while_index + 1 + area.ystride] == c_everness_mineral_stone
                                         or data[while_index + 1 + area.ystride] == c_everness_mineral_stone_with_coal
+                                        or data[while_index + 1 + area.ystride] == c_everness_mineral_stone_with_ceramic_sherds
                                     )
                                     and (
                                         -- left
@@ -510,6 +529,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                         or data[while_index - 1 + area.ystride] == c_everness_mineral_water_source
                                         or data[while_index - 1 + area.ystride] == c_everness_mineral_stone
                                         or data[while_index - 1 + area.ystride] == c_everness_mineral_stone_with_coal
+                                        or data[while_index - 1 + area.ystride] == c_everness_mineral_stone_with_ceramic_sherds
                                     )
                                     and (
                                         -- front
@@ -517,6 +537,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                         or data[while_index + area.zstride + area.ystride] == c_everness_mineral_water_source
                                         or data[while_index + area.zstride + area.ystride] == c_everness_mineral_stone
                                         or data[while_index + area.zstride + area.ystride] == c_everness_mineral_stone_with_coal
+                                        or data[while_index + area.zstride + area.ystride] == c_everness_mineral_stone_with_ceramic_sherds
                                     )
                                     and (
                                         -- back
@@ -524,6 +545,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                         or data[while_index - area.zstride + area.ystride] == c_everness_mineral_water_source
                                         or data[while_index - area.zstride + area.ystride] == c_everness_mineral_stone
                                         or data[while_index - area.zstride + area.ystride] == c_everness_mineral_stone_with_coal
+                                        or data[while_index - area.zstride + area.ystride] == c_everness_mineral_stone_with_ceramic_sherds
                                     )
                                 then
                                     data[while_index + area.ystride] = c_everness_mineral_water_source

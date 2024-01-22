@@ -48,7 +48,7 @@ minetest.register_tool('everness:pick_illuminating', {
         full_punch_interval = 0.9,
         max_drop_level = 3,
         groupcaps = {
-            cracky = { times = { [1] = 2.0,[2] = 1.0,[3] = 0.50 }, uses = 60, maxlevel = 3 }
+            cracky = { times = { [1] = 2.0, [2] = 1.0, [3] = 0.50 }, uses = 60, maxlevel = 3 }
         },
         damage_groups = { fleshy = 5 },
     },
@@ -144,6 +144,35 @@ minetest.register_tool('everness:pick_illuminating', {
     _mcl_toollike_wield = true,
     _mcl_diggroups = {
         pickaxey = { speed = 8, level = 5, uses = 1562 }
+    },
+})
+
+minetest.register_tool('everness:pick_archeological', {
+    description = 'Archeological pickaxe has the ability to get rare items from certain ores. (Use to get different kinds of ceramic sherds from ores with ceramic sherds)',
+    short_description = 'Archeological pickaxe',
+    inventory_image = 'everness_pick_archeological.png',
+    wield_scale = { x = 2, y = 2, z = 1 },
+    tool_capabilities = {
+        full_punch_interval = 1.2,
+        max_drop_level = 0,
+        groupcaps = {
+            cracky = { times = { [3] = 1.60 }, uses = 20, maxlevel = 1 }
+        },
+        damage_groups = { fleshy = 2 },
+    },
+    sound = { breaks = 'everness_tool_breaks' },
+    groups = {
+        -- MTG
+        pickaxe = 1,
+        -- X Enchanting
+        enchantability = 10,
+        -- Everness
+        archeological_drop = 1
+    },
+    -- MCL
+    _mcl_toollike_wield = true,
+    _mcl_diggroups = {
+        pickaxey = { speed = 2, level = 2, uses = 500 }
     },
 })
 

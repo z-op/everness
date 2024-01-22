@@ -521,10 +521,14 @@ GNU Lesser General Public License v2.1 or later
 - everness_cave_flower_item.png
 - everness_cave_flower_mesh_particles.png
 - everness_cave_flower_mesh.png
-- everness_ceramic_pot_1_mesh.png
-- everness_ceramic_pot_2_mesh.png
-- everness_ceramic_pot_3_mesh.png
-- everness_ceramic_pot_4_mesh.png
+- everness_ceramic_pot_blank_mesh.png
+- everness_ceramic_pot_flowers_mesh.png
+- everness_ceramic_pot_line_mesh.png
+- everness_ceramic_pot_tribal_mesh.png
+- everness_ceramic_pot_blank_sherd.png
+- everness_ceramic_pot_flowers_sherd.png
+- everness_ceramic_pot_line_sherd.png
+- everness_ceramic_pot_tribal_sherd.png
 - everness_chest_front.png
 - everness_chest_inside.png
 - everness_chest_side.png
@@ -962,6 +966,21 @@ GNU Lesser General Public License v2.1 or later
 - everness_xpanes_edge_pyrite.png
 - everness_water_geyser_particle.png
 - everness_water_geyser_item.png
+- everness_mineral_sandstone_brick.png
+- everness_mineral_sandstone_brick_block.png
+- everness_mineral_sandstone_brick_block_top.png
+- everness_fence_palm_wood.png
+- everness_fence_rail_palm_wood.png
+- everness_door_palm_wood.png
+- everness_door_trapdoor_palm_wood.png
+- everness_door_trapdoor_palm_wood_side.png
+- everness_door_palm_wood_item.png
+- everness_ceramic_pot_lines_sherd.png
+- everness_ceramic_pot_blank_sherd.png
+- everness_ceramic_pot_tribal_sherd.png
+- everness_ceramic_pot_flowers_sherd.png
+- everness_ceramic_sherds_ore.png
+- everness_pick_archeological.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
@@ -1659,3 +1678,5 @@ https://freesound.org/people/Rudmer_Rotteveel/sounds/590950/
 - everness_palm_tree.mts
 - everness_palm_tree_from_sapling.lua
 - everness_palm_tree_from_sapling.mts
+- everness_mineral_waters_tower.lua
+- everness_mineral_waters_tower.mts

@@ -695,6 +695,40 @@ stairs.register_stair_and_slab(
 )
 
 stairs.register_stair_and_slab(
+    'mineral_sandstone_brick',
+    'everness:mineral_sandstone_brick',
+    { cracky = 2 },
+    {{
+        name = 'everness_mineral_sandstone_brick.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Stair'),
+    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'mineral_sandstone_brick_block',
+    'everness:mineral_sandstone_brick_block',
+    { cracky = 2 },
+    {
+        { name = 'everness_mineral_sandstone_brick_block_top.png' },
+        { name = 'everness_mineral_sandstone_brick_block_top.png' },
+        {
+            name = 'everness_mineral_sandstone_brick_block.png',
+            align_style = 'world',
+            scale = 2
+        }
+    },
+    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Block') .. ' ' .. S('Stair'),
+    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Block') .. ' ' .. S('Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
     'mineral_stone_brick_with_growth',
     'everness:mineral_stone_brick_with_growth',
     { cracky = 2, stone = 1 },

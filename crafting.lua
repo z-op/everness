@@ -114,6 +114,15 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    output = 'everness:trapdoor_palm_wood 2',
+    recipe = {
+        { 'everness:palm_tree_wood', 'everness:palm_tree_wood', 'everness:palm_tree_wood' },
+        { 'everness:palm_tree_wood', 'everness:palm_tree_wood', 'everness:palm_tree_wood' },
+        { '', '', '' },
+    }
+})
+
+minetest.register_craft({
     output = 'everness:bamboo_mosaic_wood',
     recipe = {
         { 'everness:bamboo_wood', 'everness:bamboo_wood' },
@@ -663,11 +672,27 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    output = 'everness:mineral_sandstone_brick 4',
+    recipe = {
+        { 'everness:mineral_sandstone', 'everness:mineral_sandstone' },
+        { 'everness:mineral_sandstone', 'everness:mineral_sandstone' },
+    }
+})
+
+minetest.register_craft({
     output = 'everness:mineral_sandstone_block 9',
     recipe = {
         { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone' },
         { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone' },
         { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:mineral_sandstone_brick_block 6',
+    recipe = {
+        { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone' },
+        { 'everness:mineral_sandstone_brick', 'everness:mineral_sandstone_brick', 'everness:mineral_sandstone_brick' },
     }
 })
 
@@ -696,6 +721,21 @@ minetest.register_craft({
         { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone'},
         { 'everness:mineral_sandstone', 'everness:mineral_sandstone', 'everness:mineral_sandstone'},
     }
+})
+
+minetest.register_craft({
+    output = 'everness:ceramic_pot_blank',
+    recipe = {
+        { '', 'everness:ceramic_pot_sherd_blank', ''},
+        { 'everness:ceramic_pot_sherd_blank', '', 'everness:ceramic_pot_sherd_blank'},
+        { '', 'everness:ceramic_pot_sherd_blank', ''},
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:ceramic_pot_sherd_blank 4',
+    type = 'shapeless',
+    recipe = { 'everness:ceramic_pot_blank' }
 })
 
 -- Crystals
@@ -791,6 +831,15 @@ minetest.register_craft({
         { 'everness:pyriteblock_forged', 'everness:pyriteblock_forged', 'everness:pyriteblock_forged' },
         { 'everness:pyriteblock_forged', 'everness:hammer', 'everness:pyriteblock_forged' },
         { '', 'everness:hammer', '' }
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:pick_archeological',
+    recipe = {
+        { 'group:stone', 'group:stone', 'group:stone' },
+        { '', 'group:stick', '' },
+        { 'group:stick', '', '' }
     }
 })
 

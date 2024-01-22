@@ -123,6 +123,45 @@ Everness:register_node('everness:stone_with_pyrite', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
+minetest.register_node('everness:mineral_stone_with_ceramic_sherds', {
+    description = S('Ceramic Sherds. Use archeological pickaxe to have a chance of getting various different sherds.'),
+    short_description = S('Ceramic Sherds'),
+    tiles = { 'everness_mineral_stone.png^[sheet:2x2:1,1^everness_ceramic_sherds_ore.png' },
+    groups = {
+        cracky = 3,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        xp = 1,
+        blast_furnace_smeltable = 1
+    },
+    drop = {
+        max_items = 1,
+        items = {
+            {
+                tool_groups = { 'archeological_drop' },
+                items = { 'everness:ceramic_pot_sherd_flowers' },
+                rarity = 20
+            },
+            {
+                tool_groups = { 'archeological_drop' },
+                items = { 'everness:ceramic_pot_sherd_lines' },
+                rarity = 10
+            },
+            {
+                tool_groups = { 'archeological_drop' },
+                items = { 'everness:ceramic_pot_sherd_tribal' },
+                rarity = 5
+            },
+            {
+                items = { 'everness:ceramic_pot_sherd_blank' }
+            }
+        }
+    },
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
 Everness:register_node('everness:pyriteblock', {
     description = S('Pyrite Block'),
     tiles = { 'everness_pyrite_block.png' },
@@ -2095,6 +2134,64 @@ Everness:register_node('everness:mineral_stone_brick_with_flower_growth', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
+Everness:register_node('everness:mineral_sandstone_brick', {
+    description = S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick'),
+    paramtype2 = 'facedir',
+    is_ground_content = false,
+    place_param2 = 0,
+    tiles = {
+        {
+            name = 'everness_mineral_sandstone_brick.png',
+            align_style = 'world',
+            scale = 2
+        }
+    },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1,
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = false,
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
+Everness:register_node('everness:mineral_sandstone_brick_block', {
+    description = S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Block'),
+    paramtype2 = 'facedir',
+    is_ground_content = false,
+    place_param2 = 0,
+    tiles = {
+        { name = 'everness_mineral_sandstone_brick_block_top.png' },
+        { name = 'everness_mineral_sandstone_brick_block_top.png' },
+        {
+            name = 'everness_mineral_sandstone_brick_block.png',
+            align_style = 'world',
+            scale = 2
+        }
+    },
+    groups = {
+        -- MTG
+        cracky = 2,
+        -- MCL
+        pickaxey = 1,
+        building_block = 1,
+        material_stone = 1,
+        -- ALL
+        stone = 1,
+    },
+    _mcl_blast_resistance = 6,
+    _mcl_hardness = 1.5,
+    _mcl_silk_touch_drop = false,
+    sounds = Everness.node_sound_stone_defaults(),
+})
+
 --
 -- Soft / Non-Stone
 --
@@ -2656,6 +2753,16 @@ Everness:register_node('everness:crystal_forest_deep_ocean_ruins_marker', {
 Everness:register_node('everness:mineral_waters_marker', {
     drawtype = 'airlike',
     description = 'Mineral Waters Marker',
+    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
+    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    _mcl_hardness = 0.2,
+    paramtype2 = 'facedir',
+    drop = ''
+})
+
+Everness:register_node('everness:mineral_waters_tower_marker', {
+    drawtype = 'airlike',
+    description = 'Mineral Waters Tower Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
@@ -11386,17 +11493,18 @@ Everness:register_node('everness:water_geyser_active', {
 })
 
 for i, v in ipairs({ 'blank', 'flowers', 'lines', 'tribal' }) do
-    Everness:register_node('everness:ceramic_pot_' .. i, {
-        description = S('Ceramic') .. ' ' .. S('Pot') .. ' ' .. S(v),
+    Everness:register_node('everness:ceramic_pot_' .. v, {
+        description = S('Ceramic') .. ' ' .. S('Pot') .. ' ' .. S(v) .. '. ' .. S('If destroyed by archelogical pick axe, it will drop ceramic sherds instead of ceramic pot item.'),
+        short_description = S('Ceramic') .. ' ' .. S('Pot') .. ' ' .. S(v),
         drawtype = 'mesh',
         mesh = 'everness_ceramic_pot.obj',
-        tiles = { 'everness_ceramic_pot_' .. i .. '_mesh.png' },
-        wield_scale = { x = 2, y = 2, z = 2 },
+        tiles = { 'everness_ceramic_pot_' .. v .. '_mesh.png' },
         is_ground_content = false,
         paramtype = 'light',
         sunlight_propagates = true,
         use_texture_alpha = 'clip',
         paramtype2 = '4dir',
+        stack_max = 1,
         groups = {
             -- MTG
             cracky = 3,
@@ -11411,6 +11519,24 @@ for i, v in ipairs({ 'blank', 'flowers', 'lines', 'tribal' }) do
         _mcl_hardness = 1.5,
         _mcl_silk_touch_drop = true,
         sounds = Everness.node_sound_ceramic_defaults(),
+        drop = {
+            max_items = 1,
+            items = {
+                {
+                    tool_groups = { 'archeological_drop' },
+                    items = {
+                        'everness:ceramic_pot_sherd_blank',
+                        'everness:ceramic_pot_sherd_blank',
+                        'everness:ceramic_pot_sherd_blank',
+                        'everness:ceramic_pot_sherd_blank',
+                        'everness:ceramic_pot_sherd_' .. v,
+                    }
+                },
+                {
+                    items = { 'everness:ceramic_pot_' .. v }
+                }
+            }
+        },
         on_construct = function(pos)
             local meta = minetest.get_meta(pos)
             local inv = meta:get_inventory()
@@ -11445,7 +11571,7 @@ for i, v in ipairs({ 'blank', 'flowers', 'lines', 'tribal' }) do
 
             label_copy = table.concat(label_copy, '')
 
-            minetest.show_formspec(p_name, 'everness:ceramic_pot_' .. i, Everness.get_pot_formspec(pos, label_copy, 'everness_ceramic_pot_' .. i .. '_mesh.png'))
+            minetest.show_formspec(p_name, 'everness:ceramic_pot_' .. v, Everness.get_pot_formspec(pos, label_copy, 'everness_ceramic_pot_' .. v .. '_mesh.png'))
 
             minetest.sound_play('everness_ceramic_hit', { gain = 1.0, pos = pos, max_hear_distance = 10 }, true)
         end,
@@ -11466,7 +11592,7 @@ for i, v in ipairs({ 'blank', 'flowers', 'lines', 'tribal' }) do
                 end
             end
 
-            drops[#drops + 1] = 'everness:ceramic_pot_' .. i
+            drops[#drops + 1] = 'everness:ceramic_pot_' .. v
             minetest.remove_node(pos)
             return drops
         end,
@@ -11524,7 +11650,7 @@ for i, v in ipairs({ 'blank', 'flowers', 'lines', 'tribal' }) do
 
             label_copy = table.concat(label_copy, '')
 
-            minetest.show_formspec(player:get_player_name(), 'everness:ceramic_pot_' .. i, Everness.get_pot_formspec(pos, label_copy, 'everness_ceramic_pot_' .. i .. '_mesh.png'))
+            minetest.show_formspec(player:get_player_name(), 'everness:ceramic_pot_' .. v, Everness.get_pot_formspec(pos, label_copy, 'everness_ceramic_pot_' .. v .. '_mesh.png'))
         end,
 
         on_metadata_inventory_take = function(pos, listname, index, stack, player)
@@ -11543,9 +11669,32 @@ for i, v in ipairs({ 'blank', 'flowers', 'lines', 'tribal' }) do
 
             label_copy = table.concat(label_copy, '')
 
-            minetest.show_formspec(player:get_player_name(), 'everness:ceramic_pot_' .. i, Everness.get_pot_formspec(pos, label_copy, 'everness_ceramic_pot_' .. i .. '_mesh.png'))
+            minetest.show_formspec(player:get_player_name(), 'everness:ceramic_pot_' .. v, Everness.get_pot_formspec(pos, label_copy, 'everness_ceramic_pot_' .. v .. '_mesh.png'))
         end
     })
+
+    minetest.register_craftitem('everness:ceramic_pot_sherd_' .. v, {
+        description = S('Ceramic') .. ' ' .. S('Pot') .. ' ' .. S(v) .. ' ' .. S('Sherd'),
+        inventory_image = 'everness_ceramic_pot_' .. v .. '_sherd.png',
+    })
+
+    if v ~= 'blank' then
+        -- recipes for 'blank' are in `crafting.lua`
+        minetest.register_craft({
+            output = 'everness:ceramic_pot_' .. v,
+            recipe = {
+                { '', 'everness:ceramic_pot_sherd_blank', ''},
+                { 'everness:ceramic_pot_sherd_blank', 'everness:ceramic_pot_sherd_' .. v, 'everness:ceramic_pot_sherd_blank'},
+                { '', 'everness:ceramic_pot_sherd_blank', ''},
+            }
+        })
+
+        minetest.register_craft({
+            output = 'everness:ceramic_pot_' .. v,
+            type = 'shapeless',
+            recipe = { 'everness:ceramic_pot_blank', 'everness:ceramic_pot_sherd_' .. v }
+        })
+    end
 end
 
 local fence_collision_extra = minetest.settings:get_bool('enable_fence_tall') and 3/8 or 0

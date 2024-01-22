@@ -48,11 +48,27 @@ mcl_fences.register_fence_and_fence_gate(
     Everness.node_sound_wood_defaults()
 )
 
+-- Crystal Wood
+
 mcl_fences.register_fence_and_fence_gate(
     'gate_crystal_wood',
     S('Crystal Wood Fence'),
     S('Crystal Wood Fence Gate'),
     'everness_crystal_wood.png',
+    { handy = 1, axey = 1, flammable = 2, fence_wood = 1, fire_encouragement = 5, fire_flammability = 20 },
+    2,
+    15,
+    { 'group:fence_wood' },
+    Everness.node_sound_wood_defaults()
+)
+
+-- Palm Wood
+
+mcl_fences.register_fence_and_fence_gate(
+    'gate_palm_tree_wood',
+    S('Palm Wood Fence'),
+    S('Palm Wood Fence Gate'),
+    'everness_palm_tree_wood.png',
     { handy = 1, axey = 1, flammable = 2, fence_wood = 1, fire_encouragement = 5, fire_flammability = 20 },
     2,
     15,
@@ -1010,6 +1026,42 @@ mcl_stairs.register_stair_and_slab(
 )
 
 mcl_stairs.register_stair_and_slab(
+    'mineral_sandstone_brick',
+    'everness:mineral_sandstone_brick',
+    { pickaxey = 2 },
+    {{
+        name = 'everness_mineral_sandstone_brick.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Stair'),
+    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    1.5,
+    S('Double') .. ' ' .. S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Slab'),
+    nil
+)
+
+mcl_stairs.register_stair_and_slab(
+    'mineral_sandstone_brick_block',
+    'everness:mineral_sandstone_brick_block',
+    { pickaxey = 2 },
+    {{
+        name = 'everness_mineral_sandstone_brick_block.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Block') .. ' ' .. S('Stair'),
+    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Block') .. ' ' .. S('Slab'),
+    Everness.node_sound_stone_defaults(),
+    6,
+    1.5,
+    S('Double') .. ' ' .. S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Block') .. ' ' .. S('Slab'),
+    nil
+)
+
+mcl_stairs.register_stair_and_slab(
     'mineral_stone_brick_with_growth',
     'everness:mineral_stone_brick_with_growth',
     { pickaxey = 2, stone = 1 },
@@ -1240,6 +1292,47 @@ minetest.register_craft({
         { 'everness:dry_wood', 'everness:dry_wood' },
     }
 })
+
+-- Palm Wood
+
+-- mcl_doors:register_door('everness:door_palm_wood', {
+--     description = S('Palm Wood Door'),
+--     inventory_image = 'everness_door_palm_wood_item.png',
+--     groups = { handy = 1, axey = 1, material_wood = 1, flammable = -1 },
+--     tiles_bottom = 'everness_mcl_doors_door_cursed_wood_lower.png',
+--     tiles_top = 'everness_mcl_doors_door_cursed_wood_upper.png',
+--     sounds = Everness.node_sound_wood_defaults(),
+--     _mcl_hardness = 3,
+--     _mcl_blast_resistance = 3,
+-- })
+
+-- minetest.register_craft({
+--     output = 'everness:door_palm_wood 3',
+--     recipe = {
+--         { 'everness:palm_tree_wood', 'everness:palm_tree_wood' },
+--         { 'everness:palm_tree_wood', 'everness:palm_tree_wood' },
+--         { 'everness:palm_tree_wood', 'everness:palm_tree_wood' }
+--     }
+-- })
+
+-- mcl_doors:register_trapdoor('everness:trapdoor_palm_wood', {
+--     description = S('Palm Wood Trapdoor'),
+--     tile_front = 'everness_door_trapdoor_cursed_wood.png',
+--     tile_side = 'everness_mcl_doors_trapdoor_cursed_wood_side.png',
+--     wield_image = 'everness_door_trapdoor_palm_wood.png',
+--     groups = { handy = 1, axey = 1, material_wood = 1, flammable = -1 },
+--     sounds = Everness.node_sound_wood_defaults(),
+--     _mcl_hardness = 3,
+--     _mcl_blast_resistance = 3,
+-- })
+
+-- minetest.register_craft({
+--     output = 'everness:trapdoor_palm_wood',
+--     recipe = {
+--         { 'everness:palm_tree_wood', 'everness:palm_tree_wood' },
+--         { 'everness:palm_tree_wood', 'everness:palm_tree_wood' },
+--     }
+-- })
 
 --
 -- Buckets
