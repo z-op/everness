@@ -3861,7 +3861,7 @@ local lotus_flower_def = {
         fire_encouragement = 60,
         fire_flammability = 100,
         -- X Farming
-        compostability = 65,
+        compostability = 30,
         -- ALL
         flower = 1,
         flammable = 1
@@ -4035,7 +4035,7 @@ Everness:register_node('everness:lotus_leaf', {
         fire_encouragement = 60,
         fire_flammability = 100,
         -- X Farming
-        compostability = 65,
+        compostability = 30,
         -- ALL
         flora = 1,
         flammable = 1
@@ -4137,7 +4137,7 @@ Everness:register_node('everness:lotus_leaf_2', {
         fire_encouragement = 60,
         fire_flammability = 100,
         -- X Farming
-        compostability = 65,
+        compostability = 30,
         -- ALL
         flora = 1,
         flammable = 1
@@ -4239,7 +4239,7 @@ Everness:register_node('everness:lotus_leaf_3', {
         fire_encouragement = 60,
         fire_flammability = 100,
         -- X Farming
-        compostability = 65,
+        compostability = 30,
         -- ALL
         flora = 1,
         flammable = 1
