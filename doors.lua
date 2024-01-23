@@ -12,8 +12,6 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 local S = minetest.get_translator(minetest.get_current_modname())
@@ -156,4 +154,37 @@ doors.register_trapdoor('everness:trapdoor_cursed_wood', {
     gain_open = 0.15,
     gain_close = 0.15,
     groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
+})
+
+-- Palm Wood
+
+doors.register('everness:door_palm_wood', {
+    description = S('Palm Wood Door'),
+    tiles = { 'everness_door_palm_wood.png' },
+    inventory_image = 'everness_door_palm_wood_item.png',
+    use_texture_alpha = 'blend',
+    groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
+    sounds = Everness.node_sound_wood_defaults(),
+    recipe = {
+        { 'everness:palm_tree_wood', 'everness:palm_tree_wood' },
+        { 'everness:palm_tree_wood', 'everness:palm_tree_wood' },
+        { 'everness:palm_tree_wood', 'everness:palm_tree_wood' },
+    }
+})
+
+doors.register_trapdoor('everness:trapdoor_palm_wood', {
+    description = S('Palm Wood Trapdoor'),
+    inventory_image = 'everness_door_trapdoor_palm_wood.png',
+    wield_image = 'everness_door_trapdoor_palm_wood.png',
+    tile_front = 'everness_door_trapdoor_palm_wood.png',
+    tile_side = 'everness_door_trapdoor_palm_wood_side.png',
+    sounds = Everness.node_sound_wood_defaults(),
+    groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
+})
+
+doors.register_fencegate('everness:gate_palm_wood', {
+    description = S('Palm Wood Fence Gate'),
+    texture = 'everness_palm_tree_wood.png^[sheet:2x2:1,1',
+    material = 'everness:palm_tree_wood',
+    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 }
 })

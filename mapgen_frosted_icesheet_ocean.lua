@@ -12,8 +12,6 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -33,7 +31,7 @@ minetest.register_biome({
     depth_filler = 3,
     node_water_top = 'everness:frosted_ice',
     depth_water_top = 2,
-    node_cave_liquid = 'default:water_source',
+    node_cave_liquid = 'mapgen_water_source',
     node_dungeon = 'everness:icecobble',
     node_dungeon_alt = 'everness:snowcobble',
     node_dungeon_stair = 'stairs:stair_ice',

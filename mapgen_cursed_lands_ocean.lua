@@ -12,8 +12,6 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -34,7 +32,7 @@ minetest.register_biome({
     node_riverbed = 'everness:cursed_stone',
     depth_riverbed = 2,
     node_stone = 'everness:cursed_stone_carved',
-    node_cave_liquid = 'default:water_source',
+    node_cave_liquid = 'mapgen_water_source',
     node_dungeon = 'everness:cursed_lands_deep_ocean_sandstone_block',
     node_dungeon_alt = 'everness:cursed_lands_deep_ocean_sandstone_brick',
     node_dungeon_stair = 'stairs:stair_cursed_lands_deep_ocean_sandstone_block',

@@ -12,11 +12,9 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
-minetest.register_alias('default:water_source', 'mcl_core:water_source')
+minetest.register_alias('mapgen_water_source', 'mcl_core:water_source')
 minetest.register_alias('default:dirt_with_rainforest_litter', 'mcl_core:dirt_with_grass')
 minetest.register_alias('default:dirt_with_snow', 'mcl_core:dirt_with_grass_snow')
 minetest.register_alias('default:dirt_with_coniferous_litter', 'mcl_core:podzol')
@@ -105,7 +103,7 @@ minetest.register_alias('default:stone_with_tin', 'mcl_core:stone_with_copper')
 minetest.register_alias('default:stone_with_gold', 'mcl_core:stone_with_gold')
 minetest.register_alias('default:stone_with_mese', 'mcl_core:stone_with_redstone')
 minetest.register_alias('default:stone_with_diamond', 'mcl_core:stone_with_diamond')
-minetest.register_alias('default:lava_source', 'mcl_core:lava_source')
+minetest.register_alias('mapgen_lava_source', 'mcl_core:lava_source')
 minetest.register_alias('default:mossycobble', 'mcl_core:mossycobble')
 minetest.register_alias('default:clay', 'mcl_colorblocks:hardened_clay')
 minetest.register_alias('default:dry_dirt_with_dry_grass', 'mcl_core:dirt_with_grass')
