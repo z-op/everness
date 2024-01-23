@@ -12,8 +12,6 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -27,7 +25,7 @@ local y_min = Everness.settings.biomes.everness_frosted_icesheet_under.y_min
 
 minetest.register_biome({
     name = 'everness_frosted_icesheet_under',
-    node_cave_liquid = { 'default:water_source', 'default:lava_source' },
+    node_cave_liquid = { 'mapgen_water_source', 'mapgen_lava_source' },
     node_dungeon = 'everness:icecobble',
     node_dungeon_alt = 'everness:snowcobble',
     node_dungeon_stair = 'stairs:stair_ice',
@@ -318,7 +316,7 @@ minetest.register_decoration({
 local deco_id_frosted_icicle_large_ceiling = minetest.get_decoration_id('everness:frosted_icicle_large_ceiling')
 local deco_id_frosted_icicle_large_floor = minetest.get_decoration_id('everness:frosted_icicle_large_floor')
 
-minetest.set_gen_notify('decoration', { deco_id_frosted_icicle_large_ceiling, deco_id_frosted_icicle_large_floor })
+minetest.set_gen_notify({ decoration = true }, { deco_id_frosted_icicle_large_ceiling, deco_id_frosted_icicle_large_floor })
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
     local gennotify = minetest.get_mapgen_object('gennotify')

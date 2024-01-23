@@ -12,8 +12,6 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 local S = minetest.get_translator(minetest.get_current_modname())
@@ -47,6 +45,13 @@ minetest.register_craftitem('everness:pyrite_ingot', {
 minetest.register_craftitem('everness:pyrite_lump', {
     description = S('Pyrite Lump'),
     inventory_image = 'everness_pyrite_lump.png'
+})
+
+minetest.register_craftitem('everness:coconut_fruit', {
+    description = S('Coconut'),
+    inventory_image = 'everness_coconut_item.png',
+    wield_scale = { x = 2, y = 2, z = 1 },
+    on_use = minetest.item_eat(4),
 })
 
 --
