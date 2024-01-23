@@ -89,7 +89,4 @@ read_globals = {
     "mcl_util",
     "mcl_doors",
     "mcl_vars",
-    "mcl_buckets",
-    "mcl_worlds",
-    "bucket"
 }

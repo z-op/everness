@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -32,7 +34,7 @@ minetest.register_biome({
     depth_filler = 3,
     node_riverbed = 'everness:forsaken_tundra_beach_sand',
     depth_riverbed = 2,
-    node_cave_liquid = 'mapgen_water_source',
+    node_cave_liquid = 'default:water_source',
     node_dungeon = 'everness:forsaken_tundra_cobble',
     node_dungeon_alt = 'everness:forsaken_tundra_brick',
     node_dungeon_stair = 'stairs:stair_forsaken_tundra_cobble',

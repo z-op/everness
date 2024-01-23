@@ -12,9 +12,12 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 -- Get the content IDs for the nodes used.
+local c_air = minetest.get_content_id('air')
 local c_dirt_with_grass_1 = minetest.get_content_id('everness:dirt_with_grass_1')
 local c_dirt_with_rainforest_litter = minetest.get_content_id('default:dirt_with_rainforest_litter')
 local c_dirt_with_cursed_grass = minetest.get_content_id('everness:dirt_with_cursed_grass')
@@ -29,38 +32,31 @@ local c_forsaken_desert_brick = minetest.get_content_id('everness:forsaken_deser
 local c_forsaken_desert_engraved_stone = minetest.get_content_id('everness:forsaken_desert_engraved_stone')
 local c_frosted_snowblock = minetest.get_content_id('everness:frosted_snowblock')
 local c_frosted_ice = minetest.get_content_id('everness:frosted_ice')
-local c_everness_mineral_water_source = minetest.get_content_id('everness:mineral_water_source')
-local c_everness_mineral_sand = minetest.get_content_id('everness:mineral_sand')
-
 
 -- Localize data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
 local data = {}
 local chance = 15
 local disp = 16
-local water_level = tonumber(minetest.settings:get('water_level'))
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
     local rand = PcgRandom(blockseed)
-    -- Load the voxelmanip with the result of engine mapgen
+
     local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
-    -- 'area' is used later to get the voxelmanip indexes for positions
     local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
     -- Get the content ID data from the voxelmanip in the form of a flat array.
     -- Set the buffer parameter to use and reuse 'data' for this.
     vm:get_data(data)
-    -- Side length of mapchunk
     local sidelength = maxp.x - minp.x + 1
+
     local x_disp = rand:next(0, disp)
     local z_disp = rand:next(0, disp)
 
-    if maxp.y >= water_level then
-        -- Above sea level
-
+    if maxp.y > 0 then
         for y = minp.y, maxp.y do
             local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
 
-            if data[vi + area.ystride] == minetest.CONTENT_AIR
+            if data[vi + area.ystride] == c_air
                 and (
                     data[vi] == c_dirt_with_grass_1
                     or data[vi] == c_dirt_with_rainforest_litter
@@ -73,8 +69,6 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                     or data[vi] == c_dirt_with_coniferous_litter
                     or data[vi] == c_frosted_snowblock
                     or data[vi] == c_frosted_ice
-                    or data[vi] == c_everness_mineral_water_source
-                    or data[vi] == c_everness_mineral_sand
                 )
             then
                 local s_pos = area:position(vi)
@@ -266,67 +260,18 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                     )
 
                     minetest.log('action', '[Everness] Igloo was placed at ' .. schem_pos:to_string())
-                elseif biome_name == 'everness_mineral_waters'
-                    and rand:next(0, 100) < chance
-                then
-                    local schem = minetest.get_modpath('everness') .. '/schematics/everness_mineral_waters_tower.mts'
-
-                    --
-                    -- Mineral Waters Tower
-                    --
-
-                    local size = { x = 7, y = 16, z = 9 }
-                    local size_x = math.round(size.x / 2)
-                    local size_z = math.round(size.z / 2)
-                    -- add Y displacement
-                    local schem_pos = vector.new(s_pos)
-
-                    -- find floor big enough
-                    local positions = minetest.find_nodes_in_area_under_air(
-                        vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
-                        vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
-                        {
-                            'everness:mineral_sand',
-                            'everness:mineral_water_source'
-                        })
-
-                    if #positions < size.x * size.z then
-                        -- not enough space
-                        return
-                    end
-
-                    -- enough air to place structure ?
-                    local air_positions = minetest.find_nodes_in_area(
-                        vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
-                        vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
-                        'air', true)
-
-                    if air_positions.air and #air_positions.air > (size.x * size.y * size.z) / 2 then
-                        minetest.place_schematic_on_vmanip(
-                            vm,
-                            schem_pos,
-                            schem,
-                            'random',
-                            nil,
-                            true,
-                            'place_center_x, place_center_z'
-                        )
-
-                        minetest.log('action', '[Everness] Mineral Waters Tower was placed at ' .. schem_pos:to_string())
-                    end
                 end
             end
         end
 
         vm:write_to_map(true)
-
         minetest.fix_light(minp, maxp)
     else
-        -- Under sea level
+        -- Under
         for y = minp.y, maxp.y do
             local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
 
-            if data[vi + area.ystride] == minetest.CONTENT_AIR
+            if data[vi + area.ystride] == c_air
                 and (
                     data[vi] == c_dirt_with_grass_1
                     or data[vi] == c_forsaken_desert_sand
@@ -392,7 +337,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                         vector.new(s_pos.x + 7, s_pos.y + 17, s_pos.z + 7),
                         'air', true)
 
-                    if air_positions.air and #air_positions.air > (16 * 15 * 16) / 2 then
+                    if air_positions.air and #air_positions.air > (16 * 15 * 16)  / 2 then
                         minetest.place_schematic_on_vmanip(
                             vm,
                             schem_pos,

@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -25,7 +27,7 @@ local y_min = Everness.settings.biomes.everness_bamboo_forest_under.y_min
 
 minetest.register_biome({
     name = 'everness_bamboo_forest_under',
-    node_cave_liquid = { 'mapgen_water_source', 'mapgen_lava_source' },
+    node_cave_liquid = { 'default:water_source', 'default:lava_source' },
     node_dungeon = 'everness:bamboo_wood',
     node_dungeon_alt = 'everness:bamboo_mosaic_wood',
     node_dungeon_stair = 'stairs:stair_bamboo_wood',

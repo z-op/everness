@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 local S = minetest.get_translator(minetest.get_current_modname())
@@ -210,16 +212,6 @@ Everness = {
                 y_max = tonumber(minetest.settings:get('everness_forsaken_tundra_under_y_max')) or -256,
                 y_min = tonumber(minetest.settings:get('everness_forsaken_tundra_under_y_min')) or -31000,
             },
-            everness_mineral_waters = {
-                enabled = minetest.settings:get_bool('everness_mineral_waters', true),
-                y_max = tonumber(minetest.settings:get('everness_mineral_waters_y_max')) or 31000,
-                y_min = tonumber(minetest.settings:get('everness_mineral_waters_y_min')) or 1,
-            },
-            everness_mineral_waters_under = {
-                enabled = minetest.settings:get_bool('everness_mineral_waters_under', true),
-                y_max = tonumber(minetest.settings:get('everness_mineral_waters_under_y_max')) or -256,
-                y_min = tonumber(minetest.settings:get('everness_mineral_waters_under_y_min')) or -31000,
-            },
         },
         features = {
             everness_feature_sneak_pickup = minetest.settings:get_bool('everness_feature_sneak_pickup', true),
@@ -368,14 +360,6 @@ end
 -- Sounds
 --
 
-function Everness.node_sound_defaults(table)
-    table = table or {}
-    table.footstep = table.footstep or { name = '', gain = 1.0 }
-    table.dug = table.dug or { name = 'everness_stone_hit', gain = 1.0 }
-    table.place = table.place or { name = 'everness_stone_dug', gain = 0.6 }
-    return table
-end
-
 function Everness.node_sound_frosted_snow_defaults(table)
     table = table or {}
     table.footstep = table.footstep or { name = 'everness_frosted_snow_footstep', gain = 0.2 }
@@ -517,22 +501,6 @@ function Everness.node_sound_gravel_defaults(table)
     table.dig = table.dig or { name = 'everness_gravel_hit', gain = 1.0 }
     table.dug = table.dug or { name = 'everness_gravel_dug', gain = 0.6 }
     table.place = table.place or { name = 'everness_gravel_place', gain = 1.0 }
-    return table
-end
-
-function Everness.node_sound_ceramic_defaults(table)
-    table = table or {}
-    table.footstep = table.footstep or { name = 'everness_ceramic_footstep', gain = 0.2 }
-    table.dig = table.dig or { name = 'everness_ceramic_hit', gain = 1.0 }
-    table.dug = table.dug or { name = 'everness_ceramic_dug', gain = 1.0 }
-    table.place = table.place or { name = 'everness_ceramic_place', gain = 1.0 }
-    return table
-end
-
-function Everness.node_sound_water_defaults(table)
-    table = table or {}
-    table.footstep = table.footstep or { name = 'everness_water_footstep', gain = 0.05 }
-    Everness.node_sound_defaults(table)
     return table
 end
 
@@ -701,7 +669,6 @@ function Everness.sapling_on_place(self, itemstack, placer, pointed_thing, props
             local nn = node_below.name
 
             return minetest.get_item_group(nn, 'grass_block') == 1
-                or (nn == 'everness:mineral_sand' and itemstack:get_name() == 'everness:palm_tree_sapling')
                 or nn == 'mcl_core:podzol'
                 or nn == 'mcl_core:podzol_snow'
                 or nn == 'mcl_core:dirt'
@@ -955,30 +922,14 @@ end
 
 -- 'can grow' function - copy from MTG
 
-function Everness.can_grow(pos, groups_under)
+function Everness.can_grow(pos)
     local node_under = minetest.get_node_or_nil({ x = pos.x, y = pos.y - 1, z = pos.z })
 
     if not node_under then
         return false
     end
 
-    local _groups_under = groups_under
-
-    if not groups_under then
-        _groups_under = { 'soil' }
-    end
-
-    local has_fertile_under = false
-
-    -- Check is one of the `groups_under` are under the sapling
-    for i, v in ipairs(_groups_under) do
-        if minetest.get_item_group(node_under.name, v) > 0 then
-            has_fertile_under = true
-            break
-        end
-    end
-
-    if not has_fertile_under then
+    if minetest.get_item_group(node_under.name, 'soil') == 0 then
         return false
     end
 
@@ -1446,41 +1397,4 @@ function Everness.cool_lava(pos, node, dtime_s, prev_cool_lava_action)
     else
         prev_cool_lava_action(pos, node, dtime_s)
     end
-end
-function Everness.get_pot_formspec(pos, label, model_texture)
-    local spos = pos.x .. ',' .. pos.y .. ',' .. pos.z
-    local hotbar_bg = ''
-    local list_bg = ''
-
-    for i = 0, 7, 1 do
-        hotbar_bg = hotbar_bg .. 'image[' .. 0 + i .. ', ' .. 4.85 .. ';1,1;everness_chest_ui_bg_hb_slot.png]'
-    end
-
-    for row = 0, 2, 1 do
-        for i = 0, 7, 1 do
-            list_bg = list_bg .. 'image[' .. 0 + i .. ',' .. 6.08 + row .. ';1,1;everness_chest_ui_bg_slot.png]'
-        end
-    end
-
-    local model = 'model[0,0.5;2.5,2.5;everness_ceramic_pot;everness_ceramic_pot.obj;' .. model_texture .. ';0,0;true;false;]'
-
-    local formspec = {
-        'size[8,9]',
-        'listcolors[#FFFFFF00;#FFFFFF1A;#5E5957]',
-        'background[5,5;1,1;everness_chest_ui_bg.png;true]',
-        'list[nodemeta:' .. spos .. ';main;0.5,3;1,1;]',
-        'list[current_player;main;0,4.85;8,1;]',
-        'list[current_player;main;0,6.08;8,3;8]',
-        'listring[nodemeta:' .. spos .. ';main]',
-        'listring[current_player;main]',
-        list_bg,
-        hotbar_bg,
-        'image[0.5,3;1,1;everness_chest_ui_bg_hb_slot.png]',
-        'label[2.5,0.5;' .. minetest.formspec_escape(label) .. ']',
-        model
-    }
-
-    formspec = table.concat(formspec, '')
-
-    return formspec
 end

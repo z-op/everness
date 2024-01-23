@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -97,8 +99,7 @@ local all_biomes_mese_tree_place_on = {
     'everness:frosted_ice_translucent',
     'everness:frosted_snowblock',
     'everness:sulfur_stone',
-    'everness:volcanic_sulfur',
-    'everness:mineral_waters'
+    'everness:volcanic_sulfur'
 }
 
 if minetest.get_modpath('default') then

@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 minetest = minetest.global_exists('minetest') and minetest --[[@as Minetest]]
@@ -36,7 +38,6 @@ dofile(path .. '/functions.lua')
 dofile(path .. '/trees.lua')
 dofile(path .. '/vines.lua')
 dofile(path .. '/chests.lua')
-dofile(path .. '/torches.lua')
 
 dofile(path .. '/mapgen.lua')
 
@@ -160,14 +161,6 @@ if Everness.settings.biomes.everness_frosted_icesheet.enabled then
     dofile(path .. '/mapgen_frosted_icesheet.lua')
 end
 
-if Everness.settings.biomes.everness_mineral_waters.enabled then
-    dofile(path .. '/mapgen_mineral_waters.lua')
-end
-
-if Everness.settings.biomes.everness_mineral_waters_under.enabled then
-    dofile(path .. '/mapgen_mineral_waters_under.lua')
-end
-
 dofile(path .. '/mapgen_after.lua')
 
 if minetest.get_modpath('xpanes') and minetest.global_exists('xpanes') then
@@ -193,10 +186,6 @@ end
 
 if minetest.get_modpath('doors') and minetest.global_exists('doors') then
     dofile(path .. '/doors.lua')
-end
-
-if not minetest.get_modpath('bucket') and not minetest.get_modpath('mcl_buckets') then
-    dofile(path .. '/buckets.lua')
 end
 
 dofile(path .. '/tools.lua')
@@ -239,13 +228,7 @@ if minetest.get_modpath('mcl_core') and minetest.global_exists('mcl_core') then
     dofile(path .. '/mod_support_mcl.lua')
 end
 
--- Minetest Game
-dofile(path .. '/mod_support_mtg.lua')
-
-minetest.register_on_mods_loaded(function()
-    Everness.set_loot_chest_items()
-end)
-
+Everness.set_loot_chest_items()
 
 local mod_end_time = (minetest.get_us_time() - mod_start_time) / 1000000
 

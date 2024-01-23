@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 function Everness.grow_coral_tree(pos)
@@ -98,14 +100,8 @@ function Everness.grow_mese_tree(pos)
         path, 'random', nil, false)
 end
 
-function Everness.grow_palm_tree(pos)
-    local path = minetest.get_modpath('everness') .. '/schematics/everness_palm_tree_from_sapling.mts'
-    minetest.place_schematic({ x = pos.x - 7, y = pos.y, z = pos.z - 7 },
-        path, '0', nil, false)
-end
-
-function Everness.grow_sapling(pos, groups_under)
-    if not Everness.can_grow(pos, groups_under) then
+function Everness.grow_sapling(pos)
+    if not Everness.can_grow(pos) then
         -- try again 5 min later
         minetest.get_node_timer(pos):start(300)
         return
@@ -126,31 +122,28 @@ function Everness.grow_sapling(pos, groups_under)
         minetest.log('action', 'A cursed bush sapling grows into a bush at ' .. minetest.pos_to_string(pos))
         Everness.grow_cursed_bush(pos)
     elseif node.name == 'everness:baobab_sapling' then
-        minetest.log('action', 'A baobab sapling grows into a tree at ' .. minetest.pos_to_string(pos))
+        minetest.log('action', 'A baobab sapling grows into a bush at ' .. minetest.pos_to_string(pos))
         Everness.grow_baobab_tree(pos)
     elseif node.name == 'everness:dry_tree_sapling' then
-        minetest.log('action', 'A dry tree sapling grows into a tree at ' .. minetest.pos_to_string(pos))
+        minetest.log('action', 'A dry tree sapling grows into a bush at ' .. minetest.pos_to_string(pos))
         Everness.grow_dry_tree(pos)
     elseif node.name == 'everness:willow_tree_sapling' then
-        minetest.log('action', 'A willow tree sapling grows into a tree at ' .. minetest.pos_to_string(pos))
+        minetest.log('action', 'A willow tree sapling grows into a bush at ' .. minetest.pos_to_string(pos))
         Everness.grow_willow_tree(pos)
     elseif node.name == 'everness:sequoia_tree_sapling' then
-        minetest.log('action', 'A sequoia tree sapling grows into a tree at ' .. minetest.pos_to_string(pos))
+        minetest.log('action', 'A sequoia tree sapling grows into a bush at ' .. minetest.pos_to_string(pos))
         Everness.grow_sequoia_tree(pos)
     elseif node.name == 'everness:crystal_tree_sapling' then
-        minetest.log('action', 'A crystal tree sapling grows into a tree at ' .. minetest.pos_to_string(pos))
+        minetest.log('action', 'A crystal tree sapling grows into a bush at ' .. minetest.pos_to_string(pos))
         Everness.grow_crystal_tree(pos)
     elseif node.name == 'everness:crystal_tree_large_sapling' then
-        minetest.log('action', 'A crystal tree large sapling grows into a tree at ' .. minetest.pos_to_string(pos))
+        minetest.log('action', 'A crystal tree large sapling grows into a bush at ' .. minetest.pos_to_string(pos))
         Everness.grow_crystal_large_tree(pos)
     elseif node.name == 'everness:cursed_dream_tree_sapling' then
-        minetest.log('action', 'A cursed dream tree large sapling grows into a tree at ' .. minetest.pos_to_string(pos))
+        minetest.log('action', 'A cursed dream tree large sapling grows into a bush at ' .. minetest.pos_to_string(pos))
         Everness.grow_cursed_dream_tree(pos)
     elseif node.name == 'everness:mese_tree_sapling' then
-        minetest.log('action', 'A mese tree sapling grows into a tree at ' .. minetest.pos_to_string(pos))
+        minetest.log('action', 'A mese tree large sapling grows into a bush at ' .. minetest.pos_to_string(pos))
         Everness.grow_mese_tree(pos)
-    elseif node.name == 'everness:palm_tree_sapling' then
-        minetest.log('action', 'A palm tree sapling grows into a tree at ' .. minetest.pos_to_string(pos))
-        Everness.grow_palm_tree(pos)
     end
 end

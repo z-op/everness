@@ -12,9 +12,13 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 local S = minetest.get_translator(minetest.get_current_modname())
+
+stairs = stairs --[[@as MtgStairs]]
 
 stairs.register_stair_and_slab(
     'coral_desert_stone',
@@ -603,173 +607,5 @@ stairs.register_stair_and_slab(
     S('Coral Bones Brick Stair'),
     S('Coral Bones Brick Slab'),
     Everness.node_sound_stone_defaults(),
-    true
-)
-
--- Mineral Waters
-
-stairs.register_stair_and_slab(
-    'mineral_stone',
-    'everness:mineral_stone',
-    { cracky = 3, stone = 1 },
-    {{
-        name = 'everness_mineral_stone.png',
-        align_style = 'world',
-        scale = 2
-    }},
-    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Stair'),
-    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Slab'),
-    Everness.node_sound_stone_defaults(),
-    true
-)
-
-stairs.register_stair_and_slab(
-    'mineral_stone_cobble',
-    'everness:mineral_stone_cobble',
-    { cracky = 3, stone = 2 },
-    {{
-        name = 'everness_mineral_cobblestone.png',
-        align_style = 'world',
-        scale = 2
-    }},
-    S('Mineral') .. ' ' .. S('Cobblestone') .. ' ' .. S('Stair'),
-    S('Mineral') .. ' ' .. S('Cobblestone') .. ' ' .. S('Slab'),
-    Everness.node_sound_stone_defaults(),
-    true
-)
-
-stairs.register_stair_and_slab(
-    'mineral_stone_block',
-    'everness:mineral_stone_block',
-    { cracky = 2, stone = 1 },
-    {{
-        name = 'everness_mineral_stone_block.png',
-        align_style = 'world',
-        scale = 2
-    }},
-    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Block') .. ' ' .. S('Stair'),
-    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Block') .. ' ' .. S('Slab'),
-    Everness.node_sound_stone_defaults(),
-    true
-)
-
-stairs.register_stair_and_slab(
-    'mineral_stone_brick',
-    'everness:mineral_stone_brick',
-    { cracky = 2, stone = 1 },
-    {{
-        name = 'everness_mineral_stone_brick.png',
-        align_style = 'world',
-        scale = 2
-    }},
-    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('Stair'),
-    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('Slab'),
-    Everness.node_sound_stone_defaults(),
-    true
-)
-
-stairs.register_stair_and_slab(
-    'mineral_sandstone',
-    'everness:mineral_sandstone',
-    { cracky = 3 },
-    { 'everness_mineral_sandstone.png' },
-    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Stair'),
-    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Slab'),
-    Everness.node_sound_stone_defaults(),
-    true
-)
-
-stairs.register_stair_and_slab(
-    'mineral_sandstone_block',
-    'everness:mineral_sandstone_block',
-    { cracky = 2 },
-    {{
-        name = 'everness_mineral_sandstone_block.png',
-        align_style = 'world',
-        scale = 2
-    }},
-    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Block') .. ' ' .. S('Stair'),
-    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Block') .. ' ' .. S('Slab'),
-    Everness.node_sound_stone_defaults(),
-    true
-)
-
-stairs.register_stair_and_slab(
-    'mineral_sandstone_brick',
-    'everness:mineral_sandstone_brick',
-    { cracky = 2 },
-    {{
-        name = 'everness_mineral_sandstone_brick.png',
-        align_style = 'world',
-        scale = 2
-    }},
-    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Stair'),
-    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Slab'),
-    Everness.node_sound_stone_defaults(),
-    true
-)
-
-stairs.register_stair_and_slab(
-    'mineral_sandstone_brick_block',
-    'everness:mineral_sandstone_brick_block',
-    { cracky = 2 },
-    {
-        { name = 'everness_mineral_sandstone_brick_block_top.png' },
-        { name = 'everness_mineral_sandstone_brick_block_top.png' },
-        {
-            name = 'everness_mineral_sandstone_brick_block.png',
-            align_style = 'world',
-            scale = 2
-        }
-    },
-    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Block') .. ' ' .. S('Stair'),
-    S('Mineral') .. ' ' .. S('Sandstone') .. ' ' .. S('Brick') .. ' ' .. S('Block') .. ' ' .. S('Slab'),
-    Everness.node_sound_stone_defaults(),
-    true
-)
-
-stairs.register_stair_and_slab(
-    'mineral_stone_brick_with_growth',
-    'everness:mineral_stone_brick_with_growth',
-    { cracky = 2, stone = 1 },
-    {{
-        name = 'everness_mineral_stone_brick_with_growth.png',
-        align_style = 'world',
-        scale = 2
-    }},
-    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('with Growth') .. ' ' .. S('Stair'),
-    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('with Growth') .. ' ' .. S('Slab'),
-    Everness.node_sound_stone_defaults(),
-    true
-)
-
-stairs.register_stair_and_slab(
-    'mineral_stone_brick_with_flower_growth',
-    'everness:mineral_stone_brick_with_flower_growth',
-    { cracky = 2, stone = 1 },
-    {{
-        name = 'everness_mineral_stone_brick_with_flower_growth.png',
-        align_style = 'world',
-        scale = 2
-    }},
-    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('with Flower Growth') .. ' ' .. S('Stair'),
-    S('Mineral') .. ' ' .. S('Stone') .. ' ' .. S('Brick') .. ' ' .. S('with Flower Growth') .. ' ' .. S('Slab'),
-    Everness.node_sound_stone_defaults(),
-    true
-)
-
--- Palm Wood
-stairs.register_stair_and_slab(
-    'palm_tree_wood',
-    'everness:palm_tree_wood',
-    { choppy = 3, oddly_breakable_by_hand = 2, flammable = 3 },
-    {{
-        name = 'everness_palm_tree_wood.png',
-        align_style = 'world',
-        scale = 2
-    }},
-    S('Palm') .. ' ' .. S('Tree') .. ' ' .. S('Wood') .. ' ' .. S('Planks') .. ' ' .. S('Stair'),
-    S('Palm') .. ' ' .. S('Tree') .. ' ' .. S('Wood') .. ' ' .. S('Planks') .. ' ' .. S('Slab'),
-    Everness.node_sound_wood_defaults(),
     true
 )

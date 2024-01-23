@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 local S = minetest.get_translator(minetest.get_current_modname())
@@ -110,36 +112,4 @@ default.register_mesepost('everness:mese_post_light_bamboo_wood', {
     description = S('Crystal Wood Mese Post Light'),
     texture = 'everness_fence_crystal_wood.png^[transformFY',
     material = 'everness:crystal_wood',
-})
-
--- Palm Wood
-
-default.register_fence('everness:fence_palm_wood', {
-    description = S('Palm Wood Fence'),
-    texture = 'everness_fence_palm_wood.png',
-    inventory_image = 'default_fence_overlay.png^everness_palm_tree_wood.png^' ..
-        'default_fence_overlay.png^[makealpha:255,126,126',
-    wield_image = 'default_fence_overlay.png^everness_palm_tree_wood.png^' ..
-        'default_fence_overlay.png^[makealpha:255,126,126',
-    material = 'everness:palm_tree_wood',
-    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
-    sounds = Everness.node_sound_wood_defaults()
-})
-
-default.register_fence_rail('everness:fence_rail_palm_wood', {
-    description = S('Palm Wood Fence Rail'),
-    texture = 'everness_fence_rail_palm_wood.png^[transformR90',
-    inventory_image = 'default_fence_rail_overlay.png^everness_palm_tree_wood.png^' ..
-        'default_fence_rail_overlay.png^[makealpha:255,126,126',
-    wield_image = 'default_fence_rail_overlay.png^everness_palm_tree_wood.png^' ..
-        'default_fence_rail_overlay.png^[makealpha:255,126,126',
-    material = 'everness:palm_tree_wood',
-    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
-    sounds = Everness.node_sound_wood_defaults()
-})
-
-default.register_mesepost('everness:mese_post_light_bamboo_wood', {
-    description = S('Palm Wood Mese Post Light'),
-    texture = 'everness_fence_palm_wood.png^[transformFY',
-    material = 'everness:palm_tree_wood',
 })

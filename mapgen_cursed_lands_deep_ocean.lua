@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -31,7 +33,7 @@ minetest.register_biome({
     depth_filler = 3,
     node_riverbed = 'everness:cursed_lands_deep_ocean_sand',
     depth_riverbed = 2,
-    node_cave_liquid = 'mapgen_water_source',
+    node_cave_liquid = 'default:water_source',
     node_dungeon = 'everness:cursed_lands_deep_ocean_sandstone_block',
     node_dungeon_alt = 'everness:cursed_lands_deep_ocean_sandstone_brick',
     node_dungeon_stair = 'stairs:stair_cursed_lands_deep_ocean_sandstone_block',
@@ -49,7 +51,7 @@ minetest.register_decoration({
     name = 'everness:forsaken_lands_deep_ocean_coral_alcyonacea',
     deco_type = 'schematic',
     place_on = { 'everness:cursed_lands_deep_ocean_sand' },
-    spawn_by = 'mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
@@ -64,7 +66,7 @@ minetest.register_decoration({
     name = 'everness:forsaken_lands_deep_ocean_coral_ostracod',
     deco_type = 'schematic',
     place_on = { 'everness:cursed_lands_deep_ocean_sand' },
-    spawn_by = 'mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
@@ -79,7 +81,7 @@ minetest.register_decoration({
     name = 'everness:forsaken_lands_deep_ocean_coral_octocurse',
     deco_type = 'schematic',
     place_on = { 'everness:cursed_lands_deep_ocean_sand' },
-    spawn_by = 'mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
@@ -102,7 +104,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:cursed_lands_deep_ocean_sand_with_crack' },
-    spawn_by = 'mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
 })
 
@@ -125,7 +127,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:cursed_lands_deep_ocean_coral_plant_anemone' },
-    spawn_by = 'mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
 })
 
@@ -148,7 +150,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:cursed_lands_deep_ocean_coral_plant_darkilluma' },
-    spawn_by = 'mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
 })
 
@@ -171,7 +173,7 @@ minetest.register_decoration({
     y_min = y_min,
     flags = 'force_placement',
     decoration = { 'everness:cursed_lands_deep_ocean_coral_plant_demon' },
-    spawn_by = 'mapgen_water_source',
+    spawn_by = 'default:water_source',
     num_spawn_by = 8,
 })
 

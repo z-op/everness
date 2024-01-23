@@ -360,30 +360,6 @@ everness_forsaken_tundra_under_y_max (y max) int -256
 # Lower limit for biome.
 everness_forsaken_tundra_under_y_min (y min) int -31000
 
-[*Mineral Waters]
-
-# Enable/ Disable Mineral Waters Biome
-# Disabling this biome might result in missing recipes.
-everness_mineral_waters (Mineral Waters) bool true
-
-# Upper limit for biome.
-everness_mineral_waters_y_max (y max) int 31000
-
-# Lower limit for biome.
-everness_mineral_waters_y_min (y min) int 1
-
-[*Mineral Waters Under]
-
-# Enable/ Disable Mineral Waters Under Biome
-# Disabling this biome might result in missing recipes.
-everness_mineral_waters_under (Mineral Waters) bool false
-
-# Upper limit for biome.
-everness_mineral_waters_under_y_max (y max) int -256
-
-# Lower limit for biome.
-everness_mineral_waters_under_y_min (y min) int -31000
-
 [Features]
 
 # Enable/ Disable Item pick up with sneak key

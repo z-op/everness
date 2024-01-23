@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -54,7 +56,7 @@ minetest.register_decoration({
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_small_bamboo.mts',
-    flags = 'place_center_x, place_center_z, force_placement',
+    flags = 'place_center_x, place_center_z',
     rotation = 'random',
 })
 
@@ -68,7 +70,7 @@ minetest.register_decoration({
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_large_bamboo.mts',
-    flags = 'place_center_x, place_center_z, force_placement',
+    flags = 'place_center_x, place_center_z',
     rotation = 'random',
 })
 
@@ -251,81 +253,48 @@ register_flower_magenta_decoration(0.015, 0.045, 1)
 -- On Generated
 --
 
-local data = {}
-local p2data = {}
-
-local c_everness_bamboo_3 = minetest.get_content_id('everness:bamboo_3')
-local c_everness_bamboo_4 = minetest.get_content_id('everness:bamboo_4')
-local c_everness_bamboo_5 = minetest.get_content_id('everness:bamboo_5')
-
-local d_everness_bamboo_forest_large_bamboo = minetest.get_decoration_id('everness:bamboo_forest_large_bamboo')
-
-minetest.set_gen_notify({ decoration = true }, { d_everness_bamboo_forest_large_bamboo })
-
 minetest.register_on_generated(function(minp, maxp, blockseed)
-    -- Load the voxelmanip with the result of engine mapgen
-    local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
-    -- 'area' is used later to get the voxelmanip indexes for positions
-    local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
-    -- Get the content ID data from the voxelmanip in the form of a flat array.
-    -- Set the buffer parameter to use and reuse 'data' for this.
-    vm:get_data(data)
-    vm:get_param2_data(p2data)
+    if maxp.y > 0 then
+        --
+        -- Bamboo
+        --
+        local bamboos_pos = minetest.find_nodes_in_area_under_air(minp, maxp, 'everness:bamboo_3')
 
-    local gennotify = minetest.get_mapgen_object('gennotify')
+        for _, pos in ipairs(bamboos_pos) do
+            local node_below = minetest.get_node(vector.new(pos.x, pos.y - 1, pos.z))
 
-    --
-    -- Bamboo
-    --
-    for _, pos in ipairs(gennotify['decoration#' .. (d_everness_bamboo_forest_large_bamboo or '')] or {}) do
-        -- For bamboo large this is position of the 'place_on' node, e.g. 'everness:dirt_with_grass_extras_2'
-        local vi = area:indexp(pos)
-        local while_counter = 1
-        local bamboo_height = 0
-        local last_vi = vi + area.ystride * while_counter
+            -- get height of the generated bamboo
+            local bamboo_height = 0
+            local height_offset = 1
+            local bamboo_below = node_below
 
-        -- Get bamboo height
-        while data[last_vi] == c_everness_bamboo_3 do
-            last_vi = vi + area.ystride * while_counter
-            bamboo_height = bamboo_height + 1
-            while_counter = while_counter + 1
-        end
-
-        -- Back up the last from `while_counter`
-        last_vi = last_vi - area.ystride
-
-        -- Add top bamboo nodes with leaves based on their generated height
-        if bamboo_height > 4 then
-            for i = 1, 3 do
-                if data[last_vi + area.ystride * i] == minetest.CONTENT_AIR then
-                    if i == 1 then
-                        data[last_vi + area.ystride * i] = c_everness_bamboo_4
-                    else
-                        data[last_vi + area.ystride * i] = c_everness_bamboo_5
-                    end
-
-                    p2data[last_vi + area.ystride * i] = p2data[vi + area.ystride]
+            while minetest.get_item_group(bamboo_below.name, 'bamboo') > 0 do
+                if bamboo_height > 1 then
+                    bamboo_below = minetest.get_node(vector.new(pos.x, pos.y - height_offset, pos.z))
                 end
+
+                height_offset = height_offset + 1
+                bamboo_height = bamboo_height + 1
             end
-        else
-            for i = 1, 2 do
-                if data[last_vi + area.ystride * i] == minetest.CONTENT_AIR then
-                    if i == 1 then
-                        data[last_vi + area.ystride * i] = c_everness_bamboo_4
-                    else
-                        data[last_vi + area.ystride * i] = c_everness_bamboo_5
-                    end
 
-                    p2data[last_vi + area.ystride * i] = p2data[vi + area.ystride]
+            -- add top bamboo nodes with leaves based on their generated heigth
+            for i = 1, 3 do
+                local node_name = 'everness:bamboo_4'
+
+                if i == 2 and bamboo_height > 4 then
+                    node_name = 'everness:bamboo_5'
+                elseif i == 3 then
+                    node_name = 'everness:bamboo_5'
                 end
+
+                minetest.swap_node(
+                    vector.new(pos.x, pos.y + (i - 1), pos.z),
+                    {
+                        name = node_name,
+                        param2 = node_below.param2
+                    }
+                )
             end
         end
     end
-
-    vm:set_data(data)
-    vm:set_param2_data(p2data)
-    -- Calculate lighting for what has been created.
-    vm:calc_lighting()
-    -- Write what has been created to the world.
-    vm:write_to_map()
 end)

@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -25,7 +27,7 @@ local y_min = Everness.settings.biomes.everness_cursed_lands_under.y_min
 
 minetest.register_biome({
     name = 'everness_cursed_lands_under',
-    node_cave_liquid = { 'mapgen_water_source', 'mapgen_lava_source' },
+    node_cave_liquid = { 'default:water_source', 'default:lava_source' },
     node_dungeon = 'everness:cursed_brick',
     node_dungeon_alt = 'everness:cursed_brick_with_growth',
     node_dungeon_stair = 'stairs:stair_cursed_brick',

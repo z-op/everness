@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -207,22 +209,6 @@ x_farming.x_bonemeal:register_tree_defs({
             end
 
             Everness.grow_mese_tree(pos)
-
-            return true
-        end
-    },
-    {
-        -- sapling name
-        name = 'everness:palm_tree_sapling',
-        -- 1 out of `chance`, e.g. 2 = 50% chance
-        chance = 4,
-        -- grow tree from sapling
-        grow_tree = function(pos)
-            if not x_farming.x_bonemeal.is_on_sand(pos) then
-                return false
-            end
-
-            Everness.grow_palm_tree(pos)
 
             return true
         end

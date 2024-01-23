@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 minetest.register_lbm({
@@ -28,8 +30,6 @@ minetest.register_lbm({
         'everness:cursed_lands_deep_ocean_skull_marker',
         'everness:frosted_icesheet_igloo_marker',
         'everness:crystal_forest_deep_ocean_ruins_marker',
-        'everness:mineral_waters_marker',
-        'everness:mineral_waters_tower_marker'
     },
     run_at_every_load = true,
     action = function(pos, node)
@@ -231,48 +231,6 @@ minetest.register_lbm({
             elseif node.name == 'everness:crystal_forest_deep_ocean_ruins_marker' then
                 --
                 -- Crystal Forest Deep Ocean Ruins
-                --
-                local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
-
-                if not minetest.registered_items[item_def.name] then
-                    return
-                end
-
-                if rand:next(0, 100) <= item_def.chance then
-                    local stack = ItemStack(item_def.name)
-
-                    if minetest.registered_tools[item_def.name] then
-                        stack:set_wear(rand:next(1, 65535))
-                    else
-                        stack:set_count(rand:next(1, item_def.max_count))
-                    end
-
-                    inv:set_stack('main', index, stack)
-                end
-            elseif node.name == 'everness:mineral_waters_marker' then
-                --
-                -- Mineral Waters
-                --
-                local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
-
-                if not minetest.registered_items[item_def.name] then
-                    return
-                end
-
-                if rand:next(0, 100) <= item_def.chance then
-                    local stack = ItemStack(item_def.name)
-
-                    if minetest.registered_tools[item_def.name] then
-                        stack:set_wear(rand:next(1, 65535))
-                    else
-                        stack:set_count(rand:next(1, item_def.max_count))
-                    end
-
-                    inv:set_stack('main', index, stack)
-                end
-            elseif node.name == 'everness:mineral_waters_tower_marker' then
-                --
-                -- Mineral Waters Tower
                 --
                 local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
 

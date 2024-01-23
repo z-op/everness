@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 local mod_start_time = minetest.get_us_time()
@@ -465,23 +467,6 @@ local path_nodes_frosted_icesheet = {
     },
 }
 
--- Mineral Waters
-
-local path_nodes_mineral_waters = {
-    ['everness:mineral_sand'] = {
-        name = 'mineral_sand',
-        mod_origin = 'everness',
-        descritption = 'Mineral Sand Path',
-        drop = 'everness:mineral_sand',
-        tiles = {
-            'x_obsidianmese_path_dirt_base.png^[colorize:#E0CEBB:170^(everness_mineral_sand.png^[sheet:2x2:1,1^[mask:x_obsidianmese_path_overlay_2.png)',
-            'x_obsidianmese_path_dirt_base.png^[colorize:#E0CEBB:170',
-            'x_obsidianmese_dirt_path_side.png^[colorize:#E0CEBB:170'
-        },
-        sounds = Everness.node_sound_sand_defaults()
-    },
-}
-
 -- Bamboo Forest
 
 if Everness.settings.biomes.everness_bamboo_forest.enabled then
@@ -569,12 +554,6 @@ end
 
 if Everness.settings.biomes.everness_frosted_icesheet.enabled then
     x_obsidianmese:register_path_node(path_nodes_frosted_icesheet)
-end
-
--- Mineral Waters
-
-if Everness.settings.biomes.everness_mineral_waters.enabled then
-    x_obsidianmese:register_path_node(path_nodes_mineral_waters)
 end
 
 local mod_end_time = (minetest.get_us_time() - mod_start_time) / 1000000

@@ -12,6 +12,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
 
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to juraj.vajda@gmail.com
 --]]
 
 --
@@ -178,7 +180,7 @@ local deco_ids_baobab = {
 }
 
 if #deco_ids_baobab > 1 then
-    minetest.set_gen_notify({ decoration = true }, deco_ids_baobab)
+    minetest.set_gen_notify('decoration', deco_ids_baobab)
 end
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
