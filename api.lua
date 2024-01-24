@@ -226,7 +226,10 @@ Everness = {
             everness_feature_skybox = minetest.settings:get_bool('everness_feature_skybox', true),
         }
     },
-    hammer_cid_data = {}
+    hammer_cid_data = {},
+    colors = {
+        brown = '#DEB887',
+    }
 }
 
 function Everness.grow_cactus(self, pos, node, params)
@@ -904,6 +907,17 @@ end
 function Everness.register_node(self, name, def, props)
     local _def = table.copy(def)
     local _name = name
+
+    _def.mod_origin = 'everness'
+
+
+    -- X Farming composter description
+    if minetest.get_modpath('x_farming') and minetest.global_exists('x_farming') then
+        -- X Farming
+        if _def.groups and (_def.groups.compost or 0) > 0 then
+            _def.description = _def.description .. '\n' .. S('Compost chance') .. ': ' .. def.groups.compost .. '%'
+        end
+    end
 
     minetest.register_node(_name, _def)
 end

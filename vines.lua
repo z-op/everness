@@ -18,7 +18,7 @@ local S = minetest.get_translator(minetest.get_current_modname())
 
 -- Cave vine
 
-minetest.register_node('everness:vine_cave', {
+Everness:register_node('everness:vine_cave', {
     description = S('Cave Vine'),
     walkable = false,
     climbable = true,
@@ -36,7 +36,10 @@ minetest.register_node('everness:vine_cave', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -86,7 +89,7 @@ minetest.register_node('everness:vine_cave', {
     end,
 })
 
-minetest.register_node('everness:vine_cave_end', {
+Everness:register_node('everness:vine_cave_end', {
     description = S('Cave Vine'),
     walkable = false,
     climbable = true,
@@ -105,7 +108,10 @@ minetest.register_node('everness:vine_cave_end', {
         vine = 1,
         vine_end = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -155,7 +161,7 @@ minetest.register_node('everness:vine_cave_end', {
     end,
 })
 
-minetest.register_node('everness:vine_cave_with_mese_leaves', {
+Everness:register_node('everness:vine_cave_with_mese_leaves', {
     description = S('Cave Vine with Mese Leaves'),
     walkable = false,
     climbable = true,
@@ -173,7 +179,10 @@ minetest.register_node('everness:vine_cave_with_mese_leaves', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -225,7 +234,7 @@ minetest.register_node('everness:vine_cave_with_mese_leaves', {
 
 -- Whispering Gourd Vine
 
-minetest.register_node('everness:whispering_gourd_vine_1', {
+Everness:register_node('everness:whispering_gourd_vine_1', {
     description = S('Whispering Gourd Vine'),
     walkable = false,
     climbable = true,
@@ -243,7 +252,10 @@ minetest.register_node('everness:whispering_gourd_vine_1', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -293,7 +305,7 @@ minetest.register_node('everness:whispering_gourd_vine_1', {
     end,
 })
 
-minetest.register_node('everness:whispering_gourd_vine_end', {
+Everness:register_node('everness:whispering_gourd_vine_end', {
     description = S('Whispering Gourd Vine'),
     walkable = false,
     climbable = true,
@@ -312,7 +324,10 @@ minetest.register_node('everness:whispering_gourd_vine_end', {
         vine = 1,
         vine_end = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -362,7 +377,7 @@ minetest.register_node('everness:whispering_gourd_vine_end', {
     end,
 })
 
-minetest.register_node('everness:whispering_gourd_vine_2', {
+Everness:register_node('everness:whispering_gourd_vine_2', {
     description = S('Whispering Gourd Vine'),
     walkable = false,
     climbable = true,
@@ -380,7 +395,10 @@ minetest.register_node('everness:whispering_gourd_vine_2', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -432,7 +450,7 @@ minetest.register_node('everness:whispering_gourd_vine_2', {
 
 -- Bulb Vine
 
-minetest.register_node('everness:bulb_vine_1', {
+Everness:register_node('everness:bulb_vine_1', {
     description = S('Bulb Vine'),
     walkable = false,
     climbable = true,
@@ -450,7 +468,10 @@ minetest.register_node('everness:bulb_vine_1', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -500,7 +521,7 @@ minetest.register_node('everness:bulb_vine_1', {
     end,
 })
 
-minetest.register_node('everness:bulb_vine_end', {
+Everness:register_node('everness:bulb_vine_end', {
     description = S('Bulb Vine'),
     walkable = false,
     climbable = true,
@@ -519,7 +540,10 @@ minetest.register_node('everness:bulb_vine_end', {
         vine = 1,
         vine_end = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -569,7 +593,7 @@ minetest.register_node('everness:bulb_vine_end', {
     end,
 })
 
-minetest.register_node('everness:bulb_vine_2', {
+Everness:register_node('everness:bulb_vine_2', {
     description = S('Bulb Vine'),
     walkable = false,
     climbable = true,
@@ -587,7 +611,10 @@ minetest.register_node('everness:bulb_vine_2', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -639,7 +666,7 @@ minetest.register_node('everness:bulb_vine_2', {
 
 -- Willow Vine
 
-minetest.register_node('everness:willow_vine_1', {
+Everness:register_node('everness:willow_vine_1', {
     description = S('Willow Vine'),
     walkable = false,
     climbable = true,
@@ -657,7 +684,10 @@ minetest.register_node('everness:willow_vine_1', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -707,7 +737,7 @@ minetest.register_node('everness:willow_vine_1', {
     end,
 })
 
-minetest.register_node('everness:willow_vine_end', {
+Everness:register_node('everness:willow_vine_end', {
     description = S('Willow Vine'),
     walkable = false,
     climbable = true,
@@ -726,7 +756,10 @@ minetest.register_node('everness:willow_vine_end', {
         vine = 1,
         vine_end = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -778,7 +811,7 @@ minetest.register_node('everness:willow_vine_end', {
 
 -- Eye Vine
 
-minetest.register_node('everness:eye_vine_1', {
+Everness:register_node('everness:eye_vine_1', {
     description = S('Eye Vine'),
     walkable = false,
     climbable = true,
@@ -796,7 +829,10 @@ minetest.register_node('everness:eye_vine_1', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -846,7 +882,7 @@ minetest.register_node('everness:eye_vine_1', {
     end,
 })
 
-minetest.register_node('everness:eye_vine_end', {
+Everness:register_node('everness:eye_vine_end', {
     description = S('Eye Vine'),
     walkable = false,
     climbable = true,
@@ -864,7 +900,10 @@ minetest.register_node('everness:eye_vine_end', {
         vine = 1,
         vine_end = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -916,7 +955,7 @@ minetest.register_node('everness:eye_vine_end', {
     end,
 })
 
-minetest.register_node('everness:eye_vine_2', {
+Everness:register_node('everness:eye_vine_2', {
     description = S('Eye Vine'),
     walkable = false,
     climbable = true,
@@ -934,7 +973,10 @@ minetest.register_node('everness:eye_vine_2', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -986,7 +1028,7 @@ minetest.register_node('everness:eye_vine_2', {
 
 -- Lumabus Vine
 
-minetest.register_node('everness:lumabus_vine_1', {
+Everness:register_node('everness:lumabus_vine_1', {
     description = S('Lumabus Vine'),
     walkable = false,
     climbable = true,
@@ -1004,7 +1046,10 @@ minetest.register_node('everness:lumabus_vine_1', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1054,7 +1099,7 @@ minetest.register_node('everness:lumabus_vine_1', {
     end,
 })
 
-minetest.register_node('everness:lumabus_vine_end', {
+Everness:register_node('everness:lumabus_vine_end', {
     description = S('Lumabus Vine'),
     walkable = false,
     climbable = true,
@@ -1076,7 +1121,10 @@ minetest.register_node('everness:lumabus_vine_end', {
         vine = 1,
         vine_end = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1130,7 +1178,7 @@ minetest.register_node('everness:lumabus_vine_end', {
     end,
 })
 
-minetest.register_node('everness:lumabus_vine_2', {
+Everness:register_node('everness:lumabus_vine_2', {
     description = S('Lumabus Vine'),
     walkable = false,
     climbable = true,
@@ -1148,7 +1196,10 @@ minetest.register_node('everness:lumabus_vine_2', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1200,7 +1251,7 @@ minetest.register_node('everness:lumabus_vine_2', {
 
 -- Ivis Vine
 
-minetest.register_node('everness:ivis_vine_1', {
+Everness:register_node('everness:ivis_vine_1', {
     description = S('Ivis Vine'),
     walkable = false,
     climbable = true,
@@ -1218,7 +1269,10 @@ minetest.register_node('everness:ivis_vine_1', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1268,7 +1322,7 @@ minetest.register_node('everness:ivis_vine_1', {
     end,
 })
 
-minetest.register_node('everness:ivis_vine_end', {
+Everness:register_node('everness:ivis_vine_end', {
     description = S('Ivis Vine'),
     walkable = false,
     climbable = true,
@@ -1287,7 +1341,10 @@ minetest.register_node('everness:ivis_vine_end', {
         vine = 1,
         vine_end = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1337,7 +1394,7 @@ minetest.register_node('everness:ivis_vine_end', {
     end,
 })
 
-minetest.register_node('everness:ivis_vine_2', {
+Everness:register_node('everness:ivis_vine_2', {
     description = S('Ivis Vine'),
     walkable = false,
     climbable = true,
@@ -1355,7 +1412,10 @@ minetest.register_node('everness:ivis_vine_2', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1407,7 +1467,7 @@ minetest.register_node('everness:ivis_vine_2', {
 
 -- Flowered vine
 
-minetest.register_node('everness:flowered_vine_1', {
+Everness:register_node('everness:flowered_vine_1', {
     description = S('Flowered Vine'),
     walkable = false,
     climbable = true,
@@ -1425,7 +1485,10 @@ minetest.register_node('everness:flowered_vine_1', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1475,7 +1538,7 @@ minetest.register_node('everness:flowered_vine_1', {
     end,
 })
 
-minetest.register_node('everness:flowered_vine_end', {
+Everness:register_node('everness:flowered_vine_end', {
     description = S('Flowered Vine'),
     walkable = false,
     climbable = true,
@@ -1494,7 +1557,10 @@ minetest.register_node('everness:flowered_vine_end', {
         vine = 1,
         vine_end = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1544,7 +1610,7 @@ minetest.register_node('everness:flowered_vine_end', {
     end,
 })
 
-minetest.register_node('everness:flowered_vine_2', {
+Everness:register_node('everness:flowered_vine_2', {
     description = S('Flowered Vine'),
     walkable = false,
     climbable = true,
@@ -1562,7 +1628,10 @@ minetest.register_node('everness:flowered_vine_2', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1614,7 +1683,7 @@ minetest.register_node('everness:flowered_vine_2', {
 
 -- Reeds vine
 
-minetest.register_node('everness:reeds_vine_1', {
+Everness:register_node('everness:reeds_vine_1', {
     description = S('Reeds Vine'),
     walkable = false,
     climbable = true,
@@ -1632,7 +1701,10 @@ minetest.register_node('everness:reeds_vine_1', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1682,7 +1754,7 @@ minetest.register_node('everness:reeds_vine_1', {
     end,
 })
 
-minetest.register_node('everness:reeds_vine_end', {
+Everness:register_node('everness:reeds_vine_end', {
     description = S('Reeds Vine'),
     walkable = false,
     climbable = true,
@@ -1701,7 +1773,10 @@ minetest.register_node('everness:reeds_vine_end', {
         vine = 1,
         vine_end = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1751,7 +1826,7 @@ minetest.register_node('everness:reeds_vine_end', {
     end,
 })
 
-minetest.register_node('everness:reeds_vine_2', {
+Everness:register_node('everness:reeds_vine_2', {
     description = S('Reeds Vine'),
     walkable = false,
     climbable = true,
@@ -1769,7 +1844,10 @@ minetest.register_node('everness:reeds_vine_2', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1821,7 +1899,7 @@ minetest.register_node('everness:reeds_vine_2', {
 
 -- Tenanea Flowers vine
 
-minetest.register_node('everness:tenanea_flowers_vine_1', {
+Everness:register_node('everness:tenanea_flowers_vine_1', {
     description = S('Flowered Vine'),
     walkable = false,
     climbable = true,
@@ -1839,7 +1917,10 @@ minetest.register_node('everness:tenanea_flowers_vine_1', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1889,7 +1970,7 @@ minetest.register_node('everness:tenanea_flowers_vine_1', {
     end,
 })
 
-minetest.register_node('everness:tenanea_flowers_vine_end', {
+Everness:register_node('everness:tenanea_flowers_vine_end', {
     description = S('Flowered Vine'),
     walkable = false,
     climbable = true,
@@ -1908,7 +1989,10 @@ minetest.register_node('everness:tenanea_flowers_vine_end', {
         vine = 1,
         vine_end = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -1958,7 +2042,7 @@ minetest.register_node('everness:tenanea_flowers_vine_end', {
     end,
 })
 
-minetest.register_node('everness:tenanea_flowers_vine_2', {
+Everness:register_node('everness:tenanea_flowers_vine_2', {
     description = S('Flowered Vine'),
     walkable = false,
     climbable = true,
@@ -1976,7 +2060,10 @@ minetest.register_node('everness:tenanea_flowers_vine_2', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -2028,7 +2115,7 @@ minetest.register_node('everness:tenanea_flowers_vine_2', {
 
 -- Twisted vine
 
-minetest.register_node('everness:twisted_vine_1', {
+Everness:register_node('everness:twisted_vine_1', {
     description = S('Twisted Vine'),
     walkable = false,
     climbable = true,
@@ -2046,7 +2133,10 @@ minetest.register_node('everness:twisted_vine_1', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -2096,7 +2186,7 @@ minetest.register_node('everness:twisted_vine_1', {
     end,
 })
 
-minetest.register_node('everness:twisted_vine_end', {
+Everness:register_node('everness:twisted_vine_end', {
     description = S('Twisted Vine'),
     walkable = false,
     climbable = true,
@@ -2115,7 +2205,10 @@ minetest.register_node('everness:twisted_vine_end', {
         vine = 1,
         vine_end = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -2165,7 +2258,7 @@ minetest.register_node('everness:twisted_vine_end', {
     end,
 })
 
-minetest.register_node('everness:twisted_vine_2', {
+Everness:register_node('everness:twisted_vine_2', {
     description = S('Twisted Vine'),
     walkable = false,
     climbable = true,
@@ -2183,7 +2276,10 @@ minetest.register_node('everness:twisted_vine_2', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -2235,7 +2331,7 @@ minetest.register_node('everness:twisted_vine_2', {
 
 -- Golden vine
 
-minetest.register_node('everness:golden_vine_1', {
+Everness:register_node('everness:golden_vine_1', {
     description = S('Golden Vine'),
     walkable = false,
     climbable = true,
@@ -2253,7 +2349,10 @@ minetest.register_node('everness:golden_vine_1', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -2303,7 +2402,7 @@ minetest.register_node('everness:golden_vine_1', {
     end,
 })
 
-minetest.register_node('everness:golden_vine_end', {
+Everness:register_node('everness:golden_vine_end', {
     description = S('Golden Vine'),
     walkable = false,
     climbable = true,
@@ -2322,7 +2421,10 @@ minetest.register_node('everness:golden_vine_end', {
         vine = 1,
         vine_end = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -2372,7 +2474,7 @@ minetest.register_node('everness:golden_vine_end', {
     end,
 })
 
-minetest.register_node('everness:golden_vine_2', {
+Everness:register_node('everness:golden_vine_2', {
     description = S('Golden Vine'),
     walkable = false,
     climbable = true,
@@ -2390,7 +2492,10 @@ minetest.register_node('everness:golden_vine_2', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -2442,7 +2547,7 @@ minetest.register_node('everness:golden_vine_2', {
 
 -- Dense vine
 
-minetest.register_node('everness:dense_vine_1', {
+Everness:register_node('everness:dense_vine_1', {
     description = S('Dense Vine'),
     walkable = false,
     climbable = true,
@@ -2460,7 +2565,10 @@ minetest.register_node('everness:dense_vine_1', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -2510,7 +2618,7 @@ minetest.register_node('everness:dense_vine_1', {
     end,
 })
 
-minetest.register_node('everness:dense_vine_end', {
+Everness:register_node('everness:dense_vine_end', {
     description = S('Dense Vine'),
     walkable = false,
     climbable = true,
@@ -2529,7 +2637,10 @@ minetest.register_node('everness:dense_vine_end', {
         vine = 1,
         vine_end = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,
@@ -2579,7 +2690,7 @@ minetest.register_node('everness:dense_vine_end', {
     end,
 })
 
-minetest.register_node('everness:dense_vine_2', {
+Everness:register_node('everness:dense_vine_2', {
     description = S('Dense Vine'),
     walkable = false,
     climbable = true,
@@ -2597,7 +2708,10 @@ minetest.register_node('everness:dense_vine_2', {
         -- MTG
         vine = 1,
         snappy = 3,
+        -- Everness
         falling_vines = 1,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         axey = 1,

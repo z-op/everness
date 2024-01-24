@@ -123,7 +123,7 @@ Everness:register_node('everness:stone_with_pyrite', {
     sounds = Everness.node_sound_stone_defaults(),
 })
 
-minetest.register_node('everness:mineral_stone_with_ceramic_sherds', {
+Everness:register_node('everness:mineral_stone_with_ceramic_sherds', {
     description = S('Ceramic Sherds. Use archeological pickaxe to have a chance of getting various different sherds.'),
     short_description = S('Ceramic Sherds'),
     tiles = { 'everness_mineral_stone.png^[sheet:2x2:1,1^everness_ceramic_sherds_ore.png' },
@@ -2319,11 +2319,8 @@ Everness:register_node('everness:forsaken_tundra_dirt_with_grass', {
         grass_block_no_snow = 1,
         soil_sapling = 2,
         soil_sugarcane = 1,
-        -- cultivatable = 2,
-        -- spreading_dirt_type = 1,
         enderman_takable = 1,
         building_block = 1,
-        compostability = 30,
         -- ALL
         soil = 1,
     },
@@ -2355,7 +2352,6 @@ Everness:register_node('everness:dirt_with_coral_grass', {
         cultivatable = 2,
         enderman_takable = 1,
         building_block = 1,
-        compostability = 30,
         -- Everness
         everness_spreading_dirt_type = 1,
         -- ALL
@@ -2389,7 +2385,6 @@ Everness:register_node('everness:dirt_with_cursed_grass', {
         cultivatable = 2,
         enderman_takable = 1,
         building_block = 1,
-        compostability = 30,
         -- Everness
         everness_spreading_dirt_type = 1,
         -- ALL
@@ -2423,7 +2418,6 @@ Everness:register_node('everness:dirt_with_crystal_grass', {
         cultivatable = 2,
         enderman_takable = 1,
         building_block = 1,
-        compostability = 30,
         -- Everness
         everness_spreading_dirt_type = 1,
         -- ALL
@@ -2875,7 +2869,6 @@ Everness:register_node('everness:dirt_with_grass_1', {
         cultivatable = 2,
         enderman_takable = 1,
         building_block = 1,
-        compostability = 30,
         -- Everness
         everness_spreading_dirt_type = 1,
         -- ALL
@@ -2910,7 +2903,6 @@ Everness:register_node('everness:dirt_with_grass_extras_1', {
         cultivatable = 2,
         enderman_takable = 1,
         building_block = 1,
-        compostability = 30,
         -- Everness
         everness_spreading_dirt_type = 1,
         -- ALL
@@ -2945,7 +2937,6 @@ Everness:register_node('everness:dirt_with_grass_extras_2', {
         cultivatable = 2,
         enderman_takable = 1,
         building_block = 1,
-        compostability = 30,
         -- Everness
         everness_spreading_dirt_type = 1,
         -- ALL
@@ -3004,7 +2995,6 @@ Everness:register_node('everness:crystal_cave_dirt_with_moss', {
         cultivatable = 2,
         enderman_takable = 1,
         building_block = 1,
-        compostability = 30,
         -- Everness
         everness_spreading_dirt_type_under = 1,
         -- ALL
@@ -3034,7 +3024,6 @@ Everness:register_node('everness:moss_block', {
         cultivatable = 2,
         enderman_takable = 1,
         building_block = 1,
-        compostability = 30,
         -- ALL
         soil = 1,
     },
@@ -3060,7 +3049,6 @@ Everness:register_node('everness:crystal_moss_block', {
         cultivatable = 2,
         enderman_takable = 1,
         building_block = 1,
-        compostability = 30,
         -- Everness
         everness_spreading_dirt_type = 1,
         -- ALL
@@ -3740,6 +3728,8 @@ Everness:register_node('everness:cave_flower', {
         snappy = 3,
         flora = 1,
         bamboo_grass_under = 1,
+        -- X Farming
+        compost = 65,
         -- MCL
         deco_block = 1,
         dig_by_piston = 1,
@@ -3800,6 +3790,9 @@ Everness:register_node('everness:cave_flower_with_particles', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- X Farming
+        compost = 65,
+        -- Everness
         bamboo_grass_under = 1,
         -- MCL
         deco_block = 1,
@@ -3849,6 +3842,8 @@ local lotus_flower_def = {
     groups = {
         -- MTG
         snappy = 3,
+        -- X Farming
+        compost = 30,
         -- MCL
         deco_block = 1,
         dig_by_piston = 1,
@@ -3860,7 +3855,6 @@ local lotus_flower_def = {
         non_mycelium_plant = 1,
         fire_encouragement = 60,
         fire_flammability = 100,
-        -- X Farming
         compostability = 30,
         -- ALL
         flower = 1,
@@ -4023,6 +4017,8 @@ Everness:register_node('everness:lotus_leaf', {
     groups = {
         -- MTG
         snappy = 3,
+        -- X Farming
+        compost = 30,
         -- MCL
         deco_block = 1,
         dig_by_piston = 1,
@@ -4125,6 +4121,8 @@ Everness:register_node('everness:lotus_leaf_2', {
     groups = {
         -- MTG
         snappy = 3,
+        -- X Farming
+        compost = 30,
         -- MCL
         deco_block = 1,
         dig_by_piston = 1,
@@ -4227,6 +4225,8 @@ Everness:register_node('everness:lotus_leaf_3', {
     groups = {
         -- MTG
         snappy = 3,
+        -- X Farming
+        compost = 30,
         -- MCL
         deco_block = 1,
         dig_by_piston = 1,
@@ -4786,6 +4786,8 @@ Everness:register_node('everness:palm_leaves', {
         -- MTG
         snappy = 3,
         leafdecay = 3,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         hoey = 1,
@@ -4872,6 +4874,8 @@ Everness:register_node('everness:mese_leaves', {
         -- MTG
         snappy = 3,
         leafdecay = 3,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         hoey = 1,
@@ -4925,6 +4929,8 @@ Everness:register_node('everness:baobab_leaves', {
         -- MTG
         snappy = 3,
         leafdecay = 3,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         hoey = 1,
@@ -4978,6 +4984,8 @@ Everness:register_node('everness:sequoia_leaves', {
         -- MTG
         snappy = 3,
         leafdecay = 3,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         hoey = 1,
@@ -5060,7 +5068,6 @@ Everness:register_node('everness:baobab_fruit_renewable', {
         fire_flammability = 100,
         dig_by_water = 1,
         destroy_by_lava_flow = 1,
-        compostability = 30,
         -- ALL
         flammable = 2,
     },
@@ -5102,7 +5109,7 @@ Everness:register_node('everness:baobab_fruit_mark', {
 })
 
 Everness:register_node('everness:baobab_fruit', {
-    description = S('Baobab Fruit'),
+    description = S('Baobab Fruit') .. '\n'.. minetest.colorize(Everness.colors.brown, S('Hunger') .. ': 2'),
     short_description = S('Baobab Fruit'),
     drawtype = 'plantlike',
     paramtype2 = 'wallmounted',
@@ -5122,6 +5129,7 @@ Everness:register_node('everness:baobab_fruit', {
     groups = {
         -- MTG
         dig_immediate = 3,
+        -- X Farming
         compost = 65,
         -- MCL
         handy = 1,
@@ -5160,6 +5168,8 @@ Everness:register_node('everness:baobab_sapling', {
         -- MTG
         snappy = 2,
         flammable = 2,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -5208,6 +5218,8 @@ Everness:register_node('everness:willow_leaves', {
         -- MTG
         snappy = 3,
         leafdecay = 3,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         hoey = 1,
@@ -5262,6 +5274,8 @@ Everness:register_node('everness:coral_leaves', {
         leafdecay = 3,
         -- Everness
         falling_leaves = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         hoey = 1,
@@ -5316,6 +5330,8 @@ Everness:register_node('everness:dry_branches', {
         leafdecay = 3,
         -- Everness
         falling_leaves = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         hoey = 1,
@@ -5370,6 +5386,8 @@ Everness:register_node('everness:crystal_leaves', {
         leafdecay = 3,
         -- Everness
         falling_leaves = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         hoey = 1,
@@ -5427,6 +5445,8 @@ Everness:register_node('everness:coral_tree_sapling', {
         -- MTG
         snappy = 2,
         flammable = 2,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -5479,6 +5499,8 @@ Everness:register_node('everness:coral_tree_bioluminescent_sapling', {
         -- MTG
         snappy = 2,
         flammable = 2,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -5531,6 +5553,8 @@ Everness:register_node('everness:dry_tree_sapling', {
         -- MTG
         snappy = 2,
         flammable = 2,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -5583,6 +5607,8 @@ Everness:register_node('everness:cursed_dream_tree_sapling', {
         -- MTG
         snappy = 2,
         flammable = 2,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -5635,6 +5661,8 @@ Everness:register_node('everness:willow_tree_sapling', {
         -- MTG
         snappy = 2,
         flammable = 2,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -5689,6 +5717,8 @@ Everness:register_node('everness:sequoia_tree_sapling', {
         -- MTG
         snappy = 2,
         flammable = 2,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -5741,6 +5771,8 @@ Everness:register_node('everness:crystal_tree_sapling', {
         -- MTG
         snappy = 2,
         flammable = 2,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -5793,6 +5825,8 @@ Everness:register_node('everness:crystal_tree_large_sapling', {
         -- MTG
         snappy = 2,
         flammable = 2,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -5871,6 +5905,8 @@ Everness:register_node('everness:crystal_bush_leaves', {
         -- MTG
         snappy = 3,
         leafdecay = 3,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         hoey = 1,
@@ -5922,6 +5958,8 @@ Everness:register_node('everness:crystal_bush_sapling', {
         -- MTG
         snappy = 2,
         flammable = 2,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -5999,6 +6037,8 @@ Everness:register_node('everness:cursed_bush_leaves', {
         -- MTG
         snappy = 3,
         leafdecay = 3,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         hoey = 1,
@@ -6050,6 +6090,8 @@ Everness:register_node('everness:cursed_bush_sapling', {
         -- MTG
         snappy = 2,
         flammable = 2,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -6114,6 +6156,8 @@ Everness:register_node('everness:flowers_1', {
         flora = 1,
         bamboo_grass = 1,
         flower = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6178,8 +6222,10 @@ Everness:register_node('everness:flowers_2', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         bamboo_grass = 1,
-
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6242,8 +6288,11 @@ Everness:register_node('everness:flowers_3', {
         -- MTG
         snappy = 3,
         flora = 1,
-        bamboo_grass = 1,
         flower = 1,
+        -- Everness
+        bamboo_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6311,8 +6360,11 @@ Everness:register_node('everness:flowers_4', {
         -- MTG
         snappy = 3,
         flora = 1,
-        bamboo_grass = 1,
         flower = 1,
+        -- Everness
+        bamboo_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6383,8 +6435,11 @@ Everness:register_node('everness:flowers_magenta_1', {
         -- MTG
         snappy = 3,
         flora = 1,
-        bamboo_grass = 1,
         flower = 1,
+        -- Everness
+        bamboo_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6449,8 +6504,10 @@ Everness:register_node('everness:flowers_magenta_2', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         bamboo_grass = 1,
-
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6513,8 +6570,11 @@ Everness:register_node('everness:flowers_magenta_3', {
         -- MTG
         snappy = 3,
         flora = 1,
-        bamboo_grass = 1,
         flower = 1,
+        -- Everness
+        bamboo_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6582,8 +6642,11 @@ Everness:register_node('everness:flowers_magenta_4', {
         -- MTG
         snappy = 3,
         flora = 1,
-        bamboo_grass = 1,
         flower = 1,
+        -- Everness
+        bamboo_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6646,7 +6709,10 @@ Everness:register_node('everness:coral_burdock_1', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         coral_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6696,7 +6762,10 @@ Everness:register_node('everness:coral_burdock_2', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         coral_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6740,7 +6809,10 @@ Everness:register_node('everness:coral_bush', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         coral_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6783,7 +6855,10 @@ Everness:register_node('everness:coral_shrub', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         coral_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6824,7 +6899,10 @@ Everness:register_node('everness:coral_grass_orange', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         coral_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6866,7 +6944,10 @@ Everness:register_node('everness:globulagus', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         coral_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -6909,7 +6990,10 @@ Everness:register_node('everness:coral_grass_tall', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         coral_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7061,7 +7145,10 @@ Everness:register_node('everness:coral_plant_bioluminescent', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         coral_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7102,7 +7189,10 @@ Everness:register_node('everness:blooming_cooksonia', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         frosted_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7143,7 +7233,10 @@ Everness:register_node('everness:creeping_moss_spores', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         frosted_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7248,8 +7341,11 @@ Everness:register_node('everness:coral_grass_1', {
         -- MTG
         snappy = 3,
         flora = 1,
-        coral_grass = 1,
         normal_grass = 1,
+        -- Everness
+        coral_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7299,9 +7395,11 @@ for i = 2, 5 do
             -- MTG
             snappy = 3,
             flora = 1,
-            coral_grass = 1,
             normal_grass = 1,
-            not_in_creative_inventory = 1,
+            -- Everness
+            coral_grass = 1,
+            -- X Farming
+            compost = 30,
             -- MCL
             handy = 1,
             shearsy = 1,
@@ -7314,6 +7412,7 @@ for i = 2, 5 do
             destroy_by_lava_flow = 1,
             compostability = 30,
             -- ALL
+            not_in_creative_inventory = 1,
             attached_node = 1,
             flammable = 1,
         },
@@ -7345,6 +7444,8 @@ Everness:register_node('everness:dry_grass_1', {
         flora = 1,
         -- Everness
         everness_dry_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7392,6 +7493,8 @@ for i = 2, 4 do
             flora = 1,
             -- Everness
             everness_dry_grass = 1,
+            -- X Farming
+            compost = 30,
             -- MCL
             handy = 1,
             shearsy = 1,
@@ -7433,8 +7536,11 @@ Everness:register_node('everness:red_castor_1', {
         -- MTG
         snappy = 3,
         flora = 1,
-        cursed_grass = 1,
         normal_grass = 1,
+        -- Everness
+        cursed_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7485,9 +7591,11 @@ for i = 2, 4 do
             -- MTG
             snappy = 3,
             flora = 1,
-            cursed_grass = 1,
             normal_grass = 1,
-            not_in_creative_inventory = 1,
+            -- Everness
+            cursed_grass = 1,
+            -- X Farming
+            compost = 30,
             -- MCL
             handy = 1,
             shearsy = 1,
@@ -7500,6 +7608,7 @@ for i = 2, 4 do
             destroy_by_lava_flow = 1,
             compostability = 30,
             -- ALL
+            not_in_creative_inventory = 1,
             attached_node = 1,
             flammable = 1,
         },
@@ -7516,7 +7625,7 @@ for i = 2, 4 do
 end
 
 Everness:register_node('everness:crystal_mushrooms', {
-    description = S('Crystal Mushrooms'),
+    description = S('Crystal Mushrooms') .. '\n'.. minetest.colorize(Everness.colors.brown, S('Hunger') .. ': 1'),
     tiles = { 'everness_crystal_mushrooms.png' },
     inventory_image = 'everness_crystal_mushrooms.png',
     wield_image = 'everness_crystal_mushrooms.png',
@@ -7531,9 +7640,12 @@ Everness:register_node('everness:crystal_mushrooms', {
         -- MTG
         snappy = 3,
         flora = 1,
-        crystal_grass = 1,
         mushroom = 1,
         food_mushroom = 1,
+        -- Everness
+        crystal_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7577,7 +7689,10 @@ Everness:register_node('everness:twisted_crystal_grass', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         crystal_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7619,8 +7734,11 @@ Everness:register_node('everness:crystal_grass_1', {
         -- MTG
         snappy = 3,
         flora = 1,
-        crystal_grass = 1,
         normal_grass = 1,
+        -- Everness
+        crystal_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7669,9 +7787,11 @@ for i = 2, 3 do
             -- MTG
             snappy = 3,
             flora = 1,
-            crystal_grass = 1,
             normal_grass = 1,
-            not_in_creative_inventory = 1,
+            -- Everness
+            crystal_grass = 1,
+            -- X Farming
+            compost = 30,
             -- MCL
             handy = 1,
             shearsy = 1,
@@ -7684,6 +7804,7 @@ for i = 2, 3 do
             destroy_by_lava_flow = 1,
             compostability = 30,
             -- ALL
+            not_in_creative_inventory = 1,
             attached_node = 1,
             flammable = 1,
         },
@@ -7714,7 +7835,10 @@ Everness:register_node('everness:marsh_grass', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         cursed_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7759,6 +7883,8 @@ Everness:register_node('everness:forsaken_desert_plant_1', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7801,6 +7927,8 @@ Everness:register_node('everness:forsaken_desert_plant_2', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7843,6 +7971,8 @@ Everness:register_node('everness:forsaken_desert_plant_3', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -7881,6 +8011,8 @@ Everness:register_node('everness:cactus_blue', {
     groups = {
         -- MTG
         choppy = 3,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         deco_block = 1,
@@ -7925,6 +8057,8 @@ Everness:register_node('everness:cave_barrel_cactus', {
     groups = {
         -- MTG
         choppy = 3,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         deco_block = 1,
@@ -7953,6 +8087,8 @@ Everness:register_node('everness:venus_trap', {
     groups = {
         -- MTG
         choppy = 3,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         deco_block = 1,
@@ -7992,6 +8128,8 @@ Everness:register_node('everness:illumi_root', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -8041,6 +8179,8 @@ Everness:register_node('everness:crystal_waterlily', {
         flower = 1,
         flammable = 1,
         flora = 1,
+        -- X Farming
+        compost = 65,
         -- MCL
         deco_block = 1,
         plant = 1,
@@ -8115,6 +8255,8 @@ Everness:register_node('everness:cactus_orange', {
     groups = {
         -- MTG
         choppy = 3,
+        -- X Farming
+        compost = 50,
         -- MCL
         handy = 1,
         deco_block = 1,
@@ -8169,7 +8311,10 @@ Everness:register_node('everness:agave_leaf_1', {
         snappy = 3,
         flora = 1,
         normal_grass = 1,
+        -- Everness
         forsaken_tundra_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -8220,8 +8365,10 @@ for i = 2, 3 do
             snappy = 3,
             flora = 1,
             normal_grass = 1,
+            -- Everness
             forsaken_tundra_grass_under = 1,
-            not_in_creative_inventory = 1,
+            -- X Farming
+            compost = 30,
             -- MCL
             handy = 1,
             shearsy = 1,
@@ -8234,6 +8381,7 @@ for i = 2, 3 do
             destroy_by_lava_flow = 1,
             compostability = 30,
             -- ALL
+            not_in_creative_inventory = 1,
             attached_node = 1,
             flammable = 1,
         },
@@ -8271,6 +8419,8 @@ Everness:register_node('everness:mese_tree_fruit', {
         snappy = 3,
         leafdecay = 3,
         leafdecay_drop = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         hoey = 1,
@@ -8328,6 +8478,8 @@ Everness:register_node('everness:mese_tree_sapling', {
         -- MTG
         snappy = 2,
         flammable = 2,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -8380,6 +8532,8 @@ Everness:register_node('everness:palm_tree_sapling', {
         -- MTG
         snappy = 2,
         flammable = 2,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -8437,7 +8591,10 @@ Everness:register_node('everness:egg_plant', {
         snappy = 3,
         flora = 1,
         normal_grass = 1,
+        -- Everness
         cursed_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -8489,7 +8646,10 @@ Everness:register_node('everness:ivis_moss', {
         snappy = 3,
         flora = 1,
         normal_grass = 1,
+        -- Everness
         cursed_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -8533,7 +8693,10 @@ Everness:register_node('everness:ngrass_1', {
         snappy = 3,
         flora = 1,
         normal_grass = 1,
+        -- Everness
         cursed_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -8575,7 +8738,10 @@ Everness:register_node('everness:ngrass_2', {
         snappy = 3,
         flora = 1,
         normal_grass = 1,
+        -- Everness
         cursed_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -9000,8 +9166,11 @@ Everness:register_node('everness:bamboo_sprout', {
         seed = 1,
         snappy = 3,
         flammable = 2,
+        -- Everness
         bamboo = 1,
         bamboo_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         plant = 1,
         non_mycelium_plant = 1,
@@ -9122,7 +9291,10 @@ Everness:register_node('everness:bloodspore_plant', {
         snappy = 3,
         flora = 1,
         normal_grass = 1,
+        -- Everness
         forsaken_tundra_grass = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -9163,7 +9335,10 @@ Everness:register_node('everness:bloodspore_plant_small', {
         snappy = 3,
         flora = 1,
         normal_grass = 1,
+        -- Everness
         forsaken_tundra_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -10612,7 +10787,10 @@ Everness:register_node('everness:forsythia_bush', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         bamboo_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -10652,6 +10830,8 @@ Everness:register_node('everness:rose_bush', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -10693,7 +10873,10 @@ Everness:register_node('everness:glowing_pillar', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         forsaken_tundra_grass_under = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -10744,8 +10927,11 @@ Everness:register_node('everness:blue_vine_lantern', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         bamboo_grass_under = 1,
         lantern = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -10796,8 +10982,11 @@ Everness:register_node('everness:amaranita_lantern', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         frosted_grass_under = 1,
         lantern = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,
@@ -10856,8 +11045,11 @@ Everness:register_node('everness:lumecorn', {
         -- MTG
         snappy = 3,
         flora = 1,
+        -- Everness
         coral_grass_under = 1,
         lantern = 1,
+        -- X Farming
+        compost = 30,
         -- MCL
         handy = 1,
         shearsy = 1,

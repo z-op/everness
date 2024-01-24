@@ -284,7 +284,7 @@ minetest.register_on_mods_loaded(function()
     end
 end)
 
-minetest.register_node('everness:hammer', {
+Everness:register_node('everness:hammer', {
     description = S('Hammer'),
     mod_origin = 'evermess',
     inventory_image = 'everness_hammer_item.png',
@@ -342,7 +342,7 @@ minetest.register_node('everness:hammer', {
     end
 })
 
-minetest.register_node('everness:hammer_sharp', {
+Everness:register_node('everness:hammer_sharp', {
     description = S('Sharp') .. ' ' .. S('Hammer'),
     mod_origin = 'evermess',
     inventory_image = 'everness_hammer_sharp_item.png',

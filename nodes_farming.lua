@@ -129,7 +129,7 @@ minetest.override_item('everness:dirt_with_cursed_grass', {
 })
 
 -- normal soil
-minetest.register_node('everness:coral_dirt_soil', {
+Everness:register_node('everness:coral_dirt_soil', {
     description = S('Coral Dirt Soil'),
     tiles = {
         'everness_coral_dirt.png^(everness_coral_dirt.png^[mask:everness_farming_soil_overlay.png^[multiply:#A05F3A80)',
@@ -163,7 +163,7 @@ minetest.register_node('everness:coral_dirt_soil', {
     }
 })
 
-minetest.register_node('everness:dirt_1_soil', {
+Everness:register_node('everness:dirt_1_soil', {
     description = S('Dirt Soil'),
     tiles = {
         'everness_dirt.png^(everness_dirt.png^[mask:everness_farming_soil_overlay.png^[multiply:#51341E80)',
@@ -197,7 +197,7 @@ minetest.register_node('everness:dirt_1_soil', {
     }
 })
 
-minetest.register_node('everness:crystal_dirt_soil', {
+Everness:register_node('everness:crystal_dirt_soil', {
     description = S('Crystal Dirt Soil'),
     tiles = {
         'everness_crystal_dirt.png^(everness_crystal_dirt.png^[mask:everness_farming_soil_overlay.png^[multiply:#75506980)',
@@ -231,7 +231,7 @@ minetest.register_node('everness:crystal_dirt_soil', {
     }
 })
 
-minetest.register_node('everness:crystal_cave_dirt_soil', {
+Everness:register_node('everness:crystal_cave_dirt_soil', {
     description = S('Crystal Cave Dirt Soil'),
     tiles = {
         'everness_crystal_cave_dirt.png^(everness_crystal_cave_dirt.png^[mask:everness_farming_soil_overlay.png^[multiply:#CCB17E80)',
@@ -265,7 +265,7 @@ minetest.register_node('everness:crystal_cave_dirt_soil', {
     }
 })
 
-minetest.register_node('everness:cursed_dirt_soil', {
+Everness:register_node('everness:cursed_dirt_soil', {
     description = S('Cursed Dirt Soil'),
     tiles = {
         'everness_cursed_dirt.png^(everness_cursed_dirt.png^[mask:everness_farming_soil_overlay.png^[multiply:#625B4B80)',
@@ -299,7 +299,7 @@ minetest.register_node('everness:cursed_dirt_soil', {
     }
 })
 
-minetest.register_node('everness:dry_dirt_soil', {
+Everness:register_node('everness:dry_dirt_soil', {
     description = S('Dry Dirt Soil'),
     tiles = {
         'everness_dry_dirt.png^(everness_dry_dirt.png^[mask:everness_farming_soil_overlay.png^[multiply:#9F754780)',
@@ -334,7 +334,7 @@ minetest.register_node('everness:dry_dirt_soil', {
 })
 
 -- wet soil
-minetest.register_node('everness:coral_dirt_soil_wet', {
+Everness:register_node('everness:coral_dirt_soil_wet', {
     description = S('Coral Dirt Wet Soil'),
     tiles = {
         'everness_coral_dirt.png^(everness_coral_dirt.png^[mask:everness_farming_soil_wet_overlay.png^[multiply:#A05F3A80)',
@@ -369,7 +369,7 @@ minetest.register_node('everness:coral_dirt_soil_wet', {
     }
 })
 
-minetest.register_node('everness:dirt_1_soil_wet', {
+Everness:register_node('everness:dirt_1_soil_wet', {
     description = S('Coral Dirt Wet Soil'),
     tiles = {
         'everness_dirt.png^(everness_dirt.png^[mask:everness_farming_soil_wet_overlay.png^[multiply:#51341E80)',
@@ -404,7 +404,7 @@ minetest.register_node('everness:dirt_1_soil_wet', {
     }
 })
 
-minetest.register_node('everness:crystal_dirt_soil_wet', {
+Everness:register_node('everness:crystal_dirt_soil_wet', {
     description = S('Crystal Dirt Wet Soil'),
     tiles = {
         'everness_crystal_dirt.png^(everness_crystal_dirt.png^[mask:everness_farming_soil_wet_overlay.png^[multiply:#75506980)',
@@ -439,7 +439,7 @@ minetest.register_node('everness:crystal_dirt_soil_wet', {
     }
 })
 
-minetest.register_node('everness:crystal_cave_dirt_soil_wet', {
+Everness:register_node('everness:crystal_cave_dirt_soil_wet', {
     description = S('Crystal Cave Dirt Wet Soil'),
     tiles = {
         'everness_crystal_cave_dirt.png^(everness_crystal_cave_dirt.png^[mask:everness_farming_soil_wet_overlay.png^[multiply:#CCB17E80)',
@@ -474,7 +474,7 @@ minetest.register_node('everness:crystal_cave_dirt_soil_wet', {
     }
 })
 
-minetest.register_node('everness:cursed_dirt_soil_wet', {
+Everness:register_node('everness:cursed_dirt_soil_wet', {
     description = S('Cursed Dirt Wet Soil'),
     tiles = {
         'everness_cursed_dirt.png^(everness_cursed_dirt.png^[mask:everness_farming_soil_wet_overlay.png^[multiply:#625B4B80)',
@@ -509,7 +509,7 @@ minetest.register_node('everness:cursed_dirt_soil_wet', {
     }
 })
 
-minetest.register_node('everness:dry_dirt_soil_wet', {
+Everness:register_node('everness:dry_dirt_soil_wet', {
     description = S('Cursed Dirt Wet Soil'),
     tiles = {
         'everness_dry_dirt.png^(everness_dry_dirt.png^[mask:everness_farming_soil_wet_overlay.png^[multiply:#9F754780)',

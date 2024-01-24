@@ -321,8 +321,8 @@ function Everness.chest.register_chest(prefixed_name, d)
     def_closed.tiles[5] = def.tiles[3] -- drawtype to make them match the mesh
     def_closed.tiles[3] = def.tiles[3] .. '^[transformFX'
 
-    minetest.register_node(prefixed_name, def_closed)
-    minetest.register_node(prefixed_name .. '_open', def_opened)
+    Everness:register_node(prefixed_name, def_closed)
+    Everness:register_node(prefixed_name .. '_open', def_opened)
 
     -- close opened chests on load
     minetest.register_lbm({

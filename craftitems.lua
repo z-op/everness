@@ -32,7 +32,7 @@ minetest.register_craftitem('everness:bamboo_item', {
 })
 
 minetest.register_craftitem('everness:baobab_fruit_roasted', {
-    description = S('Baobab Roasted Fruit'),
+    description = S('Baobab Roasted Fruit') .. '\n'.. minetest.colorize(Everness.colors.brown, S('Hunger') .. ': 4'),
     inventory_image = 'everness_baobab_tree_fruit_roasted.png',
     on_use = minetest.item_eat(4),
 })
@@ -48,7 +48,7 @@ minetest.register_craftitem('everness:pyrite_lump', {
 })
 
 minetest.register_craftitem('everness:coconut_fruit', {
-    description = S('Coconut'),
+    description = S('Coconut') .. '\n'.. minetest.colorize(Everness.colors.brown, S('Hunger') .. ': 4'),
     inventory_image = 'everness_coconut_item.png',
     wield_scale = { x = 2, y = 2, z = 1 },
     on_use = minetest.item_eat(4),

@@ -48,7 +48,7 @@ local function on_flood(pos, oldnode, newnode)
     return false
 end
 
-minetest.register_node('everness:mineral_torch', {
+Everness:register_node('everness:mineral_torch', {
     description = S('Mineral') .. ' ' .. S('Torch'),
     drawtype = 'mesh',
     mesh = 'everness_mineral_torch.obj',
@@ -129,7 +129,7 @@ minetest.register_node('everness:mineral_torch', {
     on_rotate = false
 })
 
-minetest.register_node('everness:mineral_torch_wall', {
+Everness:register_node('everness:mineral_torch_wall', {
     drawtype = 'mesh',
     mesh = 'everness_mineral_torch_wall.obj',
     tiles = {
@@ -170,7 +170,7 @@ minetest.register_node('everness:mineral_torch_wall', {
     on_rotate = false
 })
 
-minetest.register_node('everness:mineral_torch_ceiling', {
+Everness:register_node('everness:mineral_torch_ceiling', {
     drawtype = 'mesh',
     mesh = 'everness_mineral_torch_ceiling.obj',
     tiles = {
