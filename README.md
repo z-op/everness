@@ -9,16 +9,18 @@ It also adds structures, dungeons with loot chests, and custom skyboxes based on
 
 ## Features
 
-* supports MineClone2 - see attached `minetest.example.mcl.conf` for best optimized settings
+* supports MineClone2 - see attached `minetest.example.mcl.conf` for best optimized settings (looking for testing and contributors)
 * player name tag will hide when sneaking
 * item magnet pickup when holding sneak
 * granular biome settings
-* custom sounds for some blocks, biomes
+* custom sounds, biomes
 * custom textures
 * custom biomes and cavern biomes
 * custom tools, blocks
 * custom skyboxes based on biome
 * inlcudes (not for all) e.g. walls, doors, glass, stairs, vines, tools, panes, trees...
+* unique set of tools
+* pottery
 
 ## Biomes
 
@@ -54,6 +56,7 @@ Additionally adds extra biomes to the MT game default biomes:
 * Forsaken Tundra Beach
 * Forsaken Tundra Ocean
 * Forsaken Tundra Under
+* Mineral Waters
 
 ## Wiki
 
