@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_forsaken_desert.y_min
 
 -- Forsaken Desert
 
-minetest.register_biome({
-    name = 'everness_forsaken_desert',
+Everness:register_biome({
+    name = 'everness:forsaken_desert',
     node_top = 'everness:forsaken_desert_sand',
     depth_top = 1,
     node_stone = 'everness:forsaken_desert_stone',
@@ -48,7 +48,7 @@ minetest.register_biome({
 -- Stratum ores.
 -- These obviously first.
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'stratum',
     ore = 'everness:forsaken_desert_cobble',
     wherein = { 'everness:forsaken_desert_stone' },
@@ -66,7 +66,7 @@ minetest.register_ore({
     biomes = { 'everness_forsaken_desert' },
 })
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'stratum',
     ore = 'everness:forsaken_desert_cobble',
     wherein = { 'everness:forsaken_desert_stone' },
@@ -88,7 +88,7 @@ minetest.register_ore({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_desert_sand_plants_1',
     deco_type = 'simple',
     place_on = { 'everness:forsaken_desert_sand' },
@@ -108,7 +108,7 @@ minetest.register_decoration({
     param2 = 11,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_desert_sand_plants_2',
     deco_type = 'simple',
     place_on = { 'everness:forsaken_desert_sand' },
@@ -131,7 +131,7 @@ minetest.register_decoration({
     param2 = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_desert_termite_nest',
     deco_type = 'schematic',
     place_on = { 'everness:forsaken_desert_sand' },
@@ -152,7 +152,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_desert_hollow_tree',
     deco_type = 'schematic',
     place_on = { 'everness:forsaken_desert_sand' },
@@ -173,7 +173,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_desert_hollow_tree_large',
     deco_type = 'schematic',
     place_on = { 'everness:forsaken_desert_sand' },

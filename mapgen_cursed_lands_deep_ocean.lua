@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_cursed_lands_deep_ocean.y_min
 
 -- Cursed Lands Deep Ocean
 
-minetest.register_biome({
-    name = 'everness_cursed_lands_deep_ocean',
+Everness:register_biome({
+    name = 'everness:cursed_lands_deep_ocean',
     node_top = 'everness:cursed_lands_deep_ocean_sand',
     depth_top = 1,
     node_filler = 'everness:cursed_lands_deep_ocean_sand',
@@ -45,7 +45,7 @@ minetest.register_biome({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_lands_deep_ocean_coral_alcyonacea',
     deco_type = 'schematic',
     place_on = { 'everness:cursed_lands_deep_ocean_sand' },
@@ -60,7 +60,7 @@ minetest.register_decoration({
     flags = 'place_center_x, place_center_z, force_placement',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_lands_deep_ocean_coral_ostracod',
     deco_type = 'schematic',
     place_on = { 'everness:cursed_lands_deep_ocean_sand' },
@@ -75,7 +75,7 @@ minetest.register_decoration({
     flags = 'place_center_x, place_center_z, force_placement',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_lands_deep_ocean_coral_octocurse',
     deco_type = 'schematic',
     place_on = { 'everness:cursed_lands_deep_ocean_sand' },
@@ -90,7 +90,7 @@ minetest.register_decoration({
     flags = 'place_center_x, place_center_z, force_placement',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_deep_ocean_mud',
     deco_type = 'simple',
     place_on = { 'everness:cursed_lands_deep_ocean_sand' },
@@ -106,7 +106,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_deep_ocean_plants_1',
     deco_type = 'simple',
     place_on = { 'everness:cursed_lands_deep_ocean_sand' },
@@ -129,7 +129,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_deep_ocean_plants_2',
     deco_type = 'simple',
     place_on = { 'everness:cursed_lands_deep_ocean_sand' },
@@ -152,7 +152,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_deep_ocean_plants_3',
     deco_type = 'simple',
     place_on = { 'everness:cursed_lands_deep_ocean_sand' },

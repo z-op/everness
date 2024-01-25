@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_frosted_icesheet_ocean.y_min
 
 -- Frosted Icesheet Ocean
 
-minetest.register_biome({
-    name = 'everness_frosted_icesheet_ocean',
+Everness:register_biome({
+    name = 'everness:frosted_icesheet_ocean',
     node_top = 'default:sand',
     depth_top = 1,
     node_filler = 'default:sand',
@@ -47,7 +47,7 @@ minetest.register_biome({
 
 -- Frosted Icesheet Ocean
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icesheet_ocean_corals',
     deco_type = 'simple',
     place_on = { 'default:sand' },

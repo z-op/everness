@@ -2763,10 +2763,10 @@ Everness:register_node('everness:dense_vine_2', {
 
 -- LBMs
 
-minetest.register_lbm({
-    label = 'everness:vines',
+Everness:register_lbm({
+    label = 'Grows vines',
     name = 'everness:vines',
-    nodenames = 'group:vine',
+    nodenames = { 'group:vine' },
     run_at_every_load = true,
     action = function(pos, node)
         Everness:tick_vine(pos)

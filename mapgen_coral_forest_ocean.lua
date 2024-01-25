@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_coral_forest_ocean.y_min
 
 -- Coral Forest Ocean
 
-minetest.register_biome({
-    name = 'everness_coral_forest_ocean',
+Everness:register_biome({
+    name = 'everness:coral_forest_ocean',
     node_top = 'everness:coral_white_sand',
     depth_top = 1,
     node_filler = 'everness:coral_white_sand',
@@ -47,7 +47,7 @@ minetest.register_biome({
 
 -- Clay
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'default:clay',
     wherein = { 'everness:coral_white_sand' },
@@ -69,7 +69,7 @@ minetest.register_ore({
 
 -- Coral sand
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:coral_sand',
     wherein = { 'everness:coral_desert_stone' },
@@ -91,7 +91,7 @@ minetest.register_ore({
 
 -- Dirt
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:coral_dirt',
     wherein = { 'everness:coral_desert_stone' },
@@ -115,7 +115,7 @@ minetest.register_ore({
 
 -- Coal
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'scatter',
     ore = 'everness:coral_desert_stone_with_coal',
     wherein = 'everness:coral_desert_stone',
@@ -135,7 +135,7 @@ minetest.register_ore({
 
 -- Coral reef
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_ocean_corals',
     deco_type = 'simple',
     place_on = { 'everness:coral_white_sand' },

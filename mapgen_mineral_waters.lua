@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_mineral_waters.y_min
 
 -- Mineral Waters
 
-minetest.register_biome({
-    name = 'everness_mineral_waters',
+Everness:register_biome({
+    name = 'everness:mineral_waters',
     node_top = 'everness:mineral_sand',
     depth_top = 1,
     node_filler = 'everness:mineral_stone',
@@ -50,7 +50,7 @@ minetest.register_biome({
 
 -- Coal
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'scatter',
     ore = 'everness:mineral_stone_with_coal',
     wherein = 'everness:mineral_stone',
@@ -62,7 +62,7 @@ minetest.register_ore({
     biomes = { 'everness_mineral_waters' }
 })
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'scatter',
     ore = 'everness:mineral_stone_with_ceramic_sherds',
     wherein = 'everness:mineral_stone',
@@ -79,7 +79,7 @@ minetest.register_ore({
 -- placeholder node `everness:crystal_stone` will be replaced in VM
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:palm_trees',
     deco_type = 'simple',
     place_on = { 'everness:mineral_sand' },
@@ -98,7 +98,7 @@ minetest.register_decoration({
     decoration = { 'everness:crystal_stone' },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:pots',
     deco_type = 'simple',
     place_on = { 'everness:mineral_sand' },
@@ -123,7 +123,7 @@ minetest.register_decoration({
     }
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:water_geyser',
     deco_type = 'simple',
     place_on = { 'everness:mineral_sand' },
@@ -145,7 +145,7 @@ minetest.register_decoration({
     check_offset = 1,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:rose_bush',
     deco_type = 'simple',
     place_on = { 'everness:mineral_sand' },

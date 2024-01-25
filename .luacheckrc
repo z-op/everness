@@ -23,7 +23,10 @@ globals = {
         fields = {
             "handle_node_drops"
         }
-    }
+    },
+    'sfinv',
+    "unified_inventory",
+    "i3"
 }
 
 read_globals = {

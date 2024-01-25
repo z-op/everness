@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_crystal_forest_under.y_min
 
 -- Crystal Forest Under
 
-minetest.register_biome({
-    name = 'everness_crystal_forest_under',
+Everness:register_biome({
+    name = 'everness:crystal_forest_under',
     node_cave_liquid = { 'mapgen_water_source', 'mapgen_lava_source' },
     node_dungeon = 'everness:crystal_cobble',
     node_dungeon_alt = 'everness:crystal_mossy_cobble',
@@ -39,7 +39,7 @@ minetest.register_biome({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_under_floors',
     deco_type = 'simple',
     place_on = { 'default:stone' },
@@ -56,7 +56,7 @@ minetest.register_decoration({
     flags = 'all_floors, force_placement'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_under_ceilings',
     deco_type = 'simple',
     place_on = { 'default:stone' },
@@ -71,7 +71,7 @@ minetest.register_decoration({
     },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_under_vines',
     deco_type = 'simple',
     place_on = { 'everness:crystal_moss_block' },
@@ -92,7 +92,7 @@ minetest.register_decoration({
     num_spawn_by = 8
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_under_crystal_purple_cluster',
     deco_type = 'schematic',
     place_on = {
@@ -122,7 +122,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_under_crystal_orange_cluster',
     deco_type = 'schematic',
     place_on = {
@@ -152,7 +152,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_under_crystal_cyan',
     deco_type = 'simple',
     place_on = {
@@ -176,7 +176,7 @@ minetest.register_decoration({
     param2 = 1
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_under_twisted_crystal_grass',
     deco_type = 'simple',
     place_on = {
@@ -200,7 +200,7 @@ minetest.register_decoration({
     param2 = 40
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_under_crystal_cyan_ceiling',
     deco_type = 'simple',
     place_on = { 'default:stone' },

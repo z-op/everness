@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_cursed_lands_under.y_min
 
 -- Cursed Lands Under
 
-minetest.register_biome({
-    name = 'everness_cursed_lands_under',
+Everness:register_biome({
+    name = 'everness:cursed_lands_under',
     node_cave_liquid = { 'mapgen_water_source', 'mapgen_lava_source' },
     node_dungeon = 'everness:cursed_brick',
     node_dungeon_alt = 'everness:cursed_brick_with_growth',
@@ -39,7 +39,7 @@ minetest.register_biome({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_under_soul_sandstone_floors',
     deco_type = 'simple',
     place_on = { 'default:stone' },
@@ -55,7 +55,7 @@ minetest.register_decoration({
     },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_under_mold_stone_ceilings',
     deco_type = 'simple',
     place_on = { 'default:stone' },
@@ -70,7 +70,7 @@ minetest.register_decoration({
     },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_under_skull_with_candle',
     deco_type = 'simple',
     place_on = { 'everness:soul_sandstone_veined' },
@@ -91,7 +91,7 @@ minetest.register_decoration({
     param2_max = 3
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_under_vines',
     deco_type = 'simple',
     place_on = { 'everness:moss_block' },
@@ -112,7 +112,7 @@ minetest.register_decoration({
     num_spawn_by = 8
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_under_pumpkin_lantern',
     deco_type = 'simple',
     place_on = { 'everness:soul_sandstone_veined' },
@@ -133,7 +133,7 @@ minetest.register_decoration({
     param2_max = 3
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_under_cursed_dream_tree',
     deco_type = 'schematic',
     place_on = { 'everness:soul_sandstone_veined' },
@@ -157,7 +157,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_under_plants',
     deco_type = 'simple',
     place_on = { 'everness:soul_sandstone_veined' },
@@ -181,7 +181,7 @@ minetest.register_decoration({
     flags = 'all_floors',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_under_ivis_moss',
     deco_type = 'simple',
     place_on = { 'everness:soul_sandstone_veined' },
@@ -204,7 +204,7 @@ minetest.register_decoration({
     param2 = 3
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_under_cobweb_floors',
     deco_type = 'simple',
     place_on = { 'everness:soul_sandstone_veined' },

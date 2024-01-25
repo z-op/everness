@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_bamboo_forest_under.y_min
 
 -- Bamboo Forest Under
 
-minetest.register_biome({
-    name = 'everness_bamboo_forest_under',
+Everness:register_biome({
+    name = 'everness:bamboo_forest_under',
     node_cave_liquid = { 'mapgen_water_source', 'mapgen_lava_source' },
     node_dungeon = 'everness:bamboo_wood',
     node_dungeon_alt = 'everness:bamboo_mosaic_wood',
@@ -39,7 +39,7 @@ minetest.register_biome({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:bamboo_forest_under_floors',
     deco_type = 'simple',
     place_on = { 'default:stone' },
@@ -56,7 +56,7 @@ minetest.register_decoration({
     },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:bamboo_forest_under_ceiling',
     deco_type = 'simple',
     place_on = { 'default:stone' },
@@ -69,7 +69,7 @@ minetest.register_decoration({
     decoration = { 'everness:moss_block' },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:bamboo_forest_under_forsythia_bush',
     deco_type = 'simple',
     place_on = { 'everness:moss_block' },
@@ -89,7 +89,7 @@ minetest.register_decoration({
     decoration = { 'everness:forsythia_bush' },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:bamboo_forest_under_vines',
     deco_type = 'simple',
     place_on = { 'everness:moss_block' },
@@ -107,7 +107,7 @@ minetest.register_decoration({
     num_spawn_by = 8
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:bamboo_forest_under_plants',
     deco_type = 'simple',
     place_on = { 'everness:moss_block' },
@@ -128,7 +128,7 @@ minetest.register_decoration({
     flags = 'all_floors'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:bamboo_forest_under_plants_2',
     deco_type = 'simple',
     place_on = { 'everness:moss_block' },
@@ -149,7 +149,7 @@ minetest.register_decoration({
     flags = 'all_floors'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:bamboo_forest_under_blue_vine_lantern',
     deco_type = 'simple',
     place_on = {

@@ -18,8 +18,6 @@ local S = minetest.get_translator(minetest.get_current_modname())
 
 --- Base class
 ---@class Everness
----@field bamboo {['growth_stages']: table<number, table>, ['top_leaves_schem']: table}
----@field loot_chest {['default']: table[]}
 Everness = {
     bamboo = {
         -- based on height
@@ -229,7 +227,15 @@ Everness = {
     hammer_cid_data = {},
     colors = {
         brown = '#DEB887',
-    }
+    },
+    registered_nodes = {},
+    registered_tools = {},
+    registered_abms = {},
+    registered_lbms = {},
+    registered_craftitems = {},
+    registered_biomes = {},
+    registered_decorations = {},
+    registered_ores = {}
 }
 
 function Everness.grow_cactus(self, pos, node, params)
@@ -904,12 +910,11 @@ function Everness.register_leafdecay(self, def)
     end
 end
 
-function Everness.register_node(self, name, def, props)
+function Everness.register_node(self, name, def)
     local _def = table.copy(def)
     local _name = name
 
     _def.mod_origin = 'everness'
-
 
     -- X Farming composter description
     if minetest.get_modpath('x_farming') and minetest.global_exists('x_farming') then
@@ -919,7 +924,68 @@ function Everness.register_node(self, name, def, props)
         end
     end
 
+    self.registered_nodes[_name] = _def
     minetest.register_node(_name, _def)
+end
+
+function Everness.register_tool(self, name, def)
+    local _def = table.copy(def)
+    local _name = name
+
+    _def.mod_origin = 'everness'
+
+    self.registered_tools[_name] = _def
+    minetest.register_tool(_name, _def)
+end
+
+function Everness.register_abm(self, def)
+    local _def = table.copy(def)
+    local _name = _def.label
+
+    self.registered_abms[_name] = _def
+    minetest.register_abm(_def)
+end
+
+function Everness.register_lbm(self, def)
+    local _def = table.copy(def)
+    local _name = _def.name
+
+    self.registered_lbms[_name] = _def
+    minetest.register_lbm(_def)
+end
+
+function Everness.register_craftitem(self, name, def)
+    local _def = table.copy(def)
+    local _name = name
+
+    _def.mod_origin = 'everness'
+
+    self.registered_craftitems[_name] = _def
+    minetest.register_craftitem(_name, _def)
+end
+
+function Everness.register_biome(self, def)
+    local _def = table.copy(def)
+    local _name = _def.name
+
+    self.registered_biomes[_name] = _def
+    minetest.register_biome(_def)
+end
+
+function Everness.register_decoration(self, def)
+    local _def = table.copy(def)
+    local _name = _def.name
+
+    self.registered_decorations[_name] = _def
+    minetest.register_decoration(_def)
+end
+
+function Everness.register_ore(self, def)
+    local _def = table.copy(def)
+    local _name = _def.ore
+
+    self.registered_ores[_name] = _def
+    minetest.register_ore(_def)
 end
 
 --
@@ -1497,4 +1563,503 @@ function Everness.get_pot_formspec(pos, label, model_texture)
     formspec = table.concat(formspec, '')
 
     return formspec
+end
+
+--
+-- Encyclopedia
+--
+
+local ency_data = {
+    nodes = {},
+    tools = {},
+    abms = {},
+    lbms = {},
+    craftitems = {},
+    biomes = {},
+    decorations = {},
+    ores = {},
+}
+
+--
+-- Encyclopedia Helpers
+--
+
+local function tchelper(first, rest)
+    return first:upper()..rest:lower()
+end
+
+local function capitalize(str)
+    -- Add extra characters to the pattern if you need to. _ and ' are
+    --  found in the middle of identifiers and English words.
+    -- We must also put %w_' into [%w_'] to make it handle normal stuff
+    -- and extra stuff the same.
+    -- This also turns hex numbers into, eg. 0Xa7d4
+    return str:gsub("(%a)([%w_']*)", tchelper)
+end
+
+local function tech_name_to_pretty_name(tech_name)
+    local short_name = tech_name:split(':')[2]
+    short_name = short_name:gsub('_', ' ')
+    short_name = capitalize(short_name)
+
+    return short_name
+end
+
+local function get_model_texture_from_tile_definition(tile_def)
+    -- Assumptions its a string
+    local texture = ''
+
+    for i, v in ipairs(tile_def) do
+        local temp = tile_def[i]
+
+        if type(temp) == 'table' then
+            if temp.name then
+                temp = temp.name
+            else
+                temp = temp[i]
+            end
+        end
+
+        texture = texture .. (i == 1 and '' or ',') .. temp
+    end
+
+    return texture
+end
+
+local function get_unordered_list(tbl, pos, formspec, lvl)
+    local _formspec = formspec or {}
+    local _lvl = lvl or 1
+
+    for k, v in pairs(tbl) do
+        if type(v) == 'table' then
+            -- Label
+            pos.y = pos.y + 0.25
+            _formspec[#_formspec + 1] = ('label[%f,%f;%s]'):format(pos.x + 0.25 * _lvl, pos.y, k .. ':')
+            get_unordered_list(v, pos, _formspec, _lvl + 1)
+        else
+            if minetest.registered_items[v] then
+                pos.y = pos.y + 0.25
+                -- Label
+                _formspec[#_formspec + 1] = ('label[%f,%f;%s]'):format(pos.x + 0.25 * _lvl, pos.y, k .. ':')
+                pos.y = pos.y + 0.25
+                -- Item image
+                _formspec[#_formspec + 1] = ('item_image[%f,%f;1,1;%s]'):format(pos.x + 0.25 * _lvl, pos.y, v)
+                -- Tooltip for description
+                _formspec[#_formspec + 1] = ('tooltip[%f,%f;1,1;%s]'):format(pos.x + 0.25 * _lvl, pos.y, minetest.formspec_escape(v))
+                pos.y = pos.y + 1
+            else
+                pos.y = pos.y + 0.25
+                -- List "bullet"
+                _formspec[#_formspec + 1] = ('label[%f,%f;%s]'):format(pos.x + 0.25 * _lvl, pos.y, k .. ': ' .. v)
+            end
+        end
+    end
+
+    _formspec = table.concat(_formspec, '')
+
+    return _formspec
+end
+
+--
+-- Encyclopedia API
+--
+
+function Everness.encyclopedia_init(self)
+    -- Nodes
+    for name, def in pairs(self.registered_nodes) do
+        if def.groups
+            and (not def.groups.not_in_creative_inventory or def.groups.not_in_creative_inventory == 0)
+        then
+            table.insert(ency_data.nodes, name)
+        end
+    end
+
+    -- Tools
+    for name, def in pairs(self.registered_tools) do
+        if def.groups
+            and (not def.groups.not_in_creative_inventory or def.groups.not_in_creative_inventory == 0)
+        then
+            table.insert(ency_data.tools, name)
+        end
+    end
+
+    -- ABMs
+    for name, def in pairs(self.registered_abms) do
+        table.insert(ency_data.abms, name)
+    end
+
+    -- LBMs
+    for name, def in pairs(self.registered_lbms) do
+        table.insert(ency_data.lbms, name)
+    end
+
+    -- Craftitems
+    for name, def in pairs(self.registered_craftitems) do
+        if def.groups
+            and (not def.groups.not_in_creative_inventory or def.groups.not_in_creative_inventory == 0)
+        then
+            table.insert(ency_data.craftitems, name)
+        end
+    end
+
+    -- Biomes
+    for name, def in pairs(self.registered_biomes) do
+        table.insert(ency_data.biomes, name)
+    end
+
+    -- Decorations
+    for name, def in pairs(self.registered_decorations) do
+        table.insert(ency_data.decorations, name)
+    end
+
+    -- Ores
+    for name, def in pairs(self.registered_ores) do
+        table.insert(ency_data.ores, name)
+    end
+
+    -- Sort alphabetically
+    table.sort(ency_data.nodes, function(a ,b)
+        return tech_name_to_pretty_name(a) < tech_name_to_pretty_name(b)
+    end)
+
+    table.sort(ency_data.tools, function(a ,b)
+        return tech_name_to_pretty_name(a) < tech_name_to_pretty_name(b)
+    end)
+
+    table.sort(ency_data.abms, function(a ,b)
+        return tech_name_to_pretty_name(a) < tech_name_to_pretty_name(b)
+    end)
+
+    table.sort(ency_data.lbms, function(a ,b)
+        return tech_name_to_pretty_name(a) < tech_name_to_pretty_name(b)
+    end)
+
+    table.sort(ency_data.craftitems, function(a ,b)
+        return tech_name_to_pretty_name(a) < tech_name_to_pretty_name(b)
+    end)
+
+    table.sort(ency_data.biomes, function(a ,b)
+        return tech_name_to_pretty_name(a) < tech_name_to_pretty_name(b)
+    end)
+
+    table.sort(ency_data.decorations, function(a ,b)
+        return tech_name_to_pretty_name(a) < tech_name_to_pretty_name(b)
+    end)
+
+    table.sort(ency_data.ores, function(a ,b)
+        return tech_name_to_pretty_name(a) < tech_name_to_pretty_name(b)
+    end)
+
+    if minetest.get_modpath('unified_inventory') then
+        self:encyclopedia_ui_register_page()
+    elseif minetest.get_modpath('i3') then
+        self:encyclopedia_i3_register_page()
+    elseif minetest.get_modpath('sfinv') and sfinv.enabled then
+        self:encyclopedia_sfinv_register_page()
+    end
+end
+
+function Everness.encyclopedia_get_formspec(self, context)
+    local pos_primary = vector.new()
+    local pos_secondary = vector.new()
+    local pos_secondary_container = vector.new()
+    local primary_selected_idx = context.everness_ency_primary_selected_idx or 1
+    local dropdown_idx = context.everness_ency_dropdown_idx or 1
+
+    context.everness_ency_primary_selected_idx = primary_selected_idx
+    context.everness_ency_dropdown_idx = dropdown_idx
+
+    -- Get dropdown items
+    local ency_dropdown_items = {}
+
+    for k, v in pairs(ency_data) do
+        table.insert(ency_dropdown_items, k)
+    end
+
+    table.sort(ency_dropdown_items)
+
+    -- Dropdown string value (main category)
+    local dropdown_value = ency_dropdown_items[dropdown_idx]
+    -- Data to show in secondary container (corresponding to selected index in primary item list)
+    local primary_list_data = ency_data[dropdown_value]
+    -- Get primary list items (list on the left)
+    local primary_list_items = {}
+
+    for k, v in ipairs(primary_list_data) do
+        table.insert(primary_list_items, tech_name_to_pretty_name(v))
+    end
+
+    -- Primary list selected item value (item technical name, e.g. 'everness:palm_tree_wood')
+    local primary_list_selected_value = primary_list_data[primary_selected_idx]
+    local def = self['registered_' .. dropdown_value][primary_list_selected_value]
+
+    pos_primary.x = pos_primary.x + 0.25
+    pos_primary.y = pos_primary.y + 0.5
+
+    local formspec = {
+        -- Title
+        'real_coordinates[true]',
+        ('label[%f,%f;%s]'):format(pos_primary.x, pos_primary.y, minetest.formspec_escape(S('Everness Encyclopedia'))),
+    }
+
+    -- Dropdown (main categories)
+    pos_primary.y = pos_primary.y + 0.4
+    formspec[#formspec + 1] = ('dropdown[%f,%f;4,0.4;everness_ency_dropdown;%s;%d;true]'):format(pos_primary.x, pos_primary.y, table.concat(ency_dropdown_items, ','), dropdown_idx)
+    -- Primary list
+    pos_primary.y = pos_primary.y + 0.6
+    formspec[#formspec + 1] = ('textlist[%f,%f;4,9;everness_ency_main_list;%s;%d;false]'):format(pos_primary.x, pos_primary.y, table.concat(primary_list_items, ','), primary_selected_idx)
+    -- Secondary (details on the right)
+    pos_secondary.x = pos_secondary.x + 4.5
+    pos_secondary.y = pos_secondary.y + 1.4
+    formspec[#formspec + 1] = ('scroll_container[%f,%f;5.5,9;everness_ency_detail_view_scrollbar;vertical;0.1]'):format(pos_secondary.x, pos_secondary.y)
+    -- Secondary title
+    pos_secondary_container.y = pos_secondary_container.y + 0.25
+    formspec[#formspec + 1] = ('label[%f,%f;%s]'):format(pos_secondary_container.x, pos_secondary_container.y, primary_list_selected_value)
+    -- Margin
+    pos_secondary_container.y = pos_secondary_container.y + 0.5
+
+    if minetest['registered_' .. dropdown_value][primary_list_selected_value]
+        and dropdown_value ~= 'biomes'
+        and dropdown_value ~= 'decorations'
+        and dropdown_value ~= 'ores'
+    then
+        if def.mesh then
+            -- Item model
+            formspec[#formspec + 1] = ('model[%f,%f;2,2;%s;%s;%s;-30,0;true;true;]'):format(pos_secondary_container.x, pos_secondary_container.y, primary_list_selected_value, def.mesh, get_model_texture_from_tile_definition(def.tiles))
+        else
+            -- Item image
+            formspec[#formspec + 1] = ('item_image[%f,%f;2,2;%s]'):format(pos_secondary_container.x, pos_secondary_container.y, primary_list_selected_value)
+        end
+
+        if def.description then
+            -- Tooltip for description
+            formspec[#formspec + 1] = ('tooltip[%f,%f;2,2;%s]'):format(pos_secondary_container.x, pos_secondary_container.y, minetest.formspec_escape(def.description))
+        end
+
+        pos_secondary_container.y = pos_secondary_container.y + 2
+    elseif def and def.description then
+        -- Label description
+        formspec[#formspec + 1] = ('label[%f,%f;%s]'):format(pos_secondary_container.x, pos_secondary_container.y, minetest.formspec_escape(def.description))
+    end
+
+    if def and def.label then
+        pos_secondary_container.y = pos_secondary_container.y + 0.25
+        -- Label description
+        formspec[#formspec + 1] = ('label[%f,%f;%s]'):format(pos_secondary_container.x, pos_secondary_container.y, minetest.formspec_escape(def.label))
+    end
+
+    -- Groups
+    if def and def.groups and next(def.groups) then
+        pos_secondary_container.y = pos_secondary_container.y + 0.5
+        -- Title
+        formspec[#formspec + 1] = ('label[%f,%f;%s]'):format(pos_secondary_container.x, pos_secondary_container.y, 'Groups:')
+        -- Unordered list
+        formspec[#formspec + 1] = get_unordered_list((def.groups or {}), pos_secondary_container)
+    end
+
+    -- Tool capabilities
+    if def and def.tool_capabilities and next(def.tool_capabilities) then
+        pos_secondary_container.y = pos_secondary_container.y + 0.5
+        -- Title
+        formspec[#formspec + 1] = ('label[%f,%f;%s]'):format(pos_secondary_container.x, pos_secondary_container.y, 'Tool Capabilities:')
+        -- Unordered list
+        formspec[#formspec + 1] = get_unordered_list((def.tool_capabilities or {}), pos_secondary_container)
+    end
+
+    -- ABM/LBM nodenames
+    if def and def.nodenames then
+        pos_secondary_container.y = pos_secondary_container.y + 0.5
+        -- Title
+        formspec[#formspec + 1] = ('label[%f,%f;%s]'):format(pos_secondary_container.x, pos_secondary_container.y, 'Apply "action" function to these nodes:')
+        -- Unordered list
+        formspec[#formspec + 1] = get_unordered_list((def.nodenames or {}), pos_secondary_container)
+    end
+
+    -- ABM neighbors
+    if def and def.neighbors and next(def.neighbors) then
+        pos_secondary_container.y = pos_secondary_container.y + 0.5
+        -- Title
+        formspec[#formspec + 1] = ('label[%f,%f;%s]'):format(pos_secondary_container.x, pos_secondary_container.y, 'Only apply "action" to nodes that have one of, or any combination of, these neighbors:')
+        -- Unordered list
+        formspec[#formspec + 1] = get_unordered_list((def.neighbors or {}), pos_secondary_container)
+    end
+
+    if def and def.run_at_every_load then
+        pos_secondary_container.y = pos_secondary_container.y + 0.5
+        formspec[#formspec + 1] = ('label[%f,%f;%s]'):format(pos_secondary_container.x, pos_secondary_container.y, 'Run at every load: ' .. (def.run_at_every_load and 'yes' or 'no'))
+    end
+
+    -- Biomes
+    if def and dropdown_value == 'biomes' then
+        -- Unordered list
+        formspec[#formspec + 1] = get_unordered_list(def, pos_secondary_container)
+    end
+
+    -- Decorations
+    if def and dropdown_value == 'decorations' then
+        -- Unordered list
+        formspec[#formspec + 1] = get_unordered_list(def, pos_secondary_container)
+    end
+
+    -- Ores
+    if def and dropdown_value == 'ores' then
+        -- Unordered list
+        formspec[#formspec + 1] = get_unordered_list(def, pos_secondary_container)
+    end
+
+    -- Close secondary container
+    formspec[#formspec + 1] = 'scroll_container_end[]'
+    -- Add scrollbar to secondary container
+    formspec[#formspec + 1] = ('scrollbaroptions[min=0;max=%d;smallstep=10;largestep=100;thumbsize=10;arrows=default]'):format(math.ceil(pos_secondary_container.y * 10))
+    formspec[#formspec + 1] = ('scrollbar[%f,%f;0.15,9;vertical;everness_ency_detail_view_scrollbar;]'):format(pos_secondary.x + 5.5 + 0.15, pos_secondary.y)
+
+    return formspec
+end
+
+function Everness.encyclopedia_i3_register_page(self)
+    i3.new_tab('everness_encyclopedia', {
+        description = 'Everness',
+        image = 'everness_logo.png',
+        slots = false,
+        formspec = function(player, data, fs)
+            local context = data or {}
+            local formspec = self:encyclopedia_get_formspec(context)
+            formspec = table.concat(formspec, '')
+            fs(formspec)
+        end,
+        fields = function(player, data, fields)
+            if fields.everness_ency_main_list then
+                local main_list_event = minetest.explode_textlist_event(fields.everness_ency_main_list)
+
+                -- Set context data
+                if main_list_event.type == 'CHG' then
+                    data.everness_ency_primary_selected_idx = main_list_event.index
+                end
+            elseif fields.everness_ency_dropdown then
+                local prev_everness_ency_dropdown_idx = data.everness_ency_dropdown_idx
+                local new_everness_ency_dropdown_idx = tonumber(fields.everness_ency_dropdown)
+                data.everness_ency_dropdown_idx = new_everness_ency_dropdown_idx
+
+                -- Change to 1st primary list item index only when changing dropdown
+                if prev_everness_ency_dropdown_idx ~= new_everness_ency_dropdown_idx then
+                    data.everness_ency_primary_selected_idx = 1
+                end
+            end
+        end,
+        access = function(player, data)
+            return minetest.check_player_privs(player:get_player_name(), 'everness_encyclopedia')
+        end,
+    })
+end
+
+function Everness.encyclopedia_ui_register_page(self)
+    unified_inventory.register_page('everness:encyclopedia', {
+        get_formspec = function(player)
+            local context = unified_inventory.everness_context[player:get_player_name()]
+            local formspec = self:encyclopedia_get_formspec(context)
+
+            return {
+                formspec = table.concat(formspec, ''),
+                draw_inventory = false,
+                draw_item_list = false
+            }
+        end
+    })
+
+    minetest.register_on_joinplayer(function(player)
+        local pname = player:get_player_name()
+
+        unified_inventory.everness_context = {}
+        unified_inventory.everness_context[pname] = {
+            everness_ency_dropdown_idx = 1,
+            everness_ency_primary_selected_idx = 1,
+        }
+    end)
+
+    minetest.register_on_player_receive_fields(function(player, formname, fields)
+        if formname ~= '' then
+            return
+        end
+
+        local pname = player:get_player_name()
+
+        if fields.everness_ency_main_list then
+            local main_list_event = minetest.explode_textlist_event(fields.everness_ency_main_list)
+
+            -- Set context data
+            if main_list_event.type == 'CHG' then
+                unified_inventory.everness_context[pname].everness_ency_primary_selected_idx = main_list_event.index
+                unified_inventory.set_inventory_formspec(player, unified_inventory.current_page[pname])
+            end
+        elseif fields.everness_ency_dropdown then
+            local prev_everness_ency_dropdown_idx = unified_inventory.everness_context[pname].everness_ency_dropdown_idx
+            local new_everness_ency_dropdown_idx = tonumber(fields.everness_ency_dropdown)
+            unified_inventory.everness_context[pname].everness_ency_dropdown_idx = new_everness_ency_dropdown_idx
+
+            -- Change to 1st primary list item index only when changing dropdown
+            if prev_everness_ency_dropdown_idx ~= new_everness_ency_dropdown_idx then
+                unified_inventory.everness_context[pname].everness_ency_primary_selected_idx = 1
+            end
+
+            unified_inventory.set_inventory_formspec(player, unified_inventory.current_page[pname])
+        end
+    end)
+
+    unified_inventory.register_button('everness:encyclopedia', {
+        type = 'image',
+        image = 'everness_logo.png',
+        tooltip = 'Everness Encyclopedia',
+        condition = function(player)
+            return minetest.check_player_privs(player:get_player_name(), 'everness_encyclopedia')
+        end,
+        action = function(player)
+            local pname = player:get_player_name()
+
+            if not minetest.check_player_privs(pname, 'everness_encyclopedia') then
+                minetest.chat_send_player(pname, S('You need "everness_encyclopedia" privilige to access this button.'))
+                unified_inventory.set_inventory_formspec(player, unified_inventory.current_page[pname])
+                return
+            end
+
+            unified_inventory.current_page[pname] = 'everness:encyclopedia'
+            unified_inventory.set_inventory_formspec(player, unified_inventory.current_page[pname])
+        end,
+    })
+end
+
+function Everness.encyclopedia_sfinv_register_page(self)
+    sfinv.register_page('everness:encyclopedia', {
+        title = 'Everness',
+        is_in_nav = function(_self, player, context)
+            return minetest.check_player_privs(player:get_player_name(), 'everness_encyclopedia')
+        end,
+        get = function(_self, player, context)
+            local formspec = self:encyclopedia_get_formspec(context)
+            return sfinv.make_formspec(player, context, table.concat(formspec, ''))
+        end,
+        on_player_receive_fields = function (_self, player, context, fields)
+            if fields.everness_ency_main_list then
+                local main_list_event = minetest.explode_textlist_event(fields.everness_ency_main_list)
+
+                -- Set context data
+                if main_list_event.type == 'CHG' then
+                    context.everness_ency_primary_selected_idx = main_list_event.index
+                    sfinv.set_player_inventory_formspec(player)
+                end
+            end
+
+            if fields.everness_ency_dropdown then
+                local prev_everness_ency_dropdown_idx = context.everness_ency_dropdown_idx
+                local new_everness_ency_dropdown_idx = tonumber(fields.everness_ency_dropdown)
+                context.everness_ency_dropdown_idx = new_everness_ency_dropdown_idx
+
+                -- Change to 1st primary list item index only when changing dropdown
+                if prev_everness_ency_dropdown_idx ~= new_everness_ency_dropdown_idx then
+                    context.everness_ency_primary_selected_idx = 1
+                end
+
+                sfinv.set_player_inventory_formspec(player)
+            end
+        end
+    })
 end

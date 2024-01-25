@@ -14,8 +14,8 @@
 
 --]]
 
-minetest.register_lbm({
-    label = 'Everness Loot Chests',
+Everness:register_lbm({
+    label = 'Replace markers with loot chests',
     name = 'everness:loot_chests_marker_replace',
     nodenames = {
         'everness:japanese_shrine_lootchest_marker',

@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_frosted_icesheet.y_min
 
 -- Frosted Icesheet
 
-minetest.register_biome({
-    name = 'everness_frosted_icesheet',
+Everness:register_biome({
+    name = 'everness:frosted_icesheet',
     node_dust = 'everness:frosted_snowblock',
     node_top = 'everness:frosted_snowblock',
     depth_top = 1,
@@ -51,7 +51,7 @@ minetest.register_biome({
 
 -- Frosted Icesheet
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icesheet_stalagmite',
     deco_type = 'schematic',
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_frosted_lands_stalagmite.mts',
@@ -74,7 +74,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icesheet_volcanic_rock',
     deco_type = 'schematic',
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_frosted_lands_volcanic_rock.mts',
@@ -97,7 +97,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icesheet_fossils',
     deco_type = 'schematic',
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_frosted_lands_fossils.mts',

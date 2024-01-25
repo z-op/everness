@@ -22,7 +22,7 @@
 
 -- Pyrite
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'scatter',
     ore = 'everness:stone_with_pyrite',
     wherein = 'default:stone',
@@ -33,7 +33,7 @@ minetest.register_ore({
     y_min = 1025,
 })
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'scatter',
     ore = 'everness:stone_with_pyrite',
     wherein = 'default:stone',
@@ -44,7 +44,7 @@ minetest.register_ore({
     y_min = -511,
 })
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'scatter',
     ore = 'everness:stone_with_pyrite',
     wherein = 'default:stone',
@@ -57,7 +57,7 @@ minetest.register_ore({
 
 -- Quartz
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'scatter',
     ore = 'everness:quartz_ore',
     wherein = { 'default:stone' },
@@ -97,8 +97,7 @@ local all_biomes_mese_tree_place_on = {
     'everness:frosted_ice_translucent',
     'everness:frosted_snowblock',
     'everness:sulfur_stone',
-    'everness:volcanic_sulfur',
-    'everness:mineral_waters'
+    'everness:volcanic_sulfur'
 }
 
 if minetest.get_modpath('default') then
@@ -120,7 +119,7 @@ if minetest.get_modpath('default') then
     })
 end
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:all_biomes_mese_tree',
     deco_type = 'schematic',
     place_on = all_biomes_mese_tree_place_on,
@@ -140,7 +139,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:all_biomes_mese_tree_2',
     deco_type = 'schematic',
     place_on = all_biomes_mese_tree_place_on,

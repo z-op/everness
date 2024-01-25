@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_baobab_savanna.y_min
 
 -- Baobab Savanna
 
-minetest.register_biome({
-    name = 'everness_baobab_savanna',
+Everness:register_biome({
+    name = 'everness:baobab_savanna',
     node_top = 'everness:dry_dirt_with_dry_grass',
     depth_top = 1,
     node_filler = 'everness:dry_dirt',
@@ -49,7 +49,7 @@ minetest.register_biome({
 -- Noise is similar to long dry grass noise, but scale inverted, to appear
 -- where long dry grass is least dense and shortest.
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:baobab_savanna_dry_dirt_with_dry_grass',
     deco_type = 'simple',
     place_on = { 'everness:dry_dirt_with_dry_grass' },
@@ -70,7 +70,7 @@ minetest.register_decoration({
     flags = 'force_placement',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:baobab_savanna_baobab_tree_1',
     deco_type = 'schematic',
     place_on = { 'everness:dry_dirt_with_dry_grass', 'everness:dry_dirt' },
@@ -93,7 +93,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:baobab_savanna_baobab_tree_2',
     deco_type = 'schematic',
     place_on = { 'everness:dry_dirt_with_dry_grass', 'everness:dry_dirt' },
@@ -116,7 +116,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:baobab_savanna_baobab_log',
     deco_type = 'schematic',
     place_on = { 'everness:dry_dirt_with_dry_grass' },
@@ -143,7 +143,7 @@ minetest.register_decoration({
 -- Dry grasses
 
 local function register_dry_grass_decoration(offset, scale, length)
-    minetest.register_decoration({
+    Everness:register_decoration({
         name = 'everness:dry_grass_' .. length,
         deco_type = 'simple',
         place_on = { 'everness:dry_dirt_with_dry_grass' },

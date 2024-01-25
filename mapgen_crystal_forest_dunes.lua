@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_crystal_forest_dunes.y_min
 
 -- Crystal Forest Dunes
 
-minetest.register_biome({
-    name = 'everness_crystal_forest_dunes',
+Everness:register_biome({
+    name = 'everness:crystal_forest_dunes',
     node_top = 'everness:crystal_sand',
     depth_top = 1,
     node_filler = 'everness:crystal_sand',
@@ -51,7 +51,7 @@ minetest.register_biome({
 
 -- Crystal sand
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:crystal_sand',
     wherein = { 'everness:crystal_stone' },
@@ -73,7 +73,7 @@ minetest.register_ore({
 
 -- Dirt
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:crystal_dirt',
     wherein = { 'everness:crystal_stone' },
@@ -97,7 +97,7 @@ minetest.register_ore({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_dunes_ruins_1',
     deco_type = 'schematic',
     place_on = { 'everness:crystal_sand' },
@@ -118,7 +118,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_dunes_ruins_2',
     deco_type = 'schematic',
     place_on = { 'everness:crystal_sand' },

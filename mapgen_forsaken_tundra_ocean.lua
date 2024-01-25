@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_forsaken_tundra_ocean.y_min
 
 -- Forsaken Tundra Ocean
 
-minetest.register_biome({
-    name = 'everness_forsaken_tundra_ocean',
+Everness:register_biome({
+    name = 'everness:forsaken_tundra_ocean',
     node_top = 'everness:forsaken_tundra_beach_sand',
     depth_top = 1,
     node_stone = 'everness:forsaken_tundra_stone',
@@ -50,7 +50,7 @@ minetest.register_biome({
 -- Blob ore.
 -- These before scatter ores to avoid other ores in blobs.
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:sulfur_stone',
     wherein = { 'default:stone', 'everness:forsaken_tundra_stone' },
@@ -74,7 +74,7 @@ minetest.register_ore({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_beach_sand_with_shells',
     deco_type = 'simple',
     place_on = { 'everness:forsaken_tundra_beach_sand' },

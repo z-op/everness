@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_crystal_forest_shore.y_min
 
 -- Crystal Forest Shore
 
-minetest.register_biome({
-    name = 'everness_crystal_forest_shore',
+Everness:register_biome({
+    name = 'everness:crystal_forest_shore',
     node_top = 'everness:crystal_sand',
     depth_top = 1,
     node_filler = 'everness:crystal_sand',
@@ -51,7 +51,7 @@ minetest.register_biome({
 
 -- Crystal sand
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:crystal_sand',
     wherein = { 'everness:crystal_stone' },
@@ -73,7 +73,7 @@ minetest.register_ore({
 
 -- Dirt
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:crystal_dirt',
     wherein = { 'everness:crystal_stone' },
@@ -97,7 +97,7 @@ minetest.register_ore({
 
 -- Coal
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'scatter',
     ore = 'everness:crystal_stone_with_coal',
     wherein = 'everness:crystal_stone',
@@ -113,7 +113,7 @@ minetest.register_ore({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_shore_crystal_waterlily',
     deco_type = 'simple',
     place_on = { 'everness:crystal_sand' },

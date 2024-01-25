@@ -16,7 +16,7 @@
 
 local S = minetest.get_translator(minetest.get_current_modname())
 
-minetest.register_tool('everness:vine_shears', {
+Everness:register_tool('everness:vine_shears', {
     description = S('Vine Shears'),
     inventory_image = 'everness_vine_shears.png',
     wield_image = 'everness_vine_shears.png',
@@ -39,7 +39,7 @@ minetest.register_tool('everness:vine_shears', {
     },
 })
 
-minetest.register_tool('everness:pick_illuminating', {
+Everness:register_tool('everness:pick_illuminating', {
     description = 'Illuminating Pickaxe (secondary use to place temporary illuminating crystal)',
     short_description = 'Illuminating Pickaxe',
     inventory_image = 'everness_pick_illuminating.png',
@@ -147,7 +147,7 @@ minetest.register_tool('everness:pick_illuminating', {
     },
 })
 
-minetest.register_tool('everness:pick_archeological', {
+Everness:register_tool('everness:pick_archeological', {
     description = 'Archeological pickaxe has the ability to get rare items from certain ores. (Use to get different kinds of ceramic sherds from ores with ceramic sherds)',
     short_description = 'Archeological pickaxe',
     inventory_image = 'everness_pick_archeological.png',
@@ -176,7 +176,7 @@ minetest.register_tool('everness:pick_archeological', {
     },
 })
 
-minetest.register_tool('everness:shovel_silk', {
+Everness:register_tool('everness:shovel_silk', {
     description = S('Silk Shovel'),
     inventory_image = 'everness_shovel_silk.png',
     wield_image = 'everness_shovel_silk.png^[transformR90',
@@ -225,7 +225,7 @@ function minetest.handle_node_drops(pos, drops, digger)
     return old_handle_node_drops(pos, drops, digger)
 end
 
-minetest.register_tool('everness:shell_of_underwater_breathing', {
+Everness:register_tool('everness:shell_of_underwater_breathing', {
     description = S('Shell of Underwater Breating'),
     inventory_image = 'everness_shell_of_underwarer_breathing.png',
     wield_image = 'everness_shell_of_underwarer_breathing.png',

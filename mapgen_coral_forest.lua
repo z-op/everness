@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_coral_forest.y_min
 
 -- Coral Forest
 
-minetest.register_biome({
-    name = 'everness_coral_forest',
+Everness:register_biome({
+    name = 'everness:coral_forest',
     node_top = 'everness:dirt_with_coral_grass',
     depth_top = 1,
     node_filler = 'everness:coral_dirt',
@@ -50,7 +50,7 @@ minetest.register_biome({
 
 -- Coral sand
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:coral_sand',
     wherein = { 'everness:coral_desert_stone' },
@@ -72,7 +72,7 @@ minetest.register_ore({
 
 -- Dirt
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:coral_dirt',
     wherein = { 'everness:coral_desert_stone' },
@@ -96,7 +96,7 @@ minetest.register_ore({
 
 -- Coal
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'scatter',
     ore = 'everness:coral_desert_stone_with_coal',
     wherein = 'everness:coral_desert_stone',
@@ -117,7 +117,7 @@ minetest.register_ore({
 local chunksize = tonumber(minetest.get_mapgen_setting('chunksize'))
 
 if chunksize >= 5 then
-    minetest.register_decoration({
+    Everness:register_decoration({
         name = 'everness:coral_forest_coral_tree',
         deco_type = 'schematic',
         place_on = { 'everness:dirt_with_coral_grass' },
@@ -142,7 +142,7 @@ if chunksize >= 5 then
     })
 end
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_coral_bones_tree',
     deco_type = 'schematic',
     place_on = { 'everness:dirt_with_coral_grass' },
@@ -164,7 +164,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_coral_burdock',
     deco_type = 'simple',
     place_on = { 'everness:dirt_with_coral_grass' },
@@ -185,7 +185,7 @@ minetest.register_decoration({
     param2 = 8
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_coral_bush',
     deco_type = 'simple',
     place_on = { 'everness:dirt_with_coral_grass', 'everness:coral_sand', 'everness:coral_white_sand' },
@@ -204,7 +204,7 @@ minetest.register_decoration({
     decoration = 'everness:coral_bush'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_coral_shrub',
     deco_type = 'simple',
     place_on = { 'everness:dirt_with_coral_grass', 'everness:coral_sand', 'everness:coral_white_sand' },
@@ -224,7 +224,7 @@ minetest.register_decoration({
 })
 
 local function register_coral_grass_decoration(offset, scale, length)
-    minetest.register_decoration({
+    Everness:register_decoration({
         name = 'everness:coral_forest_coral_grass_' .. length,
         deco_type = 'simple',
         place_on = { 'everness:dirt_with_coral_grass' },

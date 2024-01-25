@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_coral_forest_dunes.y_min
 
 -- Coral Forest Dunes
 
-minetest.register_biome({
-    name = 'everness_coral_forest_dunes',
+Everness:register_biome({
+    name = 'everness:coral_forest_dunes',
     node_top = 'everness:coral_sand',
     depth_top = 1,
     node_filler = 'everness:coral_sand',
@@ -51,7 +51,7 @@ minetest.register_biome({
 
 -- Coral sand
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:coral_sand',
     wherein = { 'everness:coral_desert_stone' },
@@ -73,7 +73,7 @@ minetest.register_ore({
 
 -- Dirt
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:coral_dirt',
     wherein = { 'everness:coral_desert_stone' },
@@ -97,7 +97,7 @@ minetest.register_ore({
 
 -- Coal
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'scatter',
     ore = 'everness:coral_desert_stone_with_coal',
     wherein = 'everness:coral_desert_stone',
@@ -115,7 +115,7 @@ minetest.register_ore({
 
 -- Coral Forest Dunes
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_dunes_coral_volcano',
     deco_type = 'schematic',
     place_on = { 'everness:coral_sand' },
@@ -141,7 +141,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_dunes_coral_bush',
     deco_type = 'simple',
     place_on = { 'everness:dirt_with_coral_grass', 'everness:coral_sand', 'everness:coral_white_sand' },
@@ -160,7 +160,7 @@ minetest.register_decoration({
     decoration = 'everness:coral_bush'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_dunes_coral_shrub',
     deco_type = 'simple',
     place_on = { 'everness:dirt_with_coral_grass', 'everness:coral_sand', 'everness:coral_white_sand' },

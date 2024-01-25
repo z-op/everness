@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_crystal_forest_deep_ocean.y_min
 
 -- Coral Forest Ocean
 
-minetest.register_biome({
-    name = 'everness_crystal_forest_deep_ocean',
+Everness:register_biome({
+    name = 'everness:crystal_forest_deep_ocean',
     node_top = 'everness:crystal_forest_deep_ocean_sand',
     depth_top = 1,
     node_filler = 'everness:crystal_forest_deep_ocean_sand',
@@ -45,7 +45,7 @@ minetest.register_biome({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_deep_ocean_coral_1',
     deco_type = 'schematic',
     place_on = { 'everness:crystal_forest_deep_ocean_sand' },
@@ -60,7 +60,7 @@ minetest.register_decoration({
     flags = 'place_center_x, place_center_z, force_placement',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_deep_ocean_coral_2',
     deco_type = 'schematic',
     place_on = { 'everness:crystal_forest_deep_ocean_sand' },
@@ -75,7 +75,7 @@ minetest.register_decoration({
     flags = 'place_center_x, place_center_z, force_placement',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_deep_ocean_coral_3',
     deco_type = 'schematic',
     place_on = { 'everness:crystal_forest_deep_ocean_sand' },
@@ -90,7 +90,7 @@ minetest.register_decoration({
     flags = 'place_center_x, place_center_z, force_placement',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_deep_ocean_sand_with_crack',
     deco_type = 'simple',
     place_on = { 'everness:crystal_forest_deep_ocean_sand' },
@@ -106,7 +106,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_deep_ocean_coral_plant_1',
     deco_type = 'simple',
     place_on = { 'everness:crystal_forest_deep_ocean_sand' },
@@ -129,7 +129,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_deep_ocean_coral_plant_2',
     deco_type = 'simple',
     place_on = { 'everness:crystal_forest_deep_ocean_sand' },
@@ -152,7 +152,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_deep_ocean_coral_plant_3',
     deco_type = 'simple',
     place_on = { 'everness:crystal_forest_deep_ocean_sand' },

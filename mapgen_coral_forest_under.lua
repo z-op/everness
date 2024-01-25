@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_coral_forest_under.y_min
 
 -- Coral Forest Under
 
-minetest.register_biome({
-    name = 'everness_coral_forest_under',
+Everness:register_biome({
+    name = 'everness:coral_forest_under',
     node_cave_liquid = { 'mapgen_water_source', 'mapgen_lava_source' },
     node_dungeon = 'everness:coral_desert_cobble',
     node_dungeon_alt = 'everness:coral_desert_mossy_cobble',
@@ -44,7 +44,7 @@ minetest.register_biome({
 
 -- Coral Desert Stone
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:coral_desert_stone',
     wherein = { 'default:stone' },
@@ -70,7 +70,7 @@ minetest.register_ore({
 
 -- Coral Forest Under
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_under_desert_stone_with_moss_floors',
     deco_type = 'simple',
     place_on = { 'default:stone' },
@@ -86,7 +86,7 @@ minetest.register_decoration({
     },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_under_mold_stone_ceilings',
     deco_type = 'simple',
     place_on = { 'default:stone' },
@@ -101,7 +101,7 @@ minetest.register_decoration({
     },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_under_coral_tree_bioluminescent',
     deco_type = 'schematic',
     place_on = { 'everness:coral_desert_stone_with_moss' },
@@ -125,7 +125,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_under_coral_plant_bioluminescent',
     deco_type = 'simple',
     place_on = { 'everness:coral_desert_stone_with_moss' },
@@ -146,7 +146,7 @@ minetest.register_decoration({
     flags = 'all_floors'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_under_lumecorn',
     deco_type = 'simple',
     place_on = { 'everness:coral_desert_stone_with_moss' },
@@ -166,7 +166,7 @@ minetest.register_decoration({
     flags = 'all_floors',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_under_vines',
     deco_type = 'simple',
     place_on = { 'everness:moss_block' },
@@ -187,7 +187,7 @@ minetest.register_decoration({
     num_spawn_by = 8
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:coral_forest_under_plants',
     deco_type = 'simple',
     place_on = { 'everness:coral_desert_stone_with_moss' },

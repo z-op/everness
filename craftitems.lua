@@ -21,33 +21,33 @@ local S = minetest.get_translator(minetest.get_current_modname())
 --
 
 --  Quartz Crystal
-minetest.register_craftitem('everness:quartz_crystal', {
+Everness:register_craftitem('everness:quartz_crystal', {
     description = S('Quartz Crystal'),
     inventory_image = 'everness_quartz.png',
 })
 
-minetest.register_craftitem('everness:bamboo_item', {
+Everness:register_craftitem('everness:bamboo_item', {
     description = S('Bamboo'),
     inventory_image = 'everness_bamboo_item.png',
 })
 
-minetest.register_craftitem('everness:baobab_fruit_roasted', {
+Everness:register_craftitem('everness:baobab_fruit_roasted', {
     description = S('Baobab Roasted Fruit') .. '\n'.. minetest.colorize(Everness.colors.brown, S('Hunger') .. ': 4'),
     inventory_image = 'everness_baobab_tree_fruit_roasted.png',
     on_use = minetest.item_eat(4),
 })
 
-minetest.register_craftitem('everness:pyrite_ingot', {
+Everness:register_craftitem('everness:pyrite_ingot', {
     description = S('Pyrite Ingot'),
     inventory_image = 'everness_pyrite_ingot.png'
 })
 
-minetest.register_craftitem('everness:pyrite_lump', {
+Everness:register_craftitem('everness:pyrite_lump', {
     description = S('Pyrite Lump'),
     inventory_image = 'everness_pyrite_lump.png'
 })
 
-minetest.register_craftitem('everness:coconut_fruit', {
+Everness:register_craftitem('everness:coconut_fruit', {
     description = S('Coconut') .. '\n'.. minetest.colorize(Everness.colors.brown, S('Hunger') .. ': 4'),
     inventory_image = 'everness_coconut_item.png',
     wield_scale = { x = 2, y = 2, z = 1 },

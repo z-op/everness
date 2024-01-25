@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_crystal_forest.y_min
 
 -- Crystal Forest
 
-minetest.register_biome({
-    name = 'everness_crystal_forest',
+Everness:register_biome({
+    name = 'everness:crystal_forest',
     node_top = 'everness:dirt_with_crystal_grass',
     depth_top = 1,
     node_filler = 'everness:crystal_dirt',
@@ -50,7 +50,7 @@ minetest.register_biome({
 
 -- Crystal sand
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:crystal_sand',
     wherein = { 'everness:crystal_stone' },
@@ -72,7 +72,7 @@ minetest.register_ore({
 
 -- Dirt
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:crystal_dirt',
     wherein = { 'everness:crystal_stone' },
@@ -96,7 +96,7 @@ minetest.register_ore({
 
 -- Coal
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'scatter',
     ore = 'everness:crystal_stone_with_coal',
     wherein = 'everness:crystal_stone',
@@ -112,7 +112,7 @@ minetest.register_ore({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_crystal_mushrooms',
     deco_type = 'simple',
     place_on = { 'everness:dirt_with_crystal_grass' },
@@ -132,7 +132,7 @@ minetest.register_decoration({
     param2 = 40
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_crystal_tree',
     deco_type = 'schematic',
     place_on = { 'everness:dirt_with_crystal_grass' },
@@ -154,7 +154,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_crystal_tree_large',
     deco_type = 'schematic',
     place_on = { 'everness:dirt_with_crystal_grass' },
@@ -176,7 +176,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:crystal_forest_crystal_bush',
     deco_type = 'schematic',
     place_on = { 'everness:dirt_with_crystal_grass' },
@@ -198,7 +198,7 @@ minetest.register_decoration({
 })
 
 local function register_crystal_grass_decoration(offset, scale, length)
-    minetest.register_decoration({
+    Everness:register_decoration({
         name = 'everness:crystal_forest_crystal_grass_' .. length,
         deco_type = 'simple',
         place_on = { 'everness:dirt_with_crystal_grass' },

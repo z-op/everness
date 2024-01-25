@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_cursed_lands.y_min
 
 -- Cursed Lands
 
-minetest.register_biome({
-    name = 'everness_cursed_lands',
+Everness:register_biome({
+    name = 'everness:cursed_lands',
     node_top = 'everness:dirt_with_cursed_grass',
     depth_top = 1,
     node_filler = 'everness:cursed_dirt',
@@ -48,7 +48,7 @@ minetest.register_biome({
 -- Stratum ores.
 -- These obviously first.
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'stratum',
     ore = 'everness:cursed_stone',
     wherein = { 'everness:cursed_stone_carved' },
@@ -66,7 +66,7 @@ minetest.register_ore({
     biomes = { 'everness_cursed_lands' },
 })
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'stratum',
     ore = 'everness:cursed_stone',
     wherein = { 'everness:cursed_stone_carved' },
@@ -89,7 +89,7 @@ minetest.register_ore({
 
 -- Sand
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:cursed_sand',
     wherein = { 'everness:cursed_stone_carved' },
@@ -111,7 +111,7 @@ minetest.register_ore({
 
 -- Dirt
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:cursed_dirt',
     wherein = { 'everness:cursed_stone_carved' },
@@ -133,7 +133,7 @@ minetest.register_ore({
 
 -- Mud
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:cursed_mud',
     wherein = { 'everness:cursed_stone_carved' },
@@ -157,7 +157,7 @@ minetest.register_ore({
 
 -- Coal
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'scatter',
     ore = 'everness:cursed_stone_carved_with_coal',
     wherein = 'everness:cursed_stone_carved',
@@ -173,7 +173,7 @@ minetest.register_ore({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_cemetery',
     deco_type = 'schematic',
     place_on = { 'everness:dirt_with_cursed_grass' },
@@ -194,7 +194,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_ruins_1',
     deco_type = 'schematic',
     place_on = { 'everness:dirt_with_cursed_grass' },
@@ -216,7 +216,7 @@ minetest.register_decoration({
 })
 
 local function register_red_castor_decoration(offset, scale, length)
-    minetest.register_decoration({
+    Everness:register_decoration({
         name = 'everness:cursed_lands_red_castor_' .. length,
         deco_type = 'simple',
         place_on = { 'everness:dirt_with_cursed_grass' },
@@ -243,7 +243,7 @@ register_red_castor_decoration(-0.015, 0.075, 3)
 register_red_castor_decoration(0, 0.06, 2)
 register_red_castor_decoration(0.015, 0.045, 1)
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_cursed_mud',
     deco_type = 'simple',
     place_on = { 'everness:dirt_with_cursed_grass', 'everness:cursed_dirt', 'everness:cursed_sand' },
@@ -264,7 +264,7 @@ minetest.register_decoration({
     decoration = { 'everness:cursed_mud' },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_dry_tree',
     deco_type = 'schematic',
     place_on = {
@@ -291,7 +291,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:cursed_lands_cursed_bush',
     deco_type = 'schematic',
     place_on = { 'everness:dirt_with_cursed_grass' },

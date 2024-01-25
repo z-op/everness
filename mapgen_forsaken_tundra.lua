@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_forsaken_tundra.y_min
 
 -- Forsaken Tundra
 
-minetest.register_biome({
-    name = 'everness_forsaken_tundra',
+Everness:register_biome({
+    name = 'everness:forsaken_tundra',
     node_top = 'everness:forsaken_tundra_dirt',
     depth_top = 1,
     node_stone = 'everness:forsaken_tundra_stone',
@@ -48,7 +48,7 @@ minetest.register_biome({
 -- Blob ore.
 -- These before scatter ores to avoid other ores in blobs.
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:sulfur_stone',
     wherein = { 'default:stone', 'everness:forsaken_tundra_stone' },
@@ -72,7 +72,7 @@ minetest.register_ore({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_volcanic_sulfur',
     deco_type = 'simple',
     place_on = { 'everness:forsaken_tundra_dirt' },
@@ -94,7 +94,7 @@ minetest.register_decoration({
     flags = 'force_placement',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_sulfur_stone',
     deco_type = 'simple',
     place_on = {
@@ -118,7 +118,7 @@ minetest.register_decoration({
     decoration = { 'everness:sulfur_stone' },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_dirt_with_grass',
     deco_type = 'simple',
     place_on = {
@@ -142,7 +142,7 @@ minetest.register_decoration({
     flags = 'force_placement',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_volcanic_sulfur_on_top_of_sulfur_stone',
     deco_type = 'simple',
     place_on = { 'everness:sulfur_stone' },
@@ -161,7 +161,7 @@ minetest.register_decoration({
     decoration = { 'everness:volcanic_sulfur' },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_rocks',
     deco_type = 'schematic',
     place_on = { 'everness:forsaken_tundra_dirt', 'everness:forsaken_tundra_dirt_with_grass' },
@@ -182,7 +182,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_sulfur_volcano',
     deco_type = 'schematic',
     place_on = { 'everness:forsaken_tundra_dirt', 'everness:volcanic_sulfur' },
@@ -205,7 +205,7 @@ minetest.register_decoration({
     num_spawn_by = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_bloodpore_plant',
     deco_type = 'simple',
     place_on = { 'everness:forsaken_tundra_dirt_with_grass' },
@@ -225,7 +225,7 @@ minetest.register_decoration({
     param2 = 8,
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_bloodspore_plant_on_dirt',
     deco_type = 'simple',
     place_on = { 'everness:forsaken_tundra_dirt' },

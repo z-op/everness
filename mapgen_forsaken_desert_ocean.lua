@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_forsaken_desert_ocean.y_min
 
 -- Forsaken Desert Ocean
 
-minetest.register_biome({
-    name = 'everness_forsaken_desert_ocean',
+Everness:register_biome({
+    name = 'everness:forsaken_desert_ocean',
     node_top = 'everness:dry_ocean_dirt',
     depth_top = 1,
     node_stone = 'everness:forsaken_desert_stone',

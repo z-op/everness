@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_forsaken_desert_under.y_min
 
 -- Forsaken Desert Under
 
-minetest.register_biome({
-    name = 'everness_forsaken_desert_under',
+Everness:register_biome({
+    name = 'everness:forsaken_desert_under',
     node_cave_liquid = { 'mapgen_water_source', 'mapgen_lava_source' },
     node_dungeon = 'default:cobble',
     node_dungeon_alt = 'default:mossycobble',
@@ -39,7 +39,7 @@ minetest.register_biome({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_desert_under_floors',
     deco_type = 'simple',
     place_on = { 'default:stone' },
@@ -55,7 +55,7 @@ minetest.register_decoration({
     },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_desert_under_floors_chiseled',
     deco_type = 'simple',
     place_on = { 'everness:forsaken_desert_sand' },
@@ -76,7 +76,7 @@ minetest.register_decoration({
     flags = 'all_floors, force_placement'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_desert_under_ceilings',
     deco_type = 'simple',
     place_on = { 'everness:forsaken_desert_sand' },
@@ -91,7 +91,7 @@ minetest.register_decoration({
     },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_desert_under_cactus_blue',
     deco_type = 'simple',
     place_on = { 'everness:forsaken_desert_sand' },
@@ -113,7 +113,7 @@ minetest.register_decoration({
     flags = 'all_floors'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_desert_under_cave_barrel_cactus',
     deco_type = 'simple',
     place_on = {
@@ -135,7 +135,7 @@ minetest.register_decoration({
     param2_max = 3
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_desert_under_cave_illumi_root',
     deco_type = 'simple',
     place_on = {
@@ -153,7 +153,7 @@ minetest.register_decoration({
     flags = 'all_floors'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_desert_under_vines',
     deco_type = 'simple',
     place_on = { 'everness:moss_block' },
@@ -172,7 +172,7 @@ minetest.register_decoration({
     num_spawn_by = 8
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_desert_under_hollow_tree',
     deco_type = 'simple',
     place_on = { 'everness:forsaken_desert_sand' },

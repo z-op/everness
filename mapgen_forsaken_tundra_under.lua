@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_forsaken_tundra_under.y_min
 
 -- Forsaken Tundra Under
 
-minetest.register_biome({
-    name = 'everness_forsaken_tundra_under',
+Everness:register_biome({
+    name = 'everness:forsaken_tundra_under',
     node_cave_liquid = { 'mapgen_water_source', 'mapgen_lava_source' },
     node_dungeon = 'everness:forsaken_tundra_cobble',
     node_dungeon_alt = 'everness:forsaken_tundra_brick',
@@ -42,7 +42,7 @@ minetest.register_biome({
 -- Blob ore.
 -- These before scatter ores to avoid other ores in blobs.
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:sulfur_stone',
     wherein = { 'default:stone', 'everness:forsaken_tundra_stone' },
@@ -66,7 +66,7 @@ minetest.register_ore({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_under_mold_stone_floors',
     deco_type = 'simple',
     place_on = { 'default:stone' },
@@ -82,7 +82,7 @@ minetest.register_decoration({
     },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_under_mold_stone_ceilings',
     deco_type = 'simple',
     place_on = { 'default:stone' },
@@ -97,7 +97,7 @@ minetest.register_decoration({
     },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_under_obsidian_floors',
     deco_type = 'simple',
     place_on = { 'default:stone', 'everness:mold_stone_with_moss' },
@@ -115,7 +115,7 @@ minetest.register_decoration({
     flags = 'all_floors, force_placement'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_under_obsidian_ceilings',
     deco_type = 'simple',
     place_on = { 'default:stone', 'everness:moss_block' },
@@ -133,7 +133,7 @@ minetest.register_decoration({
     flags = 'all_ceilings, force_placement'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_under_cactus_orange',
     deco_type = 'simple',
     place_on = { 'everness:mold_stone_with_moss' },
@@ -155,7 +155,7 @@ minetest.register_decoration({
     flags = 'all_floors'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_under_bloodspore_plant_small',
     deco_type = 'simple',
     place_on = { 'everness:mold_stone_with_moss' },
@@ -176,7 +176,7 @@ minetest.register_decoration({
     flags = 'all_floors'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_under_vines',
     deco_type = 'simple',
     place_on = { 'everness:moss_block' },
@@ -197,7 +197,7 @@ minetest.register_decoration({
     num_spawn_by = 8
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_under_glowing_pillar',
     deco_type = 'simple',
     place_on = { 'everness:mold_stone_with_moss' },
@@ -218,7 +218,7 @@ minetest.register_decoration({
 })
 
 local function register_agave_leaf_decoration(offset, scale, length)
-    minetest.register_decoration({
+    Everness:register_decoration({
         name = 'everness:forsaken_tundra_under_agave_leaf_' .. length,
         deco_type = 'simple',
         place_on = { 'everness:mold_stone_with_moss' },

@@ -325,7 +325,7 @@ function Everness.chest.register_chest(prefixed_name, d)
     Everness:register_node(prefixed_name .. '_open', def_opened)
 
     -- close opened chests on load
-    minetest.register_lbm({
+    Everness:register_lbm({
         label = 'Everness close opened chests on load',
         name = 'everness:close_' .. prefixed_name:gsub(':', '_') .. '_open',
         nodenames = { prefixed_name .. '_open' },

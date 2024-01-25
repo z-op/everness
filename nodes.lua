@@ -2625,7 +2625,7 @@ Everness:register_node('everness:flame_permanent_blue', {
 -- Loot Chest / Icicle Markers
 
 Everness:register_node('everness:japanese_shrine_lootchest_marker', {
-    -- drawtype = 'airlike',
+    drawtype = 'airlike',
     description = 'Japanese Shrine Loot Chest Spawn Marker',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
@@ -11127,19 +11127,20 @@ Everness:register_node('everness:tinted_glass_red', {
     _mcl_hardness = 0.3,
 })
 
-minetest.register_lbm({
-    label = 'everness:bamboo',
+Everness:register_lbm({
+    label = 'Grows bamboo',
     name = 'everness:bamboo',
-    nodenames = 'group:bamboo',
+    nodenames = { 'group:bamboo' },
+    run_at_every_load = false,
     action = function(pos, node)
         Everness:tick_bamboo_again(pos)
     end,
 })
 
-minetest.register_lbm({
-    label = 'everness:sulfur_stone',
+Everness:register_lbm({
+    label = 'Makes cluouds from sulfur stone',
     name = 'everness:sulfur_stone',
-    nodenames = 'everness:sulfur_stone',
+    nodenames = { 'everness:sulfur_stone' },
     run_at_every_load = true,
     action = function(pos, node)
         Everness:tick_sulfur_stone(pos)
@@ -11865,7 +11866,7 @@ for i, v in ipairs({ 'blank', 'flowers', 'lines', 'tribal' }) do
         end
     })
 
-    minetest.register_craftitem('everness:ceramic_pot_sherd_' .. v, {
+    Everness:register_craftitem('everness:ceramic_pot_sherd_' .. v, {
         description = S('Ceramic') .. ' ' .. S('Pot') .. ' ' .. S(v) .. ' ' .. S('Sherd'),
         inventory_image = 'everness_ceramic_pot_' .. v .. '_sherd.png',
     })

@@ -214,6 +214,10 @@ if Everness.settings.features.everness_feature_sneak_pickup then
     dofile(path .. '/sneak_pickup.lua')
 end
 
+dofile(path .. '/privileges.lua')
+
+Everness:encyclopedia_init()
+
 --
 -- Mod Support
 --

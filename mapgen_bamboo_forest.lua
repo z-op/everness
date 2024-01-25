@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_bamboo_forest.y_min
 
 -- Bamboo Forest
 
-minetest.register_biome({
-    name = 'everness_bamboo_forest',
+Everness:register_biome({
+    name = 'everness:bamboo_forest',
     node_top = 'everness:dirt_with_grass_1',
     depth_top = 1,
     node_filler = 'everness:dirt_1',
@@ -44,7 +44,7 @@ minetest.register_biome({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:bamboo_forest_small_bamboo',
     deco_type = 'schematic',
     place_on = { 'everness:dirt_with_grass_1' },
@@ -58,7 +58,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:bamboo_forest_large_bamboo',
     deco_type = 'schematic',
     place_on = { 'everness:dirt_with_grass_1' },
@@ -99,7 +99,7 @@ elseif minetest.get_modpath('mcl_core') then
 end
 
 if jungle_tree_schem then
-    minetest.register_decoration({
+    Everness:register_decoration({
         name = 'everness:bamboo_forest_jungle_tree',
         deco_type = 'schematic',
         place_on = { 'everness:dirt_with_grass_1' },
@@ -122,7 +122,7 @@ if jungle_tree_schem then
 end
 
 if jungle_log_schem then
-    minetest.register_decoration({
+    Everness:register_decoration({
         name = 'everness:bamboo_forest_jungle_log',
         deco_type = 'schematic',
         place_on = { 'everness:dirt_with_grass_1' },
@@ -150,7 +150,7 @@ end
 -- Bush
 
 if minetest.get_modpath('default') then
-    minetest.register_decoration({
+    Everness:register_decoration({
         name = 'everness:bamboo_forest_bush',
         deco_type = 'schematic',
         place_on = { 'everness:dirt_with_grass_1' },
@@ -172,7 +172,7 @@ if minetest.get_modpath('default') then
 
     -- Blueberry bush
 
-    minetest.register_decoration({
+    Everness:register_decoration({
         name = 'everness:bamboo_forest_blueberry_bush',
         deco_type = 'schematic',
         place_on = { 'everness:dirt_with_grass_1' },
@@ -196,7 +196,7 @@ end
 
 -- Flowers
 local function register_flower_decoration(offset, scale, length)
-    minetest.register_decoration({
+    Everness:register_decoration({
         name = 'everness:bamboo_forest_flowers_' .. length,
         deco_type = 'simple',
         place_on = { 'everness:dirt_with_grass_1' },
@@ -222,7 +222,7 @@ register_flower_decoration(0, 0.06, 2)
 register_flower_decoration(0.015, 0.045, 1)
 
 local function register_flower_magenta_decoration(offset, scale, length)
-    minetest.register_decoration({
+    Everness:register_decoration({
         name = 'everness:bamboo_forest_flowers_magenta' .. length,
         deco_type = 'simple',
         place_on = { 'everness:dirt_with_grass_1' },

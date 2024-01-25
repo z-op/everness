@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_frosted_icesheet_under.y_min
 
 -- Frosted Icesheet Under
 
-minetest.register_biome({
-    name = 'everness_frosted_icesheet_under',
+Everness:register_biome({
+    name = 'everness:frosted_icesheet_under',
     node_cave_liquid = { 'mapgen_water_source', 'mapgen_lava_source' },
     node_dungeon = 'everness:icecobble',
     node_dungeon_alt = 'everness:snowcobble',
@@ -42,7 +42,7 @@ minetest.register_biome({
 -- Blob ore.
 -- These before scatter ores to avoid other ores in blobs.
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:bone',
     wherein = { 'default:stone' },
@@ -66,7 +66,7 @@ minetest.register_ore({
 -- Register decorations
 --
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icesheet_under_floors',
     deco_type = 'simple',
     place_on = { 'default:stone' },
@@ -86,7 +86,7 @@ minetest.register_decoration({
     },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icesheet_under_ceilings',
     deco_type = 'simple',
     place_on = { 'default:stone' },
@@ -105,7 +105,7 @@ minetest.register_decoration({
     },
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icesheet_under_illuminating_floors',
     deco_type = 'simple',
     place_on = {
@@ -125,7 +125,7 @@ minetest.register_decoration({
     flags = 'all_floors, force_placement'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icesheet_under_illuminating_ceilings',
     deco_type = 'simple',
     place_on = {
@@ -145,7 +145,7 @@ minetest.register_decoration({
     flags = 'all_ceilings, force_placement'
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icesheet_under_amaranita_lantern',
     deco_type = 'simple',
     place_on = {
@@ -171,7 +171,7 @@ minetest.register_decoration({
     flags = 'all_floors',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icesheet_under_vines',
     deco_type = 'simple',
     place_on = {
@@ -198,7 +198,7 @@ minetest.register_decoration({
     num_spawn_by = 8
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icicle_large_ceiling',
     deco_type = 'schematic',
     place_on = {
@@ -225,7 +225,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icicle_large_floor',
     deco_type = 'schematic',
     place_on = {
@@ -252,7 +252,7 @@ minetest.register_decoration({
     rotation = 'random',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icesheet_under_plants',
     deco_type = 'simple',
     place_on = {
@@ -282,7 +282,7 @@ minetest.register_decoration({
     flags = 'all_floors',
 })
 
-minetest.register_decoration({
+Everness:register_decoration({
     name = 'everness:frosted_icesheet_under_plants_2',
     deco_type = 'simple',
     place_on = {

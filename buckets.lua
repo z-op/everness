@@ -71,7 +71,7 @@ function bucket.register_liquid(source, flowing, itemname, inventory_image, name
     bucket.liquids[flowing] = bucket.liquids[source]
 
     if itemname ~= nil then
-        minetest.register_craftitem(itemname, {
+        Everness:register_craftitem(itemname, {
             description = name,
             inventory_image = inventory_image,
             stack_max = 1,
@@ -131,7 +131,7 @@ function bucket.register_liquid(source, flowing, itemname, inventory_image, name
     end
 end
 
-minetest.register_craftitem('everness:bucket_empty', {
+Everness:register_craftitem('everness:bucket_empty', {
     description = S('Empty Bucket'),
     inventory_image = 'everness_bucket_empty.png',
     groups = { tool = 1 },

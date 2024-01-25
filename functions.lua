@@ -39,8 +39,9 @@ local grass_covered_mapping_under = {
 
 -- Spread grass on dirt
 
-minetest.register_abm({
-    label = 'Everness Grass spread',
+Everness:register_abm({
+    label = 'everness:grass_spread',
+    description = 'Spreads grass on neighboring blocks.',
     nodenames = {
         'everness:coral_dirt',
         'everness:cursed_dirt',
@@ -112,8 +113,9 @@ minetest.register_abm({
 
 -- Spread mold/moss on stone/dirt - under
 
-minetest.register_abm({
-    label = 'Everness Grass spread under',
+Everness:register_abm({
+    label = 'everness:grass_spread_under',
+    description = 'Spreads grass on neighboring blocks in caves (under).',
     nodenames = {
         'everness:coral_desert_stone',
         'everness:soul_sandstone',
@@ -177,8 +179,9 @@ minetest.register_abm({
 -- Grass and dry grass removed in darkness
 --
 
-minetest.register_abm({
-    label = 'Everness Grass covered',
+Everness:register_abm({
+    label = 'everness:grass_covered',
+    description = 'Grass and dry grass removed in darkness.',
     nodenames = {
         'group:everness_spreading_dirt_type',
         'group:everness_spreading_dirt_type_under',
@@ -295,8 +298,9 @@ if minetest.get_modpath('default') then
     table.insert(moss_nodenames_correspondences, 'everness:coral_desert_cobble_wall')
 end
 
-minetest.register_abm({
-    label = 'Everness Moss growth',
+Everness:register_abm({
+    label = 'everness:moss_growth',
+    description = 'Grows moss on blocks near water.',
     nodenames = moss_nodenames_correspondences,
     neighbors = { 'group:water' },
     interval = 16,
@@ -349,8 +353,9 @@ if minetest.get_modpath('default') then
     table.insert(magma_nodenames_correspondences, 'everness:volcanic_rock_wall')
 end
 
-minetest.register_abm({
-    label = 'Everness Magma growth',
+Everness:register_abm({
+    label = 'everness:magma_growth',
+    description = 'Grows magma on blocks near lava.',
     nodenames = magma_nodenames_correspondences,
     neighbors = { 'group:lava' },
     interval = 16,
@@ -369,8 +374,9 @@ minetest.register_abm({
 -- Falling leaves
 --
 
-minetest.register_abm({
+Everness:register_abm({
     label = 'everness:falling_leaves',
+    description = 'Makes leaves falling particles.',
     nodenames = { 'group:falling_leaves' },
     neighbors = { 'air' },
     interval = 16,
@@ -443,8 +449,9 @@ minetest.register_abm({
 -- Falling leaves - vines
 --
 
-minetest.register_abm({
+Everness:register_abm({
     label = 'everness:falling_vines',
+    description = 'Makes vines falling particles.',
     nodenames = { 'group:falling_vines' },
     neighbors = { 'air' },
     interval = 16,
@@ -519,8 +526,9 @@ minetest.register_abm({
     end
 })
 
-minetest.register_abm({
-    label = 'Grow orange cactus',
+Everness:register_abm({
+    label = 'everness:grow_orange_cactus',
+    description = 'Grows orange cactus.',
     nodenames = {
         'everness:cactus_orange',
         'everness:cactus_blue'
@@ -537,8 +545,9 @@ minetest.register_abm({
 -- Bio Bubbles
 --
 
-minetest.register_abm({
+Everness:register_abm({
     label = 'everness:bio_bubbles',
+    description = 'Bubble particles under water.',
     nodenames = { 'group:bio_bubbles' },
     neighbors = { 'group:water' },
     interval = 16,
@@ -623,8 +632,9 @@ minetest.register_abm({
 -- Rising Souls
 --
 
-minetest.register_abm({
+Everness:register_abm({
     label = 'everness:rising_souls',
+    description = 'Rising souls particles under water.',
     nodenames = { 'group:rising_souls' },
     neighbors = { 'group:water' },
     interval = 16,
@@ -715,8 +725,9 @@ minetest.register_abm({
 -- Rising Crystals
 --
 
-minetest.register_abm({
+Everness:register_abm({
     label = 'everness:rising_crystals',
+    description = 'Crystal particles under water.',
     nodenames = { 'group:rising_crystals' },
     neighbors = { 'group:water' },
     interval = 16,
@@ -799,8 +810,9 @@ minetest.register_abm({
 })
 
 -- Mineral Waters Water Geyser
-minetest.register_abm({
+Everness:register_abm({
     label = 'everness:water_geyser',
+    description = 'Water geyser water splash.',
     nodenames = { 'everness:water_geyser' },
     interval = 16,
     chance = 16,
@@ -901,10 +913,10 @@ minetest.register_abm({
 })
 
 -- Generate bamboo tops after mineral waters biome generates decorations
-minetest.register_lbm({
+Everness:register_lbm({
     -- Descriptive label for profiling purposes (optional).
     -- Definitions with identical labels will be listed as one.
-    label = 'everness_mineral_waters_bamboo_large',
+    label = 'Generate bamboo tops after mineral waters biome generates decorations',
 
     -- Identifier of the LBM, should follow the modname:<whatever> convention
     name = 'everness:mineral_waters_bamboo_large',
@@ -982,10 +994,10 @@ minetest.register_lbm({
 })
 
 -- Activate timers on lotus flowers
-minetest.register_lbm({
+Everness:register_lbm({
     -- Descriptive label for profiling purposes (optional).
     -- Definitions with identical labels will be listed as one.
-    label = 'everness_lotus_flower_timers',
+    label = 'Activate timers on lotus flowers',
 
     -- Identifier of the LBM, should follow the modname:<whatever> convention
     name = 'everness:everness_lotus_flower_timers',
@@ -1017,8 +1029,9 @@ minetest.register_lbm({
 })
 
 -- Spread lotus flowers and leafs around them
-minetest.register_abm({
-    label = 'Lotus Flowers and Leafs spread',
+Everness:register_abm({
+    label = 'everness:lotus_flowers_and_leaves_spread',
+    description = 'Spreads lotus flowers and leaves.',
     nodenames = {
         'everness:lotus_flower_white',
         'everness:lotus_flower_purple',

@@ -23,8 +23,8 @@ local y_min = Everness.settings.biomes.everness_mineral_waters_under.y_min
 
 -- Mineral Waters
 
-minetest.register_biome({
-    name = 'everness_mineral_waters_under',
+Everness:register_biome({
+    name = 'everness:mineral_waters_under',
     node_cave_liquid = 'air',
     node_dungeon = 'everness:mineral_stone_brick',
     node_dungeon_alt = 'everness:mineral_stone_brick_with_growth',
@@ -43,7 +43,7 @@ minetest.register_biome({
 -- Blob ore.
 -- These before scatter ores to avoid other ores in blobs.
 
-minetest.register_ore({
+Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:mineral_stone',
     wherein = { 'mapgen_stone' },
