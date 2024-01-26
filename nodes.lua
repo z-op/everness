@@ -11128,7 +11128,7 @@ Everness:register_lbm({
 })
 
 Everness:register_lbm({
-    label = 'Makes cluouds from sulfur stone',
+    label = 'Makes clouds from sulfur stone',
     name = 'everness:sulfur_stone',
     nodenames = { 'everness:sulfur_stone' },
     run_at_every_load = true,
