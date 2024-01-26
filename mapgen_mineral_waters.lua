@@ -181,7 +181,7 @@ local c_everness_mineral_stone_brick_with_flower_growth = minetest.get_content_i
 local c_everness_mineral_sand = minetest.get_content_id('everness:mineral_sand')
 local c_everness_mineral_sandstone = minetest.get_content_id('everness:mineral_sandstone')
 local c_everness_mineral_sandstone_block = minetest.get_content_id('everness:mineral_sandstone_block')
-local c_everness_mineral_waters_marker = minetest.get_content_id('everness:mineral_waters_marker')
+local c_everness_chest = minetest.get_content_id('everness:chest')
 local c_everness_mineral_stone_with_coal = minetest.get_content_id('everness:mineral_stone_with_coal')
 local c_everness_mineral_stone_with_ceramic_sherds = minetest.get_content_id('everness:mineral_stone_with_ceramic_sherds')
 local c_everness_lotus_flower_white = minetest.get_content_id('everness:lotus_flower_white')
@@ -312,6 +312,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     -- local t0 = os.clock()
     -- Returns an array containing the biome IDs of nodes in the most recently generated chunk by the current mapgen
     local biomemap = minetest.get_mapgen_object('biomemap')
+    local chest_positions = {}
 
     -- Above sea level
     if maxp.y >= y_min and table.indexof(biomemap, biome_id_everness_mineral_waters) ~= -1 then
@@ -430,7 +431,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                                 data[ai_cub] = c_everness_mineral_water_source
                                             end
 
-                                            -- place loot chest marker in the middle of the pool floor
+                                            -- place loot chest in the middle of the pool floor
                                             if hi == 2
                                                 and height > 4
                                                 and math.ceil(length / 2) == li
@@ -438,7 +439,8 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                                 and data[ai_cub - area.ystride] ~= c_everness_mineral_water_source
                                                 and rand:next(0, 100) < 3
                                             then
-                                                data[ai_cub] = c_everness_mineral_waters_marker
+                                                data[ai_cub] = c_everness_chest
+                                                table.insert(chest_positions, vector.new(area:position(ai_cub)))
                                             end
                                         end
                                     end
@@ -783,7 +785,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                         if minetest.registered_tools[item_def.name] then
                             stack:set_wear(rand:next(1, 65535))
                         else
-                            stack:set_count(rand:next(1, item_def.max_count))
+                            stack:set_count(rand:next(1, math.min(item_def.max_count, stack:get_stack_max())))
                         end
 
                         inv:set_stack('main', 1, stack)
@@ -812,7 +814,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                 if minetest.registered_tools[item_def.name] then
                     stack:set_wear(rand:next(1, 65535))
                 else
-                    stack:set_count(rand:next(1, item_def.max_count))
+                    stack:set_count(rand:next(1, math.min(item_def.max_count, stack:get_stack_max())))
                 end
 
                 inv:set_stack('main', 1, stack)
@@ -827,6 +829,44 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
         vm:update_liquids()
         -- Write what has been created to the world.
         vm:write_to_map()
+
+        -- Populate loot chest inventory
+        local chest_def = minetest.registered_nodes['everness:chest']
+
+        if chest_def then
+            for i, p in ipairs(chest_positions) do
+                chest_def.on_construct(p)
+
+                local inv = minetest.get_inventory({ type = 'node', pos = p })
+
+                if not inv then
+                    minetest.log('action', '[Everness] FAILED to populate loot chests inventory at ' .. p:to_string())
+                    return
+                end
+
+                for index, value in ipairs(inv:get_list('main')) do
+                    local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
+
+                    if not minetest.registered_items[item_def.name] then
+                        return
+                    end
+
+                    if rand:next(0, 100) <= item_def.chance then
+                        local stack = ItemStack(item_def.name)
+
+                        if minetest.registered_tools[item_def.name] then
+                            stack:set_wear(rand:next(1, 65535))
+                        else
+                            stack:set_count(rand:next(1, math.min(item_def.max_count, stack:get_stack_max())))
+                        end
+
+                        inv:set_stack('main', index, stack)
+                    end
+                end
+
+                minetest.log('action', '[Everness] Loot chests inventory populated at ' .. p:to_string())
+            end
+        end
     end
 
     -- Print generation time of this mapchunk.

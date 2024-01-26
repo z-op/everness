@@ -2744,16 +2744,6 @@ Everness:register_node('everness:crystal_forest_deep_ocean_ruins_marker', {
     drop = ''
 })
 
-Everness:register_node('everness:mineral_waters_marker', {
-    drawtype = 'airlike',
-    description = 'Mineral Waters Marker',
-    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
-    _mcl_hardness = 0.2,
-    paramtype2 = 'facedir',
-    drop = ''
-})
-
 Everness:register_node('everness:mineral_waters_tower_marker', {
     drawtype = 'airlike',
     description = 'Mineral Waters Tower Marker',
