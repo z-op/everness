@@ -45,7 +45,7 @@ Everness:register_decoration({
     place_on = { 'default:stone' },
     sidelen = 16,
     fill_ratio = 10,
-    biomes = { 'everness_bamboo_forest_under' },
+    biomes = { 'everness:bamboo_forest_under' },
     y_max = y_max,
     y_min = y_min,
     place_offset_y = -1,
@@ -62,7 +62,7 @@ Everness:register_decoration({
     place_on = { 'default:stone' },
     sidelen = 16,
     fill_ratio = 0.4,
-    biomes = { 'everness_bamboo_forest_under' },
+    biomes = { 'everness:bamboo_forest_under' },
     y_max = y_max,
     y_min = y_min,
     flags = 'all_ceilings',
@@ -82,7 +82,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_bamboo_forest_under' },
+    biomes = { 'everness:bamboo_forest_under' },
     y_max = y_max - 500 > y_min and y_max - 500 or y_max,
     y_min = y_min,
     flags = 'all_floors',
@@ -99,7 +99,7 @@ Everness:register_decoration({
         'everness:vine_cave',
         'everness:vine_cave_with_mese_leaves'
     },
-    biomes = { 'everness_bamboo_forest_under' },
+    biomes = { 'everness:bamboo_forest_under' },
     y_max = y_max,
     y_min = y_min,
     flags = 'all_ceilings',
@@ -121,7 +121,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_bamboo_forest_under' },
+    biomes = { 'everness:bamboo_forest_under' },
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:cave_flower' },
@@ -142,7 +142,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_bamboo_forest_under' },
+    biomes = { 'everness:bamboo_forest_under' },
     y_max = y_max - 1000 > y_min and y_max - 1000 or y_max,
     y_min = y_min,
     decoration = { 'everness:cave_flower_with_particles' },
@@ -165,7 +165,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_bamboo_forest_under' },
+    biomes = { 'everness:bamboo_forest_under' },
     y_max = y_max - 1500 > y_min and y_max - 1500 or y_max,
     y_min = y_min,
     decoration = { 'everness:blue_vine_lantern' },

@@ -53,7 +53,7 @@ Everness:register_decoration({
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
-    biomes = { 'everness_cursed_lands_deep_ocean' },
+    biomes = { 'everness:cursed_lands_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_forsaken_lands_deep_ocean_coral_alcyonacea.mts',
@@ -68,7 +68,7 @@ Everness:register_decoration({
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
-    biomes = { 'everness_cursed_lands_deep_ocean' },
+    biomes = { 'everness:cursed_lands_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_forsaken_lands_deep_ocean_coral_ostracod.mts',
@@ -83,7 +83,7 @@ Everness:register_decoration({
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
-    biomes = { 'everness_cursed_lands_deep_ocean' },
+    biomes = { 'everness:cursed_lands_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_forsaken_lands_deep_ocean_coral_octocurse.mts',
@@ -97,7 +97,7 @@ Everness:register_decoration({
     place_offset_y = -1,
     sidelen = 4,
     fill_ratio = 0.002,
-    biomes = { 'everness_cursed_lands_deep_ocean' },
+    biomes = { 'everness:cursed_lands_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     flags = 'force_placement',
@@ -120,7 +120,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_cursed_lands_deep_ocean' },
+    biomes = { 'everness:cursed_lands_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     flags = 'force_placement',
@@ -143,7 +143,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_cursed_lands_deep_ocean' },
+    biomes = { 'everness:cursed_lands_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     flags = 'force_placement',
@@ -166,7 +166,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_cursed_lands_deep_ocean' },
+    biomes = { 'everness:cursed_lands_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     flags = 'force_placement',
@@ -239,7 +239,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             return
                         end
 
-                        if biome_name == 'everness_cursed_lands_deep_ocean' and rand:next(0, 100) < chance then
+                        if biome_name == 'everness:cursed_lands_deep_ocean' and rand:next(0, 100) < chance then
                             --
                             -- Skull
                             --

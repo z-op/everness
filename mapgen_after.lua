@@ -90,7 +90,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                     return
                 end
 
-                if biome_name == 'everness_bamboo_forest' and rand:next(0, 100) < chance then
+                if biome_name == 'everness:bamboo_forest' and rand:next(0, 100) < chance then
                     local schem = minetest.get_modpath('everness') .. '/schematics/everness_japanese_shrine.mts'
 
                     --
@@ -131,7 +131,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                     )
 
                     minetest.log('action', '[Everness] Jungle Temple was placed at ' .. schem_pos:to_string())
-                elseif biome_name == 'everness_cursed_lands' and rand:next(0, 100) < chance then
+                elseif biome_name == 'everness:cursed_lands' and rand:next(0, 100) < chance then
                     local schem = minetest.get_modpath('everness') .. '/schematics/everness_haunted_house.mts'
 
                     --
@@ -152,7 +152,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                     )
 
                     minetest.log('action', '[Everness] Haunted House was placed at ' .. schem_pos:to_string())
-                elseif biome_name == 'everness_crystal_forest' and rand:next(0, 100) < chance then
+                elseif biome_name == 'everness:crystal_forest' and rand:next(0, 100) < chance then
                     local schem = minetest.get_modpath('everness') .. '/schematics/everness_quartz_temple.mts'
 
                     --
@@ -173,7 +173,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                     )
 
                     minetest.log('action', '[Everness] Quartz Temple was placed at ' .. schem_pos:to_string())
-                elseif (biome_name == 'everness_forsaken_desert' or biome_name == 'everness_forsaken_desert_ocean')
+                elseif (biome_name == 'everness:forsaken_desert' or biome_name == 'everness:forsaken_desert_ocean')
                     and rand:next(0, 100) < chance
                 then
                     local schem = minetest.get_modpath('everness') .. '/schematics/everness_forsaken_desert_temple.mts'
@@ -243,7 +243,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             end
                         }
                     )
-                elseif (biome_name == 'everness_frosted_icesheet' or biome_name == 'everness_frosted_icesheet_ocean')
+                elseif (biome_name == 'everness:frosted_icesheet' or biome_name == 'everness:frosted_icesheet_ocean')
                     and rand:next(0, 100) < chance
                 then
                     local schem = minetest.get_modpath('everness') .. '/schematics/everness_frosted_icesheet_igloo.mts'
@@ -266,7 +266,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                     )
 
                     minetest.log('action', '[Everness] Igloo was placed at ' .. schem_pos:to_string())
-                elseif biome_name == 'everness_mineral_waters'
+                elseif biome_name == 'everness:mineral_waters'
                     and rand:next(0, 100) < chance
                 then
                     local schem = minetest.get_modpath('everness') .. '/schematics/everness_mineral_waters_tower.mts'
@@ -348,7 +348,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                     return
                 end
 
-                if biome_name == 'everness_forsaken_desert_under' and rand:next(0, 100) < chance then
+                if biome_name == 'everness:forsaken_desert_under' and rand:next(0, 100) < chance then
                     local schem = minetest.get_modpath('everness') .. '/schematics/everness_forsaken_desert_temple_2.mts'
 
                     --

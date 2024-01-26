@@ -59,7 +59,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_frosted_icesheet_under' }
+    biomes = { 'everness:frosted_icesheet_under' }
 })
 
 --
@@ -73,7 +73,7 @@ Everness:register_decoration({
     place_offset_y = -1,
     sidelen = 16,
     fill_ratio = 10,
-    biomes = { 'everness_frosted_icesheet_under' },
+    biomes = { 'everness:frosted_icesheet_under' },
     y_max = y_max,
     y_min = y_min,
     flags = 'all_floors, force_placement',
@@ -92,7 +92,7 @@ Everness:register_decoration({
     place_on = { 'default:stone' },
     sidelen = 16,
     fill_ratio = 0.4,
-    biomes = { 'everness_frosted_icesheet_under' },
+    biomes = { 'everness:frosted_icesheet_under' },
     y_max = y_max,
     y_min = y_min,
     flags = 'all_ceilings',
@@ -118,7 +118,7 @@ Everness:register_decoration({
     sidelen = 16,
     place_offset_y = -1,
     fill_ratio = 0.01,
-    biomes = { 'everness_frosted_icesheet_under' },
+    biomes = { 'everness:frosted_icesheet_under' },
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:frosted_cave_ice_illuminating' },
@@ -138,7 +138,7 @@ Everness:register_decoration({
     sidelen = 16,
     place_offset_y = -1,
     fill_ratio = 0.01,
-    biomes = { 'everness_frosted_icesheet_under' },
+    biomes = { 'everness:frosted_icesheet_under' },
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:frosted_cave_ice_illuminating' },
@@ -164,7 +164,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_frosted_icesheet_under' },
+    biomes = { 'everness:frosted_icesheet_under' },
     y_max = y_max - 500 > y_min and y_max - 500 or y_max,
     y_min = y_min,
     decoration = { 'everness:amaranita_lantern' },
@@ -183,7 +183,7 @@ Everness:register_decoration({
     },
     sidelen = 16,
     fill_ratio = 0.05,
-    biomes = { 'everness_frosted_icesheet_under' },
+    biomes = { 'everness:frosted_icesheet_under' },
     param2 = 8,
     decoration = {
         'everness:tenanea_flowers_vine_1',
@@ -217,7 +217,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_frosted_icesheet_under' },
+    biomes = { 'everness:frosted_icesheet_under' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_frosted_icicle_large_ceiling.mts',
@@ -244,7 +244,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_frosted_icesheet_under' },
+    biomes = { 'everness:frosted_icesheet_under' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_frosted_icicle_large_floor.mts',
@@ -272,7 +272,7 @@ Everness:register_decoration({
         persist = 0.6
     },
     param2 = 8,
-    biomes = { 'everness_frosted_icesheet_under' },
+    biomes = { 'everness:frosted_icesheet_under' },
     y_max = y_max,
     y_min = y_min,
     decoration = {
@@ -301,7 +301,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_frosted_icesheet_under' },
+    biomes = { 'everness:frosted_icesheet_under' },
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:creeping_moss_spores' },

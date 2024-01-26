@@ -63,7 +63,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_coral_forest_ocean' }
+    biomes = { 'everness:coral_forest_deep_ocean' }
 })
 
 --
@@ -87,7 +87,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_coral_forest_deep_ocean' },
+    biomes = { 'everness:coral_forest_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_coral_forest_deep_ocean_coral_reef_pink.mts',
@@ -109,7 +109,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_coral_forest_deep_ocean' },
+    biomes = { 'everness:coral_forest_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_coral_forest_deep_ocean_coral_reef_cyan.mts',
@@ -131,7 +131,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_coral_forest_deep_ocean' },
+    biomes = { 'everness:coral_forest_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_coral_forest_deep_ocean_coral_reef_green.mts',
@@ -153,7 +153,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_coral_forest_deep_ocean' },
+    biomes = { 'everness:coral_forest_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_coral_forest_deep_ocean_coral_reef_red.mts',
@@ -168,7 +168,7 @@ Everness:register_decoration({
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
-    biomes = { 'everness_coral_forest_deep_ocean' },
+    biomes = { 'everness:coral_forest_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_coral_forest_deep_ocean_coral_pink.mts',
@@ -183,7 +183,7 @@ Everness:register_decoration({
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
-    biomes = { 'everness_coral_forest_deep_ocean' },
+    biomes = { 'everness:coral_forest_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_coral_forest_deep_ocean_coral_cyan.mts',
@@ -198,7 +198,7 @@ Everness:register_decoration({
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
-    biomes = { 'everness_coral_forest_deep_ocean' },
+    biomes = { 'everness:coral_forest_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_coral_forest_deep_ocean_coral_green.mts',
@@ -213,7 +213,7 @@ Everness:register_decoration({
     num_spawn_by = 8,
     sidelen = 16,
     fill_ratio = 0.002,
-    biomes = { 'everness_coral_forest_deep_ocean' },
+    biomes = { 'everness:coral_forest_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_coral_forest_deep_ocean_coral_red.mts',
@@ -227,7 +227,7 @@ Everness:register_decoration({
     place_offset_y = -1,
     sidelen = 4,
     fill_ratio = 0.002,
-    biomes = { 'everness_coral_forest_deep_ocean' },
+    biomes = { 'everness:coral_forest_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     flags = 'force_placement',
@@ -250,7 +250,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_coral_forest_deep_ocean' },
+    biomes = { 'everness:coral_forest_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     flags = 'force_placement',
@@ -273,7 +273,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_coral_forest_deep_ocean' },
+    biomes = { 'everness:coral_forest_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     flags = 'force_placement',
@@ -296,7 +296,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_coral_forest_deep_ocean' },
+    biomes = { 'everness:coral_forest_deep_ocean' },
     y_max = y_max,
     y_min = y_min,
     flags = 'force_placement',
@@ -369,7 +369,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             return
                         end
 
-                        if biome_name == 'everness_coral_forest_deep_ocean' and rand:next(0, 100) < chance then
+                        if biome_name == 'everness:coral_forest_deep_ocean' and rand:next(0, 100) < chance then
                             --
                             -- Coral Forest Deep Ocean House
                             --

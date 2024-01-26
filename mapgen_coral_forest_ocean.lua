@@ -64,7 +64,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_coral_forest_ocean' }
+    biomes = { 'everness:coral_forest_ocean' }
 })
 
 -- Coral sand
@@ -86,7 +86,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_coral_forest_ocean' }
+    biomes = { 'everness:coral_forest_ocean' }
 })
 
 -- Dirt
@@ -108,7 +108,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_coral_forest_ocean' }
+    biomes = { 'everness:coral_forest_ocean' }
 })
 
 -- Scatter ores
@@ -124,7 +124,7 @@ Everness:register_ore({
     clust_size = 3,
     y_max = y_max,
     y_min = y_min,
-    biomes = { 'everness_coral_forest_ocean' }
+    biomes = { 'everness:coral_forest_ocean' }
 })
 
 --
@@ -149,7 +149,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_coral_forest_ocean' },
+    biomes = { 'everness:coral_forest_ocean' },
     y_max = y_max - 5 > y_min and y_max - 5 or y_max,
     y_min = y_max - 11 > y_min and y_max - 11 or y_min,
     flags = 'force_placement',

@@ -59,7 +59,8 @@ Everness:register_ore({
         seed = 766,
         octaves = 1,
         persist = 0.0
-    }
+    },
+    biomes = { 'everness:mineral_waters_under' }
 })
 
 --

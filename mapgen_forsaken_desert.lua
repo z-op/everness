@@ -63,7 +63,7 @@ Everness:register_ore({
         octaves = 1,
     },
     stratum_thickness = 4,
-    biomes = { 'everness_forsaken_desert' },
+    biomes = { 'everness:forsaken_desert' },
 })
 
 Everness:register_ore({
@@ -81,7 +81,7 @@ Everness:register_ore({
         octaves = 1,
     },
     stratum_thickness = 2,
-    biomes = { 'everness_forsaken_desert' },
+    biomes = { 'everness:forsaken_desert' },
 })
 
 --
@@ -101,7 +101,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_forsaken_desert' },
+    biomes = { 'everness:forsaken_desert' },
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:forsaken_desert_plant_1' },
@@ -121,7 +121,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_forsaken_desert' },
+    biomes = { 'everness:forsaken_desert' },
     y_max = y_max,
     y_min = y_min,
     decoration = {
@@ -144,7 +144,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_forsaken_desert' },
+    biomes = { 'everness:forsaken_desert' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_termite_nest.mts',
@@ -165,7 +165,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_forsaken_desert' },
+    biomes = { 'everness:forsaken_desert' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_hollow_tree.mts',
@@ -186,7 +186,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_forsaken_desert' },
+    biomes = { 'everness:forsaken_desert' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_hollow_tree_large.mts',

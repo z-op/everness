@@ -67,7 +67,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_crystal_forest' }
+    biomes = { 'everness:crystal_forest' }
 })
 
 -- Dirt
@@ -89,7 +89,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_crystal_forest' }
+    biomes = { 'everness:crystal_forest' }
 })
 
 -- Scatter ores
@@ -105,7 +105,7 @@ Everness:register_ore({
     clust_size = 3,
     y_max = y_max,
     y_min = y_min,
-    biomes = { 'everness_crystal_forest' }
+    biomes = { 'everness:crystal_forest' }
 })
 
 --
@@ -125,7 +125,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_crystal_forest' },
+    biomes = { 'everness:crystal_forest' },
     y_max = y_max,
     y_min = y_min,
     decoration = 'everness:crystal_mushrooms',
@@ -146,7 +146,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_crystal_forest' },
+    biomes = { 'everness:crystal_forest' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_crystal_tree.mts',
@@ -168,7 +168,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_crystal_forest' },
+    biomes = { 'everness:crystal_forest' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_crystal_tree_large.mts',
@@ -190,7 +190,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_crystal_forest' },
+    biomes = { 'everness:crystal_forest' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_crystal_bush.mts',
@@ -211,7 +211,7 @@ local function register_crystal_grass_decoration(offset, scale, length)
             octaves = 3,
             persist = 0.6
         },
-        biomes = { 'everness_crystal_forest' },
+        biomes = { 'everness:crystal_forest' },
         y_max = y_max,
         y_min = y_min,
         decoration = 'everness:crystal_grass_' .. length,

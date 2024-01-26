@@ -19,19 +19,19 @@ local mod_start_time = minetest.get_us_time()
 local allowed_biomes = {}
 
 if Everness.settings.biomes.everness_forsaken_desert.enabled then
-    table.insert(allowed_biomes, 'everness_forsaken_desert')
+    table.insert(allowed_biomes, 'everness:forsaken_desert')
 end
 
 if Everness.settings.biomes.everness_forsaken_desert_ocean.enabled then
-    table.insert(allowed_biomes, 'everness_forsaken_desert_ocean')
+    table.insert(allowed_biomes, 'everness:forsaken_desert_ocean')
 end
 
 if Everness.settings.biomes.everness_forsaken_desert_under.enabled then
-    table.insert(allowed_biomes, 'everness_forsaken_desert_under')
+    table.insert(allowed_biomes, 'everness:forsaken_desert_under')
 end
 
 if Everness.settings.biomes.everness_baobab_savanna.enabled then
-    table.insert(allowed_biomes, 'everness_baobab_savanna')
+    table.insert(allowed_biomes, 'everness:baobab_savanna')
 end
 
 if #allowed_biomes > 0 then

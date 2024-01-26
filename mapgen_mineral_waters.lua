@@ -59,7 +59,7 @@ Everness:register_ore({
     clust_size = 3,
     y_max = y_max,
     y_min = y_min,
-    biomes = { 'everness_mineral_waters' }
+    biomes = { 'everness:mineral_waters' }
 })
 
 Everness:register_ore({
@@ -71,7 +71,7 @@ Everness:register_ore({
     clust_size = 3,
     y_max = y_max,
     y_min = y_min,
-    biomes = { 'everness_mineral_waters' }
+    biomes = { 'everness:mineral_waters' }
 })
 
 --
@@ -92,7 +92,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_mineral_waters' },
+    biomes = { 'everness:mineral_waters' },
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:crystal_stone' },
@@ -111,7 +111,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_mineral_waters' },
+    biomes = { 'everness:mineral_waters' },
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:crystal_stone' },
@@ -136,7 +136,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_mineral_waters' },
+    biomes = { 'everness:mineral_waters' },
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:crystal_stone' },
@@ -158,7 +158,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_mineral_waters' },
+    biomes = { 'everness:mineral_waters' },
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:crystal_stone' },
@@ -198,7 +198,7 @@ local c_everness_mineral_water_weed_1 = minetest.get_content_id('everness:minera
 local c_everness_mineral_water_weed_2 = minetest.get_content_id('everness:mineral_water_weed_2')
 local c_everness_mineral_water_weed_3 = minetest.get_content_id('everness:mineral_water_weed_3')
 -- Biome IDs
-local biome_id_everness_mineral_waters = minetest.get_biome_id('everness_mineral_waters')
+local biome_id_everness_mineral_waters = minetest.get_biome_id('everness:mineral_waters')
 -- Decoration IDs
 local d_everness_palm_trees = minetest.get_decoration_id('everness:palm_trees')
 local d_everness_water_geyser = minetest.get_decoration_id('everness:water_geyser')
@@ -371,7 +371,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                         return
                                     end
 
-                                    if b_name ~= 'everness_mineral_waters'
+                                    if b_name ~= 'everness:mineral_waters'
                                         -- for mese trees, they dont have specific biome
                                         or minetest.get_item_group(n_name, 'tree') > 0
                                         or minetest.get_item_group(n_name, 'leaves') > 0

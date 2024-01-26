@@ -67,7 +67,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_coral_forest' }
+    biomes = { 'everness:coral_forest' }
 })
 
 -- Dirt
@@ -89,7 +89,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_coral_forest' }
+    biomes = { 'everness:coral_forest' }
 })
 
 -- Scatter ores
@@ -105,7 +105,7 @@ Everness:register_ore({
     clust_size = 3,
     y_max = y_max,
     y_min = y_min,
-    biomes = { 'everness_coral_forest' }
+    biomes = { 'everness:coral_forest' }
 })
 
 --
@@ -131,7 +131,7 @@ if chunksize >= 5 then
             octaves = 3,
             persist = 0.66
         },
-        biomes = { 'everness_coral_forest' },
+        biomes = { 'everness:coral_forest' },
         y_max = y_max,
         y_min = y_min,
         schematic = minetest.get_modpath('everness') .. '/schematics/everness_coral_tree.mts',
@@ -156,7 +156,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_coral_forest' },
+    biomes = { 'everness:coral_forest' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_coral_bones_tree.mts',
@@ -177,7 +177,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_coral_forest' },
+    biomes = { 'everness:coral_forest' },
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:coral_burdock_1', 'everness:coral_burdock_2' },
@@ -198,7 +198,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_coral_forest' },
+    biomes = { 'everness:coral_forest' },
     y_max = y_max,
     y_min = y_min,
     decoration = 'everness:coral_bush'
@@ -217,7 +217,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_coral_forest' },
+    biomes = { 'everness:coral_forest' },
     y_max = y_max,
     y_min = y_min,
     decoration = 'everness:coral_shrub'
@@ -237,7 +237,7 @@ local function register_coral_grass_decoration(offset, scale, length)
             octaves = 3,
             persist = 0.6
         },
-        biomes = { 'everness_coral_forest' },
+        biomes = { 'everness:coral_forest' },
         y_max = y_max,
         y_min = y_min,
         decoration = 'everness:coral_grass_' .. length,

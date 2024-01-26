@@ -68,7 +68,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_crystal_forest_shore' }
+    biomes = { 'everness:crystal_forest_shore' }
 })
 
 -- Dirt
@@ -90,7 +90,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_crystal_forest_shore' }
+    biomes = { 'everness:crystal_forest_shore' }
 })
 
 -- Scatter ores
@@ -106,7 +106,7 @@ Everness:register_ore({
     clust_size = 3,
     y_max = y_max,
     y_min = y_min,
-    biomes = { 'everness_crystal_forest_shore' }
+    biomes = { 'everness:crystal_forest_shore' }
 })
 
 --
@@ -126,7 +126,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7
     },
-    biomes = { 'everness_crystal_forest_shore' },
+    biomes = { 'everness:crystal_forest_shore' },
     y_max = y_max,
     y_min = y_max,
     decoration = 'everness:crystal_waterlily',

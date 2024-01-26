@@ -15,7 +15,7 @@
 --]]
 
 local SOUND_DEFS = {
-    everness_cursed_lands = {
+    ['everness:cursed_lands'] = {
         day = {
             {
                 name = 'everness_ambience_graveyard_1',
@@ -156,7 +156,7 @@ local SOUND_DEFS = {
             },
         }
     },
-    everness_cursed_lands_swamp = {
+    ['everness:cursed_lands_swamp'] = {
         day = {
             {
                 name = 'everness_ambience_swamp_1',
@@ -180,7 +180,7 @@ local SOUND_DEFS = {
             },
         }
     },
-    everness_cursed_lands_under = {
+    ['everness:cursed_lands_under'] = {
         day = {
             {
                 name = 'everness_ambience_monster_sigh_cave',
@@ -304,7 +304,7 @@ local SOUND_DEFS = {
             },
         }
     },
-    everness_coral_forest_under = {
+    ['everness:coral_forest_under'] = {
         day = {
             {
                 name = 'everness_ambience_monster_sigh_cave',
@@ -398,7 +398,7 @@ local SOUND_DEFS = {
             },
         }
     },
-    everness_frosted_icesheet = {
+    ['everness:frosted_icesheet'] = {
         day = {
             {
                 name = 'everness_ambience_snow_storm_1',
@@ -437,7 +437,7 @@ local SOUND_DEFS = {
             },
         }
     },
-    everness_frosted_icesheet_ocean = {
+    ['everness:frosted_icesheet_ocean'] = {
         day = {
             {
                 name = 'everness_ambience_snow_storm_1',
@@ -476,7 +476,7 @@ local SOUND_DEFS = {
             },
         }
     },
-    everness_frosted_icesheet_under = {
+    ['everness:frosted_icesheet_under'] = {
         day = {
             {
                 name = 'everness_ambience_monster_sigh_cave',
@@ -570,7 +570,7 @@ local SOUND_DEFS = {
             },
         }
     },
-    everness_crystal_forest_under = {
+    ['everness:crystal_forest_under'] = {
         day = {
             {
                 name = 'everness_ambience_monster_sigh_cave',
@@ -664,7 +664,7 @@ local SOUND_DEFS = {
             },
         }
     },
-    everness_bamboo_forest_under = {
+    ['everness:bamboo_forest_under'] = {
         day = {
             {
                 name = 'everness_ambience_monster_sigh_cave',
@@ -758,7 +758,7 @@ local SOUND_DEFS = {
             },
         }
     },
-    everness_forsaken_desert_under = {
+    ['everness:forsaken_desert_under'] = {
         day = {
             {
                 name = 'everness_ambience_monster_sigh_cave',
@@ -852,7 +852,7 @@ local SOUND_DEFS = {
             },
         }
     },
-    everness_forsaken_tundra = {
+    ['everness:forsaken_tundra'] = {
         day = {
             {
                 name = 'everness_ambience_sulfur_1',
@@ -886,7 +886,7 @@ local SOUND_DEFS = {
             },
         }
     },
-    everness_forsaken_tundra_under = {
+    ['everness:forsaken_tundra_under'] = {
         day = {
             {
                 name = 'everness_ambience_monster_sigh_cave',

@@ -59,7 +59,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_forsaken_tundra_under' }
+    biomes = { 'everness:forsaken_tundra_under' }
 })
 
 --
@@ -73,7 +73,7 @@ Everness:register_decoration({
     sidelen = 16,
     place_offset_y = -1,
     fill_ratio = 10,
-    biomes = { 'everness_forsaken_tundra_under' },
+    biomes = { 'everness:forsaken_tundra_under' },
     y_max = y_max,
     y_min = y_min,
     flags = 'all_floors, force_placement',
@@ -88,7 +88,7 @@ Everness:register_decoration({
     place_on = { 'default:stone' },
     sidelen = 16,
     fill_ratio = 0.4,
-    biomes = { 'everness_forsaken_tundra_under' },
+    biomes = { 'everness:forsaken_tundra_under' },
     y_max = y_max,
     y_min = y_min,
     flags = 'all_ceilings',
@@ -104,7 +104,7 @@ Everness:register_decoration({
     sidelen = 16,
     place_offset_y = -1,
     fill_ratio = 0.02,
-    biomes = { 'everness_forsaken_tundra_under' },
+    biomes = { 'everness:forsaken_tundra_under' },
     y_max = y_max - 500 > y_min and y_max - 500 or y_max,
     y_min = y_min,
     decoration = {
@@ -122,7 +122,7 @@ Everness:register_decoration({
     sidelen = 16,
     place_offset_y = -1,
     fill_ratio = 0.02,
-    biomes = { 'everness_forsaken_tundra_under' },
+    biomes = { 'everness:forsaken_tundra_under' },
     y_max = y_max - 500 > y_min and y_max - 500 or y_max,
     y_min = y_min,
     decoration = {
@@ -146,7 +146,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_forsaken_tundra_under' },
+    biomes = { 'everness:forsaken_tundra_under' },
     y_max = y_max - 500 > y_min and y_max - 500 or y_max,
     y_min = y_min,
     decoration = 'everness:cactus_orange',
@@ -168,7 +168,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_forsaken_tundra_under' },
+    biomes = { 'everness:forsaken_tundra_under' },
     y_max = y_max,
     y_min = y_min,
     decoration = 'everness:bloodspore_plant_small',
@@ -182,7 +182,7 @@ Everness:register_decoration({
     place_on = { 'everness:moss_block' },
     sidelen = 16,
     fill_ratio = 0.05,
-    biomes = { 'everness_forsaken_tundra_under' },
+    biomes = { 'everness:forsaken_tundra_under' },
     param2 = 8,
     decoration = {
         'everness:whispering_gourd_vine_1',
@@ -210,7 +210,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_forsaken_tundra_under' },
+    biomes = { 'everness:forsaken_tundra_under' },
     y_max = y_max - 1000 > y_min and y_max - 1000 or y_max,
     y_min = y_min,
     decoration = { 'everness:glowing_pillar' },
@@ -232,7 +232,7 @@ local function register_agave_leaf_decoration(offset, scale, length)
             persist = 0.6
         },
         param2 = 8,
-        biomes = { 'everness_forsaken_tundra_under' },
+        biomes = { 'everness:forsaken_tundra_under' },
         y_max = y_max,
         y_min = y_min,
         decoration = 'everness:agave_leaf_' .. length,
@@ -300,7 +300,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                     return
                 end
 
-                if biome_name == 'everness_forsaken_tundra_under' and rand:next(0, 100) < chance then
+                if biome_name == 'everness:forsaken_tundra_under' and rand:next(0, 100) < chance then
                     --
                     -- Willow Tree
                     --

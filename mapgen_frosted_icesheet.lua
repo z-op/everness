@@ -66,7 +66,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_frosted_icesheet' },
+    biomes = { 'everness:frosted_icesheet' },
     y_max = y_max,
     y_min = (y_max - y_max) + 4,
     flags = 'place_center_x, place_center_z',
@@ -88,7 +88,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_frosted_icesheet' },
+    biomes = { 'everness:frosted_icesheet' },
     y_max = y_max,
     y_min = (y_max - y_max) + 2,
     flags = 'place_center_x, place_center_z',
@@ -112,7 +112,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_frosted_icesheet' },
+    biomes = { 'everness:frosted_icesheet' },
     y_max = y_max,
     y_min = (y_max - y_max) + 1,
     flags = 'place_center_x, place_center_z',

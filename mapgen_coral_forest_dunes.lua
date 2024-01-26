@@ -68,7 +68,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_coral_forest_dunes' }
+    biomes = { 'everness:coral_forest_dunes' }
 })
 
 -- Dirt
@@ -90,7 +90,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_coral_forest_dunes' }
+    biomes = { 'everness:coral_forest_dunes' }
 })
 
 -- Scatter ores
@@ -106,7 +106,7 @@ Everness:register_ore({
     clust_size = 3,
     y_max = y_max,
     y_min = y_min,
-    biomes = { 'everness_coral_forest_dunes' }
+    biomes = { 'everness:coral_forest_dunes' }
 })
 
 --
@@ -129,7 +129,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_coral_forest_dunes' },
+    biomes = { 'everness:coral_forest_dunes' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('x_clay')
@@ -154,7 +154,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_coral_forest_dunes' },
+    biomes = { 'everness:coral_forest_dunes' },
     y_max = y_max,
     y_min = y_min,
     decoration = 'everness:coral_bush'
@@ -173,7 +173,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_coral_forest_dunes' },
+    biomes = { 'everness:coral_forest_dunes' },
     y_max = y_max,
     y_min = y_min,
     decoration = 'everness:coral_shrub'

@@ -68,7 +68,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_cursed_lands_dunes' }
+    biomes = { 'everness:cursed_lands_dunes' }
 })
 
 -- Dirt
@@ -90,7 +90,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_cursed_lands_dunes' }
+    biomes = { 'everness:cursed_lands_dunes' }
 })
 
 -- Mud
@@ -112,7 +112,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_cursed_lands_dunes' }
+    biomes = { 'everness:cursed_lands_dunes' }
 })
 
 -- Scatter ores
@@ -128,7 +128,7 @@ Everness:register_ore({
     clust_size = 3,
     y_max = y_max,
     y_min = y_min,
-    biomes = { 'everness_cursed_lands_dunes' }
+    biomes = { 'everness:cursed_lands_dunes' }
 })
 
 --
@@ -154,7 +154,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_cursed_lands_dunes' },
+    biomes = { 'everness:cursed_lands_dunes' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_dry_tree.mts',

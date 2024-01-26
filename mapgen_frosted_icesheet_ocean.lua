@@ -61,7 +61,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_frosted_icesheet_ocean' },
+    biomes = { 'everness:frosted_icesheet_ocean' },
     y_max = y_max - (y_max + 2), -- -2
     y_min = y_max - (y_max + 50), -- -50
     flags = 'force_placement',

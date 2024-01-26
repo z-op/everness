@@ -65,7 +65,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = {'everness_forsaken_tundra' }
+    biomes = {'everness:forsaken_tundra' }
 })
 
 --
@@ -86,7 +86,7 @@ Everness:register_decoration({
         persist = 0.0,
         flags = 'absvalue, eased'
     },
-    biomes = { 'everness_forsaken_tundra' },
+    biomes = { 'everness:forsaken_tundra' },
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:volcanic_sulfur' },
@@ -110,7 +110,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_forsaken_tundra' },
+    biomes = { 'everness:forsaken_tundra' },
     y_max = y_max,
     y_min = y_min,
     place_offset_y = -1,
@@ -134,7 +134,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 1.0
     },
-    biomes = { 'everness_forsaken_tundra' },
+    biomes = { 'everness:forsaken_tundra' },
     y_max = y_max,
     y_min = y_min,
     decoration = 'everness:forsaken_tundra_dirt_with_grass',
@@ -155,7 +155,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_forsaken_tundra' },
+    biomes = { 'everness:forsaken_tundra' },
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:volcanic_sulfur' },
@@ -174,7 +174,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_forsaken_tundra' },
+    biomes = { 'everness:forsaken_tundra' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_forsaken_tundra_rocks.mts',
@@ -195,7 +195,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_forsaken_tundra' },
+    biomes = { 'everness:forsaken_tundra' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_sulfur_volcano.mts',
@@ -218,7 +218,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_forsaken_tundra' },
+    biomes = { 'everness:forsaken_tundra' },
     y_max = y_max,
     y_min = y_min,
     decoration = 'everness:bloodspore_plant',
@@ -240,7 +240,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_forsaken_tundra' },
+    biomes = { 'everness:forsaken_tundra' },
     y_max = y_max,
     y_min = y_min,
     decoration = 'everness:bloodspore_plant',

@@ -46,7 +46,7 @@ Everness:register_decoration({
     place_offset_y = -1,
     sidelen = 16,
     fill_ratio = 10,
-    biomes = { 'everness_cursed_lands_under' },
+    biomes = { 'everness:cursed_lands_under' },
     y_max = y_max,
     y_min = y_min,
     flags = 'all_floors, force_placement',
@@ -61,7 +61,7 @@ Everness:register_decoration({
     place_on = { 'default:stone' },
     sidelen = 16,
     fill_ratio = 0.4,
-    biomes = { 'everness_cursed_lands_under' },
+    biomes = { 'everness:cursed_lands_under' },
     y_max = y_max,
     y_min = y_min,
     flags = 'all_ceilings',
@@ -83,7 +83,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_cursed_lands_under' },
+    biomes = { 'everness:cursed_lands_under' },
     y_max = y_max - 1000 > y_min and y_max - 1000 or y_max,
     y_min = y_min,
     decoration = 'everness:skull_with_candle',
@@ -97,7 +97,7 @@ Everness:register_decoration({
     place_on = { 'everness:moss_block' },
     sidelen = 16,
     fill_ratio = 0.05,
-    biomes = { 'everness_cursed_lands_under' },
+    biomes = { 'everness:cursed_lands_under' },
     param2 = 8,
     decoration = {
         'everness:eye_vine_1',
@@ -125,7 +125,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_cursed_lands_under' },
+    biomes = { 'everness:cursed_lands_under' },
     y_max = y_max - 500 > y_min and y_max - 500 or y_max,
     y_min = y_min,
     decoration = { 'everness:cursed_pumpkin_lantern' },
@@ -147,7 +147,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_cursed_lands_under' },
+    biomes = { 'everness:cursed_lands_under' },
     y_max = y_max - 1500 > y_min and y_max - 1500 or y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_cursed_dream_tree.mts',
@@ -170,7 +170,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_cursed_lands_under' },
+    biomes = { 'everness:cursed_lands_under' },
     y_max = y_max,
     y_min = y_min,
     decoration = {
@@ -194,7 +194,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_cursed_lands_under' },
+    biomes = { 'everness:cursed_lands_under' },
     y_max = y_max,
     y_min = y_min,
     decoration = {
@@ -210,7 +210,7 @@ Everness:register_decoration({
     place_on = { 'everness:soul_sandstone_veined' },
     sidelen = 16,
     fill_ratio = 0.02,
-    biomes = { 'everness_cursed_lands_under' },
+    biomes = { 'everness:cursed_lands_under' },
     y_max = y_max,
     y_min = y_min,
     decoration = { 'everness:cobweb' },

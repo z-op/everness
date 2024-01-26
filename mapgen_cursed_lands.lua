@@ -63,7 +63,7 @@ Everness:register_ore({
         octaves = 1,
     },
     stratum_thickness = 4,
-    biomes = { 'everness_cursed_lands' },
+    biomes = { 'everness:cursed_lands' },
 })
 
 Everness:register_ore({
@@ -81,7 +81,7 @@ Everness:register_ore({
         octaves = 1,
     },
     stratum_thickness = 2,
-    biomes = { 'everness_cursed_lands' },
+    biomes = { 'everness:cursed_lands' },
 })
 
 -- Blob ore.
@@ -106,7 +106,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_cursed_lands' }
+    biomes = { 'everness:cursed_lands' }
 })
 
 -- Dirt
@@ -128,7 +128,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_cursed_lands' }
+    biomes = { 'everness:cursed_lands' }
 })
 
 -- Mud
@@ -150,7 +150,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_cursed_lands' }
+    biomes = { 'everness:cursed_lands' }
 })
 
 -- Scatter ores
@@ -166,7 +166,7 @@ Everness:register_ore({
     clust_size = 3,
     y_max = y_max,
     y_min = y_min,
-    biomes = { 'everness_cursed_lands' }
+    biomes = { 'everness:cursed_lands' }
 })
 
 --
@@ -186,7 +186,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_cursed_lands' },
+    biomes = { 'everness:cursed_lands' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_cemetery.mts',
@@ -207,7 +207,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_cursed_lands' },
+    biomes = { 'everness:cursed_lands' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_ruins_1.mts',
@@ -229,7 +229,7 @@ local function register_red_castor_decoration(offset, scale, length)
             octaves = 3,
             persist = 0.6
         },
-        biomes = { 'everness_cursed_lands' },
+        biomes = { 'everness:cursed_lands' },
         y_max = y_max,
         y_min = y_min,
         decoration = 'everness:red_castor_' .. length,
@@ -257,7 +257,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_cursed_lands' },
+    biomes = { 'everness:cursed_lands' },
     y_max = y_max,
     y_min = y_min,
     flags = 'force_placement',
@@ -283,7 +283,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_cursed_lands' },
+    biomes = { 'everness:cursed_lands' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_dry_tree.mts',
@@ -305,7 +305,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_cursed_lands' },
+    biomes = { 'everness:cursed_lands' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_cursed_bush.mts',

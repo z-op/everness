@@ -61,7 +61,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_coral_forest_under' }
+    biomes = { 'everness:coral_forest_under' }
 })
 
 --
@@ -77,7 +77,7 @@ Everness:register_decoration({
     place_offset_y = -1,
     sidelen = 16,
     fill_ratio = 10,
-    biomes = { 'everness_coral_forest_under' },
+    biomes = { 'everness:coral_forest_under' },
     y_max = y_max,
     y_min = y_min,
     flags = 'all_floors, force_placement',
@@ -92,7 +92,7 @@ Everness:register_decoration({
     place_on = { 'default:stone' },
     sidelen = 16,
     fill_ratio = 0.4,
-    biomes = { 'everness_coral_forest_under' },
+    biomes = { 'everness:coral_forest_under' },
     y_max = y_max,
     y_min = y_min,
     flags = 'all_ceilings',
@@ -115,7 +115,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_coral_forest_under' },
+    biomes = { 'everness:coral_forest_under' },
     y_max = y_max - 1500 > y_min and y_max - 1500 or y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_coral_tree_bioluminescent.mts',
@@ -139,7 +139,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_coral_forest_under' },
+    biomes = { 'everness:coral_forest_under' },
     y_max = y_max,
     y_min = y_min,
     decoration = 'everness:coral_plant_bioluminescent',
@@ -159,7 +159,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_coral_forest_under' },
+    biomes = { 'everness:coral_forest_under' },
     y_max = y_max - 1000 > y_min and y_max - 1000 or y_max,
     y_min = y_min,
     decoration = 'everness:lumecorn',
@@ -172,7 +172,7 @@ Everness:register_decoration({
     place_on = { 'everness:moss_block' },
     sidelen = 16,
     fill_ratio = 0.05,
-    biomes = { 'everness_coral_forest_under' },
+    biomes = { 'everness:coral_forest_under' },
     param2 = 8,
     decoration = {
         'everness:lumabus_vine_1',
@@ -200,7 +200,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_coral_forest_under' },
+    biomes = { 'everness:coral_forest_under' },
     y_max = y_max - 500 > y_min and y_max - 500 or y_max,
     y_min = y_min,
     decoration = {

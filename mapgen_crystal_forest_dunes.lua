@@ -68,7 +68,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_crystal_forest_dunes' }
+    biomes = { 'everness:crystal_forest_dunes' }
 })
 
 -- Dirt
@@ -90,7 +90,7 @@ Everness:register_ore({
         octaves = 1,
         persist = 0.0
     },
-    biomes = { 'everness_crystal_forest_dunes' }
+    biomes = { 'everness:crystal_forest_dunes' }
 })
 
 --
@@ -110,7 +110,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_crystal_forest_dunes' },
+    biomes = { 'everness:crystal_forest_dunes' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_crystal_forest_ruins_1.mts',
@@ -132,7 +132,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.6
     },
-    biomes = { 'everness_crystal_forest_dunes' },
+    biomes = { 'everness:crystal_forest_dunes' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_crystal_forest_ruins_2.mts',

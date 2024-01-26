@@ -62,7 +62,7 @@ Everness:register_decoration({
         octaves = 4,
         persist = 1.0
     },
-    biomes = { 'everness_baobab_savanna' },
+    biomes = { 'everness:baobab_savanna' },
     y_max = y_max,
     y_min = y_min,
     decoration = 'everness:dry_dirt',
@@ -85,7 +85,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_baobab_savanna' },
+    biomes = { 'everness:baobab_savanna' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_baobab_tree.mts',
@@ -108,7 +108,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.7,
     },
-    biomes = { 'everness_baobab_savanna' },
+    biomes = { 'everness:baobab_savanna' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_baobab_tree.mts',
@@ -130,7 +130,7 @@ Everness:register_decoration({
         octaves = 3,
         persist = 0.66
     },
-    biomes = { 'everness_baobab_savanna' },
+    biomes = { 'everness:baobab_savanna' },
     y_max = y_max,
     y_min = y_min,
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_baobab_log.mts',
@@ -156,7 +156,7 @@ local function register_dry_grass_decoration(offset, scale, length)
             octaves = 3,
             persist = 0.6
         },
-        biomes = { 'everness_baobab_savanna' },
+        biomes = { 'everness:baobab_savanna' },
         y_max = y_max,
         y_min = y_min,
         decoration = 'everness:dry_grass_' .. length,

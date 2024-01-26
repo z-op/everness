@@ -15,7 +15,7 @@
 --]]
 
 local skybox_defs = {
-    everness_cursed_lands = {
+    ['everness:cursed_lands'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -46,7 +46,7 @@ local skybox_defs = {
             speed = { x = -2, z = -2 }
         }
     },
-    everness_cursed_lands_dunes = {
+    ['everness:cursed_lands_dunes'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -77,7 +77,7 @@ local skybox_defs = {
             speed = { x = -2, z = -2 }
         }
     },
-    everness_cursed_lands_swamp = {
+    ['everness:cursed_lands_swamp'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -108,7 +108,7 @@ local skybox_defs = {
             speed = { x = -2, z = -2 }
         }
     },
-    everness_cursed_lands_ocean = {
+    ['everness:cursed_lands_ocean'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -139,7 +139,7 @@ local skybox_defs = {
             speed = { x = -2, z = -2 }
         }
     },
-    everness_cursed_lands_under = {
+    ['everness:cursed_lands_under'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -170,7 +170,7 @@ local skybox_defs = {
             speed = { x = -2, z = -2 }
         }
     },
-    everness_coral_forest = {
+    ['everness:coral_forest'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -193,7 +193,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_coral_forest_dunes = {
+    ['everness:coral_forest_dunes'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -216,7 +216,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_coral_forest_ocean = {
+    ['everness:coral_forest_ocean'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -239,7 +239,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_coral_forest_under = {
+    ['everness:coral_forest_under'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -256,7 +256,7 @@ local skybox_defs = {
             }
         },
     },
-    everness_bamboo_forest = {
+    ['everness:bamboo_forest'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -281,7 +281,7 @@ local skybox_defs = {
             sunrise = 'everness_bamboo_forest_sunrisebg.png',
         },
     },
-    everness_bamboo_forest_under = {
+    ['everness:bamboo_forest_under'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -300,7 +300,7 @@ local skybox_defs = {
             }
         },
     },
-    everness_frosted_icesheet = {
+    ['everness:frosted_icesheet'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -322,7 +322,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_frosted_icesheet_ocean = {
+    ['everness:frosted_icesheet_ocean'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -344,7 +344,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_frosted_icesheet_under = {
+    ['everness:frosted_icesheet_under'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -360,7 +360,7 @@ local skybox_defs = {
             }
         },
     },
-    everness_crystal_forest = {
+    ['everness:crystal_forest'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -391,7 +391,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_crystal_forest_dunes = {
+    ['everness:crystal_forest_dunes'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -422,7 +422,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_crystal_forest_shore = {
+    ['everness:crystal_forest_shore'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -453,7 +453,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_crystal_forest_ocean = {
+    ['everness:crystal_forest_ocean'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -484,7 +484,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_crystal_forest_under = {
+    ['everness:crystal_forest_under'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -505,7 +505,7 @@ local skybox_defs = {
             scale = 0.5
         }
     },
-    everness_forsaken_desert = {
+    ['everness:forsaken_desert'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -527,7 +527,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_forsaken_desert_ocean = {
+    ['everness:forsaken_desert_ocean'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -549,7 +549,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_forsaken_desert_under = {
+    ['everness:forsaken_desert_under'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -565,7 +565,7 @@ local skybox_defs = {
             }
         }
     },
-    everness_baobab_savanna = {
+    ['everness:baobab_savanna'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -587,7 +587,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_forsaken_tundra = {
+    ['everness:forsaken_tundra'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -611,7 +611,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_forsaken_tundra_beach = {
+    ['everness:forsaken_tundra_beach'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -635,7 +635,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_forsaken_tundra_ocean = {
+    ['everness:forsaken_tundra_ocean'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -659,7 +659,7 @@ local skybox_defs = {
             sunrise = ''
         },
     },
-    everness_forsaken_tundra_under = {
+    ['everness:forsaken_tundra_under'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
@@ -677,7 +677,7 @@ local skybox_defs = {
             }
         }
     },
-    everness_mineral_waters = {
+    ['everness:mineral_waters'] = {
         sky_parameters = {
             type = 'regular',
             sky_color = {
