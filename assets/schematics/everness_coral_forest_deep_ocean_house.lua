@@ -729,7 +729,7 @@ schematic = {
 		{name="air", prob=0, param2=0},
 		{name="everness:coral_deep_ocean_sandstone_block", prob=254, param2=0},
 		{name="everness:coral_deep_ocean_sandstone_block", prob=254, param2=0},
-		{name="everness:coral_forest_deep_ocean_house_marker", prob=254, param2=2},
+		{name="everness:chest", prob=254, param2=2},
 		{name="everness:coral_deep_ocean_sandstone_block", prob=254, param2=0},
 		{name="everness:coral_deep_ocean_sandstone_block", prob=254, param2=0},
 		{name="air", prob=0, param2=0},

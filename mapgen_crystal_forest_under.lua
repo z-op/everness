@@ -76,7 +76,7 @@ Everness:register_decoration({
     deco_type = 'simple',
     place_on = { 'everness:crystal_moss_block' },
     sidelen = 16,
-    fill_ratio = 0.05,
+    fill_ratio = 0.07,
     biomes = { 'everness:crystal_forest_under' },
     param2 = 8,
     decoration = {

@@ -202,7 +202,6 @@ end
 dofile(path .. '/tools.lua')
 dofile(path .. '/craftitems.lua')
 dofile(path .. '/crafting.lua')
-dofile(path .. '/loot_chests.lua')
 
 if Everness.settings.features.everness_feature_skybox then
     dofile(path .. '/skybox.lua')

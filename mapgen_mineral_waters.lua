@@ -833,39 +833,8 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
         -- Populate loot chest inventory
         local chest_def = minetest.registered_nodes['everness:chest']
 
-        if chest_def then
-            for i, p in ipairs(chest_positions) do
-                chest_def.on_construct(p)
-
-                local inv = minetest.get_inventory({ type = 'node', pos = p })
-
-                if not inv then
-                    minetest.log('action', '[Everness] FAILED to populate loot chests inventory at ' .. p:to_string())
-                    return
-                end
-
-                for index, value in ipairs(inv:get_list('main')) do
-                    local item_def = Everness.loot_chest.default[rand:next(1, #Everness.loot_chest.default)]
-
-                    if not minetest.registered_items[item_def.name] then
-                        return
-                    end
-
-                    if rand:next(0, 100) <= item_def.chance then
-                        local stack = ItemStack(item_def.name)
-
-                        if minetest.registered_tools[item_def.name] then
-                            stack:set_wear(rand:next(1, 65535))
-                        else
-                            stack:set_count(rand:next(1, math.min(item_def.max_count, stack:get_stack_max())))
-                        end
-
-                        inv:set_stack('main', index, stack)
-                    end
-                end
-
-                minetest.log('action', '[Everness] Loot chests inventory populated at ' .. p:to_string())
-            end
+        if chest_def and next(chest_positions) then
+            Everness:populate_loot_chests(chest_positions)
         end
     end
 

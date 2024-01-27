@@ -2622,133 +2622,13 @@ Everness:register_node('everness:flame_permanent_blue', {
     end
 })
 
--- Loot Chest / Icicle Markers
+-- Mapgen Marker
 
-Everness:register_node('everness:japanese_shrine_lootchest_marker', {
-    drawtype = 'airlike',
-    description = 'Japanese Shrine Loot Chest Spawn Marker',
+Everness:register_node('everness:marker', {
+    -- drawtype = 'airlike',
+    description = 'Marker for mapgen',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
-    _mcl_hardness = 0.2,
-    paramtype2 = 'facedir',
-    drop = ''
-})
-
-Everness:register_node('everness:jungle_temple_lootchest_marker', {
-    drawtype = 'airlike',
-    description = 'Jungle Temple Loot Chest Spawn Marker',
-    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
-    _mcl_hardness = 0.2,
-    paramtype2 = 'facedir',
-    drop = ''
-})
-
-Everness:register_node('everness:haunted_house_lootchest_marker', {
-    drawtype = 'airlike',
-    description = 'Haunted House Loot Chest Spawn Marker',
-    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
-    _mcl_hardness = 0.2,
-    paramtype2 = 'facedir',
-    drop = ''
-})
-
-Everness:register_node('everness:quartz_temple_lootchest_marker', {
-    drawtype = 'airlike',
-    description = 'Quartz Temple Loot Chest Spawn Marker',
-    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
-    _mcl_hardness = 0.2,
-    paramtype2 = 'facedir',
-    drop = ''
-})
-
-Everness:register_node('everness:forsaken_desert_temple_marker', {
-    drawtype = 'airlike',
-    description = 'Forsaken Temple Loot Chest Spawn Marker',
-    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
-    _mcl_hardness = 0.2,
-    paramtype2 = 'facedir',
-    drop = ''
-})
-
-Everness:register_node('everness:forsaken_desert_temple_2_marker', {
-    drawtype = 'airlike',
-    description = 'Forsaken Temple 2 Loot Chest Spawn Marker',
-    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
-    _mcl_hardness = 0.2,
-    paramtype2 = 'facedir',
-    drop = ''
-})
-
-Everness:register_node('everness:frosted_icicle_large_ceiling_marker', {
-    drawtype = 'airlike',
-    description = 'Frosted Icicle Large Ceiling Marker',
-    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
-    _mcl_hardness = 0.2,
-    paramtype2 = 'facedir',
-    drop = ''
-})
-
-Everness:register_node('everness:frosted_icicle_large_floor_marker', {
-    drawtype = 'airlike',
-    description = 'Frosted Icicle Large Floor Marker',
-    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
-    _mcl_hardness = 0.2,
-    paramtype2 = 'facedir',
-    drop = ''
-})
-
-Everness:register_node('everness:coral_forest_deep_ocean_house_marker', {
-    drawtype = 'airlike',
-    description = 'Coral Forest Deep Ocean House Marker',
-    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
-    _mcl_hardness = 0.2,
-    paramtype2 = 'facedir',
-    drop = ''
-})
-
-Everness:register_node('everness:cursed_lands_deep_ocean_skull_marker', {
-    drawtype = 'airlike',
-    description = 'Cursed Lands Deep Ocean Skull Marker',
-    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
-    _mcl_hardness = 0.2,
-    paramtype2 = 'facedir',
-    drop = ''
-})
-
-Everness:register_node('everness:frosted_icesheet_igloo_marker', {
-    drawtype = 'airlike',
-    description = 'Frosted Icesheet Igloo Marker',
-    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
-    _mcl_hardness = 0.2,
-    paramtype2 = 'facedir',
-    drop = ''
-})
-
-Everness:register_node('everness:crystal_forest_deep_ocean_ruins_marker', {
-    drawtype = 'airlike',
-    description = 'Crystal Forest Deep Ocean Ruins Marker',
-    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
-    _mcl_hardness = 0.2,
-    paramtype2 = 'facedir',
-    drop = ''
-})
-
-Everness:register_node('everness:mineral_waters_tower_marker', {
-    drawtype = 'airlike',
-    description = 'Mineral Waters Tower Marker',
-    tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
-    groups = { dig_immediate = 2, not_in_creative_inventory = 1 },
+    groups = { dig_immediate = 3, not_in_creative_inventory = 1 },
     _mcl_hardness = 0.2,
     paramtype2 = 'facedir',
     drop = ''

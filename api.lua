@@ -15,6 +15,7 @@
 --]]
 
 local S = minetest.get_translator(minetest.get_current_modname())
+local rand_global = PcgRandom(tonumber(tostring(os.time()):reverse():sub(1, 9)))
 
 --- Base class
 ---@class Everness
@@ -1155,6 +1156,54 @@ function Everness.set_loot_chest_items()
     Everness.loot_chest.default = table.copy(loot_items)
 end
 
+function Everness.populate_loot_chests(self, positions, loot_chest_items_group)
+    local _loot_chest_items_group = loot_chest_items_group or 'default'
+
+    -- Get inventories
+    local string_positions = '';
+    local inventories = {}
+
+    for i, pos in ipairs(positions) do
+        local chest_def = minetest.registered_nodes['everness:chest']
+        chest_def.on_construct(pos)
+
+        local inv = minetest.get_inventory({ type = 'node', pos = pos })
+
+        if inv then
+            table.insert(inventories, inv)
+            string_positions = string_positions .. ' ' .. pos:to_string()
+        else
+            minetest.log('action', '[Everness] FAILED to populate loot chests inventory at ' .. pos:to_string())
+        end
+    end
+
+    if #inventories > 0 then
+        for index, value in ipairs(inventories[1]:get_list('main')) do
+            local rand_idx = rand_global:next(1, #self.loot_chest[_loot_chest_items_group])
+            local item_def = self.loot_chest[_loot_chest_items_group][rand_idx]
+
+            if not minetest.registered_items[item_def.name] then
+                return
+            end
+
+            if rand_global:next(0, 100) <= item_def.chance then
+                local stack = ItemStack(item_def.name)
+
+                if minetest.registered_tools[item_def.name] then
+                    stack:set_wear(rand_global:next(1, 65535))
+                else
+                    stack:set_count(rand_global:next(1, math.min(item_def.max_count, stack:get_stack_max())))
+                end
+
+                local rand_inv = inventories[rand_global:next(1, #inventories)]
+                rand_inv:set_stack('main', index, stack)
+            end
+        end
+
+        minetest.log('action', '[Everness] Loot chests inventory populated at ' .. string_positions)
+    end
+end
+
 --
 -- Hammer
 -- Modified version of default:tnt from MT
@@ -2062,4 +2111,24 @@ function Everness.encyclopedia_sfinv_register_page(self)
             end
         end
     })
+end
+
+function Everness.find_content_in_vm_area(minp, maxp, contentIds, data, area)
+    local indexes = {}
+    local id_count = {}
+
+    for y = minp.y, maxp.y do
+        for z = minp.z, maxp.z do
+            for x = minp.x, maxp.x do
+                local ai = area:index(x, y, z)
+
+                if table.indexof(contentIds, data[ai]) ~= -1 then
+                    id_count[data[ai]] = (id_count[data[ai]] or 0) + 1
+                    table.insert(indexes, ai)
+                end
+            end
+        end
+    end
+
+    return indexes, id_count
 end

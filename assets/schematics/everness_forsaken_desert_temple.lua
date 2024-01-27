@@ -610,7 +610,7 @@ schematic = {
 		{name="air", prob=254, param2=0},
 		{name="air", prob=254, param2=0},
 		{name="air", prob=254, param2=0},
-		{name="everness:forsaken_desert_temple_marker", prob=254, param2=1},
+		{name="everness:chest", prob=254, param2=1},
 		{name="everness:forsaken_desert_brick", prob=254, param2=0},
 		{name="air", prob=0, param2=0},
 		{name="air", prob=0, param2=0},

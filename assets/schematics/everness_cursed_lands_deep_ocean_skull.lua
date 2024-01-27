@@ -596,7 +596,7 @@ schematic = {
 		{name="air", prob=0, param2=0},
 		{name="everness:bone", prob=254, param2=23},
 		{name="everness:bone", prob=254, param2=1},
-		{name="everness:cursed_lands_deep_ocean_skull_marker", prob=254, param2=3},
+		{name="everness:chest", prob=254, param2=3},
 		{name="air", prob=0, param2=0},
 		{name="air", prob=0, param2=0},
 		{name="air", prob=0, param2=0},

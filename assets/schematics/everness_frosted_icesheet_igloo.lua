@@ -2493,7 +2493,7 @@ schematic = {
 		{name="air", prob=254, param2=0},
 		{name="air", prob=254, param2=0},
 		{name="air", prob=254, param2=0},
-		{name="everness:frosted_icesheet_igloo_marker", prob=254, param2=0},
+		{name="everness:chest", prob=254, param2=0},
 		{name="air", prob=254, param2=0},
 		{name="air", prob=254, param2=0},
 		{name="air", prob=254, param2=0},
