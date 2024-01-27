@@ -5176,8 +5176,8 @@ Everness:register_node('everness:baobab_sapling', {
     _mcl_blast_resistance = 0,
     _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
-    on_timer = function(...)
-        Everness.grow_sapling(...)
+    on_timer = function(pos, elapsed)
+        Everness.grow_sapling(pos)
     end,
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(300, 1500))
@@ -5453,8 +5453,8 @@ Everness:register_node('everness:coral_tree_sapling', {
     _mcl_blast_resistance = 0,
     _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
-    on_timer = function(...)
-        Everness.grow_sapling(...)
+    on_timer = function(pos, elapsed)
+        Everness.grow_sapling(pos)
     end,
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(300, 1500))
@@ -5507,8 +5507,8 @@ Everness:register_node('everness:coral_tree_bioluminescent_sapling', {
     _mcl_blast_resistance = 0,
     _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
-    on_timer = function(...)
-        Everness.grow_sapling(...)
+    on_timer = function(pos, elapsed)
+        Everness.grow_sapling(pos)
     end,
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(300, 1500))
@@ -5561,8 +5561,8 @@ Everness:register_node('everness:dry_tree_sapling', {
     _mcl_blast_resistance = 0,
     _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
-    on_timer = function(...)
-        Everness.grow_sapling(...)
+    on_timer = function(pos, elapsed)
+        Everness.grow_sapling(pos)
     end,
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(300, 1500))
@@ -5615,8 +5615,8 @@ Everness:register_node('everness:cursed_dream_tree_sapling', {
     _mcl_blast_resistance = 0,
     _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
-    on_timer = function(...)
-        Everness.grow_sapling(...)
+    on_timer = function(pos, elapsed)
+        Everness.grow_sapling(pos)
     end,
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(300, 1500))
@@ -5669,8 +5669,8 @@ Everness:register_node('everness:willow_tree_sapling', {
     _mcl_blast_resistance = 0,
     _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
-    on_timer = function(...)
-        Everness.grow_sapling(...)
+    on_timer = function(pos, elapsed)
+        Everness.grow_sapling(pos)
     end,
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(300, 1500))
@@ -5725,8 +5725,8 @@ Everness:register_node('everness:sequoia_tree_sapling', {
     _mcl_blast_resistance = 0,
     _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
-    on_timer = function(...)
-        Everness.grow_sapling(...)
+    on_timer = function(pos, elapsed)
+        Everness.grow_sapling(pos)
     end,
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(300, 1500))
@@ -5779,8 +5779,8 @@ Everness:register_node('everness:crystal_tree_sapling', {
     _mcl_blast_resistance = 0,
     _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
-    on_timer = function(...)
-        Everness.grow_sapling(...)
+    on_timer = function(pos, elapsed)
+        Everness.grow_sapling(pos)
     end,
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(300, 1500))
@@ -5833,8 +5833,8 @@ Everness:register_node('everness:crystal_tree_large_sapling', {
     _mcl_blast_resistance = 0,
     _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
-    on_timer = function(...)
-        Everness.grow_sapling(...)
+    on_timer = function(pos, elapsed)
+        Everness.grow_sapling(pos)
     end,
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(300, 1500))
@@ -5937,8 +5937,8 @@ Everness:register_node('everness:crystal_bush_sapling', {
     paramtype = 'light',
     sunlight_propagates = true,
     walkable = false,
-    on_timer = function(...)
-        Everness.grow_sapling(...)
+    on_timer = function(pos, elapsed)
+        Everness.grow_sapling(pos)
     end,
     selection_box = {
         type = 'fixed',
@@ -6069,8 +6069,8 @@ Everness:register_node('everness:cursed_bush_sapling', {
     paramtype = 'light',
     sunlight_propagates = true,
     walkable = false,
-    on_timer = function(...)
-        Everness.grow_sapling(...)
+    on_timer = function(pos, elapsed)
+        Everness.grow_sapling(pos)
     end,
     selection_box = {
         type = 'fixed',
@@ -8486,8 +8486,8 @@ Everness:register_node('everness:mese_tree_sapling', {
     _mcl_blast_resistance = 0,
     _mcl_hardness = 0,
     sounds = Everness.node_sound_leaves_defaults(),
-    on_timer = function(...)
-        Everness.grow_sapling(...)
+    on_timer = function(pos, elapsed)
+        Everness.grow_sapling(pos)
     end,
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(300, 1500))
