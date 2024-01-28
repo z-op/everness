@@ -214,8 +214,13 @@ if Everness.settings.features.everness_feature_sneak_pickup then
 end
 
 dofile(path .. '/privileges.lua')
+dofile(path .. '/chat_commands.lua')
 
 Everness:encyclopedia_init()
+
+minetest.register_on_mods_loaded(function()
+    Everness.set_loot_chest_items()
+end)
 
 --
 -- Mod Support
@@ -244,11 +249,6 @@ end
 
 -- Minetest Game
 dofile(path .. '/mod_support_mtg.lua')
-
-minetest.register_on_mods_loaded(function()
-    Everness.set_loot_chest_items()
-end)
-
 
 local mod_end_time = (minetest.get_us_time() - mod_start_time) / 1000000
 

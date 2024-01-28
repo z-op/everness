@@ -205,7 +205,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     local schem_positions = {}
     local schem_placed = false
 
-    if table.indexof(biomemap, biome_id_everness_crystal_forest_deep_ocean) ~= -1 then
+    if table.indexof(biomemap, biome_id_everness_crystal_forest_deep_ocean) ~= -1 and rand:next(0, 100) < chance then
         -- Load the voxelmanip with the result of engine mapgen
         local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
         -- 'area' is used later to get the voxelmanip indexes for positions
@@ -223,7 +223,6 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                         data[vi] == c_everness_crystal_forest_deep_ocean_sand
                         and data[vi + area.ystride] == c_water_source
                         and not schem_placed
-                        and rand:next(0, 100) < chance
                     then
                         local s_pos = area:position(vi)
 

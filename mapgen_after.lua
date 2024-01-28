@@ -15,6 +15,7 @@
 --]]
 
 -- Get the content IDs for the nodes used.
+local c_water_source = minetest.get_content_id('mapgen_water_source')
 local c_dirt_with_grass_1 = minetest.get_content_id('everness:dirt_with_grass_1')
 local c_dirt_with_grass_extras_1 = minetest.get_content_id('everness:dirt_with_grass_extras_1')
 local c_dirt_with_grass_extras_2 = minetest.get_content_id('everness:dirt_with_grass_extras_2')
@@ -33,16 +34,20 @@ local c_frosted_snowblock = minetest.get_content_id('everness:frosted_snowblock'
 local c_frosted_ice = minetest.get_content_id('everness:frosted_ice')
 local c_everness_mineral_water_source = minetest.get_content_id('everness:mineral_water_source')
 local c_everness_mineral_sand = minetest.get_content_id('everness:mineral_sand')
+-- Biome IDs
+local biome_id_everness_cursed_lands_dunes = minetest.get_biome_id('everness:cursed_lands_dunes')
+local biome_id_everness_cursed_lands_swamp = minetest.get_biome_id('everness:cursed_lands_swamp')
 
 -- Localize data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
 local data = {}
-local chance = 15
+local chance = 20
 local disp = 16
-local water_level = tonumber(minetest.settings:get('water_level'))
+local water_level = tonumber(minetest.settings:get('water_level')) or 1
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
     local rand = PcgRandom(blockseed)
+    local biomemap = minetest.get_mapgen_object('biomemap')
     -- Load the voxelmanip with the result of engine mapgen
     local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
     -- 'area' is used later to get the voxelmanip indexes for positions
@@ -63,7 +68,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
             local s_pos = area:position(vi)
 
             if maxp.y >= water_level then
-                -- Above sea level
+                -- Above sea level or at water level
                 if
                     (
                         data[vi] == c_dirt_with_grass_1
@@ -219,7 +224,6 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
 
                         minetest.log('action', '[Everness] Jungle Temple was placed at ' .. schem_pos:to_string())
                     end
-
                 elseif
                     data[vi] == c_dirt_with_cursed_grass
                     and rand:next(0, 100) < chance
@@ -587,6 +591,85 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                         })
 
                         minetest.log('action', '[Everness] Mineral Waters Tower was placed at ' .. schem_pos:to_string())
+                    end
+                elseif
+                    water_level >= minp.y
+                    and water_level <= maxp.y
+                    and data[vi] == c_water_source
+                then
+                    --
+                    -- Water Level
+                    --
+                    if
+                        (
+                            table.indexof(biomemap, biome_id_everness_cursed_lands_dunes) ~= -1
+                            or table.indexof(biomemap, biome_id_everness_cursed_lands_swamp) ~= -1
+                        )
+                        and rand:next(0, 100) < chance
+                    then
+                        local schem = minetest.get_modpath('everness') .. '/schematics/everness_cursed_lands_deep_ocean_island.mts'
+
+                        --
+                        -- Cursed Lands Deep Ocean Island
+                        --
+
+                        local size = { x = 25, y = 23, z = 23 }
+                        local size_x = math.round(size.x / 2)
+                        local size_z = math.round(size.z / 2)
+                        -- add Y displacement
+                        local y_dis = 7
+                        local schem_pos = vector.new(s_pos.x, s_pos.y - y_dis, s_pos.z)
+
+                        -- find floor big enough
+                        local indexes = Everness.find_content_in_vm_area(
+                            vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
+                            vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
+                            {
+                                c_water_source,
+                                minetest.CONTENT_AIR
+                            },
+                            data,
+                            area
+                        )
+
+                        if #indexes < size.x * size.z then
+                            -- not enough space
+                            return
+                        end
+
+                        -- enough space to place structure ?
+                        local space_indexes = Everness.find_content_in_vm_area(
+                            vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                            vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
+                            {
+                                c_water_source,
+                                minetest.CONTENT_AIR
+                            },
+                            data,
+                            area
+                        )
+
+                        if #space_indexes > (size.x * size.y * size.z) / 2 then
+                            minetest.place_schematic_on_vmanip(
+                                vm,
+                                schem_pos,
+                                schem,
+                                'random',
+                                nil,
+                                true,
+                                'place_center_x, place_center_z'
+                            )
+
+                            schem_positions.everness_cursed_lands_deep_ocean_island = schem_positions.everness_cursed_lands_deep_ocean_island or {}
+
+                            table.insert(schem_positions.everness_cursed_lands_deep_ocean_island, {
+                                pos = schem_pos,
+                                minp = vector.new(s_pos.x - size_x, s_pos.y - y_dis, s_pos.z - size_z),
+                                maxp = vector.new(s_pos.x + size_x, s_pos.y - y_dis + size.y, s_pos.z + size_z)
+                            })
+
+                            minetest.log('action', '[Everness] Cursed Lands Deep Ocean Island was placed at ' .. schem_pos:to_string())
+                        end
                     end
                 end
             else
