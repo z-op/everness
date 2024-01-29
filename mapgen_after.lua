@@ -37,6 +37,12 @@ local c_everness_mineral_sand = minetest.get_content_id('everness:mineral_sand')
 -- Biome IDs
 local biome_id_everness_cursed_lands_dunes = minetest.get_biome_id('everness:cursed_lands_dunes')
 local biome_id_everness_cursed_lands_swamp = minetest.get_biome_id('everness:cursed_lands_swamp')
+local biome_id_everness_cursed_lands_ocean = minetest.get_biome_id('everness:cursed_lands_ocean')
+local biome_id_everness_coral_forest_dunes = minetest.get_biome_id('everness:coral_forest_dunes')
+local biome_id_everness_coral_forest_ocean = minetest.get_biome_id('everness:coral_forest_ocean')
+local biome_id_everness_crystal_forest_dunes = minetest.get_biome_id('everness:crystal_forest_dunes')
+local biome_id_everness_crystal_forest_shore = minetest.get_biome_id('everness:crystal_forest_shore')
+local biome_id_everness_crystal_forest_ocean = minetest.get_biome_id('everness:crystal_forest_ocean')
 
 -- Localize data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
@@ -604,6 +610,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                         (
                             table.indexof(biomemap, biome_id_everness_cursed_lands_dunes) ~= -1
                             or table.indexof(biomemap, biome_id_everness_cursed_lands_swamp) ~= -1
+                            or table.indexof(biomemap, biome_id_everness_cursed_lands_ocean) ~= -1
                         )
                         and rand:next(0, 100) < chance
                     then
@@ -669,6 +676,147 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             })
 
                             minetest.log('action', '[Everness] Cursed Lands Deep Ocean Island was placed at ' .. schem_pos:to_string())
+                        end
+                    elseif
+                        (
+                            table.indexof(biomemap, biome_id_everness_coral_forest_dunes) ~= -1
+                            or table.indexof(biomemap, biome_id_everness_coral_forest_ocean) ~= -1
+                        )
+                        and rand:next(0, 100) < chance
+                    then
+                        local schem = minetest.get_modpath('everness') .. '/schematics/everness_coral_forest_ocean_fishing_dock.mts'
+
+                        --
+                        -- Coral Forest Ocean Fishing Dock
+                        --
+
+                        local size = { x = 26, y = 10, z = 23 }
+                        local size_x = math.round(size.x / 2)
+                        local size_z = math.round(size.z / 2)
+                        -- add Y displacement
+                        local y_dis = 1
+                        local schem_pos = vector.new(s_pos.x, s_pos.y - y_dis, s_pos.z)
+
+                        -- find floor big enough
+                        local indexes = Everness.find_content_in_vm_area(
+                            vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
+                            vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
+                            {
+                                c_water_source,
+                                minetest.CONTENT_AIR
+                            },
+                            data,
+                            area
+                        )
+
+                        if #indexes < size.x * size.z then
+                            -- not enough space
+                            return
+                        end
+
+                        -- enough space to place structure ?
+                        local space_indexes = Everness.find_content_in_vm_area(
+                            vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                            vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
+                            {
+                                c_water_source,
+                                minetest.CONTENT_AIR
+                            },
+                            data,
+                            area
+                        )
+
+                        if #space_indexes > (size.x * size.y * size.z) / 2 then
+                            minetest.place_schematic_on_vmanip(
+                                vm,
+                                schem_pos,
+                                schem,
+                                'random',
+                                nil,
+                                true,
+                                'place_center_x, place_center_z'
+                            )
+
+                            schem_positions.everness_coral_forest_ocean_fishing_dock = schem_positions.everness_coral_forest_ocean_fishing_dock or {}
+
+                            table.insert(schem_positions.everness_coral_forest_ocean_fishing_dock, {
+                                pos = schem_pos,
+                                minp = vector.new(s_pos.x - size_x, s_pos.y - y_dis, s_pos.z - size_z),
+                                maxp = vector.new(s_pos.x + size_x, s_pos.y - y_dis + size.y, s_pos.z + size_z)
+                            })
+
+                            minetest.log('action', '[Everness] Coral Forest Ocean Fishing Dock was placed at ' .. schem_pos:to_string())
+                        end
+                    elseif
+                        (
+                            table.indexof(biomemap, biome_id_everness_crystal_forest_dunes) ~= -1
+                            or table.indexof(biomemap, biome_id_everness_crystal_forest_shore) ~= -1
+                            or table.indexof(biomemap, biome_id_everness_crystal_forest_ocean) ~= -1
+                        )
+                        and rand:next(0, 100) < chance
+                    then
+                        local schem = minetest.get_modpath('everness') .. '/schematics/everness_crystal_forest_ocean_shrine.mts'
+
+                        --
+                        -- Crystal Forest Ocean Shrine
+                        --
+
+                        local size = { x = 13, y = 16, z = 13 }
+                        local size_x = math.round(size.x / 2)
+                        local size_z = math.round(size.z / 2)
+                        -- add Y displacement
+                        local y_dis = 8
+                        local schem_pos = vector.new(s_pos.x, s_pos.y - y_dis, s_pos.z)
+
+                        -- find floor big enough
+                        local indexes = Everness.find_content_in_vm_area(
+                            vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
+                            vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
+                            {
+                                c_water_source,
+                                minetest.CONTENT_AIR
+                            },
+                            data,
+                            area
+                        )
+
+                        if #indexes < size.x * size.z then
+                            -- not enough space
+                            return
+                        end
+
+                        -- enough space to place structure ?
+                        local space_indexes = Everness.find_content_in_vm_area(
+                            vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                            vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
+                            {
+                                c_water_source,
+                                minetest.CONTENT_AIR
+                            },
+                            data,
+                            area
+                        )
+
+                        if #space_indexes > (size.x * size.y * size.z) / 2 then
+                            minetest.place_schematic_on_vmanip(
+                                vm,
+                                schem_pos,
+                                schem,
+                                'random',
+                                nil,
+                                true,
+                                'place_center_x, place_center_z'
+                            )
+
+                            schem_positions.everness_crystal_forest_ocean_shrine = schem_positions.everness_crystal_forest_ocean_shrine or {}
+
+                            table.insert(schem_positions.everness_crystal_forest_ocean_shrine, {
+                                pos = schem_pos,
+                                minp = vector.new(s_pos.x - size_x, s_pos.y - y_dis, s_pos.z - size_z),
+                                maxp = vector.new(s_pos.x + size_x, s_pos.y - y_dis + size.y, s_pos.z + size_z)
+                            })
+
+                            minetest.log('action', '[Everness] Crystal Forest Ocean Shrine was placed at ' .. schem_pos:to_string())
                         end
                     end
                 end

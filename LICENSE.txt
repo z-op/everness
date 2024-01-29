@@ -982,6 +982,8 @@ GNU Lesser General Public License v2.1 or later
 - everness_ceramic_sherds_ore.png
 - everness_pick_archeological.png
 - everness_logo.png
+- textures/everness_fence_coral_wood.png
+- textures/everness_fence_rail_coral_wood.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
@@ -1681,3 +1683,7 @@ https://freesound.org/people/Rudmer_Rotteveel/sounds/590950/
 - everness_palm_tree_from_sapling.mts
 - everness_mineral_waters_tower.lua
 - everness_mineral_waters_tower.mts
+- everness_coral_forest_ocean_fishing_dock.lua
+- everness_coral_forest_ocean_fishing_dock.mts
+- everness_crystal_forest_ocean_shrine.lua
+- everness_crystal_forest_ocean_shrine.mts

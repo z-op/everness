@@ -188,3 +188,12 @@ doors.register_fencegate('everness:gate_palm_wood', {
     material = 'everness:palm_tree_wood',
     groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 }
 })
+
+-- Coral Wood
+
+doors.register_fencegate('everness:gate_coral_wood', {
+    description = S('Coral Wood Fence Gate'),
+    texture = 'everness_coral_wood.png',
+    material = 'everness:coral_wood',
+    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 }
+})

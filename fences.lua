@@ -143,3 +143,35 @@ default.register_mesepost('everness:mese_post_light_bamboo_wood', {
     texture = 'everness_fence_palm_wood.png^[transformFY',
     material = 'everness:palm_tree_wood',
 })
+
+-- Coral Wood
+
+default.register_fence('everness:fence_coral_wood', {
+    description = S('Coral Wood Fence'),
+    texture = 'everness_fence_coral_wood.png',
+    inventory_image = 'default_fence_overlay.png^everness_fence_coral_wood.png^' ..
+        'default_fence_overlay.png^[makealpha:255,126,126',
+    wield_image = 'default_fence_overlay.png^everness_fence_coral_wood.png^' ..
+        'default_fence_overlay.png^[makealpha:255,126,126',
+    material = 'everness:coral_wood',
+    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    sounds = Everness.node_sound_wood_defaults()
+})
+
+default.register_fence_rail('everness:fence_rail_coral_wood', {
+    description = S('Coral Wood Fence Rail'),
+    texture = 'everness_fence_rail_coral_wood.png^[transformR90',
+    inventory_image = 'default_fence_rail_overlay.png^everness_fence_coral_wood.png^' ..
+        'default_fence_rail_overlay.png^[makealpha:255,126,126',
+    wield_image = 'default_fence_rail_overlay.png^everness_fence_coral_wood.png^' ..
+        'default_fence_rail_overlay.png^[makealpha:255,126,126',
+    material = 'everness:coral_wood',
+    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    sounds = Everness.node_sound_wood_defaults()
+})
+
+default.register_mesepost('everness:mese_post_light_bamboo_wood', {
+    description = S('Coral Wood Mese Post Light'),
+    texture = 'everness_fence_coral_wood.png^[transformFY',
+    material = 'everness:coral_wood',
+})

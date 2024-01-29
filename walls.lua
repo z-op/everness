@@ -115,3 +115,36 @@ walls.register(
     'everness:volcanic_rock_with_magma',
     Everness.node_sound_stone_defaults()
 )
+
+walls.register(
+    'everness:coral_bones_block_wall',
+    S('Coral Bones Block Wall'),
+    { 'everness_coral_bones_block.png' },
+    'everness:coral_bones_block',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:coral_bones_brick_wall',
+    S('Coral Bones Brick Wall'),
+    { 'everness_coral_bones_brick.png' },
+    'everness:coral_bones_brick',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:coral_deep_ocean_sandstone_brick_wall',
+    S('Coral Bones Brick Wall'),
+    { 'everness_deep_ocean_sandstone_brick.png' },
+    'everness:coral_deep_ocean_sandstone_brick',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:coral_deep_ocean_sandstone_block_wall',
+    S('Coral Bones Brick Wall'),
+    { 'everness_deep_ocean_sandstone_block.png' },
+    'everness:coral_deep_ocean_sandstone_block',
+    Everness.node_sound_stone_defaults()
+)
+

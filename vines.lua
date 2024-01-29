@@ -32,6 +32,10 @@ Everness:register_node('everness:vine_cave', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -103,6 +107,10 @@ Everness:register_node('everness:vine_cave_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -175,6 +183,10 @@ Everness:register_node('everness:vine_cave_with_mese_leaves', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -248,6 +260,10 @@ Everness:register_node('everness:whispering_gourd_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -319,6 +335,10 @@ Everness:register_node('everness:whispering_gourd_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -391,6 +411,10 @@ Everness:register_node('everness:whispering_gourd_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -464,6 +488,10 @@ Everness:register_node('everness:bulb_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -535,6 +563,10 @@ Everness:register_node('everness:bulb_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -607,6 +639,10 @@ Everness:register_node('everness:bulb_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -680,6 +716,10 @@ Everness:register_node('everness:willow_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -751,6 +791,10 @@ Everness:register_node('everness:willow_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -825,6 +869,10 @@ Everness:register_node('everness:eye_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -969,6 +1017,10 @@ Everness:register_node('everness:eye_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -1042,6 +1094,10 @@ Everness:register_node('everness:lumabus_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -1151,7 +1207,14 @@ Everness:register_node('everness:lumabus_vine_end', {
     paramtype2 = 'wallmounted',
     selection_box = {
         type = 'fixed',
-        fixed = { -1 / 2 + 3 / 16, -1 / 2, -1 / 2 + 3 / 16, 1 / 2 - 3 / 16, 1 / 2 - 6 / 16, 1 / 2 - 3 / 16 }
+        fixed = {
+            -1 / 2 + 3 / 16,
+            -1 / 2,
+            -1 / 2 + 3 / 16,
+            1 / 2 - 3 / 16,
+            1 / 2 - 6 / 16,
+            1 / 2 - 3 / 16
+        }
     },
     on_destruct = function(pos)
         local pos_below = vector.new(pos.x, pos.y - 1, pos.z)
@@ -1192,6 +1255,10 @@ Everness:register_node('everness:lumabus_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -1265,6 +1332,10 @@ Everness:register_node('everness:ivis_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -1336,6 +1407,10 @@ Everness:register_node('everness:ivis_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -1408,6 +1483,10 @@ Everness:register_node('everness:ivis_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -1481,6 +1560,10 @@ Everness:register_node('everness:flowered_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -1552,6 +1635,10 @@ Everness:register_node('everness:flowered_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -1624,6 +1711,10 @@ Everness:register_node('everness:flowered_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -1697,6 +1788,10 @@ Everness:register_node('everness:reeds_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -1768,6 +1863,10 @@ Everness:register_node('everness:reeds_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -1840,6 +1939,10 @@ Everness:register_node('everness:reeds_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -1913,6 +2016,10 @@ Everness:register_node('everness:tenanea_flowers_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -1984,6 +2091,10 @@ Everness:register_node('everness:tenanea_flowers_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -2056,6 +2167,10 @@ Everness:register_node('everness:tenanea_flowers_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -2129,6 +2244,10 @@ Everness:register_node('everness:twisted_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -2200,6 +2319,10 @@ Everness:register_node('everness:twisted_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -2272,6 +2395,10 @@ Everness:register_node('everness:twisted_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -2345,6 +2472,10 @@ Everness:register_node('everness:golden_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -2416,6 +2547,10 @@ Everness:register_node('everness:golden_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -2488,6 +2623,10 @@ Everness:register_node('everness:golden_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -2561,6 +2700,10 @@ Everness:register_node('everness:dense_vine_1', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -2632,6 +2775,10 @@ Everness:register_node('everness:dense_vine_end', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
@@ -2704,6 +2851,10 @@ Everness:register_node('everness:dense_vine_2', {
     paramtype2 = 'meshoptions',
     place_param2 = 8,
     visual_scale = 1.1,
+    selection_box = {
+        type = 'fixed',
+        fixed = { -4 / 16, -8 / 16, -4 / 16, 4 / 16, 8 / 16, 4 / 16 }
+    },
     groups = {
         -- MTG
         vine = 1,
