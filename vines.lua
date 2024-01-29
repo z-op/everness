@@ -154,8 +154,6 @@ local function register_vine(name, def, overrides)
             })
         end
 
-        print('everness:' .. _n, dump(_d))
-
         Everness:register_node('everness:' .. _n, _d)
     end
 end

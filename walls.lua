@@ -148,3 +148,18 @@ walls.register(
     Everness.node_sound_stone_defaults()
 )
 
+walls.register(
+    'everness:crystal_cobble_wall',
+    S('Crystal Cobblestone Wall'),
+    { 'everness_crystal_cobble.png' },
+    'everness:crystal_cobble',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:crystal_mossy_cobble_wall',
+    S('Crystal Mossy Cobblestone Wall'),
+    { 'everness_crystal_mossy_cobble.png' },
+    'everness:crystal_mossy_cobble',
+    Everness.node_sound_stone_defaults()
+)
