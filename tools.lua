@@ -30,6 +30,10 @@ Everness:register_tool('everness:vine_shears', {
             wool = { times = { [3] = 0.2 }, uses = 30, maxlevel = 3 }
         }
     },
+    groups = {
+        -- Everness
+        vine_shears = 1
+    },
     -- MCL
     _mcl_toollike_wield = true,
     _mcl_diggroups = {
@@ -203,7 +207,6 @@ Everness:register_tool('everness:shovel_silk', {
 
 local old_handle_node_drops = minetest.handle_node_drops
 
----@diagnostic disable-next-line: duplicate-set-field
 function minetest.handle_node_drops(pos, drops, digger)
     if not digger
         or not digger:is_player()

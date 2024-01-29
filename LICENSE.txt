@@ -793,7 +793,8 @@ GNU Lesser General Public License v2.1 or later
 - everness_illumi_root.png
 - everness_ivis_moss.png
 - everness_ivis_vine_end.png
-- everness_ivis_vine.png
+- everness_ivis_vine_1.png
+- everness_ivis_vine_2.png
 - everness_lootchest_marker_side.png
 - everness_lootchest_marker_top.png
 - everness_lotus_flower_mesh_not_animated.png
@@ -814,6 +815,7 @@ GNU Lesser General Public License v2.1 or later
 - everness_lotus_leaf_y.png
 - everness_lumabus_bulb_purple.png
 - everness_lumabus_leaves.png
+- everness_lumabus_vine_end.png
 - everness_lumabus_vine_1.png
 - everness_lumabus_vine_2.png
 - everness_lumecorn_item.png
@@ -945,8 +947,8 @@ GNU Lesser General Public License v2.1 or later
 - everness_venus_trap_item.png
 - everness_venus_trap_mesh.png
 - everness_vine_cave_end.png
-- everness_vine_cave_with_mese_leaves.png
-- everness_vine_cave.png
+- everness_vine_cave_1.png
+- everness_vine_cave_2.png
 - everness_vine_shears.png
 - everness_volcanic_rock_with_magma_animated.png
 - everness_volcanic_rock.png
@@ -961,7 +963,8 @@ GNU Lesser General Public License v2.1 or later
 - everness_willow_tree_side.png
 - everness_willow_tree_top.png
 - everness_willow_vine_end.png
-- everness_willow_vine.png
+- everness_willow_vine_1.png
+- everness_willow_vine_2.png
 - everness_willow_wood.png -- Derived from texture by BlockMen (CC BY-SA 3.0)
 - everness_xpanes_edge_pyrite.png
 - everness_water_geyser_particle.png

@@ -11076,8 +11076,6 @@ Everness:register_node('everness:lumabus_vine_lantern', {
     },
     use_texture_alpha = 'clip',
     paramtype = 'light',
-    -- wield_image = 'everness_lumabus_vine_end_bottom.png',
-    -- inventory_image = 'everness_lumabus_vine_end_bottom.png',
     groups = {
         -- MTG
         cracky = 3,
@@ -11107,8 +11105,6 @@ Everness:register_node('everness:eye_vine_lantern', {
         'everness_eye_vine_end_bottom.png',
         'everness_eye_vine_end_side.png',
     },
-    wield_image = 'everness_eye_vine_end_bottom.png',
-    inventory_image = 'everness_eye_vine_end_bottom.png',
     drawtype = 'normal',
     groups = {
         -- MTG
