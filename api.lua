@@ -310,6 +310,8 @@ function Everness.tick_sulfur_stone_again(self, pos)
     minetest.get_node_timer(pos):start(math.random(40, 80))
 end
 
+-- Grows vines
+-- @param pos {vector}
 function Everness.grow_vine(self, pos, elapsed, params)
     local node = minetest.get_node(pos)
     local pos_under = vector.new(pos.x, pos.y - 1, pos.z)
@@ -350,28 +352,11 @@ function Everness.grow_vine(self, pos, elapsed, params)
 
     local new_node_name = node_names[math.random(1, #node_names)]
 
-    minetest.set_node(pos, { name = new_node_name, param2 = node.param2 })
+    minetest.set_node(pos, { name = new_node_name, param2 = new_node_name.param2 or 0 })
     -- last hanging vine
     minetest.set_node(pos_under, { name = end_node_name, param2 = end_node_param2 and end_node_param2 or node.param2 })
 
     Everness:tick_vine(pos_under)
-end
-
-function Everness.dig_vine(self, pos, node_name, digger)
-    --only dig give the vine if shears are used
-    if not digger then
-        return
-    end
-
-    local wielded_item = digger:get_wielded_item()
-
-    if 'everness:vine_shears' == wielded_item:get_name() then
-        local inv = digger:get_inventory()
-
-        if inv then
-            inv:add_item('main', ItemStack(node_name))
-        end
-    end
 end
 
 --
