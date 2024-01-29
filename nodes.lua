@@ -680,7 +680,7 @@ Everness:register_node('everness:crystal_cobble', {
 })
 
 Everness:register_node('everness:crystal_mossy_cobble', {
-    description = S('Crystal Cobblestone'),
+    description = S('Crystal Mossy Cobblestone'),
     tiles = { 'everness_crystal_mossy_cobble.png' },
     is_ground_content = false,
     groups = {

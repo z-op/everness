@@ -277,11 +277,21 @@ Everness:register_leafdecay({
 local moss_correspondences = {
     ['everness:coral_desert_cobble'] = 'everness:coral_desert_mossy_cobble',
     ['everness:crystal_cobble'] = 'everness:crystal_mossy_cobble',
+    ['stairs:slab_crystal_cobble'] = 'stairs:slab_crystal_mossy_cobble',
+    ['stairs:stair_crystal_cobble'] = 'stairs:stair_crystal_mossy_cobble',
+    ['stairs:stair_inner_crystal_cobble'] = 'stairs:stair_inner_crystal_mossy_cobble',
+    ['stairs:stair_outer_crystal_cobble'] = 'stairs:stair_outer_crystal_mossy_cobble',
+    ['everness:crystal_cobble_wall'] = 'everness:crystal_mossy_cobble_wall'
 }
 
 local moss_nodenames_correspondences = {
     'everness:coral_desert_cobble',
     'everness:crystal_cobble',
+    'stairs:slab_crystal_cobble',
+    'stairs:stair_crystal_cobble',
+    'stairs:stair_inner_crystal_cobble',
+    'stairs:stair_outer_crystal_cobble',
+    'everness:crystal_cobble_wall'
 }
 
 if minetest.get_modpath('default') then
