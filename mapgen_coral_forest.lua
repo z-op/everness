@@ -268,7 +268,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
         --
         -- Coral bone tree - fix light
         --
-        for _, pos in ipairs(gennotify['decoration#' .. deco_id_coral_bones_tree] or {}) do
+        for _, pos in ipairs(gennotify['decoration#' .. (deco_id_coral_bones_tree or '')] or {}) do
             minetest.fix_light(
                 vector.round(vector.new(pos.x - (coral_bones_tree_size.x / 2), pos.y, pos.z - (coral_bones_tree_size.z / 2))),
                 vector.round(vector.new(pos.x + (coral_bones_tree_size.x / 2), pos.y + coral_bones_tree_size.y, pos.z + (coral_bones_tree_size.z / 2)))
