@@ -182,7 +182,7 @@ Everness:register_decoration({
         'everness:frosted_ice_translucent',
     },
     sidelen = 16,
-    fill_ratio = 0.07,
+    fill_ratio = 0.09,
     biomes = { 'everness:frosted_icesheet_under' },
     param2 = 8,
     decoration = {

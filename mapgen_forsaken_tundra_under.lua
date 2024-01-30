@@ -181,7 +181,7 @@ Everness:register_decoration({
     deco_type = 'simple',
     place_on = { 'everness:moss_block' },
     sidelen = 16,
-    fill_ratio = 0.07,
+    fill_ratio = 0.09,
     biomes = { 'everness:forsaken_tundra_under' },
     param2 = 8,
     decoration = {
