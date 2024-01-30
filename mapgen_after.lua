@@ -47,7 +47,7 @@ local biome_id_everness_crystal_forest_ocean = minetest.get_biome_id('everness:c
 -- Localize data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
 local data = {}
-local chance = 20
+local chance = 25
 local disp = 16
 local water_level = tonumber(minetest.settings:get('water_level')) or 1
 
