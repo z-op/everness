@@ -47,7 +47,8 @@ local biome_id_everness_crystal_forest_ocean = minetest.get_biome_id('everness:c
 -- Localize data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
 local data = {}
-local chance = 25
+local chance = 20
+local chance_sea_level = 10
 local disp = 16
 local water_level = tonumber(minetest.settings:get('water_level')) or 1
 
@@ -612,7 +613,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             or table.indexof(biomemap, biome_id_everness_cursed_lands_swamp) ~= -1
                             or table.indexof(biomemap, biome_id_everness_cursed_lands_ocean) ~= -1
                         )
-                        and rand:next(0, 100) < chance
+                        and rand:next(0, 100) < chance_sea_level
                     then
                         local schem = minetest.get_modpath('everness') .. '/schematics/everness_cursed_lands_deep_ocean_island.mts'
 
@@ -682,7 +683,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             table.indexof(biomemap, biome_id_everness_coral_forest_dunes) ~= -1
                             or table.indexof(biomemap, biome_id_everness_coral_forest_ocean) ~= -1
                         )
-                        and rand:next(0, 100) < chance
+                        and rand:next(0, 100) < chance_sea_level
                     then
                         local schem = minetest.get_modpath('everness') .. '/schematics/everness_coral_forest_ocean_fishing_dock.mts'
 
@@ -753,7 +754,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                             or table.indexof(biomemap, biome_id_everness_crystal_forest_shore) ~= -1
                             or table.indexof(biomemap, biome_id_everness_crystal_forest_ocean) ~= -1
                         )
-                        and rand:next(0, 100) < chance
+                        and rand:next(0, 100) < chance_sea_level
                     then
                         local schem = minetest.get_modpath('everness') .. '/schematics/everness_crystal_forest_ocean_shrine.mts'
 
