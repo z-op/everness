@@ -679,18 +679,55 @@ local skybox_defs = {
     },
     ['everness:mineral_waters'] = {
         sky_parameters = {
-            type = 'regular',
-            sky_color = {
-                day_sky = '#264890',
-                day_horizon = '#3884CF',
-                dawn_sky = '#B4BAFA',
-                dawn_horizon = '#FDA47E',
-                night_sky = '#A3609E',
-                night_horizon = '#C7A8D9',
-                fog_sun_tint = '#FDA47E',
-                fog_moon_tint = '#FAE0EB'
-            }
-        }
+            -- type = 'regular',
+            -- sky_color = {
+                --     day_sky = '#264890',
+                --     day_horizon = '#3884CF',
+                --     dawn_sky = '#B4BAFA',
+                --     dawn_horizon = '#FDA47E',
+                --     night_sky = '#A3609E',
+                --     night_horizon = '#C7A8D9',
+                --     fog_sun_tint = '#FDA47E',
+                --     fog_moon_tint = '#FAE0EB'
+                -- },
+            type = 'skybox',
+            base_color = '#8099CC',
+            _day_base_color = '#8099CC',
+            _night_base_color = '#000714',
+            _textures_base = {
+                -- Y+ (top)
+                'everness_mineral_waters_skybox.png^[sheet:4x3:1,0',
+                -- Y- (bottom)
+                'everness_mineral_waters_skybox.png^[sheet:4x3:1,2',
+                -- X- (west)
+                'everness_mineral_waters_skybox.png^[sheet:4x3:0,1',
+                -- X+ (east)
+                'everness_mineral_waters_skybox.png^[sheet:4x3:2,1',
+                -- Z+ (north)
+                'everness_mineral_waters_skybox.png^[sheet:4x3:1,1',
+                -- Z- (south)
+                'everness_mineral_waters_skybox.png^[sheet:4x3:3,1',
+            },
+            textures = {
+                -- Y+ (top)
+                'everness_mineral_waters_skybox.png^[sheet:4x3:1,0',
+                -- Y- (bottom)
+                'everness_mineral_waters_skybox.png^[sheet:4x3:1,2',
+                -- X- (west)
+                'everness_mineral_waters_skybox.png^[sheet:4x3:0,1',
+                -- X+ (east)
+                'everness_mineral_waters_skybox.png^[sheet:4x3:2,1',
+                -- Z+ (north)
+                'everness_mineral_waters_skybox.png^[sheet:4x3:1,1',
+                -- Z- (south)
+                'everness_mineral_waters_skybox.png^[sheet:4x3:3,1',
+            },
+            clouds = false
+        },
+        star_parameters = {
+            count = 12000,
+            scale = 0.5
+        },
     },
 }
 
@@ -715,8 +752,15 @@ local timer = 0
 
 minetest.register_globalstep(function(dtime)
     timer = timer + dtime
+
     if timer > 5 then
         local players = minetest.get_connected_players()
+        local tod = minetest.get_timeofday()
+        local is_day = false
+
+        if tod > 0.2 and tod < 0.805 then
+            is_day = true
+        end
 
         for _, player in ipairs(players) do
             if not player then
@@ -728,6 +772,7 @@ minetest.register_globalstep(function(dtime)
             local biome_data = minetest.get_biome_data(player_pos)
             local player_biome_name = player_meta:get_string('everness_biome_name')
             local is_underground = player_meta:get_int('everness_is_underground')
+            local player_is_day = player_meta:get_int('everness_is_day') == 1
 
             if not biome_data then
                 return
@@ -762,8 +807,10 @@ minetest.register_globalstep(function(dtime)
                 end
             end
 
+            -- Change skybox params
             if player_biome_name ~= biome_name then
                 player_meta:set_string('everness_biome_name', biome_name)
+                player_biome_name = biome_name
 
                 if skybox_defs[biome_name] then
                     if skybox_defs[biome_name].sun_parameters then
@@ -788,8 +835,7 @@ minetest.register_globalstep(function(dtime)
                     if skybox_defs[biome_name].star_parameters then
                         player:set_stars(skybox_defs[biome_name].star_parameters)
                     else
-                        -- passing empty object otherwise it will break on MT 5.6.0
-                        player:set_stars({})
+                        player:set_stars()
                     end
 
                     if skybox_defs[biome_name].sky_parameters then
@@ -806,10 +852,34 @@ minetest.register_globalstep(function(dtime)
                 else
                     player:set_sun()
                     player:set_moon()
-                    -- passing empty object otherwise it will break on MT 5.6.0
-                    player:set_stars({})
+                    player:set_stars()
                     player:set_sky()
                     player:set_clouds()
+                end
+            end
+
+            -- change day/night params
+            if player_biome_name == biome_name and player_is_day ~= is_day then
+                if skybox_defs[biome_name] then
+                    if skybox_defs[biome_name].sky_parameters then
+                        if skybox_defs[biome_name].sky_parameters.type == 'skybox' then
+                            player_meta:set_int('everness_is_day', is_day and 1 or 0)
+
+                            if is_day then
+                                for i, v in ipairs(skybox_defs[biome_name].sky_parameters.textures) do
+                                    skybox_defs[biome_name].sky_parameters.base_color = skybox_defs[biome_name].sky_parameters._day_base_color
+                                    skybox_defs[biome_name].sky_parameters.textures[i] = skybox_defs[biome_name].sky_parameters._textures_base[i]
+                                end
+                            else
+                                for i, v in ipairs(skybox_defs[biome_name].sky_parameters.textures) do
+                                    skybox_defs[biome_name].sky_parameters.base_color = skybox_defs[biome_name].sky_parameters._night_base_color
+                                    skybox_defs[biome_name].sky_parameters.textures[i] = skybox_defs[biome_name].sky_parameters._textures_base[i] .. '^[contrast:0:-85'
+                                end
+                            end
+
+                            player:set_sky(skybox_defs[biome_name].sky_parameters)
+                        end
+                    end
                 end
             end
 
@@ -859,4 +929,5 @@ minetest.register_on_joinplayer(function(player, last_login)
     player_meta:set_string('everness_biome_name', '')
     player_meta:set_int('everness_is_underground', 0)
     player_meta:set_int('everness_timeofday', 0)
+    player_meta:set_int('everness_is_day', 1)
 end)
