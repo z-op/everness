@@ -172,6 +172,8 @@ register_dry_grass_decoration(0.07, -0.01, 1)
 -- On Generated
 --
 
+local biome_id_baobab_savanna = minetest.get_biome_id('everness:baobab_savanna')
+
 local deco_ids_baobab = {
     minetest.get_decoration_id('everness:baobab_savanna_baobab_tree_1'),
     minetest.get_decoration_id('everness:baobab_savanna_baobab_tree_2')
@@ -181,17 +183,19 @@ if #deco_ids_baobab > 1 then
     minetest.set_gen_notify({ decoration = true }, deco_ids_baobab)
 end
 
-minetest.register_on_generated(function(minp, maxp, blockseed)
-    local gennotify = minetest.get_mapgen_object('gennotify')
-
-    if maxp.y > 0 then
+Everness:add_to_queue_on_generated({
+    name = 'everness:baobab_savanna',
+    can_run = function(biomemap)
+        return table.indexof(biomemap, biome_id_baobab_savanna) ~= -1
+    end,
+    on_data = function(minp, maxp, area, data, p2data, gennotify, rand)
         --
         -- Baobab Tree - fix light
         --
         for _, deco_id in ipairs(deco_ids_baobab) do
-            for _, pos in ipairs(gennotify['decoration#' .. deco_id] or {}) do
+            for _, pos in ipairs(gennotify['decoration#' .. (deco_id or '')] or {}) do
                 minetest.fix_light(vector.offset(pos, -1, -1, -1), vector.offset(pos, 24, 39, 24))
             end
         end
     end
-end)
+})

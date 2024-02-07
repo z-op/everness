@@ -311,3 +311,114 @@ Everness:register_decoration({
     schematic = minetest.get_modpath('everness') .. '/schematics/everness_cursed_bush.mts',
     flags = 'place_center_x, place_center_z',
 })
+
+--
+-- On Generated
+--
+
+local chance = 20
+local disp = 16
+local schem = minetest.get_modpath('everness') .. '/schematics/everness_haunted_house.mts'
+local size = { x = 11, y = 22, z = 10 }
+local size_x = math.round(size.x / 2)
+local size_z = math.round(size.z / 2)
+local y_dis = 1
+
+local c_dirt_with_cursed_grass = minetest.get_content_id('everness:dirt_with_cursed_grass')
+
+local biome_id_everness_cursed_lands = minetest.get_biome_id('everness:cursed_lands')
+
+Everness:add_to_queue_on_generated({
+    name = 'everness:cursed_lands',
+    can_run = function(biomemap)
+        return table.indexof(biomemap, biome_id_everness_cursed_lands) ~= -1
+    end,
+    after_set_data = function(minp, maxp, vm, area, data, p2data, gennotify, rand, shared_args)
+        local sidelength = maxp.x - minp.x + 1
+        local x_disp = rand:next(0, disp)
+        local z_disp = rand:next(0, disp)
+        shared_args.schem_positions = {}
+
+        for y = minp.y, maxp.y do
+            local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
+
+            if data[vi + area.ystride] == minetest.CONTENT_AIR
+                and data[vi] == c_dirt_with_cursed_grass
+                and rand:next(0, 100) < chance
+            then
+                local s_pos = area:position(vi)
+
+                --
+                -- Haunted House
+                --
+
+                -- add Y displacement
+                local schem_pos = vector.new(s_pos.x, s_pos.y - y_dis, s_pos.z)
+
+                -- find floor big enough
+                local positions = minetest.find_nodes_in_area_under_air(
+                    vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
+                    vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
+                    {
+                        'everness:dirt_with_cursed_grass'
+                    }
+                )
+
+                if #positions < size.x * size.z then
+                    -- not enough space
+                    return
+                end
+
+                -- enough air to place structure ?
+                local air_positions = minetest.find_nodes_in_area(
+                    vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                    vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
+                    {
+                        'air'
+                    }
+                )
+
+                if #air_positions > (size.x * size.y * size.z) / 2 then
+                    minetest.place_schematic_on_vmanip(
+                        vm,
+                        schem_pos,
+                        schem,
+                        'random',
+                        nil,
+                        true,
+                        'place_center_x, place_center_z'
+                    )
+
+                    shared_args.schem_positions.everness_haunted_house = shared_args.schem_positions.everness_haunted_house or {}
+
+                    table.insert(shared_args.schem_positions.everness_haunted_house, {
+                        pos = schem_pos,
+                        minp = vector.new(s_pos.x - size_x, s_pos.y - y_dis, s_pos.z - size_z),
+                        maxp = vector.new(s_pos.x + size_x, s_pos.y - y_dis + size.y, s_pos.z + size_z)
+                    })
+
+                    minetest.log('action', '[Everness] Haunted House was placed at ' .. schem_pos:to_string())
+                end
+            end
+        end
+    end,
+    after_write_to_map = function(shared_args)
+        local schem_positions = shared_args.schem_positions or {}
+
+        for name, tbl in pairs(schem_positions) do
+            if next(tbl) then
+                for i, v in ipairs(tbl) do
+                    local chest_positions = minetest.find_nodes_in_area(
+                        v.minp,
+                        v.maxp,
+                        { 'everness:chest' }
+                    )
+
+                    if #chest_positions > 0 then
+                        Everness:populate_loot_chests(chest_positions)
+                    end
+                end
+            end
+        end
+    end
+})

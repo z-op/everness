@@ -71,6 +71,45 @@ stairs.register_stair_and_slab(
     true
 )
 
+stairs.register_stair_and_slab(
+    'cursed_sandstone_block',
+    'everness:cursed_sandstone_block',
+    { cracky = 2 },
+    { 'everness_cursed_sandstone_block.png' },
+    'Cursed Sandstone Block Stair',
+    'Cursed Sandstone Block Slab',
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'cursed_sandstone_brick',
+    'everness:cursed_sandstone_brick',
+    { cracky = 2 },
+    { 'everness_cursed_sandstone_brick.png' },
+    'Cursed Sandstone Brick Stair',
+    'Cursed Sandstone Brick Slab',
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'cursed_stone_carved',
+    'everness:cursed_stone_carved',
+    { cracky = 2 },
+    {
+        {
+            name = 'everness_cursed_stone_carved.png',
+            align_style = 'world',
+            scale = 2
+        }
+    },
+    'Cursed Stone Carved Stair',
+    'Cursed Stone Carved Slab',
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
 -- Quartz
 
 stairs.register_stair_and_slab(
@@ -127,6 +166,17 @@ stairs.register_stair_and_slab(
     { 'everness_dry_wood.png' },
     S('Dry Wood Stair'),
     S('Dry Wood Slab'),
+    Everness.node_sound_wood_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'dry_tree',
+    'everness:dry_tree',
+    { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
+    { 'everness_dry_tree_top.png', 'everness_dry_tree_top.png', 'everness_dry_tree.png' },
+    S('Dry Tree Trunk Stair'),
+    S('Dry Tree Trunk Slab'),
     Everness.node_sound_wood_defaults(),
     true
 )
@@ -199,6 +249,39 @@ stairs.register_stair_and_slab(
     { 'everness_forsaken_desert_chiseled_stone_side.png' },
     S('Forsaken Desert Chiseled Stone Stair'),
     S('Forsaken Desert Chiseled Stone Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'forsaken_desert_engraved_stone',
+    'everness:forsaken_desert_engraved_stone',
+    { cracky = 2, stone = 1 },
+    { 'everness_forsaken_desert_engraved_stone.png' },
+    S('Forsaken Desert Engraved Stone Stair'),
+    S('Forsaken Desert Engraved Stone Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'forsaken_desert_cobble',
+    'everness:forsaken_desert_cobble',
+    { cracky = 2, stone = 1 },
+    { 'everness_forsaken_desert_cobble.png' },
+    S('Forsaken Desert Cobblestone Stair'),
+    S('Forsaken Desert Cobblestone Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'forsaken_desert_cobble_red',
+    'everness:forsaken_desert_cobble_red',
+    { cracky = 2, stone = 1 },
+    { 'everness_forsaken_desert_cobble_red.png' },
+    S('Forsaken Desert Cobblestone Red Stair'),
+    S('Forsaken Desert Cobblestone Red Slab'),
     Everness.node_sound_stone_defaults(),
     true
 )

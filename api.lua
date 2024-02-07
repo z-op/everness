@@ -236,7 +236,8 @@ Everness = {
     registered_craftitems = {},
     registered_biomes = {},
     registered_decorations = {},
-    registered_ores = {}
+    registered_ores = {},
+    on_generated_queue = {}
 }
 
 function Everness.grow_cactus(self, pos, node, params)
@@ -2116,4 +2117,14 @@ function Everness.find_content_in_vm_area(minp, maxp, contentIds, data, area)
     end
 
     return indexes, id_count
+end
+
+
+function Everness.add_to_queue_on_generated(self, def)
+    if type(def) ~= 'table' then
+        minetest.log('warning', '[add_to_queue_on_generated] Callback definition is not a table, not adding to queue! It was type of ' .. type(def))
+        return
+    end
+
+    table.insert(self.on_generated_queue, def)
 end

@@ -294,11 +294,6 @@ local function place_decoration(pos, vm, area, data, deco_id, callback)
     end
 end
 
--- Localize data buffer table outside the loop, to be re-used for all
--- mapchunks, therefore minimising memory use
-local data = {}
-local p2data = {}
-
 minetest.set_gen_notify({ decoration = true }, {
     d_everness_palm_trees,
     d_everness_water_geyser,
@@ -307,28 +302,14 @@ minetest.set_gen_notify({ decoration = true }, {
 })
 
 -- Called after generating a piece of world. Modifying nodes inside the area is a bit faster than usual.
-minetest.register_on_generated(function(minp, maxp, blockseed)
-    -- Start time of mapchunk generation.
-    -- local t0 = os.clock()
-    -- Returns an array containing the biome IDs of nodes in the most recently generated chunk by the current mapgen
-    local biomemap = minetest.get_mapgen_object('biomemap')
-    local chest_positions = {}
-
-    -- Above sea level
-    if maxp.y >= y_min and table.indexof(biomemap, biome_id_everness_mineral_waters) ~= -1 then
-        local rand = PcgRandom(blockseed)
+Everness:add_to_queue_on_generated({
+    name = 'everness:mineral_waters',
+    can_run = function(biomemap)
+        return table.indexof(biomemap, biome_id_everness_mineral_waters) ~= -1
+    end,
+    on_data = function(minp, maxp, area, data, p2data, gennotify, rand, shared_args)
         local rand_version = rand:next(1, 2)
-        -- Load the voxelmanip with the result of engine mapgen
-        local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
-        -- Returns a table mapping requested generation notification types to arrays of positions at which the corresponding generated structures are located within the current chunk
-        local gennotify = minetest.get_mapgen_object('gennotify')
-        -- 'area' is used later to get the voxelmanip indexes for positions
-        local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
-        -- Get the content ID data from the voxelmanip in the form of a flat array.
-        -- Set the buffer parameter to use and reuse 'data' for this.
-        vm:get_data(data)
-        vm:get_param2_data(p2data)
-
+        local chest_positions = {}
         local pot_pos = {}
 
         if rand_version == 1 then
@@ -564,6 +545,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
         end
 
         -- Place decorations after generating (2nd pass)
+        -- luacheck: ignore 512
         for y = minp.y, maxp.y do
             for z = minp.z, maxp.z do
                 for x = minp.x, maxp.x do
@@ -721,12 +703,15 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
             end
         end
 
-        vm:set_data(data)
-        vm:set_param2_data(p2data)
-
+        -- Set `shared_args`
+        shared_args.chest_positions = chest_positions
+        shared_args.pot_pos = pot_pos
+    end,
+    after_set_data = function(minp, maxp, vm, area, data, p2data, gennotify, rand, shared_args)
         --
         -- Place Decorations
         --
+        local pot_pos = shared_args.pot_pos or {}
 
         --
         -- Palm Trees
@@ -820,25 +805,14 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                 inv:set_stack('main', 1, stack)
             end
         end
-
-        -- Set the lighting within the `VoxelManip` to a uniform value
-        vm:set_lighting({ day = 0, night = 0 }, minp, maxp)
-        -- Calculate lighting for what has been created.
-        vm:calc_lighting()
-        -- Liquid nodes were placed so set them flowing.
-        vm:update_liquids()
-        -- Write what has been created to the world.
-        vm:write_to_map()
-
+    end,
+    after_write_to_map = function(shared_args)
         -- Populate loot chest inventory
+        local chest_positions = shared_args.chest_positions or {}
         local chest_def = minetest.registered_nodes['everness:chest']
 
         if chest_def and next(chest_positions) then
             Everness:populate_loot_chests(chest_positions)
         end
     end
-
-    -- Print generation time of this mapchunk.
-    -- local chugent = math.ceil((os.clock() - t0) * 1000)
-    -- print('[lvm_example] Mapchunk generation time ' .. chugent .. ' ms')
-end)
+})
