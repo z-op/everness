@@ -1142,24 +1142,28 @@ function Everness.set_loot_chest_items()
     Everness.loot_chest.default = table.copy(loot_items)
 end
 
-function Everness.populate_loot_chests(self, positions, loot_chest_items_group)
-    local _loot_chest_items_group = loot_chest_items_group or 'default'
+function Everness.populate_loot_chests(self, positions, params)
+    local _params = params or {}
+    local _loot_chest_items_group = _params.loot_chest_items_group or 'default'
 
     -- Get inventories
     local string_positions = '';
     local inventories = {}
 
     for i, pos in ipairs(positions) do
-        local chest_def = minetest.registered_nodes['everness:chest']
-        chest_def.on_construct(pos)
-
         local inv = minetest.get_inventory({ type = 'node', pos = pos })
+
+        if not inv then
+            local chest_def = minetest.registered_nodes['everness:chest']
+            chest_def.on_construct(pos)
+            inv = minetest.get_inventory({ type = 'node', pos = pos })
+        end
 
         if inv then
             table.insert(inventories, inv)
             string_positions = string_positions .. ' ' .. pos:to_string()
         else
-            minetest.log('action', '[Everness] FAILED to populate loot chests inventory at ' .. pos:to_string())
+            minetest.log('warning', '[Everness] FAILED to populate loot chests inventory at ' .. pos:to_string())
         end
     end
 
@@ -2109,6 +2113,28 @@ function Everness.find_content_in_vm_area(minp, maxp, contentIds, data, area)
                 local ai = area:index(x, y, z)
 
                 if table.indexof(contentIds, data[ai]) ~= -1 then
+                    id_count[data[ai]] = (id_count[data[ai]] or 0) + 1
+                    table.insert(indexes, ai)
+                end
+            end
+        end
+    end
+
+    return indexes, id_count
+end
+
+function Everness.find_content_under_air_in_vm_area(minp, maxp, contentIds, data, area)
+    local indexes = {}
+    local id_count = {}
+
+    for y = minp.y, maxp.y do
+        for z = minp.z, maxp.z do
+            for x = minp.x, maxp.x do
+                local ai = area:index(x, y, z)
+
+                if table.indexof(contentIds, data[ai]) ~= -1
+                    and data[ai + area.ystride] == minetest.CONTENT_AIR
+                then
                     id_count[data[ai]] = (id_count[data[ai]] or 0) + 1
                     table.insert(indexes, ai)
                 end

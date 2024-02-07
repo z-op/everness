@@ -16,15 +16,10 @@
 
 -- Get the content IDs for the nodes used.
 local c_water_source = minetest.get_content_id('mapgen_water_source')
-local c_dirt_with_rainforest_litter = minetest.get_content_id('default:dirt_with_rainforest_litter')
-local c_dirt_with_snow = minetest.get_content_id('default:dirt_with_snow')
-local c_dirt_with_coniferous_litter = minetest.get_content_id('default:dirt_with_coniferous_litter')
 local c_forsaken_desert_sand = minetest.get_content_id('everness:forsaken_desert_sand')
 local c_forsaken_desert_chiseled_stone = minetest.get_content_id('everness:forsaken_desert_chiseled_stone')
 local c_forsaken_desert_brick = minetest.get_content_id('everness:forsaken_desert_brick')
 local c_forsaken_desert_engraved_stone = minetest.get_content_id('everness:forsaken_desert_engraved_stone')
-local c_everness_mineral_water_source = minetest.get_content_id('everness:mineral_water_source')
-local c_everness_mineral_sand = minetest.get_content_id('everness:mineral_sand')
 -- Biome IDs
 local biome_id_everness_cursed_lands_dunes = minetest.get_biome_id('everness:cursed_lands_dunes')
 local biome_id_everness_cursed_lands_swamp = minetest.get_biome_id('everness:cursed_lands_swamp')
@@ -34,131 +29,9 @@ local biome_id_everness_crystal_forest_shore = minetest.get_biome_id('everness:c
 local biome_id_everness_crystal_forest_ocean = minetest.get_biome_id('everness:crystal_forest_ocean')
 local water_level = tonumber(minetest.settings:get('water_level')) or 1
 
--- MTG
 local chance = 20
 local chance_sea_level = 10
 local disp = 16
-local schem_jungle_temple = minetest.get_modpath('everness') .. '/schematics/everness_jungle_temple.mts'
-local size_jungle_temple = { x = 12, y = 14, z = 15 }
-local size_jungle_temple_x = math.round(size_jungle_temple.x / 2)
-local size_jungle_temple_z = math.round(size_jungle_temple.z / 2)
-local y_dis_jungle_temple = 3
-
-local biome_id_rainforest = minetest.get_biome_id('rainforest')
-local biome_id_rainforest_swamp = minetest.get_biome_id('rainforest_swamp')
-
-Everness:add_to_queue_on_generated({
-    name = 'default:rainforest_and_rainforest_swamp',
-    can_run = function(biomemap)
-        return table.indexof(biomemap, biome_id_rainforest) ~= -1
-            or table.indexof(biomemap, biome_id_rainforest_swamp) ~= -1
-    end,
-    after_set_data = function(minp, maxp, vm, area, data, p2data, gennotify, rand, shared_args)
-        local sidelength = maxp.x - minp.x + 1
-        local x_disp = rand:next(0, disp)
-        local z_disp = rand:next(0, disp)
-        shared_args.schem_positions = {}
-
-        for y = minp.y, maxp.y do
-            local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
-
-            if data[vi + area.ystride] == minetest.CONTENT_AIR
-                and data[vi] == c_dirt_with_rainforest_litter
-                and rand:next(0, 100) < chance
-            then
-                local s_pos = area:position(vi)
-
-                --
-                -- Jungle Temple
-                --
-
-                -- add Y displacement
-
-                local schem_pos = vector.new(s_pos.x, s_pos.y - y_dis_jungle_temple, s_pos.z)
-
-                -- find floor big enough
-                local positions = minetest.find_nodes_in_area_under_air(
-                    vector.new(s_pos.x - size_jungle_temple_x, s_pos.y - 1, s_pos.z - size_jungle_temple_z),
-                    vector.new(s_pos.x + size_jungle_temple_x, s_pos.y + 1, s_pos.z + size_jungle_temple_z),
-                    {
-                        'default:dirt_with_rainforest_litter'
-                    }
-                )
-                -- Can force over these blocks
-                local force_positions = minetest.find_nodes_in_area(
-                    vector.new(s_pos.x - size_jungle_temple_x, s_pos.y - 1, s_pos.z - size_jungle_temple_z),
-                    vector.new(s_pos.x + size_jungle_temple_x, s_pos.y + 1, s_pos.z + size_jungle_temple_z),
-                    {
-                        'group:tree',
-                        'group:flower',
-                        'group:flora',
-                        'group:leaves',
-                        'fireflies:firefly',
-                        'fireflies:hidden_firefly',
-                    }
-                )
-
-                if #positions + #force_positions < size_jungle_temple.x * size_jungle_temple.z then
-                    -- not enough space
-                    return
-                end
-
-                -- enough air to place structure ?
-                local air_positions = minetest.find_nodes_in_area(
-                    vector.new(s_pos.x - size_jungle_temple_x, s_pos.y, s_pos.z - size_jungle_temple_z),
-                    vector.new(s_pos.x + size_jungle_temple_x, s_pos.y + size_jungle_temple.y, s_pos.z + size_jungle_temple_z),
-                    {
-                        'air',
-                        'group:tree',
-                        'group:flora',
-                        'group:leaves'
-                    }
-                )
-
-                if #air_positions > (size_jungle_temple.x * size_jungle_temple.y * size_jungle_temple.z) / 2 then
-                    minetest.place_schematic_on_vmanip(
-                        vm,
-                        schem_pos,
-                        schem_jungle_temple,
-                        'random',
-                        nil,
-                        true,
-                        'place_center_x, place_center_z'
-                    )
-
-                    shared_args.schem_positions.everness_jungle_temple = shared_args.schem_positions.everness_jungle_temple or {}
-
-                    table.insert(shared_args.schem_positions.everness_jungle_temple, {
-                        pos = schem_pos,
-                        minp = vector.new(s_pos.x - size_jungle_temple_x, s_pos.y - y_dis_jungle_temple, s_pos.z - size_jungle_temple_z),
-                        maxp = vector.new(s_pos.x + size_jungle_temple_x, s_pos.y - y_dis_jungle_temple + size_jungle_temple.y, s_pos.z + size_jungle_temple_z)
-                    })
-
-                    minetest.log('action', '[Everness] Jungle Temple was placed at ' .. schem_pos:to_string())
-                end
-            end
-        end
-    end,
-    after_write_to_map = function(shared_args)
-        local schem_positions = shared_args.schem_positions or {}
-
-        for name, tbl in pairs(schem_positions) do
-            if next(tbl) then
-                for i, v in ipairs(tbl) do
-                    local chest_positions = minetest.find_nodes_in_area(
-                        v.minp,
-                        v.maxp,
-                        { 'everness:chest' }
-                    )
-
-                    if #chest_positions > 0 then
-                        Everness:populate_loot_chests(chest_positions)
-                    end
-                end
-            end
-        end
-    end
-})
 
 -- Localize data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
@@ -220,121 +93,6 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
             if maxp.y >= water_level then
                 -- Above sea level or at water level
                 if
-                    (
-                        data[vi] == c_dirt_with_snow
-                        or data[vi] == c_dirt_with_coniferous_litter
-                    )
-                    and rand:next(0, 100) < 100
-                then
-                    local schem = minetest.get_modpath('everness') .. '/schematics/everness_giant_sequoia_tree.mts'
-
-                    --
-                    -- Giant Sequoia
-                    --
-
-                    local size = { x = 25, y = 75, z = 25 }
-                    local size_x = math.round(size.x / 2)
-                    local size_z = math.round(size.z / 2)
-                    local schem_pos = vector.new(s_pos)
-
-                    minetest.emerge_area(
-                        vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
-                        vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
-                        function(blockpos, action, calls_remaining, param)
-                            Everness:emerge_area(blockpos, action, calls_remaining, param)
-                        end,
-                        {
-                            callback = function()
-                                -- find floor big enough
-                                local positions = minetest.find_nodes_in_area_under_air(
-                                    vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
-                                    vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
-                                    {
-                                        'default:dirt_with_snow',
-                                        'default:dirt_with_coniferous_litter',
-                                        'default:snow'
-                                    })
-
-                                if #positions < size.x * size.z then
-                                    -- not enough space
-                                    return
-                                end
-
-                                minetest.place_schematic(
-                                    schem_pos,
-                                    schem,
-                                    'random',
-                                    nil,
-                                    true,
-                                    'place_center_x, place_center_z'
-                                )
-
-                                minetest.log('action', '[Everness] Giant Sequoia was placed at ' .. schem_pos:to_string())
-                            end
-                        }
-                    )
-                elseif
-                    (
-                        data[vi] == c_everness_mineral_water_source
-                        or data[vi] == c_everness_mineral_sand
-                    )
-                    and rand:next(0, 100) < chance
-                then
-                    local schem = minetest.get_modpath('everness') .. '/schematics/everness_mineral_waters_tower.mts'
-
-                    --
-                    -- Mineral Waters Tower
-                    --
-
-                    local size = { x = 7, y = 16, z = 9 }
-                    local size_x = math.round(size.x / 2)
-                    local size_z = math.round(size.z / 2)
-                    local schem_pos = vector.new(s_pos)
-
-                    -- find floor big enough
-                    local positions = minetest.find_nodes_in_area_under_air(
-                        vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
-                        vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
-                        {
-                            'everness:mineral_sand',
-                            'everness:mineral_water_source'
-                        }
-                    )
-
-                    if #positions < size.x * size.z then
-                        -- not enough space
-                        return
-                    end
-
-                    -- enough air to place structure ?
-                    local air_positions = minetest.find_nodes_in_area(
-                        vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
-                        vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
-                        { 'air' }
-                    )
-
-                    if #air_positions > (size.x * size.y * size.z) / 2 then
-                        minetest.place_schematic_on_vmanip(
-                            vm,
-                            schem_pos,
-                            schem,
-                            'random',
-                            nil,
-                            true,
-                            'place_center_x, place_center_z'
-                        )
-
-                        schem_positions.everness_mineral_waters_tower = schem_positions.everness_mineral_waters_tower or {}
-
-                        table.insert(schem_positions.everness_mineral_waters_tower, {
-                            pos = schem_pos,
-                            minp = vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
-                            maxp = vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z)
-                        })
-
-                        minetest.log('action', '[Everness] Mineral Waters Tower was placed at ' .. schem_pos:to_string())
-                    end
-                elseif
                     water_level >= minp.y
                     and water_level <= maxp.y
                     and data[vi] == c_water_source
@@ -594,7 +352,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
         if def.can_run(biomemap) and def.after_write_to_map then
             shared_args[def.name] = shared_args[def.name] or {}
             -- print('after_write_to_map', def.name, minp:to_string(), maxp:to_string())
-            def.after_write_to_map(shared_args[def.name])
+            def.after_write_to_map(shared_args[def.name], gennotify)
         end
     end
 

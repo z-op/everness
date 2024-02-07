@@ -239,6 +239,13 @@ local c_water_weeds = {
     c_everness_mineral_water_weed_2
 }
 
+local chance = 20
+local disp = 16
+local schem = minetest.get_modpath('everness') .. '/schematics/everness_mineral_waters_tower.mts'
+local size = { x = 7, y = 16, z = 9 }
+local size_x = math.round(size.x / 2)
+local size_z = math.round(size.z / 2)
+
 local function find_irecursive(table, c_id)
     local found = false
 
@@ -587,14 +594,14 @@ Everness:add_to_queue_on_generated({
                                 for j = -radius, radius do
                                     local idx = ai + i + (area.zstride * j) + area.ystride
                                     local distance = math.round(vector.distance(area:position(ai), area:position(idx)))
-                                    local chance = math.round(chance_max / distance)
+                                    local chance_lotus_leaf = math.round(chance_max / distance)
 
-                                    if chance > chance_max then
-                                        chance = chance_max
+                                    if chance_lotus_leaf > chance_max then
+                                        chance_lotus_leaf = chance_max
                                     end
 
                                     if
-                                        rand:next(0, 100) < chance
+                                        rand:next(0, 100) < chance_lotus_leaf
                                         and data[idx] == minetest.CONTENT_AIR
                                         and data[idx - area.ystride] == c_everness_mineral_water_source
                                     then
@@ -708,6 +715,75 @@ Everness:add_to_queue_on_generated({
         shared_args.pot_pos = pot_pos
     end,
     after_set_data = function(minp, maxp, vm, area, data, p2data, gennotify, rand, shared_args)
+        local sidelength = maxp.x - minp.x + 1
+        local x_disp = rand:next(0, disp)
+        local z_disp = rand:next(0, disp)
+        shared_args.schem_positions = {}
+
+        for y = minp.y, maxp.y do
+            local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
+
+            if data[vi + area.ystride] == minetest.CONTENT_AIR
+                and (
+                    data[vi] == c_everness_mineral_water_source
+                    or data[vi] == c_everness_mineral_sand
+                )
+                and rand:next(0, 100) < chance
+            then
+                local s_pos = area:position(vi)
+
+                --
+                -- Mineral Waters Tower
+                --
+
+                -- find floor big enough
+                local positions = minetest.find_nodes_in_area_under_air(
+                    vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
+                    vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
+                    {
+                        'everness:mineral_sand',
+                        'everness:mineral_water_source'
+                    }
+                )
+
+                if #positions < size.x * size.z then
+                    -- not enough space
+                    return
+                end
+
+                -- enough air to place structure ?
+                local air_positions = minetest.find_nodes_in_area(
+                    vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                    vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
+                    {
+                        'air'
+                    }
+                )
+
+                if #air_positions > (size.x * size.y * size.z) / 2 then
+                    minetest.place_schematic_on_vmanip(
+                        vm,
+                        s_pos,
+                        schem,
+                        'random',
+                        nil,
+                        true,
+                        'place_center_x, place_center_z'
+                    )
+
+                    shared_args.schem_positions.everness_mineral_waters_tower = shared_args.schem_positions.everness_mineral_waters_tower or {}
+
+                    table.insert(shared_args.schem_positions.everness_mineral_waters_tower, {
+                        pos = s_pos,
+                        minp = vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                        maxp = vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z)
+                    })
+
+                    minetest.log('action', '[Everness] Mineral Waters Tower was placed at ' .. s_pos:to_string())
+                end
+            end
+        end
+
         --
         -- Place Decorations
         --
@@ -809,10 +885,28 @@ Everness:add_to_queue_on_generated({
     after_write_to_map = function(shared_args)
         -- Populate loot chest inventory
         local chest_positions = shared_args.chest_positions or {}
-        local chest_def = minetest.registered_nodes['everness:chest']
 
-        if chest_def and next(chest_positions) then
+        if next(chest_positions) then
             Everness:populate_loot_chests(chest_positions)
+        end
+
+        -- Populate loot chest inventory for schematics
+        local schem_positions = shared_args.schem_positions or {}
+
+        for name, tbl in pairs(schem_positions) do
+            if next(tbl) then
+                for i, v in ipairs(tbl) do
+                    local chest_positions2 = minetest.find_nodes_in_area(
+                        v.minp,
+                        v.maxp,
+                        { 'everness:chest' }
+                    )
+
+                    if #chest_positions2 > 0 then
+                        Everness:populate_loot_chests(chest_positions2)
+                    end
+                end
+            end
         end
     end
 })

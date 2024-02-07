@@ -152,7 +152,7 @@ local size_x = math.round(size.x / 2)
 local size_z = math.round(size.z / 2)
 local y_dis = 1
 
-local c_crystal_sand = minetest.get_content_id('everness:crystal_sand')
+local c_everness_crystal_sand = minetest.get_content_id('everness:crystal_sand')
 
 local biome_id_everness_crystal_forest_dunes = minetest.get_biome_id('everness:crystal_forest_dunes')
 
@@ -171,7 +171,7 @@ Everness:add_to_queue_on_generated({
             local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
 
             if data[vi + area.ystride] == minetest.CONTENT_AIR
-                and data[vi] == c_crystal_sand
+                and data[vi] == c_everness_crystal_sand
                 and rand:next(0, 100) < chance
             then
                 local s_pos = area:position(vi)

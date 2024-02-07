@@ -172,6 +172,24 @@ register_dry_grass_decoration(0.07, -0.01, 1)
 -- On Generated
 --
 
+local disp = 16
+local chance = 100
+local schem = minetest.get_modpath('everness') .. '/schematics/everness_giant_sequoia_tree.mts'
+local size = { x = 25, y = 75, z = 25 }
+local size_x = math.round(size.x / 2)
+local size_z = math.round(size.z / 2)
+
+local baobab_tree_size = { x = 24, y = 39, z = 24 }
+local baobab_tree_size_x = math.round(size.x / 2)
+local baobab_tree_size_z = math.round(size.z / 2)
+
+local c_everness_dry_dirt_with_dry_grass = minetest.get_content_id('everness:dry_dirt_with_dry_grass')
+local c_everness_dry_dirt = minetest.get_content_id('everness:dry_dirt')
+local c_everness_dry_grass_1 = minetest.get_content_id('everness:dry_grass_1')
+local c_everness_dry_grass_2 = minetest.get_content_id('everness:dry_grass_2')
+local c_everness_dry_grass_3 = minetest.get_content_id('everness:dry_grass_3')
+local c_everness_dry_grass_4 = minetest.get_content_id('everness:dry_grass_4')
+
 local biome_id_baobab_savanna = minetest.get_biome_id('everness:baobab_savanna')
 
 local deco_ids_baobab = {
@@ -188,13 +206,83 @@ Everness:add_to_queue_on_generated({
     can_run = function(biomemap)
         return table.indexof(biomemap, biome_id_baobab_savanna) ~= -1
     end,
-    on_data = function(minp, maxp, area, data, p2data, gennotify, rand)
+    after_set_data = function(minp, maxp, vm, area, data, p2data, gennotify, rand, shared_args)
+        local sidelength = maxp.x - minp.x + 1
+        local x_disp = rand:next(0, disp)
+        local z_disp = rand:next(0, disp)
+        shared_args.schem_positions = {}
+
+        for y = minp.y, maxp.y do
+            local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
+
+            if (
+                    data[vi + area.ystride] == minetest.CONTENT_AIR
+                    or data[vi + area.ystride] == c_everness_dry_grass_1
+                    or data[vi + area.ystride] == c_everness_dry_grass_2
+                    or data[vi + area.ystride] == c_everness_dry_grass_3
+                    or data[vi + area.ystride] == c_everness_dry_grass_4
+                )
+                and (
+                    data[vi] == c_everness_dry_dirt_with_dry_grass
+                    or data[vi] == c_everness_dry_dirt
+                )
+                and rand:next(0, 100) < chance
+            then
+                local s_pos = area:position(vi)
+
+                --
+                -- Giant Sequoia
+                --
+
+                minetest.emerge_area(
+                    vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                    vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
+                    function(blockpos, action, calls_remaining, param)
+                        Everness:emerge_area(blockpos, action, calls_remaining, param)
+                    end,
+                    {
+                        callback = function()
+                            local positions = minetest.find_nodes_in_area_under_air(
+                                vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
+                                vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
+                                {
+                                    'everness:dry_dirt_with_dry_grass',
+                                    'everness:dry_dirt',
+                                    'group:flora',
+                                    'group:flower'
+                                })
+
+                            if #positions < size.x * size.z then
+                                -- not enough space
+                                return
+                            end
+
+                            minetest.place_schematic(
+                                s_pos,
+                                schem,
+                                'random',
+                                nil,
+                                true,
+                                'place_center_x, place_center_z'
+                            )
+
+                            minetest.log('action', '[Everness] Giant Sequoia was placed at ' .. s_pos:to_string())
+                        end
+                    }
+                )
+            end
+        end
+    end,
+    after_write_to_map = function(shared_args, gennotify)
         --
         -- Baobab Tree - fix light
         --
         for _, deco_id in ipairs(deco_ids_baobab) do
             for _, pos in ipairs(gennotify['decoration#' .. (deco_id or '')] or {}) do
-                minetest.fix_light(vector.offset(pos, -1, -1, -1), vector.offset(pos, 24, 39, 24))
+                minetest.fix_light(
+                    vector.new(pos.x - baobab_tree_size_x, pos.y - 1, pos.z - baobab_tree_size_z),
+                    vector.new(pos.x + baobab_tree_size_x, pos.y + baobab_tree_size.y, pos.z + baobab_tree_size_z)
+                )
             end
         end
     end

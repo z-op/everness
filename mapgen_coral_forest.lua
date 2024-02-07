@@ -269,7 +269,7 @@ Everness:add_to_queue_on_generated({
     can_run = function(biomemap)
         return table.indexof(biomemap, biome_id_coral_forest) ~= -1
     end,
-    on_data = function(minp, maxp, area, data, p2data, gennotify, rand, shared_args)
+    after_write_to_map = function(shared_args, gennotify)
         --
         -- Coral bone tree - fix light
         --
