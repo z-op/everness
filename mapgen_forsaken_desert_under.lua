@@ -193,3 +193,138 @@ Everness:register_decoration({
     height_max = 7,
     flags = 'all_floors'
 })
+
+--
+-- On Generated
+--
+
+local disp = 16
+local chance = 20
+local schem = minetest.get_modpath('everness') .. '/schematics/everness_forsaken_desert_temple_2.mts'
+local size = { x = 16, y = 17, z = 15 }
+local size_x = math.round(size.x / 2)
+local size_z = math.round(size.z / 2)
+
+local c_forsaken_desert_sand = minetest.get_content_id('everness:forsaken_desert_sand')
+local c_forsaken_desert_chiseled_stone = minetest.get_content_id('everness:forsaken_desert_chiseled_stone')
+local c_forsaken_desert_brick = minetest.get_content_id('everness:forsaken_desert_brick')
+local c_forsaken_desert_engraved_stone = minetest.get_content_id('everness:forsaken_desert_engraved_stone')
+
+local biome_id_everness_forsaken_desert_under = minetest.get_biome_id('everness:forsaken_desert_under')
+
+Everness:add_to_queue_on_generated({
+    name = 'everness:forsaken_desert_under',
+    can_run = function(biomemap)
+        return table.indexof(biomemap, biome_id_everness_forsaken_desert_under) ~= -1
+    end,
+    after_set_data = function(minp, maxp, vm, area, data, p2data, gennotify, rand, shared_args)
+        local sidelength = maxp.x - minp.x + 1
+        local x_disp = rand:next(0, disp)
+        local z_disp = rand:next(0, disp)
+        shared_args.schem_positions = {}
+
+        for y = minp.y, maxp.y do
+            local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
+
+            if
+                (
+                    data[vi] == c_forsaken_desert_sand
+                    or data[vi] == c_forsaken_desert_chiseled_stone
+                    or data[vi] == c_forsaken_desert_brick
+                    or data[vi] == c_forsaken_desert_engraved_stone
+                )
+                and rand:next(0, 100) < chance
+            then
+                local s_pos = area:position(vi)
+
+                --
+                -- Forsaken Desert Temple 2
+                --
+
+                local schem_pos = vector.new(s_pos.x, s_pos.y, s_pos.z)
+
+                -- find floor big enough
+                local positions = minetest.find_nodes_in_area_under_air(
+                    vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
+                    vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
+                    {
+                        'everness:forsaken_desert_sand',
+                        'everness:forsaken_desert_chiseled_stone',
+                        'everness:forsaken_desert_brick',
+                        'everness:forsaken_desert_engraved_stone',
+                        'group:stone',
+                        'group:sand',
+                        'group:everness_sand',
+                        'default:gravel',
+                        'default:stone_with_coal',
+                        'default:stone_with_iron',
+                        'default:stone_with_tin',
+                        'default:stone_with_gold',
+                        'default:stone_with_mese',
+                        'default:stone_with_diamond',
+                        'everness:cave_barrel_cactus',
+                        'everness:venus_trap',
+                        'group:flora',
+                        'everness:quartz_ore',
+                        'everness:stone_with_pyrite',
+                    }
+                )
+
+                if #positions < size.x * size.z then
+                    -- not enough space
+                    return
+                end
+
+                -- enough air to place structure ?
+                local air_positions = minetest.find_nodes_in_area(
+                    vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                    vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
+                    {
+                        'air'
+                    }
+                )
+
+                if #air_positions > (size.x * size.y * size.z) / 2 then
+                    minetest.place_schematic_on_vmanip(
+                        vm,
+                        schem_pos,
+                        schem,
+                        'random',
+                        nil,
+                        true,
+                        'place_center_x, place_center_z'
+                    )
+
+                    shared_args.schem_positions.everness_forsaken_desert_temple_2 = shared_args.schem_positions.everness_forsaken_desert_temple_2 or {}
+
+                    table.insert(shared_args.schem_positions.everness_forsaken_desert_temple_2, {
+                        pos = schem_pos,
+                        minp = vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                        maxp = vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z)
+                    })
+
+                    minetest.log('action', '[Everness] Forsaken Desert Temple 2 was placed at ' .. schem_pos:to_string())
+                end
+            end
+        end
+    end,
+    after_write_to_map = function(shared_args)
+        local schem_positions = shared_args.schem_positions or {}
+
+        for name, tbl in pairs(schem_positions) do
+            if next(tbl) then
+                for i, v in ipairs(tbl) do
+                    local chest_positions = minetest.find_nodes_in_area(
+                        v.minp,
+                        v.maxp,
+                        { 'everness:chest' }
+                    )
+
+                    if #chest_positions > 0 then
+                        Everness:populate_loot_chests(chest_positions)
+                    end
+                end
+            end
+        end
+    end
+})

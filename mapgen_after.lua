@@ -14,22 +14,14 @@
 
 --]]
 
--- Get the content IDs for the nodes used.
-local c_forsaken_desert_sand = minetest.get_content_id('everness:forsaken_desert_sand')
-local c_forsaken_desert_chiseled_stone = minetest.get_content_id('everness:forsaken_desert_chiseled_stone')
-local c_forsaken_desert_brick = minetest.get_content_id('everness:forsaken_desert_brick')
-local c_forsaken_desert_engraved_stone = minetest.get_content_id('everness:forsaken_desert_engraved_stone')
-
-local chance = 20
-local disp = 16
-local water_level = tonumber(minetest.settings:get('water_level')) or 1
-
 -- Localize data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
 local data = {}
 local p2data = {}
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
+    -- Start time of mapchunk generation.
+    -- local t0 = os.clock()
     local rand = PcgRandom(blockseed)
     -- Array containing the biome IDs of nodes in the most recently generated chunk by the current mapgen
     local biomemap = minetest.get_mapgen_object('biomemap')
@@ -45,10 +37,6 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     -- Raw `param2` data read into the `VoxelManip` object
     vm:get_param2_data(p2data)
     -- Side length of mapchunk
-    local sidelength = maxp.x - minp.x + 1
-    local x_disp = rand:next(0, disp)
-    local z_disp = rand:next(0, disp)
-    local schem_positions = {}
     local shared_args = {}
 
     --
@@ -59,9 +47,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     for _, def in ipairs(Everness.on_generated_queue) do
         if def.can_run(biomemap) and def.on_data then
             shared_args[def.name] = shared_args[def.name] or {}
-            -- print('--- on_data', def.name, minp:to_string(), maxp:to_string())
             def.on_data(minp, maxp, area, data, p2data, gennotify, rand, shared_args[def.name])
-            -- print('shared_args', dump(shared_args))
         end
     end
 
@@ -78,103 +64,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     for _, def in ipairs(Everness.on_generated_queue) do
         if def.can_run(biomemap) and def.after_set_data then
             shared_args[def.name] = shared_args[def.name] or {}
-            -- print('after_set_data', def.name, minp:to_string(), maxp:to_string())
             def.after_set_data(minp, maxp, vm, area, data, p2data, gennotify, rand, shared_args[def.name])
-        end
-    end
-
-    for y = minp.y, maxp.y do
-        local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
-
-        if data[vi + area.ystride] == minetest.CONTENT_AIR then
-            local s_pos = area:position(vi)
-
-            if maxp.y < water_level then
-                -- Under sea level (Caves)
-                if
-                    (
-                        data[vi] == c_forsaken_desert_sand
-                        or data[vi] == c_forsaken_desert_chiseled_stone
-                        or data[vi] == c_forsaken_desert_brick
-                        or data[vi] == c_forsaken_desert_engraved_stone
-                    )
-                    and rand:next(0, 100) < chance
-                then
-                    local schem = minetest.get_modpath('everness') .. '/schematics/everness_forsaken_desert_temple_2.mts'
-
-                    --
-                    -- Forsaken Desert Temple 2
-                    --
-
-                    local size = { x = 16, y = 17, z = 15 }
-                    local size_x = math.round(size.x / 2)
-                    local size_z = math.round(size.z / 2)
-                    local schem_pos = vector.new(s_pos)
-
-                    -- find floor big enough
-                    local positions = minetest.find_nodes_in_area_under_air(
-                        vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
-                        vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
-                        {
-                            'everness:forsaken_desert_sand',
-                            'everness:forsaken_desert_chiseled_stone',
-                            'everness:forsaken_desert_brick',
-                            'everness:forsaken_desert_engraved_stone',
-                            'group:stone',
-                            'group:sand',
-                            'group:everness_sand',
-                            'default:gravel',
-                            'default:stone_with_coal',
-                            'default:stone_with_iron',
-                            'default:stone_with_tin',
-                            'default:stone_with_gold',
-                            'default:stone_with_mese',
-                            'default:stone_with_diamond',
-                            'everness:cave_barrel_cactus',
-                            'everness:venus_trap',
-                            'group:flora',
-                            'everness:quartz_ore',
-                            'everness:stone_with_pyrite',
-                        }
-                    )
-
-                    if #positions < size.x * size.z then
-                        -- not enough space
-                        return
-                    end
-
-                    -- enough air to place structure ?
-                    local air_positions = minetest.find_nodes_in_area(
-                        vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
-                        vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
-                        {
-                            'air'
-                        }
-                    )
-
-                    if #air_positions > (size.x * size.y * size.z) / 2 then
-                        minetest.place_schematic_on_vmanip(
-                            vm,
-                            schem_pos,
-                            schem,
-                            'random',
-                            nil,
-                            true,
-                            'place_center_x, place_center_z'
-                        )
-
-                        schem_positions.everness_forsaken_desert_temple_2 = schem_positions.everness_forsaken_desert_temple_2 or {}
-
-                        table.insert(schem_positions.everness_forsaken_desert_temple_2, {
-                            pos = schem_pos,
-                            minp = vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
-                            maxp = vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z)
-                        })
-
-                        minetest.log('action', '[Everness] Forsaken Desert Temple 2 was placed at ' .. schem_pos:to_string())
-                    end
-                end
-            end
         end
     end
 
@@ -198,25 +88,11 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     for _, def in ipairs(Everness.on_generated_queue) do
         if def.can_run(biomemap) and def.after_write_to_map then
             shared_args[def.name] = shared_args[def.name] or {}
-            -- print('after_write_to_map', def.name, minp:to_string(), maxp:to_string())
             def.after_write_to_map(shared_args[def.name], gennotify)
         end
     end
 
-    -- Populate loot chests
-    for name, tbl in pairs(schem_positions) do
-        if next(tbl) then
-            for i, v in ipairs(tbl) do
-                local chest_positions = minetest.find_nodes_in_area(
-                    v.minp,
-                    v.maxp,
-                    { 'everness:chest' }
-                )
-
-                if #chest_positions > 0 then
-                    Everness:populate_loot_chests(chest_positions)
-                end
-            end
-        end
-    end
+    -- Print generation time of this mapchunk.
+    -- local chugent = math.ceil((os.clock() - t0) * 1000)
+    -- print('[Everness] Mapchunk generation time ' .. chugent .. ' ms')
 end)
