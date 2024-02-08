@@ -167,13 +167,23 @@ Everness:register_decoration({
 --
 
 local chance = 30
+local chance_water = 10
 local disp = 16
-local schem = minetest.get_modpath('everness') .. '/schematics/everness_cursed_cabin.mts'
+local water_level = tonumber(minetest.settings:get('water_level')) or 1
+
+local schem_cursed_cabin = minetest.get_modpath('everness') .. '/schematics/everness_cursed_cabin.mts'
 local size = { x = 7, y = 7, z = 12 }
 local size_x = math.round(size.x / 2)
 local size_z = math.round(size.z / 2)
 
+local schem_ocean_island = minetest.get_modpath('everness') .. '/schematics/everness_cursed_lands_deep_ocean_island.mts'
+local size_ocean_island = { x = 25, y = 23, z = 23 }
+local size_x_ocean_island = math.round(size.x / 2)
+local size_z_ocean_island = math.round(size.z / 2)
+local y_dis_ocean_island = 7
+
 local c_cursed_sand = minetest.get_content_id('everness:cursed_sand')
+local c_water_source = minetest.get_content_id('mapgen_water_source')
 
 local biome_id_everness_cursed_lands_dunes = minetest.get_biome_id('everness:cursed_lands_dunes')
 
@@ -191,62 +201,127 @@ Everness:add_to_queue_on_generated({
         for y = minp.y, maxp.y do
             local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
 
-            if data[vi + area.ystride] == minetest.CONTENT_AIR
-                and data[vi] == c_cursed_sand
-                and rand:next(0, 100) < chance
-            then
+            if data[vi + area.ystride] == minetest.CONTENT_AIR then
                 local s_pos = area:position(vi)
 
-                --
-                -- Cursed Cabin
-                --
+                if data[vi] == c_cursed_sand
+                    and rand:next(0, 100) < chance
+                then
+                    --
+                    -- Cursed Cabin
+                    --
 
-                -- add Y displacement
-                local schem_pos = vector.new(s_pos.x, s_pos.y, s_pos.z)
+                    -- add Y displacement
+                    local schem_pos = vector.new(s_pos.x, s_pos.y, s_pos.z)
 
-                -- find floor big enough
-                local positions = minetest.find_nodes_in_area_under_air(
-                    vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
-                    vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
-                    {
-                        'everness:cursed_sand'
-                    }
-                )
-
-                if #positions < size.x * size.z then
-                    -- not enough space
-                    return
-                end
-
-                -- enough air to place structure ?
-                local air_positions = minetest.find_nodes_in_area(
-                    vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
-                    vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
-                    {
-                        'air'
-                    }
-                )
-
-                if #air_positions > (size.x * size.y * size.z) / 2 then
-                    minetest.place_schematic_on_vmanip(
-                        vm,
-                        schem_pos,
-                        schem,
-                        'random',
-                        nil,
-                        true,
-                        'place_center_x, place_center_z'
+                    -- find floor big enough
+                    local positions = minetest.find_nodes_in_area_under_air(
+                        vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
+                        vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
+                        {
+                            'everness:cursed_sand'
+                        }
                     )
 
-                    shared_args.schem_positions.everness_cursed_cabin = shared_args.schem_positions.everness_cursed_cabin or {}
+                    if #positions < size.x * size.z then
+                        -- not enough space
+                        return
+                    end
 
-                    table.insert(shared_args.schem_positions.everness_cursed_cabin, {
-                        pos = schem_pos,
-                        minp = vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
-                        maxp = vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z)
-                    })
+                    -- enough air to place structure ?
+                    local air_positions = minetest.find_nodes_in_area(
+                        vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                        vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
+                        {
+                            'air'
+                        }
+                    )
 
-                    minetest.log('action', '[Everness] Cursed Cabin was placed at ' .. schem_pos:to_string())
+                    if #air_positions > (size.x * size.y * size.z) / 2 then
+                        minetest.place_schematic_on_vmanip(
+                            vm,
+                            schem_pos,
+                            schem_cursed_cabin,
+                            'random',
+                            nil,
+                            true,
+                            'place_center_x, place_center_z'
+                        )
+
+                        shared_args.schem_positions.everness_cursed_cabin = shared_args.schem_positions.everness_cursed_cabin or {}
+
+                        table.insert(shared_args.schem_positions.everness_cursed_cabin, {
+                            pos = schem_pos,
+                            minp = vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                            maxp = vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z)
+                        })
+
+                        minetest.log('action', '[Everness] Cursed Cabin was placed at ' .. schem_pos:to_string())
+                    end
+                end
+
+                if data[vi] == c_water_source
+                    and rand:next(0, 100) < chance_water
+                    -- Water Level
+                    and water_level >= minp.y
+                    and water_level <= maxp.y
+                then
+                    --
+                    -- Cursed Lands Deep Ocean Island
+                    --
+
+                    local schem_pos = vector.new(s_pos.x, s_pos.y - y_dis_ocean_island, s_pos.z)
+
+                    -- find floor big enough
+                    local indexes = Everness.find_content_in_vm_area(
+                        vector.new(s_pos.x - size_x_ocean_island, s_pos.y - 1, s_pos.z - size_z),
+                        vector.new(s_pos.x + size_x_ocean_island, s_pos.y + 1, s_pos.z + size_z),
+                        {
+                            c_water_source,
+                            minetest.CONTENT_AIR
+                        },
+                        data,
+                        area
+                    )
+
+                    if #indexes < size_ocean_island.x * size_ocean_island.z then
+                        -- not enough space
+                        return
+                    end
+
+                    -- enough space to place structure ?
+                    local space_indexes = Everness.find_content_in_vm_area(
+                        vector.new(s_pos.x - size_x_ocean_island, s_pos.y, s_pos.z - size_z_ocean_island),
+                        vector.new(s_pos.x + size_x_ocean_island, s_pos.y + size_ocean_island.y, s_pos.z + size_z_ocean_island),
+                        {
+                            c_water_source,
+                            minetest.CONTENT_AIR
+                        },
+                        data,
+                        area
+                    )
+
+                    if #space_indexes > (size_ocean_island.x * size_ocean_island.y * size_ocean_island.z) / 2 then
+                        minetest.place_schematic_on_vmanip(
+                            vm,
+                            schem_pos,
+                            schem_ocean_island,
+                            'random',
+                            nil,
+                            true,
+                            'place_center_x, place_center_z'
+                        )
+
+                        shared_args.schem_positions.everness_cursed_lands_deep_ocean_island = shared_args.schem_positions.everness_cursed_lands_deep_ocean_island or {}
+
+                        table.insert(shared_args.schem_positions.everness_cursed_lands_deep_ocean_island, {
+                            pos = schem_pos,
+                            minp = vector.new(s_pos.x - size_x_ocean_island, s_pos.y - y_dis_ocean_island, s_pos.z - size_z_ocean_island),
+                            maxp = vector.new(s_pos.x + size_x_ocean_island, s_pos.y - y_dis_ocean_island + size_ocean_island.y, s_pos.z + size_z_ocean_island)
+                        })
+
+                        minetest.log('action', '[Everness] Cursed Lands Deep Ocean Island was placed at ' .. schem_pos:to_string())
+                    end
                 end
             end
         end

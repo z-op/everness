@@ -44,7 +44,6 @@ Everness:register_biome({
     humidity_point = 30,
 })
 
-
 --
 -- On Generated
 --

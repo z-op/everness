@@ -165,7 +165,7 @@ Everness:register_decoration({
 --
 
 local disp = 16
-local chance_sea_level = 10
+local chance = 10
 local water_level = tonumber(minetest.settings:get('water_level')) or 1
 local schem = minetest.get_modpath('everness') .. '/schematics/everness_coral_forest_ocean_fishing_dock.mts'
 local size = { x = 26, y = 10, z = 23 }
@@ -193,7 +193,7 @@ Everness:add_to_queue_on_generated({
 
             if data[vi + area.ystride] == minetest.CONTENT_AIR
                 and data[vi] == c_water_source
-                and rand:next(0, 100) < chance_sea_level
+                and rand:next(0, 100) < chance
                 -- Water Level
                 and water_level >= minp.y
                 and water_level <= maxp.y

@@ -15,23 +15,14 @@
 --]]
 
 -- Get the content IDs for the nodes used.
-local c_water_source = minetest.get_content_id('mapgen_water_source')
 local c_forsaken_desert_sand = minetest.get_content_id('everness:forsaken_desert_sand')
 local c_forsaken_desert_chiseled_stone = minetest.get_content_id('everness:forsaken_desert_chiseled_stone')
 local c_forsaken_desert_brick = minetest.get_content_id('everness:forsaken_desert_brick')
 local c_forsaken_desert_engraved_stone = minetest.get_content_id('everness:forsaken_desert_engraved_stone')
--- Biome IDs
-local biome_id_everness_cursed_lands_dunes = minetest.get_biome_id('everness:cursed_lands_dunes')
-local biome_id_everness_cursed_lands_swamp = minetest.get_biome_id('everness:cursed_lands_swamp')
-local biome_id_everness_cursed_lands_ocean = minetest.get_biome_id('everness:cursed_lands_ocean')
-local biome_id_everness_crystal_forest_dunes = minetest.get_biome_id('everness:crystal_forest_dunes')
-local biome_id_everness_crystal_forest_shore = minetest.get_biome_id('everness:crystal_forest_shore')
-local biome_id_everness_crystal_forest_ocean = minetest.get_biome_id('everness:crystal_forest_ocean')
-local water_level = tonumber(minetest.settings:get('water_level')) or 1
 
 local chance = 20
-local chance_sea_level = 10
 local disp = 16
+local water_level = tonumber(minetest.settings:get('water_level')) or 1
 
 -- Localize data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
@@ -40,7 +31,9 @@ local p2data = {}
 
 minetest.register_on_generated(function(minp, maxp, blockseed)
     local rand = PcgRandom(blockseed)
+    -- Array containing the biome IDs of nodes in the most recently generated chunk by the current mapgen
     local biomemap = minetest.get_mapgen_object('biomemap')
+    -- Table mapping requested generation notification types to arrays of positions at which the corresponding generated structures are located within the current chunk
     local gennotify = minetest.get_mapgen_object('gennotify')
     -- Load the voxelmanip with the result of engine mapgen
     local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
@@ -49,6 +42,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     -- Get the content ID data from the voxelmanip in the form of a flat array.
     -- Set the buffer parameter to use and reuse 'data' for this.
     vm:get_data(data)
+    -- Raw `param2` data read into the `VoxelManip` object
     vm:get_param2_data(p2data)
     -- Side length of mapchunk
     local sidelength = maxp.x - minp.x + 1
@@ -57,7 +51,9 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     local schem_positions = {}
     local shared_args = {}
 
+    --
     -- on_data
+    --
     -- read/write to `data` what will be eventually saved (set_data)
     -- used for voxelmanip `data` manipulation
     for _, def in ipairs(Everness.on_generated_queue) do
@@ -69,13 +65,16 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
         end
     end
 
-    -- set data after they have been manipulated (above)
+    -- set data after they have been manipulated (from above)
     vm:set_data(data)
     vm:set_param2_data(p2data)
 
+    --
     -- after_set_data
+    --
     -- can read (but cant and should not manipulate) voxelmanip `data`
-    -- used for `place_schematic_on_vmanip` which will invalidate `data` therefore we are doing it after we set the data
+    -- used for `place_schematic_on_vmanip` which will invalidate `data`
+    -- therefore we are doing it after we set the data
     for _, def in ipairs(Everness.on_generated_queue) do
         if def.can_run(biomemap) and def.after_set_data then
             shared_args[def.name] = shared_args[def.name] or {}
@@ -90,161 +89,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
         if data[vi + area.ystride] == minetest.CONTENT_AIR then
             local s_pos = area:position(vi)
 
-            if maxp.y >= water_level then
-                -- Above sea level or at water level
-                if
-                    water_level >= minp.y
-                    and water_level <= maxp.y
-                    and data[vi] == c_water_source
-                then
-                    --
-                    -- Water Level
-                    --
-                    if
-                        (
-                            table.indexof(biomemap, biome_id_everness_cursed_lands_dunes) ~= -1
-                            or table.indexof(biomemap, biome_id_everness_cursed_lands_swamp) ~= -1
-                            or table.indexof(biomemap, biome_id_everness_cursed_lands_ocean) ~= -1
-                        )
-                        and rand:next(0, 100) < chance_sea_level
-                    then
-                        local schem = minetest.get_modpath('everness') .. '/schematics/everness_cursed_lands_deep_ocean_island.mts'
-
-                        --
-                        -- Cursed Lands Deep Ocean Island
-                        --
-
-                        local size = { x = 25, y = 23, z = 23 }
-                        local size_x = math.round(size.x / 2)
-                        local size_z = math.round(size.z / 2)
-                        -- add Y displacement
-                        local y_dis = 7
-                        local schem_pos = vector.new(s_pos.x, s_pos.y - y_dis, s_pos.z)
-
-                        -- find floor big enough
-                        local indexes = Everness.find_content_in_vm_area(
-                            vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
-                            vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
-                            {
-                                c_water_source,
-                                minetest.CONTENT_AIR
-                            },
-                            data,
-                            area
-                        )
-
-                        if #indexes < size.x * size.z then
-                            -- not enough space
-                            return
-                        end
-
-                        -- enough space to place structure ?
-                        local space_indexes = Everness.find_content_in_vm_area(
-                            vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
-                            vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
-                            {
-                                c_water_source,
-                                minetest.CONTENT_AIR
-                            },
-                            data,
-                            area
-                        )
-
-                        if #space_indexes > (size.x * size.y * size.z) / 2 then
-                            minetest.place_schematic_on_vmanip(
-                                vm,
-                                schem_pos,
-                                schem,
-                                'random',
-                                nil,
-                                true,
-                                'place_center_x, place_center_z'
-                            )
-
-                            schem_positions.everness_cursed_lands_deep_ocean_island = schem_positions.everness_cursed_lands_deep_ocean_island or {}
-
-                            table.insert(schem_positions.everness_cursed_lands_deep_ocean_island, {
-                                pos = schem_pos,
-                                minp = vector.new(s_pos.x - size_x, s_pos.y - y_dis, s_pos.z - size_z),
-                                maxp = vector.new(s_pos.x + size_x, s_pos.y - y_dis + size.y, s_pos.z + size_z)
-                            })
-
-                            minetest.log('action', '[Everness] Cursed Lands Deep Ocean Island was placed at ' .. schem_pos:to_string())
-                        end
-                    elseif
-                        (
-                            table.indexof(biomemap, biome_id_everness_crystal_forest_dunes) ~= -1
-                            or table.indexof(biomemap, biome_id_everness_crystal_forest_shore) ~= -1
-                            or table.indexof(biomemap, biome_id_everness_crystal_forest_ocean) ~= -1
-                        )
-                        and rand:next(0, 100) < chance_sea_level
-                    then
-                        local schem = minetest.get_modpath('everness') .. '/schematics/everness_crystal_forest_ocean_shrine.mts'
-
-                        --
-                        -- Crystal Forest Ocean Shrine
-                        --
-
-                        local size = { x = 13, y = 16, z = 13 }
-                        local size_x = math.round(size.x / 2)
-                        local size_z = math.round(size.z / 2)
-                        -- add Y displacement
-                        local y_dis = 8
-                        local schem_pos = vector.new(s_pos.x, s_pos.y - y_dis, s_pos.z)
-
-                        -- find floor big enough
-                        local indexes = Everness.find_content_in_vm_area(
-                            vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
-                            vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
-                            {
-                                c_water_source,
-                                minetest.CONTENT_AIR
-                            },
-                            data,
-                            area
-                        )
-
-                        if #indexes < size.x * size.z then
-                            -- not enough space
-                            return
-                        end
-
-                        -- enough space to place structure ?
-                        local space_indexes = Everness.find_content_in_vm_area(
-                            vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
-                            vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
-                            {
-                                c_water_source,
-                                minetest.CONTENT_AIR
-                            },
-                            data,
-                            area
-                        )
-
-                        if #space_indexes > (size.x * size.y * size.z) / 2 then
-                            minetest.place_schematic_on_vmanip(
-                                vm,
-                                schem_pos,
-                                schem,
-                                'random',
-                                nil,
-                                true,
-                                'place_center_x, place_center_z'
-                            )
-
-                            schem_positions.everness_crystal_forest_ocean_shrine = schem_positions.everness_crystal_forest_ocean_shrine or {}
-
-                            table.insert(schem_positions.everness_crystal_forest_ocean_shrine, {
-                                pos = schem_pos,
-                                minp = vector.new(s_pos.x - size_x, s_pos.y - y_dis, s_pos.z - size_z),
-                                maxp = vector.new(s_pos.x + size_x, s_pos.y - y_dis + size.y, s_pos.z + size_z)
-                            })
-
-                            minetest.log('action', '[Everness] Crystal Forest Ocean Shrine was placed at ' .. schem_pos:to_string())
-                        end
-                    end
-                end
-            else
+            if maxp.y < water_level then
                 -- Under sea level (Caves)
                 if
                     (
@@ -342,11 +187,13 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     -- Write what has been created to the world.
     vm:write_to_map()
 
+    --
     -- after_write_to_map
+    --
     -- Cannot read/write voxelmanip or its data
-    -- Used for direct manipulation of the world chunk nodes where the definitions of nodes are available and node callback can be executed
-
-    -- minetest.fix_light(minp, maxp)
+    -- Used for direct manipulation of the world chunk nodes where the
+    -- definitions of nodes are available and node callback can be executed
+    -- or e.g. for `minetest.fix_light`
 
     for _, def in ipairs(Everness.on_generated_queue) do
         if def.can_run(biomemap) and def.after_write_to_map then

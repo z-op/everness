@@ -193,7 +193,7 @@ local biome_id_everness_cursed_lands_deep_ocean = minetest.get_biome_id('evernes
 -- Localize data buffer table outside the loop, to be re-used for all
 -- mapchunks, therefore minimising memory use.
 local data = {}
-local chance = 30
+local chance = 20
 local schem = minetest.get_modpath('everness') .. '/schematics/everness_cursed_lands_deep_ocean_skull.mts'
 local size = { x = 10, y = 11, z = 11 }
 local size_x = math.round(size.x / 2)
