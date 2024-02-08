@@ -213,6 +213,8 @@ Everness:register_decoration({
 -- On Generated
 --
 
+local biome_id_everness_coral_forest_under = minetest.get_biome_id('everness:coral_forest_under')
+
 local deco_id_coral_forest_under_coral_tree_bioluminescent = minetest.get_decoration_id('everness:coral_forest_under_coral_tree_bioluminescent')
 
 local schem_bioluminescent_tree = minetest.get_modpath('everness') .. '/schematics/everness_coral_tree_bioluminescent.mts'
@@ -226,78 +228,79 @@ bioluminescent_tree_place_on = type(bioluminescent_tree_place_on) == 'string' an
 
 minetest.set_gen_notify({ decoration = true }, { deco_id_coral_forest_under_coral_tree_bioluminescent })
 
-minetest.register_on_generated(function(minp, maxp, blockseed)
-    -- Load the voxelmanip with the result of engine mapgen
-    local vm = minetest.get_mapgen_object('voxelmanip')
-    -- Returns a table mapping requested generation notification types to arrays of positions at which the corresponding generated structures are located within the current chunk
-    local gennotify = minetest.get_mapgen_object('gennotify')
+Everness:add_to_queue_on_generated({
+    name = 'everness:coral_forest_under',
+    can_run = function(biomemap)
+        return table.indexof(biomemap, biome_id_everness_coral_forest_under) ~= -1
+    end,
+    after_set_data = function(minp, maxp, vm, area, data, p2data, gennotify, rand, shared_args)
+        --
+        -- Coral Tree Bioluminescent
+        --
+        for _, pos in ipairs(gennotify['decoration#' .. (deco_id_coral_forest_under_coral_tree_bioluminescent or '')] or {}) do
+            -- `pos` is position of the 'place_on' node
+            local marker_pos = vector.new(pos.x, pos.y + 1, pos.z)
+            local marker_node = minetest.get_node(marker_pos)
+            local place_on_node = minetest.get_node(pos)
 
-    --
-    -- Coral Tree Bioluminescent
-    --
-    for _, pos in ipairs(gennotify['decoration#' .. (deco_id_coral_forest_under_coral_tree_bioluminescent or '')] or {}) do
-        -- `pos` is position of the 'place_on' node
-        local marker_pos = vector.new(pos.x, pos.y + 1, pos.z)
-        local marker_node = minetest.get_node(marker_pos)
-        local place_on_node = minetest.get_node(pos)
+            if not marker_node then
+                return
+            end
 
-        if not marker_node then
-            return
-        end
+            if marker_node.name ~= 'everness:marker' then
+                -- not a valid "place_on" position (e.g. something else was placed there)
+                return
+            end
 
-        if marker_node.name ~= 'everness:marker' then
-            -- not a valid "place_on" position (e.g. something else was placed there)
-            return
-        end
+            minetest.remove_node(marker_pos)
 
-        minetest.remove_node(marker_pos)
+            if table.indexof(bioluminescent_tree_place_on, place_on_node.name) == -1 then
+                -- not a valid "place_on" position (e.g. something else was placed there)
+                return
+            end
 
-        if table.indexof(bioluminescent_tree_place_on, place_on_node.name) == -1 then
-            -- not a valid "place_on" position (e.g. something else was placed there)
-            return
-        end
+            -- no need to check for the floor "big enough" size since its a tree and has ~ 1x1 base size
 
-        -- no need to check for the floor "big enough" size since its a tree and has ~ 1x1 base size
-
-        -- enough air to place structure ?
-        local positions = minetest.find_nodes_in_area(
-            vector.new(
-                pos.x - bioluminescent_tree_size_x,
-                pos.y - bioluminescent_tree_y_dis,
-                pos.z - bioluminescent_tree_size_z
-            ),
-            vector.new(
-                pos.x + bioluminescent_tree_size_x,
-                pos.y - bioluminescent_tree_y_dis + coral_bioluminescent_tree_size.y,
-                pos.z + bioluminescent_tree_size_z
-            ),
-            {
-                'air',
-                'everness:coral_tree'
-            },
-            true
-        )
-
-        local air = positions.air or {}
-        local tree = positions['everness:coral_tree'] or {}
-
-        if #tree > 1 then
-            -- will overlap another tree
-            return
-        end
-
-        if #air > bioluminescent_tree_safe_volume then
-            minetest.place_schematic_on_vmanip(
-                vm,
-                vector.new(marker_pos.x, marker_pos.y - bioluminescent_tree_y_dis, marker_pos.z),
-                schem_bioluminescent_tree,
-                'random',
-                nil,
-                true,
-                'place_center_x, place_center_z'
+            -- enough air to place structure ?
+            local positions = minetest.find_nodes_in_area(
+                vector.new(
+                    pos.x - bioluminescent_tree_size_x,
+                    pos.y - bioluminescent_tree_y_dis,
+                    pos.z - bioluminescent_tree_size_z
+                ),
+                vector.new(
+                    pos.x + bioluminescent_tree_size_x,
+                    pos.y - bioluminescent_tree_y_dis + coral_bioluminescent_tree_size.y,
+                    pos.z + bioluminescent_tree_size_z
+                ),
+                {
+                    'air',
+                    'everness:coral_tree'
+                },
+                true
             )
 
-            -- minetest.log('action', '[Everness] Coral Tree Bioluminescent was placed at ' .. pos:to_string())
+            local air = positions.air or {}
+            local tree = positions['everness:coral_tree'] or {}
+
+            if #tree > 1 then
+                -- will overlap another tree
+                return
+            end
+
+            if #air > bioluminescent_tree_safe_volume then
+                minetest.place_schematic_on_vmanip(
+                    vm,
+                    vector.new(marker_pos.x, marker_pos.y - bioluminescent_tree_y_dis, marker_pos.z),
+                    schem_bioluminescent_tree,
+                    'random',
+                    nil,
+                    true,
+                    'place_center_x, place_center_z'
+                )
+
+                -- minetest.log('action', '[Everness] Coral Tree Bioluminescent was placed at ' .. pos:to_string())
+            end
         end
     end
-end)
+})

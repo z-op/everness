@@ -156,6 +156,33 @@ Everness:register_decoration({
 })
 
 Everness:register_decoration({
+    name = 'everness:forsaken_tundra_under_willow_tree',
+    deco_type = 'simple',
+    place_on = {
+        'everness:mold_stone_with_moss',
+        'everness:blue_crying_obsidian',
+        'everness:blue_weeping_obsidian',
+        'everness:weeping_obsidian'
+    },
+    sidelen = 16,
+    noise_params = {
+        offset = 0,
+        scale = 0.002,
+        spread = { x = 250, y = 250, z = 250 },
+        seed = 2,
+        octaves = 3,
+        persist = 0.66
+    },
+    biomes = { 'everness:forsaken_tundra_under' },
+    y_max = y_max - 1500 > y_min and y_max - 1500 or y_max,
+    y_min = y_min,
+    flags = 'all_floors',
+    decoration = {
+        'everness:marker'
+    },
+})
+
+Everness:register_decoration({
     name = 'everness:forsaken_tundra_under_bloodspore_plant_small',
     deco_type = 'simple',
     place_on = { 'everness:mold_stone_with_moss' },
@@ -250,84 +277,95 @@ register_agave_leaf_decoration(0, 0.06, 1)
 -- On Generated
 --
 
-local c_air = minetest.get_content_id('air')
-local c_mold_stone_with_moss = minetest.get_content_id('everness:mold_stone_with_moss')
+local biome_id_everness_forsaken_tundra_under = minetest.get_biome_id('everness:forsaken_tundra_under')
 
--- Localize data buffer table outside the loop, to be re-used for all
--- mapchunks, therefore minimising memory use.
-local data = {}
-local chance = 50
-local disp = 16
-local rotations = { '0', '90', '180', '270' }
-local everness_forsaken_tundra_under_y_max = y_max - 1500 > y_min and y_max - 1500 or y_max
-local everness_forsaken_tundra_under_y_min = y_min
+local deco_id_everness_forsaken_tundra_under_willow_tree = minetest.get_decoration_id('everness:forsaken_tundra_under_willow_tree')
 
--- size = { x = 39, y = 28, z = 39 }
-local willow_tree_volume = 39 * 39 * 28
 local willow_tree_schem = minetest.get_modpath('everness') .. '/schematics/everness_willow_tree.mts'
+local size = { x = 39, y = 28, z = 39 }
+local size_x = math.round(size.x / 2)
+local size_z = math.round(size.z / 2)
+local safe_volume = (size.x * size.y * size.z) / 1.5
+local y_dis = 1
+local willow_tree_place_on = minetest.registered_decorations['everness:forsaken_tundra_under_willow_tree'].place_on
+willow_tree_place_on = type(willow_tree_place_on) == 'string' and { willow_tree_place_on } or willow_tree_place_on
 
-minetest.register_on_generated(function(minp, maxp, blockseed)
-    local rand = PcgRandom(blockseed)
+minetest.set_gen_notify({ decoration = true }, { deco_id_everness_forsaken_tundra_under_willow_tree })
 
-    local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
-    local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
-    -- Get the content ID data from the voxelmanip in the form of a flat array.
-    -- Set the buffer parameter to use and reuse 'data' for this.
-    vm:get_data(data)
-    local sidelength = maxp.x - minp.x + 1
+Everness:add_to_queue_on_generated({
+    name = 'everness:forsaken_tundra_under',
+    can_run = function(biomemap)
+        return table.indexof(biomemap, biome_id_everness_forsaken_tundra_under) ~= -1
+    end,
+    after_set_data = function(minp, maxp, vm, area, data, p2data, gennotify, rand, shared_args)
+        --
+        -- Willow Tree
+        --
 
-    local x_disp = rand:next(0, disp)
-    local z_disp = rand:next(0, disp)
+        for _, pos in ipairs(gennotify['decoration#' .. (deco_id_everness_forsaken_tundra_under_willow_tree or '')] or {}) do
+            -- `pos` is position of the 'place_on' node
+            local marker_pos = vector.new(pos.x, pos.y + 1, pos.z)
+            local marker_node = minetest.get_node(marker_pos)
+            local place_on_node = minetest.get_node(pos)
 
-    if everness_forsaken_tundra_under_y_min < maxp.y
-        and maxp.y < everness_forsaken_tundra_under_y_max
-    then
-        for y = minp.y, maxp.y do
-            local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
+            if not marker_node then
+                return
+            end
 
-            if data[vi + area.ystride] == c_air and data[vi] == c_mold_stone_with_moss then
-                local rotation = rotations[rand:next(1, #rotations)]
-                local s_pos = area:position(vi)
-                local biome_data = minetest.get_biome_data(s_pos)
+            if marker_node.name ~= 'everness:marker' then
+                -- not a valid "place_on" position (e.g. something else was placed there)
+                return
+            end
 
-                if not biome_data then
-                    return
-                end
+            minetest.remove_node(marker_pos)
 
-                local biome_name = minetest.get_biome_name(biome_data.biome)
+            if table.indexof(willow_tree_place_on, place_on_node.name) == -1 then
+                -- not a valid "place_on" position (e.g. something else was placed there)
+                return
+            end
 
-                if not biome_name then
-                    return
-                end
+            -- no need to check for the floor "big enough" size since its a tree and has ~ 1x1 base size
 
-                if biome_name == 'everness:forsaken_tundra_under' and rand:next(0, 100) < chance then
-                    --
-                    -- Willow Tree
-                    --
+            -- enough air to place structure ?
+            local positions = minetest.find_nodes_in_area(
+                vector.new(
+                    pos.x - size_x,
+                    pos.y - y_dis,
+                    pos.z - size_z
+                ),
+                vector.new(
+                    pos.x + size_x,
+                    pos.y - y_dis + size.y,
+                    pos.z + size_z
+                ),
+                {
+                    'air',
+                    'everness:willow_tree'
+                },
+                true
+            )
 
-                    local schem_pos = vector.new(s_pos.x, s_pos.y, s_pos.z)
-                    local air_positions = minetest.find_nodes_in_area(
-                        vector.new(s_pos.x - 19, s_pos.y, s_pos.z - 19),
-                        vector.new(s_pos.x + 19, s_pos.y + 28, s_pos.z + 19),
-                        {'air'},
-                        true
-                    )
+            local air = positions.air or {}
+            local tree = positions['everness:willow_tree'] or {}
 
-                    if air_positions.air and #air_positions.air > (willow_tree_volume / 2) then
-                        minetest.place_schematic_on_vmanip(
-                            vm,
-                            schem_pos,
-                            willow_tree_schem,
-                            rotation,
-                            nil,
-                            true,
-                            'place_center_x, place_center_z'
-                        )
+            if #tree > 1 then
+                -- will overlap another tree
+                return
+            end
 
-                        minetest.log('action', '[Everness] Willow Tree was placed at ' .. schem_pos:to_string())
-                    end
-                end
+            if #air > safe_volume then
+                minetest.place_schematic_on_vmanip(
+                    vm,
+                    vector.new(marker_pos.x, marker_pos.y - y_dis, marker_pos.z),
+                    willow_tree_schem,
+                    'random',
+                    nil,
+                    true,
+                    'place_center_x, place_center_z'
+                )
+
+                minetest.log('action', '[Everness] Willow Tree was placed at ' .. pos:to_string())
             end
         end
     end
-end)
+})
