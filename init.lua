@@ -165,6 +165,7 @@ if Everness.settings.biomes.everness_mineral_waters.enabled then
 end
 
 if Everness.settings.biomes.everness_mineral_waters_under.enabled then
+    dofile(path .. '/nodes_mineral_waters_under.lua')
     dofile(path .. '/mapgen_mineral_waters_under.lua')
 end
 
