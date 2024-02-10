@@ -308,7 +308,6 @@ minetest.set_gen_notify({ decoration = true }, {
     d_rose_bush
 })
 
--- Called after generating a piece of world. Modifying nodes inside the area is a bit faster than usual.
 Everness:add_to_queue_on_generated({
     name = 'everness:mineral_waters',
     can_run = function(biomemap)

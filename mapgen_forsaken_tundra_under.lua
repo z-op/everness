@@ -364,7 +364,7 @@ Everness:add_to_queue_on_generated({
                     'place_center_x, place_center_z'
                 )
 
-                minetest.log('action', '[Everness] Willow Tree was placed at ' .. pos:to_string())
+                -- minetest.log('action', '[Everness] Willow Tree was placed at ' .. pos:to_string())
             end
         end
     end

@@ -58,7 +58,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     --
     -- after_set_data
     --
-    -- can read (but cant and should not manipulate) voxelmanip `data`
+    -- read-only (but cant and should not manipulate) voxelmanip `data`
     -- used for `place_schematic_on_vmanip` which will invalidate `data`
     -- therefore we are doing it after we set the data
     for _, def in ipairs(Everness.on_generated_queue) do
@@ -84,7 +84,6 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     -- Used for direct manipulation of the world chunk nodes where the
     -- definitions of nodes are available and node callback can be executed
     -- or e.g. for `minetest.fix_light`
-
     for _, def in ipairs(Everness.on_generated_queue) do
         if def.can_run(biomemap) and def.after_write_to_map then
             shared_args[def.name] = shared_args[def.name] or {}
