@@ -251,81 +251,190 @@ register_flower_magenta_decoration(0.015, 0.045, 1)
 -- On Generated
 --
 
-local data = {}
-local p2data = {}
+local disp = 16
+local chance = 20
+local schem = minetest.get_modpath('everness') .. '/schematics/everness_japanese_shrine.mts'
 
+local c_everness_bamboo_1 = minetest.get_content_id('everness:bamboo_1')
 local c_everness_bamboo_3 = minetest.get_content_id('everness:bamboo_3')
 local c_everness_bamboo_4 = minetest.get_content_id('everness:bamboo_4')
 local c_everness_bamboo_5 = minetest.get_content_id('everness:bamboo_5')
+local c_dirt_with_grass_1 = minetest.get_content_id('everness:dirt_with_grass_1')
+local c_dirt_with_grass_extras_1 = minetest.get_content_id('everness:dirt_with_grass_extras_1')
+local c_dirt_with_grass_extras_2 = minetest.get_content_id('everness:dirt_with_grass_extras_2')
+
+local biome_id_bamboo_forest = minetest.get_biome_id('everness:bamboo_forest')
 
 local d_everness_bamboo_forest_large_bamboo = minetest.get_decoration_id('everness:bamboo_forest_large_bamboo')
 
 minetest.set_gen_notify({ decoration = true }, { d_everness_bamboo_forest_large_bamboo })
 
-minetest.register_on_generated(function(minp, maxp, blockseed)
-    -- Load the voxelmanip with the result of engine mapgen
-    local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
-    -- 'area' is used later to get the voxelmanip indexes for positions
-    local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
-    -- Get the content ID data from the voxelmanip in the form of a flat array.
-    -- Set the buffer parameter to use and reuse 'data' for this.
-    vm:get_data(data)
-    vm:get_param2_data(p2data)
+Everness:add_to_queue_on_generated({
+    name = 'everness:bamboo_forest',
+    can_run = function(biomemap)
+        return table.indexof(biomemap, biome_id_bamboo_forest) ~= -1
+    end,
+    on_data = function(minp, maxp, area, data, p2data, gennotify, rand, shared_args)
+        --
+        -- Bamboo
+        --
+        for _, pos in ipairs(gennotify['decoration#' .. (d_everness_bamboo_forest_large_bamboo or '')] or {}) do
+            -- For bamboo large this is position of the 'place_on' node, e.g. 'everness:dirt_with_grass_extras_2'
+            local vi = area:indexp(pos)
+            local while_counter = 1
+            local bamboo_height = 0
+            local last_vi = vi + area.ystride * while_counter
 
-    local gennotify = minetest.get_mapgen_object('gennotify')
+            -- Get bamboo height
+            while data[last_vi] == c_everness_bamboo_3 do
+                last_vi = vi + area.ystride * while_counter
+                bamboo_height = bamboo_height + 1
+                while_counter = while_counter + 1
+            end
 
-    --
-    -- Bamboo
-    --
-    for _, pos in ipairs(gennotify['decoration#' .. (d_everness_bamboo_forest_large_bamboo or '')] or {}) do
-        -- For bamboo large this is position of the 'place_on' node, e.g. 'everness:dirt_with_grass_extras_2'
-        local vi = area:indexp(pos)
-        local while_counter = 1
-        local bamboo_height = 0
-        local last_vi = vi + area.ystride * while_counter
+            -- Back up the last from `while_counter`
+            last_vi = last_vi - area.ystride
 
-        -- Get bamboo height
-        while data[last_vi] == c_everness_bamboo_3 do
-            last_vi = vi + area.ystride * while_counter
-            bamboo_height = bamboo_height + 1
-            while_counter = while_counter + 1
-        end
+            -- Add top bamboo nodes with leaves based on their generated height
+            if bamboo_height > 4 then
+                for i = 1, 3 do
+                    if data[last_vi + area.ystride * i] == minetest.CONTENT_AIR then
+                        if i == 1 then
+                            data[last_vi + area.ystride * i] = c_everness_bamboo_4
+                        else
+                            data[last_vi + area.ystride * i] = c_everness_bamboo_5
+                        end
 
-        -- Back up the last from `while_counter`
-        last_vi = last_vi - area.ystride
-
-        -- Add top bamboo nodes with leaves based on their generated height
-        if bamboo_height > 4 then
-            for i = 1, 3 do
-                if data[last_vi + area.ystride * i] == minetest.CONTENT_AIR then
-                    if i == 1 then
-                        data[last_vi + area.ystride * i] = c_everness_bamboo_4
-                    else
-                        data[last_vi + area.ystride * i] = c_everness_bamboo_5
+                        p2data[last_vi + area.ystride * i] = p2data[vi + area.ystride]
                     end
+                end
+            else
+                for i = 1, 2 do
+                    if data[last_vi + area.ystride * i] == minetest.CONTENT_AIR then
+                        if i == 1 then
+                            data[last_vi + area.ystride * i] = c_everness_bamboo_4
+                        else
+                            data[last_vi + area.ystride * i] = c_everness_bamboo_5
+                        end
 
-                    p2data[last_vi + area.ystride * i] = p2data[vi + area.ystride]
+                        p2data[last_vi + area.ystride * i] = p2data[vi + area.ystride]
+                    end
                 end
             end
-        else
-            for i = 1, 2 do
-                if data[last_vi + area.ystride * i] == minetest.CONTENT_AIR then
-                    if i == 1 then
-                        data[last_vi + area.ystride * i] = c_everness_bamboo_4
-                    else
-                        data[last_vi + area.ystride * i] = c_everness_bamboo_5
-                    end
+        end
+    end,
+    after_set_data = function(minp, maxp, vm, area, data, p2data, gennotify, rand, shared_args)
+        local sidelength = maxp.x - minp.x + 1
+        local x_disp = rand:next(0, disp)
+        local z_disp = rand:next(0, disp)
+        shared_args.schem_positions = {}
 
-                    p2data[last_vi + area.ystride * i] = p2data[vi + area.ystride]
+        for y = minp.y, maxp.y do
+            local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
+
+            if
+                (
+                    data[vi + area.ystride] == minetest.CONTENT_AIR
+                    or data[vi + area.ystride] == c_everness_bamboo_1
+                    or data[vi + area.ystride] == c_everness_bamboo_3
+                )
+                and (
+                    data[vi] == c_dirt_with_grass_1
+                    or data[vi] == c_dirt_with_grass_extras_1
+                    or data[vi] == c_dirt_with_grass_extras_2
+                )
+                and rand:next(0, 100) < chance
+            then
+                local s_pos = area:position(vi)
+
+                --
+                -- Japanese Shrine
+                --
+
+                local size = { x = 11, y = 19, z = 15 }
+                local size_x = math.round(size.x / 2)
+                local size_z = math.round(size.z / 2)
+                local schem_pos = vector.new(s_pos)
+
+                -- find floor big enough
+                local positions = minetest.find_nodes_in_area_under_air(
+                    vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
+                    vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
+                    {
+                        'everness:dirt_with_grass_1'
+                    }
+                )
+                -- Can force over these blocks
+                local force_positions = minetest.find_nodes_in_area(
+                    vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
+                    vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
+                    {
+                        'everness:dirt_with_grass_extras_1',
+                        'everness:dirt_with_grass_extras_2',
+                        'group:bamboo',
+                        'group:flower',
+                        'group:leaves'
+                    }
+                )
+
+                if #positions + #force_positions < size.x * size.z then
+                    -- not enough space
+                    return
+                end
+
+                -- enough air to place structure ?
+                local air_positions = minetest.find_nodes_in_area(
+                    vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                    vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
+                    {
+                        'air',
+                        'group:bamboo',
+                        'group:flower',
+                        'group:leaves'
+                    }
+                )
+
+                if #air_positions > (size.x * size.y * size.z) / 2 then
+                    minetest.place_schematic_on_vmanip(
+                        vm,
+                        schem_pos,
+                        schem,
+                        'random',
+                        nil,
+                        true,
+                        'place_center_x, place_center_z'
+                    )
+
+                    shared_args.schem_positions.everness_japanese_shrine = shared_args.schem_positions.everness_japanese_shrine or {}
+
+                    table.insert(shared_args.schem_positions.everness_japanese_shrine, {
+                        pos = schem_pos,
+                        minp = vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                        maxp = vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z)
+                    })
+
+                    minetest.log('action', '[Everness] Japanese Shrine was placed at ' .. schem_pos:to_string())
+                end
+            end
+        end
+    end,
+    after_write_to_map = function(shared_args)
+        local schem_positions = shared_args.schem_positions or {}
+
+        for name, tbl in pairs(schem_positions) do
+            if next(tbl) then
+                for i, v in ipairs(tbl) do
+                    local chest_positions = minetest.find_nodes_in_area(
+                        v.minp,
+                        v.maxp,
+                        { 'everness:chest' }
+                    )
+
+                    if #chest_positions > 0 then
+                        Everness:populate_loot_chests(chest_positions)
+                    end
                 end
             end
         end
     end
-
-    vm:set_data(data)
-    vm:set_param2_data(p2data)
-    -- Calculate lighting for what has been created.
-    vm:calc_lighting()
-    -- Write what has been created to the world.
-    vm:write_to_map()
-end)
+})

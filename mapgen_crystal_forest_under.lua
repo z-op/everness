@@ -222,6 +222,8 @@ Everness:register_decoration({
 -- On Generated
 --
 
+local biome_id_everness_crystal_forest_under = minetest.get_biome_id('everness:crystal_forest_under')
+
 local deco_id_crystal_forest_under_crystal_cluster = minetest.get_decoration_id('everness:crystal_forest_under_crystal_cluster')
 local deco_id_crystal_forest_under_crystal_sphere_cluster = minetest.get_decoration_id('everness:crystal_forest_under_crystal_sphere_cluster')
 
@@ -248,174 +250,174 @@ minetest.set_gen_notify({ decoration = true }, {
     deco_id_crystal_forest_under_crystal_sphere_cluster
 })
 
-minetest.register_on_generated(function(minp, maxp, blockseed)
-    local rand = PcgRandom(blockseed)
-    -- Load the voxelmanip with the result of engine mapgen
-    local vm = minetest.get_mapgen_object('voxelmanip')
-    -- Returns a table mapping requested generation notification types to arrays of positions at which the corresponding generated structures are located within the current chunk
-    local gennotify = minetest.get_mapgen_object('gennotify')
+Everness:add_to_queue_on_generated({
+    name = 'everness:crystal_forest_under',
+    can_run = function(biomemap)
+        return table.indexof(biomemap, biome_id_everness_crystal_forest_under) ~= -1
+    end,
+    after_set_data = function(minp, maxp, vm, area, data, p2data, gennotify, rand, shared_args)
+        --
+        -- Crystal Cluster
+        --
+        for _, pos in ipairs(gennotify['decoration#' .. (deco_id_crystal_forest_under_crystal_cluster or '')] or {}) do
+            -- `pos` is position of the 'place_on' node
+            local marker_pos = vector.new(pos.x, pos.y + 1, pos.z)
+            local marker_node = minetest.get_node(marker_pos)
+            local place_on_node = minetest.get_node(pos)
 
-    --
-    -- Crystal Cluster
-    --
-    for _, pos in ipairs(gennotify['decoration#' .. (deco_id_crystal_forest_under_crystal_cluster or '')] or {}) do
-        -- `pos` is position of the 'place_on' node
-        local marker_pos = vector.new(pos.x, pos.y + 1, pos.z)
-        local marker_node = minetest.get_node(marker_pos)
-        local place_on_node = minetest.get_node(pos)
-
-        if not marker_node then
-            return
-        end
-
-        if marker_node.name ~= 'everness:marker' then
-            -- not a valid "place_on" position (e.g. something else was placed there)
-            return
-        end
-
-        minetest.remove_node(marker_pos)
-
-        if table.indexof(crystal_cluster_place_on, place_on_node.name) == -1 then
-            -- not a valid "place_on" position (e.g. something else was placed there)
-            return
-        end
-
-        -- enough air to place structure ?
-        local positions = minetest.find_nodes_in_area(
-            vector.new(
-                pos.x - crystal_cluster_size_x,
-                pos.y,
-                pos.z - crystal_cluster_size_z
-            ),
-            vector.new(
-                pos.x + crystal_cluster_size_x,
-                pos.y + crystal_cluster_size.y,
-                pos.z + crystal_cluster_size_z
-            ),
-            {
-                'air'
-            },
-            true
-        )
-
-        local air = positions.air or {}
-
-        if #air > crystal_cluster_safe_volume then
-            local replacements
-            local rand_color
-
-            if rand:next(0, 100) < 25 then
-                local colors = { 'purple', 'cyan' }
-                rand_color = colors[rand:next(1, #colors)]
-
-                replacements = {
-                    ['everness:crystal_block_orange'] = 'everness:crystal_block_' .. rand_color,
-                    ['everness:crystal_orange'] = 'everness:crystal_' .. rand_color
-                }
+            if not marker_node then
+                return
             end
 
-            minetest.place_schematic_on_vmanip(
-                vm,
-                vector.new(marker_pos.x, marker_pos.y, marker_pos.z),
-                schem_crystal_cluster,
-                'random',
-                replacements,
-                true,
-                'place_center_x, place_center_z'
-            )
-
-            -- minetest.log('action', '[Everness] Crystal Cluster ' .. (rand_color or 'orange') .. ' was placed at ' .. pos:to_string())
-        end
-    end
-
-    --
-    -- Crystal Sphere Cluster
-    --
-    for _, pos in ipairs(gennotify['decoration#' .. (deco_id_crystal_forest_under_crystal_sphere_cluster or '')] or {}) do
-        -- `pos` is position of the 'place_on' node
-        local marker_pos = vector.new(pos.x, pos.y + 1, pos.z)
-        local marker_node = minetest.get_node(marker_pos)
-        local place_on_node = minetest.get_node(pos)
-        local crystal_sphere_cluster_y_dis = rand:next(5, 9)
-
-        if not marker_node then
-            return
-        end
-
-        if marker_node.name ~= 'everness:marker' then
-            -- not a valid "place_on" position (e.g. something else was placed there)
-            return
-        end
-
-        minetest.remove_node(marker_pos)
-
-        if table.indexof(crystal_sphere_cluster_place_on, place_on_node.name) == -1 then
-            -- not a valid "place_on" position (e.g. something else was placed there)
-            return
-        end
-
-        -- enough air to place structure ?
-        local positions = minetest.find_nodes_in_area(
-            vector.new(
-                pos.x - crystal_sphere_cluster_size_x,
-                pos.y - crystal_sphere_cluster_y_dis,
-                pos.z - crystal_sphere_cluster_size_z
-            ),
-            vector.new(
-                pos.x + crystal_sphere_cluster_size_x,
-                pos.y - crystal_sphere_cluster_y_dis + crystal_sphere_cluster_size.y,
-                pos.z + crystal_sphere_cluster_size_z
-            ),
-            {
-                'air',
-                'everness:coral_tree',
-                'everness:crystal_block_orange',
-                'everness:crystal_block_purple',
-                'everness:crystal_block_cyan',
-            },
-            true
-        )
-
-        local air = positions.air or {}
-        local tree = positions['everness:coral_tree'] or {}
-        local block_orange = positions['everness:crystal_block_orange'] or {}
-        local block_purple = positions['everness:crystal_block_purple'] or {}
-        local block_cyan = positions['everness:crystal_block_cyan'] or {}
-
-        if #tree > 0
-            or #block_orange > 0
-            or #block_purple > 0
-            or #block_cyan > 0
-        then
-            -- will overlap
-            return
-        end
-
-        if #air > crystal_sphere_cluster_safe_volume then
-            local replacements
-            local rand_color
-
-            if rand:next(0, 100) < 25 then
-                local colors = { 'orange', 'cyan' }
-                rand_color = colors[rand:next(1, #colors)]
-
-                replacements = {
-                    ['everness:crystal_block_purple'] = 'everness:crystal_block_' .. rand_color,
-                    ['everness:crystal_purple'] = 'everness:crystal_' .. rand_color
-                }
+            if marker_node.name ~= 'everness:marker' then
+                -- not a valid "place_on" position (e.g. something else was placed there)
+                return
             end
 
-            minetest.place_schematic_on_vmanip(
-                vm,
-                vector.new(marker_pos.x, marker_pos.y - crystal_sphere_cluster_y_dis, marker_pos.z),
-                schem_crystal_sphere_cluster,
-                'random',
-                replacements,
-                true,
-                'place_center_x, place_center_z'
+            minetest.remove_node(marker_pos)
+
+            if table.indexof(crystal_cluster_place_on, place_on_node.name) == -1 then
+                -- not a valid "place_on" position (e.g. something else was placed there)
+                return
+            end
+
+            -- enough air to place structure ?
+            local positions = minetest.find_nodes_in_area(
+                vector.new(
+                    pos.x - crystal_cluster_size_x,
+                    pos.y,
+                    pos.z - crystal_cluster_size_z
+                ),
+                vector.new(
+                    pos.x + crystal_cluster_size_x,
+                    pos.y + crystal_cluster_size.y,
+                    pos.z + crystal_cluster_size_z
+                ),
+                {
+                    'air'
+                },
+                true
             )
 
-            -- minetest.log('action', '[Everness] Crystal Sphere Cluster ' .. (rand_color or 'orange') .. ' was placed at ' .. pos:to_string())
+            local air = positions.air or {}
+
+            if #air > crystal_cluster_safe_volume then
+                local replacements
+                local rand_color
+
+                if rand:next(0, 100) < 25 then
+                    local colors = { 'purple', 'cyan' }
+                    rand_color = colors[rand:next(1, #colors)]
+
+                    replacements = {
+                        ['everness:crystal_block_orange'] = 'everness:crystal_block_' .. rand_color,
+                        ['everness:crystal_orange'] = 'everness:crystal_' .. rand_color
+                    }
+                end
+
+                minetest.place_schematic_on_vmanip(
+                    vm,
+                    vector.new(marker_pos.x, marker_pos.y, marker_pos.z),
+                    schem_crystal_cluster,
+                    'random',
+                    replacements,
+                    true,
+                    'place_center_x, place_center_z'
+                )
+
+                -- minetest.log('action', '[Everness] Crystal Cluster ' .. (rand_color or 'orange') .. ' was placed at ' .. pos:to_string())
+            end
+        end
+
+        --
+        -- Crystal Sphere Cluster
+        --
+        for _, pos in ipairs(gennotify['decoration#' .. (deco_id_crystal_forest_under_crystal_sphere_cluster or '')] or {}) do
+            -- `pos` is position of the 'place_on' node
+            local marker_pos = vector.new(pos.x, pos.y + 1, pos.z)
+            local marker_node = minetest.get_node(marker_pos)
+            local place_on_node = minetest.get_node(pos)
+            local crystal_sphere_cluster_y_dis = rand:next(5, 9)
+
+            if not marker_node then
+                return
+            end
+
+            if marker_node.name ~= 'everness:marker' then
+                -- not a valid "place_on" position (e.g. something else was placed there)
+                return
+            end
+
+            minetest.remove_node(marker_pos)
+
+            if table.indexof(crystal_sphere_cluster_place_on, place_on_node.name) == -1 then
+                -- not a valid "place_on" position (e.g. something else was placed there)
+                return
+            end
+
+            -- enough air to place structure ?
+            local positions = minetest.find_nodes_in_area(
+                vector.new(
+                    pos.x - crystal_sphere_cluster_size_x,
+                    pos.y - crystal_sphere_cluster_y_dis,
+                    pos.z - crystal_sphere_cluster_size_z
+                ),
+                vector.new(
+                    pos.x + crystal_sphere_cluster_size_x,
+                    pos.y - crystal_sphere_cluster_y_dis + crystal_sphere_cluster_size.y,
+                    pos.z + crystal_sphere_cluster_size_z
+                ),
+                {
+                    'air',
+                    'everness:coral_tree',
+                    'everness:crystal_block_orange',
+                    'everness:crystal_block_purple',
+                    'everness:crystal_block_cyan',
+                },
+                true
+            )
+
+            local air = positions.air or {}
+            local tree = positions['everness:coral_tree'] or {}
+            local block_orange = positions['everness:crystal_block_orange'] or {}
+            local block_purple = positions['everness:crystal_block_purple'] or {}
+            local block_cyan = positions['everness:crystal_block_cyan'] or {}
+
+            if #tree > 0
+                or #block_orange > 0
+                or #block_purple > 0
+                or #block_cyan > 0
+            then
+                -- will overlap
+                return
+            end
+
+            if #air > crystal_sphere_cluster_safe_volume then
+                local replacements
+                local rand_color
+
+                if rand:next(0, 100) < 25 then
+                    local colors = { 'orange', 'cyan' }
+                    rand_color = colors[rand:next(1, #colors)]
+
+                    replacements = {
+                        ['everness:crystal_block_purple'] = 'everness:crystal_block_' .. rand_color,
+                        ['everness:crystal_purple'] = 'everness:crystal_' .. rand_color
+                    }
+                end
+
+                minetest.place_schematic_on_vmanip(
+                    vm,
+                    vector.new(marker_pos.x, marker_pos.y - crystal_sphere_cluster_y_dis, marker_pos.z),
+                    schem_crystal_sphere_cluster,
+                    'random',
+                    replacements,
+                    true,
+                    'place_center_x, place_center_z'
+                )
+
+                -- minetest.log('action', '[Everness] Crystal Sphere Cluster ' .. (rand_color or 'orange') .. ' was placed at ' .. pos:to_string())
+            end
         end
     end
-end)
+})

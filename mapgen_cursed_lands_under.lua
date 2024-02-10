@@ -219,6 +219,8 @@ Everness:register_decoration({
 -- On Generated
 --
 
+local biome_id_everness_cursed_lands_under = minetest.get_biome_id('everness:cursed_lands_under')
+
 local deco_id_cursed_lands_under_cursed_dream_tree = minetest.get_decoration_id('everness:cursed_lands_under_cursed_dream_tree')
 
 local schem_cursed_dream_tree = minetest.get_modpath('everness') .. '/schematics/everness_cursed_dream_tree.mts'
@@ -232,78 +234,79 @@ cursed_dream_tree_place_on = type(cursed_dream_tree_place_on) == 'string' and { 
 
 minetest.set_gen_notify({ decoration = true }, { deco_id_cursed_lands_under_cursed_dream_tree })
 
-minetest.register_on_generated(function(minp, maxp, blockseed)
-    -- Load the voxelmanip with the result of engine mapgen
-    local vm = minetest.get_mapgen_object('voxelmanip')
-    -- Returns a table mapping requested generation notification types to arrays of positions at which the corresponding generated structures are located within the current chunk
-    local gennotify = minetest.get_mapgen_object('gennotify')
+Everness:add_to_queue_on_generated({
+    name = 'everness:cursed_lands_under',
+    can_run = function(biomemap)
+        return table.indexof(biomemap, biome_id_everness_cursed_lands_under) ~= -1
+    end,
+    after_set_data = function(minp, maxp, vm, area, data, p2data, gennotify, rand, shared_args)
+        --
+        -- Cursed Dream Tree
+        --
+        for _, pos in ipairs(gennotify['decoration#' .. (deco_id_cursed_lands_under_cursed_dream_tree or '')] or {}) do
+            -- `pos` is position of the 'place_on' node
+            local marker_pos = vector.new(pos.x, pos.y + 1, pos.z)
+            local marker_node = minetest.get_node(marker_pos)
+            local place_on_node = minetest.get_node(pos)
 
-    --
-    -- Cursed Dream Tree
-    --
-    for _, pos in ipairs(gennotify['decoration#' .. (deco_id_cursed_lands_under_cursed_dream_tree or '')] or {}) do
-        -- `pos` is position of the 'place_on' node
-        local marker_pos = vector.new(pos.x, pos.y + 1, pos.z)
-        local marker_node = minetest.get_node(marker_pos)
-        local place_on_node = minetest.get_node(pos)
+            if not marker_node then
+                return
+            end
 
-        if not marker_node then
-            return
-        end
+            if marker_node.name ~= 'everness:marker' then
+                -- not a valid "place_on" position (e.g. something else was placed there)
+                return
+            end
 
-        if marker_node.name ~= 'everness:marker' then
-            -- not a valid "place_on" position (e.g. something else was placed there)
-            return
-        end
+            minetest.remove_node(marker_pos)
 
-        minetest.remove_node(marker_pos)
+            if table.indexof(cursed_dream_tree_place_on, place_on_node.name) == -1 then
+                -- not a valid "place_on" position (e.g. something else was placed there)
+                return
+            end
 
-        if table.indexof(cursed_dream_tree_place_on, place_on_node.name) == -1 then
-            -- not a valid "place_on" position (e.g. something else was placed there)
-            return
-        end
+            -- no need to check for the floor "big enough" size since its a tree and has ~ 1x1 base size
 
-        -- no need to check for the floor "big enough" size since its a tree and has ~ 1x1 base size
-
-        -- enough air to place structure ?
-        local positions = minetest.find_nodes_in_area(
-            vector.new(
-                pos.x - cursed_dream_tree_size_x,
-                pos.y - cursed_dream_tree_y_dis,
-                pos.z - cursed_dream_tree_size_z
-            ),
-            vector.new(
-                pos.x + cursed_dream_tree_size_x,
-                pos.y - cursed_dream_tree_y_dis + cursed_dream_tree_size.y,
-                pos.z + cursed_dream_tree_size_z
-            ),
-            {
-                'air',
-                'everness:dry_tree'
-            },
-            true
-        )
-
-        local air = positions.air or {}
-        local tree = positions['everness:dry_tree'] or {}
-
-        if #tree > 1 then
-            -- will overlap another tree
-            return
-        end
-
-        if #air > cursed_dream_tree_safe_volume then
-            minetest.place_schematic_on_vmanip(
-                vm,
-                vector.new(marker_pos.x, marker_pos.y - cursed_dream_tree_y_dis, marker_pos.z),
-                schem_cursed_dream_tree,
-                'random',
-                nil,
-                true,
-                'place_center_x, place_center_z'
+            -- enough air to place structure ?
+            local positions = minetest.find_nodes_in_area(
+                vector.new(
+                    pos.x - cursed_dream_tree_size_x,
+                    pos.y - cursed_dream_tree_y_dis,
+                    pos.z - cursed_dream_tree_size_z
+                ),
+                vector.new(
+                    pos.x + cursed_dream_tree_size_x,
+                    pos.y - cursed_dream_tree_y_dis + cursed_dream_tree_size.y,
+                    pos.z + cursed_dream_tree_size_z
+                ),
+                {
+                    'air',
+                    'everness:dry_tree'
+                },
+                true
             )
 
-            -- minetest.log('action', '[Everness] Cursed Dream Tree was placed at ' .. pos:to_string())
+            local air = positions.air or {}
+            local tree = positions['everness:dry_tree'] or {}
+
+            if #tree > 1 then
+                -- will overlap another tree
+                return
+            end
+
+            if #air > cursed_dream_tree_safe_volume then
+                minetest.place_schematic_on_vmanip(
+                    vm,
+                    vector.new(marker_pos.x, marker_pos.y - cursed_dream_tree_y_dis, marker_pos.z),
+                    schem_cursed_dream_tree,
+                    'random',
+                    nil,
+                    true,
+                    'place_center_x, place_center_z'
+                )
+
+                -- minetest.log('action', '[Everness] Cursed Dream Tree was placed at ' .. pos:to_string())
+            end
         end
     end
-end)
+})

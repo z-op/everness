@@ -239,6 +239,13 @@ local c_water_weeds = {
     c_everness_mineral_water_weed_2
 }
 
+local chance = 20
+local disp = 16
+local schem = minetest.get_modpath('everness') .. '/schematics/everness_mineral_waters_tower.mts'
+local size = { x = 7, y = 16, z = 9 }
+local size_x = math.round(size.x / 2)
+local size_z = math.round(size.z / 2)
+
 local function find_irecursive(table, c_id)
     local found = false
 
@@ -294,11 +301,6 @@ local function place_decoration(pos, vm, area, data, deco_id, callback)
     end
 end
 
--- Localize data buffer table outside the loop, to be re-used for all
--- mapchunks, therefore minimising memory use
-local data = {}
-local p2data = {}
-
 minetest.set_gen_notify({ decoration = true }, {
     d_everness_palm_trees,
     d_everness_water_geyser,
@@ -306,29 +308,14 @@ minetest.set_gen_notify({ decoration = true }, {
     d_rose_bush
 })
 
--- Called after generating a piece of world. Modifying nodes inside the area is a bit faster than usual.
-minetest.register_on_generated(function(minp, maxp, blockseed)
-    -- Start time of mapchunk generation.
-    -- local t0 = os.clock()
-    -- Returns an array containing the biome IDs of nodes in the most recently generated chunk by the current mapgen
-    local biomemap = minetest.get_mapgen_object('biomemap')
-    local chest_positions = {}
-
-    -- Above sea level
-    if maxp.y >= y_min and table.indexof(biomemap, biome_id_everness_mineral_waters) ~= -1 then
-        local rand = PcgRandom(blockseed)
+Everness:add_to_queue_on_generated({
+    name = 'everness:mineral_waters',
+    can_run = function(biomemap)
+        return table.indexof(biomemap, biome_id_everness_mineral_waters) ~= -1
+    end,
+    on_data = function(minp, maxp, area, data, p2data, gennotify, rand, shared_args)
         local rand_version = rand:next(1, 2)
-        -- Load the voxelmanip with the result of engine mapgen
-        local vm, emin, emax = minetest.get_mapgen_object('voxelmanip')
-        -- Returns a table mapping requested generation notification types to arrays of positions at which the corresponding generated structures are located within the current chunk
-        local gennotify = minetest.get_mapgen_object('gennotify')
-        -- 'area' is used later to get the voxelmanip indexes for positions
-        local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
-        -- Get the content ID data from the voxelmanip in the form of a flat array.
-        -- Set the buffer parameter to use and reuse 'data' for this.
-        vm:get_data(data)
-        vm:get_param2_data(p2data)
-
+        local chest_positions = {}
         local pot_pos = {}
 
         if rand_version == 1 then
@@ -564,6 +551,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
         end
 
         -- Place decorations after generating (2nd pass)
+        -- luacheck: ignore 512
         for y = minp.y, maxp.y do
             for z = minp.z, maxp.z do
                 for x = minp.x, maxp.x do
@@ -605,14 +593,14 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                                 for j = -radius, radius do
                                     local idx = ai + i + (area.zstride * j) + area.ystride
                                     local distance = math.round(vector.distance(area:position(ai), area:position(idx)))
-                                    local chance = math.round(chance_max / distance)
+                                    local chance_lotus_leaf = math.round(chance_max / distance)
 
-                                    if chance > chance_max then
-                                        chance = chance_max
+                                    if chance_lotus_leaf > chance_max then
+                                        chance_lotus_leaf = chance_max
                                     end
 
                                     if
-                                        rand:next(0, 100) < chance
+                                        rand:next(0, 100) < chance_lotus_leaf
                                         and data[idx] == minetest.CONTENT_AIR
                                         and data[idx - area.ystride] == c_everness_mineral_water_source
                                     then
@@ -721,12 +709,84 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
             end
         end
 
-        vm:set_data(data)
-        vm:set_param2_data(p2data)
+        -- Set `shared_args`
+        shared_args.chest_positions = chest_positions
+        shared_args.pot_pos = pot_pos
+    end,
+    after_set_data = function(minp, maxp, vm, area, data, p2data, gennotify, rand, shared_args)
+        local sidelength = maxp.x - minp.x + 1
+        local x_disp = rand:next(0, disp)
+        local z_disp = rand:next(0, disp)
+        shared_args.schem_positions = {}
+
+        for y = minp.y, maxp.y do
+            local vi = area:index(minp.x + sidelength / 2 + x_disp, y, minp.z + sidelength / 2 + z_disp)
+
+            if data[vi + area.ystride] == minetest.CONTENT_AIR
+                and (
+                    data[vi] == c_everness_mineral_water_source
+                    or data[vi] == c_everness_mineral_sand
+                )
+                and rand:next(0, 100) < chance
+            then
+                local s_pos = area:position(vi)
+
+                --
+                -- Mineral Waters Tower
+                --
+
+                -- find floor big enough
+                local positions = minetest.find_nodes_in_area_under_air(
+                    vector.new(s_pos.x - size_x, s_pos.y - 1, s_pos.z - size_z),
+                    vector.new(s_pos.x + size_x, s_pos.y + 1, s_pos.z + size_z),
+                    {
+                        'everness:mineral_sand',
+                        'everness:mineral_water_source'
+                    }
+                )
+
+                if #positions < size.x * size.z then
+                    -- not enough space
+                    return
+                end
+
+                -- enough air to place structure ?
+                local air_positions = minetest.find_nodes_in_area(
+                    vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                    vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z),
+                    {
+                        'air'
+                    }
+                )
+
+                if #air_positions > (size.x * size.y * size.z) / 2 then
+                    minetest.place_schematic_on_vmanip(
+                        vm,
+                        s_pos,
+                        schem,
+                        'random',
+                        nil,
+                        true,
+                        'place_center_x, place_center_z'
+                    )
+
+                    shared_args.schem_positions.everness_mineral_waters_tower = shared_args.schem_positions.everness_mineral_waters_tower or {}
+
+                    table.insert(shared_args.schem_positions.everness_mineral_waters_tower, {
+                        pos = s_pos,
+                        minp = vector.new(s_pos.x - size_x, s_pos.y, s_pos.z - size_z),
+                        maxp = vector.new(s_pos.x + size_x, s_pos.y + size.y, s_pos.z + size_z)
+                    })
+
+                    minetest.log('action', '[Everness] Mineral Waters Tower was placed at ' .. s_pos:to_string())
+                end
+            end
+        end
 
         --
         -- Place Decorations
         --
+        local pot_pos = shared_args.pot_pos or {}
 
         --
         -- Palm Trees
@@ -820,25 +880,32 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
                 inv:set_stack('main', 1, stack)
             end
         end
-
-        -- Set the lighting within the `VoxelManip` to a uniform value
-        vm:set_lighting({ day = 0, night = 0 }, minp, maxp)
-        -- Calculate lighting for what has been created.
-        vm:calc_lighting()
-        -- Liquid nodes were placed so set them flowing.
-        vm:update_liquids()
-        -- Write what has been created to the world.
-        vm:write_to_map()
-
+    end,
+    after_write_to_map = function(shared_args)
         -- Populate loot chest inventory
-        local chest_def = minetest.registered_nodes['everness:chest']
+        local chest_positions = shared_args.chest_positions or {}
 
-        if chest_def and next(chest_positions) then
+        if next(chest_positions) then
             Everness:populate_loot_chests(chest_positions)
         end
-    end
 
-    -- Print generation time of this mapchunk.
-    -- local chugent = math.ceil((os.clock() - t0) * 1000)
-    -- print('[lvm_example] Mapchunk generation time ' .. chugent .. ' ms')
-end)
+        -- Populate loot chest inventory for schematics
+        local schem_positions = shared_args.schem_positions or {}
+
+        for name, tbl in pairs(schem_positions) do
+            if next(tbl) then
+                for i, v in ipairs(tbl) do
+                    local chest_positions2 = minetest.find_nodes_in_area(
+                        v.minp,
+                        v.maxp,
+                        { 'everness:chest' }
+                    )
+
+                    if #chest_positions2 > 0 then
+                        Everness:populate_loot_chests(chest_positions2)
+                    end
+                end
+            end
+        end
+    end
+})

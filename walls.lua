@@ -163,3 +163,85 @@ walls.register(
     'everness:crystal_mossy_cobble',
     Everness.node_sound_stone_defaults()
 )
+
+walls.register(
+    'everness:cursed_sandstone_brick_wall',
+    S('Cursed Sandstone Brick Wall'),
+    { 'everness_cursed_sandstone_brick.png' },
+    'everness:cursed_sandstone_brick',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:cursed_sandstone_block_wall',
+    S('Cursed Sandstone Block Wall'),
+    { 'everness_cursed_sandstone_block.png' },
+    'everness:cursed_sandstone_block',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:cursed_stone_carved_wall',
+    S('Cursed Stone Carved Wall'),
+    {
+        {
+            name = 'everness_cursed_stone_carved.png',
+            align_style = 'world',
+            scale = 2
+        }
+    },
+    'everness:cursed_stone_carved',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:forsaken_desert_cobble_wall',
+    S('Forsaken Desert Cobblestone Wall'),
+    { 'everness_forsaken_desert_cobble.png' },
+    'everness:forsaken_desert_cobble',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:forsaken_desert_cobble_red_wall',
+    S('Forsaken Desert Cobblestone Red Wall'),
+    { 'everness_forsaken_desert_cobble_red.png' },
+    'everness:forsaken_desert_cobble_red',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:forsaken_desert_brick_wall',
+    S('Forsaken Desert Brick Wall'),
+    { 'everness_forsaken_desert_brick.png' },
+    'everness:forsaken_desert_brick',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:forsaken_desert_brick_red_wall',
+    S('Forsaken Desert Brick Red Wall'),
+    { 'everness_forsaken_desert_brick_red.png' },
+    'everness:forsaken_desert_brick_red',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:forsaken_desert_chiseled_stone_wall',
+    S('Forsaken Desert Chiseled Stone'),
+    {
+        'everness_forsaken_desert_chiseled_stone_top.png',
+        'everness_forsaken_desert_chiseled_stone_bottom.png',
+        'everness_forsaken_desert_chiseled_stone_side.png'
+    },
+    'everness:forsaken_desert_chiseled_stone',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:forsaken_desert_engraved_stone_wall',
+    S('Forsaken Desert Engraved Stone Wall'),
+    { 'everness_forsaken_desert_engraved_stone.png' },
+    'everness:forsaken_desert_engraved_stone',
+    Everness.node_sound_stone_defaults()
+)
