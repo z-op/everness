@@ -729,6 +729,21 @@ local skybox_defs = {
             scale = 0.5
         },
     },
+    ['everness:mineral_waters_under'] = {
+        sky_parameters = {
+            type = 'regular',
+            sky_color = {
+                day_sky = '#8B1408',
+                day_horizon = '#b2380a',
+                dawn_sky = '#8B1408',
+                dawn_horizon = '#b2380a',
+                night_sky = '#A3609E',
+                night_horizon = '#C7A8D9',
+                fog_sun_tint = '#8B1408',
+                fog_moon_tint = '#520E49'
+            }
+        }
+    },
 }
 
 local function should_flip(player)

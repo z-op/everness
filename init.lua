@@ -35,6 +35,7 @@ dofile(path .. '/bamboo.lua')
 dofile(path .. '/functions.lua')
 dofile(path .. '/trees.lua')
 dofile(path .. '/vines.lua')
+dofile(path .. '/vines_wall.lua')
 dofile(path .. '/chests.lua')
 dofile(path .. '/torches.lua')
 

@@ -969,6 +969,8 @@ end
 
 function Everness.register_ore(self, def)
     local _def = table.copy(def)
+    -- @TOTO using `ore` as name here will override the entry when there are multiple ore registrations for the same ore (different noise)
+    -- using indexed table would be more appropriate here
     local _name = _def.ore
 
     self.registered_ores[_name] = _def
@@ -2153,4 +2155,21 @@ function Everness.add_to_queue_on_generated(self, def)
     end
 
     table.insert(self.on_generated_queue, def)
+end
+
+function Everness.find_irecursive(table, c_id)
+    local found = false
+
+    for i, v in ipairs(table) do
+        if type(v) == 'table' then
+            Everness.find_irecursive(v, c_id)
+        end
+
+        if c_id == v then
+            found = true
+            break
+        end
+    end
+
+    return found
 end

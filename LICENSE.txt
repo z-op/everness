@@ -1498,6 +1498,11 @@ https://freesound.org/people/Rudmer_Rotteveel/sounds/590950/
 
 - everness_water_geyser.1.ogg
 
+**CC0-1.0, by Fission9**, https://freesound.org/people/Fission9/sounds/474850/
+
+- everness_lava.1.ogg
+- everness_lava.2.ogg
+
 ### Models
 
 **CC-BY-SA-4.0, by SaKeL**

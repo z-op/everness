@@ -25,7 +25,10 @@ local y_min = Everness.settings.biomes.everness_mineral_waters_under.y_min
 
 Everness:register_biome({
     name = 'everness:mineral_waters_under',
-    node_cave_liquid = 'air',
+    node_stone = 'everness:mineral_cave_stone',
+    node_filler = 'everness:mineral_cave_stone',
+    node_cave_liquid = 'everness:lava_source',
+    node_water = 'air',
     node_dungeon = 'everness:mineral_stone_brick',
     node_dungeon_alt = 'everness:mineral_stone_brick_with_growth',
     node_dungeon_stair = 'stairs:stair_mineral_stone_brick',
@@ -40,13 +43,40 @@ Everness:register_biome({
 -- Ores
 --
 
+minetest.register_on_mods_loaded(function()
+    local c_mapgen_stone = minetest.get_content_id('mapgen_stone')
+    local mapgen_stone_itemstring = minetest.get_name_from_content_id(c_mapgen_stone)
+
+    for name, def in pairs(minetest.registered_ores) do
+        local wherein = def.wherein
+        local biomes = def.biomes
+
+        if type(def.wherein) == 'string' then
+            wherein = { wherein }
+        end
+
+        -- Register the same ores what are defined for `mapgen_stone`
+        if
+            table.indexof(wherein, mapgen_stone_itemstring) > -1
+            and not biomes
+        then
+            def.wherein = { 'everness:mineral_cave_stone' }
+            def.biomes = { 'everness:mineral_waters_under' }
+            def.y_max = y_max
+            def.y_min = y_min
+
+            Everness:register_ore(def)
+        end
+    end
+end)
+
 -- Blob ore.
 -- These before scatter ores to avoid other ores in blobs.
 
 Everness:register_ore({
     ore_type = 'blob',
     ore = 'everness:mineral_stone',
-    wherein = { 'mapgen_stone' },
+    wherein = { 'everness:mineral_cave_stone' },
     clust_scarcity = 16 * 16 * 16,
     clust_size = 5,
     y_max = y_max,
@@ -68,9 +98,9 @@ Everness:register_ore({
 --
 
 Everness:register_decoration({
-    name = 'everness:mineral_water_under_floors',
+    name = 'everness:mineral_waters_under_floors',
     deco_type = 'simple',
-    place_on = { 'default:stone' },
+    place_on = { 'everness:mineral_cave_stone' },
     sidelen = 16,
     place_offset_y = -1,
     fill_ratio = 10,
@@ -83,70 +113,130 @@ Everness:register_decoration({
     },
 })
 
+Everness:register_decoration({
+    name = 'everness:mineral_waters_under_volcanic_spike',
+    deco_type = 'simple',
+    place_on = {
+        'everness:mineral_lava_stone',
+        'everness:mineral_cave_stone'
+    },
+    sidelen = 16,
+    noise_params = {
+        offset = -0.03,
+        scale = 0.09,
+        spread = { x = 200, y = 200, z = 200 },
+        seed = 329,
+        octaves = 3,
+        persist = 0.6
+    },
+    biomes = { 'everness:mineral_waters_under' },
+    spawn_by = 'air',
+    check_offset = 0,
+    num_spawn_by = 1,
+    decoration = {
+        'everness:marker'
+    },
+    y_max = y_max,
+    y_min = y_min,
+    flags = 'all_floors',
+})
+
+Everness:register_decoration({
+    name = 'everness:mineral_waters_under_lava_stone_spike',
+    deco_type = 'simple',
+    place_on = {
+        'everness:mineral_lava_stone',
+        'everness:mineral_cave_stone'
+    },
+    sidelen = 16,
+    noise_params = {
+        offset = -0.015,
+        scale = 0.075,
+        spread = { x = 200, y = 200, z = 200 },
+        seed = 329,
+        octaves = 3,
+        persist = 0.6
+    },
+    biomes = { 'everness:mineral_waters_under' },
+    decoration = {
+        'everness:marker'
+    },
+    y_max = y_max,
+    y_min = y_min,
+    flags = 'all_floors',
+})
+
 --
 -- On Generated
 --
 
-local function find_walls(cpos)
-    local is_wall = function(node)
-        return node.name ~= 'air' and node.name ~= 'ignore'
-    end
-
-    local dirs = {
-        { x = 1, z = 0 },
-        { x = -1, z = 0 },
-        { x = 0, z = 1 },
-        { x = 0, z = -1 }
-    }
-
-    local ret = {}
-    local mindist = { x = 0, z = 0 }
-    local min = function(a, b)
-        return a ~= 0 and math.min(a, b) or b
-    end
-
-    for _, dir in ipairs(dirs) do
-        for i = 1, 9 do -- 9 = max room size / 2
-            local pos = vector.add(cpos, {x=dir.x*i, y=0, z=dir.z*i})
-
-            -- continue in that direction until we find a wall-like node
-            local node = minetest.get_node(pos)
-            if is_wall(node) then
-                local front_below = vector.subtract(pos, {x=dir.x, y=1, z=dir.z})
-                local above = vector.add(pos, {x=0, y=1, z=0})
-
-                -- check that it:
-                --- is at least 2 nodes high (not a staircase)
-                --- has a floor
-                if is_wall(minetest.get_node(front_below)) and is_wall(minetest.get_node(above)) then
-                    table.insert(ret, {pos = pos, facing = {x=-dir.x, y=0, z=-dir.z}})
-                    if dir.z == 0 then
-                        mindist.x = min(mindist.x, i-1)
-                    else
-                        mindist.z = min(mindist.z, i-1)
-                    end
-                end
-                -- abort even if it wasn't a wall cause something is in the way
-                break
-            end
-        end
-    end
-
-    return {
-        walls = ret,
-        size = { x = mindist.x * 2, z = mindist.z * 2 }
-    }
-end
-
-local c_everness_pyrite_lantern = minetest.get_content_id('everness:pyrite_lantern')
-local c_everness_cursed_pumpkin_lantern = minetest.get_content_id('everness:cursed_pumpkin_lantern')
-local c_mapgen_stone = minetest.get_content_id('mapgen_stone')
+-- Get the content IDs for the nodes used
+local c_everness_wall_vine_cave_cyan = minetest.get_content_id('everness:wall_vine_cave_cyan')
+local c_everness_wall_vine_cave_violet = minetest.get_content_id('everness:wall_vine_cave_violet')
+local c_everness_wall_vine_cave_blue = minetest.get_content_id('everness:wall_vine_cave_blue')
+local c_everness_mineral_lava_stone = minetest.get_content_id('everness:mineral_lava_stone')
+local c_everness_mineral_cave_stone = minetest.get_content_id('everness:mineral_cave_stone')
+local c_everness_lava_source = minetest.get_content_id('everness:lava_source')
+local c_everness_marker = minetest.get_content_id('everness:marker')
+local c_everness_volcanic_rock = minetest.get_content_id('everness:volcanic_rock')
+local c_everness_volcanic_spike_1 = minetest.get_content_id('everness:volcanic_spike_1')
+local c_everness_volcanic_spike_2 = minetest.get_content_id('everness:volcanic_spike_2')
+local c_everness_volcanic_spike_3 = minetest.get_content_id('everness:volcanic_spike_3')
+local c_everness_volcanic_spike_4 = minetest.get_content_id('everness:volcanic_spike_4')
+local c_everness_volcanic_spike_5 = minetest.get_content_id('everness:volcanic_spike_5')
+local c_everness_volcanic_spike_6 = minetest.get_content_id('everness:volcanic_spike_6')
+local c_everness_volcanic_spike_7 = minetest.get_content_id('everness:volcanic_spike_7')
+local c_everness_mineral_cave_stone_spike_1 = minetest.get_content_id('everness:mineral_cave_stone_spike_1')
+local c_everness_mineral_cave_stone_spike_2 = minetest.get_content_id('everness:mineral_cave_stone_spike_2')
+local c_everness_mineral_cave_stone_spike_3 = minetest.get_content_id('everness:mineral_cave_stone_spike_3')
+local c_everness_mineral_cave_stone_spike_4 = minetest.get_content_id('everness:mineral_cave_stone_spike_4')
+local c_everness_mineral_cave_stone_spike_5 = minetest.get_content_id('everness:mineral_cave_stone_spike_5')
+local c_everness_mineral_cave_stone_spike_6 = minetest.get_content_id('everness:mineral_cave_stone_spike_6')
+local c_everness_mineral_cave_stone_spike_7 = minetest.get_content_id('everness:mineral_cave_stone_spike_7')
+-- Biome IDs
 local biome_id_everness_mineral_waters_under = minetest.get_biome_id('everness:mineral_waters_under')
+-- Decoration IDs
+local d_everness_mineral_waters_under_volcanic_spike = minetest.get_decoration_id('everness:mineral_waters_under_volcanic_spike')
+local d_everness_mineral_waters_under_lava_stone_spike = minetest.get_decoration_id('everness:mineral_waters_under_lava_stone_spike')
 
--- minetest.set_gen_notify({
---     large_cave_begin = true,
---     large_cave_end = true
--- })
+local volcanic_spike_place_on = minetest.registered_decorations['everness:mineral_waters_under_volcanic_spike'].place_on
+volcanic_spike_place_on = type(volcanic_spike_place_on) == 'string' and { volcanic_spike_place_on } or volcanic_spike_place_on
+local lava_stone_spike_place_on = minetest.registered_decorations['everness:mineral_waters_under_lava_stone_spike'].place_on
+lava_stone_spike_place_on = type(lava_stone_spike_place_on) == 'string' and { lava_stone_spike_place_on } or lava_stone_spike_place_on
+
+
+local wall_vines = {
+    c_everness_wall_vine_cave_cyan,
+    c_everness_wall_vine_cave_violet,
+    c_everness_wall_vine_cave_blue
+}
+
+local volcanic_spike_map = {
+    c_everness_volcanic_rock,
+    c_everness_volcanic_spike_1,
+    c_everness_volcanic_spike_2,
+    c_everness_volcanic_spike_3,
+    c_everness_volcanic_spike_4,
+    c_everness_volcanic_spike_5,
+    c_everness_volcanic_spike_6,
+    c_everness_volcanic_spike_7
+}
+
+local lava_stone_spike_map = {
+    c_everness_mineral_cave_stone,
+    c_everness_mineral_cave_stone_spike_1,
+    c_everness_mineral_cave_stone_spike_2,
+    c_everness_mineral_cave_stone_spike_3,
+    c_everness_mineral_cave_stone_spike_4,
+    c_everness_mineral_cave_stone_spike_5,
+    c_everness_mineral_cave_stone_spike_6,
+    c_everness_mineral_cave_stone_spike_7
+}
+
+minetest.set_gen_notify({ decoration = true }, {
+    d_everness_mineral_waters_under_volcanic_spike,
+    d_everness_mineral_waters_under_lava_stone_spike
+})
 
 Everness:add_to_queue_on_generated({
     name = 'everness:mineral_waters_under',
@@ -156,7 +246,100 @@ Everness:add_to_queue_on_generated({
     -- read/write to `data` what will be eventually saved (set_data)
     -- used for voxelmanip `data` manipulation
     on_data = function(minp, maxp, area, data, p2data, gennotify, rand, shared_args)
+        --
+        -- Lakes
+        --
+        for z = minp.z, maxp.z do
+            for y = minp.y, maxp.y do
+                for x = minp.x, maxp.x do
+                    local ai = area:index(x, y, z)
+                    local c_current = data[ai]
 
+                    -- +Y, -Y, +X, -X, +Z, -Z
+                    -- top, bottom, right, left, front, back
+                    -- right
+                    local c_right = data[ai + 1]
+                    -- left
+                    local c_left = data[ai - 1]
+                    -- front
+                    local c_front = data[ai + area.zstride]
+                    -- back
+                    local c_back = data[ai - area.zstride]
+
+                    local keep_going = true
+                    local while_count = 1
+                    local max_dig_depth = 11
+
+                    if
+                        c_current == c_everness_mineral_lava_stone
+                        and (
+                            c_right == c_everness_mineral_lava_stone
+                            or c_right == c_everness_mineral_cave_stone
+                            or c_right == c_everness_lava_source
+                        )
+                        and (
+                            c_left == c_everness_mineral_lava_stone
+                            or c_left == c_everness_mineral_cave_stone
+                            or c_left == c_everness_lava_source
+                        )
+                        and (
+                            c_front == c_everness_mineral_lava_stone
+                            or c_front == c_everness_mineral_cave_stone
+                            or c_front == c_everness_lava_source
+                        )
+                        and (
+                            c_back == c_everness_mineral_lava_stone
+                            or c_back == c_everness_mineral_cave_stone
+                            or c_back == c_everness_lava_source
+                        )
+                    then
+                        -- dig below
+                        while keep_going and while_count <= max_dig_depth do
+                            local while_index = ai - area.ystride * while_count
+
+                            if
+                                -- below
+                                data[while_index] == c_everness_mineral_cave_stone
+                                and (
+                                    -- right
+                                    data[while_index + 1 + area.ystride] == c_everness_mineral_lava_stone
+                                    or data[while_index + 1 + area.ystride] == c_everness_lava_source
+                                    or data[while_index + 1 + area.ystride] == c_everness_mineral_cave_stone
+                                )
+                                and (
+                                    -- left
+                                    data[while_index - 1 + area.ystride] == c_everness_mineral_lava_stone
+                                    or data[while_index - 1 + area.ystride] == c_everness_lava_source
+                                    or data[while_index - 1 + area.ystride] == c_everness_mineral_cave_stone
+                                )
+                                and (
+                                    -- front
+                                    data[while_index + area.zstride + area.ystride] == c_everness_mineral_lava_stone
+                                    or data[while_index + area.zstride + area.ystride] == c_everness_lava_source
+                                    or data[while_index + area.zstride + area.ystride] == c_everness_mineral_cave_stone
+                                )
+                                and (
+                                    -- back
+                                    data[while_index - area.zstride + area.ystride] == c_everness_mineral_lava_stone
+                                    or data[while_index - area.zstride + area.ystride] == c_everness_lava_source
+                                    or data[while_index - area.zstride + area.ystride] == c_everness_mineral_cave_stone
+                                )
+                            then
+                                data[while_index + area.ystride] = c_everness_lava_source
+                            else
+                                keep_going = false
+                            end
+
+                            while_count = while_count + 1
+                        end
+                    end
+                end
+            end
+        end
+
+        --
+        -- Decorations
+        --
         for y = minp.y, maxp.y do
             for z = minp.z, maxp.z do
                 for x = minp.x, maxp.x do
@@ -165,47 +348,116 @@ Everness:add_to_queue_on_generated({
                     if
                         data[vi] == minetest.CONTENT_AIR
                         and (
-                            data[vi + 1] == c_mapgen_stone
-                            or data[vi - 1] == c_mapgen_stone
-                            or data[vi + area.zstride] == c_mapgen_stone
-                            or data[vi - area.zstride] == c_mapgen_stone
+                            data[vi + 1] == c_everness_mineral_cave_stone
+                            or data[vi - 1] == c_everness_mineral_cave_stone
+                            or data[vi + area.zstride] == c_everness_mineral_cave_stone
+                            or data[vi - area.zstride] == c_everness_mineral_cave_stone
                         )
-                        and rand:next(0, 100) == 75
+                        and rand:next(0, 100) <= 25
                     then
-                        local rand_c_node = rand:next(1, 2) == 1 and c_everness_pyrite_lantern or c_everness_cursed_pumpkin_lantern
-                        data[vi] = rand_c_node
+                        -- Decorate Walls
+                        local dir = vector.zero()
+
+                        if data[vi + 1] == c_everness_mineral_cave_stone then
+                            dir.x = 1
+                        end
+
+                        if data[vi - 1] == c_everness_mineral_cave_stone then
+                            dir.x = -1
+                        end
+
+                        if data[vi + area.zstride] == c_everness_mineral_cave_stone then
+                            dir.z = 1
+                        end
+
+                        if data[vi - area.zstride] == c_everness_mineral_cave_stone then
+                            dir.z = -1
+                        end
+
+                        local rand_wall_vine = wall_vines[rand:next(1, #wall_vines)]
+                        data[vi] = rand_wall_vine
+                        p2data[vi] = minetest.dir_to_wallmounted(dir)
                     end
                 end
             end
         end
 
-        -- for _, p in ipairs(gennotify['large_cave_end'] or {}) do
-        --     data[area:indexp(p)] = c_everness_cursed_pumpkin_lantern
-        --     data[area:indexp(p)] = c_everness_cursed_pumpkin_lantern
+        --
+        -- Spikes
+        --
+        for _, pos in ipairs(gennotify['decoration#' .. (d_everness_mineral_waters_under_volcanic_spike or '')] or {}) do
+            local idx = area:indexp(pos)
+            local idx_marker = idx + area.ystride
+            local place_on_node_name = minetest.get_name_from_content_id(data[idx])
 
-        --     local minpos = vector.subtract(p, { x = 9, y = 9, z = 9 })
-        --     local maxpos = vector.add(p, { x = 9, y = 9, z = 9 })
+            if data[idx_marker] == c_everness_marker then
+                -- remove marker
+                data[idx_marker] = minetest.CONTENT_AIR
 
-        --     for y = minpos.y, maxpos.y do
-        --         for z = minpos.z, maxpos.z do
-        --             for x = minpos.x, maxpos.x do
-        --                 local vi = area:index(x, y, z)
+                if table.indexof(volcanic_spike_place_on, place_on_node_name) ~= -1 then
+                    local min_height = 3
+                    local max_height = 8
+                    local indexes = Everness.find_content_in_vm_area(
+                        vector.new(pos.x, pos.y + 1, pos.z),
+                        vector.new(pos.x, pos.y + max_height, pos.z),
+                        {
+                            minetest.CONTENT_AIR
+                        },
+                        data,
+                        area
+                    )
 
-        --                 if
-        --                 data[vi] == minetest.CONTENT_AIR
-        --                 and (
-        --                     data[vi + 1] == c_mapgen_stone
-        --                     or data[vi - 1] == c_mapgen_stone
-        --                     or data[vi + area.zstride] == c_mapgen_stone
-        --                     or data[vi - area.zstride] == c_mapgen_stone
-        --                 )
-        --             then
-        --                 data[vi] = minetest.get_content_id('default:apple')
-        --             end
-        --             end
-        --         end
-        --     end
-        -- end
+                    -- For smallest spike we need space above at least 3)
+                    if #indexes > min_height then
+                        local height = rand:next(min_height, #indexes)
+                        local start_index = #volcanic_spike_map - height + 1
+                        local count = 0
+
+                        for i = start_index, #volcanic_spike_map do
+                            data[idx_marker + area.ystride * count] = volcanic_spike_map[i]
+                            count = count + 1
+                        end
+                    end
+                end
+            end
+        end
+
+        for _, pos in ipairs(gennotify['decoration#' .. (d_everness_mineral_waters_under_lava_stone_spike or '')] or {}) do
+            local idx = area:indexp(pos)
+            local idx_marker = idx + area.ystride
+            local place_on_node_name = minetest.get_name_from_content_id(data[idx])
+
+            if data[idx_marker] == c_everness_marker then
+                -- remove marker
+                data[idx_marker] = minetest.CONTENT_AIR
+
+                if table.indexof(lava_stone_spike_place_on, place_on_node_name) ~= -1 then
+                    local min_height = 3
+                    local max_height = 8
+                    local indexes = Everness.find_content_in_vm_area(
+                        vector.new(pos.x, pos.y + 1, pos.z),
+                        vector.new(pos.x, pos.y + max_height, pos.z),
+                        {
+                            minetest.CONTENT_AIR
+                        },
+                        data,
+                        area
+                    )
+
+                    -- For smallest spike we need space above at least 3)
+                    if #indexes > min_height then
+                        local height = rand:next(min_height, #indexes)
+                        local start_index = #lava_stone_spike_map - height + 1
+                        local count = 0
+
+                        for i = start_index, #lava_stone_spike_map do
+                            data[idx_marker + area.ystride * count] = lava_stone_spike_map[i]
+                            count = count + 1
+                        end
+                    end
+                end
+            end
+        end
     end,
     -- read-only (but cant and should not manipulate) voxelmanip `data`
     -- used for `place_schematic_on_vmanip` which will invalidate `data`
@@ -216,6 +468,6 @@ Everness:add_to_queue_on_generated({
     -- Used for direct manipulation of the world chunk nodes where the
     -- definitions of nodes are available and node callback can be executed
     -- or e.g. for `minetest.fix_light`
-    after_write_to_map = function(shared_args, gennotify)
+    after_write_to_map = function(shared_args, gennotify, rand)
     end
 })

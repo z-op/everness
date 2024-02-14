@@ -922,6 +922,144 @@ Everness:register_abm({
     end
 })
 
+-- Lava spitting
+Everness:register_abm({
+    label = 'everness:lava_spitting',
+    description = 'Lava bursts in to air.',
+    nodenames = { 'everness:lava_source' },
+    neighbors = { 'air' },
+    interval = 10,
+    chance = 200,
+    catch_up = false,
+    action = function(pos, node)
+        local burst_colors = {
+            '#FF5400',
+            '#DD2005'
+        }
+        local partcile_time = math.random(3, 5)
+
+        -- particles
+        local particlespawner_def = {
+            amount = 10,
+            time = partcile_time,
+            minpos = vector.new(pos.x - 0.1, pos.y + 0.5, pos.z - 0.1),
+            maxpos = vector.new(pos.x + 0.1, pos.y + 1, pos.z + 0.1),
+            minvel = vector.new(0, 1, 0),
+            maxvel = vector.new(0, 3, 0),
+            minacc = vector.new(0, -3, 0),
+            maxacc = vector.new(0, -6, 0),
+            minexptime = 3,
+            maxexptime = 5,
+            minsize = 3,
+            maxsize = 10,
+            texture = ('everness_water_geyser_particle.png^[multiply:%s'):format(burst_colors[math.random(1, #burst_colors)]),
+            vertical = true,
+            collisiondetection = true,
+            collision_removal = true
+        }
+        local particlespawner_def2 = {
+            amount = 40,
+            time = partcile_time,
+            minpos = vector.new(pos.x, pos.y + 0.5, pos.z),
+            maxpos = vector.new(pos.x, pos.y + 1, pos.z),
+            minvel = vector.new(0, 1, 0),
+            maxvel = vector.new(0, 3, 0),
+            minacc = vector.new(-1, -3, -1),
+            maxacc = vector.new(1, -6, 1),
+            minexptime = 3,
+            maxexptime = 5,
+            minsize = 3,
+            maxsize = 10,
+            node = node,
+            vertical = true,
+            collisiondetection = true,
+            collision_removal = true
+        }
+
+        if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
+            -- new syntax, above v5.6.0
+            particlespawner_def = {
+                amount = 10,
+                time = partcile_time,
+                size = {
+                    min = 1,
+                    max = 2,
+                },
+                exptime = {
+                    min = 3,
+                    max = 5
+                },
+                pos = {
+                    min = vector.new(pos.x - 0.1, pos.y + 0.5, pos.z - 0.1),
+                    max = vector.new(pos.x + 0.1, pos.y + 1, pos.z + 0.1)
+                },
+                vel = {
+                    min = vector.new(0, 1, 0),
+                    max = vector.new(0, 3, 0)
+                },
+                acc = {
+                    min = vector.new(0, -3, 0),
+                    max = vector.new(0, -6, 0)
+                },
+                texture = {
+                    name = ('everness_water_geyser_particle.png^[multiply:%s'):format(burst_colors[math.random(1, #burst_colors)]),
+                    scale_tween = {
+                        10, 3,
+                        style = 'fwd',
+                        reps = 1
+                    }
+                },
+                vertical = true,
+                collisiondetection = true,
+                collision_removal = true
+            }
+
+            particlespawner_def2 = {
+                amount = 40,
+                time = partcile_time,
+                size = {
+                    min = 1,
+                    max = 2,
+                },
+                exptime = {
+                    min = 3,
+                    max = 5
+                },
+                pos = {
+                    min = vector.new(pos.x, pos.y + 0.5, pos.z),
+                    max = vector.new(pos.x, pos.y + 1, pos.z)
+                },
+                vel = {
+                    min = vector.new(0, 1, 0),
+                    max = vector.new(0, 3, 0)
+                },
+                acc = {
+                    min = vector.new(-1, -3, -1),
+                    max = vector.new(1, -6, 1)
+                },
+                node = node,
+                vertical = true,
+                collisiondetection = true,
+                collision_removal = true
+            }
+        end
+
+        if math.random(0, 100) <=50 then
+            minetest.add_particlespawner(particlespawner_def2)
+        else
+            minetest.add_particlespawner(particlespawner_def)
+        end
+
+        minetest.sound_play({
+            name = 'everness_lava',
+            gain = 1.0
+        }, {
+            pos = pos,
+            max_hear_distance = 32
+        })
+    end
+})
+
 -- Generate bamboo tops after mineral waters biome generates decorations
 Everness:register_lbm({
     -- Descriptive label for profiling purposes (optional).
