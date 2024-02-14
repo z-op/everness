@@ -308,63 +308,47 @@ Everness:add_to_queue_on_generated({
             local marker_node = minetest.get_node(marker_pos)
             local place_on_node = minetest.get_node(pos)
 
-            if not marker_node then
-                return
-            end
+            if marker_node and marker_node.name == 'everness:marker' then
+                -- remove marker
+                minetest.remove_node(marker_pos)
 
-            if marker_node.name ~= 'everness:marker' then
-                -- not a valid "place_on" position (e.g. something else was placed there)
-                return
-            end
+                if table.indexof(willow_tree_place_on, place_on_node.name) ~= -1 then
+                    -- enough air to place structure ?
+                    local positions = minetest.find_nodes_in_area(
+                        vector.new(
+                            pos.x - size_x,
+                            pos.y - y_dis,
+                            pos.z - size_z
+                        ),
+                        vector.new(
+                            pos.x + size_x,
+                            pos.y - y_dis + size.y,
+                            pos.z + size_z
+                        ),
+                        {
+                            'air',
+                            'everness:willow_tree'
+                        },
+                        true
+                    )
 
-            minetest.remove_node(marker_pos)
+                    local air = positions.air or {}
+                    local tree = positions['everness:willow_tree'] or {}
 
-            if table.indexof(willow_tree_place_on, place_on_node.name) == -1 then
-                -- not a valid "place_on" position (e.g. something else was placed there)
-                return
-            end
+                    if #air > safe_volume and #tree == 0 then
+                        minetest.place_schematic_on_vmanip(
+                            vm,
+                            vector.new(marker_pos.x, marker_pos.y - y_dis, marker_pos.z),
+                            willow_tree_schem,
+                            'random',
+                            nil,
+                            true,
+                            'place_center_x, place_center_z'
+                        )
 
-            -- no need to check for the floor "big enough" size since its a tree and has ~ 1x1 base size
-
-            -- enough air to place structure ?
-            local positions = minetest.find_nodes_in_area(
-                vector.new(
-                    pos.x - size_x,
-                    pos.y - y_dis,
-                    pos.z - size_z
-                ),
-                vector.new(
-                    pos.x + size_x,
-                    pos.y - y_dis + size.y,
-                    pos.z + size_z
-                ),
-                {
-                    'air',
-                    'everness:willow_tree'
-                },
-                true
-            )
-
-            local air = positions.air or {}
-            local tree = positions['everness:willow_tree'] or {}
-
-            if #tree > 1 then
-                -- will overlap another tree
-                return
-            end
-
-            if #air > safe_volume then
-                minetest.place_schematic_on_vmanip(
-                    vm,
-                    vector.new(marker_pos.x, marker_pos.y - y_dis, marker_pos.z),
-                    willow_tree_schem,
-                    'random',
-                    nil,
-                    true,
-                    'place_center_x, place_center_z'
-                )
-
-                -- minetest.log('action', '[Everness] Willow Tree was placed at ' .. pos:to_string())
+                        -- minetest.log('action', '[Everness] Willow Tree was placed at ' .. pos:to_string())
+                    end
+                end
             end
         end
     end

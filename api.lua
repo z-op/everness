@@ -2173,3 +2173,12 @@ function Everness.find_irecursive(table, c_id)
 
     return found
 end
+
+---Merge two tables with key/value pair
+---@param t1 table
+---@param t2 table
+---@return table
+function Everness.mergeTables(t1, t2)
+    for k, v in pairs(t2) do t1[k] = v end
+    return t1
+end

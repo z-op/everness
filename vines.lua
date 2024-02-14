@@ -58,6 +58,11 @@ local function register_vine(name, def, overrides)
         -- ALL
         flammable = 2,
     }
+
+    if _overrides.groups then
+        Everness.mergeTables(_def.groups, _overrides.groups)
+    end
+
     -- MCL
     _def._mcl_shears_drop = true
     _def._mcl_blast_resistance = 0.2
@@ -66,7 +71,7 @@ local function register_vine(name, def, overrides)
         return false
     end
     _def.sounds = Everness.node_sound_leaves_defaults()
-    _def.waving = 2
+    _def.waving = 1
     _def.on_destruct = function(pos)
         local pos_below = vector.new(pos.x, pos.y - 1, pos.z)
         local node_below = minetest.get_node(pos_below)
@@ -183,6 +188,10 @@ register_vine('bulb_vine', {
 
 register_vine('willow_vine', {
     description = S('Willow Vine')
+}, {
+    groups = {
+        falling_vines = 0
+    }
 })
 
 -- Eye Vine
