@@ -2154,3 +2154,29 @@ function Everness.add_to_queue_on_generated(self, def)
 
     table.insert(self.on_generated_queue, def)
 end
+
+function Everness.find_irecursive(table, c_id)
+    local found = false
+
+    for i, v in ipairs(table) do
+        if type(v) == 'table' then
+            Everness.find_irecursive(v, c_id)
+        end
+
+        if c_id == v then
+            found = true
+            break
+        end
+    end
+
+    return found
+end
+
+---Merge two tables with key/value pair
+---@param t1 table
+---@param t2 table
+---@return table
+function Everness.mergeTables(t1, t2)
+    for k, v in pairs(t2) do t1[k] = v end
+    return t1
+end
