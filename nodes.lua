@@ -2625,7 +2625,7 @@ Everness:register_node('everness:flame_permanent_blue', {
 -- Mapgen Marker
 
 Everness:register_node('everness:marker', {
-    -- drawtype = 'airlike',
+    drawtype = 'airlike',
     description = 'Marker for mapgen',
     tiles = { 'everness_lootchest_marker_top.png', 'everness_lootchest_marker_side.png' },
     groups = { dig_immediate = 3, not_in_creative_inventory = 1 },
