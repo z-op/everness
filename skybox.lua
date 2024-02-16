@@ -916,6 +916,13 @@ minetest.register_globalstep(function(dtime)
                     player:set_stars()
                     player:set_sky()
                     player:set_clouds()
+
+                    local pid = player_meta:get_int('everness_biome_particlespawner_id')
+
+                    if pid ~= 0 then
+                        minetest.delete_particlespawner(pid)
+                        player_meta:set_int('everness_biome_particlespawner_id', 0)
+                    end
                 end
             end
 
