@@ -197,3 +197,12 @@ doors.register_fencegate('everness:gate_coral_wood', {
     material = 'everness:coral_wood',
     groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 }
 })
+
+-- Lava Tree Wood
+
+doors.register_fencegate('everness:gate_lava_tree_wood', {
+    description = S('lava Tree Wood Fence Gate'),
+    texture = 'everness_lava_tree.png^[sheet:2x2:1,1',
+    material = 'everness:lava_tree',
+    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 }
+})

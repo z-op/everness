@@ -35,6 +35,7 @@ local grass_covered_mapping_under = {
     ['everness:soul_sandstone'] = { 'everness:soul_sandstone_veined' },
     ['everness:crystal_cave_dirt'] = { 'everness:crystal_cave_dirt_with_moss' },
     ['everness:mold_cobble'] = { 'everness:mold_stone_with_moss' },
+    ['everness:mineral_lava_stone_dry'] = { 'everness:mineral_lava_stone_with_moss' },
 }
 
 -- Spread grass on dirt
@@ -121,6 +122,7 @@ Everness:register_abm({
         'everness:soul_sandstone',
         'everness:crystal_cave_dirt',
         'everness:mold_cobble',
+        'everness:mineral_lava_stone_dry',
     },
     neighbors = {
         'air',
@@ -128,6 +130,7 @@ Everness:register_abm({
         'group:cursed_grass_under',
         'group:crystal_grass_under',
         'group:forsaken_tundra_grass_under',
+        'group:mineral_waters_grass_under',
     },
     interval = 6,
     chance = 50,
@@ -171,6 +174,8 @@ Everness:register_abm({
             minetest.set_node(pos, { name = 'everness:crystal_cave_dirt_with_moss' })
         elseif minetest.get_item_group(name, 'forsaken_tundra_grass_under') ~= 0 and node.name == 'everness:mold_cobble' then
             minetest.set_node(pos, { name = 'everness:mold_stone_with_moss' })
+        elseif minetest.get_item_group(name, 'mineral_waters_grass_under') ~= 0 and node.name == 'everness:mineral_lava_stone_dry' then
+            minetest.set_node(pos, { name = 'everness:mineral_lava_stone_with_moss' })
         end
     end
 })
@@ -222,6 +227,8 @@ Everness:register_abm({
                 minetest.set_node(pos, { name = 'everness:crystal_cave_dirt' })
             elseif node.name == 'everness:mold_stone_with_moss' then
                 minetest.set_node(pos, { name = 'everness:mold_cobble' })
+            elseif node.name == 'everness:mineral_lava_stone_with_moss' then
+                minetest.set_node(pos, { name = 'everness:mineral_lava_stone_dry' })
             end
         end
     end
@@ -239,7 +246,9 @@ Everness:register_leafdecay({
         'everness:willow_tree',
         'everness:sequoia_tree',
         'everness:mese_tree',
-        'everness:palm_tree'
+        'everness:palm_tree',
+        'everness:lava_tree',
+        'everness:lava_tree_with_lava'
     },
     leaves = {
         'everness:coral_leaves',
@@ -249,7 +258,8 @@ Everness:register_leafdecay({
         'everness:mese_leaves',
         'everness:mese_tree_fruit',
         'everness:palm_leaves',
-        'everness:coconut'
+        'everness:coconut',
+        'everness:lava_tree_leaves'
     },
     radius = 3
 })
@@ -1049,14 +1059,6 @@ Everness:register_abm({
         else
             minetest.add_particlespawner(particlespawner_def)
         end
-
-        minetest.sound_play({
-            name = 'everness_lava',
-            gain = 1.0
-        }, {
-            pos = pos,
-            max_hear_distance = 32
-        })
     end
 })
 
@@ -1279,11 +1281,17 @@ Everness:register_abm({
     end
 })
 
+--
+-- Lavacooling
+--
+
 -- Override lava cooling to include some variations of obsidian
 minetest.register_on_mods_loaded(function()
     for _, abm in pairs(minetest.registered_abms) do
         if abm.label == 'Lava cooling' and abm.action ~= nil then
             local prev_cool_lava_action = abm.action
+
+            table.insert_all(abm.nodenames, { 'everness:lava_source', 'everness:lava_flowing' })
 
             abm.action = function(pos, node, dtime_s)
                 Everness.cool_lava(pos, node, dtime_s, prev_cool_lava_action)

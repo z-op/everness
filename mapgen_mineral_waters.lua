@@ -172,6 +172,23 @@ Everness:register_decoration({
 -- On Generated
 --
 
+local function find_irecursive(table, c_id)
+    local found = false
+
+    for i, v in ipairs(table) do
+        if type(v) == 'table' then
+            find_irecursive(v, c_id)
+        end
+
+        if c_id == v then
+            found = true
+            break
+        end
+    end
+
+    return found
+end
+
 -- Get the content IDs for the nodes used
 local c_everness_mineral_water_source = minetest.get_content_id('everness:mineral_water_source')
 local c_everness_mineral_stone = minetest.get_content_id('everness:mineral_stone')
@@ -377,14 +394,14 @@ Everness:add_to_queue_on_generated({
                                             -- Check for water and build nodes before replacing, this will make pools connected and will not replace already built walls from another pool near by
                                             if hi == 1
                                                 and current_c_id ~= c_everness_mineral_water_source
-                                                and not Everness.find_irecursive(pool_build_nodes, current_c_id)
+                                                and not find_irecursive(pool_build_nodes, current_c_id)
                                             then
                                                 -- build pool floor
                                                 data[ai_cub] = mineral_stone
                                             elseif hi ~= 1
                                                 and (wi == 1 or wi == width)
                                                 and current_c_id ~= c_everness_mineral_water_source
-                                                and not Everness.find_irecursive(pool_build_nodes, current_c_id)
+                                                and not find_irecursive(pool_build_nodes, current_c_id)
                                             then
                                                 -- build pool wall
                                                 data[ai_cub] = mineral_stone
@@ -392,7 +409,7 @@ Everness:add_to_queue_on_generated({
                                                 and (li == 1 or li == length)
                                                 and (wi ~= 1 or wi ~= width)
                                                 and current_c_id ~= c_everness_mineral_water_source
-                                                and not Everness.find_irecursive(pool_build_nodes, current_c_id)
+                                                and not find_irecursive(pool_build_nodes, current_c_id)
                                             then
                                                 -- build pool wall
                                                 data[ai_cub] = mineral_stone

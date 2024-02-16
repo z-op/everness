@@ -1505,7 +1505,12 @@ end
 -- `dtime_s` is the in-game time (in seconds) elapsed since the block
 -- was last active
 function Everness.cool_lava(pos, node, dtime_s, prev_cool_lava_action)
-    if node.name == 'default:lava_source' or node.name == 'mcl_core:lava_source' then
+    -- Variant Obsidian
+    if
+        node.name == 'default:lava_source'
+        or node.name == 'mcl_core:lava_source'
+        or node.name == 'everness:lava_source'
+    then
         if math.random(1, 10) == 1 then
             local obi_nodes = {
                 { name = 'everness:blue_crying_obsidian', color = '#2978A6'},
@@ -1561,6 +1566,12 @@ function Everness.cool_lava(pos, node, dtime_s, prev_cool_lava_action)
                     }
                 })
             end
+        elseif node.name == 'everness:lava_source' then
+            -- Lava flowing
+            minetest.set_node(pos, {name = 'default:obsidian'})
+        elseif node.name == 'everness:lava_flowing' then
+            -- Lava flowing
+            minetest.set_node(pos, {name = 'default:stone'})
         else
             prev_cool_lava_action(pos, node, dtime_s)
         end
@@ -2155,23 +2166,6 @@ function Everness.add_to_queue_on_generated(self, def)
     end
 
     table.insert(self.on_generated_queue, def)
-end
-
-function Everness.find_irecursive(table, c_id)
-    local found = false
-
-    for i, v in ipairs(table) do
-        if type(v) == 'table' then
-            Everness.find_irecursive(v, c_id)
-        end
-
-        if c_id == v then
-            found = true
-            break
-        end
-    end
-
-    return found
 end
 
 ---Merge two tables with key/value pair

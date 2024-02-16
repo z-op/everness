@@ -856,3 +856,70 @@ stairs.register_stair_and_slab(
     Everness.node_sound_wood_defaults(),
     true
 )
+
+-- Mineral Waters Under
+stairs.register_stair_and_slab(
+    'mineral_cave_stone',
+    'everness:mineral_cave_stone',
+    { cracky = 2, stone = 1 },
+    {{
+        name = 'everness_mineral_stone_under.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Mineral Cave Stone Stair'),
+    S('Mineral Cave Stone Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'mineral_cave_cobblestone',
+    'everness:mineral_cave_cobblestone',
+    { cracky = 2, stone = 1 },
+    {{
+        name = 'everness_mineral_cobblestone_under.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Mineral Cave Cobblestone Stair'),
+    S('Mineral Cave Cobblestone Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'mineral_lava_stone',
+    'everness:mineral_lava_stone',
+    { cracky = 2, stone = 1 },
+    {{
+        name = 'everness_mineral_lava_stone_animated.png',
+        align_style = 'world',
+        scale = 2,
+        animation = {
+            type = 'vertical_frames',
+            aspect_w = 16,
+            aspect_h = 16,
+            length = 6.4,
+        },
+    }},
+    S('Mineral Lava Stone with lava Stair'),
+    S('Mineral Lava Stone with lava Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)
+
+stairs.register_stair_and_slab(
+    'mineral_lava_stone_dry',
+    'everness:mineral_lava_stone_dry',
+    { cracky = 2, stone = 1 },
+    {{
+        name = 'everness_mineral_lava_stone_bottom.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    S('Mineral Lava Stone without lava Stair'),
+    S('Mineral Lava Stone without lava Slab'),
+    Everness.node_sound_stone_defaults(),
+    true
+)

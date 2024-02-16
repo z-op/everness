@@ -25,6 +25,8 @@ local function register_vine_wall(name, def, overrides)
     _def.tiles = _def.tiles or {
         { name = 'everness_' .. _name .. '.png' }
     }
+    _def.inventory_image = 'everness_' .. _name .. '_item.png'
+    _def.wield_image = 'everness_' .. _name .. '_item.png'
     _def.mesh = 'everness_vine_wall.obj'
     _def.use_texture_alpha = 'clip'
     _def.paramtype = 'light'
@@ -39,7 +41,7 @@ local function register_vine_wall(name, def, overrides)
         vine = 1,
         snappy = 3,
         -- Everness
-        falling_vines = 1,
+        -- falling_vines = 1,
         no_silktouch = 1,
         -- X Farming
         compost = 30,
@@ -94,9 +96,9 @@ end
 
 -- Cave vine
 
-register_vine_wall('wall_vine_cave_green', {
-    description = S('Wall Cave Vine Green'),
-})
+-- register_vine_wall('wall_vine_cave_green', {
+--     description = S('Wall Cave Vine Green'),
+-- })
 
 register_vine_wall('wall_vine_cave_blue', {
     description = S('Wall Cave Vine Blue'),

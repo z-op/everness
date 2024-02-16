@@ -11536,7 +11536,7 @@ minetest.register_node('everness:lava_flowing', {
     drawtype = 'flowingliquid',
     tiles = {
         {
-            name = 'everness_lava_source_animated.png',
+            name = 'everness_lava_flowing_animated.png',
             align_style = 'world',
             scale = 2
         }

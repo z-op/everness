@@ -1500,8 +1500,11 @@ https://freesound.org/people/Rudmer_Rotteveel/sounds/590950/
 
 **CC0-1.0, by Fission9**, https://freesound.org/people/Fission9/sounds/474850/
 
-- everness_lava.1.ogg
-- everness_lava.2.ogg
+- everness_lava_1.ogg
+
+**CC0-1.0, by morganpurkis**, https://freesound.org/people/morganpurkis/sounds/385098/
+
+- everness_lava_2.ogg
 
 ### Models
 

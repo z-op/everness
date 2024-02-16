@@ -742,6 +742,35 @@ local skybox_defs = {
                 fog_sun_tint = '#8B1408',
                 fog_moon_tint = '#520E49'
             }
+        },
+        particlespawner = {
+            amount = 100,
+            time = 0,
+            size = {
+                min = 1,
+                max = 2
+            },
+            node = { name = 'everness:mineral_lava_stone' },
+            node_tile = 1,
+            glow = 100,
+            pos = {
+                min = vector.new(-50, -50, -50),
+                max = vector.new(50, 50, 50)
+            },
+            jitter = {
+                min = vector.new(-1, -1, -1),
+                max = vector.new(1, 1, 1)
+            },
+            vel = {
+                min = vector.new(-1, -1, -1),
+                max = vector.new(1, 1, 1)
+            },
+            exptime = {
+                min = 5,
+                max = 10
+            },
+            collisiondetection = true,
+            collision_removal = true
         }
     },
 }
@@ -864,6 +893,23 @@ minetest.register_globalstep(function(dtime)
                     else
                         player:set_clouds()
                     end
+
+                    if skybox_defs[biome_name].particlespawner then
+                        local pdef = table.copy(skybox_defs[biome_name].particlespawner)
+
+                        pdef.attached = player
+                        pdef.playername = player:get_player_name()
+
+                        local pid = minetest.add_particlespawner(pdef)
+                        player_meta:set_int('everness_biome_particlespawner_id', pid)
+                    else
+                        local pid = player_meta:get_int('everness_biome_particlespawner_id')
+
+                        if pid ~= 0 then
+                            minetest.delete_particlespawner(pid)
+                            player_meta:set_int('everness_biome_particlespawner_id', 0)
+                        end
+                    end
                 else
                     player:set_sun()
                     player:set_moon()
@@ -945,4 +991,10 @@ minetest.register_on_joinplayer(function(player, last_login)
     player_meta:set_int('everness_is_underground', 0)
     player_meta:set_int('everness_timeofday', 0)
     player_meta:set_int('everness_is_day', 1)
+end)
+
+minetest.register_on_leaveplayer(function(player, timed_out)
+    local player_meta = player:get_meta()
+
+    player_meta:set_int('everness_biome_particlespawner_id', 0)
 end)
