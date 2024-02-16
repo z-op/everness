@@ -123,6 +123,15 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    output = 'everness:trapdoor_lava_tree 2',
+    recipe = {
+        { 'everness:lava_tree_wood', 'everness:lava_tree_wood', 'everness:lava_tree_wood' },
+        { 'everness:lava_tree_wood', 'everness:lava_tree_wood', 'everness:lava_tree_wood' },
+        { '', '', '' },
+    }
+})
+
+minetest.register_craft({
     output = 'everness:bamboo_mosaic_wood',
     recipe = {
         { 'everness:bamboo_wood', 'everness:bamboo_wood' },
