@@ -105,12 +105,28 @@ function Everness.grow_palm_tree(pos)
 end
 
 function Everness.grow_lava_tree(pos)
-    local path = minetest.get_modpath('everness') .. '/schematics/everness_lava_tree.mts'
-    local lava_tree_size = { x = 7, y = 13, z = 7 }
-    local lava_tree_size_x = math.floor(lava_tree_size.x / 2)
-    local lava_tree_size_z = math.floor(lava_tree_size.z / 2)
-    minetest.place_schematic({ x = pos.x - lava_tree_size_x, y = pos.y, z = pos.z - lava_tree_size_z },
-        path, '0', nil, false)
+    local schem_everness_lava_tree = minetest.read_schematic(minetest.get_modpath('everness') .. '/schematics/everness_lava_tree.mts', {})
+    local lava_nodes = minetest.find_nodes_in_area_under_air(
+        vector.subtract(pos, 1),
+        vector.add(pos, 1),
+        { 'group:lava' }
+    )
+    local replacements
+
+    if #lava_nodes > 0 then
+        replacements = {
+            ['everness:lava_tree'] = 'everness:lava_tree_with_lava',
+        }
+    end
+
+    minetest.place_schematic(
+        pos,
+        schem_everness_lava_tree,
+        'random',
+        replacements,
+        false,
+        'place_center_x, place_center_z'
+    )
 end
 
 function Everness.grow_sapling(pos, groups_under)
