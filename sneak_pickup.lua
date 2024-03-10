@@ -30,10 +30,12 @@ local function pick_dropped_items(player)
 
     -- filter - leave only builtin items
     for _, object in ipairs(objects) do
+        local luaentity = object:get_luaentity()
+
         if not object:is_player()
-            and object:get_luaentity()
-            and object:get_luaentity().name == '__builtin:item'
-            and object:get_luaentity().itemstring ~= ''
+            and luaentity
+            and luaentity.name == '__builtin:item'
+            and luaentity.itemstring ~= ''
         then
             table.insert(objects_to_collect, object)
         end
@@ -45,16 +47,26 @@ local function pick_dropped_items(player)
     end)
 
     for _, object in ipairs(objects_to_collect) do
-        local itemstack = ItemStack(object:get_luaentity().itemstring)
+        local luaentity = object:get_luaentity()
+        local itemstack = ItemStack(luaentity.itemstring)
 
-        if inv:room_for_item('main', itemstack) and not object:get_luaentity()._being_collected
+        if
+            inv:room_for_item('main', itemstack)
+            and not luaentity._being_collected
         then
             inv:add_item('main', itemstack)
-            object:get_luaentity()._being_collected = true
+            luaentity._being_collected = true
             object:set_acceleration({ x = 0, y = 0, z = 0 })
             object:set_velocity({ x = 0, y = 0, z = 0 })
-            object:get_luaentity().physical_state = false
-            object:get_luaentity().object:set_properties({ physical = false })
+            luaentity.physical_state = false
+            luaentity.object:set_properties({
+                physical = false,
+                -- prevent picking up items while they are moving to the player
+                -- since the items are in the players inventory already this would
+                -- duplicate the itemstack
+                selectionbox = { 0, 0, 0, 0, 0, 0 },
+                collisionbox = { 0, 0, 0, 0, 0, 0 }
+            })
 
             local pos_obj = object:get_pos()
 
