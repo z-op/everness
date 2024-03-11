@@ -30,10 +30,12 @@ local function pick_dropped_items(player)
 
     -- filter - leave only builtin items
     for _, object in ipairs(objects) do
+        local luaentity = object:get_luaentity()
+
         if not object:is_player()
-            and object:get_luaentity()
-            and object:get_luaentity().name == '__builtin:item'
-            and object:get_luaentity().itemstring ~= ''
+            and luaentity
+            and luaentity.name == '__builtin:item'
+            and luaentity.itemstring ~= ''
         then
             table.insert(objects_to_collect, object)
         end
@@ -45,36 +47,62 @@ local function pick_dropped_items(player)
     end)
 
     for _, object in ipairs(objects_to_collect) do
-        local itemstack = ItemStack(object:get_luaentity().itemstring)
+        local luaentity = object:get_luaentity()
+        local itemstack = ItemStack(luaentity.itemstring)
 
-        if inv:room_for_item('main', itemstack) and not object:get_luaentity()._being_collected
-        then
-            inv:add_item('main', itemstack)
-            object:get_luaentity()._being_collected = true
-            object:set_acceleration({ x = 0, y = 0, z = 0 })
-            object:set_velocity({ x = 0, y = 0, z = 0 })
-            object:get_luaentity().physical_state = false
-            object:get_luaentity().object:set_properties({ physical = false })
+        if not luaentity._being_collected then
+            -- Invoke global on_item_pickup callbacks.
+            -- for _, callback in ipairs(minetest.registered_on_item_pickups) do
+            --     local result = callback(itemstack, player, { type = 'object', ref = object })
 
-            local pos_obj = object:get_pos()
+            --     if result then
+            --         itemstack = ItemStack(result)
+            --     end
+            -- end
 
-            object:move_to(vector.new(
-                (pos.x - pos_obj.x) + pos_obj.x,
-                (pos.y - pos_obj.y) + pos_obj.y + 1.25,
-                (pos.z - pos_obj.z) + pos_obj.z
-            ))
+            local leftover_stack = inv:add_item('main', itemstack)
+            local stack_count_prev = itemstack:get_count()
+            local stack_count_leftover = leftover_stack:get_count()
 
-            minetest.sound_play('everness_item_drop_pickup', {
-                pos = pos,
-                max_hear_distance = 16,
-                gain = 0.4,
-            })
+            if leftover_stack and stack_count_prev ~= stack_count_leftover then
+                -- Collect item / Item fits in the inventory
+                local pos_obj = object:get_pos()
 
-            minetest.after(0.25, function(v_object)
-                if v_object and v_object:get_luaentity() then
-                    v_object:remove()
+                if leftover_stack ~= 0 then
+                    minetest.spawn_item(pos_obj, leftover_stack:to_string())
                 end
-            end, object)
+
+                luaentity._being_collected = true
+                object:set_acceleration({ x = 0, y = 0, z = 0 })
+                object:set_velocity({ x = 0, y = 0, z = 0 })
+                luaentity.physical_state = false
+                luaentity.object:set_properties({
+                    physical = false,
+                    -- prevent picking up items while they are moving to the player
+                    -- since the items are in the players inventory already this would
+                    -- duplicate the itemstack
+                    selectionbox = { 0, 0, 0, 0, 0, 0 },
+                    collisionbox = { 0, 0, 0, 0, 0, 0 }
+                })
+
+                object:move_to(vector.new(
+                    (pos.x - pos_obj.x) + pos_obj.x,
+                    (pos.y - pos_obj.y) + pos_obj.y + 1.25,
+                    (pos.z - pos_obj.z) + pos_obj.z
+                ))
+
+                minetest.sound_play('everness_item_drop_pickup', {
+                    pos = pos,
+                    max_hear_distance = 16,
+                    gain = 0.4,
+                })
+
+                minetest.after(0.25, function(v_object)
+                    if v_object and v_object:get_luaentity() then
+                        v_object:remove()
+                    end
+                end, object)
+            end
         end
     end
 end
