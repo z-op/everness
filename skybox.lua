@@ -31,12 +31,13 @@ local skybox_defs = {
             }
         },
         sun_parameters = {
-            texture = 'everness_cursed_lands_sun.png',
             scale = 1.57,
+            texture = 'everness_cursed_lands_sun.png',
             sunrise = 'everness_cursed_lands_sunrisebg.png',
             tonemap = 'everness_cursed_lands_sun_tonemap.png'
         },
         moon_parameters = {
+            scale = 1.57,
             texture = 'everness_cursed_lands_moon.png',
             tonemap = 'everness_cursed_lands_moon_tonemap.png'
         },
