@@ -985,8 +985,42 @@ GNU Lesser General Public License v2.1 or later
 - everness_ceramic_sherds_ore.png
 - everness_pick_archeological.png
 - everness_logo.png
-- textures/everness_fence_coral_wood.png
-- textures/everness_fence_rail_coral_wood.png
+- everness_fence_coral_wood.png
+- everness_fence_rail_coral_wood.png
+- everness_bucket_lava.png
+- everness_door_lava_tree_wood.png
+- everness_door_lava_tree_wood_item.png
+- everness_door_trapdoor_lava_tree_wood.png
+- everness_door_trapdoor_lava_tree_wood_side.png
+- everness_fence_lava_tree_wood.png
+- everness_fence_rail_lava_tree_wood.png
+- everness_lava_flowing_animated.png
+- everness_lava_source_animated.png
+- everness_lava_tree.png
+- everness_lava_tree_animated.png
+- everness_lava_tree_leaves.png
+- everness_lava_tree_sapling.png
+- everness_lava_tree_top.png
+- everness_lava_tree_wood.png
+- everness_mcl_bucket_lava.png
+- everness_mineral_cave_moss.png
+- everness_mineral_cave_moss_grass.png
+- everness_mineral_cave_moss_side.png
+- everness_mineral_cobblestone_under.png
+- everness_mineral_lava_stone_animated.png
+- everness_mineral_lava_stone_bottom.png
+- everness_mineral_lava_stone_side.png
+- everness_mineral_stone_under.png
+- everness_mineral_stone_under_top.png
+- everness_mtg_bucket_lava.png
+- everness_wall_vine_cave_blue.png
+- everness_wall_vine_cave_blue_item.png
+- everness_wall_vine_cave_cyan.png
+- everness_wall_vine_cave_cyan_item.png
+- everness_wall_vine_cave_green.png
+- everness_wall_vine_cave_green_item.png
+- everness_wall_vine_cave_violet.png
+- everness_wall_vine_cave_violet_item.png
 
 **CC-BY-SA-4.0, Pixel Perfection by XSSheep**, https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated
 
