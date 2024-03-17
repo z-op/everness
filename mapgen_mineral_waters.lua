@@ -172,6 +172,23 @@ Everness:register_decoration({
 -- On Generated
 --
 
+local function find_irecursive(table, c_id)
+    local found = false
+
+    for i, v in ipairs(table) do
+        if type(v) == 'table' then
+            find_irecursive(v, c_id)
+        end
+
+        if c_id == v then
+            found = true
+            break
+        end
+    end
+
+    return found
+end
+
 -- Get the content IDs for the nodes used
 local c_everness_mineral_water_source = minetest.get_content_id('everness:mineral_water_source')
 local c_everness_mineral_stone = minetest.get_content_id('everness:mineral_stone')
@@ -245,23 +262,6 @@ local schem = minetest.get_modpath('everness') .. '/schematics/everness_mineral_
 local size = { x = 7, y = 16, z = 9 }
 local size_x = math.round(size.x / 2)
 local size_z = math.round(size.z / 2)
-
-local function find_irecursive(table, c_id)
-    local found = false
-
-    for i, v in ipairs(table) do
-        if type(v) == 'table' then
-            find_irecursive(v, c_id)
-        end
-
-        if c_id == v then
-            found = true
-            break
-        end
-    end
-
-    return found
-end
 
 local function place_decoration(pos, vm, area, data, deco_id, callback)
     local deco_def = minetest.registered_decorations[deco_id]

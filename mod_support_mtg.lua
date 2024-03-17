@@ -29,4 +29,20 @@ if minetest.get_modpath('bucket') then
         S('Mineral') .. ' ' .. S('Water') .. ' ' .. S('Bucket'),
         { tool = 1, water_bucket = 1 }
     )
+
+    bucket.register_liquid(
+        'everness:lava_source',
+        'everness:lava_flowing',
+        'everness:bucket_lava',
+        'everness_mtg_bucket_lava.png',
+        S('Lava Bucket'),
+        { tool = 1 }
+    )
+
+    minetest.register_craft({
+        type = 'fuel',
+        recipe = 'everness:bucket_lava',
+        burntime = 370,
+        replacements = {{ 'everness:bucket_lava', 'bucket:bucket_empty' }},
+    })
 end

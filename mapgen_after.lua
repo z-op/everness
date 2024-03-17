@@ -87,7 +87,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     for _, def in ipairs(Everness.on_generated_queue) do
         if def.can_run(biomemap) and def.after_write_to_map then
             shared_args[def.name] = shared_args[def.name] or {}
-            def.after_write_to_map(shared_args[def.name], gennotify)
+            def.after_write_to_map(shared_args[def.name], gennotify, rand)
         end
     end
 

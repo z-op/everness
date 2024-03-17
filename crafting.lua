@@ -123,6 +123,15 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    output = 'everness:trapdoor_lava_tree 2',
+    recipe = {
+        { 'everness:lava_tree_wood', 'everness:lava_tree_wood', 'everness:lava_tree_wood' },
+        { 'everness:lava_tree_wood', 'everness:lava_tree_wood', 'everness:lava_tree_wood' },
+        { '', '', '' },
+    }
+})
+
+minetest.register_craft({
     output = 'everness:bamboo_mosaic_wood',
     recipe = {
         { 'everness:bamboo_wood', 'everness:bamboo_wood' },
@@ -307,6 +316,20 @@ minetest.register_craft({
     output = 'everness:mese_wood 4',
     recipe = {
         { 'everness:mese_tree' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:lava_tree_wood 4',
+    recipe = {
+        { 'everness:lava_tree' },
+    }
+})
+
+minetest.register_craft({
+    output = 'everness:lava_tree_wood 4',
+    recipe = {
+        { 'everness:lava_tree_with_lava' },
     }
 })
 
@@ -897,6 +920,12 @@ minetest.register_craft({
 
 minetest.register_craft({
     type = 'fuel',
+    recipe = 'everness:lava_tree_wood',
+    burntime = 30,
+})
+
+minetest.register_craft({
+    type = 'fuel',
     recipe = 'everness:bamboo_item',
     burntime = 3,
 })
@@ -969,6 +998,18 @@ minetest.register_craft({
     type = 'cooking',
     output = 'everness:forsaken_tundra_stone',
     recipe = 'everness:forsaken_tundra_cobble',
+})
+
+minetest.register_craft({
+    type = 'cooking',
+    output = 'everness:mineral_cave_stone',
+    recipe = 'everness:mineral_cave_cobblestone',
+})
+
+minetest.register_craft({
+    type = 'cooking',
+    output = 'everness:mineral_lava_stone',
+    recipe = 'everness:mineral_lava_stone_dry',
 })
 
 minetest.register_craft({

@@ -11478,6 +11478,121 @@ Everness:register_node('everness:mineral_water_flowing', {
     sounds = Everness.node_sound_water_defaults(),
 })
 
+minetest.register_node('everness:lava_source', {
+    description = S('Lava Source'),
+    drawtype = 'liquid',
+    tiles = {
+        {
+            name = 'everness_lava_source_animated.png',
+            backface_culling = false,
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 6,
+            },
+            align_style = 'world',
+            scale = 2
+        },
+        {
+            name = 'everness_lava_source_animated.png',
+            backface_culling = true,
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 6,
+            },
+            align_style = 'world',
+            scale = 2
+        },
+    },
+    paramtype = 'light',
+    light_source = 13,
+    walkable = false,
+    pointable = false,
+    diggable = false,
+    buildable_to = true,
+    is_ground_content = false,
+    drop = '',
+    drowning = 1,
+    liquidtype = 'source',
+    liquid_alternative_flowing = 'everness:lava_flowing',
+    liquid_alternative_source = 'everness:lava_source',
+    liquid_viscosity = 7,
+    liquid_renewable = false,
+    damage_per_second = 4 * 2,
+    post_effect_color = { a = 191, r = 255, g = 64, b = 0 },
+    groups = {
+        lava = 3,
+        liquid = 2,
+        igniter = 1
+    },
+    liquid_range = 2,
+})
+
+minetest.register_node('everness:lava_flowing', {
+    description = S('Flowing Lava'),
+    drawtype = 'flowingliquid',
+    tiles = {
+        {
+            name = 'everness_lava_flowing_animated.png',
+            align_style = 'world',
+            scale = 2
+        }
+    },
+    special_tiles = {
+        {
+            name = 'everness_lava_flowing_animated.png',
+            backface_culling = false,
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 3.3,
+            },
+            align_style = 'world',
+            scale = 2
+        },
+        {
+            name = 'everness_lava_flowing_animated.png',
+            backface_culling = true,
+            animation = {
+                type = 'vertical_frames',
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 3.3,
+            },
+            align_style = 'world',
+            scale = 2
+        },
+    },
+    paramtype = 'light',
+    paramtype2 = 'flowingliquid',
+    light_source = 13,
+    walkable = false,
+    pointable = false,
+    diggable = false,
+    buildable_to = true,
+    is_ground_content = false,
+    drop = '',
+    drowning = 1,
+    liquidtype = 'flowing',
+    liquid_alternative_flowing = 'everness:lava_flowing',
+    liquid_alternative_source = 'everness:lava_source',
+    liquid_viscosity = 7,
+    liquid_renewable = false,
+    damage_per_second = 4 * 2,
+    post_effect_color = { a = 191, r = 255, g = 64, b = 0 },
+    groups = {
+        lava = 3,
+        liquid = 2,
+        igniter = 1,
+        not_in_creative_inventory = 1
+    },
+    liquid_range = 2,
+})
+
 Everness:register_node('everness:water_geyser', {
     description = S('Water') .. ' ' .. S('Geyser'),
     drawtype = 'mesh',

@@ -245,3 +245,58 @@ walls.register(
     'everness:forsaken_desert_engraved_stone',
     Everness.node_sound_stone_defaults()
 )
+
+-- Mineral Waters Under
+walls.register(
+    'everness:mineral_cave_stone_wall',
+    S('Mineral Cave Stone Wall'),
+    {{
+        name = 'everness_mineral_stone_under.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    'everness:mineral_cave_stone',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:mineral_cave_cobblestone_wall',
+    S('Mineral Cave Cobblestone Wall'),
+    {{
+        name = 'everness_mineral_cobblestone_under.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    'everness:mineral_cave_cobblestone',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:mineral_lava_stone_wall',
+    S('Mineral Lava Stone with lava Wall'),
+    {{
+        name = 'everness_mineral_lava_stone_animated.png',
+        align_style = 'world',
+        scale = 2,
+        animation = {
+            type = 'vertical_frames',
+            aspect_w = 16,
+            aspect_h = 16,
+            length = 6.4,
+        },
+    }},
+    'everness:mineral_lava_stone',
+    Everness.node_sound_stone_defaults()
+)
+
+walls.register(
+    'everness:mineral_lava_stone_dry_wall',
+    S('Mineral Lava Stone without lava Wall'),
+    {{
+        name = 'everness_mineral_lava_stone_bottom.png',
+        align_style = 'world',
+        scale = 2
+    }},
+    'everness:mineral_lava_stone_dry',
+    Everness.node_sound_stone_defaults()
+)

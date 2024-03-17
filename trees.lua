@@ -104,6 +104,31 @@ function Everness.grow_palm_tree(pos)
         path, '0', nil, false)
 end
 
+function Everness.grow_lava_tree(pos)
+    local schem_everness_lava_tree = minetest.read_schematic(minetest.get_modpath('everness') .. '/schematics/everness_lava_tree.mts', {})
+    local lava_nodes = minetest.find_nodes_in_area_under_air(
+        vector.subtract(pos, 1),
+        vector.add(pos, 1),
+        { 'group:lava' }
+    )
+    local replacements
+
+    if #lava_nodes > 0 then
+        replacements = {
+            ['everness:lava_tree'] = 'everness:lava_tree_with_lava',
+        }
+    end
+
+    minetest.place_schematic(
+        pos,
+        schem_everness_lava_tree,
+        'random',
+        replacements,
+        false,
+        'place_center_x, place_center_z'
+    )
+end
+
 function Everness.grow_sapling(pos, groups_under)
     if not Everness.can_grow(pos, groups_under) then
         -- try again 5 min later
@@ -152,5 +177,8 @@ function Everness.grow_sapling(pos, groups_under)
     elseif node.name == 'everness:palm_tree_sapling' then
         minetest.log('action', 'A palm tree sapling grows into a tree at ' .. minetest.pos_to_string(pos))
         Everness.grow_palm_tree(pos)
+    elseif node.name == 'everness:lava_tree_sapling' then
+        minetest.log('action', 'A lava tree sapling grows into a tree at ' .. minetest.pos_to_string(pos))
+        Everness.grow_lava_tree(pos)
     end
 end

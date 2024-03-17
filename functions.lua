@@ -35,6 +35,7 @@ local grass_covered_mapping_under = {
     ['everness:soul_sandstone'] = { 'everness:soul_sandstone_veined' },
     ['everness:crystal_cave_dirt'] = { 'everness:crystal_cave_dirt_with_moss' },
     ['everness:mold_cobble'] = { 'everness:mold_stone_with_moss' },
+    ['everness:mineral_lava_stone_dry'] = { 'everness:mineral_lava_stone_with_moss' },
 }
 
 -- Spread grass on dirt
@@ -121,6 +122,7 @@ Everness:register_abm({
         'everness:soul_sandstone',
         'everness:crystal_cave_dirt',
         'everness:mold_cobble',
+        'everness:mineral_lava_stone_dry',
     },
     neighbors = {
         'air',
@@ -128,6 +130,7 @@ Everness:register_abm({
         'group:cursed_grass_under',
         'group:crystal_grass_under',
         'group:forsaken_tundra_grass_under',
+        'group:mineral_waters_grass_under',
     },
     interval = 6,
     chance = 50,
@@ -171,6 +174,8 @@ Everness:register_abm({
             minetest.set_node(pos, { name = 'everness:crystal_cave_dirt_with_moss' })
         elseif minetest.get_item_group(name, 'forsaken_tundra_grass_under') ~= 0 and node.name == 'everness:mold_cobble' then
             minetest.set_node(pos, { name = 'everness:mold_stone_with_moss' })
+        elseif minetest.get_item_group(name, 'mineral_waters_grass_under') ~= 0 and node.name == 'everness:mineral_lava_stone_dry' then
+            minetest.set_node(pos, { name = 'everness:mineral_lava_stone_with_moss' })
         end
     end
 })
@@ -222,6 +227,8 @@ Everness:register_abm({
                 minetest.set_node(pos, { name = 'everness:crystal_cave_dirt' })
             elseif node.name == 'everness:mold_stone_with_moss' then
                 minetest.set_node(pos, { name = 'everness:mold_cobble' })
+            elseif node.name == 'everness:mineral_lava_stone_with_moss' then
+                minetest.set_node(pos, { name = 'everness:mineral_lava_stone_dry' })
             end
         end
     end
@@ -239,7 +246,9 @@ Everness:register_leafdecay({
         'everness:willow_tree',
         'everness:sequoia_tree',
         'everness:mese_tree',
-        'everness:palm_tree'
+        'everness:palm_tree',
+        'everness:lava_tree',
+        'everness:lava_tree_with_lava'
     },
     leaves = {
         'everness:coral_leaves',
@@ -249,7 +258,8 @@ Everness:register_leafdecay({
         'everness:mese_leaves',
         'everness:mese_tree_fruit',
         'everness:palm_leaves',
-        'everness:coconut'
+        'everness:coconut',
+        'everness:lava_tree_leaves'
     },
     radius = 3
 })
@@ -922,6 +932,136 @@ Everness:register_abm({
     end
 })
 
+-- Lava spitting
+Everness:register_abm({
+    label = 'everness:lava_spitting',
+    description = 'Lava bursts in to air.',
+    nodenames = { 'everness:lava_source' },
+    neighbors = { 'air' },
+    interval = 10,
+    chance = 200,
+    catch_up = false,
+    action = function(pos, node)
+        local burst_colors = {
+            '#FF5400',
+            '#DD2005'
+        }
+        local partcile_time = math.random(3, 5)
+
+        -- particles
+        local particlespawner_def = {
+            amount = 10,
+            time = partcile_time,
+            minpos = vector.new(pos.x - 0.1, pos.y + 0.5, pos.z - 0.1),
+            maxpos = vector.new(pos.x + 0.1, pos.y + 1, pos.z + 0.1),
+            minvel = vector.new(0, 1, 0),
+            maxvel = vector.new(0, 3, 0),
+            minacc = vector.new(0, -3, 0),
+            maxacc = vector.new(0, -6, 0),
+            minexptime = 3,
+            maxexptime = 5,
+            minsize = 3,
+            maxsize = 10,
+            texture = ('everness_water_geyser_particle.png^[multiply:%s'):format(burst_colors[math.random(1, #burst_colors)]),
+            vertical = true,
+            collisiondetection = true,
+            collision_removal = true
+        }
+        local particlespawner_def2 = {
+            amount = 40,
+            time = partcile_time,
+            minpos = vector.new(pos.x, pos.y + 0.5, pos.z),
+            maxpos = vector.new(pos.x, pos.y + 1, pos.z),
+            minvel = vector.new(0, 1, 0),
+            maxvel = vector.new(0, 3, 0),
+            minacc = vector.new(-1, -3, -1),
+            maxacc = vector.new(1, -6, 1),
+            minexptime = 3,
+            maxexptime = 5,
+            minsize = 3,
+            maxsize = 10,
+            node = node,
+            vertical = true,
+            collisiondetection = true,
+            collision_removal = true
+        }
+
+        if minetest.has_feature({ dynamic_add_media_table = true, particlespawner_tweenable = true }) then
+            -- new syntax, above v5.6.0
+            particlespawner_def = {
+                amount = 10,
+                time = partcile_time,
+                size = {
+                    min = 1,
+                    max = 2,
+                },
+                exptime = {
+                    min = 3,
+                    max = 5
+                },
+                pos = {
+                    min = vector.new(pos.x - 0.1, pos.y + 0.5, pos.z - 0.1),
+                    max = vector.new(pos.x + 0.1, pos.y + 1, pos.z + 0.1)
+                },
+                vel = {
+                    min = vector.new(0, 1, 0),
+                    max = vector.new(0, 3, 0)
+                },
+                acc = {
+                    min = vector.new(0, -3, 0),
+                    max = vector.new(0, -6, 0)
+                },
+                texture = {
+                    name = ('everness_water_geyser_particle.png^[multiply:%s'):format(burst_colors[math.random(1, #burst_colors)]),
+                    scale_tween = {
+                        10, 3,
+                        style = 'fwd',
+                        reps = 1
+                    }
+                },
+                vertical = true,
+                collisiondetection = true,
+                collision_removal = true
+            }
+
+            particlespawner_def2 = {
+                amount = 40,
+                time = partcile_time,
+                size = {
+                    min = 1,
+                    max = 2,
+                },
+                exptime = {
+                    min = 3,
+                    max = 5
+                },
+                pos = {
+                    min = vector.new(pos.x, pos.y + 0.5, pos.z),
+                    max = vector.new(pos.x, pos.y + 1, pos.z)
+                },
+                vel = {
+                    min = vector.new(0, 1, 0),
+                    max = vector.new(0, 3, 0)
+                },
+                acc = {
+                    min = vector.new(-1, -3, -1),
+                    max = vector.new(1, -6, 1)
+                },
+                node = node,
+                vertical = true,
+                collisiondetection = true,
+                collision_removal = true
+            }
+        end
+
+        if math.random(0, 100) <=50 then
+            minetest.add_particlespawner(particlespawner_def2)
+        else
+            minetest.add_particlespawner(particlespawner_def)
+        end
+    end
+})
+
 -- Generate bamboo tops after mineral waters biome generates decorations
 Everness:register_lbm({
     -- Descriptive label for profiling purposes (optional).
@@ -1141,11 +1281,17 @@ Everness:register_abm({
     end
 })
 
+--
+-- Lavacooling
+--
+
 -- Override lava cooling to include some variations of obsidian
 minetest.register_on_mods_loaded(function()
     for _, abm in pairs(minetest.registered_abms) do
         if abm.label == 'Lava cooling' and abm.action ~= nil then
             local prev_cool_lava_action = abm.action
+
+            table.insert_all(abm.nodenames, { 'everness:lava_source', 'everness:lava_flowing' })
 
             abm.action = function(pos, node, dtime_s)
                 Everness.cool_lava(pos, node, dtime_s, prev_cool_lava_action)

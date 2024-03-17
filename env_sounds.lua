@@ -980,6 +980,110 @@ local SOUND_DEFS = {
             },
         }
     },
+    ['everness:mineral_waters_under'] = {
+        day = {
+            {
+                name = 'everness_ambience_monster_sigh_cave',
+                length = 2,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_rocks_falling_cave',
+                length = 12,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_water_drips_cave_1',
+                length = 11,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_water_drips_cave_2',
+                length = 13,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_wind_cave_1',
+                length = 15,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_wind_cave_2',
+                length = 8,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_wind_cave_3',
+                length = 8,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_wind_cave_4',
+                length = 8,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_wind_cave_5',
+                length = 7.5,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_cave_1',
+                length = 9,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_cave_2',
+                length = 9,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_cave_3',
+                length = 5,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_cave_4',
+                length = 8,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_cave_5',
+                length = 8.5,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_cave_6',
+                length = 9,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_cave_7',
+                length = 9,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_cave_8',
+                length = 9,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_ambience_cave_9',
+                length = 10,
+                gain = 0.6,
+            },
+            {
+                name = 'everness_lava_1',
+                length = 10,
+                gain = 1.0,
+            },
+            {
+                name = 'everness_lava_2',
+                length = 10,
+                gain = 2.0,
+            },
+        }
+    },
 }
 
 local PLAYER_SOUNDS = {}

@@ -89,7 +89,7 @@ doors.register('everness:door_crystal_wood', {
     tiles = { 'everness_door_crystal_wood.png' },
     inventory_image = 'everness_door_crystal_wood_item.png',
     use_texture_alpha = 'blend',
-    groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
+    groups = { node = 1, choppy = 3, oddly_breakable_by_hand = 3, door = 1 },
     sounds = Everness.node_sound_glass_defaults(),
     sound_open = 'everness_door_glass_open',
     sound_close = 'everness_door_glass_close',
@@ -114,7 +114,7 @@ doors.register_trapdoor('everness:trapdoor_crystal_wood', {
     sound_close = 'everness_door_glass_close',
     gain_open = 0.2,
     gain_close = 0.15,
-    groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
+    groups = { node = 1, choppy = 3, oddly_breakable_by_hand = 3, door = 1 },
 })
 
 doors.register_fencegate('everness:gate_crystal_wood', {
@@ -129,7 +129,7 @@ doors.register('everness:door_cursed_wood', {
     tiles = { 'everness_door_cursed_wood.png' },
     inventory_image = 'everness_door_cursed_wood_item.png',
     use_texture_alpha = 'blend',
-    groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
+    groups = { node = 1, choppy = 3, oddly_breakable_by_hand = 3, door = 1 },
     sounds = Everness.node_sound_wood_defaults(),
     sound_open = 'everness_creaky_door_open',
     sound_close = 'everness_creaky_door_close',
@@ -153,7 +153,7 @@ doors.register_trapdoor('everness:trapdoor_cursed_wood', {
     sound_close = 'everness_creaky_door_close',
     gain_open = 0.15,
     gain_close = 0.15,
-    groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
+    groups = { node = 1, choppy = 3, oddly_breakable_by_hand = 3, door = 1 },
 })
 
 -- Palm Wood
@@ -163,7 +163,7 @@ doors.register('everness:door_palm_wood', {
     tiles = { 'everness_door_palm_wood.png' },
     inventory_image = 'everness_door_palm_wood_item.png',
     use_texture_alpha = 'blend',
-    groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
+    groups = { node = 1, choppy = 3, oddly_breakable_by_hand = 3, door = 1 },
     sounds = Everness.node_sound_wood_defaults(),
     recipe = {
         { 'everness:palm_tree_wood', 'everness:palm_tree_wood' },
@@ -179,7 +179,7 @@ doors.register_trapdoor('everness:trapdoor_palm_wood', {
     tile_front = 'everness_door_trapdoor_palm_wood.png',
     tile_side = 'everness_door_trapdoor_palm_wood_side.png',
     sounds = Everness.node_sound_wood_defaults(),
-    groups = { node = 1, cracky = 3, oddly_breakable_by_hand = 3, door = 1 },
+    groups = { node = 1, choppy = 3, oddly_breakable_by_hand = 3, door = 1 },
 })
 
 doors.register_fencegate('everness:gate_palm_wood', {
@@ -195,5 +195,38 @@ doors.register_fencegate('everness:gate_coral_wood', {
     description = S('Coral Wood Fence Gate'),
     texture = 'everness_coral_wood.png',
     material = 'everness:coral_wood',
+    groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 }
+})
+
+-- Lava Tree Wood
+
+doors.register('everness:door_lava_tree', {
+    description = S('Lava Tree Wood Door'),
+    tiles = { 'everness_door_lava_tree_wood.png' },
+    inventory_image = 'everness_door_lava_tree_wood_item.png',
+    use_texture_alpha = 'blend',
+    groups = { node = 1, choppy = 3, oddly_breakable_by_hand = 3, door = 1 },
+    sounds = Everness.node_sound_wood_defaults(),
+    recipe = {
+        { 'everness:lava_tree_wood', 'everness:lava_tree_wood' },
+        { 'everness:lava_tree_wood', 'everness:lava_tree_wood' },
+        { 'everness:lava_tree_wood', 'everness:lava_tree_wood' },
+    }
+})
+
+doors.register_trapdoor('everness:trapdoor_lava_tree', {
+    description = S('Lava Tree Wood Trapdoor'),
+    inventory_image = 'everness_door_trapdoor_lava_tree_wood.png',
+    wield_image = 'everness_door_trapdoor_lava_tree_wood.png',
+    tile_front = 'everness_door_trapdoor_lava_tree_wood.png',
+    tile_side = 'everness_door_trapdoor_lava_tree_wood_side.png',
+    sounds = Everness.node_sound_wood_defaults(),
+    groups = { node = 1, choppy = 3, oddly_breakable_by_hand = 3, door = 1 },
+})
+
+doors.register_fencegate('everness:gate_lava_tree_wood', {
+    description = S('Lava Tree Wood Fence Gate'),
+    texture = 'everness_lava_tree.png^[sheet:2x2:1,1',
+    material = 'everness:lava_tree',
     groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 }
 })
