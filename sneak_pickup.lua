@@ -1,163 +1,168 @@
---[[
-    Everness. Never ending discovery in Everness mapgen.
-    Copyright (C) 2024 SaKeL
+--basic settings
+item_drop_settings = {} --settings table
+item_drop_settings.radius_magnet = 2.5 --radius of item magnet
+item_drop_settings.radius_collect = 0.5 --radius of collection
+item_drop_settings.player_collect_height = 1 --added to their pos y value
+local item_drop_delay = 0
+local item_drop_timer = 0
+local hide_nametag_timer = 0
 
-    This library is free software; you can redistribute it and/or
-    modify it under the terms of the GNU Lesser General Public
-    License as published by the Free Software Foundation; either
-    version 2.1 of the License, or (at your option) any later version.
-
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-    Lesser General Public License for more details.
-
---]]
-
-local DELAY = 0
-local TIMER = 0
-
-local function pick_dropped_items(player)
-    local pos = player:get_pos()
-    local inv = player:get_inventory()
-
-    if not inv then
-        return
-    end
-
-    local objects = minetest.get_objects_inside_radius(pos, 3)
-    local objects_to_collect = {}
-
-    -- filter - leave only builtin items
-    for _, object in ipairs(objects) do
-        local luaentity = object:get_luaentity()
-
-        if not object:is_player()
-            and luaentity
-            and luaentity.name == '__builtin:item'
-            and luaentity.itemstring ~= ''
-        then
-            table.insert(objects_to_collect, object)
-        end
-    end
-
-    -- sort with the oldest objects first
-    table.sort(objects_to_collect, function(a, b)
-        return b:get_luaentity().age < a:get_luaentity().age
-    end)
-
-    for _, object in ipairs(objects_to_collect) do
-        local luaentity = object:get_luaentity()
-        local itemstack = ItemStack(luaentity.itemstring)
-
-        if not luaentity._being_collected then
-            -- Invoke global on_item_pickup callbacks.
-            -- for _, callback in ipairs(minetest.registered_on_item_pickups) do
-            --     local result = callback(itemstack, player, { type = 'object', ref = object })
-
-            --     if result then
-            --         itemstack = ItemStack(result)
-            --     end
-            -- end
-
-            local leftover_stack = inv:add_item('main', itemstack)
-            local stack_count_prev = itemstack:get_count()
-            local stack_count_leftover = leftover_stack:get_count()
-
-            if leftover_stack and stack_count_prev ~= stack_count_leftover then
-                -- Collect item / Item fits in the inventory
-                local pos_obj = object:get_pos()
-
-                if leftover_stack ~= 0 then
-                    minetest.spawn_item(pos_obj, leftover_stack:to_string())
-                end
-
-                luaentity._being_collected = true
-                object:set_acceleration({ x = 0, y = 0, z = 0 })
-                object:set_velocity({ x = 0, y = 0, z = 0 })
-                luaentity.physical_state = false
-                luaentity.object:set_properties({
-                    physical = false,
-                    -- prevent picking up items while they are moving to the player
-                    -- since the items are in the players inventory already this would
-                    -- duplicate the itemstack
-                    selectionbox = { 0, 0, 0, 0, 0, 0 },
-                    collisionbox = { 0, 0, 0, 0, 0, 0 }
-                })
-
-                object:move_to(vector.new(
-                    (pos.x - pos_obj.x) + pos_obj.x,
-                    (pos.y - pos_obj.y) + pos_obj.y + 1.25,
-                    (pos.z - pos_obj.z) + pos_obj.z
-                ))
-
-                minetest.sound_play('everness_item_drop_pickup', {
-                    pos = pos,
-                    max_hear_distance = 16,
-                    gain = 0.4,
-                })
-
-                minetest.after(0.25, function(v_object)
-                    if v_object and v_object:get_luaentity() then
-                        v_object:remove()
-                    end
-                end, object)
-            end
-        end
-    end
-end
+local sneak = {}
 
 minetest.register_on_joinplayer(function(player)
-    local player_meta = player:get_meta()
-    player_meta:set_int('everness_is_sneaking', 0)
+	local player_name = player:get_player_name()
+	sneak[player_name] = false
+end)
+
+minetest.register_on_leaveplayer(function(player)
+	local player_name = player:get_player_name()
+	sneak[player_name] = nil
 end)
 
 minetest.register_globalstep(function(dtime)
-    TIMER = TIMER + dtime
+	item_drop_timer = item_drop_timer + dtime
+	hide_nametag_timer = hide_nametag_timer + dtime
 
-    if DELAY > 0 then
-        DELAY = DELAY - dtime
-    elseif DELAY < 0 then
-        DELAY = 0
-    end
+	-- autopickup items when sneaking
+	if item_drop_timer >= 0.2 then
+		for _, player in ipairs(minetest.get_connected_players()) do
+			local control = player:get_player_control()
+			local player_hp = player:get_hp()
+			local player_name = player:get_player_name()
 
-    if TIMER > 0.5 then
-        for _, player in ipairs(minetest.get_connected_players()) do
-            local player_meta = player:get_meta()
-            local control = player:get_player_control()
-            local player_hp = player:get_hp()
-            local is_sneaking = player_meta:get_int('everness_is_sneaking') > 0
+			if control.sneak and (player_hp > 0 or not minetest.settings:get_bool("enable_damage")) then
 
-            if control.sneak and (player_hp > 0 or not minetest.settings:get_bool('enable_damage')) then
-                -- [Shift + E + Q] single drop item
-                -- Autopickup after DELAY
-                if control.aux1 then
-                    DELAY = 1.5
-                end
+				-- [Shift + E + Q] single drop item
+				-- autopickup after item_drop_delay
+				if control.aux1 then
+					item_drop_delay = 3
+				end
 
-                if DELAY == 0 then
-                    pick_dropped_items(player)
-                end
-            end
+				if item_drop_delay > 0 then
+					minetest.after(item_drop_delay, function()
+						item_drop_delay = 0
+					end)
+					return
+				else
+					pick_dropped_items(player)
+				end
 
-            -- Hide nametag when sneaking
-            if control.sneak ~= is_sneaking then
-                if control.sneak and player_hp > 0 then
-                    local nametag_tbl = player:get_nametag_attributes()
-                    nametag_tbl.color.a = 0
-                    player:set_nametag_attributes(nametag_tbl)
-                    player:set_properties{makes_footstep_sound = false}
-                else
-                    local nametag_tbl = player:get_nametag_attributes()
-                    nametag_tbl.color.a = 255
-                    player:set_nametag_attributes(nametag_tbl)
-                    player:set_properties{makes_footstep_sound = true}
-                end
+			end
+		end
 
-                player_meta:set_int('everness_is_sneaking', control.sneak and 1 or 0)
-            end
-        end
+		item_drop_timer = 0
+	end
 
-        TIMER = 0
-    end
+	-- hide nametag and mute footsteps when sneaking
+	if hide_nametag_timer >= 1 then
+		for _, player in ipairs(minetest.get_connected_players()) do
+			local control = player:get_player_control()
+			local player_hp = player:get_hp()
+			local player_name = player:get_player_name()
+
+			-- hide nametag when sneaking
+			if control.sneak ~= sneak[player_name] then
+				if control.sneak and player_hp > 0 then
+					local nametag_tbl = player:get_nametag_attributes()
+					nametag_tbl.color.a = 0
+					player:set_nametag_attributes(nametag_tbl)
+					player:set_properties{makes_footstep_sound = false}
+				else
+					local nametag_tbl = player:get_nametag_attributes()
+					nametag_tbl.color.a = 255
+					player:set_nametag_attributes(nametag_tbl)
+					player:set_properties{makes_footstep_sound = true}
+				end
+				sneak[player_name] = control.sneak
+			end
+		end
+
+		hide_nametag_timer = 0
+	end
 end)
+
+function pick_dropped_items(player)
+	local pos = player:get_pos()
+	local inv = player:get_inventory()
+
+	--collection
+	for _,object in ipairs(minetest.get_objects_inside_radius({x=pos.x,y=pos.y + item_drop_settings.player_collect_height,z=pos.z}, item_drop_settings.radius_collect)) do
+		if not object:is_player() and object:get_luaentity() and object:get_luaentity().name == "__builtin:item" then
+			if inv and inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
+				inv:add_item("main", ItemStack(object:get_luaentity().itemstring))
+				if object:get_luaentity().itemstring ~= "" then
+					minetest.sound_play("everness_item_drop_pickup", {
+						pos = pos,
+						max_hear_distance = 16,
+						gain = 0.4,
+					})
+				end
+				object:get_luaentity().itemstring = ""
+				object:remove()
+			end
+		end
+	end
+
+	--magnet
+	for _,object in ipairs(minetest.get_objects_inside_radius({x=pos.x,y=pos.y + item_drop_settings.player_collect_height,z=pos.z}, item_drop_settings.radius_magnet)) do
+		if not object:is_player() and object:get_luaentity() and object:get_luaentity().name == "__builtin:item" then
+            if object:get_luaentity().name:find("water_life") then return end
+			object:get_luaentity().collect = true
+
+			if object:get_luaentity().collect then
+				if inv and inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
+
+					local pos1 = pos
+					pos1.y = pos1.y+0.2
+					local pos2 = object:get_pos()
+					local vec = {x=pos1.x-pos2.x, y=(pos1.y+item_drop_settings.player_collect_height)-pos2.y, z=pos1.z-pos2.z}
+
+					vec.x = pos2.x + vec.x
+					vec.y = pos2.y + vec.y
+					vec.z = pos2.z + vec.z
+					object:move_to(vec)
+
+					object:get_luaentity().physical_state = false
+					object:get_luaentity().object:set_properties({
+						physical = false
+					})
+
+					object:set_acceleration({x=0, y=0, z=0})
+					object:set_velocity({x=0, y=0, z=0})
+
+					--fix eternally falling items
+					minetest.after(0, function()
+						object:set_acceleration({x=0, y=0, z=0})
+						object:set_velocity({x=0, y=0, z=0})
+					end)
+
+					minetest.after(1, function(args)
+						local lua = object:get_luaentity()
+						if object == nil or lua == nil or lua.itemstring == nil then
+							return
+						end
+						if inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
+							inv:add_item("main", ItemStack(object:get_luaentity().itemstring))
+							if object:get_luaentity().itemstring ~= "" then
+								minetest.sound_play("everness_item_drop_pickup", {
+									pos = pos,
+									max_hear_distance = 100,
+									gain = 0.4,
+								})
+							end
+							object:get_luaentity().itemstring = ""
+							object:remove()
+						else
+							object:set_velocity({x=0,y=0,z=0})
+							object:get_luaentity().physical_state = true
+							object:get_luaentity().object:set_properties({
+								physical = true
+							})
+						end
+					end, {player, object})
+
+				end
+			end
+		end
+	end
+end
