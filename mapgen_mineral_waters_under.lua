@@ -59,7 +59,11 @@ minetest.register_on_mods_loaded(function()
         if
             table.indexof(wherein, mapgen_stone_itemstring) > -1
             and not biomes
+            -- ignore ores that replace everything
+            and def.clust_scarcity ~= 1
         then
+            -- prevent overriding orignal definition (breaks some mods)
+            def = table.copy(def)
             def.wherein = { 'everness:mineral_cave_stone' }
             def.biomes = { 'everness:mineral_waters_under' }
             def.y_max = y_max
