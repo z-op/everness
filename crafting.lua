@@ -325,6 +325,7 @@ local recipes_wood = {
     {'everness:mese_tree', 'everness:mese_wood 4'},
     {'everness:sequoia_tree', 'everness:sequoia_wood 4'},
     {'everness:willow_tree', 'everness:willow_wood 4'},
+    {'everness:palm_tree', 'everness:palm_tree_wood 4'},
 }
 
 for _, data in ipairs(recipes_wood) do
