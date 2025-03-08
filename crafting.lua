@@ -250,6 +250,7 @@ end
 if minetest.get_modpath('default') then
     register_craft_3x3('default:snowblock', 'everness:snowcobble 9')
     register_craft_3x3('default:ice', 'everness:icecobble 9')
+    register_craft_single('everness:chest', 'default:chest')
 end
 
 --
