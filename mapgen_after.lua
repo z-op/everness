@@ -24,7 +24,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     -- local t0 = os.clock()
     local rand = PcgRandom(blockseed)
     -- Array containing the biome IDs of nodes in the most recently generated chunk by the current mapgen
-    local biomemap = minetest.get_mapgen_object('biomemap')
+    local biomemap = minetest.get_mapgen_object('biomemap') or {}
     -- Table mapping requested generation notification types to arrays of positions at which the corresponding generated structures are located within the current chunk
     local gennotify = minetest.get_mapgen_object('gennotify')
     -- Load the voxelmanip with the result of engine mapgen
