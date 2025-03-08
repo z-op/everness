@@ -37,9 +37,9 @@ function Everness.grow_cursed_bush(pos)
 end
 
 function Everness.grow_baobab_tree(pos)
-    local path = minetest.get_modpath('everness') .. '/schematics/everness_baobab_tree.mts'
+    local path = minetest.get_modpath('everness') .. '/schematics/everness_baobab_tree_from_sapling.mts'
     minetest.place_schematic({ x = pos.x - 12, y = pos.y, z = pos.z - 12 },
-        path, 'random', nil, false)
+        path, '0', nil, false)
 end
 
 function Everness.grow_dry_tree(pos)

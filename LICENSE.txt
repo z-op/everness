@@ -1595,6 +1595,8 @@ https://freesound.org/people/Rudmer_Rotteveel/sounds/590950/
 
 - everness_baobab_tree.lua
 - everness_baobab_tree.mts
+- everness_baobab_tree_from_sapling.lua
+- everness_baobab_tree_from_sapling.mts
 - everness_cemetery.lua
 - everness_cemetery.mts
 - everness_coral_bones_tree.lua
