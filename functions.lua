@@ -461,7 +461,10 @@ Everness:register_abm({
             }
         end
 
-        minetest.add_particlespawner(particlespawner_def)
+        -- Randomize falling leaves (with ABM they will fall all at the same time)
+        minetest.after(math.random(6), function(pdef)
+            minetest.add_particlespawner(particlespawner_def)
+        end, particlespawner_def)
     end
 })
 
