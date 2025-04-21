@@ -9489,7 +9489,7 @@ local function coral_on_place(itemstack, placer, pointed_thing, params)
     end
 
     node_under.name = itemstack:get_name()
-    minetest.set_node(pos_under, { name = node_under.name, param2 = params.param2 or node_under.param2})
+    minetest.set_node(pos_under, { name = node_under.name, param2 = _params.param2 or node_under.param2})
     if not minetest.is_creative_enabled(player_name) then
         itemstack:take_item()
     end
@@ -9769,7 +9769,7 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_1', {
         dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
-        coral_on_place(
+        return coral_on_place(
             itemstack,
             placer,
             pointed_thing,
@@ -9819,7 +9819,7 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_2', {
         dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
-        coral_on_place(
+        return coral_on_place(
             itemstack,
             placer,
             pointed_thing,
@@ -9869,7 +9869,7 @@ Everness:register_node('everness:coral_forest_deep_ocean_coral_plant_3', {
         dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
-        coral_on_place(
+        return coral_on_place(
             itemstack,
             placer,
             pointed_thing,
@@ -9919,7 +9919,7 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_anemone', {
         dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
-        coral_on_place(
+        return coral_on_place(
             itemstack,
             placer,
             pointed_thing,
@@ -9969,7 +9969,7 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_darkilluma'
         dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
-        coral_on_place(
+        return coral_on_place(
             itemstack,
             placer,
             pointed_thing,
@@ -10019,7 +10019,7 @@ Everness:register_node('everness:cursed_lands_deep_ocean_coral_plant_demon', {
         dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
-        coral_on_place(
+        return coral_on_place(
             itemstack,
             placer,
             pointed_thing,
@@ -10069,7 +10069,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_1', {
         dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
-        coral_on_place(
+        return coral_on_place(
             itemstack,
             placer,
             pointed_thing,
@@ -10119,7 +10119,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_2', {
         dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
-        coral_on_place(
+        return coral_on_place(
             itemstack,
             placer,
             pointed_thing,
@@ -10169,7 +10169,7 @@ Everness:register_node('everness:crystal_forest_deep_ocean_coral_plant_3', {
         dug = { name = 'everness_grass_footstep', gain = 0.25 },
     }),
     on_place = function(itemstack, placer, pointed_thing)
-        coral_on_place(
+        return coral_on_place(
             itemstack,
             placer,
             pointed_thing,
@@ -10461,7 +10461,7 @@ Everness:register_node('everness:mineral_water_weed_1', {
     on_place = function(itemstack, placer, pointed_thing)
         local fdir = placer and minetest.dir_to_wallmounted(placer:get_look_dir()) or 0
 
-        coral_on_place(
+        return coral_on_place(
             itemstack,
             placer,
             pointed_thing,
@@ -10513,7 +10513,7 @@ Everness:register_node('everness:mineral_water_weed_2', {
     on_place = function(itemstack, placer, pointed_thing)
         local fdir = placer and minetest.dir_to_wallmounted(placer:get_look_dir()) or 0
 
-        coral_on_place(
+        return coral_on_place(
             itemstack,
             placer,
             pointed_thing,
@@ -10566,7 +10566,7 @@ Everness:register_node('everness:mineral_water_weed_3', {
     on_place = function(itemstack, placer, pointed_thing)
         local fdir = placer and minetest.dir_to_wallmounted(placer:get_look_dir()) or 0
 
-        coral_on_place(
+        return coral_on_place(
             itemstack,
             placer,
             pointed_thing,

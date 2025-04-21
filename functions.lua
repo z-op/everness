@@ -1,6 +1,6 @@
 --[[
     Everness. Never ending discovery in Everness mapgen.
-    Copyright (C) 2024 SaKeL
+    Copyright (C) 2025 SaKeL
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -461,7 +461,10 @@ Everness:register_abm({
             }
         end
 
-        minetest.add_particlespawner(particlespawner_def)
+        -- Randomize falling leaves (with ABM they will fall all at the same time)
+        minetest.after(math.random(6), function(pdef)
+            minetest.add_particlespawner(particlespawner_def)
+        end, particlespawner_def)
     end
 })
 

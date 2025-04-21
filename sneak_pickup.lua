@@ -1,6 +1,6 @@
 --[[
     Everness. Never ending discovery in Everness mapgen.
-    Copyright (C) 2024 SaKeL
+    Copyright (C) 2025 SaKeL
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -11,7 +11,6 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
-
 --]]
 
 local DELAY = 0
@@ -59,7 +58,6 @@ local function pick_dropped_items(player)
             --         itemstack = ItemStack(result)
             --     end
             -- end
-
             local leftover_stack = inv:add_item('main', itemstack)
             local stack_count_prev = itemstack:get_count()
             local stack_count_leftover = leftover_stack:get_count()
@@ -68,7 +66,7 @@ local function pick_dropped_items(player)
                 -- Collect item / Item fits in the inventory
                 local pos_obj = object:get_pos()
 
-                if leftover_stack ~= 0 then
+                if stack_count_leftover ~= 0 then
                     minetest.spawn_item(pos_obj, leftover_stack:to_string())
                 end
 
@@ -97,7 +95,7 @@ local function pick_dropped_items(player)
                     gain = 0.4,
                 })
 
-                minetest.after(0.25, function(v_object)
+                minetest.after(0, function(v_object)
                     if v_object and v_object:get_luaentity() then
                         v_object:remove()
                     end
