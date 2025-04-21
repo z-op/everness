@@ -96,4 +96,4 @@ see included [LICENSE.txt](LICENSE.txt) file for more info
 
 ## Installation
 
-see: https://wiki.minetest.net/Installing_Mods
+see: https://docs.luanti.org/for-players/installing-mods/

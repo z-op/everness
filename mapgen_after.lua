@@ -1,6 +1,6 @@
 --[[
     Everness. Never ending discovery in Everness mapgen.
-    Copyright (C) 2024 SaKeL
+    Copyright (C) 2025 SaKeL
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -24,7 +24,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
     -- local t0 = os.clock()
     local rand = PcgRandom(blockseed)
     -- Array containing the biome IDs of nodes in the most recently generated chunk by the current mapgen
-    local biomemap = minetest.get_mapgen_object('biomemap')
+    local biomemap = minetest.get_mapgen_object('biomemap') or {}
     -- Table mapping requested generation notification types to arrays of positions at which the corresponding generated structures are located within the current chunk
     local gennotify = minetest.get_mapgen_object('gennotify')
     -- Load the voxelmanip with the result of engine mapgen
