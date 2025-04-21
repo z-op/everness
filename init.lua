@@ -178,7 +178,7 @@ if minetest.get_modpath('xpanes') and minetest.global_exists('xpanes') then
     dofile(path .. '/panes.lua')
 end
 
-if minetest.get_modpath('stairs') and minetest.global_exists('stairs') then
+if minetest.get_modpath('stairs') and minetest.global_exists('stairs') or minetest.get_modpath('moreblocks') and minetest.global_exists('stairsplus') then
     dofile(path .. '/stairs.lua')
 end
 
