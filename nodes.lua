@@ -11020,7 +11020,17 @@ Everness:register_lbm({
 Everness:register_node('everness:pyrite_lantern', {
     description = S('Pyrite Lantern'),
     drawtype = 'glasslike',
-    tiles = { 'everness_pyrite_lantern.png' },
+    tiles = {
+        {
+            name='everness_pyrite_lantern.png',
+            animation={
+                type = "vertical_frames",
+                aspect_w = 16,
+                aspect_h = 16,
+                length = 4.0,
+            }
+        }
+    },
     paramtype = 'light',
     sunlight_propagates = true,
     is_ground_content = false,
