@@ -2382,7 +2382,7 @@ core.register_alias("stairs:slab_dry_wood", "everness:slab_dry_wood")
 core.register_alias("stairs:slab_cursed_brick", "everness:slab_cursed_brick")
 core.register_alias("stairs:slab_palm_tree_wood", "everness:slab_palm_tree_wood")
 core.register_alias("stairs:stair_mineral_sandstone_brick", "everness:stair_mineral_sandstone_brick")
-core.register_alias("stairs:slab_mineral_sandstone_brick", "slab_mineral_sandstone_brick")
+core.register_alias("stairs:slab_mineral_sandstone_brick", "everness:slab_mineral_sandstone_brick")
 
 else
 
