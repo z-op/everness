@@ -1812,6 +1812,7 @@ function Everness.encyclopedia_init(self)
 end
 
 function Everness.encyclopedia_get_formspec(self, context)
+if context then
     local pos_primary = vector.new()
     local pos_secondary = vector.new()
     local pos_secondary_container = vector.new()
@@ -1966,6 +1967,7 @@ function Everness.encyclopedia_get_formspec(self, context)
     formspec[#formspec + 1] = ('scrollbar[%f,%f;0.15,9;vertical;everness_ency_detail_view_scrollbar;]'):format(pos_secondary.x + 5.5 + 0.15, pos_secondary.y)
 
     return formspec
+    end
 end
 
 function Everness.encyclopedia_i3_register_page(self)
@@ -2010,11 +2012,13 @@ function Everness.encyclopedia_ui_register_page(self)
             local context = unified_inventory.everness_context[player:get_player_name()]
             local formspec = self:encyclopedia_get_formspec(context)
 
-            return {
-                formspec = table.concat(formspec, ''),
-                draw_inventory = false,
-                draw_item_list = false
-            }
+            if formspec then
+                return {
+                    formspec = table.concat(formspec, ''),
+                    draw_inventory = false,
+                    draw_item_list = false
+                    }
+                end
         end
     })
 
