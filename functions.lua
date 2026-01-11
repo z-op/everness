@@ -327,9 +327,10 @@ Everness:register_abm({
     chance = 200,
     catch_up = false,
     action = function(pos, node)
-        node.name = moss_correspondences[node.name]
-
-        if node.name then
+        local new_name = moss_correspondences[node.name]
+        -- Проверяем, существует ли новая нода
+        if new_name and minetest.registered_nodes[new_name] then
+            node.name = new_name
             minetest.set_node(pos, node)
         end
     end
@@ -382,9 +383,10 @@ Everness:register_abm({
     chance = 200,
     catch_up = false,
     action = function(pos, node)
-        node.name = magma_correspondences[node.name]
-
-        if node.name then
+        local new_name = magma_correspondences[node.name]
+        -- Проверяем, существует ли новая нода
+        if new_name and minetest.registered_nodes[new_name] then
+            node.name = new_name
             minetest.set_node(pos, node)
         end
     end
